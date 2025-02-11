@@ -1,0 +1,30 @@
+.title-text {
+  color: #343434;
+  text-align: center;
+  font-family: Inter !important;
+  font-size: 32px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: normal;
+  letter-spacing: -0.64px !important;
+  gap: 4px;
+
+  .last-word {
+    display: inline-flex;
+    flex-direction: column; /* Places icon below the text */
+    align-items: center;
+    margin-left: -15px;
+  }
+  
+  .mark-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -5px;
+    margin-left: 10px;
+  }
+  
+  .mark-icon {
+    width: 150px;
+    height: auto;
+  }
+}

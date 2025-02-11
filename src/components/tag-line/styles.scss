@@ -9,12 +9,15 @@
   padding: 20px;
   .text {
     color: var(--text);
-    font-size: 24px;
+    font-size: 2.4rem;
     font-style: normal;
     font-weight: 600;
     line-height: 20px;
-    span{
-      color: var(--primary);
+    span {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }

@@ -1,3 +1,3 @@
 import HeroTech from "./techs.png";
-
-export { HeroTech };
+import ZenmonkLogo from "./zenmonk-logo.png"
+export { HeroTech,ZenmonkLogo };

@@ -15,7 +15,8 @@
     "@mui/material": "^6.4.3",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "top-scroll-bar": "^1.0.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

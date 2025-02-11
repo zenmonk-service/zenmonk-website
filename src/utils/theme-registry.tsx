@@ -1,19 +1,10 @@
-"use client";
-import * as React from "react";
-import { useServerInsertedHTML } from "next/navigation";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+'use client'
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+import { ReactNode } from 'react';
 
-const theme = createTheme(); 
+const cache = createCache({ key: 'css', prepend: true });
 
-export default function ThemeRegistry({ children }: { children: React.ReactNode }) {
-  const cache = React.useMemo(() => createCache({ key: "css", prepend: true }), []);
-  useServerInsertedHTML(() => <style dangerouslySetInnerHTML={{ __html: "" }} />);
-
-  return (
-    <CacheProvider value={cache}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </CacheProvider>
-  );
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  return <CacheProvider value={cache}>{children}</CacheProvider>;
 }
