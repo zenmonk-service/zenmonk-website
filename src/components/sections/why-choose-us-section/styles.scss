@@ -1,0 +1,172 @@
+.why-choose-us-section {
+  width: 100%;
+  height: auto;
+  margin-top: 115px;
+  position: relative;
+
+  .logo{
+    width: 200px;
+    height: 320px;
+    flex-shrink: 0;
+  }
+  .right-logo{
+    width: 250px;
+    height: 250px;
+    bottom:-200px;
+    right: -80px;
+    position: absolute;
+  }
+  .left-logo{
+    top:0;
+    left: -100px;
+    position: absolute;
+  }
+  .title {
+    color: #343434;
+    font-family: Inter;
+    font-size: 40px !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
+}
+
+
+.why-choose-us .content {
+  display: grid;
+  place-content: center;
+  position: relative;
+  max-width: 1300px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.why-choose-us .thumsup {
+  scale: 0.2;
+  opacity: 0;
+}
+
+.why-choose-us .children .first {
+  position: absolute;
+  top: 1px;
+  left: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .second {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .third {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .fourth {
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+  opacity: 0;
+}
+
+.animate_comeFromLeft {
+  animation: comeFromLeft 1.5s forwards;
+}
+
+.animate_comeFromRight {
+  animation: comeFromRight 1.5s forwards;
+}
+
+.animate_scale {
+  animation: scale 1.5s forwards;
+}
+
+@keyframes comeFromLeft {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRight {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1.1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 992px) {
+  .why-choose-us {
+    margin-top: 40px;
+  }
+
+  .animate_scale {
+    animation: scaleSM 1s forwards;
+  }
+
+  .why-choose-us .content {
+    transform: scale(0.7);
+
+    margin-bottom: -80px;
+    margin-top: -80px;
+  }
+}
+
+@keyframes scaleSM {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0.8;
+    opacity: 1;
+  }
+}

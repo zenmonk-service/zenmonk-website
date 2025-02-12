@@ -8,7 +8,7 @@ import Unib from "./unib.svg";
 import unicol from "./unicol.svg";
 
 const CollaborationLogo = [
-  { name: "Alantica", src: Alantica },
+  { name: "Alantica", r: Alantica },
   { name: "Cite", src: Cite },
   { name: "Citicam", src: Citicam },
   { name: "Citican", src: Citican },

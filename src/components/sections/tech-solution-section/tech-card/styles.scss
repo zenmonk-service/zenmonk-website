@@ -1,0 +1,27 @@
+.tech-card-container {
+  display: flex;
+  padding: 9px 0  18px 23px;
+  width: 289px;
+  height: 82px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  gap: 30px;
+  background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
+  box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.13);
+  .tech-card-icon {
+    width: 53.313px;
+    height: 53.313px;
+    flex-shrink: 0;
+  }
+  .tech-card-title {
+    display: flex;
+    align-items: center;
+    width: 139px;
+    color: #424242;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}

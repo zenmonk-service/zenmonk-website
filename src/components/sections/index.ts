@@ -1,0 +1,5 @@
+export * from "./hero-section"
+export * from "./tech-service-section"
+export * from "./tech-solution-section"
+export * from './our-work-section'
+export * from "./why-choose-us-section"

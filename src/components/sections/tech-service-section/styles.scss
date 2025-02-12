@@ -1,50 +1,15 @@
-.future-proof-container {
-  margin-top: 40px;
-  height: 80vh;
+.services-section {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  position: relative;
-}
 
-.future-proof-image {
-  position: absolute;
-  right: 5%;
-  top: 25%;
-  transform: translateY(-50%);
-  width: 520.584px;
-  height: 480px;
-}
-
-.business-proof-wrapper {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  flex-wrap: wrap;
-}
-
-.business-proof {
-  width: 948px;
-  height: 545px;
-  border-radius: 8px;
-  background: #f77d03;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 210px;
-  .business-proof-items {
+  .services-left-container {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     gap: 32px;
-    position: absolute;
-    top: 29;
-    left: -250px;
+    margin-right: -110px;
+    z-index: 100;
     .business-item {
       cursor: pointer;
       display: flex;
@@ -97,30 +62,57 @@
       }
     }
   }
-}
-.business-proof-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding: 56.999px 40.001px 70.001px 166.999px;
-  flex-direction: column;
-  gap: 32px;
-  font-family: Inter;
-  font-style: normal;
-  color: var(--background);
-  .business-proof-heading {
-    font-size: 36px;
-    font-weight: 600;
-    line-height: normal;
-  }
-  .business-proof-description {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-  }
-  .business-proof-technologies {
+
+  .services-right-container {
     display: flex;
-    flex-direction: row;
-    gap: 50px;
+    margin-right: 40px;
+    height: 545px;
+    top: 180px;
+    position: sticky;
+    flex-direction: column;
+    .logo {
+      bottom: 45%;
+      left: 67%;
+      position: absolute;
+      width: 520.584px;
+      height: 450px;
+    }
+
+    .business-proof {
+      margin-top: 35px;
+      width: 948px;
+      height: 545px;
+      border-radius: 8px;
+      background: #f77d03;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .business-proof-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 57px 40px 70px 167px;
+        flex-direction: column;
+        gap: 32px;
+        font-family: Inter;
+        font-style: normal;
+        color: var(--background);
+        .business-proof-heading {
+          font-size: 36px;
+          font-weight: 600;
+          line-height: normal;
+        }
+        .business-proof-description {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 28px;
+        }
+        .business-proof-technologies {
+          display: flex;
+          flex-direction: row;
+          gap: 50px;
+        }
+      }
+    }
   }
 }

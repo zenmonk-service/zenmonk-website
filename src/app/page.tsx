@@ -1,11 +1,18 @@
-import FutureProof from "@/components/future-proof";
+import { Box } from "@mui/material";
+import {
+  ServiceSection,
+  HeroSection,
+  TechSolutionSection,
+  OurWorkSection,
+  WhyChooseUsSection,
+} from "@/components/sections";
+
 import Header from "@/components/header";
-import HeroSection from "@/components/hero-section";
 import InfiniteSlider from "@/components/infinite-slider";
 import TagLine from "@/components/tag-line";
-import Title from "@/components/title";
 import SectionWrapper from "@/components/wrapper";
-import { Box } from "@mui/material";
+import { Odometer } from "@/components/odometer";
+import SimpleGlobe from "@/components/contact-us";
 
 const page = () => {
   return (
@@ -15,8 +22,15 @@ const page = () => {
         <HeroSection />
         <TagLine />
         <InfiniteSlider />
-        <FutureProof/>
+        <ServiceSection />
+        <TechSolutionSection />
       </SectionWrapper>
+      <OurWorkSection />
+      <SectionWrapper>
+        <WhyChooseUsSection />
+      </SectionWrapper>
+      {/* <Odometer /> */}
+      <SimpleGlobe/>
     </Box>
   );
 };
