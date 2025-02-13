@@ -41,7 +41,7 @@ const HeroSection = () => {
         <BaseButton sx={{ width: "180px" }}>Explore More</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
-        <Image className="hero-section-image" src={HeroTech} alt="techs" />
+        {HeroTech && <Image className="hero-section-image" src={HeroTech} alt="techs" />}
       </Box>
     </Box>
   );

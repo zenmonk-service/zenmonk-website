@@ -25,7 +25,7 @@ const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
       <span className="last-word">
         {lastWord}
         <span className="mark-container">
-          <Image src={Mark} alt="mark" className="mark-icon" />
+          {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
         </span>
       </span>
     </Typography>

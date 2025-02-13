@@ -11,7 +11,6 @@ const OurWorkSection = () => {
   const [activeSection, setActiveSection] = useState<number>(0);
 
   const handleMouseEnter = (index: number) => {
-    console.log("index", index);
     setActiveSection(index);
   };
 

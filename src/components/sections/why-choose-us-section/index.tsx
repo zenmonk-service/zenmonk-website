@@ -11,7 +11,7 @@ import {
 } from "@/assets/icons/why-choose-us";
 import { Box } from "@mui/material";
 import Title from "@/components/title";
-import {  ZenmonkLogoV2, ZenmonkLogoV3 } from "@/assets/images";
+import { ZenmonkLogoV2, ZenmonkLogoV3 } from "@/assets/images";
 import "./styles.scss";
 
 const WhyChooseUsSection = () => {
@@ -43,9 +43,13 @@ const WhyChooseUsSection = () => {
   return (
     <Box className="why-choose-us-section">
       <Title text="Elevate your tech journey with Zenmonk" className="title" />
-     <Image src={ZenmonkLogoV2} alt="logo" className="logo left-logo" />
-     <Image src={ZenmonkLogoV3} alt="logo" className="logo right-logo" />
-     
+      {ZenmonkLogoV2 && (
+        <Image src={ZenmonkLogoV2} alt="logo" className="logo left-logo" />
+      )}
+      {ZenmonkLogoV3 && (
+        <Image src={ZenmonkLogoV3} alt="logo" className="logo right-logo" />
+      )}
+
       <Box ref={clientSatisficationRef} className="why-choose-us">
         <Box className="content">
           <Box className={`thumsup ${isVisible && "animate_scale"}`}>

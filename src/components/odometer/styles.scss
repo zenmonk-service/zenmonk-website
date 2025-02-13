@@ -1,0 +1,178 @@
+.odometer {
+  margin-top: 195px;
+  height: 420px;
+  width: 100%;
+  background: url("/earth.png");
+  background-size: cover;
+  background-position: center;
+  padding: 0 10%;
+  color: #fff;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.618);
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  .odometer-section {
+    height: 100%;
+    padding: 0 9.5%;
+    display: flex;
+    padding-top: 60px ;
+    box-sizing: border-box;
+    .left-section {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .heading {
+        width: 85%;
+       letter-spacing: .9px;
+        display: flex;
+        font-family: Inter !important;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700 !important;
+        line-height: normal;
+      }
+      .teams-number {
+      letter-spacing: 2px;
+        margin-top: 32px;
+        width: 100%;
+        font-family: Inter;
+        font-size: 80px;
+        display: flex;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      .description {
+        margin-top: 28px;
+        width: 100%;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+    .center-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .countries-section {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        border-left: 2px solid #fff;
+        padding-left: 30px;
+        padding-right: 70px;
+        .countries-number {
+          color: #fff;
+          font-family: Inter !important;
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .description {
+          width: 261px;
+          color: #fff;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+      .companies-section {
+        border-left: 2px solid #fff;
+        padding-left: 30px;
+        padding-right: 70px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        .companies-number {
+          color: #fff;
+          font-family: Inter !important;
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .description {
+          width: 261px;
+          color: #fff;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+    .right-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .countries-section {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        border-left: 2px solid #fff;
+        padding-left: 30px;
+        .countries-number {
+          color: #fff;
+          font-family: Inter !important;
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .description {
+          width: 261px;
+          color: #fff;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+      .companies-section {
+        border-left: 2px solid #fff;
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        .companies-number {
+          color: #fff;
+          font-family: Inter !important;
+          font-size: 60px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+        .description {
+          width: 261px;
+          color: #fff;
+          font-family: Inter;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}

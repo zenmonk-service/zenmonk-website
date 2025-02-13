@@ -1,6 +1,6 @@
 .tech-card-container {
   display: flex;
-  padding: 9px 0  18px 23px;
+  padding: 11px 16px;
   width: 289px;
   height: 82px;
   flex-shrink: 0;
@@ -9,8 +9,8 @@
   background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
   box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.13);
   .tech-card-icon {
-    width: 53.313px;
-    height: 53.313px;
+    width: 60px;
+    height: 60px;
     flex-shrink: 0;
   }
   .tech-card-title {

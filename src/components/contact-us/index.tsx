@@ -1,36 +1,49 @@
-'use client'
-import React, { useEffect, useState } from "react";
-import Globe, { Marker } from "react-globe";
+"use client";
+import { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import { countries, Country } from "@/assets/icons/contact-us";
+import CountryCard from "./country-card";
+import SimpleGlobe from "./globe";
+import "./styles.scss";
 
-const markers: Marker[] = [
-  { id: "1", city: "India", coordinates: [20.5937, 78.9629], value: 10, color: "#EB7C0D" },
-  { id: "2", city: "Spain", coordinates: [40.4637, -3.7492], value: 8, color: "#EB7C0D" },
-  { id: "3", city: "Brazil", coordinates: [-14.2350, -51.9253], value: 12, color: "#EB7C0D" },
-  { id: "4", city: "Colombia", coordinates: [4.5709, -74.2973], value: 7, color: "#EB7C0D" },
-  { id: "5", city: "Peru", coordinates: [-9.1900, -75.0152], value: 9, color: "#EB7C0D" },
-  { id: "6", city: "Ecuador", coordinates: [-1.8312, -78.1834], value: 6, color: "#EB7C0D" },
-];
-
-const GlobeComponent = () => {
-  const [globeConfig, setGlobeConfig] = useState({});
-
-  useEffect(() => {
-    setGlobeConfig({
-      markerOptions: {
-        enableTooltip: true,
-        getTooltipContent: (marker:Marker) => `<b>${marker.city}</b>`,
-      },
-    });
-  }, []);
+const ContactUs = () => {
+  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
 
   return (
-    <Globe
-      width={800}
-      height={600}
-      markers={markers}
-      options={globeConfig}
-    />
+    <Box className="contact-us-section">
+      <Box className="left-container">
+        <Typography className="section-title" variant="h1">
+          Contact Us
+        </Typography>
+        <Typography className="section-heading" component={"h1"}>
+          Lets fire up your business!
+        </Typography>
+        <Typography className="section-description" component="p">
+          Team up with us today for an unforgettable experience
+        </Typography>
+        <Box className="countries-list">
+          {countries.map((country, index) => {
+            return (
+              <CountryCard
+                key={index}
+                setSelectedCountry={setSelectedCountry}
+                country={country}
+              />
+            );
+          })}
+        </Box>
+       <Typography className="country-name" variant="h2">
+          {selectedCountry.name}
+        </Typography>
+        <Typography className="office-address" variant="h3">
+          {selectedCountry.address}
+        </Typography>
+      </Box>
+      <Box className="right-container">
+        <SimpleGlobe id={selectedCountry.id} />
+      </Box>
+    </Box>
   );
 };
 
-export default GlobeComponent;
+export default ContactUs;

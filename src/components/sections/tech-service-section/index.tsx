@@ -36,7 +36,7 @@ const ServiceSection = () => {
             >
               <Box className="business-item-content">
                 <Box className="business-icon">
-                  <Image src={item.icon} alt={item.title} />
+                 {item.icon &&  <Image src={item.icon} alt={item.title} />}
                 </Box>
                 <Typography
                   component="h4"
@@ -60,7 +60,7 @@ const ServiceSection = () => {
           ))}
         </Box>
         <Box className="services-right-container">
-          <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
+         {ZenmonkLogo &&  <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />}
           <Box className="business-proof">
             <Box className="business-proof-content">
               <Typography
@@ -74,10 +74,10 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map((logo) => {
-                  return (
-                    <Image key={logo.name} src={logo.src} alt={logo.name} />
-                  );
+                {techLogos.map((logo,index) => {
+                  return <Box key={index}>
+                  {logo.src &&  <Image key={logo.name} src={logo.src} alt={logo.name} />}
+                  </Box>;
                 })}
               </Box>
               <BaseButton

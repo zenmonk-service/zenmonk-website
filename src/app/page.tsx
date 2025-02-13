@@ -5,14 +5,15 @@ import {
   TechSolutionSection,
   OurWorkSection,
   WhyChooseUsSection,
+  ClientSatisfaction,
 } from "@/components/sections";
 
 import Header from "@/components/header";
 import InfiniteSlider from "@/components/infinite-slider";
 import TagLine from "@/components/tag-line";
 import SectionWrapper from "@/components/wrapper";
+import ContactUs from "@/components/contact-us";
 import { Odometer } from "@/components/odometer";
-import SimpleGlobe from "@/components/contact-us";
 
 const page = () => {
   return (
@@ -29,8 +30,11 @@ const page = () => {
       <SectionWrapper>
         <WhyChooseUsSection />
       </SectionWrapper>
-      {/* <Odometer /> */}
-      <SimpleGlobe/>
+      <Odometer />
+      <SectionWrapper>
+        <ContactUs />
+        <ClientSatisfaction />
+      </SectionWrapper>
     </Box>
   );
 };

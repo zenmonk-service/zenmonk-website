@@ -1,0 +1,17 @@
+.globe-box {
+  position: relative;
+  display: flex;
+  justify-content: end;
+  &::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 55%;
+      width: 50%;
+      height: 20px;
+      background: radial-gradient(circle, #ADADAD, transparent);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      pointer-events: none; 
+  }
+}

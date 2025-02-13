@@ -20,7 +20,7 @@ const ActionLinks = () => {
 
     return !isSmallScreen ? <Box className="action-links-wrapper">
         <Box className="action-links">
-            {actionsLink.slice(0, actionsLink.length - 1).map(({ href, name, options }: ActionLink) => (
+            {actionsLink.slice(0, actionsLink.length - 1).map(({ href, name, options }: ActionLink,index) => (
                 <Button
                     sx={{
                         textTransform: "none",
@@ -28,7 +28,7 @@ const ActionLinks = () => {
                             backgroundColor: "transparent",
                         },
                     }}
-                    key={href}
+                    key={index}
                     color="inherit"
                     disableRipple
                 >

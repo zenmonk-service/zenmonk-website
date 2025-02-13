@@ -16,7 +16,7 @@ const Navbar = () => {
         }}
       >
         <Box display="flex" alignItems="center">
-          <Image src={Monk} alt="Logo" width={71} height={71} />
+          {Monk && <Image src={Monk} alt="Logo" width={71} height={71} />}
         </Box>
         <ActionLinks />
       </Toolbar>
