@@ -6,6 +6,7 @@ import {
   OurWorkSection,
   WhyChooseUsSection,
   ClientSatisfaction,
+  Footer,
 } from "@/components/sections";
 
 import Header from "@/components/header";
@@ -33,8 +34,9 @@ const page = () => {
       <Odometer />
       <SectionWrapper>
         <ContactUs />
-        <ClientSatisfaction />
+        {/* <ClientSatisfaction /> */}
       </SectionWrapper>
+      <Footer/>
     </Box>
   );
 };

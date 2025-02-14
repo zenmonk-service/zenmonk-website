@@ -40,7 +40,7 @@ const ContactUs = () => {
         </Typography>
       </Box>
       <Box className="right-container">
-        <SimpleGlobe id={selectedCountry.id} />
+        <SimpleGlobe  />
       </Box>
     </Box>
   );

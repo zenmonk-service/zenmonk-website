@@ -1,13 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: ["style-loader", "css-loader"],
-      include: /node_modules\/odometer/,
-    });
-    return config;
-  },
-};
+const withSVGR = require("next-svgr");
+
+const nextConfig = withSVGR({
+  reactStrictMode: true,
+});
 
 module.exports = nextConfig;

@@ -11,8 +11,10 @@ interface TitleProps extends TypographyProps {
 
 const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
   const words = text.split(" ");
-  const lastWord = words.pop();
+  const isSingleWord = words.length === 1;
+  const lastWord = words.pop() || "";
   const restOfText = words.join(" ");
+
   return (
     <Typography
       component="h5"
@@ -21,14 +23,26 @@ const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
       textAlign={align}
       {...props}
     >
-      {restOfText}{" "}
-      <span className="last-word">
-        {lastWord}
-        <span className="mark-container">
-          {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
+      {isSingleWord ? (
+        <span className="last-word">
+          <span className="word-container">{lastWord}</span>
+          <span className="mark-container" style={{ width: `${lastWord.length}ch` }}>
+            {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
+          </span>
         </span>
-      </span>
+      ) : (
+        <>
+          {restOfText}{" "}
+          <span className="last-word">
+            <span className="word-container">{lastWord}</span>
+            <span className="mark-container" style={{ width: `${lastWord.length}ch` }}>
+              {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
+            </span>
+          </span>
+        </>
+      )}
     </Typography>
   );
 };
+
 export default Title;
