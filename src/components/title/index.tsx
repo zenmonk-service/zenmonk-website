@@ -35,7 +35,7 @@ const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
           {restOfText}{" "}
           <span className="last-word">
             <span className="word-container">{lastWord}</span>
-            <span className="mark-container" style={{ width: `${lastWord.length}ch` }}>
+            <span className="mark-container" style={{width:"inherit"}}>
               {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
             </span>
           </span>

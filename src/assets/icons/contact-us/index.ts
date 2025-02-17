@@ -4,56 +4,117 @@ import Colombia from "./colombia.svg";
 import Ecuador from "./ecuador.svg";
 import Peru from "./peru.svg";
 import Spain from "./spain.svg";
+import { StaticImageData } from "next/image";
+import { off } from "process";
 
 interface Country {
-  icon: string;
+  markerOffset: number;
   name: string;
-  id: string;
-  address?: string;
+  coordinates: [number, number];
+  title: string;
+  description: string;
+  isActive: boolean;
+  img: any;
+  idx: number;
+  office: {
+    email: string;
+    phone: string;
+    address: string;
+  };
 }
+
 export const countries = [
   {
-    id: "1",
+    markerOffset: -5,
     name: "India",
-    icon: India,
-    lat: 20.5937,
-    lng: 78.9629,
+    coordinates: [76.68525429888956, 30.6983971821195] as [number, number],
+    title: "India",
+    description: "Asha Tower, Phase 8B, SAS Nagar (Mohali), Punjab 160055",
+    isActive: true,
+    img: India,
+    idx: 0,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "Asha Tower, Phase 8B, SAS Nagar (Mohali), Punjab,160055",
+    },
+  },
+
+  {
+    markerOffset: 35,
+    name: "Spain (Barcelona)",
+    coordinates: [2.170213179925305, 41.388278966047864] as [number, number],
+    title: "Spain Barcelona ",
+    description: "C. Isabel Torres, 21, 39011. Santander, Cantabria, Spain",
+    isActive: false,
+    img: Spain,
+    idx: 2,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "Torres, Cantabria, Spain & 21, 39011,Barcelona,Spain",
+    },
   },
   {
-    id: "2",
-    name: "Spain",
-    icon: Spain,
-    lat: 40.4637,
-    lng: -3.7492,
-  },
-  {
-    id: "3",
+    markerOffset: 40,
     name: "Brazil",
-    icon: Brazil,
-    lat: -14.235,
-    lng: -51.9253,
+    coordinates: [-60.49476028770868, -27.681400465069725] as [number, number],
+    title: "Brazil",
+    description: "R. Vento Sul, 126 - Campeche Leste, Florianópolis, Brazil",
+    isActive: false,
+    img: Brazil,
+    idx: 3,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "R. Vento Sul, 126 - Campeche Leste, Florianópolis, Brazil",
+    },
   },
   {
-    id: "4",
-    name: "Colombia",
-    icon: Colombia,
-    lat: 4.5709,
-    lng: -74.2973,
-  },
-  {
-    id: "5",
-    name: "Peru",
-    icon: Peru,
-    lat: -9.19,
-    lng: -75.0152,
-  },
-  {
-    id: "6",
+    markerOffset: 8,
+    marketXoffSet: -35,
     name: "Ecuador",
-    icon: Ecuador,
-    lat: -1.8312,
-    lng: -78.1834,
+    coordinates: [-79.89719433413921, -2.156491409382448] as [number, number],
+    title: "Ecuador",
+    description: "Geronimo y Miguel H. Alcivar, 090512. Guayaquil, Ecuador",
+    isActive: false,
+    img: Ecuador,
+    idx: 4,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "Geronimo y Miguel H. Alcivar, 090512. Guayaquil, Ecuador",
+    },
+  },
+  {
+    markerOffset: 35,
+    name: "Peru",
+    coordinates: [-70.9970553457021, -12.125950620181154] as [number, number],
+    title: "Peru",
+    description: "Jr. Chimucápac 163, Santiago de Surco 15038, Peru",
+    isActive: false,
+    img: Peru,
+    idx: 5,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "Jr. Chimucápac 163, Santiago de Surco 15038, Peru",
+    },
+  },
+  {
+    markerOffset: -15,
+    name: "Colombia",
+    coordinates: [-74.07765096111325, 4.630663596404083] as [number, number],
+    title: "Colombia",
+    description: "Cl. 40 #26a8, Bogotá, Colombia",
+    isActive: false,
+    img: Colombia,
+    idx: 6,
+    office: {
+      email: "admin@zenmonk.tech",
+      phone: "+91 9012345678, +91 9012345678",
+      address: "Cl. 40 #26a8, Bogotá, Colombia",
+    },
   },
 ];
-
 export type { Country };

@@ -37,9 +37,6 @@ const ActionLinks = () => {
                 </Button>
             ))}
         </Box>
-        <BaseButton>
-            {actionsLink[actionsLink.length - 1].name}
-        </BaseButton>
     </Box> : <IconButton sx={{ fontSize: "32px", color: "var(--primary)", fontWeight: 800 }}><Menu fontSize="inherit" /></IconButton>;
 };
 

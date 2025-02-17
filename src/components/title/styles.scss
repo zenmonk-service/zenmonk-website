@@ -10,20 +10,18 @@
   line-height: 46px;
 
   .last-word {
-    display: inline-flex;
-    flex-direction: column; /* Places icon below the text */
-    align-items: center;
+    flex-direction: column;
     white-space: nowrap;
-  }
-
-  .mark-container {
-    display: flex;
-    justify-content: center;
-    margin-top: -5px;
-  }
-
-  .mark-icon {
-    width: 150px;
-    height: auto;
+    position: relative;
+    overflow: hidden;
+    .mark-container {
+      margin-top: -5px;
+      position: absolute;
+      right: 0;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      text-align: left;
+    }
   }
 }

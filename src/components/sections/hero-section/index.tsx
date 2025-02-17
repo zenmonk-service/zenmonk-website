@@ -3,11 +3,14 @@ import { HeroTech } from "@/assets/images";
 import Image from "next/image";
 import BaseButton from "../../shared/button";
 import "./styles.scss";
+import { Ball, Vector } from "@/assets/icons";
 
 const HeroSection = () => {
   return (
     <Box className="hero-section-wrapper">
       <Toolbar />
+      <Image src={Vector} alt="vector" className="vector" />
+
       <Box className="hero-section">
         <Box className="hero-section-text-wrapper">
           <Typography
@@ -41,7 +44,9 @@ const HeroSection = () => {
         <BaseButton sx={{ width: "180px" }}>Explore More</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
-        {HeroTech && <Image className="hero-section-image" src={HeroTech} alt="techs" />}
+        {HeroTech && (
+          <Image className="hero-section-image" src={HeroTech} alt="techs" />
+        )}
       </Box>
     </Box>
   );

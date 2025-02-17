@@ -1,7 +1,15 @@
 .hero-section-wrapper {
   display: flex;
   align-items: center;
-  height: 85vh;
+  height: 100vh;
+  padding-top: 95px;
+  .vector{
+    position: absolute;
+    top: -10;
+    right: 43%;
+    width: 500px;
+    height: 550px;
+  }
 
   .hero-section {
     flex: 1;

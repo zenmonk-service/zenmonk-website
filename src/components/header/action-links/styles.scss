@@ -1,6 +1,7 @@
 .action-links-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 40px;
 }
 
@@ -13,16 +14,5 @@
   display: flex;
   justify-content: space-evenly;
   border-radius: 22.11px;
-  box-shadow: 0px 5px 18.8px 0px rgba(0, 0, 0, 0.1);
-}
-
-.action-links-wrapper button {
-  font-size: 1.6rem !important;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20.01px;
-  padding: 10.005px 16.008px;
-  border-radius: 43.022px;
-  justify-content: center;
-  align-items: center;
+  box-shadow: 0px 5px 18.8px 0px rgba(0, 0, 0, 0.10);
 }
