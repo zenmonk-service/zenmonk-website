@@ -2,7 +2,7 @@
 
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import "./styles.scss";
+import "./styles.scss"
 
 const Odometer = () => {
   const textVariants = {
@@ -13,7 +13,12 @@ const Odometer = () => {
   return (
     <Box className="odometer">
       <Box className="odometer-section">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={textVariants}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={textVariants}
+        >
           <Box className="left-section">
             <Typography className="heading" component="h1" variant="h1">
               Team Across the Globe Run on Atlassian
@@ -27,10 +32,19 @@ const Odometer = () => {
           </Box>
         </motion.div>
 
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={textVariants}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={textVariants}
+        >
           <Box className="center-section">
             <Box className="countries-section">
-              <Typography className="countries-number" component="h4" variant="h4">
+              <Typography
+                className="countries-number"
+                component="h4"
+                variant="h4"
+              >
                 200+
               </Typography>
               <Typography className="description" component="h3" variant="h3">
@@ -38,7 +52,11 @@ const Odometer = () => {
               </Typography>
             </Box>
             <Box className="companies-section">
-              <Typography className="companies-number" component="h4" variant="h4">
+              <Typography
+                className="companies-number"
+                component="h4"
+                variant="h4"
+              >
                 80%
               </Typography>
               <Typography className="description" component="h3" variant="h3">

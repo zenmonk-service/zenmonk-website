@@ -18,7 +18,7 @@ const ContactUs = () => {
         {/* <Typography className="section-title" variant="h1">
         Contact Us
         </Typography> */}
-        {/* <Title text="Lets fire up your business!" align="left"/> */}
+        <Title text="Lets fire up your business!" align="left" className="section-title"/>
         {/* <Typography className="section-heading" component={"h1"}>
           
         </Typography> */}
