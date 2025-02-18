@@ -2,6 +2,17 @@ import { Box, Button, Toolbar, Typography } from "@mui/material";
 import { HeroTech } from "@/assets/images";
 import Image from "next/image";
 import BaseButton from "../../shared/button";
+import {
+  HeroBalance,
+  HeroCircle,
+  HeroDb,
+  HeroFigma,
+  HeroIncome,
+  HeroJs,
+  HeroPhp,
+  HeroReact,
+  HeroXd,
+} from "@/assets/images/hero-section";
 import "./styles.scss";
 import { Ball, Vector } from "@/assets/icons";
 
@@ -44,9 +55,19 @@ const HeroSection = () => {
         <BaseButton sx={{ width: "180px" }}>Explore More</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
-        {HeroTech && (
-          <Image className="hero-section-image" src={HeroTech} alt="techs" />
-        )}
+
+        {HeroTech && <Image className="hero-section-image" src={HeroTech} alt="techs" />}
+        <>
+          <Image className="hero-section-small-image balance" src={HeroBalance} alt="techs" />
+          <Image className="hero-section-small-image db" src={HeroDb} alt="techs" />
+          <Image className="hero-section-small-image figma" src={HeroFigma} alt="techs" />
+          <Image className="hero-section-small-image income" src={HeroIncome} alt="techs" />
+          <Image className="hero-section-small-image js" src={HeroJs} alt="techs" />
+          <Image className="hero-section-small-image php" src={HeroPhp} alt="techs" />
+          <Image className="hero-section-small-image react" src={HeroReact} alt="techs" />
+          <Image className="hero-section-small-image xd" src={HeroXd} alt="techs" />
+          <Image className="hero-section-small-image circle" src={HeroCircle} alt="techs" />
+        </>
       </Box>
     </Box>
   );

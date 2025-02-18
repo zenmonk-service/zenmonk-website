@@ -18,11 +18,13 @@
       padding: 24px;
       border-radius: 10px;
       background: var(--background);
+      outline: 0px solid var(--primary);
       box-shadow: 5px 4px 52.7px 0px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease-in-out;
 
       &:hover {
         transform: translateY(-4px);
+     box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
       }
       .business-item-content {
         display: flex;

@@ -8,6 +8,7 @@
   gap: 30px;
   background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
   box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
   .tech-card-icon {
     width: 60px;
     height: 60px;
@@ -24,4 +25,41 @@
     font-weight: 600;
     line-height: normal;
   }
+  &:hover{
+    // outline: 2px solid var(--primary);
+    box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
+    
+  }
+
+
+
+  #circular {
+
+  }
+
+  #laptop {
+
+  }
+
+}
+
+#income {
+  animation: floatAnimation2 3s ease-in-out infinite !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+#circular {
+  transform:rotate(-54.2986 365.821 150.821) ;
+ 
+
+}
+
+
+
+
+@keyframes floatAnimation2 {
+  0% { transform: translateY(-10); }
+  50% { transform: translateY(0px); }
+  100% { transform: translateY(-10); }
 }

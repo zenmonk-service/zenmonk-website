@@ -15,6 +15,7 @@ import TagLine from "@/components/tag-line";
 import SectionWrapper from "@/components/wrapper";
 import ContactUs from "@/components/contact-us";
 import { Odometer } from "@/components/odometer";
+import AnimatedDiv from "@/components/animated-div";
 
 const page = () => {
   return (
@@ -22,21 +23,34 @@ const page = () => {
       <Header />
       <SectionWrapper>
         <HeroSection />
-        <TagLine />
-        <InfiniteSlider />
-        <ServiceSection />
-        <TechSolutionSection />
+        <AnimatedDiv>
+          <TagLine />
+          <InfiniteSlider />
+        </AnimatedDiv>
+        <AnimatedDiv>
+          <ServiceSection />
+        </AnimatedDiv>
+        <AnimatedDiv>
+          <TechSolutionSection />
+        </AnimatedDiv>
       </SectionWrapper>
-      <OurWorkSection />
+      <AnimatedDiv>
+        <OurWorkSection />
+      </AnimatedDiv>
       <SectionWrapper>
-        <WhyChooseUsSection />
+        <AnimatedDiv>
+          <WhyChooseUsSection />
+        </AnimatedDiv>
       </SectionWrapper>
-      <Odometer />
+      <AnimatedDiv>
+        <Odometer />
+      </AnimatedDiv>
       <SectionWrapper>
-        <ContactUs />
-        {/* <ClientSatisfaction /> */}
+        <AnimatedDiv>
+          <ContactUs />
+        </AnimatedDiv>
       </SectionWrapper>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };

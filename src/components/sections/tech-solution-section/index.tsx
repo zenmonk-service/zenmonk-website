@@ -6,6 +6,7 @@ import Title from "@/components/title";
 import { TechSolution, techSolution } from "@/assets/icons/it-solution";
 import TechCard from "./tech-card";
 import "./styles.scss";
+import { TechSolutionSectionImage } from "./image";
 
 const TechSolutionSection = () => {
   return (
@@ -39,11 +40,12 @@ const TechSolutionSection = () => {
       </Box>
       <Box className="tech-solution-section-image-wrapper">
         {Laptop2 && (
-          <Image
-            className="tech-solution-section-image"
-            src={Laptop2}
-            alt="techs"
-          />
+          // <Image
+          //   className="tech-solution-section-image"
+          //   src={Laptop2}
+          //   alt="techs"
+          // />
+          <TechSolutionSectionImage />
         )}
       </Box>
     </Box>
