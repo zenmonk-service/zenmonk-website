@@ -1,7 +1,7 @@
 .client-satisfaction-section {
-  margin-top: 190px;
+  margin-top: 150px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   .title {
     color: #494949;
     font-family: Montserrat !important;
@@ -13,6 +13,7 @@
   }
   .description {
     margin-top: 23px;
+    margin-bottom: 50px;
     padding: 0 20%;
     width: 100%;
     color: #777;
@@ -22,6 +23,53 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    line-height: 28.4px; 
+    line-height: 28.4px;
+  }
+
+  .svg-container {
+    max-width: 1400px;
+    margin: auto;
+  }
+}
+#previous,
+#engagement,
+#exceeding,
+#celebrating {
+  opacity: 0;
+  transform: translateY(20px); /* Start slightly below */
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out; /* Smooth easing for a clean transition */
+  animation-fill-mode: forwards; /* Keep the final state after animation */
+}
+
+.in-view {
+  #previous {
+    animation-name: fadeInUp;
+    animation-delay: 0s;
+  }
+
+  #engagement {
+    animation-name: fadeInUp;
+    animation-delay: 0.5s;
+  }
+
+  #exceeding {
+    animation-name: fadeInUp;
+    animation-delay: 0.9s;
+  }
+
+  #celebrating {
+    animation-name: fadeInUp;
+    animation-delay: 1.5s;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Start from below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move to the original position */
   }
 }

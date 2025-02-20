@@ -8,7 +8,7 @@ const InfiniteSlider = () => {
       <div className="slide-track">
         {[...CollaborationLogo, ...CollaborationLogo].map(({ src }, index) => (
           <div className="slide" key={index}>
-            {src && <Image src={src} height="80" width="250" alt={`slide-${index}`} />}
+            {src && <Image src={src}  width="150" alt={`slide-${index}`} />}
           </div>
         ))}
       </div>

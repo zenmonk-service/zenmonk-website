@@ -118,3 +118,15 @@
     }
   }
 }
+
+.fade-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-transition-hidden {
+  opacity: 0;
+  transform: translateY(-30px); /* You can adjust the value for sliding effect */
+}
+

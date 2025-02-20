@@ -20,18 +20,21 @@ const TechSolutionSection = () => {
             />
           </Box>
           <Typography component="p" className="text-description">
-          Welcomein the is to Zenmonk, where Software Innovation meets professionalism and solution oriented mindset. We are fluent in your language, proficien
+            Welcomein the is to Zenmonk, where Software Innovation meets
+            professionalism and solution oriented mindset. We are fluent in your
+            language, proficien
           </Typography>
         </Box>
         <Box className="tech-solution-section-card-wrapper">
           {techSolution.map((tech: TechSolution, index) => {
             return <TechCard key={index} icon={tech.src} title={tech.name} />;
           })}
+
         </Box>
+        <Box sx={{ marginBottom: "41px" }}></Box>
         <BaseButton
           sx={{
             width: "max-content",
-            marginTop:"41px",
             textTransform: "uppercase !important",
           }}
         >

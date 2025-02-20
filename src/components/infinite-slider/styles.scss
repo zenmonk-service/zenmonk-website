@@ -1,9 +1,8 @@
 .slider {
     height: 108px;
-    margin: auto;
     overflow: hidden;
     position: relative;
-    width: 80%;
+    opacity: 0.8;
   }
   
   .slider::before,
@@ -29,7 +28,7 @@
   
   .slide-track {
     display: flex;
-    gap: 45px;
+    gap: 120px;
     width: calc(250px * 14);
     animation: scroll 25s linear infinite;
   }

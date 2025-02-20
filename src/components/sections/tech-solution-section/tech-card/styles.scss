@@ -25,22 +25,30 @@
     font-weight: 600;
     line-height: normal;
   }
-  &:hover{
-    // outline: 2px solid var(--primary);
-    box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
-    
+}
+
+.tech-card-container:first-child {
+  &:hover {
+    box-shadow: 5px 4px 20px 0px rgba(101, 214, 222, 0.3);
   }
+}
 
-
-
-  #circular {
-
+.tech-card-container:nth-child(2) {
+  &:hover {
+    box-shadow: 5px 4px 20px 0px rgba(179, 122, 255, 0.3);
   }
+}
 
-  #laptop {
-
+.tech-card-container:nth-child(3) {
+  &:hover {
+    box-shadow: 5px 4px 20px 0px rgba(106, 199, 123, 0.3);
   }
+}
 
+.tech-card-container:nth-child(4) {
+  &:hover {
+    box-shadow: 5px 4px 20px 0px rgba(60, 149, 219, 0.3);
+  }
 }
 
 #income {
@@ -48,18 +56,18 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-
 #circular {
-  transform:rotate(-54.2986 365.821 150.821) ;
- 
-
+  transform: rotate(-54.2986 365.821 150.821);
 }
 
-
-
-
 @keyframes floatAnimation2 {
-  0% { transform: translateY(-10); }
-  50% { transform: translateY(0px); }
-  100% { transform: translateY(-10); }
+  0% {
+    transform: translateY(-10);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10);
+  }
 }

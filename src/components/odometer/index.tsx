@@ -11,7 +11,15 @@ const Odometer = () => {
   };
 
   return (
-    <Box className="odometer">
+    <motion.div
+      whileInView={{
+        backgroundPosition: "0% 60%",
+        transition: { duration: 1.6 },
+        type: "spring",
+      }}
+      viewport={{ once: true, amount: 0.7 }}
+      className="odometer"
+    >
       <Box className="odometer-section">
         <motion.div
           initial="hidden"
@@ -66,7 +74,7 @@ const Odometer = () => {
           </Box>
         </motion.div>
       </Box>
-    </Box>
+    </motion.div>
   );
 };
 

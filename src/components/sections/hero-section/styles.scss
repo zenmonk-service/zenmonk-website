@@ -107,7 +107,7 @@
   /* 🔥 Fixed Floating Animation */
   .hero-section-small-image {
     position: absolute;
-    width: 50px !important;
+    width: 60px !important;
     animation: floatAnimation 3s ease-in-out infinite !important;
     will-change: transform;
   }
@@ -119,7 +119,7 @@
   .hero-section-small-image.figma {
     top: -20%;
     left: 90%;
-    width: 70px !important;
+    width: 80px !important;
   }
   .hero-section-small-image.income {
     top: -40%;
@@ -135,13 +135,14 @@
     opacity: 0;
 
     animation-name: rotate !important;
-    animation-duration: 25s !important;
+    animation-duration: 30s !important;
     animation-iteration-count: infinite !important;
     animation-timing-function: linear !important;
   }
   .hero-section-small-image.js {
     top: 20%;
     right: 90%;
+    width: 80px !important;
   }
   .hero-section-small-image.react {
     top: -25%;

@@ -1,15 +1,17 @@
 .app-bar-container{
-    background-color: var(--background) !important;
+    background-color: white !important;
     z-index: 400;
-    
+
     button {
-        font-size: 1.6rem !important;
+        font-size: 1.5rem !important;
         font-style: normal;
         font-weight: 400;
+        font-family: Inter, sans-serif !important;
         line-height: 20.01px;
         padding: 10.005px 16.008px;
         border-radius: 43.022px;
         justify-content: center;
         align-items: center;
+        color: #494848;
       }
 }
