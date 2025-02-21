@@ -47,10 +47,9 @@
     display: flex;
     border-bottom: 1px solid #c5c5c595;
     .logo-wrapper {
-      margin-left: 143px;
       .logo {
         width: 400px;
-        height: 425px;
+        height: 455px;
         flex-shrink: 0;
       }
 
@@ -72,7 +71,7 @@
     .category-wrapper {
       .service-category-quick-links-wrapper {
         margin-top: 40px;
-        margin-left: 100px;
+        margin-left: 50px;
         width: 100%;
         display: flex;
         .service-category {
@@ -125,6 +124,7 @@
           }
         }
         .quick-links {
+          margin-right: -50px;
           .title {
             color: #fff;
             font-feature-settings: "liga" off, "clig" off;
@@ -172,7 +172,7 @@
       }
       .consulting-category-contact-wrapper {
         margin-top: 64px;
-        margin-left: 100px;
+        margin-left: 50px;
         width: 100%;
         display: flex;
         .consulting-category {
@@ -290,12 +290,11 @@
                 width: 79px;
                 height: 32px;
                 padding: 5px 14px;
-                flex-shrink: 0;
                 color: #fff;
-                font-feature-settings: "liga" off, "clig" off;
-                font-family: Inter;
-                font-size: 14px;
+                font-size: 12.4px;
                 font-style: normal;
+                font-weight: 300;
+                line-height: 35.2px;
                 font-weight: 300;
                 border-radius: 6px;
                 background: #ec6738;

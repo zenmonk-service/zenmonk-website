@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  Input,
   InputBase,
   Typography,
   useMediaQuery,
@@ -14,7 +13,6 @@ import { Monk } from "@/assets/icons";
 import { serviceCategory } from "./list/service-categories";
 import { quickLink } from "./list/quick-links";
 import { consultingCategories } from "./list/consulting-categories";
-import BaseButton from "@/components/shared/button";
 import { socialMedia } from "@/assets/icons/social";
 
 const Footer = () => {
@@ -26,7 +24,6 @@ const Footer = () => {
         {isMobile && (
           <Box className="logo-wrapper">
             <Image src={Monk} alt="logo" className="logo" />
-            <Typography component="p">Zenmonk</Typography>
           </Box>
         )}
         <Typography className="branding">
@@ -36,10 +33,11 @@ const Footer = () => {
         </Typography>
       </Box>
       <Box className="logo-category-wrapper">
-        <Box className="logo-wrapper">
-          <Image src={Monk} alt="logo" className="logo" />
-          <Typography component="p">Zenmonk</Typography>
-        </Box>
+        {!isMobile && (
+          <Box className="logo-wrapper">
+            <Image src={Monk} alt="logo" className="logo" />
+          </Box>
+        )}
         <Box className="category-wrapper">
           <Box className="service-category-quick-links-wrapper">
             <Box className="service-category">
@@ -120,7 +118,7 @@ const Footer = () => {
         </Box>
       </Box>
       <Box className="copyright">
-        <Typography component="p">©  Zenmonk 2022</Typography>
+        <Typography component="p">© Zenmonk 2022</Typography>
       </Box>
     </Box>
   );

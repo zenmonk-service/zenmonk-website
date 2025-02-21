@@ -18,7 +18,7 @@ import { Odometer } from "@/components/odometer";
 import AnimatedDiv from "@/components/animated-div";
 
 const page = () => {
-  return ( 
+  return (
     <Box>
       <Header />
       <SectionWrapper>
@@ -46,13 +46,8 @@ const page = () => {
         <Odometer />
       </AnimatedDiv>
       <AnimatedDiv>
-          <ClientSatisfaction />
-        </AnimatedDiv>
-      <SectionWrapper>
-        <AnimatedDiv>
-          <ContactUs />
-        </AnimatedDiv>
-      </SectionWrapper>
+        <ContactUs />
+      </AnimatedDiv>
       <Footer />
     </Box>
   );

@@ -3,28 +3,23 @@ import { Fragment, useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { countries, Country } from "@/assets/icons/contact-us";
 import CountryCard from "./country";
-import SimpleMap from "./map";
 import ContactCard from "./card";
 import { Email, Phone, Location } from "@/assets/icons/contact-us/contact";
-import "./styles.scss";
 import Title from "../title";
+import GlobeAnimation from "./globe";
+import "./styles.scss";
 
 const ContactUs = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
-
   return (
     <Box className="contact-us-section">
       <Box className="left-container">
-        {/* <Typography className="section-title" variant="h1">
-        Contact Us
-        </Typography> */}
-        <Title text="Lets fire up your business!" align="left" className="section-title"/>
-        {/* <Typography className="section-heading" component={"h1"}>
-          
-        </Typography> */}
-        {/* <Typography className="section-description" component="p" mt={2}>
-          Team up with us today for an unforgettable experience
-        </Typography> */}
+        <Title
+          text="Lets fire up your business!"
+          align="left"
+          className="section-title"
+        />
+      
         <Box className="countries-list">
           {countries.map((country, index) => {
             return (
@@ -39,7 +34,9 @@ const ContactUs = () => {
             );
           })}
         </Box>
-        <Typography className="selected-country">{selectedCountry.name}</Typography>
+        <Typography className="selected-country">
+          {selectedCountry.name}
+        </Typography>
         <ContactCard
           url={Email}
           description={selectedCountry.office.email}
@@ -57,7 +54,7 @@ const ContactUs = () => {
         />
       </Box>
       <Box className="right-container">
-        <SimpleMap selectedCountry={selectedCountry} />
+        <GlobeAnimation selectedCountry={selectedCountry} />
       </Box>
     </Box>
   );

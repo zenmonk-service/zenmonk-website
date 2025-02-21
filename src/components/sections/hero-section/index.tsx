@@ -20,8 +20,7 @@ const HeroSection = () => {
   return (
     <Box className="hero-section-wrapper">
       <Toolbar />
-      <Image src={Vector} alt="vector" className="vector" />
-
+      <Image quality={100} src={Vector} alt="vector" className="vector" />
       <Box className="hero-section">
         <Box className="hero-section-text-wrapper">
           <Typography

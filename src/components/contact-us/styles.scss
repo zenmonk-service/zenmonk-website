@@ -2,17 +2,26 @@
   width: 100%;
   height: 100vh;
   display: flex;
+  background-color: black;
   align-items: center;
-  padding: 0 6%;
   .right-container {
     pointer-events: none;
-    flex: 1;
+    display: flex;
+    right: 10%;
+    position: absolute;
+    width: 55%;
+    background-color: black;
   }
   .left-container {
-    flex: 1;
+    background-color: black;
+    margin: 0 6%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
     .section-title {
+      color: var(--background);
       font-family: Poppins;
       font-size: 23.963px;
       font-style: normal;
@@ -20,9 +29,10 @@
       line-height: normal;
       margin-bottom: 30px;
     }
+
     .section-heading {
       margin-top: 16px;
-      color: #424242;
+      color: #fff;
       text-align: left;
       font-family: Poppins;
       font-size: 47.925px;
@@ -30,15 +40,17 @@
       font-weight: 700;
       line-height: normal;
     }
+
     .section-description,
     .office-address {
-      color: #424242;
+      color: white;
       font-family: Poppins;
       font-size: 19.969px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
     }
+
     .countries-list {
       margin-top: 38px;
       margin-bottom: 38px;
@@ -46,6 +58,7 @@
       display: flex;
       gap: 25px;
     }
+
     .selected-country {
       margin-top: 14px;
       margin-bottom: 12px;
@@ -59,6 +72,19 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+  }
+
+  /* 🔥 Smoky Animation */
+  @keyframes smoke {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(20px, -30px) rotate(20deg);
+    }
+    100% {
+      transform: translate(-20px, 30px) rotate(-20deg);
     }
   }
 }
@@ -75,7 +101,7 @@
     flex-shrink: 0;
   }
   .title {
-    color: #334055;
+    color:white;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
@@ -85,7 +111,7 @@
     margin-bottom: 5px;
   }
   .description {
-    color: var(--Neutral-Grey-G900);
+    color: white;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
