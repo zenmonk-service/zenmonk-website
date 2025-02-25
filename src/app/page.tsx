@@ -5,22 +5,19 @@ import {
   TechSolutionSection,
   OurWorkSection,
   WhyChooseUsSection,
-  ClientSatisfaction,
   Footer,
-} from "@/components/sections";
+} from "@/components/landing/sections";
 
-import Header from "@/components/header";
-import InfiniteSlider from "@/components/infinite-slider";
-import TagLine from "@/components/tag-line";
-import SectionWrapper from "@/components/wrapper";
-import ContactUs from "@/components/contact-us";
-import { Odometer } from "@/components/odometer";
-import AnimatedDiv from "@/components/animated-div";
+import InfiniteSlider from "@/components/landing/infinite-slider";
+import TagLine from "@/components/landing/tag-line";
+import SectionWrapper from "@/components/shared/wrapper";
+import ContactUs from "@/components/landing/contact-us";
+import { Odometer } from "@/components/landing/odometer";
+import AnimatedDiv from "@/components/shared/animated-div";
 
 const page = () => {
   return (
     <Box>
-      <Header />
       <SectionWrapper>
         <HeroSection />
         <AnimatedDiv>

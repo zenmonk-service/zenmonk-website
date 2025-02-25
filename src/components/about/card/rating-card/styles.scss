@@ -1,0 +1,31 @@
+.rating-card {
+  height: max-content;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 53.333px 0px;
+  .rating-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .rating {
+      color: #000;
+      font-family: Montserrat;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 38.921px;
+    }
+    .description {
+      color: #000;
+      font-family: Montserrat;
+      font-size: 19.461px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+"use client";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  createTheme,
+  IconButton,
+  useMediaQuery,
+} from "@mui/material";
+import { ExpandMore, ExpandLess, Menu } from "@mui/icons-material";
+import { ActionLink, actionsLink } from "./links";
+import "./styles.scss";
+import { useRouter } from "next/navigation";
+
+interface OptionProps {
+  id: string;
+  isExpanded: boolean;
+  onClick: () => void;
+}
+
+const theme = createTheme();
+const ActionLinks = () => {
+  const { push } = useRouter();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleExpand = () => setIsExpanded((prev) => !prev);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+  const navigateTo = (path: string) => push(path);
+
+  return !isSmallScreen ? (
+    <Box className="action-links-wrapper">
+      <Box className="action-links">
+        {actionsLink
+          .slice(0, actionsLink.length - 1)
+          .map(({ href, name, options }: ActionLink, index) => (
+            <Button
+              className="action-link-button"
+              key={index}
+              color="inherit"
+              disableRipple
+              onClick={()=>navigateTo(href)}
+            >
+              {name}
+              {options && (
+                <Option
+                  id={href}
+                  isExpanded={isExpanded}
+                  onClick={toggleExpand}
+                />
+              )}
+            </Button>
+          ))}
+      </Box>
+    </Box>
+  ) : (
+    <IconButton className="action-link-menu-icon">
+      <Menu fontSize="inherit" />
+    </IconButton>
+  );
+};
+
+export default ActionLinks;
+
+const Option: React.FC<OptionProps> = ({ isExpanded, onClick }) => (
+  <Box onClick={onClick} className="expand-option-icon">
+    {isExpanded ? (
+      <ExpandMore color="inherit" />
+    ) : (
+      <ExpandLess color="inherit" />
+    )}
+  </Box>
+);

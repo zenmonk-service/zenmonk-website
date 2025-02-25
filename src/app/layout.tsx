@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Montserrat } from "next/font/google";
+import Header from "@/components/shared/header";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,7 +31,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}>
+      <body
+        className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}
+      >
+        <Header />
+
         {children}
       </body>
     </html>

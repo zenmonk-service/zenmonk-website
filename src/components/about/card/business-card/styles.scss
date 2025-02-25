@@ -1,0 +1,35 @@
+.about-us-business-card-container {
+  width: 376.194px;
+  border-radius: 10px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-shadow: 1px 1px 35.5px 0px rgba(0, 62, 176, 0.08);
+  .business-card-icon-container {
+    width: 100%;
+  }
+  .business-card-content {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    padding: 20px;
+    box-sizing: border-box;
+    .business-card-title {
+      color: #383838;
+      font-family: Poppins;
+      font-size: 21.161px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .business-card-description {
+      color: #565656;
+      font-family: Montserrat;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 25px;
+    }
+  }
+}

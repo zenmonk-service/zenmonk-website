@@ -1,0 +1,12 @@
+.rating-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 198px;
+  gap: 32px;
+  background-color: var(--background);
+  padding-top: 20px;
+  border-radius: 32px 0px;
+  box-shadow: 2.667px 5.333px 21.467px 0px rgba(0, 0, 0, 0.06);
+  margin-bottom: 100px;
+}

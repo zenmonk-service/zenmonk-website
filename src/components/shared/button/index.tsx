@@ -25,7 +25,7 @@ const BaseButton = ({ children, ...props }: BaseButtonProps) => {
             style={{
                 width: "fit-content",
                 height: "fit-content",
-                borderRadius: borderRadius,  // Apply dynamic border-radius here
+                borderRadius: borderRadius, 
             }}
             whileHover={{ 
                 scale: 1.02, 
