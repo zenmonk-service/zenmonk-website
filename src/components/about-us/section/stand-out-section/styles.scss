@@ -1,0 +1,116 @@
+.stand-out-section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 150px;
+  margin-bottom: 180px;
+  .section-title {
+    color: var(--foreground);
+    font-family: Poppins;
+    font-size: 50px !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: normal;
+  }
+  .stand-out-card-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    .left-section {
+      margin-top: 51px;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .right-section {
+      margin-top: 51px;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      .right-section-container {
+        width: 704px;
+        height: 600px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 19px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 1;
+        }
+        img {
+          position: relative;
+          z-index: 2;
+          margin-top: 37px;
+        }
+        .title {
+          position: relative;
+          z-index: 2;
+          color: var(--background);
+          font-family: Poppins;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        }
+        .description {
+          width: 90%;
+          position: relative;
+          z-index: 2;
+          color: #fff;
+          text-align: center;
+          font-family: Poppins;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400 !important;
+          line-height: 26px;
+        }
+        .core-values {
+          position: relative;
+          z-index: 2;
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          padding-left: 124px;
+
+          .core-value {
+            position: relative;
+            z-index: 2;
+            width: max-content;
+            display: inline-flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 8px;
+            background: var(--background);
+            color: #000;
+            font-family: Poppins;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+}

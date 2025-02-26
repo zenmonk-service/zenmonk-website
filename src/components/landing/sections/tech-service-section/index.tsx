@@ -8,7 +8,6 @@ import Title from "../../../shared/title";
 import { techLogos } from "@/assets/icons/business/tech";
 import BaseButton from "../../../shared/button";
 import "./styles.scss";
-import { Height } from "@mui/icons-material";
 
 const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title);

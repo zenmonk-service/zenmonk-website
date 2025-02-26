@@ -5,7 +5,6 @@ import {
   TechSolutionSection,
   OurWorkSection,
   WhyChooseUsSection,
-  Footer,
 } from "@/components/landing/sections";
 
 import InfiniteSlider from "@/components/landing/infinite-slider";
@@ -45,7 +44,6 @@ const page = () => {
       <AnimatedDiv>
         <ContactUs />
       </AnimatedDiv>
-      <Footer />
     </Box>
   );
 };

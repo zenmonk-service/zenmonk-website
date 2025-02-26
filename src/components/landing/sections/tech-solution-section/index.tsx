@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import BaseButton from "../../../shared/button";
 import { Laptop2 } from "@/assets/images";
-import Image from "next/image";
 import Title from "@/components/shared/title";
 import { TechSolution, techSolution } from "@/assets/icons/it-solution";
 import TechCard from "./tech-card";
@@ -31,7 +30,7 @@ const TechSolutionSection = () => {
           })}
         </Box>
         <Box sx={{ marginBottom: "41px" }}></Box>
-        <BaseButton className="explore-button">Explore Services</BaseButton>
+        <BaseButton>Explore Services</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
         {Laptop2 && (

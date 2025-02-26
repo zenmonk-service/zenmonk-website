@@ -4,9 +4,6 @@ import Colombia from "./colombia.svg";
 import Ecuador from "./ecuador.svg";
 import Peru from "./peru.svg";
 import Spain from "./spain.svg";
-import { StaticImageData } from "next/image";
-import { off } from "process";
-
 interface Country {
   markerOffset: number;
   name: string;
