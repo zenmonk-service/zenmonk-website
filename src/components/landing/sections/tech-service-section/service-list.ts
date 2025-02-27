@@ -4,10 +4,12 @@ import {
   Mobile,
   BriefCasePerson,
 } from "@/assets/icons/business";
+import { StaticImageData } from "next/image";
+import { JSX } from "react";
 
 interface Service {
   id: string;
-  icon: any;
+  icon: JSX.Element | StaticImageData;
   title: string;
   color: string;
   description: string;

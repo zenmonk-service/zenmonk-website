@@ -1,10 +1,17 @@
-import { Box, CircularProgress } from "@mui/material";
-import React from "react";
+import { Box } from "@mui/material";
 
 const loading = () => {
   return (
-    <Box>
-      <CircularProgress sx={{ bgcolor: "gray" }} />
+    <Box
+      sx={{
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+     <Box component='img' src="/logo.svg" alt="logo" className="flicker-logo"/>
     </Box>
   );
 };

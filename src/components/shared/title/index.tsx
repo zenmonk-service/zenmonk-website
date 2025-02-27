@@ -1,8 +1,8 @@
-import { Typography, TypographyProps } from "@mui/material";
-import { Mark } from "@/assets/icons";
+import { Box, Typography, TypographyProps } from "@mui/material";
 import Image from "next/image";
 import "./styles.scss";
 
+const Mark = "/title/mark.svg";
 interface TitleProps extends TypographyProps {
   text: string;
   align?: "left" | "center" | "right";
@@ -26,8 +26,16 @@ const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
       {isSingleWord ? (
         <span className="last-word">
           <span className="word-container">{lastWord}</span>
-          <span className="mark-container" style={{ width: `${lastWord.length}ch` }}>
-            {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
+          <span
+            className="mark-container"
+            style={{ width: `${lastWord.length}ch` }}
+          >
+            <Box
+              src={Mark}
+              alt="mark"
+              component="img"
+              className="mark-icon"
+            />
           </span>
         </span>
       ) : (
@@ -35,8 +43,13 @@ const Title = ({ text, align = "center", className, ...props }: TitleProps) => {
           {restOfText}{" "}
           <span className="last-word">
             <span className="word-container">{lastWord}</span>
-            <span className="mark-container" style={{width:"inherit"}}>
-              {Mark && <Image src={Mark} alt="mark" className="mark-icon" />}
+            <span className="mark-container" style={{ width: "inherit" }}>
+              <Box
+                src={Mark}
+                alt="mark"
+                component="img"
+                className="mark-icon"
+              />
             </span>
           </span>
         </>

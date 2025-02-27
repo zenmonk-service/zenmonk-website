@@ -5,7 +5,6 @@ import {
   Geographies,
   Geography,
   Marker,
-  Sphere,
 } from "react-simple-maps";
 import { countries, Country } from "@/assets/icons/contact-us";
 import { motion } from "framer-motion";
@@ -57,42 +56,51 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
           }
         </Geographies>
 
-        {countries.map(({ name, coordinates, markerOffset, marketXoffSet, idx }: any) => {
-          const isHighlighted = hoveredIdx === idx || selectedCountry?.idx === idx;
+        {countries.map(
+          ({ name, coordinates, markerOffset, marketXoffSet, idx }: any) => {
+            const isHighlighted =
+              hoveredIdx === idx || selectedCountry?.idx === idx;
 
-          return (
-            <Marker
-              key={name}
-              coordinates={coordinates}
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
-            >
-              <motion.path
-                initial={{ scale: 1 }}
-                animate={{ scale: isHighlighted ? 1.4 : 1 }}
-                transition={{ duration: 0.3 }}
-                style={{ cursor: "pointer", filter: "drop-shadow(0 0 10px rgba(0, 0, 0, 0.3))" }}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"
-                fill="#F00"
-                stroke="#fff"
-                strokeWidth={0.5}
-              />
-              <motion.text
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: isHighlighted ? 1 : 0, y: isHighlighted ? 0 : -10 }}
-                transition={{ duration: 0.3 }}
-                textAnchor="middle"
-                y={markerOffset}
-                x={marketXoffSet}
-                style={{ fontFamily: "Poppins",fontSize:"14px" }}
+            return (
+              <Marker
+                key={name}
+                coordinates={coordinates}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
-                {name}
-              </motion.text>
-            </Marker>
-          );
-        })}
+                <motion.path
+                  initial={{ scale: 1 }}
+                  animate={{ scale: isHighlighted ? 1.4 : 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{
+                    cursor: "pointer",
+                    filter: "drop-shadow(0 0 10px rgba(0, 0, 0, 0.3))",
+                  }}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 10.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"
+                  fill="#F00"
+                  stroke="#fff"
+                  strokeWidth={0.5}
+                />
+                <motion.text
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{
+                    opacity: isHighlighted ? 1 : 0,
+                    y: isHighlighted ? 0 : -10,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  textAnchor="middle"
+                  y={markerOffset}
+                  x={marketXoffSet}
+                  style={{ fontFamily: "Poppins", fontSize: "14px" }}
+                >
+                  {name}
+                </motion.text>
+              </Marker>
+            );
+          }
+        )}
       </ComposableMap>
     </Box>
   );

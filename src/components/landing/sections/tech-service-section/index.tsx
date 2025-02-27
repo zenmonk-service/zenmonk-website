@@ -15,7 +15,7 @@ const ServiceSection = () => {
   const [businessItemRefPosition, setbusinessItemRefPosition] =
     useState<number | null>(null);
   const [rightSectionHeadingRefPosition, setRightSectionHeadingRefPosition] =
-    useState<any>(null);
+    useState<number | null>(null);
   
   const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
   const businessItemRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -47,13 +47,12 @@ const ServiceSection = () => {
 
   }, [businessItemRefPosition, rightSectionHeadingRefPosition])
 
-  // Add the scroll event listener
   useEffect(() => {
-    updatePosition(); // Initial position check
+    updatePosition();
     window.addEventListener("scroll", updatePosition);
 
     return () => {
-      window.removeEventListener("scroll", updatePosition); // Cleanup listener on unmount
+      window.removeEventListener("scroll", updatePosition);
     };
   }, []);
 
@@ -70,17 +69,9 @@ const ServiceSection = () => {
     <Box mt={15}>
       <Box className="services-section">
         <Box className="services-left-container">
-          {/* <Box sx={{
-            width:"150%",
-            height:"100px !important",
-            background:"white",
-            position:"sticky",
-            top:0
-          }}/> */}
           {serviceList.map((item: Service, index: number) => (
             <Box
               ref={(el : any) => (businessItemRef.current[index] = el)}
-              // className={`business-item fade-transition ${businessItemRef.current[index] && businessItemRef.current[index].getBoundingClientRect().top < 150 ? "fade-transition-hidden" : ""}`}
               className={`business-item`}
               onClick={() => selectItem(item)}
               sx={{
@@ -92,7 +83,7 @@ const ServiceSection = () => {
             >
               <Box className="business-item-content">
                 <Box className="business-icon">
-                  {item.icon && <Image src={item.icon} alt={item.title} />}
+                  {typeof item.icon === 'string' && <Image src={item.icon} alt={item.title} />}
                 </Box>
                 <Typography
                   component="h4"

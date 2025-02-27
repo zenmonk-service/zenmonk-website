@@ -14,7 +14,7 @@ import {
   HeroXd,
 } from "@/assets/images/hero-section";
 import "./styles.scss";
-import { Ball, Vector } from "@/assets/icons";
+import { Vector } from "@/assets/icons";
 
 const HeroSection = () => {
   return (
