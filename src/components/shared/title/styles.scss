@@ -15,12 +15,11 @@
     position: relative;
     overflow: hidden;
     .mark-container {
-      margin-top: -5px;
+      left: 0;
+      margin-top: -8px;
       position: absolute;
-      right: 0;
       display: flex;
       justify-content: end;
-      width: 100%;
       text-align: left;
     }
   }

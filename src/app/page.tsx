@@ -7,7 +7,7 @@ import {
   WhyChooseUsSection,
 } from "@/components/landing/sections";
 
-import InfiniteSlider from "@/components/landing/infinite-slider";
+import InfiniteSlider from "@/components/shared/infinite-slider";
 import TagLine from "@/components/landing/tag-line";
 import SectionWrapper from "@/components/shared/wrapper";
 import ContactUs from "@/components/landing/contact-us";

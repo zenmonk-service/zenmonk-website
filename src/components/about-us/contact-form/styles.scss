@@ -1,0 +1,82 @@
+.contact-form {
+  padding: 41px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  .error-text {
+    color: red;
+    font-size: 13px !important;
+  }
+  .form-control {
+    width: 100%;
+  }
+  .error-border {
+    border: 1px solid red !important;
+  }
+
+  .end-adornment {
+    color: #727272;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+  }
+  .fullname {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    .form-control {
+      .first-name-input {
+        border: 1px solid #d5d5d5;
+        display: flex;
+        flex: 1;
+        height: 60px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .last-name-input {
+        border: 1px solid #d5d5d5;
+        flex: 1;
+        display: flex;
+        height: 60px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+    }
+  }
+  .form-control {
+    .phone-number-input {
+      border: 1px solid #d5d5d5;
+      width: 100%;
+    }
+    .email-input {
+      border: 1px solid #d5d5d5;
+      width: 100%;
+    }
+    .message {
+      width: 100%;
+      display: flex;
+      gap: 30px;
+      border: 1px solid #d5d5d5;
+      .message-input {
+        width: 100%;
+        border-color: none !important;
+      }
+      .end-adornment {
+        margin-top: 15px;
+        margin-right: 20px;
+      }
+    }
+  }
+  .button-wrapper {
+    margin-top: 20px;
+    .send-button-icon {
+      font-size: 20px;
+    }
+  }
+}

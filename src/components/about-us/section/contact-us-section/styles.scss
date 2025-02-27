@@ -1,0 +1,103 @@
+.about-us-contact-us-section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 0 10%;
+  position: relative;
+
+  .left-container {
+    margin-top: 110px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    .section-title {
+      color: #132427;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Poppins;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 60px;
+      span {
+        background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-feature-settings: "liga" off, "clig" off;
+        font-family: Poppins;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 60px;
+      }
+    }
+    .countries-list {
+      margin-top: 20px;
+      gap: 20px;
+      width: 100%;
+      display: flex;
+      .country-card {
+        img {
+          width: 55px;
+        }
+      }
+    }
+    .selected-country-title {
+      margin-top: 40px;
+      color: #132427;
+      text-align: left;
+      font-family: Poppins;
+      font-size: 16.731px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    .selected-country-description {
+      margin-top: 10px;
+      width: 402px;
+      color: #696969;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 30px;
+      letter-spacing: 0.32px;
+      margin-bottom: 20px;
+    }
+    .contact-card {
+      margin-top: 14px !important;
+      margin-bottom: 0px !important;
+      img {
+        margin-left: -8px !important;
+      }
+      .contact-card-content {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        .description {
+          margin-left: -20px;
+          color: #696969 !important;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 30px;
+          letter-spacing: 0.32px;
+        }
+      }
+    }
+  }
+  .right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+  }
+  .vector {
+    bottom: -70;
+    right: -150;
+    position: absolute;
+  }
+}

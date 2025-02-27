@@ -1,12 +1,12 @@
 "use client";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { countries, Country } from "@/assets/icons/contact-us";
-import CountryCard from "./country";
-import ContactCard from "./card";
+import ContactCard from "@/components/shared/contact-card";
 import { Email, Phone, Location } from "@/assets/icons/contact-us/contact";
 import Title from "../../shared/title";
 import GlobeAnimation from "./globe";
+import CountriesList from "@/components/shared/countries-list";
 import "./styles.scss";
 
 const ContactUs = () => {
@@ -19,21 +19,12 @@ const ContactUs = () => {
           align="left"
           className="section-title"
         />
-      
-        <Box className="countries-list">
-          {countries.map((country, index) => {
-            return (
-              <Fragment key={index}>
-                <CountryCard
-                  isSelected={country === selectedCountry}
-                  key={index}
-                  setSelectedCountry={setSelectedCountry}
-                  country={country}
-                />
-              </Fragment>
-            );
-          })}
-        </Box>
+
+        <CountriesList
+          className="countries-list"
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+        />
         <Typography className="selected-country">
           {selectedCountry.name}
         </Typography>

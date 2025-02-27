@@ -26,7 +26,7 @@ export const countries = [
     name: "India",
     coordinates: [76.68525429888956, 30.6983971821195] as [number, number],
     title: "India",
-    description: "Asha Tower, Phase 8B, SAS Nagar (Mohali), Punjab 160055",
+    description: "Asha Tower, Phase 8B, Industrial Area, Sector 75, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160055",
     isActive: true,
     img: India,
     idx: 0,

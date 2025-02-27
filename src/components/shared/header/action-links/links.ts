@@ -12,7 +12,7 @@ const actionsLink = [
   },
   {
     name: "About",
-    href: "/about",
+    href: "/about-us",
   },
   {
     name: "Careers",

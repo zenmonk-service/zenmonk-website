@@ -1,0 +1,20 @@
+.vision-card {
+  width: 360px;
+  height: 235px;
+  flex-shrink: 0;
+  border-radius: 11.739px;
+  background: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-direction: column;
+  .vision-card-title {
+    color: var(--background);
+    font-family: Poppins;
+    font-size: 31.304px !important;
+    font-style: normal;
+    font-weight: 500 !important;
+    line-height: normal;
+  }
+}
