@@ -15,7 +15,6 @@ const RatingCard = ({ rating, description, icon, bg }: RatingCardProps) => {
       <Image
         src={icon}
         alt={`${rating}-icon`}
-        className=""
         width={112}
         height={112}
       />

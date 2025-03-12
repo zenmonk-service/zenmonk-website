@@ -34,7 +34,7 @@ const BaseButton = ({ children, ...props }: BaseButtonProps) => {
       transition={{ type: "spring", stiffness: 150 }}
     >
       <Button
-        className={`base-button ${props.className}`}
+        className={`${props.className} base-button`}
         ref={buttonRef}
         {...props}
       >

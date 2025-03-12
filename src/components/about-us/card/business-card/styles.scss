@@ -4,9 +4,9 @@
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
   box-shadow: 1px 1px 35.5px 0px rgba(0, 62, 176, 0.08);
   .business-card-icon-container {
+    margin-left: -20px;
     width: 100%;
   }
   .business-card-content {

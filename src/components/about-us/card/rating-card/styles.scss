@@ -1,15 +1,16 @@
 .rating-card {
-  height: max-content;
+  width: 367px;
+  height: 198px;
   flex-shrink: 0;
   display: flex;
-  align-items: center;
-  padding: 20px 30px;
-  justify-content: center;
+  padding: 39px;
   gap: 10px;
   border-radius: 53.333px 0px;
   .rating-card-content {
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    text-align: left;
     gap: 5px;
     .rating {
       color: #000;

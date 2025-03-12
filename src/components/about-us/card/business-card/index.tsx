@@ -1,6 +1,5 @@
 import { Box, Typography } from "@mui/material";
 import "./styles.scss";
-import Image from "next/image";
 
 interface BusinessCardProps {
   Icon: any;
