@@ -1,6 +1,7 @@
 import { Box, Toolbar, Typography } from "@mui/material";
 import Image from "next/image";
 import BaseButton from "@/components/shared/button";
+import About from "@/assets/images/about/about.png"
 import "./styles.scss";
 
 const HeroSection = () => {
@@ -21,7 +22,6 @@ const HeroSection = () => {
             Meet the Innovators <br />
             Behind
             <Typography variant="inherit" component="span">
-              {" "}
               ZENMONK
             </Typography>
           </Typography>
@@ -36,8 +36,8 @@ const HeroSection = () => {
       <Box className="hero-section-image-wrapper">
         <Image
           className="hero-section-image"
-          src={"/about/hero-section/hero-section.png"}
-          alt="innovators"
+          src={About}
+          alt="innovator"
           fill
         />
       </Box>

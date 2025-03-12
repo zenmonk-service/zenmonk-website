@@ -22,8 +22,9 @@ export const BusinessSection = () => {
             <BusinessCard
               key={index}
               description={business.description}
+              name={business.name}
               title={business.title}
-              icon={business.icon}
+              Icon={business.icon}
             />
           );
         })}

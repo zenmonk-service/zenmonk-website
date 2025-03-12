@@ -21,7 +21,7 @@ const page = () => {
         <HeroSection />
         <AnimatedDiv>
           <TagLine />
-          <InfiniteSlider />
+          <InfiniteSlider/>
         </AnimatedDiv>
         <AnimatedDiv>
           <ServiceSection />
