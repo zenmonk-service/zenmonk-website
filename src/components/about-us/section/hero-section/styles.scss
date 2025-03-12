@@ -3,8 +3,13 @@
   align-items: center;
   height: 100vh;
   padding-top: 95px;
+
   .vector {
     position: absolute;
+  }
+  
+  .text-description {
+  margin-bottom: 80px;
   }
 
   .hero-section {
@@ -13,7 +18,7 @@
     flex-direction: column;
     text-align: left;
     .base-button {
-      margin-top: 80px;
+ 
       width: 320px;
       height: 70px;
       flex-shrink: 0;
