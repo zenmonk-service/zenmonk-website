@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Montserrat } from "next/font/google";
-import Header from "@/components/shared/header";
+import Header from "@/shared/header";
 import "./globals.css";
-import { Footer } from "@/components/landing/sections";
+import { Footer } from "@/modules/home/sections";
 
 const inter = Inter({
   variable: "--font-inter",

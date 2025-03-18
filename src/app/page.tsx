@@ -6,16 +6,16 @@ import {
   OurWorkSection,
   WhyChooseUsSection,
   ClientSatisfaction,
-} from "@/components/landing/sections";
+} from "@/modules/home/sections";
 
-import InfiniteSlider from "@/components/shared/infinite-slider";
-import TagLine from "@/components/landing/tag-line";
-import SectionWrapper from "@/components/shared/wrapper";
-import ContactUs from "@/components/landing/contact-us";
-import { Odometer } from "@/components/landing/odometer";
-import AnimatedDiv from "@/components/shared/animated-div";
-import FAQ from "@/components/landing/faq";
-import Testimony from "@/components/landing/testimony";
+import InfiniteSlider from "@/shared/infinite-slider";
+import TagLine from "@/modules/home/tag-line";
+import SectionWrapper from "@/shared/wrapper";
+import ContactUs from "@/modules/home/contact-us";
+import { Odometer } from "@/modules/home/odometer";
+import AnimatedDiv from "@/shared/animated-div";
+import FAQ from "@/modules/home/faq";
+import Testimony from "@/modules/home/testimony";
 
 const page = () => {
   return (

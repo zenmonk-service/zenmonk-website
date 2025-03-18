@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
-import Rating from "@/components/about-us/rating";
-import { BusinessSection, HeroSection, WhyChooseUsSection, AwardProofSection, StandOutSection, VisionSection, ContactUsSection, OurClientSection } from "@/components/about-us/section";
-import AnimatedDiv from "@/components/shared/animated-div";
-import SectionWrapper from "@/components/shared/wrapper";
+import Rating from "@/modules/about-us/rating";
+import { BusinessSection, HeroSection, WhyChooseUsSection, AwardProofSection, StandOutSection, VisionSection, ContactUsSection, OurClientSection } from "@/modules/about-us/section";
+import AnimatedDiv from "@/shared/animated-div";
+import SectionWrapper from "@/shared/wrapper";
 
 const About = () => {
   return (

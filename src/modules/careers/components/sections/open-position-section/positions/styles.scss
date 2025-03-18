@@ -1,0 +1,107 @@
+.positions {
+  margin-top: 60px;
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  border: 2px solid #f5f5f5;
+  background: var(--background);
+  display: flex;
+  .left-section {
+    padding-top: 30px;
+    width: 380px;
+    height: 501px;
+    flex-shrink: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 0px 0px 40px;
+    .position {
+      cursor: pointer;
+      padding: 20px;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Poppins;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 30px;
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    .selected {
+      background: var(--background);
+      color: #eb7c0d;
+    }
+  }
+  .right-section {
+    padding: 40px 60px;
+    overflow: scroll;
+    flex: 1;
+    &::-webkit-scrollbar {
+      width: 100px !important;
+    }
+    .department-title {
+      color: #132427;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Poppins;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 36px;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+      .chip-label {
+        font-size: 11px;
+        margin-left: 10px;
+      }
+    }
+
+    .department-description {
+      color: #757575;
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 30px;
+      margin-bottom: 10px;
+    }
+    .skills-set-wrapper {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      background-color: var(--background);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      .skills-container {
+        width: calc(50% - 10px);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .skills-title {
+          color: #132427;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Poppins;
+          font-size: 18px !important;
+          font-style: normal;
+          font-weight: 600 !important;
+          line-height: 28px;
+        }
+        .skills-description {
+          color: #757575;
+          font-feature-settings: "liga" off, "clig" off;
+          font-family: Poppins;
+          justify-content: start !important;
+          font-size: 16px !important;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px;
+        }
+        .selected {
+          background-color: var(--background);
+        }
+      }
+    }
+  }
+}
