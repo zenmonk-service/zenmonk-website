@@ -5,6 +5,7 @@ import {
   TechSolutionSection,
   OurWorkSection,
   WhyChooseUsSection,
+  ClientSatisfaction,
 } from "@/components/landing/sections";
 
 import InfiniteSlider from "@/components/shared/infinite-slider";
@@ -13,6 +14,8 @@ import SectionWrapper from "@/components/shared/wrapper";
 import ContactUs from "@/components/landing/contact-us";
 import { Odometer } from "@/components/landing/odometer";
 import AnimatedDiv from "@/components/shared/animated-div";
+import FAQ from "@/components/landing/faq";
+import Testimony from "@/components/landing/testimony";
 
 const page = () => {
   return (
@@ -41,8 +44,19 @@ const page = () => {
       <AnimatedDiv>
         <Odometer />
       </AnimatedDiv>
+
+<AnimatedDiv>
+  <ClientSatisfaction/>
+</AnimatedDiv>
+
       <AnimatedDiv>
-        <ContactUs />
+        <FAQ/>
+        {/* <ContactUs /> */}
+      </AnimatedDiv>
+
+      <AnimatedDiv>
+        <Testimony/>
+        {/* <ContactUs /> */}
       </AnimatedDiv>
     </Box>
   );
