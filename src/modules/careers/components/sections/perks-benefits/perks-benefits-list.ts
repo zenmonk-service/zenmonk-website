@@ -1,6 +1,0 @@
-const perkBenefitsList=[
-    {
-        title:"",
-        
-    }
-]

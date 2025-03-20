@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Rating from "@/modules/about-us/rating";
-import { BusinessSection, HeroSection, WhyChooseUsSection, AwardProofSection, StandOutSection, VisionSection, ContactUsSection, OurClientSection } from "@/modules/about-us/section";
+import Rating from "@/modules/about-us/components/rating";
+import { BusinessSection, HeroSection, WhyChooseUsSection, AwardProofSection, StandOutSection, VisionSection, ContactUsSection, OurClientSection } from "@/modules/about-us/sections";
 import AnimatedDiv from "@/shared/animated-div";
 import SectionWrapper from "@/shared/wrapper";
 

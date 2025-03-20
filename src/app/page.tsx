@@ -11,10 +11,10 @@ import {
 import InfiniteSlider from "@/shared/infinite-slider";
 import TagLine from "@/modules/home/tag-line";
 import SectionWrapper from "@/shared/wrapper";
-import ContactUs from "@/modules/home/contact-us";
+import ContactUs from "@/shared/contact-us";
 import { Odometer } from "@/modules/home/odometer";
 import AnimatedDiv from "@/shared/animated-div";
-import FAQ from "@/modules/home/faq";
+import FAQ from "@/shared/faq";
 import Testimony from "@/modules/home/testimony";
 
 const page = () => {
