@@ -1,31 +1,32 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { ExpandMore, ExpandLess, Menu } from '@mui/icons-material'
 import {
   Box,
   Button,
   createTheme,
   IconButton,
   useMediaQuery,
-} from "@mui/material";
-import { ExpandMore, ExpandLess, Menu } from "@mui/icons-material";
-import { ActionLink, actionsLink } from "./links";
-import "./styles.scss";
-import { useRouter } from "next/navigation";
+} from '@mui/material'
+import { ActionLink, actionsLink } from './links'
+import './styles.scss'
 
 interface OptionProps {
-  id: string;
-  isExpanded: boolean;
-  onClick: () => void;
+  id: string
+  isExpanded: boolean
+  onClick: () => void
 }
 
-const theme = createTheme();
+const theme = createTheme()
 const ActionLinks = () => {
-  const { push } = useRouter();
-  const [isExpanded, setIsExpanded] = useState(false);
-  const toggleExpand = () => setIsExpanded((prev) => !prev);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const { push } = useRouter()
+  const [isExpanded, setIsExpanded] = useState(false)
+  const toggleExpand = () => setIsExpanded((prev) => !prev)
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
 
-  const navigateTo = (path: string) => push(path);
+  const navigateTo = (path: string) => push(path)
 
   return !isSmallScreen ? (
     <Box className="action-links-wrapper">
@@ -38,7 +39,7 @@ const ActionLinks = () => {
               key={index}
               color="inherit"
               disableRipple
-              onClick={()=>navigateTo(href)}
+              onClick={() => navigateTo(href)}
             >
               {name}
               {options && (
@@ -56,10 +57,10 @@ const ActionLinks = () => {
     <IconButton className="action-link-menu-icon">
       <Menu fontSize="inherit" />
     </IconButton>
-  );
-};
+  )
+}
 
-export default ActionLinks;
+export default ActionLinks
 
 const Option: React.FC<OptionProps> = ({ isExpanded, onClick }) => (
   <Box onClick={onClick} className="expand-option-icon">
@@ -69,4 +70,4 @@ const Option: React.FC<OptionProps> = ({ isExpanded, onClick }) => (
       <ExpandLess color="inherit" />
     )}
   </Box>
-);
+)

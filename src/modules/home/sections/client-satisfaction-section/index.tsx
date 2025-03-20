@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import { Box, Typography } from "@mui/material";
-import { useInView } from "react-intersection-observer"; 
-import Title from "@/shared/title";
-import Satisfication from "@/modules/home/satisfication";
-import "./styles.scss";
+import { useInView } from 'react-intersection-observer'
+import { Box, Typography } from '@mui/material'
+import Satisfication from '@/modules/home/satisfication'
+import Title from '@/shared/title'
+import './styles.scss'
 
 const ClientSatisfaction = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5, 
-  });
+    threshold: 0.5,
+  })
 
   return (
-    <Box className={`client-satisfaction-section ${inView ? "in-view" : ""}`}>
+    <Box className={`client-satisfaction-section ${inView ? 'in-view' : ''}`}>
       <Title
         text="The Evolution of Client Satisfaction"
         align="center"
@@ -31,7 +31,7 @@ const ClientSatisfaction = () => {
         <Satisfication />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { ClientSatisfaction };
+export { ClientSatisfaction }

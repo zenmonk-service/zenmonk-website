@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
-import "./styles.scss"
+import Image, { StaticImageData } from 'next/image'
+import { Box, Typography } from '@mui/material'
+import './styles.scss'
 
 interface TraditionCustomCardProps {
-  image: StaticImageData;
-  title: string;
-  description: string;
+  image: StaticImageData
+  title: string
+  description: string
 }
 
 const TraditionCustomCard = ({
@@ -27,7 +27,7 @@ const TraditionCustomCard = ({
         </Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default TraditionCustomCard;
+export default TraditionCustomCard

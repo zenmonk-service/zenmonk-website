@@ -1,7 +1,5 @@
-import { Box, Container, Toolbar, Typography } from "@mui/material";
-import Image from "next/image";
-import BaseButton from "@/shared/button";
-import "./styles.scss";
+import Image from 'next/image'
+import { Box, Container, Toolbar, Typography } from '@mui/material'
 import {
   BigEllipse,
   Circle,
@@ -10,7 +8,9 @@ import {
   Freelancer,
   HappyCulture,
   SalaryHike,
-} from "@/modules/careers/assets";
+} from '@/modules/careers/assets'
+import BaseButton from '@/shared/button'
+import './styles.scss'
 
 const HeroSection = () => {
   return (
@@ -21,7 +21,7 @@ const HeroSection = () => {
         <Box className="hero-section-text-wrapper">
           <Typography variant="h4" className="text-heading">
             <Typography variant="inherit" component="span">
-              Join Our Team{" "}
+              Join Our Team{' '}
             </Typography>
             and Make <br />
             an Impact in Tech
@@ -49,13 +49,31 @@ const HeroSection = () => {
             alt="circle"
             fill
           />
-          <Image alt="experience" width={147} height={150} src={Experience} className="hero-section-experience-image" />
-          <Image alt="hike" width={137} height={113} src={SalaryHike} className="hero-section-hike-image" />
-          <Image alt="happy-culture" width={150} height={165} src={HappyCulture} className="hero-section-happy-culture-image" />
+          <Image
+            alt="experience"
+            width={147}
+            height={150}
+            src={Experience}
+            className="hero-section-experience-image"
+          />
+          <Image
+            alt="hike"
+            width={137}
+            height={113}
+            src={SalaryHike}
+            className="hero-section-hike-image"
+          />
+          <Image
+            alt="happy-culture"
+            width={150}
+            height={165}
+            src={HappyCulture}
+            className="hero-section-happy-culture-image"
+          />
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { HeroSection };
+export { HeroSection }

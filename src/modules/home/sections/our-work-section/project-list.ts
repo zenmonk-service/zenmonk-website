@@ -1,22 +1,22 @@
 export const projects = [
   {
-    title: "E-commerce",
+    title: 'E-commerce',
     description:
-      "We build online stores that drive sales, customer loyalty, and measurable growth.",
+      'We build online stores that drive sales, customer loyalty, and measurable growth.',
   },
   {
-    title: "Learning Management",
+    title: 'Learning Management',
     description:
-      "We develop LMS platforms that enhance learning experiences and improve outcomes.",
+      'We develop LMS platforms that enhance learning experiences and improve outcomes.',
   },
   {
-    title: "Food Delivery",
+    title: 'Food Delivery',
     description:
-      "We create delivery apps that streamline orders, optimize routes, and boost efficiency.",
+      'We create delivery apps that streamline orders, optimize routes, and boost efficiency.',
   },
   {
-    title: "Medical App",
+    title: 'Medical App',
     description:
-      "We design healthcare apps that improve patient care, accessibility, and wellness.",
+      'We design healthcare apps that improve patient care, accessibility, and wellness.',
   },
-];
+]

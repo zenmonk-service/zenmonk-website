@@ -1,27 +1,27 @@
-import Image from "next/image";
-import CollaborationLogo from "@/assets/icons/collaboration";
-import "./styles.scss";
-import { Box } from "@mui/material";
+import Image from 'next/image'
+import { Box } from '@mui/material'
+import CollaborationLogo from '@/assets/icons/collaboration'
+import './styles.scss'
 
 interface SliderData {
-  name: string;
-  src: string;
+  name: string
+  src: string
 }
 interface InfiniteSliderProps {
-  data?: SliderData[];
-  originFrom?: "right" | "left";
+  data?: SliderData[]
+  originFrom?: 'right' | 'left'
   sliderProps?: {
-    className?: string;
-    gap?: number;
-  };
+    className?: string
+    gap?: number
+  }
   imageProps?: {
-    size?: number;
-  };
+    size?: number
+  }
 }
 
 const InfiniteSlider = ({
   data = [...CollaborationLogo, ...CollaborationLogo],
-  originFrom = "right",
+  originFrom = 'right',
   imageProps,
   sliderProps,
 }: InfiniteSliderProps) => {
@@ -41,7 +41,7 @@ const InfiniteSlider = ({
         ))}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default InfiniteSlider;
+export default InfiniteSlider

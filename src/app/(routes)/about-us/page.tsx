@@ -1,8 +1,17 @@
-import { Box } from "@mui/material";
-import Rating from "@/modules/about-us/components/rating";
-import { BusinessSection, HeroSection, WhyChooseUsSection, AwardProofSection, StandOutSection, VisionSection, ContactUsSection, OurClientSection } from "@/modules/about-us/sections";
-import AnimatedDiv from "@/shared/animated-div";
-import SectionWrapper from "@/shared/wrapper";
+import { Box } from '@mui/material'
+import Rating from '@/modules/about-us/components/rating'
+import {
+  BusinessSection,
+  HeroSection,
+  WhyChooseUsSection,
+  AwardProofSection,
+  StandOutSection,
+  VisionSection,
+  ContactUsSection,
+  OurClientSection,
+} from '@/modules/about-us/sections'
+import AnimatedDiv from '@/shared/animated-div'
+import SectionWrapper from '@/shared/wrapper'
 
 const About = () => {
   return (
@@ -35,7 +44,7 @@ const About = () => {
         </AnimatedDiv>
       </SectionWrapper>
     </Box>
-  );
-};
+  )
+}
 
-export default About;
+export default About

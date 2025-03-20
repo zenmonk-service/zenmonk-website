@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import { ratings } from "./rating";
-import RatingCard from "../card/rating-card";
-import "./styles.scss";
+import { Box } from '@mui/material'
+import RatingCard from '../card/rating-card'
+import { ratings } from './rating'
+import './styles.scss'
 
 const Rating = () => {
   return (
@@ -16,7 +16,7 @@ const Rating = () => {
         />
       ))}
     </Box>
-  );
-};
+  )
+}
 
-export default Rating;
+export default Rating

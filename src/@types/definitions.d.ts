@@ -1,5 +1,5 @@
-require("next/dist/shared/lib/image-external");
+require('next/dist/shared/lib/image-external')
 
 interface ChildrenProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }

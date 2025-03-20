@@ -1,8 +1,8 @@
-import { Box, Toolbar, Typography } from "@mui/material";
-import Image from "next/image";
-import BaseButton from "@/shared/button";
-import About from "@/assets/images/about/about.png"
-import "./styles.scss";
+import Image from 'next/image'
+import { Box, Toolbar, Typography } from '@mui/material'
+import About from '@/assets/images/about/about.png'
+import BaseButton from '@/shared/button'
+import './styles.scss'
 
 const HeroSection = () => {
   return (
@@ -42,7 +42,7 @@ const HeroSection = () => {
         />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { HeroSection };
+export { HeroSection }

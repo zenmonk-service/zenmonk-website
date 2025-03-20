@@ -1,69 +1,67 @@
-"use client";
-import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import { Box, Typography } from "@mui/material";
-import { serviceList, Service } from "./service-list";
-import { ZenmonkLogo } from "@/assets/images";
-import Title from "@/shared/title";
-import { techLogos } from "@/assets/icons/business/tech";
-import BaseButton from "@/shared/button";
-import "./styles.scss";
+'use client'
+
+import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
+import { Box, Typography } from '@mui/material'
+import { techLogos } from '@/assets/icons/business/tech'
+import { ZenmonkLogo } from '@/assets/images'
+import BaseButton from '@/shared/button'
+import Title from '@/shared/title'
+import { serviceList, Service } from './service-list'
+import './styles.scss'
 
 const ServiceSection = () => {
-  const [heading, setHeading] = useState(serviceList[0].title);
-  const [description, setDescription] = useState(serviceList[0].description);
-  const [businessItemRefPosition, setbusinessItemRefPosition] =
-    useState<number | null>(null);
+  const [heading, setHeading] = useState(serviceList[0].title)
+  const [description, setDescription] = useState(serviceList[0].description)
+  const [businessItemRefPosition, setbusinessItemRefPosition] = useState<
+    number | null
+  >(null)
   const [rightSectionHeadingRefPosition, setRightSectionHeadingRefPosition] =
-    useState<number | null>(null);
-  
-  const [isOverlapped, setIsOverlapped] = useState<boolean>(false);
-  const businessItemRef = useRef<(HTMLDivElement | null)[]>([]);
-  const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null);
+    useState<number | null>(null)
+
+  const [isOverlapped, setIsOverlapped] = useState<boolean>(false)
+  const businessItemRef = useRef<(HTMLDivElement | null)[]>([])
+  const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
 
   const updatePosition = () => {
-
     if (businessItemRef.current[0]) {
-      const rect = businessItemRef.current[0]?.getBoundingClientRect();
-      setbusinessItemRefPosition(rect?.top);
+      const rect = businessItemRef.current[0]?.getBoundingClientRect()
+      setbusinessItemRefPosition(rect?.top)
     }
-  
 
     if (rightSectionHeadingRef.current) {
-      const rect = rightSectionHeadingRef.current.getBoundingClientRect();
-      setRightSectionHeadingRefPosition(rect.top);
+      const rect = rightSectionHeadingRef.current.getBoundingClientRect()
+      setRightSectionHeadingRefPosition(rect.top)
     }
-  };
+  }
 
-  useEffect(()=> {
+  useEffect(() => {
     if (businessItemRefPosition && rightSectionHeadingRefPosition) {
       if (businessItemRefPosition < rightSectionHeadingRefPosition) {
-        setIsOverlapped(true);
-      }
-      else {
-        setIsOverlapped(false);
+        setIsOverlapped(true)
+      } else {
+        setIsOverlapped(false)
       }
     }
-
   }, [businessItemRefPosition, rightSectionHeadingRefPosition])
 
   useEffect(() => {
-    updatePosition();
-    window.addEventListener("scroll", updatePosition);
+    updatePosition()
+    window.addEventListener('scroll', updatePosition)
 
     return () => {
-      window.removeEventListener("scroll", updatePosition);
-    };
-  }, []);
+      window.removeEventListener('scroll', updatePosition)
+    }
+  }, [])
 
   const selectItem = (Business: Service) => {
-    setHeading(Business.title);
-    setDescription(Business.description);
-  };
+    setHeading(Business.title)
+    setDescription(Business.description)
+  }
 
-  console.log("businessItemRef", businessItemRef)
+  console.log('businessItemRef', businessItemRef)
 
-  const text = "Future Proof Your Business With Our IT Services";
+  const text = 'Future Proof Your Business With Our IT Services'
 
   return (
     <Box mt={15}>
@@ -71,19 +69,21 @@ const ServiceSection = () => {
         <Box className="services-left-container">
           {serviceList.map((item: Service, index: number) => (
             <Box
-              ref={(el : any) => (businessItemRef.current[index] = el)}
+              ref={(el: any) => (businessItemRef.current[index] = el)}
               className={`business-item`}
               onClick={() => selectItem(item)}
               sx={{
-                "&:hover": {
-                  transform: "translateY(-4px)",
+                '&:hover': {
+                  transform: 'translateY(-4px)',
                 },
               }}
               key={item.id}
             >
               <Box className="business-item-content">
                 <Box className="business-icon">
-                  {typeof item.icon === 'string' && <Image src={item.icon} alt={item.title} />}
+                  {typeof item.icon === 'string' && (
+                    <Image src={item.icon} alt={item.title} />
+                  )}
                 </Box>
                 <Typography
                   component="h4"
@@ -108,8 +108,9 @@ const ServiceSection = () => {
         </Box>
         <Box ref={rightSectionHeadingRef} className="services-right-container">
           <div
-            className={`fade-transition ${isOverlapped ? "fade-transition-hidden" : ""}`}>
-          <Title text={text} align="center" />
+            className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
+          >
+            <Title text={text} align="center" />
           </div>
           {ZenmonkLogo && (
             <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
@@ -134,16 +135,16 @@ const ServiceSection = () => {
                         <Image key={logo.name} src={logo.src} alt={logo.name} />
                       )}
                     </Box>
-                  );
+                  )
                 })}
               </Box>
               <BaseButton
                 sx={{
-                  maxWidth: "158px",
-                  color: "var(--foreground) !important",
-                  textTransform: "uppercase !important",
-                  boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-                  background: "linear-gradient(0deg, #FFF 0%, #FFF 100%)",
+                  maxWidth: '158px',
+                  color: 'var(--foreground) !important',
+                  textTransform: 'uppercase !important',
+                  boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                  background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
                 }}
               >
                 Get Started
@@ -153,7 +154,7 @@ const ServiceSection = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { ServiceSection };
+export { ServiceSection }

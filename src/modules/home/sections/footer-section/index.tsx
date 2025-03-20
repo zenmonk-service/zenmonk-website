@@ -1,4 +1,6 @@
-"use client";
+'use client'
+
+import Image from 'next/image'
 import {
   Box,
   Button,
@@ -6,18 +8,17 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
-import "./styles.scss";
-import Image from "next/image";
-import { Monk } from "@/assets/icons";
-import { serviceCategory } from "./list/service-categories";
-import { quickLink } from "./list/quick-links";
-import { consultingCategories } from "./list/consulting-categories";
-import { socialMedia } from "@/assets/icons/social";
+} from '@mui/material'
+import { Monk } from '@/assets/icons'
+import { socialMedia } from '@/assets/icons/social'
+import { consultingCategories } from './list/consulting-categories'
+import { quickLink } from './list/quick-links'
+import { serviceCategory } from './list/service-categories'
+import './styles.scss'
 
 const Footer = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   return (
     <Box className="footer-section">
       <Box className="header">
@@ -50,7 +51,7 @@ const Footer = () => {
                     <Typography key={index} component="p">
                       {category.title}
                     </Typography>
-                  );
+                  )
                 })}
               </Box>
             </Box>
@@ -64,7 +65,7 @@ const Footer = () => {
                     <Typography key={index} component="p">
                       {link.title}
                     </Typography>
-                  );
+                  )
                 })}
               </Box>
             </Box>
@@ -80,7 +81,7 @@ const Footer = () => {
                     <Typography key={index} component="p">
                       {category.title}
                     </Typography>
-                  );
+                  )
                 })}
               </Box>
             </Box>
@@ -108,7 +109,7 @@ const Footer = () => {
                 </Typography>
                 <Box className="social-media-list">
                   {socialMedia.map((item, index) => {
-                    return <Image key={index} src={item.url} alt={item.name} />;
+                    return <Image key={index} src={item.url} alt={item.name} />
                   })}
                 </Box>
               </Box>
@@ -120,7 +121,7 @@ const Footer = () => {
         <Typography component="p">© Zenmonk 2022</Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { Footer };
+export { Footer }

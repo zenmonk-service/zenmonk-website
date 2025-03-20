@@ -1,10 +1,11 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
+
 interface AnimatedDivProps {
-  children: React.ReactNode;
-  delay?: number;
-  duration?: number;
+  children: React.ReactNode
+  delay?: number
+  duration?: number
 }
 
 const AnimatedDiv = ({
@@ -24,6 +25,6 @@ const AnimatedDiv = ({
   >
     {children}
   </motion.div>
-);
+)
 
-export default AnimatedDiv;
+export default AnimatedDiv

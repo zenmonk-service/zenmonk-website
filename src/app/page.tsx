@@ -1,4 +1,5 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material'
+import { Odometer } from '@/modules/home/odometer'
 import {
   ServiceSection,
   HeroSection,
@@ -6,16 +7,14 @@ import {
   OurWorkSection,
   WhyChooseUsSection,
   ClientSatisfaction,
-} from "@/modules/home/sections";
-
-import InfiniteSlider from "@/shared/infinite-slider";
-import TagLine from "@/modules/home/tag-line";
-import SectionWrapper from "@/shared/wrapper";
-import ContactUs from "@/shared/contact-us";
-import { Odometer } from "@/modules/home/odometer";
-import AnimatedDiv from "@/shared/animated-div";
-import FAQ from "@/shared/faq";
-import Testimony from "@/modules/home/testimony";
+} from '@/modules/home/sections'
+import TagLine from '@/modules/home/tag-line'
+import Testimony from '@/modules/home/testimony'
+import AnimatedDiv from '@/shared/animated-div'
+import ContactUs from '@/shared/contact-us'
+import FAQ from '@/shared/faq'
+import InfiniteSlider from '@/shared/infinite-slider'
+import SectionWrapper from '@/shared/wrapper'
 
 const page = () => {
   return (
@@ -24,7 +23,7 @@ const page = () => {
         <HeroSection />
         <AnimatedDiv>
           <TagLine />
-          <InfiniteSlider/>
+          <InfiniteSlider />
         </AnimatedDiv>
         <AnimatedDiv>
           <ServiceSection />
@@ -45,21 +44,21 @@ const page = () => {
         <Odometer />
       </AnimatedDiv>
 
-<AnimatedDiv>
-  <ClientSatisfaction/>
-</AnimatedDiv>
+      <AnimatedDiv>
+        <ClientSatisfaction />
+      </AnimatedDiv>
 
       <AnimatedDiv>
-        <FAQ/>
+        <FAQ />
         {/* <ContactUs /> */}
       </AnimatedDiv>
 
       <AnimatedDiv>
-        <Testimony/>
+        <Testimony />
         {/* <ContactUs /> */}
       </AnimatedDiv>
     </Box>
-  );
-};
+  )
+}
 
-export default page;
+export default page

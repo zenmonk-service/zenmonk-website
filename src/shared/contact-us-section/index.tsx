@@ -1,21 +1,22 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
-import { Box, Typography } from "@mui/material";
-import CountriesList from "@/shared/countries-list";
-import { countries, Country } from "@/assets/icons/contact-us";
-import ContactCard from "@/shared/contact-card";
-import { Email, Phone, Location } from "@/assets/icons/contact-us/contact";
-import { ContactForm } from "../../modules/about-us/components/contact-form";
-import "./styles.scss";
+'use client'
+
+import { useState } from 'react'
+import Image from 'next/image'
+import { Box, Typography } from '@mui/material'
+import { countries, Country } from '@/assets/icons/contact-us'
+import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
+import ContactCard from '@/shared/contact-card'
+import CountriesList from '@/shared/countries-list'
+import { ContactForm } from '../../modules/about-us/components/contact-form'
+import './styles.scss'
 
 export const ContactUsSection = () => {
-  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
+  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0])
 
   return (
     <Box className="about-us-contact-us-section">
       <Image
-        src={"/about-us/contact-us/vector.svg"}
+        src={'/about-us/contact-us/vector.svg'}
         alt="vector"
         width={400}
         height={400}
@@ -30,7 +31,7 @@ export const ContactUsSection = () => {
           <CountriesList
             className="countries-list"
             countryCardProps={{
-              className: "country-card",
+              className: 'country-card',
             }}
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountry}
@@ -62,5 +63,5 @@ export const ContactUsSection = () => {
         <ContactForm />
       </Box>
     </Box>
-  );
-};
+  )
+}

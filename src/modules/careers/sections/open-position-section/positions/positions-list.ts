@@ -1,55 +1,55 @@
-import { Department } from "../../types";
+import { Department } from '../../types'
 
 export const positionsList: Department[] = [
   {
-    department: "Development",
+    department: 'Development',
     id: 1,
     positions: [
       {
-        title: "UI-UX Designer",
-        heading: "Experienced UI-UX Designer",
+        title: 'UI-UX Designer',
+        heading: 'Experienced UI-UX Designer',
         isOpening: true,
         description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         skills: [
           {
-            title: "Figma",
+            title: 'Figma',
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           },
           {
-            title: "Problem Solving",
+            title: 'Problem Solving',
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           },
           {
-            title: "Adobe XD",
+            title: 'Adobe XD',
             description:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           },
         ],
       },
       {
-        title: "Frontend Developer",
-        heading: "React.js Frontend Developer",
+        title: 'Frontend Developer',
+        heading: 'React.js Frontend Developer',
         isOpening: false,
         description:
-          "Seeking a skilled React.js developer to build and maintain user-facing applications with modern UI frameworks.",
+          'Seeking a skilled React.js developer to build and maintain user-facing applications with modern UI frameworks.',
         skills: [
           {
-            title: "React.js",
+            title: 'React.js',
             description:
-              "Experience with hooks, state management, and component lifecycle.",
+              'Experience with hooks, state management, and component lifecycle.',
           },
           {
-            title: "JavaScript/TypeScript",
+            title: 'JavaScript/TypeScript',
             description:
-              "Strong understanding of ES6+ features and TypeScript.",
+              'Strong understanding of ES6+ features and TypeScript.',
           },
           {
-            title: "CSS & Material-UI",
+            title: 'CSS & Material-UI',
             description:
-              "Expertise in styling libraries like Tailwind or Material-UI.",
+              'Expertise in styling libraries like Tailwind or Material-UI.',
           },
         ],
       },
@@ -57,28 +57,28 @@ export const positionsList: Department[] = [
   },
   {
     id: 2,
-    department: "Management",
+    department: 'Management',
     positions: [
       {
-        title: "Project Manager",
-        heading: "Agile Project Manager",
+        title: 'Project Manager',
+        heading: 'Agile Project Manager',
         isOpening: false,
         description:
-          "We are looking for a detail-oriented Project Manager to oversee software development projects using Agile methodologies.",
+          'We are looking for a detail-oriented Project Manager to oversee software development projects using Agile methodologies.',
         skills: [
           {
-            title: "Agile & Scrum",
+            title: 'Agile & Scrum',
             description:
-              "Experience managing projects using Agile and Scrum methodologies.",
+              'Experience managing projects using Agile and Scrum methodologies.',
           },
           {
-            title: "Leadership",
+            title: 'Leadership',
             description:
-              "Strong ability to lead and motivate teams effectively.",
+              'Strong ability to lead and motivate teams effectively.',
           },
           {
-            title: "Communication",
-            description: "Excellent verbal and written communication skills.",
+            title: 'Communication',
+            description: 'Excellent verbal and written communication skills.',
           },
         ],
       },
@@ -86,29 +86,29 @@ export const positionsList: Department[] = [
   },
   {
     id: 3,
-    department: "Sales",
+    department: 'Sales',
     positions: [
       {
-        title: "Sales Executive",
-        heading: "B2B Sales Executive",
+        title: 'Sales Executive',
+        heading: 'B2B Sales Executive',
         isOpening: false,
         description:
-          "Join our sales team to drive business growth by acquiring new clients and maintaining strong relationships.",
+          'Join our sales team to drive business growth by acquiring new clients and maintaining strong relationships.',
         skills: [
           {
-            title: "Negotiation",
+            title: 'Negotiation',
             description:
-              "Ability to close deals effectively and build long-term partnerships.",
+              'Ability to close deals effectively and build long-term partnerships.',
           },
           {
-            title: "CRM Tools",
+            title: 'CRM Tools',
             description:
-              "Experience using CRM tools for tracking leads and sales activities.",
+              'Experience using CRM tools for tracking leads and sales activities.',
           },
           {
-            title: "Market Research",
+            title: 'Market Research',
             description:
-              "Understanding of market trends and competitor analysis.",
+              'Understanding of market trends and competitor analysis.',
           },
         ],
       },
@@ -116,28 +116,28 @@ export const positionsList: Department[] = [
   },
   {
     id: 4,
-    department: "Admin",
+    department: 'Admin',
     positions: [
       {
-        title: "Administrative Assistant",
-        heading: "Office Administrative Assistant",
+        title: 'Administrative Assistant',
+        heading: 'Office Administrative Assistant',
         isOpening: true,
         description:
-          "Seeking an organized and detail-oriented individual to handle office administration and support tasks.",
+          'Seeking an organized and detail-oriented individual to handle office administration and support tasks.',
         skills: [
           {
-            title: "Time Management",
+            title: 'Time Management',
             description:
-              "Ability to manage schedules and prioritize tasks effectively.",
+              'Ability to manage schedules and prioritize tasks effectively.',
           },
           {
-            title: "Microsoft Office",
-            description: "Proficiency in Word, Excel, and PowerPoint.",
+            title: 'Microsoft Office',
+            description: 'Proficiency in Word, Excel, and PowerPoint.',
           },
           {
-            title: "Data Entry",
+            title: 'Data Entry',
             description:
-              "Experience handling and organizing documents and records.",
+              'Experience handling and organizing documents and records.',
           },
         ],
       },
@@ -145,32 +145,32 @@ export const positionsList: Department[] = [
   },
   {
     id: 5,
-    department: "Marketing",
+    department: 'Marketing',
     positions: [
       {
-        title: "Digital Marketing Specialist",
-        heading: "SEO & Social Media Marketing Specialist",
+        title: 'Digital Marketing Specialist',
+        heading: 'SEO & Social Media Marketing Specialist',
         isOpening: false,
         description:
-          "Looking for a digital marketing expert to manage SEO, content marketing, and social media strategies.",
+          'Looking for a digital marketing expert to manage SEO, content marketing, and social media strategies.',
         skills: [
           {
-            title: "SEO & SEM",
+            title: 'SEO & SEM',
             description:
-              "Expertise in optimizing websites for search engines and running ad campaigns.",
+              'Expertise in optimizing websites for search engines and running ad campaigns.',
           },
           {
-            title: "Content Marketing",
+            title: 'Content Marketing',
             description:
-              "Experience in creating engaging blog posts and digital content.",
+              'Experience in creating engaging blog posts and digital content.',
           },
           {
-            title: "Social Media",
+            title: 'Social Media',
             description:
-              "Ability to manage and grow social media platforms effectively.",
+              'Ability to manage and grow social media platforms effectively.',
           },
         ],
       },
     ],
   },
-];
+]

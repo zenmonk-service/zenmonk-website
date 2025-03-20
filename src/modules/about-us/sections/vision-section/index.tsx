@@ -1,8 +1,8 @@
-import { Box, Typography } from "@mui/material";
-import Title from "@/shared/title";
-import { visions } from "./visions";
-import VisionCard from "../../components/card/vision-card";
-import "./styles.scss";
+import { Box, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import VisionCard from '../../components/card/vision-card'
+import './styles.scss'
+import { visions } from './visions'
 
 export const VisionSection = () => {
   return (
@@ -13,15 +13,15 @@ export const VisionSection = () => {
       />
       <Typography component="p" className="section-description">
         Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s. Lorem Ipsum has been the industry's standard{" "}
+        1500s. Lorem Ipsum has been the industry's standard{' '}
       </Typography>
       <Box className="vision-list">
         {visions.map((vision, index) => {
           return (
             <VisionCard title={vision.title} image={vision.image} key={index} />
-          );
+          )
         })}
       </Box>
     </Box>
-  );
-};
+  )
+}

@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
-import { countries, Country } from "@/assets/icons/contact-us";
-import { Box } from "@mui/material";
-import CountryCard from "../country";
+import React, { Fragment } from 'react'
+import { Box } from '@mui/material'
+import { countries, Country } from '@/assets/icons/contact-us'
+import CountryCard from '../country'
 
 interface CountriesListProps {
-  className: string;
-  selectedCountry: Country;
+  className: string
+  selectedCountry: Country
   countryCardProps?: {
-    className?: string;
-  };
-  setSelectedCountry: (country: Country) => void;
+    className?: string
+  }
+  setSelectedCountry: (country: Country) => void
 }
 
 const CountriesList = ({
@@ -31,10 +31,10 @@ const CountriesList = ({
               country={country}
             />
           </Fragment>
-        );
+        )
       })}
     </Box>
-  );
-};
+  )
+}
 
-export default CountriesList;
+export default CountriesList

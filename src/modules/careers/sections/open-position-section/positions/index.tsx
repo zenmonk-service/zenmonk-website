@@ -1,85 +1,99 @@
-"use client";
-import { Box, Chip, Typography } from "@mui/material";
-import { positionsList } from "./positions-list";
-import { Department } from "../../types";
-import "./styles.scss";
-import { useState } from "react";
+'use client'
+
+import { useState } from 'react'
+import { Box, Chip, Typography } from '@mui/material'
+import { Department } from '../../types'
+import { positionsList } from './positions-list'
+import './styles.scss'
 
 interface SkillsCardProps {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
 const Positions = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<
     Department | undefined
-  >(positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)));
+  >(positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)))
+
+  const hasOpenPosition = selectedDepartment?.positions.some(
+    (position) => position.isOpening
+  )
 
   const selectPosition = (department: Department) => {
-    setSelectedDepartment(department);
-  };
+    setSelectedDepartment(department)
+  }
 
   return (
     <Box className="positions">
       <Box className="left-section">
         {positionsList.map((department, index) => {
-          const hasOpenPosition = department.positions.some(
-            (position) => position.isOpening
-          );
           return (
             <Typography
               className={`position ${
-                selectedDepartment?.id === department.id ? "selected" : ""
+                selectedDepartment?.id === department.id ? 'selected' : ''
               }`}
               key={index}
-              onClick={() => {
-                hasOpenPosition && selectPosition(department);
-              }}
+              onClick={() => selectPosition(department)}
               sx={{
-                color: "GrayText",
-                "&:hover": {
-                  color: "var(--foreground)",
+                color: 'GrayText',
+                '&:hover': {
+                  color: 'var(--foreground)',
                 },
               }}
             >
               {department.department}
             </Typography>
-          );
+          )
         })}
       </Box>
 
       <Box className="right-section">
-        {selectedDepartment?.positions.map((department, index) => {
-          return (
-            <Box key={index}>
+        {hasOpenPosition ? (
+          selectedDepartment?.positions.map((department, index) => {
+            return (
+              <Box key={index}>
+                <Typography component="h1" className="department-title">
+                  {department.heading}
+                  <Chip
+                    className="chip-label"
+                    label={department.isOpening ? 'open' : 'closed'}
+                    color={department.isOpening ? 'success' : 'error'}
+                    variant="outlined"
+                  />
+                </Typography>
+                <Typography component="p" className="department-description">
+                  {department.description}
+                </Typography>
+                <Box className="skills-set-wrapper">
+                  {department.skills.map((skill, index) => (
+                    <SkillsCard
+                      key={index}
+                      title={skill.title}
+                      description={skill.description}
+                    />
+                  ))}
+                </Box>
+              </Box>
+            )
+          })
+        ) : (
+          <>
+            <Box>
               <Typography component="h1" className="department-title">
-                {department.heading}
-                <Chip
-                  className="chip-label"
-                  label={department.isOpening ? "open" : "closed"}
-                  color={department.isOpening ? "success" : "error"}
-                  variant="outlined"
-                />
+                No Open Positions
               </Typography>
               <Typography component="p" className="department-description">
-                {department.description}
+                Currently, there are no available positions in this department.
+                Please check back later for updates.
               </Typography>
-              <Box className="skills-set-wrapper">
-                {department.skills.map((skill, index) => (
-                  <SkillsCard
-                    key={index}
-                    title={skill.title}
-                    description={skill.description}
-                  />
-                ))}
-              </Box>
             </Box>
-          );
-        })}
+          </>
+        )}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 const SkillsCard = ({ title, description }: SkillsCardProps) => {
   return (
@@ -91,7 +105,7 @@ const SkillsCard = ({ title, description }: SkillsCardProps) => {
         {description}
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default Positions;
+export default Positions

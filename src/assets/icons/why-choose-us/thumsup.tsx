@@ -1,6 +1,5 @@
-
-export const ThumsUp= () => {
-    const svgString = `<svg width="803" height="823" viewBox="0 0 803 823" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const ThumsUp = () => {
+  const svgString = `<svg width="803" height="823" viewBox="0 0 803 823" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M802.57 420.216H633.598V426.994H802.57V420.216Z" fill="url(#paint0_linear_3086_17771)"/>
 <path d="M802.57 420.216H633.598V426.994H802.57V420.216Z" fill="#EB7C0D"/>
 
@@ -165,8 +164,7 @@ export const ThumsUp= () => {
 </defs>
 </svg>
 
-    `;
-  
-    return <div dangerouslySetInnerHTML={{ __html: svgString }} />;
-  };
-  
+    `
+
+  return <div dangerouslySetInnerHTML={{ __html: svgString }} />
+}

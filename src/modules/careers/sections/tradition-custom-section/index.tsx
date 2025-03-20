@@ -1,10 +1,9 @@
-import Title from "@/shared/title";
-import { Box, Container, Typography } from "@mui/material";
-import "./styles.scss";
-import Image from "next/image";
-import { bgImage } from "./assets";
-import { traditionsCustoms } from "./tradition-customs";
-import TraditionCustomCard from "./card/tradition-card";
+import Image from 'next/image'
+import { Box, Container, Typography } from '@mui/material'
+import { bgImage } from './assets'
+import TraditionCustomCard from './card/tradition-card'
+import './styles.scss'
+import { traditionsCustoms } from './tradition-customs'
 
 const TraditionsCustoms = () => {
   return (
@@ -29,12 +28,12 @@ const TraditionsCustoms = () => {
                 title={tradition.title}
                 description={tradition.description}
               />
-            );
+            )
           })}
         </Box>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default TraditionsCustoms;
+export default TraditionsCustoms

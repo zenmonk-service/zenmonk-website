@@ -850,7 +850,7 @@ export const LatestTech = () => {
 
 
 
-    `;
+    `
 
-  return <div dangerouslySetInnerHTML={{ __html: svgString }} />;
-};
+  return <div dangerouslySetInnerHTML={{ __html: svgString }} />
+}

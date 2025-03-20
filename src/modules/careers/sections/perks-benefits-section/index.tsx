@@ -1,14 +1,14 @@
-import Title from "@/shared/title";
-import Image, { StaticImageData } from "next/image";
-import { Box, Container, Typography } from "@mui/material";
-import "./styles.scss";
-import { perkBenefitsList } from "./perks-benefits-list";
+import Image, { StaticImageData } from 'next/image'
+import { Box, Container, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import { perkBenefitsList } from './perks-benefits-list'
+import './styles.scss'
 
 interface PerksCardProps {
-  borderColor: string;
-  bgColor: string;
-  title: string;
-  image: StaticImageData;
+  borderColor: string
+  bgColor: string
+  title: string
+  image: StaticImageData
 }
 
 const PerkBenefits = () => {
@@ -35,8 +35,8 @@ const PerkBenefits = () => {
         </Box>
       </Container>
     </Box>
-  );
-};
+  )
+}
 
 const PerksCard = ({ title, image, bgColor, borderColor }: PerksCardProps) => {
   return (
@@ -48,6 +48,6 @@ const PerksCard = ({ title, image, bgColor, borderColor }: PerksCardProps) => {
         {title}
       </Typography>
     </Box>
-  );
-};
-export default PerkBenefits;
+  )
+}
+export default PerkBenefits

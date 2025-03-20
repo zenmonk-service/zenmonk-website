@@ -1,23 +1,24 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+
+import { PatternLines } from '@visx/pattern'
+import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
-} from "react-simple-maps";
-import { countries, Country } from "@/assets/icons/contact-us";
-import { motion } from "framer-motion";
-import { Box } from "@mui/material";
-import { PatternLines } from "@visx/pattern";
-import "./styles.scss";
+} from 'react-simple-maps'
+import { Box } from '@mui/material'
+import { countries, Country } from '@/assets/icons/contact-us'
+import './styles.scss'
 
 interface SimpleMapProps {
-  selectedCountry: Country;
+  selectedCountry: Country
 }
 
 const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
-  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
 
   return (
     <Box className="simple-map">
@@ -36,7 +37,7 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
             height={10}
             stroke="var(--primary)"
             strokeWidth={1}
-            orientation={["horizontal", "vertical"]}
+            orientation={['horizontal', 'vertical']}
           />
         </defs>
 
@@ -47,9 +48,9 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
                 key={geo.rsmKey}
                 geography={geo}
                 style={{
-                  default: { fill: "url(#dotted-pattern)" },
-                  hover: { fill: "url(#dotted-pattern)" },
-                  pressed: { fill: "url(#dotted-pattern)" },
+                  default: { fill: 'url(#dotted-pattern)' },
+                  hover: { fill: 'url(#dotted-pattern)' },
+                  pressed: { fill: 'url(#dotted-pattern)' },
                 }}
               />
             ))
@@ -59,7 +60,7 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
         {countries.map(
           ({ name, coordinates, markerOffset, marketXoffSet, idx }: any) => {
             const isHighlighted =
-              hoveredIdx === idx || selectedCountry?.idx === idx;
+              hoveredIdx === idx || selectedCountry?.idx === idx
 
             return (
               <Marker
@@ -73,8 +74,8 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
                   animate={{ scale: isHighlighted ? 1.4 : 1 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    cursor: "pointer",
-                    filter: "drop-shadow(0 0 10px rgba(0, 0, 0, 0.3))",
+                    cursor: 'pointer',
+                    filter: 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.3))',
                   }}
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -93,17 +94,17 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
                   textAnchor="middle"
                   y={markerOffset}
                   x={marketXoffSet}
-                  style={{ fontFamily: "Poppins", fontSize: "14px" }}
+                  style={{ fontFamily: 'Poppins', fontSize: '14px' }}
                 >
                   {name}
                 </motion.text>
               </Marker>
-            );
+            )
           }
         )}
       </ComposableMap>
     </Box>
-  );
-};
+  )
+}
 
-export default SimpleMap;
+export default SimpleMap

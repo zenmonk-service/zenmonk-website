@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "npx prettier --config .prettierrc.json --write \"${npm_config_path:-src}/**/*.{js,ts,tsx,jsx}\""
   },
   "dependencies": {
     "@babylonjs/core": "^7.50.0",
@@ -18,7 +19,7 @@
     "@mui/material": "^6.4.3",
     "@svgr/webpack": "^8.1.0",
     "@visx/pattern": "^3.12.0",
-    "framer-motion": "^12.4.3",
+    "framer-motion": "^12.5.0",
     "leaflet": "^1.9.4",
     "next": "15.1.6",
     "next-svgr": "^0.0.2",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/leaflet": "^1.9.16",
     "@types/node": "^20",
     "@types/react": "^19.0.8",
@@ -49,6 +51,7 @@
     "babel-plugin-inline-react-svg": "^2.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
+    "prettier": "^3.5.3",
     "sass": "^1.84.0",
     "typescript": "^5"
   }

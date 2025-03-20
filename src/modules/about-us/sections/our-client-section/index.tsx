@@ -1,13 +1,12 @@
-import Title from "@/shared/title";
-import { Box, Typography } from "@mui/material";
-import InfiniteSlider from "@/shared/infinite-slider";
-import CollaborationLogo from "@/assets/icons/collaboration";
-import "./styles.scss";
+import { Box, Typography } from '@mui/material'
+import CollaborationLogo from '@/assets/icons/collaboration'
+import InfiniteSlider from '@/shared/infinite-slider'
+import Title from '@/shared/title'
+import './styles.scss'
 
 export const OurClientSection = () => {
-  const ClientSliderFromRight = CollaborationLogo.slice(0, 5);
-  const ClientSliderFromLeft = CollaborationLogo.slice(4, 9);
-
+  const ClientSliderFromRight = CollaborationLogo.slice(0, 5)
+  const ClientSliderFromLeft = CollaborationLogo.slice(4, 9)
 
   return (
     <Box className="about-us-our-client-section">
@@ -20,15 +19,15 @@ export const OurClientSection = () => {
       <InfiniteSlider
         data={[...ClientSliderFromRight, ...ClientSliderFromRight]}
         originFrom="left"
-        sliderProps={{ className: "infinite-slider", gap: 30 }}
+        sliderProps={{ className: 'infinite-slider', gap: 30 }}
         imageProps={{ size: 200 }}
       />
       <InfiniteSlider
         data={[...ClientSliderFromLeft, ...ClientSliderFromLeft]}
         originFrom="right"
-        sliderProps={{ className: "infinite-slider", gap: 30 }}
+        sliderProps={{ className: 'infinite-slider', gap: 30 }}
         imageProps={{ size: 200 }}
       />
     </Box>
-  );
-};
+  )
+}

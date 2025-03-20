@@ -1,22 +1,22 @@
-import { Box, Button, Container, Typography } from "@mui/material";
-import Image from "next/image";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { Calender } from "../../assets";
-import "./styles.scss";
+import Image from 'next/image'
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
+import { Box, Button, Container, Typography } from '@mui/material'
+import { Calender } from '../../assets'
+import './styles.scss'
 
 interface SmallShowCardProps {
   cardProps?: {
     details?: {
-      image: any;
-      date: string;
-      title: string;
-      description: string;
-    };
-  };
+      image: any
+      date: string
+      title: string
+      description: string
+    }
+  }
 }
 
 const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
-  const cardDetails = cardProps?.details;
+  const cardDetails = cardProps?.details
   return (
     <Box className="small-show-case-event-card">
       <Box className="show-case-image-container">
@@ -48,7 +48,7 @@ const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default SmallShowCard;
+export default SmallShowCard

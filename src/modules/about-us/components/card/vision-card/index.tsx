@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
-import Image from "next/image";
-import "./styles.scss";
+import Image from 'next/image'
+import { Box, Typography } from '@mui/material'
+import './styles.scss'
 
 interface VisionCardProps {
-  title: string;
-  image: string;
+  title: string
+  image: string
 }
 
 const VisionCard = ({ title, image }: VisionCardProps) => {
@@ -21,7 +21,7 @@ const VisionCard = ({ title, image }: VisionCardProps) => {
         {title}
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default VisionCard;
+export default VisionCard

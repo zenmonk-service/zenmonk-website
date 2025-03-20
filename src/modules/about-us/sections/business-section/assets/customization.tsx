@@ -98,5 +98,5 @@ export const Customization = () => {
         </clipPath>
       </defs>
     </svg>
-  );
-};
+  )
+}

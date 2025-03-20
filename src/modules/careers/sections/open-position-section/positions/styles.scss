@@ -16,6 +16,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 30px 0px 0px 40px;
+
     .position {
       cursor: pointer;
       padding: 20px;
@@ -38,9 +39,6 @@
     padding: 40px 60px;
     overflow: scroll;
     flex: 1;
-    &::-webkit-scrollbar {
-      width: 100px !important;
-    }
     .department-title {
       color: #132427;
       font-feature-settings: "liga" off, "clig" off;

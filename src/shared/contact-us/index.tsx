@@ -1,16 +1,17 @@
-"use client";
-import { useState } from "react";
-import { Box, Typography } from "@mui/material";
-import { countries, Country } from "@/assets/icons/contact-us";
-import ContactCard from "@/shared/contact-card";
-import { Email, Phone, Location } from "@/assets/icons/contact-us/contact";
-import Title from "@/shared/title";
-import GlobeAnimation from "./globe";
-import CountriesList from "@/shared/countries-list";
-import "./styles.scss";
+'use client'
+
+import { useState } from 'react'
+import { Box, Typography } from '@mui/material'
+import { countries, Country } from '@/assets/icons/contact-us'
+import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
+import ContactCard from '@/shared/contact-card'
+import CountriesList from '@/shared/countries-list'
+import Title from '@/shared/title'
+import GlobeAnimation from './globe'
+import './styles.scss'
 
 const ContactUs = () => {
-  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0]);
+  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0])
   return (
     <Box className="contact-us-section">
       <Box className="left-container">
@@ -31,24 +32,24 @@ const ContactUs = () => {
         <ContactCard
           url={Email}
           description={selectedCountry.office.email}
-          title={"Mail Us"}
+          title={'Mail Us'}
         />
         <ContactCard
           url={Phone}
           description={selectedCountry.office.phone}
-          title={"For Inquiry"}
+          title={'For Inquiry'}
         />
         <ContactCard
           url={Location}
           description={selectedCountry.office.address}
-          title={"Address"}
+          title={'Address'}
         />
       </Box>
       <Box className="right-container">
         <GlobeAnimation selectedCountry={selectedCountry} />
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ContactUs;
+export default ContactUs

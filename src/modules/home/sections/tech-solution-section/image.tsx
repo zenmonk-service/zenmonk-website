@@ -278,7 +278,7 @@ const TechSolutionSectionImage = () => {
         />
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export { TechSolutionSectionImage };
+export { TechSolutionSectionImage }

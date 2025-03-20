@@ -1,4 +1,3 @@
-
 export const CraftAndCollab = () => {
   const svgString = `
  <svg width="538" height="408" viewBox="0 0 538 458" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -205,7 +204,7 @@ export const CraftAndCollab = () => {
 
 
 
-  `;
+  `
 
-  return <div dangerouslySetInnerHTML={{ __html: svgString }} />;
-};
+  return <div dangerouslySetInnerHTML={{ __html: svgString }} />
+}

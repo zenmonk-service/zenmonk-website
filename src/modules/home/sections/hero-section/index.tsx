@@ -1,7 +1,7 @@
-import { Box, Toolbar, Typography } from "@mui/material";
-import { HeroTech } from "@/assets/images";
-import Image from "next/image";
-import BaseButton from "@/shared/button";
+import Image from 'next/image'
+import { Box, Toolbar, Typography } from '@mui/material'
+import { Vector } from '@/assets/icons'
+import { HeroTech } from '@/assets/images'
 import {
   HeroBalance,
   HeroCircle,
@@ -12,9 +12,9 @@ import {
   HeroPhp,
   HeroReact,
   HeroXd,
-} from "@/assets/images/hero-section";
-import "./styles.scss";
-import { Vector } from "@/assets/icons";
+} from '@/assets/images/hero-section'
+import BaseButton from '@/shared/button'
+import './styles.scss'
 
 const HeroSection = () => {
   return (
@@ -27,17 +27,17 @@ const HeroSection = () => {
             Super Charge Your Business <br />
             Growth With
             <Typography variant="inherit" component="span">
-              {" "}
+              {' '}
               Efficient
             </Typography>
             ,
             <Typography variant="inherit" component="span">
-              {" "}
+              {' '}
               Intelligent
             </Typography>
             ,
             <Typography variant="inherit" component="span">
-              {" "}
+              {' '}
               Versatile
             </Typography>
             &nbsp;Software Inovations
@@ -47,7 +47,7 @@ const HeroSection = () => {
             the readable content of a page when looking at its layout.
           </Typography>
         </Box>
-        <BaseButton sx={{ width: "180px" }}>Explore More</BaseButton>
+        <BaseButton sx={{ width: '180px' }}>Explore More</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         {HeroTech && (
@@ -102,7 +102,7 @@ const HeroSection = () => {
         </>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { HeroSection };
+export { HeroSection }

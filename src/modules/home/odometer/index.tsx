@@ -1,21 +1,21 @@
-"use client";
+'use client'
 
-import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
-import "./styles.scss"
+import { motion } from 'framer-motion'
+import { Box, Typography } from '@mui/material'
+import './styles.scss'
 
 const Odometer = () => {
   const textVariants = {
     hidden: { opacity: 0, y: -200 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: 'easeOut' } },
+  }
 
   return (
     <motion.div
       whileInView={{
-        backgroundPosition: "0% 60%",
+        backgroundPosition: '0% 60%',
         transition: { duration: 1.6 },
-        type: "spring",
+        type: 'spring',
       }}
       viewport={{ once: true, amount: 0.7 }}
       className="odometer"
@@ -75,7 +75,7 @@ const Odometer = () => {
         </motion.div>
       </Box>
     </motion.div>
-  );
-};
+  )
+}
 
-export { Odometer };
+export { Odometer }

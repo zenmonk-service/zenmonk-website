@@ -1,7 +1,7 @@
-import Title from "@/shared/title";
-import { Box, Container, Typography } from "@mui/material";
-import Positions from "./positions";
-import "./styles.scss";
+import { Box, Container, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import Positions from './positions'
+import './styles.scss'
 
 const OpenPosition = () => {
   return (
@@ -22,7 +22,7 @@ const OpenPosition = () => {
         <Positions />
       </Container>
     </Box>
-  );
-};
+  )
+}
 
-export default OpenPosition;
+export default OpenPosition

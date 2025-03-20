@@ -1,14 +1,18 @@
-import Image from "next/image";
-import Title from "@/shared/title";
-import { Box, Typography } from "@mui/material";
-import { standOutList } from "./stand-out";
-import StandOutCard from "../../components/card/stand-out-card";
-import "./styles.scss";
+import Image from 'next/image'
+import { Box, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import StandOutCard from '../../components/card/stand-out-card'
+import { standOutList } from './stand-out'
+import './styles.scss'
 
 export const StandOutSection = () => {
   return (
     <Box className="stand-out-section">
-      <Title text="Stand Out From The Rest" align="center" className="section-title"/>
+      <Title
+        text="Stand Out From The Rest"
+        align="center"
+        className="section-title"
+      />
       <Box className="stand-out-card-container">
         <Box className="left-section">
           {standOutList
@@ -24,7 +28,12 @@ export const StandOutSection = () => {
             ))}
         </Box>
         <Box className="right-section">
-          <Box className="right-section-container" sx={{ backgroundImage: `url(${standOutList[standOutList.length - 1].image})` }}>
+          <Box
+            className="right-section-container"
+            sx={{
+              backgroundImage: `url(${standOutList[standOutList.length - 1].image})`,
+            }}
+          >
             <Image
               src={standOutList[standOutList.length - 1].icon}
               alt="stand-out"
@@ -38,15 +47,23 @@ export const StandOutSection = () => {
               {standOutList[standOutList.length - 1].description}
             </Typography>
             <Box className="core-values">
-              {
-                standOutList[standOutList.length - 1].coreValues?.map((coreValue, index) => {
-                  return <Typography variant="body1" key={index} className="core-value">{coreValue.title}</Typography>
-                })
-              }
+              {standOutList[standOutList.length - 1].coreValues?.map(
+                (coreValue, index) => {
+                  return (
+                    <Typography
+                      variant="body1"
+                      key={index}
+                      className="core-value"
+                    >
+                      {coreValue.title}
+                    </Typography>
+                  )
+                }
+              )}
             </Box>
           </Box>
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}

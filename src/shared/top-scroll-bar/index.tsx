@@ -1,10 +1,14 @@
 'use client'
 
-import { TopScrollBar } from "top-scroll-bar"
+import { TopScrollBar } from 'top-scroll-bar'
 
 const TopScroll = () => {
-    return <TopScrollBar originFrom="left" style={{ backgroundColor: "var(--primary)" }} />
-
+  return (
+    <TopScrollBar
+      originFrom="left"
+      style={{ backgroundColor: 'var(--primary)' }}
+    />
+  )
 }
 
 export default TopScroll

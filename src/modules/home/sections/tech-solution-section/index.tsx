@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
-import BaseButton from "@/shared/button";
-import { Laptop2 } from "@/assets/images";
-import Title from "@/shared/title";
-import { TechSolution, techSolution } from "@/assets/icons/it-solution";
-import TechCard from "./tech-card";
-import "./styles.scss";
-import { TechSolutionSectionImage } from "./image";
+import { Box, Typography } from '@mui/material'
+import { TechSolution, techSolution } from '@/assets/icons/it-solution'
+import { Laptop2 } from '@/assets/images'
+import BaseButton from '@/shared/button'
+import Title from '@/shared/title'
+import { TechSolutionSectionImage } from './image'
+import './styles.scss'
+import TechCard from './tech-card'
 
 const TechSolutionSection = () => {
   return (
@@ -26,10 +26,10 @@ const TechSolutionSection = () => {
         </Box>
         <Box className="tech-solution-section-card-wrapper">
           {techSolution.map((tech: TechSolution, index) => {
-            return <TechCard key={index} icon={tech.src} title={tech.name} />;
+            return <TechCard key={index} icon={tech.src} title={tech.name} />
           })}
         </Box>
-        <Box sx={{ marginBottom: "41px" }}></Box>
+        <Box sx={{ marginBottom: '41px' }}></Box>
         <BaseButton>Explore Services</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
@@ -43,7 +43,7 @@ const TechSolutionSection = () => {
         )}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { TechSolutionSection };
+export { TechSolutionSection }

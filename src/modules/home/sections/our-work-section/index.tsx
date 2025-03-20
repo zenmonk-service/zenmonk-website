@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { projects } from "./project-list";
-import { Box, Typography } from "@mui/material";
-import Title from "@/shared/title";
-import { WorkList } from "@/assets/images/our-work";
-import "./styles.scss";
+import { useState } from 'react'
+import { Box, Typography } from '@mui/material'
+import { WorkList } from '@/assets/images/our-work'
+import Title from '@/shared/title'
+import { projects } from './project-list'
+import './styles.scss'
 
 const OurWorkSection = () => {
-  const [activeSection, setActiveSection] = useState<number>(0);
+  const [activeSection, setActiveSection] = useState<number>(0)
 
   const handleMouseEnter = (index: number) => {
-    setActiveSection(index);
-  };
+    setActiveSection(index)
+  }
 
   const handleMouseLeave = () => {
-    setActiveSection((prev) => prev);
-  };
+    setActiveSection((prev) => prev)
+  }
 
-  const backgroundImage = WorkList[activeSection]?.src ?? "";
+  const backgroundImage = WorkList[activeSection]?.src ?? ''
   return (
     <Box className="our-work-section">
       <Title
@@ -29,7 +29,7 @@ const OurWorkSection = () => {
       <Box className="our-work-container">
         <Box
           className={`section-container ${
-            activeSection === 1 ? "transform-in" : "transform-out"
+            activeSection === 1 ? 'transform-in' : 'transform-out'
           }`}
           sx={{ backgroundImage: `url(${backgroundImage}) !important` }}
         >
@@ -50,7 +50,7 @@ const OurWorkSection = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export { OurWorkSection };
+export { OurWorkSection }

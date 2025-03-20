@@ -1,10 +1,10 @@
-import { Box, Typography } from "@mui/material";
-import Image from "next/image";
-import "./styles.scss";
+import Image from 'next/image'
+import { Box, Typography } from '@mui/material'
+import './styles.scss'
 
 interface TechProps {
-  icon: string;
-  title: string;
+  icon: string
+  title: string
 }
 
 const TechCard = ({ icon, title }: TechProps) => {
@@ -15,7 +15,7 @@ const TechCard = ({ icon, title }: TechProps) => {
         {title}
       </Typography>
     </Box>
-  );
-};
+  )
+}
 
-export default TechCard;
+export default TechCard

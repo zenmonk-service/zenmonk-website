@@ -1,0 +1,52 @@
+.innovation-excellence-section {
+  width: 100%;
+  display: flex;
+  padding: 121px;
+  @media (max-width: 1554px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .left-section {
+    width: 40%;
+    @media (max-width: 1554px) {
+      width: 100%;
+    }
+    .title {
+      width: 528px;
+      color: #132427;
+      font-family: Poppins;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 52px;
+      letter-spacing: -0.8px;
+    }
+    .description {
+      margin-top: 16px;
+      color: #757575;
+      font-family: Poppins;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.48px;
+    }
+    .excellence-image {
+      margin-top: 32px;
+      @media (max-width: 1554px) {
+        display: none;
+      }
+    }
+  }
+  .right-section {
+    @media (max-width: 1554px) {
+      margin-top: 20px;
+    }
+    flex: 1;
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

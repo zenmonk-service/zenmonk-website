@@ -1,7 +1,6 @@
-import Ellipse from "./ellipse.png";
-import Freelancer from "./freelancer.png";
-import Circle from "./circle.png";
-import BigEllipse from "./big-ellipse.png";
+import BigEllipse from './big-ellipse.png'
+import Circle from './circle.png'
+import Ellipse from './ellipse.png'
+import Freelancer from './freelancer.png'
 
-
-export { Ellipse, Freelancer, Circle,BigEllipse };
+export { Ellipse, Freelancer, Circle, BigEllipse }

@@ -1,33 +1,34 @@
-"use client";
-import { AppBar, Toolbar, Box, useScrollTrigger, Slide } from "@mui/material";
-import Image from "next/image";
-import { Monk } from "@/assets/icons";
-import ActionLinks from "./action-links";
-import BaseButton from "@/shared/button";
-import { actionsLink } from "./action-links/links";
-import { useRouter } from "next/navigation";
-import "./styles.scss";
+'use client'
+
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { AppBar, Toolbar, Box, useScrollTrigger, Slide } from '@mui/material'
+import { Monk } from '@/assets/icons'
+import BaseButton from '@/shared/button'
+import ActionLinks from './action-links'
+import { actionsLink } from './action-links/links'
+import './styles.scss'
 
 interface Props {
-  window?: () => Window;
-  children?: React.ReactElement<unknown>;
+  window?: () => Window
+  children?: React.ReactElement<unknown>
 }
 
 function HideOnScroll(props: Props) {
-  const { children, window } = props;
+  const { children, window } = props
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
-  });
+  })
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children ?? <div />}
     </Slide>
-  );
+  )
 }
 const Navbar = (props: Props) => {
-  const { push } = useRouter();
-  const navigateToHome = () => push("/");
+  const { push } = useRouter()
+  const navigateToHome = () => push('/')
   return (
     <HideOnScroll {...props}>
       <AppBar className="app-bar-container" elevation={0}>
@@ -49,7 +50,7 @@ const Navbar = (props: Props) => {
         </Toolbar>
       </AppBar>
     </HideOnScroll>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

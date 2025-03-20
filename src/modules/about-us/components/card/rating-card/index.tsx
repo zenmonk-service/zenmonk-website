@@ -1,23 +1,18 @@
-import { alpha, Box, Typography } from "@mui/material";
-import Image from "next/image";
-import "./styles.scss";
+import Image from 'next/image'
+import { alpha, Box, Typography } from '@mui/material'
+import './styles.scss'
 
 interface RatingCardProps {
-  rating: string;
-  description: string;
-  icon: string;
-  bg: string;
+  rating: string
+  description: string
+  icon: string
+  bg: string
 }
 
 const RatingCard = ({ rating, description, icon, bg }: RatingCardProps) => {
   return (
     <Box className="rating-card" sx={{ bgcolor: alpha(bg, 0.1) }}>
-      <Image
-        src={icon}
-        alt={`${rating}-icon`}
-        width={112}
-        height={112}
-      />
+      <Image src={icon} alt={`${rating}-icon`} width={112} height={112} />
       <Box className="rating-card-content">
         <Typography component="h5" variant="h5" className="rating">
           {rating}
@@ -27,7 +22,7 @@ const RatingCard = ({ rating, description, icon, bg }: RatingCardProps) => {
         </Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default RatingCard;
+export default RatingCard

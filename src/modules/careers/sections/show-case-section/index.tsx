@@ -1,9 +1,9 @@
-import Title from "@/shared/title";
-import { Box, Container, Typography } from "@mui/material";
-import { showCaseList } from "./show-case";
-import "./styles.scss";
-import SmallShowCard from "./card/small-card";
-import BigShowCaseCard from "./card/big-card";
+import { Box, Container, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import BigShowCaseCard from './card/big-card'
+import SmallShowCard from './card/small-card'
+import { showCaseList } from './show-case'
+import './styles.scss'
 
 const Showcases = () => {
   return (
@@ -69,7 +69,7 @@ const Showcases = () => {
         </Box>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default Showcases;
+export default Showcases

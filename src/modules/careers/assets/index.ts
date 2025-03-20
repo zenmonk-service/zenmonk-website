@@ -1,2 +1,2 @@
-export * from "./hero"
-export * from "./open-position"
+export * from './hero'
+export * from './open-position'

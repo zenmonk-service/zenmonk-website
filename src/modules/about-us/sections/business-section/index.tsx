@@ -1,8 +1,8 @@
-import Title from "@/shared/title";
-import { Box, Typography } from "@mui/material";
-import "./styles.scss";
-import { businesses } from "./business";
-import BusinessCard from "../../components/card/business-card";
+import { Box, Typography } from '@mui/material'
+import Title from '@/shared/title'
+import BusinessCard from '../../components/card/business-card'
+import { businesses } from './business'
+import './styles.scss'
 
 export const BusinessSection = () => {
   return (
@@ -26,9 +26,9 @@ export const BusinessSection = () => {
               title={business.title}
               Icon={business.icon}
             />
-          );
+          )
         })}
       </Box>
     </Box>
-  );
-};
+  )
+}

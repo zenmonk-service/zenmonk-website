@@ -1,12 +1,12 @@
-import { Box, Typography } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
-import "./styles.scss";
+import Image, { StaticImageData } from 'next/image'
+import { Box, Typography } from '@mui/material'
+import './styles.scss'
 
 interface ContactCardProps {
-  url: StaticImageData;
-  title?: string;
-  description: string;
-  className?: string;
+  url: StaticImageData
+  title?: string
+  description: string
+  className?: string
 }
 
 const ContactCard = ({
@@ -19,7 +19,7 @@ const ContactCard = ({
     <Box className={`contact-card ${className}`}>
       <Image
         src={url}
-        alt={`${title ?? ""}-image`}
+        alt={`${title ?? ''}-image`}
         className="contact-card-image"
       />
       <Box className="contact-card-content">
@@ -33,7 +33,7 @@ const ContactCard = ({
         </Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ContactCard;
+export default ContactCard
