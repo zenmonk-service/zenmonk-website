@@ -1,0 +1,37 @@
+.quality-hero-section-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  max-width: 1600px;
+  background-color: white;
+  margin: auto;
+  gap:200px;
+//   margin-top: -200px;
+
+.first-section {
+    max-width: 650px;
+}
+
+  .subheading {
+    color: #757575;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.48px;
+  }
+
+  .subheading {
+    margin-top: 16px;
+  }
+
+  .images-container {
+    margin-top: 76px;
+
+    img {
+        margin-right: 25px;
+    }
+  }
+}
