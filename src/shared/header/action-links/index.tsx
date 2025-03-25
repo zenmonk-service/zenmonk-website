@@ -65,6 +65,7 @@ const ActionLinks = () => {
                 description={option.description}
                 imageUrl={option.imageUrl}
                 title={option.label}
+                route={option.route}
               />
             )
           })}
