@@ -25,9 +25,9 @@ const Satisfication = () => {
           fill="white"
           initial={{ d: 'M 10 10 L 0 1000 L 2700 1000 L 2700 0 Z' }} // Original width
           animate={{ d: 'M 0 0 L 0 700 L 0 1000 L 0000 0 Z' }} // decrease width (three times)
-          transition={{ duration: 2 }}
-          viewport={{ once: true, amount: 0.9 }}
-          whileInView="visible"
+          // transition={{ duration: 2 }}
+          // viewport={{ once: true, amount: 0.9 }}
+          // whileInView="visible"
         />
 
         {/* <motion.path
@@ -40,7 +40,13 @@ const Satisfication = () => {
           transition={{ duration: 2, ease: "easeInOut" }}
         />  */}
         <g id="previous">
-          <g id="Group 1171277973">
+          <motion.g
+            id="Group 1171277973"
+            initial={{ rotate: -75 }}
+            whileInView={{ rotate: 0 }}
+            transition={{ duration: 0.75, ease: 'easeOut' }}
+            viewport={{ once: true }}
+          >
             <g id="Group 1171277969">
               <g id="Vector" filter="url(#filter0_d_1058_18961)">
                 <path
@@ -62,7 +68,7 @@ const Satisfication = () => {
                 fill="url(#pattern0_1058_18961)"
               />
             </g>
-          </g>
+          </motion.g>
           <g id="Frame 1171278028">
             <g id="Previous Work Frustration">
               <path
@@ -82,7 +88,13 @@ const Satisfication = () => {
           </g>
         </g>
         <g id="engagement">
-          <g id="Group 1171277972">
+          <motion.g
+            id="Group 1171277972"
+            initial={{ rotate: 45 }}
+            whileInView={{ rotate: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.5 }}
+            viewport={{ once: true }}
+          >
             <g id="Vector_3" filter="url(#filter1_d_1058_18961)">
               <path
                 d="M909.926 660.507C953.064 703.645 953.064 773.586 909.926 816.724C893.725 832.924 873.744 843.041 852.822 847.073L827.602 875.2L810.802 847.071C789.884 843.037 769.907 832.921 753.71 816.724C710.572 773.586 710.572 703.645 753.71 660.507C796.848 617.369 866.788 617.369 909.926 660.507Z"
@@ -102,7 +114,8 @@ const Satisfication = () => {
               height="114.311"
               fill="url(#pattern1_1058_18961)"
             />
-          </g>
+          </motion.g>
+
           <g id="Frame 1171278029">
             <g id="Engagement and Resolution">
               <path
@@ -122,7 +135,13 @@ const Satisfication = () => {
           </g>
         </g>
         <g id="exceeding">
-          <g id="Group 1171277970">
+          <motion.g
+            id="Group 1171277970"
+            initial={{ rotate: -45 }}
+            whileInView={{ rotate: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 1 }}
+            viewport={{ once: true }}
+          >
             <g id="Vector_5" filter="url(#filter2_d_1058_18961)">
               <path
                 d="M1357.69 494.489C1415.88 512.804 1448.21 574.825 1429.89 633.017C1411.58 691.21 1349.56 723.537 1291.37 705.223C1233.17 686.908 1200.85 624.887 1219.16 566.695C1229.24 534.665 1252.56 510.471 1281.2 498.244L1300.4 465.327L1325.2 489.367C1335.96 489.436 1346.89 491.091 1357.69 494.489Z"
@@ -142,7 +161,7 @@ const Satisfication = () => {
               height="114.311"
               fill="url(#pattern2_1058_18961)"
             />
-          </g>
+          </motion.g>
           <g id="Frame 1171278030">
             <g id="Exceeding Expectations">
               <path
@@ -166,7 +185,13 @@ const Satisfication = () => {
           </g>
         </g>
         <g id="celebrating">
-          <g id="Group 1171277971">
+          <motion.g
+            id="Group 1171277970"
+            initial={{ rotate: 45 }}
+            whileInView={{ rotate: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 1.5 }}
+            viewport={{ once: true }}
+          >
             <g id="Vector_7" filter="url(#filter3_d_1058_18961)">
               <path
                 d="M1876.32 194.908C1919.46 238.046 1919.46 307.987 1876.32 351.125C1871.83 355.618 1867.05 359.644 1862.03 363.201L1858 396.801L1826.8 379.735C1789.95 389.567 1749.01 380.03 1720.11 351.125C1676.97 307.987 1676.97 238.046 1720.11 194.908C1763.25 151.77 1833.19 151.77 1876.32 194.908Z"
@@ -186,7 +211,7 @@ const Satisfication = () => {
               height="114.311"
               fill="url(#pattern3_1058_18961)"
             />
-          </g>
+          </motion.g>
           <g id="Frame 1171278031">
             <g id="Celebrating Success">
               <path

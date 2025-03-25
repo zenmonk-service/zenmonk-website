@@ -16,7 +16,6 @@ import SectionWrapper from '@/shared/wrapper'
 const About = () => {
   return (
     <Box>
-      <SectionWrapper>
         <AnimatedDiv>
           <HeroSection />
           <Rating />
@@ -42,7 +41,6 @@ const About = () => {
         <AnimatedDiv>
           <ContactUsSection />
         </AnimatedDiv>
-      </SectionWrapper>
     </Box>
   )
 }

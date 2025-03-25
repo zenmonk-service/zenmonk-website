@@ -3,9 +3,11 @@ import { Box, Toolbar, Typography } from '@mui/material'
 import About from '@/assets/images/about/about.png'
 import BaseButton from '@/shared/button'
 import './styles.scss'
+import SectionWrapper from '@/shared/wrapper'
 
 const HeroSection = () => {
   return (
+    <SectionWrapper>
     <Box className="about-us-hero-section-wrapper">
       <Toolbar />
       {/* <Image
@@ -42,7 +44,8 @@ const HeroSection = () => {
         />
       </Box>
     </Box>
-  )
-}
+    </SectionWrapper>
+  );
+};
 
 export { HeroSection }
