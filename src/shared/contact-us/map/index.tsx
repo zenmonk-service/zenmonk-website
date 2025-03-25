@@ -22,6 +22,7 @@ const SimpleMap = ({ selectedCountry }: SimpleMapProps) => {
 
   return (
     <Box className="simple-map">
+      <India
       <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{ scale: 210, center: [14, 10] }}

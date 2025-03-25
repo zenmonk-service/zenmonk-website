@@ -10,6 +10,8 @@ import {
   IconButton,
   useMediaQuery,
 } from '@mui/material'
+import { options } from '../options'
+import OptionCard from '../options/card'
 import { ActionLink, actionsLink } from './links'
 import './styles.scss'
 
@@ -39,7 +41,9 @@ const ActionLinks = () => {
               key={index}
               color="inherit"
               disableRipple
-              onClick={() => navigateTo(href)}
+              onClick={() => {
+                options ? toggleExpand() : navigateTo(href)
+              }}
             >
               {name}
               {options && (
@@ -52,6 +56,20 @@ const ActionLinks = () => {
             </Button>
           ))}
       </Box>
+      {isExpanded && (
+        <Box className="option-menu-container">
+          <Box className="arrow-up"/>
+          {options.map((option, index) => {
+            return (
+              <OptionCard
+                description={option.description}
+                imageUrl={option.imageUrl}
+                title={option.label}
+              />
+            )
+          })}
+        </Box>
+      )}
     </Box>
   ) : (
     <IconButton className="action-link-menu-icon">
