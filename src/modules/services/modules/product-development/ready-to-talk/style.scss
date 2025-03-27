@@ -1,0 +1,53 @@
+.ready-to-talk-product-dev-container {
+    width: 100%;
+    height: 552px;
+    background-image: url('../assets/ready-to-talk-banner.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3%;
+    gap: 400px;
+
+
+    .ready-to-talk-heading,
+    .ready-to-talk-description {
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-family: Poppins;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 60px;
+
+    }
+
+    .ready-to-talk-description {
+        color: #F5F5F5;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+        margin-top: 20px;
+    }
+
+    .contact-us-btn {
+        display: flex;
+        height: 44.023px;
+        padding: 10.005px 16.008px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 43.022px;
+        border: 2px solid #FFF;
+        margin-top: 40px;
+        width: fit-content;
+        color: #FFF;
+        font-family: Inter;
+        font-size: 14.007px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 18.009px;
+        text-transform: capitalize;
+    }
+
+}

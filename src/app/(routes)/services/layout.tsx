@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import { Box } from '@mui/material'
 import {
   ProductDevelopmentHeroSection,
   SoftwareDevelopmentHeroSection,
