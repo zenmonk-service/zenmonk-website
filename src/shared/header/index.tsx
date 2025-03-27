@@ -31,7 +31,7 @@ const Navbar = (props: Props) => {
   const navigateToHome = () => push('/')
   return (
     <HideOnScroll {...props}>
-      <AppBar className="app-bar-container" elevation={0}>
+      <AppBar className="app-bar-container"  elevation={0}>
         <Toolbar className="toolbar">
           <Box display="flex" alignItems="center">
             {Monk && (

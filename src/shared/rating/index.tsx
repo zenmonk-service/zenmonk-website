@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import RatingCard from '../card/rating-card'
+import RatingCard from '../rating-card'
 import { ratings } from './rating'
 import './styles.scss'
 import SectionWrapper from '@/shared/wrapper';

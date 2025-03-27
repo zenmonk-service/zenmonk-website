@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
@@ -11,10 +11,17 @@ interface OptionCardProps {
   imageUrl: StaticImageData
   route: string
 }
-const OptionCard = ({ title, description, imageUrl, route }: OptionCardProps) => {
+
+const OptionCard = ({
+  title,
+  description,
+  imageUrl,
+  route,
+}: OptionCardProps) => {
   const [isVisible, setIsVisible] = useState(false)
+
   return (
-    <Link href={`/services/${route}`}>
+    <>
       <Box
         className="option-card"
         onMouseOver={() => setIsVisible(true)}
@@ -29,13 +36,13 @@ const OptionCard = ({ title, description, imageUrl, route }: OptionCardProps) =>
             {description}
           </Typography>
           {isVisible && (
-            <Button className={`link-button `} color="inherit" disableRipple>
+            <Button className="link-button" color="inherit" disableRipple>
               Explore &nbsp; <ArrowRightAltIcon fontSize="large" />
             </Button>
           )}
         </Box>
       </Box>
-    </Link>
+    </>
   )
 }
 

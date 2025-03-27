@@ -1,0 +1,42 @@
+import Image from 'next/image'
+import { Box, Toolbar, Typography } from '@mui/material'
+import BaseButton from '@/shared/button'
+import SectionWrapper from '@/shared/wrapper'
+import { Hero, Meet } from '../assets'
+import './styles.scss'
+
+const MobileAppDevelopment = () => {
+  return (
+    <>
+      <SectionWrapper>
+        <Box className="mobile-app-development-hero-section-wrapper">
+          <Toolbar />
+          <Box className="hero-section">
+            <Box className="hero-section-text-wrapper">
+              <Typography variant="h4" className="text-heading">
+                Mobile
+                <Typography variant="inherit" component="span" ml={1}>
+                  App Development
+                </Typography>
+                <br />
+                for Future-Ready Businesses
+              </Typography>
+              <Typography component="p" className="text-description">
+                We believe in ZenFusion, merging technology with mindfulness. As
+                your partners in technological excellence, we transform values
+                into action, simplifying tech to deliver user-centered
+                solutions.
+              </Typography>
+            </Box>
+            <BaseButton className="base-button">Explore More</BaseButton>
+          </Box>
+          <Box className="hero-section-image-wrapper">
+            <Image className="hero-section-image" src={Hero} alt="innovator" />
+          </Box>
+        </Box>
+      </SectionWrapper>
+    </>
+  )
+}
+
+export { MobileAppDevelopment }

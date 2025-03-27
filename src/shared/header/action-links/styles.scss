@@ -1,3 +1,12 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 9;
+}
 .action-links-wrapper {
   display: flex;
   align-items: center;
@@ -37,10 +46,10 @@
 
 .option-menu-container {
   position: absolute;
+  z-index: 50;
   border-radius: 10px;
   top: 20px;
   left: -20%;
-  z-index: 1000;
   width: 800px;
   column-count: 2;
   column-gap: 20px;

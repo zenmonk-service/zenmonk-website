@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import Rating from '@/modules/about-us/components/rating'
+import Rating from '@/shared/rating'
 import {
   BusinessSection,
   HeroSection,

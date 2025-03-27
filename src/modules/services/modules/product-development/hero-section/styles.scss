@@ -1,0 +1,235 @@
+.hero-bg {
+  position: absolute;
+}
+.product-development-hero-section-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding-top: 95px;
+
+  .vector {
+    position: absolute;
+  }
+
+  .text-description {
+    margin-bottom: 80px;
+  }
+
+  .hero-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    .base-button {
+      width: 320px;
+      height: 70px;
+      flex-shrink: 0;
+      color: #fff;
+      font-family: Inter;
+      font-size: 25.6px !important;
+      font-style: normal;
+      font-weight: 600 !important;
+      line-height: normal;
+      text-transform: uppercase !important;
+      border-radius: 8px !important;
+    }
+    .explore-button {
+      width: 180px;
+      text-transform: 'uppercase !important';
+    }
+    .hero-section-text-wrapper {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 860px;
+      width: 100%;
+    }
+
+    .text-heading {
+      color: #132427;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
+      font-family: Poppins;
+      font-size: 60px !important;
+      font-style: normal;
+      font-weight: 600 !important;
+      line-height: 70px;
+      text-transform: capitalize;
+    }
+
+    .text-heading span {
+      background: var(--gradient);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600 !important;
+    }
+
+    .text-description {
+      width: 728px;
+      color: #757575 !important;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
+      font-family: Poppins;
+      font-size: 24px !important;
+      font-style: normal;
+      font-weight: 400 !important;
+      line-height: normal;
+      letter-spacing: 0.48px;
+    }
+  }
+
+  .hero-section-image-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    .bubble-image {
+      width: 325px !important;
+      height: 191px !important;
+      bottom: 75% !important;
+    }
+    img {
+      bottom: -110px;
+      position: absolute;
+      width: 525px !important;
+      height: 487px !important;
+      flex-shrink: 0;
+      opacity: 1;
+      transform: translateY(50px) scale(0.95) rotateX(10deg);
+      animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+    }
+  }
+}
+
+@keyframes fadeInBlurScaleRotate {
+  0% {
+    opacity: 0.8;
+    transform: translateY(50px) scale(0.95) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.02) rotateX(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes fadeInScaleRotate {
+  0% {
+    opacity: 0.8;
+    transform: translateY(50px) scale(0.95) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.02) rotateX(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 900px) {
+  .hero-section-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero-section-text-wrapper {
+    max-width: 90%;
+  }
+  .text-heading {
+    font-size: 3.2rem !important;
+  }
+  .text-description {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section-wrapper {
+    height: auto;
+    padding: 10px;
+  }
+  .text-heading {
+    font-size: 2.8rem !important;
+  }
+  .text-description {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* Slide Up & Fade In Animation */
+@keyframes slideUpFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section-text-wrapper .text-heading,
+.hero-section-text-wrapper .text-description {
+  opacity: 0;
+  transform: translateY(50px);
+  visibility: hidden;
+}
+
+/* Apply Slide-Up Animation */
+.hero-section-text-wrapper .text-heading {
+  animation: slideUpFadeIn 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  visibility: visible;
+}
+
+.hero-section-text-wrapper .text-description {
+  animation: slideUpFadeIn 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+  visibility: visible;
+}
+
+.hero-section-wrapper .base-button {
+  opacity: 0;
+}
+
+.hero-section-wrapper .base-button {
+  animation: slideUpFadeInB 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+  visibility: visible;
+}
+
+/* Slide Up & Fade In Animation */
+@keyframes slideUpFadeInB {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
