@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Stack } from '@mui/material'
 import Title from '@/shared/title'
-import { DevelopmentProcess as DevelopmentProcessImage } from '../assets/index'
+import { DevelopmentProcess as DevelopmentProcessImage } from '../business-sectors/assets/index'
 
 const DevelopmentProcess = () => {
   return (

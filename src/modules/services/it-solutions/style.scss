@@ -1,0 +1,91 @@
+.it-solutions-section {
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .it-solutions-container {
+        width: 100%;
+        max-width: 1920px;
+        height: fit-content;
+        border-radius: 50px;
+        background: #F5F5F5;
+        padding: 100px 5%;
+
+        .it-solution-subtitle {
+            color: #757575;
+            text-align: center;
+            font-family: Poppins;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.48px;
+            margin-top: 16px;
+        }
+
+        .solution-card {
+            flex-direction: row;
+            width: 429px;
+            height: 158px;
+            flex-shrink: 0;
+            border-radius: 20px;
+            background: #FFF;
+
+            .solution-card-left {
+                align-items: center;
+                justify-content: center;
+                width: 158px;
+                border-radius: 20px 0 0 20px;
+            }
+
+            .solution-card-right {
+                padding: 16px 20px;
+                width: 271px;
+                gap: 10px;
+
+                .card-title,
+                .card-description {
+                    color: #132427;
+                    font-feature-settings: 'liga' off, 'clig' off;
+                    font-family: Poppins;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 28px;
+                }
+
+                .card-description {
+                    color: #727272;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: normal;
+                }
+
+                .card-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-transform: capitalize;
+                    gap: 10px;
+                    padding: 0;
+                    width: fit-content;
+                    flex-direction: row;
+                    font-family: Poppins;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 30px;
+                    background: linear-gradient(99deg, #EB7C0D 3.23%, #FFA750 97.72%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+            }
+        }
+
+
+    }
+}

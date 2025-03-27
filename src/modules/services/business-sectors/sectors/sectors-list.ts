@@ -5,7 +5,7 @@ import {
   ProductRecommendation,
   ShoppingMobile,
   ShoppingWebsite,
-} from '../../assets'
+} from '../assets'
 import { Sector } from '../business-sectors.types'
 
 export const sectorsList: Sector[] = [

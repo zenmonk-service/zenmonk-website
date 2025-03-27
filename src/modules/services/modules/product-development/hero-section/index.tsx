@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Box, Toolbar, Typography } from '@mui/material'
 import BaseButton from '@/shared/button'
 import SectionWrapper from '@/shared/wrapper'
-import { Hero } from '../../../assets'
+import { Hero } from '../../software-development/assets'
 import { Bubble, HeroBg, Meet } from '../assets'
 import './styles.scss'
 
