@@ -1,46 +1,55 @@
 import Image from 'next/image'
-import { Box } from '@mui/material'
-import { Ready } from '../assets'
+import { Box, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
+import { Ready } from '../assets'
 import './styles.scss'
 
 const ReadyToTalk = () => {
   return (
     <Box className="ready-to-talk-section-wrapper">
-      <Box>
-        <Title align='left' text={'Ready to talk about your frontend project?'} />
+      <Box className="ready-to-talk-content">
+        <Title
+          align="left"
+          text={'Ready to talk about your frontend project?'}
+          className="ready-to-talk-heading"
+        />
 
-        <p className="subheading">
+        <Typography className="subheading">
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s.
-        </p>
+        </Typography>
 
-        <Box className="steps">
-          <p>✅ Tell us more</p>
-          <p>
-            Fill out a quick form describing your needs. You can always add
-            details later on and we’ll reply within a day!
-          </p>
-        </Box>
+        <Stack className="step-container">
+          <Box className="steps">
+            <Typography className="step-heading">✅ Tell us more</Typography>
+            <Typography className="step-description">
+              Fill out a quick form describing your needs. You can always add
+              details later on and we’ll reply within a day!
+            </Typography>
+          </Box>
 
-        <Box className="steps">
-          <p>✅ Strategic Planning</p>
-          <p>
-            Fill out a quick form describing your needs. You can always add
-            details later on and we’ll reply within a day!
-          </p>
-        </Box>
+          <Box className="steps">
+            <Typography className="step-heading">
+              ✅ Strategic Planning
+            </Typography>
+            <Typography className="step-description">
+              Fill out a quick form describing your needs. You can always add
+              details later on and we’ll reply within a day!
+            </Typography>
+          </Box>
 
-        <Box className="steps">
-          <p>✅ Workshop Kickoff</p>
-          <p>
-            Fill out a quick form describing your needs. You can always add
-            details later on and we’ll reply within a day!
-          </p>
-        </Box>
-
+          <Box className="steps">
+            <Typography className="step-heading">
+              ✅ Workshop Kickoff
+            </Typography>
+            <Typography className="step-description">
+              Fill out a quick form describing your needs. You can always add
+              details later on and we’ll reply within a day!
+            </Typography>
+          </Box>
+        </Stack>
       </Box>
-      <Box className="images-container">
+      <Box className="image-container">
         <Image src={Ready} alt="process-diagram" />
       </Box>
     </Box>

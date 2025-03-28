@@ -1,30 +1,30 @@
 import Image from 'next/image'
-import { Box } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
+import Automated from '../assets/innovation/automated.svg'
 import Sky from '../assets/innovation/best.png'
 import Earth from '../assets/innovation/earth.svg'
 import PersonSittingOnDesk from '../assets/innovation/img.png'
 import Real from '../assets/innovation/real.svg'
-import Automated from '../assets/innovation/automated.svg'
+import Responsive from '../assets/innovation/responsive.svg'
 import Robust from '../assets/innovation/robost.svg'
-import Responsive from '../assets/innovation/responsive.svg';
-
 import './styles.scss'
 
 const Innovation = () => {
   return (
     <Box className="innovation-section-wrapper">
-      <Box className="innovation-section">
+      <Stack className="innovation-section">
         <Title
           text={
             'We Deliver the Best with Innovation, Precision, and Excellence.'
           }
-        ></Title>
-        <p className="innovation-description">
+          className="innovation-title"
+        />
+        <Typography className="innovation-description">
           State burst think end are its. Arrived off she elderly beloved him
           affix ed noisier yet. Course regard to up he hardly elder noisier.
           state burst think end are its.
-        </p>
+        </Typography>
         <Box className="images-wrapper">
           <Box className="person-sitting-on-desk">
             <Image src={PersonSittingOnDesk} alt="person sitting on desk" />
@@ -33,50 +33,40 @@ const Innovation = () => {
           <Box className="more-info">
             <Box className="deliver-the-best">
               <Box className="more-info-info-box">
-                <Box>
-                  <Image
-                    style={{
-                      width: '48px !important',
-                      height: '48px !important',
-                    }}
-                    src={Earth}
-                    alt="earth"
-                  ></Image>
+                <Box className="earth-icon">
+                  <Image src={Earth} alt="earth" />
                 </Box>
-                <p className="more-info-info-box-heading">
+                <Typography className="deliver-the-best-heading">
                   We deliver the best
-                </p>
-                <p className="more-info-info-box-sub-heading">
+                </Typography>
+                <Typography className="deliver-the-best-description">
                   Lorem Ipsum is simply dummy text the printing and typese Lorem
                   Ipsum has been the industry's standard dummy
-                </p>
+                </Typography>
                 <button className="contact-btn">Contact us</button>
               </Box>
 
-              {/* <Box className="more-info-img-box">
-                <Image src={Sky} alt="person sitting on desk" />
-              </Box> */}
+              {/* <Image src={PaperPlaneImg} alt="" className="paper-plane-img" /> */}
             </Box>
             <Box className="icons-gallery">
               <Box>
                 <Image
-                 style={{
-                  width: '64px !important',
-                  height: '64px !important',
-                }}
+                  style={{
+                    width: '64px !important',
+                    height: '64px !important',
+                  }}
                   src={Real}
                   alt="real-time-analytics"
                 />
                 <p>Real-time Analytics</p>
               </Box>
 
-
               <Box>
                 <Image
-                 style={{
-                  width: '64px !important',
-                  height: '64px !important',
-                }}
+                  style={{
+                    width: '64px !important',
+                    height: '64px !important',
+                  }}
                   src={Automated}
                   alt="real-time-analytics"
                 />
@@ -85,20 +75,15 @@ const Innovation = () => {
 
               <Box>
                 <Image
-                style={{
-                  width: '64px !important',
-                  height: '64px !important',
-                }}
+                  style={{
+                    width: '64px !important',
+                    height: '64px !important',
+                  }}
                   src={Robust}
                   alt="robust-security"
                 />
                 <p>Robust Security </p>
               </Box>
-
-
-
-           
-
 
               <Box>
                 <Image
@@ -109,13 +94,12 @@ const Innovation = () => {
                   src={Responsive}
                   alt="robust-security"
                 />
-                <p>Responsive  Design </p>
+                <p>Responsive Design </p>
               </Box>
-
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Stack>
     </Box>
   )
 }
