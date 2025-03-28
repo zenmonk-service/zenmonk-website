@@ -29,7 +29,7 @@ const ProductDevelopmentHeroSection = () => {
                 solutions.
               </Typography>
             </Box>
-            <BaseButton className="base-button">Explore More</BaseButton>
+            <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
           </Box>
           <Box className="hero-section-image-wrapper">
             <Image className="bubble-image" src={Bubble} alt="innovator" />

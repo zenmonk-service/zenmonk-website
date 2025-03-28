@@ -1,46 +1,33 @@
 .software-development-hero-section-wrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100vh;
   padding-top: 95px;
+  gap: 16px;
 
   .vector {
     position: absolute;
   }
 
-  .text-description {
-    margin-bottom: 80px;
-  }
 
   .hero-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
     text-align: left;
-    .base-button {
-      width: 320px;
-      height: 70px;
-      flex-shrink: 0;
-      color: #fff;
-      font-family: Inter;
-      font-size: 25.6px !important;
-      font-style: normal;
-      font-weight: 600 !important;
-      line-height: normal;
-      text-transform: uppercase !important;
-      border-radius: 8px !important;
-    }
+
     .explore-button {
       width: 180px;
       text-transform: 'uppercase !important';
     }
+
     .hero-section-text-wrapper {
       text-align: left;
       display: flex;
       flex-direction: column;
       gap: 16px;
       max-width: 848px;
-      width: 100%;
+      width: fit-content;
     }
 
     .text-heading {
@@ -49,11 +36,32 @@
         'liga' off,
         'clig' off;
       font-family: Poppins;
-      font-size: 60px !important;
+      font-size: 60px;
       font-style: normal;
       font-weight: 600 !important;
       line-height: 70px;
       text-transform: capitalize;
+
+      @media (max-width: 1499px) {
+        font-size: 51px;
+        line-height: 60px;
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 42px;
+        line-height: 50px;
+      }
+
+      @media (max-width: 899px) {
+        font-size: 33px;
+        line-height: normal;
+      }
+
+      @media (max-width: 599px) {
+        font-size: 24px;
+        line-height: normal;
+      }
+
     }
 
     .text-heading span {
@@ -76,12 +84,38 @@
       font-weight: 400 !important;
       line-height: normal;
       letter-spacing: 0.48px;
+      margin-bottom: 40px;
+
+      @media (max-width: 1499px) {
+        width: 650px;
+        font-size: 21px !important;
+        margin-bottom: 36px;
+      }
+
+      @media (max-width: 1199px) {
+        width: 560px;
+        font-size: 18px !important;
+        margin-bottom: 32px;
+      }
+
+      @media (max-width: 899px) {
+        font-size: 16px !important;
+        margin-bottom: 28px;
+        width: 490px;
+      }
+
+      @media (max-width: 599px) {
+        font-size: 14px !important;
+        margin-bottom: 24px;
+      }
     }
   }
 
   .hero-section-image-wrapper {
     width: 100%;
     height: inherit;
+    max-width: 678px;
+    max-height: 724.136px;
     flex: 1;
     display: flex;
     position: relative;
@@ -102,10 +136,12 @@
     opacity: 0.8;
     transform: translateY(50px) scale(0.95) rotateX(10deg);
   }
+
   60% {
     opacity: 0.9;
     transform: translateY(-10px) scale(1.02) rotateX(2deg);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1) rotateX(0deg);
@@ -117,10 +153,12 @@
     opacity: 0.8;
     transform: translateY(50px) scale(0.95) rotateX(10deg);
   }
+
   60% {
     opacity: 0.9;
     transform: translateY(-10px) scale(1.02) rotateX(2deg);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1) rotateX(0deg);
@@ -131,6 +169,7 @@
   from {
     transform: rotate(-360deg);
   }
+
   to {
     transform: rotate(360deg);
     opacity: 1;
@@ -144,12 +183,15 @@
     text-align: center;
     padding: 20px;
   }
+
   .hero-section-text-wrapper {
     max-width: 90%;
   }
+
   .text-heading {
     font-size: 3.2rem !important;
   }
+
   .text-description {
     font-size: 1.8rem !important;
   }
@@ -160,9 +202,11 @@
     height: auto;
     padding: 10px;
   }
+
   .text-heading {
     font-size: 2.8rem !important;
   }
+
   .text-description {
     font-size: 1.6rem !important;
   }
@@ -174,6 +218,7 @@
     opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -216,6 +261,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Toolbar, Typography } from '@mui/material'
+import { Box, Stack, Toolbar, Typography } from '@mui/material'
 import BaseButton from '@/shared/button'
 import SectionWrapper from '@/shared/wrapper'
 import { Hero, Meet } from '../assets'
@@ -10,26 +10,28 @@ const MobileAppDevelopment = () => {
     <>
       <SectionWrapper>
         <Box className="mobile-app-development-hero-section-wrapper">
-          <Toolbar />
-          <Box className="hero-section">
-            <Box className="hero-section-text-wrapper">
-              <Typography variant="h4" className="text-heading">
-                Mobile
-                <Typography variant="inherit" component="span" ml={1}>
-                  App Development
+          <Stack direction={'row'}>
+            <Toolbar />
+            <Box className="hero-section">
+              <Box className="hero-section-text-wrapper">
+                <Typography variant="h4" className="text-heading">
+                  Mobile
+                  <Typography variant="inherit" component="span" ml={1}>
+                    App Development
+                  </Typography>
+                  <br />
+                  for Future-Ready Businesses
                 </Typography>
-                <br />
-                for Future-Ready Businesses
-              </Typography>
-              <Typography component="p" className="text-description">
-                We believe in ZenFusion, merging technology with mindfulness. As
-                your partners in technological excellence, we transform values
-                into action, simplifying tech to deliver user-centered
-                solutions.
-              </Typography>
+                <Typography component="p" className="text-description">
+                  We believe in ZenFusion, merging technology with mindfulness.
+                  As your partners in technological excellence, we transform
+                  values into action, simplifying tech to deliver user-centered
+                  solutions.
+                </Typography>
+              </Box>
+              <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
             </Box>
-            <BaseButton className="base-button">Explore More</BaseButton>
-          </Box>
+          </Stack>
           <Box className="hero-section-image-wrapper">
             <Image className="hero-section-image" src={Hero} alt="innovator" />
           </Box>

@@ -48,7 +48,7 @@ const HeroSection = () => {
             the readable content of a page when looking at its layout.
           </Typography>
         </Box>
-        <BaseButton sx={{ width: '180px' }}>Explore More</BaseButton>
+        <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         {HeroTech && (
