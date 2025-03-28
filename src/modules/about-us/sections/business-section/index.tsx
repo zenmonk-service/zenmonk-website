@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
+import SectionWrapper from '@/shared/wrapper'
 import BusinessCard from '../../components/card/business-card'
 import { businesses } from './business'
 import './styles.scss'
@@ -16,19 +17,21 @@ export const BusinessSection = () => {
         support to our clients by ensuring high success rates. We aim is to
         deliver outstanding results with the help of top-notch services.
       </Typography>
-      <Box className="business-card-container">
-        {businesses.map((business, index) => {
-          return (
-            <BusinessCard
-              key={index}
-              description={business.description}
-              name={business.name}
-              title={business.title}
-              Icon={business.icon}
-            />
-          )
-        })}
-      </Box>
+      <SectionWrapper>
+        <Box className="business-card-container">
+          {businesses.map((business, index) => {
+            return (
+              <BusinessCard
+                key={index}
+                description={business.description}
+                name={business.name}
+                title={business.title}
+                Icon={business.icon}
+              />
+            )
+          })}
+        </Box>
+      </SectionWrapper>
     </Box>
   )
 }

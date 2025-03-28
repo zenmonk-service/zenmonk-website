@@ -1,7 +1,7 @@
 .rating-container {
   display: flex;
   width: 100%;
-  height: 304px;
+  height: auto;
   flex-shrink: 0;
   justify-content: center;
   gap: 32px;
@@ -10,4 +10,9 @@
   border-radius: 32px 0px;
   box-shadow: 2.667px 5.333px 21.467px 0px rgba(0, 0, 0, 0.06);
   margin-bottom: 100px;
+  flex-wrap: wrap;
+  
+  @media screen and (max-width: 1499px) {
+    padding: 14px;
+  }
 }

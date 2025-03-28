@@ -1,11 +1,19 @@
 .rating-card {
-  width: 367px;
+  flex: 1;
   height: 198px;
   flex-shrink: 0;
   display: flex;
   padding: 39px;
   gap: 10px;
   border-radius: 53.333px 0px;
+  .rating-card-icon {
+    width: 112px;
+    height: 112px;
+    @media screen and (max-width: 1499px) {
+      width: calc(112px * 0.5);
+      height: calc(112px * 0.5);
+    }
+  }
   .rating-card-content {
     display: flex;
     justify-content: center;
@@ -19,6 +27,10 @@
       font-style: normal;
       font-weight: 500;
       line-height: 38.921px;
+      @media screen and (max-width: 1499px) {
+        font-size: 20px;
+        line-height: 15px
+      }
     }
     .description {
       color: #000;
@@ -27,6 +39,14 @@
       font-style: normal;
       font-weight: 500;
       line-height: 30px;
+      @media screen and (max-width: 1499px) {
+        font-size: 12px;
+      }
     }
+  }
+  @media (max-width: 1499px) {
+    padding: calc(39px * 0.5) !important;
+    width: calc(367px * 0.5);
+    height: calc(198px * 0.5);
   }
 }

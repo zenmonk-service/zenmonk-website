@@ -2,29 +2,33 @@
   width: 100%;
   margin-bottom: 100px;
   display: flex;
+  @media screen and (max-width: 1200px) {
+    align-items: center;
+    flex-direction: column;
+  }
   .left-section {
-    width: 30%;
+    flex: 1;
     height: 100%;
     display: flex;
     gap: 50px;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
   }
   .center-section {
+    flex: 1;
     margin-top: 70px;
-    width: 30%;
     height: 100%;
     display: flex;
     gap: 50px;
-    flex-direction: column;
+    flex-wrap: wrap;
+
   }
   .right-section {
-    width: 40%;
+    width: 600px;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
     .section-title {
       margin-top: 140px;
       color: #000;
@@ -36,7 +40,6 @@
     }
     .description {
       margin-top: 15px;
-      width: 572px;
       height: 77px;
       color: #555;
       font-family: Poppins;
@@ -44,6 +47,10 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      width: 90%;
+      @media screen and (max-width: 1200px) {
+        text-align: center;
+      }
     }
     .skills-set {
       margin-top: 31px;
@@ -51,6 +58,10 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      @media screen and (max-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-around;
+      }
       gap: 10px;
       .skill {
         .title {

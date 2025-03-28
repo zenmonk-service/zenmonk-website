@@ -1,34 +1,50 @@
 .about-us-contact-us-section {
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
-  padding: 0 10%;
   position: relative;
+  padding-top: 20px;
+  padding-bottom: 50px;
 
   .left-container {
-    margin-top: 110px;
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 1499px) {
+      width: 100%;
+    }
     .section-title {
       color: #132427;
-      font-feature-settings: "liga" off, "clig" off;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Poppins;
       font-size: 50px;
       font-style: normal;
       font-weight: 600;
       line-height: 60px;
+      width: 50%;
+      @media screen and (max-width: 1499px) {
+        font-size: 36px;
+        width: 100%;
+      }
       span {
         background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-feature-settings: "liga" off, "clig" off;
+        font-feature-settings:
+          'liga' off,
+          'clig' off;
         font-family: Poppins;
         font-size: 50px;
         font-style: normal;
         font-weight: 600;
         line-height: 60px;
+        @media screen and (max-width: 1499px) {
+          font-size: 36px;
+          width: 100%;
+        }
       }
     }
     .countries-list {
@@ -54,7 +70,7 @@
     }
     .selected-country-description {
       margin-top: 10px;
-      width: 402px;
+      width: 60%;
       color: #696969;
       font-family: Poppins;
       font-size: 16px;
@@ -92,12 +108,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 50%;
+    flex: 1;
+    z-index: 10;
   }
   .vector {
     bottom: -70;
     right: -150;
     position: absolute;
+    z-index: -10;
   }
 }

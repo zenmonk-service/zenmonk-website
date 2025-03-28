@@ -12,12 +12,14 @@ const AwardProofCard = ({ image, title, description }: AwardProofCardProps) => {
   return (
     <Box className="award-proof-card">
       <Image src={image} width={113} height={174} alt={`${title}-icon`} />
-      <Typography className="title" component="h3">
-        {title}
-      </Typography>
-      <Typography className="description" component="p">
-        {description}
-      </Typography>
+      <Box className="award-card-content">
+        <Typography className="title" component="h3">
+          {title}
+        </Typography>
+        <Typography className="description" component="p">
+          {description}
+        </Typography>
+      </Box>
     </Box>
   )
 }

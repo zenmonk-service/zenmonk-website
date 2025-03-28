@@ -7,9 +7,9 @@
   .vector {
     position: absolute;
   }
-  
+
   .text-description {
-  margin-bottom: 80px;
+    margin-bottom: 80px;
   }
 
   .hero-section {
@@ -18,11 +18,9 @@
     flex-direction: column;
     text-align: left;
     .base-button {
- 
       width: 320px;
       height: 70px;
       flex-shrink: 0;
-      color: #fff;
       font-family: Inter;
       font-size: 25.6px !important;
       font-style: normal;
@@ -30,11 +28,13 @@
       line-height: normal;
       text-transform: uppercase !important;
       border-radius: 8px !important;
+      @media screen and (max-width: 1499px) {
+        font-size: 16px !important;
+        width: max-content;
+        height: 44px;
+      }
     }
-    .explore-button {
-      width: 180px;
-      text-transform: "uppercase !important";
-    }
+
     .hero-section-text-wrapper {
       text-align: left;
       display: flex;
@@ -43,18 +43,24 @@
       max-width: 848px;
       width: 100%;
     }
-  
+
     .text-heading {
       color: #132427;
-      font-feature-settings: "liga" off, "clig" off;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Poppins;
       font-size: 60px !important;
       font-style: normal;
       font-weight: 600 !important;
       line-height: 70px;
       text-transform: capitalize;
+      @media screen and (max-width: 1499px) {
+        font-size: 51px !important;
+        line-height: 60px;
+      }
     }
-  
+
     .text-heading span {
       background: var(--gradient);
       background-clip: text;
@@ -62,20 +68,28 @@
       -webkit-text-fill-color: transparent;
       font-weight: 600 !important;
       margin-left: 10px;
+      @media screen and (max-width: 1499px) {
+        margin-left: 0px;
+      }
     }
-  
+
     .text-description {
       width: 728px;
       color: #757575 !important;
-      font-feature-settings: "liga" off, "clig" off;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Poppins;
       font-size: 24px !important;
       font-style: normal;
       font-weight: 400 !important;
       line-height: normal;
       letter-spacing: 0.48px;
+      @media screen and (max-width: 1371px) {
+        width: 528px;
+        font-size: 16px !important;
+      }
     }
-  
   }
 
   .hero-section-image-wrapper {
@@ -95,6 +109,9 @@
       opacity: 1;
       transform: translateY(50px) scale(0.95) rotateX(10deg);
       animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+      @media screen and (max-width: 1371px) {
+        margin-left: -10px;
+      }
     }
   }
 }

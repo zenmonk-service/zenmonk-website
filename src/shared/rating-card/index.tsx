@@ -12,7 +12,7 @@ interface RatingCardProps {
 const RatingCard = ({ rating, description, icon, bg }: RatingCardProps) => {
   return (
     <Box className="rating-card" sx={{ bgcolor: alpha(bg, 0.1) }}>
-      <Image src={icon} alt={`${rating}-icon`} width={112} height={112} />
+      <Image src={icon} alt={`${rating}-icon`} className="rating-card-icon" width={112} height={112} />
       <Box className="rating-card-content">
         <Typography component="h5" variant="h5" className="rating">
           {rating}

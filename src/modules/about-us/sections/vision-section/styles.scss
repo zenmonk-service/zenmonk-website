@@ -19,7 +19,7 @@
   .section-description {
     margin-top: 15px;
     text-align: center;
-    width: 100%;
+    width: 90%;
     color: var(--background);
     text-align: center;
     font-family: Poppins;
@@ -34,5 +34,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 77px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 }

@@ -11,6 +11,8 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  @media screen and (max-width: 1499px) {
+  }
 
   &::before {
     content: "";
@@ -47,6 +49,9 @@
       font-style: normal;
       font-weight: 400 !important;
       line-height: 26px; 
+      @media screen and (max-width: 1337px) {
+        font-size: 13px !important; 
+       }
     }
   }
 }

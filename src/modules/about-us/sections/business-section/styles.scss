@@ -20,8 +20,10 @@
   .business-card-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
     justify-content: center;
-    gap: 40px;
+    align-items: center;
   }
 
 

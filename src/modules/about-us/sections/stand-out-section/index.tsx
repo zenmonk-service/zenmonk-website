@@ -49,7 +49,7 @@ export const StandOutSection = () => {
               {standOutList[standOutList.length - 1].description}
             </Typography>
             <Box className="core-values">
-              {standOutList[standOutList.length - 1].coreValues?.map(
+            {standOutList[standOutList.length - 1].coreValues?.map(
                 (coreValue, index) => {
                   return (
                     <Typography
