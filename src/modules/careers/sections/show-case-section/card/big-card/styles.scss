@@ -4,12 +4,18 @@
   height: 610px;
   background-color: var(--background);
   border-radius: 20px;
+
+  @media screen and (max-width: 1371px) {
+    // width: 100%;
+  }
+
   .show-case-image-container {
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
     position: relative;
     width: 630px;
     overflow: hidden;
+    
     .show-case-image {
       max-width: 100%;
       max-height: 100%;

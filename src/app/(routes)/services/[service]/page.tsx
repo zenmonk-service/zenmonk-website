@@ -35,12 +35,12 @@ const Service = () => {
 
   return (
     <Stack>
-      <Rating />
+      {/* <Rating /> */}
       <ItSolutions />
       <TechnologyTree />
       <YourIdealChoice/>
       <BusinessSectors /> 
-      {DevelopmentProcessComponent && <DevelopmentProcessComponent />}  
+      {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />
     </Stack>

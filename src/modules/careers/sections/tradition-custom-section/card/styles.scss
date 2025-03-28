@@ -6,6 +6,11 @@
   border-radius: 20px;
   align-items: center;
   border: 1px solid var(--background, #fff);
+
+  @media (max-width: 1499px) {
+    width: 250px;
+  }
+
   .image-container {
     margin-left: 33px;
     width: 64px;
@@ -14,6 +19,9 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
+    @media (max-width: 1499px) {
+      margin-left: 15px;
+    }
   }
   .content {
     display: flex;
@@ -26,6 +34,10 @@
       font-style: normal;
       font-weight: 500;
       line-height: 60px;
+
+      @media (max-width: 1499px) {
+        font-size: 36px;
+      }
     }
     .description {
       color: var(--background, #fff);

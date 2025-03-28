@@ -63,3 +63,16 @@
     }
   }
 }
+
+@media (max-width: 1649px) {
+  .your-ideal-choice {
+    padding: 84px 88px;
+  }
+}
+
+@media (max-width: 1499px) {
+  .your-ideal-choice {
+    padding: 84px 88px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

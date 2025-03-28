@@ -23,6 +23,10 @@
       gap: 16px;
       max-width: 848px;
       width: 100%;
+
+      @media (max-width: 1499px) {
+        max-width: 500px;
+      }
     }
 
     .text-heading {
@@ -34,6 +38,12 @@
       font-weight: 600 !important;
       line-height: 70px;
       text-transform: capitalize;
+
+      @media (max-width: 1499px) {
+        font-size: 51px !important;
+        line-height: 60px;
+      }
+
     }
 
     .text-heading span {
@@ -54,22 +64,30 @@
       font-weight: 400 !important;
       line-height: normal;
       letter-spacing: 0.48px;
+      margin-bottom: 40px;
+
+      @media (max-width: 1499px) {
+        font-size: 21px !important;
+        width: 600px;
+
+      }
+
     }
   }
-  .base-button {
-    margin-top: 60px;
-    width: 320px;
-    height: 70px;
-    flex-shrink: 0;
-    color: #fff;
-    font-family: Inter;
-    font-size: 25.6px !important;
-    font-style: normal;
-    font-weight: 600 !important;
-    line-height: normal;
-    text-transform: uppercase !important;
-    border-radius: 8px !important;
-  }
+  // .base-button {
+  //   margin-top: 60px;
+  //   width: 320px;
+  //   height: 70px;
+  //   flex-shrink: 0;
+  //   color: #fff;
+  //   font-family: Inter;
+  //   font-size: 25.6px !important;
+  //   font-style: normal;
+  //   font-weight: 600 !important;
+  //   line-height: normal;
+  //   text-transform: uppercase !important;
+  //   border-radius: 8px !important;
+  // }
   .explore-button {
     width: 180px;
     text-transform: "uppercase !important";
@@ -123,6 +141,10 @@
         z-index: 5;
         transform: translateY(50px) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+        @media (max-width: 1499px) {
+          right:-35;
+  
+        }
       }
       .hero-section-happy-culture-image {
         position: absolute;

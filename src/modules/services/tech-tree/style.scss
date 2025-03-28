@@ -1,82 +1,98 @@
 .tech-tree-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 180px;
-    // margin-left: auto;
-    // margin-right: auto;
-    padding: 0 2%;
-    gap: 136px;
-    position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 180px;
+  margin-left: 40px;
+  margin-right: 40px;
+  // margin-left: auto;
+  // margin-right: auto;
+  padding: 0 2%;
+  gap: 136px;
+  position: relative;
 
 
-    .tech-tree-right {
-        width: 658px;
+  @media (max-width: 1499px) {
+    gap: 16px;
+  }
 
-        .tech-tree-description {
-            color: #757575;
-            font-family: Poppins;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            letter-spacing: 0.48px;
-            margin-top: 16px;
-            text-align: left;
-            width: 658px;
-        }
+  .tech-tree-image-wrapper {
+    img {
+      width: 100%;
     }
+  }
 
-    .half-gear {
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: -1;
-        height: 327px;
-    }
-    .small-gear {
-        position: absolute;
-        left: 140;
-        top: 186;
-        z-index: -1;
-        height: 122px;
-        width: 122px;
-    }
+  .tech-tree-right {
+    width: 658px;
 
-    .dotted-circle-1 {
-        height: 55px;
-        width: 55px;
-        position: absolute;
-        left: 370px;
-        top: -20px;
+    .tech-tree-description {
+      color: #757575;
+      font-family: Poppins;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.48px;
+      margin-top: 16px;
+      text-align: left;
+      width: 658px;
+    @media (max-width: 1499px) {
+        gap: 16px;
+        width: auto;
+        font-size: 21px;
+      }
     }
-    .dotted-circle-2 {
-        height: 38px;
-        width: 38px;
-        position: absolute;
-        left: 740px;
-        top: 0px;
-    }
-    .dotted-circle-3 {
-        height: 38px;
-        width: 38px;
-        position: absolute;
-        right: 50px;
-        top: -40px;
-    }
-    .dotted-circle-4 {
-        height: 38px;
-        width: 38px;
-        position: absolute;
-        left: 200px;
-        top: 620px;
-    }
-    .dotted-circle-5 {
-        height: 38px;
-        width: 38px;
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
-    }
+  }
 
+  .half-gear {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    height: 327px;
+  }
+  .small-gear {
+    position: absolute;
+    left: 140;
+    top: 186;
+    z-index: -1;
+    height: 122px;
+    width: 122px;
+  }
+
+  .dotted-circle-1 {
+    height: 55px;
+    width: 55px;
+    position: absolute;
+    left: 370px;
+    top: -20px;
+  }
+  .dotted-circle-2 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    left: 740px;
+    top: 0px;
+  }
+  .dotted-circle-3 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    right: 50px;
+    top: -40px;
+  }
+  .dotted-circle-4 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    left: 200px;
+    top: 620px;
+  }
+  .dotted-circle-5 {
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
 }

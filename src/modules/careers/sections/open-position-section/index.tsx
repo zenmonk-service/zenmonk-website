@@ -14,7 +14,7 @@ const OpenPosition = () => {
       </Box>
       <Typography className="description" component="p">
         Discover a wide range of exciting career opportunities and take the next
-        step in your professional journey by <br />
+        step in your professional journey by
         joining our dynamic and innovative team, where your skills and passion
         can thrive.
       </Typography>

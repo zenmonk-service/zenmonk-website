@@ -1,5 +1,5 @@
 .business-sectors-container {
-  width: 100%;
+  // width: 100%;
   height: auto;
   display: flex;
   margin-bottom: 120px;
@@ -37,5 +37,28 @@
     font-weight: 400 !important;
     line-height: normal;
     letter-spacing: 0.48px;
+  }
+}
+
+@media (max-width: 1499px) {
+  .business-sectors-container {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 60px;
+    .business-sectors-title-wrapper {
+
+    .business-sectors-title {
+
+      font-size: 36px !important;
+
+    }
+  }
+
+
+  .description {
+  
+    font-size: 21px !important;
+  }
+
   }
 }

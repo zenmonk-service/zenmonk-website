@@ -2,6 +2,11 @@
   width: 100%;
   display: flex;
   padding: 121px;
+
+  @media (max-width: 1499px) {
+    padding: 40px;
+  }
+
   @media (max-width: 1554px) {
     align-items: center;
     justify-content: center;
@@ -21,6 +26,9 @@
       font-weight: 600;
       line-height: 52px;
       letter-spacing: -0.8px;
+      @media (max-width: 1499px) {
+        width: 100%;
+      }
     }
     .description {
       margin-top: 16px;
@@ -31,6 +39,10 @@
       font-weight: 400;
       line-height: normal;
       letter-spacing: 0.48px;
+      @media (max-width: 1499px) {
+        font-size: 21px !important;
+        margin-bottom: 50px;
+      }
     }
     .excellence-image {
       margin-top: 32px;
@@ -42,7 +54,10 @@
   .right-section {
     @media (max-width: 1554px) {
       margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
+    width: 100%;
     flex: 1;
     display: flex;
     gap: 64px;
