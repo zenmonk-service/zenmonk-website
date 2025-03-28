@@ -15,10 +15,12 @@ import ContactUs from '@/shared/contact-us'
 import FAQ from '@/shared/faq'
 import InfiniteSlider from '@/shared/infinite-slider'
 import SectionWrapper from '@/shared/wrapper'
+import YourIdealChoice from '@/modules/services/ideal-choice'
 
 const page = () => {
   return (
     <Box>
+
       <SectionWrapper>
         <HeroSection />
         <AnimatedDiv>

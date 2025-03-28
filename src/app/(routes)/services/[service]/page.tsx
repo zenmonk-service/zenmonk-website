@@ -9,6 +9,8 @@ import DevelopmentProcess from '@/modules/services/modules/software-development/
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
+import YourIdealChoice from '@/modules/services/ideal-choice'
+import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
 
 const DEVELOPMENT_PROCESS_SECTION = {
   'software-development': DevelopmentProcess,
@@ -16,6 +18,7 @@ const DEVELOPMENT_PROCESS_SECTION = {
 
 const READY_TO_TALK_SECTION = {
   'product-development': ReadyToTalkProductDevelopment,
+  'software-development': ReadyToStartSoftwareDev
 }
 
 const Service = () => {
@@ -35,6 +38,7 @@ const Service = () => {
       <Rating />
       <ItSolutions />
       <TechnologyTree />
+      <YourIdealChoice/>
       <BusinessSectors /> 
       {DevelopmentProcessComponent && <DevelopmentProcessComponent />}  
       {ReadyToTalkComponent && <ReadyToTalkComponent />}

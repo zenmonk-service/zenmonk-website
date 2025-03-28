@@ -12,15 +12,19 @@ import {
 } from '@/modules/about-us/sections'
 import AnimatedDiv from '@/shared/animated-div'
 import SectionWrapper from '@/shared/wrapper'
+import YourIdealChoice from '@/modules/services/ideal-choice'
+import ReadyToStart from '@/modules/services/modules/software-development/ready-to-start'
 
 const About = () => {
   return (
     <Box>
         <AnimatedDiv>
+
           <HeroSection />
           <Rating />
         </AnimatedDiv>
         <AnimatedDiv>
+
           <BusinessSection />
         </AnimatedDiv>
         <AnimatedDiv>
