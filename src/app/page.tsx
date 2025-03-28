@@ -44,19 +44,14 @@ const page = () => {
       <AnimatedDiv>
         <Odometer />
       </AnimatedDiv>
-
       <AnimatedDiv>
         <ClientSatisfaction />
       </AnimatedDiv>
-
       <AnimatedDiv>
         <FAQ />
-        {/* <ContactUs /> */}
       </AnimatedDiv>
-
       <AnimatedDiv>
         <Testimony />
-        {/* <ContactUs /> */}
       </AnimatedDiv>
     </Box>
   )

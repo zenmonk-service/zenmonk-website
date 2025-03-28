@@ -3,6 +3,7 @@
   height: auto;
   display: flex;
   margin-bottom: 120px;
+
   flex-direction: column;
   align-items: center;
   .open-position-title-wrapper {
@@ -21,6 +22,11 @@
       font-weight: 600 !important;
       line-height: 52px;
       letter-spacing: -0.8px;
+
+      @media (max-width: 1499px) {
+        font-size: 36px !important;
+      }
+
     }
   }
   .description {
@@ -33,5 +39,12 @@
     font-weight: 400 !important;
     line-height: normal;
     letter-spacing: 0.48px;
+   width: 1200px;
+   padding-left: 40px;
+   padding-right: 40px;
+
+    @media (max-width: 1499px) {
+      font-size: 21px !important;
+    }
   }
 }

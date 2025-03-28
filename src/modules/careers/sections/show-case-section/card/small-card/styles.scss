@@ -5,6 +5,10 @@
   border-radius: 20px;
   background-color: var(--background);
   overflow: hidden;
+  @media screen and (max-width: 1371px) {
+    // width: 100%;
+  }
+
   .show-case-image-container {
     position: relative;
     width: 330px;

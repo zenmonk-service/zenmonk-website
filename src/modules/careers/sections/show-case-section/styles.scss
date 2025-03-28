@@ -8,6 +8,12 @@
     display: flex;
     flex-direction: column;
     padding: 70px 0px 0px 130px;
+
+    @media (max-width: 1499px) {
+      padding: 50px 0px 0px 0px;
+      width: 90%;
+    }
+
     .show-case-title {
       color: #132427;
       font-family: Poppins;
@@ -15,6 +21,11 @@
       font-style: normal;
       font-weight: 600 !important;
       line-height: normal;
+
+      @media (max-width: 1499px) {
+        font-size: 36px !important;
+      }
+
     }
     .show-case-description {
       width: 72%;
@@ -28,6 +39,10 @@
       line-height: normal;
       @media screen and (max-width: 1371px) {
         width: 100%;
+      }
+
+      @media (max-width: 1499px) {
+        font-size: 21px !important;
       }
     }
   }
@@ -62,12 +77,17 @@
     }
   }
   .bottom-section {
-    width: 100%;
-    height: 50%;
+    // width: 100%;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100%;
     gap: 30px;
     justify-content: center;
     display: flex;
     @media screen and (max-width: 1371px) {
+      // width: 100%;
+      margin-left: 0px;
+      margin-right: 0px;
       justify-content: center;
       align-items: center;
       flex-direction: column;

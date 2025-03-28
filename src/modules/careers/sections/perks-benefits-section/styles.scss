@@ -18,12 +18,18 @@
       font-weight: 500;
       line-height: normal;
       width: 80%;
+
+      @media (max-width: 1499px) {
+        width: 95%;
+        margin-bottom: 60px;
+      }
+
     }
     .perks-benefits-list {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
     }
   }

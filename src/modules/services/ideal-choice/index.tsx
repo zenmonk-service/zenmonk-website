@@ -46,9 +46,6 @@ const YourIdealChoice = () => {
     <Box className="your-ideal-choice">
       <Box className="first-container">
         <Title align='left' className='title' text={'Why our Expertise'}></Title>
-        {/* <Typography className="title">
-          Why Our Expertise
-        </Typography> */}
         <Typography className="title">
          Your Ideal Choice
         </Typography>
