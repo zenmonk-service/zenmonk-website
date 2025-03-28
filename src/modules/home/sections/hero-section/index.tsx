@@ -19,7 +19,8 @@ import './styles.scss'
 const HeroSection = () => {
   return (
     <Box className="hero-section-wrapper">
-      <Toolbar />
+      <Box className="toolbar">      <Toolbar /></Box>
+
       <Image quality={100} src={Vector} alt="vector" className="vector" />
       <Box className="hero-section">
         <Box className="hero-section-text-wrapper">

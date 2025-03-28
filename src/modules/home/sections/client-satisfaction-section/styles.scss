@@ -2,6 +2,7 @@
   margin-top: 150px;
   width: 100%;
   height: 100%;
+  padding: 0px 48px;
   .title {
     color: #494949;
     font-family: Montserrat !important;
@@ -73,3 +74,18 @@
     transform: translateY(0); /* Move to the original position */
   }
 }
+
+
+@media (max-width: 1499px) {
+  .client-satisfaction-section {
+    margin-top: 50px;
+
+
+    .description {
+      padding: 0;
+    }
+  }
+
+
+}
+

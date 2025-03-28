@@ -24,7 +24,7 @@
 
       &:hover {
         transform: translateY(-4px);
-     box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
+        box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
       }
       .business-item-content {
         display: flex;
@@ -120,13 +120,42 @@
 }
 
 .fade-transition {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
   opacity: 1;
   transform: translateY(0);
 }
 
 .fade-transition-hidden {
   opacity: 0;
-  transform: translateY(-30px); /* You can adjust the value for sliding effect */
+  transform: translateY(
+    -30px
+  ); /* You can adjust the value for sliding effect */
 }
 
+@media (max-width: 1499px) {
+  .services-section {
+    .services-left-container {
+      margin-right: -140px;
+    }
+    .business-item {
+      width: 300px !important;
+    }
+    .services-right-container {
+      top: 45px;
+      .logo {
+        bottom: 45%;
+        left: 55%;
+        width: 420.584px;
+        height: 350px;
+      }
+    }
+  }
+}
+
+@media (max-height: 750px) {
+  .services-right-container {
+    top: 45px;
+  }
+}

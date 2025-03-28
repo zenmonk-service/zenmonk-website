@@ -71,3 +71,13 @@
     transform: translateY(-10);
   }
 }
+
+@media (max-width: 1499px) {
+  .tech-card-container {
+    width: 250px;
+
+    .tech-card-title {
+      font-size: 16px;
+    }
+  }
+}

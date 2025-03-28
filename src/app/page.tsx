@@ -10,17 +10,16 @@ import {
 } from '@/modules/home/sections'
 import TagLine from '@/modules/home/tag-line'
 import Testimony from '@/modules/home/testimony'
+import YourIdealChoice from '@/modules/services/ideal-choice'
 import AnimatedDiv from '@/shared/animated-div'
 import ContactUs from '@/shared/contact-us'
 import FAQ from '@/shared/faq'
 import InfiniteSlider from '@/shared/infinite-slider'
 import SectionWrapper from '@/shared/wrapper'
-import YourIdealChoice from '@/modules/services/ideal-choice'
 
 const page = () => {
   return (
     <Box>
-
       <SectionWrapper>
         <HeroSection />
         <AnimatedDiv>

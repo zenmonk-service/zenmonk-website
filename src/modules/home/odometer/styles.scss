@@ -2,14 +2,14 @@
   margin-top: 195px;
   height: 420px;
   width: 100%;
-  background: url("/earth.webp");
+  background: url('/earth.webp');
   background-size: cover;
-  background-position: 0 0% ;
+  background-position: 0 0%;
   padding: 0 10%;
   color: #fff;
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@
     height: 100%;
     padding: 0 9.5%;
     display: flex;
-    padding-top: 60px ;
+    padding-top: 60px;
     box-sizing: border-box;
     .left-section {
       display: flex;
@@ -35,7 +35,7 @@
       text-align: left;
       .heading {
         width: 85%;
-       letter-spacing: .9px;
+        letter-spacing: 0.9px;
         display: flex;
         font-family: Inter !important;
         font-size: 40px;
@@ -44,7 +44,7 @@
         line-height: normal;
       }
       .teams-number {
-      letter-spacing: 2px;
+        letter-spacing: 2px;
         margin-top: 32px;
         width: 100%;
         font-family: Inter;
@@ -174,5 +174,16 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1499px) {
+  .odometer {
+    margin-top: 50px;
+  }
+
+  .odometer-section {
+    padding: 0px !important;
+    padding-top: 60px !important;
   }
 }

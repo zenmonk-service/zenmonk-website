@@ -44,7 +44,7 @@
   }
   .explore-button {
     width: 180px;
-    text-transform: "uppercase !important";
+    text-transform: 'uppercase !important';
   }
   .hero-section-text-wrapper {
     text-align: left;
@@ -58,7 +58,7 @@
   .text-heading {
     color: #3c3c3c !important;
     font-size: 4.8rem !important;
-    font-family: "Inter", sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
     font-weight: 400;
     letter-spacing: 0.96px;
     opacity: 0;
@@ -291,5 +291,80 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 1499px) {
+  /* Your styles here */
+  .hero-section-wrapper {
+
+    .toolbar {
+      display: none;
+    }
+    .text-heading {
+      font-size: 37px !important;
+    }
+
+    .text-description {
+      font-size: 18px !important;
+    }
+
+    .hero-section-image-wrapper img {
+      max-width: 70%;
+      height: 100%;
+      max-height: 100%;
+    }
+
+    .hero-section-small-image.db {
+      top: 20%;
+      left: 90%;
+    }
+    .hero-section-small-image.figma {
+      top: -40%;
+      left: 80%;
+      width: 60px !important;
+    }
+    .hero-section-small-image.income {
+      top: -20%;
+      left: 40%;
+      width: 150px !important;
+      animation: floatAnimation2 3s ease-in-out infinite !important;
+    }
+    .hero-section-small-image.circle {
+      top: -20%;
+      left: 25%;
+      width: 150px !important;
+      z-index: -1;
+      opacity: 0;
+
+      animation-name: rotate !important;
+      animation-duration: 30s !important;
+      animation-iteration-count: infinite !important;
+      animation-timing-function: linear !important;
+    }
+    .hero-section-small-image.js {
+      top: 25%;
+      right: 80%;
+      width: 60px !important;
+    }
+    .hero-section-small-image.react {
+      top: -25%;
+      right: 80%;
+      width: 60px !important;
+    }
+    .hero-section-small-image.php {
+      top: -30%;
+      right: 60%;
+    }
+    .hero-section-small-image.xd {
+      top: -20%;
+      left: 70%;
+    }
+    .hero-section-small-image.balance {
+      top: 1%;
+      right: 70%;
+      width: 100px !important;
+      animation: floatAnimation2 3s ease-in-out infinite !important;
+    }
   }
 }

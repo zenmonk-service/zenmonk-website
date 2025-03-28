@@ -67,7 +67,6 @@
   }
   
 
-
   
   @media (max-width: 900px) {
     .tech-solution-section-wrapper {
@@ -108,4 +107,8 @@
   }
 
 
-  
+  @media (max-width: 1499px) {
+    .tech-solution-section-wrapper {
+      padding: 0;
+    }
+  }
