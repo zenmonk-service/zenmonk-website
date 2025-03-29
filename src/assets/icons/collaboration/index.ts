@@ -16,16 +16,14 @@ import Funiber from './logo-funiber.png'
 import Unib from './logo-unib.svg'
 import Unicol from './logo-unincol.png'
 
-const CollaborationLogo = [
-  { name: 'Alantica', src: Ceinde },
-  { name: 'Cite', src: Citealimenta },
-  { name: 'Citicam', src: Citican },
-  { name: 'Citican', src: Cittecam },
-  { name: 'Cuanza', src: Cuanza },
-  { name: 'Funiber', src: Funiber },
-  { name: 'Unib', src: Unib },
-  { name: 'Unicol', src: Unicol },
-  { name: 'Ct', src: Ct },
+export const OurPartnersList = [
+  { label: 'Ceinde', src: Ceinde },
+  { label: 'Citealimenta', src: Citealimenta },
+  { label: 'Citican', src: Citican },
+  { label: 'Cittecam', src: Cittecam },
+  { label: 'Cuanza', src: Cuanza },
+  { label: 'Funiber', src: Funiber },
+  { label: 'Unib', src: Unib },
+  { label: 'Unicol', src: Unicol },
+  { label: 'Ct', src: Ct },
 ]
-
-export default CollaborationLogo

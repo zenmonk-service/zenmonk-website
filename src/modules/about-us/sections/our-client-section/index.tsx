@@ -1,13 +1,10 @@
 import { Box, Typography } from '@mui/material'
-import CollaborationLogo from '@/assets/icons/collaboration'
-import InfiniteSlider from '@/shared/infinite-slider'
+import { OurPartnersList } from '@/assets/icons/collaboration'
+import InfiniteSlider from '@/shared/auto-scroll-carousel'
 import Title from '@/shared/title'
 import './styles.scss'
 
 export const OurClientSection = () => {
-  const ClientSliderFromRight = CollaborationLogo.slice(0, 5)
-  const ClientSliderFromLeft = CollaborationLogo.slice(4, 9)
-
   return (
     <Box className="about-us-our-client-section">
       <Title text="Our Clients" className="section-title" />
@@ -17,16 +14,15 @@ export const OurClientSection = () => {
       </Typography>
 
       <InfiniteSlider
-        data={[...ClientSliderFromRight, ...ClientSliderFromRight]}
-        originFrom="left"
-        sliderProps={{ className: 'infinite-slider', gap: 30 }}
+        data={OurPartnersList}
+        sliderProps={{ className: 'infinite-slider' }}
         imageProps={{ size: 200 }}
       />
       <InfiniteSlider
-        data={[...ClientSliderFromLeft, ...ClientSliderFromLeft]}
-        originFrom="right"
-        sliderProps={{ className: 'infinite-slider', gap: 30 }}
+        data={OurPartnersList}
+        sliderProps={{ className: 'infinite-slider' }}
         imageProps={{ size: 200 }}
+        reverse
       />
     </Box>
   )
