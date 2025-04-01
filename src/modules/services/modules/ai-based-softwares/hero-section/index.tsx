@@ -7,7 +7,6 @@ const AiBasedSoftwares: React.FC = () => (
     <HeroSection
       title="Digital Transformation & Automation to Accelerate Growth"
       highlightedText="Digital Transformation & Automation"
-      textWidth={728}
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       image={HeroImg.src}
     />

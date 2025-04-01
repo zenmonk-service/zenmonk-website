@@ -5,7 +5,6 @@ import { Toolbar } from '@mui/material'
 
 const IndustrySpecific: React.FC = () => (
   <SectionWrapper>
-    <Toolbar/>
     <HeroSection
       title="Growth & Marketing <br/>That Drives Real Results"
       highlightedText='Growth & Marketing'

@@ -30,9 +30,10 @@ const ItTrainingHeroSection = () => {
           <Image src={Quote2} alt="quote-1" className="quote-1" />
         </Typography>
         <Typography className="top-section-sub-text" component="h1">
-          <Image src={Quote1} alt="quote-2" className="quote-2" />
           Expert <span>IT Training</span>
         </Typography>
+        <Image src={Quote1} alt="quote-2" className="quote-2" />
+
       </Box>
       <Box className="bottom-section">
         <Box className="left-section">

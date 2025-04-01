@@ -66,7 +66,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Toolbar/>
           <Box
             className="hero-section-image-wrapper"
             component="img"

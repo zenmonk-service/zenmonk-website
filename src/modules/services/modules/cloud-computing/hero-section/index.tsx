@@ -8,7 +8,6 @@ const CloudComputing: React.FC = () => (
     <Toolbar />
     <Toolbar />
     <HeroSection
-      textWidth={728}
       title="Building Secure,<br/> Scalable, and Reliable Cloud Solutions"
       highlightedText="Cloud Solutions"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
