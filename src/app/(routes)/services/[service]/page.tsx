@@ -3,14 +3,15 @@
 import { usePathname } from 'next/navigation'
 import { Stack } from '@mui/material'
 import BusinessSectors from '@/modules/services/business-sectors'
+import YourIdealChoice from '@/modules/services/ideal-choice'
 import ItSolutions from '@/modules/services/it-solutions'
 import ReadyToTalkProductDevelopment from '@/modules/services/modules/product-development/ready-to-talk'
 import DevelopmentProcess from '@/modules/services/modules/software-development/development-process'
+import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
+import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
-import YourIdealChoice from '@/modules/services/ideal-choice'
-import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
 
 const DEVELOPMENT_PROCESS_SECTION = {
   'software-development': DevelopmentProcess,
@@ -18,7 +19,14 @@ const DEVELOPMENT_PROCESS_SECTION = {
 
 const READY_TO_TALK_SECTION = {
   'product-development': ReadyToTalkProductDevelopment,
-  'software-development': ReadyToStartSoftwareDev
+  'software-development': ReadyToStartSoftwareDev,
+  'it-training-&-workshops': ReadyToTalkShared,
+  'mobile-app-development': ReadyToTalkShared,
+  'cloud-development': ReadyToTalkShared,
+  'it-&-business-consultation': ReadyToTalkShared,
+  'growth-&-marketing': ReadyToTalkShared,
+  'ai-based-softwares': ReadyToTalkShared,
+  'industry-specific-solutions': ReadyToTalkShared,
 }
 
 const Service = () => {
@@ -38,8 +46,8 @@ const Service = () => {
       {/* <Rating /> */}
       <ItSolutions />
       <TechnologyTree />
-      <YourIdealChoice/>
-      <BusinessSectors /> 
+      <YourIdealChoice />
+      <BusinessSectors />
       {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />

@@ -13,7 +13,6 @@ const ReadyToTalkProductDevelopment = () => {
       <Stack
         className="ready-to-talk-text-container"
         justifyContent={'flex-start'}
-        maxWidth={'612px'}
       >
         <Typography
           className="ready-to-talk-heading"

@@ -1,0 +1,129 @@
+.ready-to-talk-shared-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4%;
+
+    @media (max-width: 899px) {
+        padding: 0;
+    }
+
+    .ready-to-talk-shared-container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        border-radius: 24px;
+        height: 512px;
+        background: #FFFFF9;
+        box-shadow: 2px 4px 42.3px 0px rgba(0, 0, 0, 0.14);
+        background-image: url("./assets/ready-to-talk-banner.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4%;
+
+        @media (max-width: 899px) {
+            height: fit-content;
+            padding: 16px 4%;
+        }
+
+
+        .image-container {
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            .rtt-img {
+                width: 100%;
+
+                @media (max-width: 899px) {
+                    height: 380px;
+                    width: 300px;
+                }
+
+            }
+        }
+
+        .ready-to-talk-shared-content {
+            gap: 24px;
+            max-width: 556px;
+
+            .heading {
+                color: #424242;
+                font-family: Montserrat;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+
+                @media (max-width: 1536px) {
+                    font-size: 36px;
+                }
+
+                @media (max-width: 1199px) {
+                    font-size: 32px;
+                    width: 390px;
+                }
+
+                @media (max-width: 899px) {
+                    font-size: 28px;
+                }
+
+                @media (max-width: 599px) {
+                    font-size: 24px;
+                    width: auto;
+                }
+            }
+
+            .subheading {
+                color: #747474;
+                font-family: Montserrat;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                margin-bottom: 44px;
+
+                @media (max-width: 1536px) {
+                    font-size: 17px;
+                    width: 475px;
+                    margin-bottom: 33px;
+                }
+
+                @media (max-width: 1199px) {
+                    font-size: 16px;
+                    width: 390px;
+                    margin-bottom: 22px;
+                }
+
+                @media (max-width: 899px) {
+                    font-size: 15px;
+                    margin-bottom: 11px;
+                }
+
+                @media (max-width: 599px) {
+                    font-size: 14px;
+                    width: auto;
+                    margin-bottom: 0;
+                }
+            }
+
+            .rtt-button {
+                color: #FFF;
+                font-family: Montserrat;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                width: 151px;
+                height: 40px;
+                border-radius: 4px;
+                background: linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%);
+            }
+        }
+
+    }
+}
