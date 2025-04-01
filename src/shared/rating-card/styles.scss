@@ -6,6 +6,9 @@
   padding: 39px;
   gap: 10px;
   border-radius: 53.333px 0px;
+  @media screen and (max-width: 1200px) {
+    border-radius: 23.333px 0px;
+  }
   .rating-card-icon {
     width: 112px;
     height: 112px;

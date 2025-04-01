@@ -2,6 +2,9 @@
   height: 400px;
   position: relative;
   flex: 1;
+  @media screen and (max-width: 1499px) {
+    height: 380px;
+  }
   img {
     position: absolute;
     width: 193px;

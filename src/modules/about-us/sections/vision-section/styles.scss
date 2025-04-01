@@ -15,6 +15,12 @@
     font-style: normal;
     font-weight: 600 !important;
     line-height: normal;
+
+    @media screen and (max-width: 1499px) {
+      font-size: 36px !important;
+      
+    }
+    
   }
   .section-description {
     margin-top: 15px;
@@ -28,6 +34,10 @@
     font-weight: 400;
     line-height: normal;
     margin-bottom: 50px;
+
+    @media screen and (max-width: 1499px) {
+      font-size: 21px !important;
+    }
   }
   .vision-list {
     width: 100%;
