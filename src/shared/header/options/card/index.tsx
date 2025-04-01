@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import { Box, Button, Typography } from '@mui/material'
 import './styles.scss'
@@ -10,6 +9,7 @@ interface OptionCardProps {
   description: string
   imageUrl: StaticImageData
   route: string
+  isAlreadyOpen: boolean
 }
 
 const OptionCard = ({
@@ -17,13 +17,14 @@ const OptionCard = ({
   description,
   imageUrl,
   route,
+  isAlreadyOpen,
 }: OptionCardProps) => {
   const [isVisible, setIsVisible] = useState(false)
 
   return (
     <>
       <Box
-        className="option-card"
+        className={`option-card  ${isAlreadyOpen ? 'selected' : ''}`}
         onMouseOver={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
       >
@@ -35,7 +36,7 @@ const OptionCard = ({
           <Typography variant="body2" className="description">
             {description}
           </Typography>
-          {isVisible && (
+          {(isVisible || isAlreadyOpen) && (
             <Button className="link-button" color="inherit" disableRipple>
               Explore &nbsp; <ArrowRightAltIcon fontSize="large" />
             </Button>

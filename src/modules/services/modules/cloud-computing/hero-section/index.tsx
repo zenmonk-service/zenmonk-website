@@ -5,8 +5,7 @@ import { CloudComputing as HeroImg } from '../assets'
 
 const CloudComputing: React.FC = () => (
   <SectionWrapper>
-    <Toolbar />
-    <Toolbar />
+    <Toolbar/>
     <HeroSection
       title="Building Secure,<br/> Scalable, and Reliable Cloud Solutions"
       highlightedText="Cloud Solutions"

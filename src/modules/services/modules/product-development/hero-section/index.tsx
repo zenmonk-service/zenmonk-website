@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Box, Stack, Toolbar, Typography } from '@mui/material'
 import BaseButton from '@/shared/button'
 import SectionWrapper from '@/shared/wrapper'
-import { Bubble, HeroBg, HeroImg, Meet } from '../assets'
+import {  HeroBg, HeroImg } from '../assets'
 import './styles.scss'
 
 const ProductDevelopment = () => {

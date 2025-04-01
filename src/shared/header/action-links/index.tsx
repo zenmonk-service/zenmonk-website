@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { ExpandMore, ExpandLess, Menu } from '@mui/icons-material'
 import {
   Box,
@@ -26,15 +25,19 @@ const theme = createTheme()
 const ActionLinks = () => {
   const { push } = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
+  const pathname = usePathname()
   const toggleExpand = () => setIsExpanded((prev) => !prev)
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
-
   const navigateTo = (path: string) => push(path)
-
   const selectOption = (path: string) => {
+    if (alreadyOpen(path)) {
+      return
+    }
     navigateTo('/services/' + path)
     setIsExpanded(false)
   }
+
+  const alreadyOpen = (path: string) => pathname.includes(path)
 
   return !isSmallScreen ? (
     <Box className="action-links-wrapper">
@@ -72,6 +75,7 @@ const ActionLinks = () => {
             return (
               <Box onClick={() => selectOption(option.route)}>
                 <OptionCard
+                  isAlreadyOpen={alreadyOpen(option.route)}
                   description={option.description}
                   imageUrl={option.imageUrl}
                   title={option.label}
@@ -85,15 +89,15 @@ const ActionLinks = () => {
     </Box>
   ) : (
     <IconButton className="action-link-menu-icon">
-      <Menu fontSize="inherit" />
+      <Menu fontSize="large" />
     </IconButton>
   )
 }
 
 export default ActionLinks
 
-const Option: React.FC<OptionProps> = ({ isExpanded, onClick }) => (
-  <Box onClick={onClick} className="expand-option-icon">
+const Option: React.FC<OptionProps> = ({ isExpanded }) => (
+  <Box className="expand-option-icon">
     {isExpanded ? (
       <ExpandMore color="inherit" />
     ) : (

@@ -1,6 +1,6 @@
 import parse from 'html-react-parser'
 import React from 'react'
-import { Box, Typography, Grid, Toolbar } from '@mui/material'
+import { Box, Typography, Toolbar, Grid2 } from '@mui/material'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 
@@ -20,24 +20,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   highlightedText = '',
 }) => {
   const highlightTitle = (text: string) => {
-    if (!highlightedText || !text.includes(highlightedText)) return parse(text) // Parse HTML tags
+    if (!highlightedText || !text.includes(highlightedText)) return parse(text)
 
     const parts = text.split(highlightedText)
     return (
       <>
         {parse(parts[0])}
-        <Typography
-          component="span"
-          sx={{
-            background: 'var(--gradient)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontWeight: 600,
-          }}
-        >
-          {parse(highlightedText)}
-        </Typography>
+        <Typography component="span">{parse(highlightedText)}</Typography>
         {parse(parts[1])}
       </>
     )
@@ -45,17 +34,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <Box sx={{ width: '100%', py: 8, px: 4 }}>
-      <Grid container spacing={4} alignItems="center">
-        <Grid item xs={12} md={6}>
+      <Grid2 container spacing={4} alignItems="center">
+        <Grid2 size={{ xs: 12, md: 6 }}>
           <Box
             className="hero-section-text-wrapper"
             style={{ width: textWidth }}
           >
-            <Typography
-              variant="h3"
-              component="h1"
-              className="text-heading"
-            >
+            <Typography variant="h3" component="h1" className="text-heading">
               {highlightTitle(title)}
             </Typography>
             <Typography variant="body1" className="text-description">
@@ -63,9 +48,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </Typography>
             <BaseButton>Explore Service</BaseButton>
           </Box>
-        </Grid>
+        </Grid2>
 
-        <Grid item xs={12} md={6}>
+        <Grid2 size={{ xs: 12, md: 6 }}>
           <Box
             className="hero-section-image-wrapper"
             component="img"
@@ -78,8 +63,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               borderRadius: 2,
             }}
           />
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
     </Box>
   )
 }

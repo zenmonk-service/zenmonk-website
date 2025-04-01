@@ -7,5 +7,6 @@ export * from "./industry-specific/hero-section"
 export * from "./it-business-consultation/hero-section"
 export * from "./growth-marketing/hero-section"
 export * from "./mobile-app-development/hero-section"
+export * from "./ui-ux/hero-section"
 
 
