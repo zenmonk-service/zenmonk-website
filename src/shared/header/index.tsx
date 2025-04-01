@@ -29,6 +29,7 @@ function HideOnScroll(props: Props) {
 const Navbar = (props: Props) => {
   const { push } = useRouter()
   const navigateToHome = () => push('/')
+  const navigateToContact = () => push('/contact')
   return (
     <HideOnScroll {...props}>
       <AppBar className="app-bar-container"  elevation={0}>
@@ -46,7 +47,7 @@ const Navbar = (props: Props) => {
             )}
           </Box>
           <ActionLinks />
-          <BaseButton>{actionsLink[actionsLink.length - 1].name}</BaseButton>
+          <BaseButton onClick={navigateToContact} >{actionsLink[actionsLink.length - 1].name}</BaseButton>
         </Toolbar>
       </AppBar>
     </HideOnScroll>

@@ -9,7 +9,7 @@
   }
 
   .text-description {
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .hero-section {
@@ -18,16 +18,16 @@
     flex-direction: column;
     text-align: left;
     .base-button {
-      width: 320px;
-      height: 70px;
-      flex-shrink: 0;
-      font-family: Inter;
-      font-size: 25.6px !important;
-      font-style: normal;
-      font-weight: 600 !important;
-      line-height: normal;
-      text-transform: uppercase !important;
-      border-radius: 8px !important;
+      width: 180px;
+      // height: 70px;
+      // flex-shrink: 0;
+      // font-family: Inter;
+      // font-size: 25.6px !important;
+      // font-style: normal;
+      // font-weight: 600 !important;
+      // line-height: normal;
+      // text-transform: uppercase !important;
+      // border-radius: 8px !important;
       @media screen and (max-width: 1499px) {
         font-size: 16px !important;
         width: max-content;
