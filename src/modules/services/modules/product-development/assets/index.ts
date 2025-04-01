@@ -1,6 +1,5 @@
-import Bubble from './bubble.svg'
 import HeroBg from './hero-bg.svg'
-import Meet from './meet.svg'
+import HeroImg from './hero-img.svg'
 import ReadyToTalkPersonImage from './ready-to-talk-person.svg'
 
-export { HeroBg, Meet, Bubble, ReadyToTalkPersonImage }
+export { HeroBg, HeroImg, ReadyToTalkPersonImage }
