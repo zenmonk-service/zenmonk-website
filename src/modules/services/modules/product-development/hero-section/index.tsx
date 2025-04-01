@@ -2,11 +2,10 @@ import Image from 'next/image'
 import { Box, Toolbar, Typography } from '@mui/material'
 import BaseButton from '@/shared/button'
 import SectionWrapper from '@/shared/wrapper'
-import { Hero } from '../../software-development/assets'
 import { Bubble, HeroBg, Meet } from '../assets'
 import './styles.scss'
 
-const ProductDevelopmentHeroSection = () => {
+const ProductDevelopment = () => {
   return (
     <>
       <Image src={HeroBg} alt="hero-bg" className="hero-bg" />
@@ -42,4 +41,4 @@ const ProductDevelopmentHeroSection = () => {
   )
 }
 
-export { ProductDevelopmentHeroSection }
+export { ProductDevelopment }

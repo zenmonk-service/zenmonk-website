@@ -1,17 +1,16 @@
-import { Toolbar } from '@mui/material'
 import { HeroSection } from '@/modules/services/shared/hero-section'
 import SectionWrapper from '@/shared/wrapper'
 import { Hero as HeroImg } from '../assets'
 
-const MobileAppDevelopment: React.FC = () => (
+const ItBusinessConsultation: React.FC = () => (
   <SectionWrapper>
     <HeroSection
-      title="Mobile&nbsp;App Development <br/>For Future-Ready<br/> Businesses"
-      highlightedText='App Development'
+      title="Driving Innovation with <br/> IT & Business Expertise"
+      highlightedText="IT & Business Expertise"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       image={HeroImg.src}
     />
   </SectionWrapper>
 )
 
-export { MobileAppDevelopment }
+export { ItBusinessConsultation }

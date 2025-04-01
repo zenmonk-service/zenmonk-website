@@ -1,0 +1,113 @@
+.hero-section-text-wrapper {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translateY(50px) scale(0.95) rotateX(10deg);
+  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+  button {
+    margin-top: 10px;
+  }
+}
+
+.text-heading {
+  color: #132427;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: 'Poppins', sans-serif;
+  font-size: 60px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 70px;
+  text-transform: capitalize;
+  @media (max-width: 1499px) {
+    font-size: 51px !important;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 42px !important;
+  }
+
+  @media (max-width: 899px) {
+    font-size: 33px !important;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 24px !important;
+  }
+}
+
+.text-heading span {
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: Poppins;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 600;
+  line-height: inherit;
+  text-transform: capitalize;
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600 !important;
+}
+
+.text-description {
+  width: 728px;
+  color: #757575 !important;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: normal;
+  letter-spacing: 0.48px;
+  margin-bottom: 40px;
+
+  @media (max-width: 1499px) {
+    width: 650px;
+    font-size: 21px !important;
+    margin-bottom: 36px;
+  }
+
+  @media (max-width: 1199px) {
+    width: 560px;
+    font-size: 18px !important;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 899px) {
+    font-size: 16px !important;
+    margin-bottom: 28px;
+    width: 490px;
+  }
+
+  @media (max-width: 599px) {
+    font-size: 14px !important;
+    margin-bottom: 24px;
+  }
+}
+
+.hero-section-image-wrapper{
+  transform: translateY(50px) scale(0.95) rotateX(10deg);
+  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+}
+@keyframes fadeInBlurScaleRotate {
+  0% {
+    opacity: 0.8;
+    transform: translateY(50px) scale(0.95) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1.02) rotateX(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}

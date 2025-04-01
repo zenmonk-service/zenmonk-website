@@ -1,45 +1,16 @@
-import Image from 'next/image'
-import { Box, Stack, Toolbar, Typography } from '@mui/material'
-import BaseButton from '@/shared/button'
+import { HeroSection } from '@/modules/services/shared/hero-section'
 import SectionWrapper from '@/shared/wrapper'
-import { Hero } from '../assets'
-import './styles.scss'
+import { Hero as HeroImg } from '../assets'
 
-const SoftwareDevelopmentHeroSection = () => {
-  return (
-    <SectionWrapper>
-      <Box className="software-development-hero-section-wrapper">
-        <Stack direction={'row'}>
+const SoftwareDevelopment: React.FC = () => (
+  <SectionWrapper>
+    <HeroSection
+      title="Reliable & Scalable <br/>Software Development"
+      highlightedText='Software Development'
+      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+      image={HeroImg.src}
+    />
+  </SectionWrapper>
+)
 
-        <Toolbar />
-        <Box className="hero-section">
-          <Box className="hero-section-text-wrapper">
-            <Typography variant="h4" className="text-heading">
-              Reliable & Scalable<br />
-              <Typography variant="inherit" component="span">
-              Software Development
-              </Typography>
-            </Typography>
-            <Typography component="p" className="text-description">
-              We believe in ZenFusion, merging technology with mindfulness. As
-              your partners in technological excellence, we transform values
-              into action, simplifying tech to deliver user-centered solutions.
-            </Typography>
-          </Box>
-          <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
-        </Box>
-        </Stack>
-        <Box className="hero-section-image-wrapper">
-          <Image
-            className="hero-section-image"
-            src={Hero}
-            alt="innovator"
-            fill
-          />
-        </Box>
-      </Box>
-    </SectionWrapper>
-  )
-}
-
-export { SoftwareDevelopmentHeroSection  }
+export { SoftwareDevelopment }
