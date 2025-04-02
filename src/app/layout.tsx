@@ -3,6 +3,7 @@ import { Inter, Poppins, Montserrat } from 'next/font/google'
 import { Footer } from '@/modules/home/sections'
 import Header from '@/shared/header'
 import './globals.css'
+import HeaderWrapper from '@/shared/header/headerWrapper'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -35,7 +36,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}
       >
-        <Header />
+        {/* <Header /> */}
+        <HeaderWrapper/>
         {children}
         <Footer />
       </body>
