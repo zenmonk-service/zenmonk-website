@@ -51,10 +51,8 @@ const Innovation = () => {
             <Box className="icons-gallery">
               <Box>
                 <Image
-                  style={{
-                    width: '64px !important',
-                    height: '64px !important',
-                  }}
+                         width={50}
+                         height={50}
                   src={Real}
                   alt="real-time-analytics"
                 />
@@ -63,10 +61,9 @@ const Innovation = () => {
 
               <Box>
                 <Image
-                  style={{
-                    width: '64px !important',
-                    height: '64px !important',
-                  }}
+                    
+                    width={50}
+                    height={50}
                   src={Automated}
                   alt="real-time-analytics"
                 />
@@ -75,10 +72,9 @@ const Innovation = () => {
 
               <Box>
                 <Image
-                  style={{
-                    width: '64px !important',
-                    height: '64px !important',
-                  }}
+                
+                width={50}
+                height={50}
                   src={Robust}
                   alt="robust-security"
                 />
@@ -87,10 +83,9 @@ const Innovation = () => {
 
               <Box>
                 <Image
-                  style={{
-                    width: '64px !important',
-                    height: '64px !important',
-                  }}
+         
+         width={50}
+         height={50}
                   src={Responsive}
                   alt="robust-security"
                 />
