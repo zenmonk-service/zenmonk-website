@@ -67,7 +67,7 @@
   }
 
   .text-heading span {
-    background: var(--gradient);
+    background: var(--global-color-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -76,7 +76,7 @@
 
   .text-description {
     max-width: 650px;
-    color: var(--text) !important;
+    color: var(--global-color-text) !important;
     font-family: Poppins !important;
     font-size: 2rem !important;
     font-weight: 400;

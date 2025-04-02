@@ -9,11 +9,8 @@ import {
   ContactUsSection,
   OurClientSection,
 } from '@/modules/about-us/sections'
-import YourIdealChoice from '@/modules/services/ideal-choice'
-import ReadyToStart from '@/modules/services/modules/software-development/ready-to-start'
 import AnimatedDiv from '@/shared/animated-div'
 import Rating from '@/shared/rating'
-import SectionWrapper from '@/shared/wrapper'
 
 const About = () => {
   return (

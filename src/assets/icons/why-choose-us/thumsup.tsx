@@ -43,13 +43,13 @@ export const ThumsUp = () => {
 <path d="M345.391 417.089C345.774 417.032 352.267 416.979 352.267 416.979C356.872 416.979 360.611 420.428 360.611 424.688C360.611 428.944 356.872 432.392 352.267 432.392C352.267 432.392 345.774 432.337 345.391 432.282V417.089Z" fill="#FFD2BC"/>
 <path d="M345.387 440.322C345.77 440.268 352.264 440.209 352.264 440.209C356.868 440.209 360.607 443.665 360.607 447.919C360.607 452.178 356.868 455.627 352.264 455.627C352.264 455.627 345.77 455.571 345.387 455.517V440.322Z" fill="#FFD2BC"/>
 <g filter="url(#filter3_f_3086_17771)">
-<path d="M317 388.5H350" stroke="#F1D7BB" stroke-linecap="round"/>
+<path d="M317 388.5H350" stroke="#F1D7BB" strokeLinecap="round"/>
 </g>
 <g filter="url(#filter4_f_3086_17771)">
-<path d="M317 412.5H350" stroke="#F1D7BB" stroke-linecap="round"/>
+<path d="M317 412.5H350" stroke="#F1D7BB" strokeLinecap="round"/>
 </g>
 <g filter="url(#filter5_f_3086_17771)">
-<path d="M317 436.5H350" stroke="#F1D7BB" stroke-linecap="round"/>
+<path d="M317 436.5H350" stroke="#F1D7BB" strokeLinecap="round"/>
 </g>
 <defs>
 <filter id="filter0_d_3086_17771" x="362.332" y="298.018" width="61.6914" height="109.092" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

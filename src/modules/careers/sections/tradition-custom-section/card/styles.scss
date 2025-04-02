@@ -5,7 +5,7 @@
   gap: 19px;
   border-radius: 20px;
   align-items: center;
-  border: 1px solid var(--background, #fff);
+  border: 1px solid var(--global-color-primary, #fff);
 
   @media (max-width: 1499px) {
     width: 250px;
@@ -15,7 +15,7 @@
     margin-left: 33px;
     width: 64px;
     height: 64px;
-    background: var(--background, #fff);
+    background: var(--global-color-primary, #fff);
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -28,7 +28,7 @@
     flex-direction: column;
     .title {
       display: flex;
-      color: var(--background, #FFF);
+      color: var(--global-color-primary, #FFF);
       font-family: Poppins;
       font-size: 50px;
       font-style: normal;
@@ -40,7 +40,7 @@
       }
     }
     .description {
-      color: var(--background, #fff);
+      color: var(--global-color-primary, #fff);
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
       font-size: 16px;

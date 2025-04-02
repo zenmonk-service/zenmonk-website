@@ -10,7 +10,6 @@ import PLUS from './assets/plus.svg'
 import UI from './assets/ui.svg'
 import WEBSITE from './assets/website.svg'
 
-import BG from './assets/bg.png'
 import './styles.scss'
 
 const questions = [

@@ -1,11 +1,3 @@
-// import Alantica from "./alantica.svg";
-// import Cite from "./Cite.svg";
-// import Citicam from "./citicam.svg";
-// import Citican from "./citican.svg";
-// import Cuanza from "./cuanza.svg";
-// import Funiber from "./funiber.svg";
-// import Unib from "./unib.svg";
-// import unicol from "./unicol.svg";
 import Ceinde from './logo-ceinde.svg'
 import Citealimenta from './logo-citealimenta.png'
 import Citican from './logo-citican.svg'

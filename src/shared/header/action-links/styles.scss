@@ -15,7 +15,7 @@
   padding: 3px;
   border-radius: 20px;
   transition: background-color 0.3s ease-in-out;
-  background-color: var(--background);
+  background-color: var(--global-color-primary);
 }
 
 .action-links {
@@ -23,7 +23,7 @@
   width: 466px;
   height: 41px;
   overflow: hidden;
-  background: var(--background);
+  background: var(--global-color-primary);
   display: flex;
   justify-content: space-evenly;
   border-radius: 22.11px;
@@ -37,7 +37,7 @@
 }
 
 .action-link-menu-icon {
-  color: var(--primary);
+  color: var(--global-color-accent);
   font-weight: 800;
 }
 .expand-option-icon {
@@ -56,7 +56,7 @@
   column-count: 2;
   column-gap: 20px;
   margin-top: 30px;
-  background-color: var(--background);
+  background-color: var(--global-color-primary);
   padding: 40px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   .arrow-up {
@@ -67,6 +67,6 @@
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid var(--background);
+    border-bottom: 20px solid var(--global-color-primary);
   }
 }

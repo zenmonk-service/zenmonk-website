@@ -1,6 +1,6 @@
-import { HeroSection } from '@/modules/services/shared/hero-section'
 import SectionWrapper from '@/shared/wrapper'
 import { Hero as HeroImg } from '../assets'
+import { HeroSection } from '@/shared/hero-section'
 
 const AiBasedSoftwares: React.FC = () => (
   <SectionWrapper>

@@ -36,7 +36,7 @@
 //             id="dotted-pattern"
 //             width={10}
 //             height={10}
-//             stroke="var(--primary)"
+//             stroke="var(--global-color-accent)"
 //             strokeWidth={1}
 //             orientation={['horizontal', 'vertical']}
 //           />

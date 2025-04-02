@@ -1,13 +1,13 @@
-.odometer {
+.odometer-section {
   margin-top: 135px;
-  height: 420px;
   width: 100%;
   background: url('/earth.webp');
   background-size: cover;
   background-position: 0 0%;
   padding: 0 10%;
-  color: #fff;
+  color: var(--global-color-primary);
   position: relative;
+  padding-bottom: 50px;
   &::before {
     content: '';
     position: absolute;
@@ -23,18 +23,23 @@
     position: relative;
     z-index: 2;
   }
-  .odometer-section {
+  .odometer-content-wrapper {
     height: 100%;
-    padding: 0 9.5%;
     display: flex;
     padding-top: 60px;
     box-sizing: border-box;
+    gap: 15px;
+    justify-content: center;
+    @media screen and (max-width:1499px) {
+      padding: 12px;
+      padding-bottom: 50px;
+    }
     .left-section {
       display: flex;
       flex-direction: column;
       text-align: left;
       .heading {
-        width: 85%;
+        width: 100%;
         letter-spacing: 0.9px;
         display: flex;
         font-family: Inter !important;
@@ -42,6 +47,10 @@
         font-style: normal;
         font-weight: 700 !important;
         line-height: normal;
+        width:max-content;
+        @media screen and (max-width:1499px) {
+          font-size: 36px;
+        }
       }
       .teams-number {
         letter-spacing: 2px;
@@ -53,6 +62,10 @@
         font-style: normal;
         font-weight: 800;
         line-height: normal;
+        @media screen and (max-width:1499px) {
+          font-size: 50px;
+          width:max-content;
+        }
       }
       .description {
         margin-top: 28px;
@@ -73,20 +86,24 @@
         display: flex;
         flex-direction: column;
         gap: 11px;
-        border-left: 2px solid #fff;
+        border-left: 2px solid var(--global-color-primary);
         padding-left: 30px;
         padding-right: 70px;
         .countries-number {
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width:1499px) {
+            font-size: 50px;
+            width:max-content;
+          }
         }
         .description {
           width: 261px;
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter;
           font-size: 20px;
           font-style: normal;
@@ -95,23 +112,27 @@
         }
       }
       .companies-section {
-        border-left: 2px solid #fff;
+        border-left: 2px solid var(--global-color-primary);
         padding-left: 30px;
         padding-right: 70px;
         display: flex;
         flex-direction: column;
         gap: 11px;
         .companies-number {
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width:1499px) {
+            font-size: 50px;
+            width:max-content;
+          }
         }
         .description {
           width: 261px;
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter;
           font-size: 20px;
           font-style: normal;
@@ -129,19 +150,23 @@
         display: flex;
         flex-direction: column;
         gap: 11px;
-        border-left: 2px solid #fff;
+        border-left: 2px solid var(--global-color-primary);
         padding-left: 30px;
         .countries-number {
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width:1499px) {
+            font-size: 50px;
+            width:max-content;
+          }
         }
         .description {
           width: 261px;
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter;
           font-size: 20px;
           font-style: normal;
@@ -150,22 +175,26 @@
         }
       }
       .companies-section {
-        border-left: 2px solid #fff;
+        border-left: 2px solid var(--global-color-primary);
         padding-left: 30px;
         display: flex;
         flex-direction: column;
         gap: 11px;
         .companies-number {
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width:1499px) {
+            font-size: 50px;
+            width:max-content;
+          }
         }
         .description {
           width: 261px;
-          color: #fff;
+          color: var(--global-color-primary);
           font-family: Inter;
           font-size: 20px;
           font-style: normal;

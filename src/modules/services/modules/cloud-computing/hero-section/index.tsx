@@ -1,5 +1,5 @@
 import { Toolbar } from '@mui/material'
-import { HeroSection } from '@/modules/services/shared/hero-section'
+import { HeroSection } from '@/shared/hero-section'
 import SectionWrapper from '@/shared/wrapper'
 import { CloudComputing as HeroImg } from '../assets'
 

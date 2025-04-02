@@ -6,7 +6,7 @@ const TopScroll = () => {
   return (
     <TopScrollBar
       originFrom="left"
-      style={{ backgroundColor: 'var(--primary)' }}
+      style={{ backgroundColor: 'var(--global-color-accent)' }}
     />
   )
 }

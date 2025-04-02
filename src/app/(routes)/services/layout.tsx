@@ -3,7 +3,6 @@
 import React, { Suspense, lazy, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import './styles.scss'
-import { Toolbar } from '@mui/material'
 
 const DefaultHeroSection = () => <div className="default-hero-section"></div>
 

@@ -44,26 +44,30 @@ const ActionLinks = () => {
       <Box className="action-links">
         {actionsLink
           .slice(0, actionsLink.length - 1)
-          .map(({ href, name, options }: ActionLink, index) => (
-            <Button
-              className="action-link-button"
-              key={index}
-              color="inherit"
-              disableRipple
-              onClick={() => {
-                options ? toggleExpand() : navigateTo(href)
-              }}
-            >
-              {name}
-              {options && (
-                <Option
-                  id={href}
-                  isExpanded={isExpanded}
-                  onClick={toggleExpand}
-                />
-              )}
-            </Button>
-          ))}
+          .map(({ href, name, options }: ActionLink, index) => {
+            console.log(pathname,'helllo')
+            return (
+              <Button
+                sx={{ bgcolor: pathname === href ? '#f2f2f2' : '' }}
+                className="action-link-button"
+                key={index}
+                color="inherit"
+                disableRipple
+                onClick={() => {
+                  options ? toggleExpand() : navigateTo(href)
+                }}
+              >
+                {name}
+                {options && (
+                  <Option
+                    id={href}
+                    isExpanded={isExpanded}
+                    onClick={toggleExpand}
+                  />
+                )}
+              </Button>
+            )
+          })}
       </Box>
       {isExpanded && (
         <Box className="overlay" onClick={() => setIsExpanded(false)} />

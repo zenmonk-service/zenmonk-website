@@ -11,7 +11,6 @@ import ReadyToStartSoftwareDev from '@/modules/services/modules/software-develop
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 
 const DEVELOPMENT_PROCESS_SECTION = {

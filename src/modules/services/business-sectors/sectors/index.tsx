@@ -31,7 +31,7 @@ const Sectors = () => {
               sx={{
                 color: 'GrayText',
                 '&:hover': {
-                  color: 'var(--foreground)',
+                  color: 'var(--global-color-secondary)',
                 },
               }}
             >

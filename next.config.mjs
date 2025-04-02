@@ -2,17 +2,36 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    turbo: {
-      webpack(config) {
-        config.module.rules.push({
-          test: /\.svg$/,
-          use: ['@svgr/webpack'],
-        })
-        return config
+  webpack: (config) => {
+    config.module.rules.push(
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
       },
-    },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require("postcss-nested"),
+                  require("postcss-custom-properties"), 
+                ],
+              },
+            },
+          },
+        ],
+      }
+    );
+    return config;
   },
-}
+  experimental: {
+    turbo: {},
+  },
+};
 
-export default nextConfig
+export default nextConfig;

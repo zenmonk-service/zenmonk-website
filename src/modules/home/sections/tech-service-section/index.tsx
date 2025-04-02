@@ -139,7 +139,7 @@ const ServiceSection = () => {
               <BaseButton
                 sx={{
                   maxWidth: '158px',
-                  color: 'var(--foreground) !important',
+                  color: 'var(--global-color-secondary) !important',
                   textTransform: 'uppercase !important',
                   boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
