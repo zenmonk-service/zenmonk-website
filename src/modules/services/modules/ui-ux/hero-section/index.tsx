@@ -39,7 +39,7 @@ const UiUx: React.FC = () => (
                 since the 1500s. Lorem Ipsum has been the industry's standard
                 dummy text ever since the 1500s.
               </Typography>
-              <BaseButton>Explore Service</BaseButton>
+              <BaseButton>EXPLORE MORE</BaseButton>
             </Box>
           </Grid>
 

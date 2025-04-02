@@ -1,6 +1,6 @@
 import parse from 'html-react-parser'
 import React from 'react'
-import { Box, Typography, Toolbar, Grid2 } from '@mui/material'
+import { Box, Typography, Grid2 } from '@mui/material'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 
@@ -46,7 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <Typography variant="body1" className="text-description">
               {parse(description)}
             </Typography>
-            <BaseButton>Explore Service</BaseButton>
+            <BaseButton>EXPLORE MORE</BaseButton>
           </Box>
         </Grid2>
 

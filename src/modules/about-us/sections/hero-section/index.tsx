@@ -25,7 +25,7 @@ const HeroSection = () => {
             into action, simplifying tech to deliver user-centered solutions.
           </Typography>
         </Box>
-        <BaseButton  className="base-button" >Explore Services</BaseButton>
+        <BaseButton  className="base-button" >EXPLORE MORE</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         <Image

@@ -8,14 +8,6 @@ import './styles.scss'
 const HeroSection = () => {
   return (
     <Box className="how-we-work-hero-section-wrapper">
-      {/* <Image
-        width={50}
-        height={500}
-        quality={100}
-        src={"/about/hero-section/vector.svg"}
-        alt="vector"
-        className="vector"
-      /> */}
       <Box className="hero-section">
         <Box className="hero-section-text-wrapper">
           <Typography className="text-heading">

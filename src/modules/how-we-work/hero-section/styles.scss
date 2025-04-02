@@ -5,28 +5,17 @@
   max-width: 1700px;
   margin: auto;
   padding-top: 95px;
-  gap: 10px;
-
-  .vector {
-    position: absolute;
-  }
+  gap: 16px;
 
   .hero-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
     text-align: left;
-
-    .explore-button {
-      width: 180px;
-      text-transform: "uppercase !important";
-    }
 
     .hero-section-text-wrapper {
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 16px;
       max-width: 799px;
       width: 100%;
 
@@ -39,9 +28,25 @@
         font-weight: 600 !important;
         line-height: 70px;
         text-transform: capitalize;
+        margin-bottom: 16px;
 
         @media (max-width: 1499px) {
-          font-size: 36px;
+          font-size: 51px;
+          line-height: 60px;
+        }
+
+        @media (max-width: 1199px) {
+          font-size: 42px;
+          line-height: 50px;
+        }
+
+        @media (max-width: 899px) {
+          font-size: 33px;
+          line-height: 50px;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 24px;
         }
       }
 
@@ -67,8 +72,25 @@
 
         @media (max-width: 1499px) {
           font-size: 21px;
-          width: 719px;
+          width: 650px;
           margin-bottom: 36px;
+        }
+
+        @media (max-width: 1199px) {
+          font-size: 18px;
+          margin-bottom: 32px;
+          width: 485px;
+        }
+
+        @media (max-width: 899px) {
+          font-size: 16px;
+          margin-bottom: 28px;
+          // width: 490px;
+        }
+
+        @media (max-width: 599px) {
+          font-size: 14px;
+          margin-bottom: 24px;
         }
       }
     }
@@ -144,39 +166,20 @@
 
 
 /* 🔹 Responsive Adjustments */
-@media (max-width: 900px) {
-  .hero-section-wrapper {
+@media (max-width: 899px) {
+  .how-we-work-hero-section-wrapper {
     flex-direction: column-reverse;
     text-align: center;
     padding: 20px;
   }
-
-  .hero-section-text-wrapper {
-    max-width: 90%;
-  }
-
-  .text-heading {
-    font-size: 3.2rem !important;
-  }
-
-  .text-description {
-    font-size: 1.8rem !important;
-  }
 }
 
-@media (max-width: 600px) {
-  .hero-section-wrapper {
+@media (max-width: 599px) {
+  .how-we-work-hero-section-wrapper  {
     height: auto;
     padding: 10px;
   }
 
-  .text-heading {
-    font-size: 2.8rem !important;
-  }
-
-  .text-description {
-    font-size: 1.6rem !important;
-  }
 }
 
 /* Slide Up & Fade In Animation */
@@ -222,7 +225,6 @@
   visibility: visible;
 }
 
-/* Slide Up & Fade In Animation */
 @keyframes slideUpFadeInB {
   0% {
     opacity: 0;

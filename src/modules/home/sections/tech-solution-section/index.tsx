@@ -30,7 +30,7 @@ const TechSolutionSection = () => {
           })}
         </Box>
         <Box sx={{ marginBottom: '41px' }}></Box>
-        <BaseButton>Explore Services</BaseButton>
+        <BaseButton>EXPLORE MORE</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
         {Laptop2 && (
