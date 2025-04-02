@@ -1,8 +1,11 @@
-import Image from 'next/image'
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import { Box, Typography, TypographyProps } from '@mui/material'
 import './styles.scss'
 
 const Mark = '/title/mark.svg'
+
 interface TitleProps extends TypographyProps {
   text: string
   align?: 'left' | 'center' | 'right'
@@ -15,6 +18,15 @@ const Title = ({ text, align = 'center', className, ...props }: TitleProps) => {
   const lastWord = words.pop() || ''
   const restOfText = words.join(' ')
 
+  const lastWordRef = useRef<HTMLSpanElement | null>(null)
+  const [lastWordWidth, setLastWordWidth] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (lastWordRef.current) {
+      setLastWordWidth(lastWordRef.current.offsetWidth)
+    }
+  }, [text])
+
   return (
     <Typography
       component="h5"
@@ -25,10 +37,12 @@ const Title = ({ text, align = 'center', className, ...props }: TitleProps) => {
     >
       {isSingleWord ? (
         <span className="last-word">
-          <span className="word-container">{lastWord}</span>
+          <span ref={lastWordRef} className="word-container">
+            {lastWord}
+          </span>
           <span
             className="mark-container"
-            style={{ width: `${lastWord.length}ch` }}
+            style={{ width: lastWordWidth ? `${lastWordWidth}px` : 'auto' }}
           >
             <Box src={Mark} alt="mark" component="img" className="mark-icon" />
           </span>
@@ -37,8 +51,13 @@ const Title = ({ text, align = 'center', className, ...props }: TitleProps) => {
         <>
           {restOfText}{' '}
           <span className="last-word">
-            <span className="word-container">{lastWord}</span>
-            <span className="mark-container" style={{ width: 'inherit' }}>
+            <span ref={lastWordRef} className="word-container">
+              {lastWord}
+            </span>
+            <span
+              className="mark-container"
+              style={{ width: lastWordWidth ? `${lastWordWidth}px` : 'auto' }}
+            >
               <Box
                 src={Mark}
                 alt="mark"
