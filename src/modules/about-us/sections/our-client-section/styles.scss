@@ -11,6 +11,10 @@
   }
   // margin-bottom: 100px;
   .section-title {
+    @media screen and (max-width: 1499px) {
+      font-size: 36px !important;
+    }
+
   }
   .section-description {
     margin-top: 10px;

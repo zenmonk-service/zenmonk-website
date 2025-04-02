@@ -12,8 +12,8 @@ const VisionCard = ({ title, image }: VisionCardProps) => {
     <Box className="vision-card">
       <Image
         src={image}
-        width={98}
-        height={98}
+        width={75}
+        height={75}
         alt={`${title}-image`}
         className="vision-card-image"
       />

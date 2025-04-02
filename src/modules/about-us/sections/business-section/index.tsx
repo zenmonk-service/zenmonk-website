@@ -11,6 +11,7 @@ export const BusinessSection = () => {
       <Title
         text="We Are The Complete For Your Business Success"
         align="center"
+        className='heading'
       />
       <Typography className="description" variant="body1" component="p">
         We offer exceptional services, quality customer experience and loyal
