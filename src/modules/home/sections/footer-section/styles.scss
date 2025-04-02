@@ -128,7 +128,7 @@
             p {
               height: 20px;
               width: max-content;
-              color: #ffffffc8;
+              color: #ffffff;
               text-align: left;
               font-feature-settings:
                 'liga' off,
@@ -178,7 +178,7 @@
             gap: 7px;
             margin-top: 20px;
             p {
-              color: #ffffffc8;
+              color: #ffffff;
               text-align: left;
               font-feature-settings:
                 'liga' off,
@@ -235,7 +235,7 @@
             margin-top: 20px;
             p {
               width: 210px;
-              color: #ffffffc8;
+              color: #ffffff;
               text-align: left;
               font-feature-settings:
                 'liga' off,
@@ -335,6 +335,7 @@
                 font-weight: 300;
                 border-radius: 6px;
                 background: #ec6738;
+                background: linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%);
               }
             }
           }
@@ -368,6 +369,7 @@
               grid-template-columns: repeat(3, 1fr);
               gap: 10px;
               padding: 10px;
+              padding-left: 0px;
             }
           }
         }

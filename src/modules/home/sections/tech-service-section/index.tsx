@@ -108,7 +108,7 @@ const ServiceSection = () => {
           <div
             className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
           >
-            <Title text={text} align="center" />
+            <Title className='title' text={text} align="center" />
           </div>
           {ZenmonkLogo && (
             <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
@@ -143,6 +143,7 @@ const ServiceSection = () => {
                   textTransform: 'uppercase !important',
                   boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
+                  fontFamily: 'Poppins'
                 }}
               >
                 Get Started

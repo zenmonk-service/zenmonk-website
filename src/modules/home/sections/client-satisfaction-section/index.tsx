@@ -1,9 +1,11 @@
 'use client'
 
-import { useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 import { Box, Typography } from '@mui/material'
 import Satisfication from '@/modules/home/satisfication'
 import Title from '@/shared/title'
+import LOGO from "./assets/logo-benzen.png";
 import './styles.scss'
 
 const ClientSatisfaction = () => {
@@ -24,11 +26,13 @@ const ClientSatisfaction = () => {
           We are a top mobile app development company in India, known for our.
           We are a top mobile app development company in India, known for oure.
           We are a top mobile app development company in India, known for our.
-          We are a top mobile app development company in India, known for oure
         </Typography>
       </Box>
       <Box ref={ref} className="svg-container">
         <Satisfication />
+      </Box>
+      <Box>
+        {/* <Image src={LOGO} alt="" /> */}
       </Box>
     </Box>
   )

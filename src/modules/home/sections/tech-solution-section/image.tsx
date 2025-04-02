@@ -269,6 +269,7 @@ const TechSolutionSectionImage = () => {
             transform="translate(680.777 104.864)"
           />
         </clipPath>
+
         <image
           id="image0_952_16652"
           data-name="Group 1171277917.png"

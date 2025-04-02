@@ -1,7 +1,7 @@
 .faq {
   max-width: 1540px;
   margin: auto;
-  padding: 64px 0px;
+  padding: 64px 24px;
   margin-top: 60px;
   gap: 64px;
   align-items: center;
@@ -55,7 +55,7 @@
   .questions-category {
     display: flex;
     gap: 40px;
-
+    display: none;
     .category-heading {
       color: #777;
       font-family: Inter;

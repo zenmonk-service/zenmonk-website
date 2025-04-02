@@ -5,6 +5,9 @@
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 35.5px 0px rgba(0, 62, 176, 0.08);
+  @media screen and (max-width: 1699px) {
+    width: 325px !important;
+  }
   @media screen and (max-width: 1499px) {
     width: 257px !important;
   }

@@ -12,6 +12,7 @@ import sixth from './assets/6.png'
 import seventh from './assets/7.png'
 import arrowLeft from './assets/arrowLeft.svg'
 import arrowRight from './assets/arrowRIght.svg'
+import GRADIENTBALL from './assets/gradientBall.png'
 import quote from './assets/quote.svg'
 import './style.css'
 
@@ -189,6 +190,28 @@ export default function Testimony() {
             <Image onClick={handleOnNext} src={arrowRight} alt=""></Image>
           </div>
         </div>
+        <Image
+          className="gradient-ball gradient-ball-first"
+          src={GRADIENTBALL}
+          alt="gradient_ball"
+        />
+        <Image
+          width={20}
+          className="gradient-ball gradient-ball-second"
+          src={GRADIENTBALL}
+          alt="gradient_ball"
+        />
+        <Image
+          className="gradient-ball gradient-ball-third"
+          src={GRADIENTBALL}
+          alt="gradient_ball"
+        />
+        <Image
+          width={25}
+          className="gradient-ball gradient-ball-fourth"
+          src={GRADIENTBALL}
+          alt="gradient_ball"
+        />
       </div>
     </>
   )

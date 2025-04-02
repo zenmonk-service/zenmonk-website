@@ -2,6 +2,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: Poppins;
+  .title {
+    font-size: 32px !important;
+  }
+
 
   .services-left-container {
     margin-top: 60px;
@@ -45,7 +50,7 @@
           text-align: left;
           leading-trim: both;
           text-edge: cap;
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 20px;
           font-style: normal;
           font-weight: 600;
@@ -70,6 +75,7 @@
     margin-right: 40px;
     height: 545px;
     top: 180px;
+    top: 15vh;
     position: sticky;
     flex-direction: column;
     .logo {
@@ -96,18 +102,20 @@
         padding: 57px 40px 70px 167px;
         flex-direction: column;
         gap: 32px;
-        font-family: Inter;
+        font-family: Poppins;
         font-style: normal;
         color: var(--global-color-primary);
         .business-proof-heading {
           font-size: 36px;
           font-weight: 600;
           line-height: normal;
+          font-family: Poppins;
         }
         .business-proof-description {
           font-size: 18px;
           font-weight: 400;
           line-height: 28px;
+          font-family: Poppins;
         }
         .business-proof-technologies {
           display: flex;
@@ -154,7 +162,8 @@
   }
 }
 
-@media (max-height: 750px) {
+@media (max-height: 860px) {
+  
   .services-right-container {
     top: 45px;
   }

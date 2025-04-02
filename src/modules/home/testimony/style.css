@@ -4,6 +4,7 @@
   padding: 80px;
   padding-top: 0px;
   background: url("/testimonialBackground.png") center/cover;
+  position: relative;
 }
 
 .testimony-content {
@@ -173,5 +174,43 @@
 @media (max-width: 1450px) {
   .testimony-content .review {
     font-weight: 300;
+  }
+}
+
+.testimony .gradient-ball {
+  position: absolute;
+}
+
+.testimony .gradient-ball-first {
+top: 0;
+left: 30%;
+}
+
+
+.testimony .gradient-ball-second {
+  top: 50%;
+  left: 30%;
+}
+
+.testimony .gradient-ball-third {
+  top: 50%;
+  right: 15%;
+}
+
+.testimony .gradient-ball-fourth{
+  top: 0%;
+  right: 15%;
+}
+
+
+@media (max-width: 1570px) {
+  .testimony .gradient-ball-third {
+    top: 50%;
+    right: 25%;
+  }
+  
+  .testimony .gradient-ball-fourth{
+    top: 0%;
+    right: 25%;
   }
 }

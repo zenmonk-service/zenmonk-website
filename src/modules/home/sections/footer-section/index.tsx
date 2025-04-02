@@ -36,7 +36,7 @@ const Footer = () => {
       <Box className="logo-category-wrapper">
         {!isMobile && (
           <Box className="logo-wrapper">
-            <Image src={Monk} alt="logo" className="logo" />
+            <Image quality={1000} src={Monk} alt="logo" className="logo" />
           </Box>
         )}
         <Box className="category-wrapper">
@@ -118,7 +118,7 @@ const Footer = () => {
         </Box>
       </Box>
       <Box className="copyright">
-        <Typography component="p">© Zenmonk 2022</Typography>
+        <Typography component="p">© Zenmonk 2025</Typography>
       </Box>
     </Box>
   )

@@ -20,7 +20,7 @@
         .text-heading {
           color: #3c3c3c !important;
           font-size: 4.8rem !important;
-          font-family: "Inter", sans-serif !important;
+          font-family: Poppins, sans-serif !important;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -32,7 +32,7 @@
           width: 582px;
           color: #505050;
           text-align: justify;
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 18px;
           font-style: normal;
           font-weight: 400 !important;
@@ -108,9 +108,23 @@
     }
   }
 
+  @media (max-width: 1699px) {
+    .tech-solution-section-wrapper {
+      padding: 5%;
+    }
+    .tech-card-container {
+      width: 255px;
+    }
+  }
+
+
+
 
   @media (max-width: 1499px) {
     .tech-solution-section-wrapper {
       padding: 0;
     }
+
   }
+
+
