@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik+Doodle+Shadow&display=swap');
+
+
+.creative-ideas {
+  height: 100vh;
+  width: 100vw; /* Ensure it spans the full viewport width */
+  background-image: url('/ui-ux/creative-ideas.png');
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repetition */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: #3c3c3c;
+    text-align: center;
+    font-family: 'Rubik Doodle Shadow';
+    font-size: 90.249px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    max-width: 720px;
+    text-align: left;
+    @media screen and (max-width: 1499px) {
+        font-size: 60px !important;
+        max-width: 520px;
+      }
+    .wow {
+      color: #f9a91a;
+      text-align: center;
+      font-family: 'Rubik Doodle Shadow';
+      font-size: 280px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      @media screen and (max-width: 1499px) {
+        font-size: 180px !important;
+      }
+    }
+
+    span:first-child {
+      .orange {
+        color: red;
+      }
+    }
+    span:last-child {
+        .orange {
+          color: red;
+        }
+      }
+  }
+}

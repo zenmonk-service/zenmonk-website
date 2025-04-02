@@ -11,6 +11,10 @@
     height: 180px !important;
     top: -25%;
     left: 0;
+    @media screen and (max-width: 1499px) {
+      top: -30%;
+      left: -20px;
+    }
   }
   .award-card-content {
     display: flex;
@@ -22,7 +26,13 @@
     background: var(--background);
     box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.05);
     width: 342px;
-    min-width: 300px;
+    @media screen and (max-width: 1499px) {
+      height: 300px;
+      width: 260px;
+    }
+    @media screen and (max-width: 1105px) {
+      width: 342px;
+    }
 
     .title {
       margin-top: 25%;

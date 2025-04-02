@@ -2,8 +2,25 @@
   max-width: 1540px;
   margin: auto;
   padding: 64px 0px;
+  margin-top: 60px;
   gap: 64px;
   align-items: center;
+
+  .images {
+    position: relative;
+  }
+  .bg-orange {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    border-radius: 701px;
+    background: linear-gradient(99deg, rgba(255, 142, 29, 0.12) 3.23%, rgb(255, 128, 0) 103.82%);
+    filter: blur(226.60223388671875px);
+  }
 
   .section-heading {
     color: #132427;

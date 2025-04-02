@@ -13,6 +13,7 @@ import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
 
+
 const DEVELOPMENT_PROCESS_SECTION = {
   'software-development': DevelopmentProcess,
 }
@@ -46,8 +47,8 @@ const Service = () => {
       {/* <Rating /> */}
       <ItSolutions />
       <TechnologyTree />
-      <YourIdealChoice />
-      <BusinessSectors />
+      <YourIdealChoice/>
+      <BusinessSectors /> 
       {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />

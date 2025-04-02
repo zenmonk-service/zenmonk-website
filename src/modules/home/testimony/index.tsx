@@ -39,13 +39,13 @@ export default function Testimony() {
     },
     {
       review:
-        'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards and accolades.',
+        'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards.',
       by: 'Sonia Mehta',
       position: 'Marketing Director',
     },
     {
       review:
-        'This is a distinguished mobile app development company in India, noted for our experienced team, innovative tech solutions, and customer-centered approach. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
+        'This is a distinguished mobile app development company in India. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
       by: 'Karan Patel',
       position: 'UI/UX Designer',
     },

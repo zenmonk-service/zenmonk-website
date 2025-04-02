@@ -19,7 +19,7 @@ const TechSolutionSection = () => {
             />
           </Box>
           <Typography component="p" className="text-description">
-            Welcomein the is to Zenmonk, where Software Innovation meets
+            Welcome in the is to Zenmonk, where Software Innovation meets
             professionalism and solution oriented mindset. We are fluent in your
             language, proficien
           </Typography>

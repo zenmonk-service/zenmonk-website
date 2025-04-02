@@ -6,6 +6,7 @@
   --gradient: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
   --dark-gradient: linear-gradient(99deg, #ffa750 3.23%, #eb7c0d 97.72%);
   --Neutral-Grey-G900: #212529;
+--font-primary: Poppins;
 }
 
 .flicker-logo {

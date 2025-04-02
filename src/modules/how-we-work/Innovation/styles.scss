@@ -1,7 +1,11 @@
 .innovation-section-wrapper {
   padding: 60px 4%;
   background: #edf3f1;
-  height: 90vh;
+  // height: 90vh;
+
+  @media (max-width: 1499px) {
+    font-size: 21px;
+  }
 
   img {
     width: 100%;
@@ -67,7 +71,8 @@
   .images-wrapper {
     display: flex;
     overflow: hidden;
-
+    max-height: 502px;
+    gap: 16px;
     .person-sitting-on-desk {
       flex: 0.3;
       height: 100%;

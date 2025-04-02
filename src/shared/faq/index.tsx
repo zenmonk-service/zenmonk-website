@@ -9,6 +9,8 @@ import MOBILE from './assets/mobile.svg'
 import PLUS from './assets/plus.svg'
 import UI from './assets/ui.svg'
 import WEBSITE from './assets/website.svg'
+
+import BG from './assets/bg.png'
 import './styles.scss'
 
 const questions = [
@@ -53,6 +55,7 @@ const FAQ = () => {
     <div className="faq">
       <div className="images">
         <Image src={FAQ_IMAGE} alt="faq_image" />
+        <div className='bg-orange' ></div>
       </div>
 
       <div className="content">

@@ -35,7 +35,7 @@
 
 .testimony .review-images {
   width: 185px;
-  height: 300px;
+  height: 250px;
   transform: translateY(10%);
   transition: all 1s;
 }
@@ -92,14 +92,14 @@
 }
 
 .quote-up {
-  top: -100%;
-  left: 32%;
+  top: 220%;
+  left: 35%;
   z-index: -1;
 }
 
 .quote-down {
-  top: 20%;
-  right: 32%;
+  top: 370%;
+  right: 35%;
   z-index: -1;
   transform: rotate(180deg);
 }

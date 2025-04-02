@@ -81,9 +81,7 @@ const ServiceSection = () => {
             >
               <Box className="business-item-content">
                 <Box className="business-icon">
-                  {typeof item.icon === 'string' && (
-                    <Image src={item.icon} alt={item.title} />
-                  )}
+                <Image src={item.icon as any} alt={item.title} />
                 </Box>
                 <Typography
                   component="h4"
