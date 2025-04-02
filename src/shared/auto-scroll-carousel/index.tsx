@@ -23,8 +23,8 @@ const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
   return (
     <Box className={`slider ${sliderProps?.className}`}>
       <Box className={`slide-track ${reverse ? 'reverse' : null}`}>
-        {carouselItems.map(({ label, src }) => (
-          <Box className="slide" key={label}>
+        {carouselItems.map(({ label, src },index) => (
+          <Box className="slide" key={label + index}>
             <Image
               src={src}
               width={imageProps?.size ?? 150}

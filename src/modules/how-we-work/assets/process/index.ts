@@ -1,4 +1,4 @@
-import Process from "./process.svg";
+import Process from "./process1.svg";
 
 
 export { Process };
