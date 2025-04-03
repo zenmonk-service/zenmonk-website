@@ -1,7 +1,9 @@
 .contact-form {
-  width: 95%;
+  width: 631px;
   height: auto;
+  flex-shrink: 0;
   padding: 41px;
+  padding-top: 20px;
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
@@ -20,7 +22,7 @@
 
   .end-adornment {
     color: #727272;
-    font-family: "Font Awesome 6 Free";
+    font-family: 'Font Awesome 6 Free';
     font-size: 20px !important;
     font-style: normal;
     font-weight: 900;

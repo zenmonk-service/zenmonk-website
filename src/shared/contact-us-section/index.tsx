@@ -16,18 +16,12 @@ export const ContactUsSection = () => {
   const isLaptop = useMediaQuery('(max-width: 1499px)')
 
   const content = (
-    <SectionWrapper>
-      <Box className="about-us-contact-us-section">
-        {/* <Image
-          src={'/about-us/contact-us/vector.svg'}
-          alt="vector"
-          width={400}
-          height={400}
-          className="vector"
-        /> */}
+    <Box className="about-us-contact-us-section">
+      <Box className='contact-us'>
         <Box className="left-container">
           <Typography component="h1" className="section-title">
-            We’re Just a <Typography component="span">Message</Typography> Away
+            We’re Just a <br />
+            <Typography component="span">Message</Typography> Away
           </Typography>
           <Box className="countries-list">
             <CountriesList
@@ -65,7 +59,7 @@ export const ContactUsSection = () => {
           <ContactForm />
         </Box>
       </Box>
-    </SectionWrapper>
+    </Box>
   )
   return !isLaptop ? <SectionWrapper>{content}</SectionWrapper> : <>{content}</>
 }
