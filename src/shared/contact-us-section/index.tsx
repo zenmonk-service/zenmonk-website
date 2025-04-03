@@ -16,50 +16,54 @@ export const ContactUsSection = () => {
   const isLaptop = useMediaQuery('(max-width: 1499px)')
 
   const content = (
-    <Box className="about-us-contact-us-section">
-      <Box className='contact-us'>
-        <Box className="left-container">
-          <Typography component="h1" className="section-title">
-            We’re Just a <br />
-            <Typography component="span">Message</Typography> Away
-          </Typography>
-          <Box className="countries-list">
-            <CountriesList
-              className="countries-list"
-              countryCardProps={{
-                className: 'country-card',
-              }}
-              selectedCountry={selectedCountry}
-              setSelectedCountry={setSelectedCountry}
-            />
-          </Box>
-          <Typography className="selected-country-title">
-            {selectedCountry.name}
-          </Typography>
-          <Typography className="selected-country-description">
-            {selectedCountry.description}
-          </Typography>
-          <ContactCard
-            className="contact-card"
-            url={Email}
-            description={selectedCountry.office.email}
-          />
-          <ContactCard
-            className="contact-card"
-            url={Phone}
-            description={selectedCountry.office.phone}
-          />
-          <ContactCard
-            className="contact-card"
-            url={Location}
-            description={selectedCountry.office.address}
+    <Box className="contact-us">
+      <Box className="left-container">
+        <Typography component="h1" className="section-title">
+          We’re Just a <br />
+          <Typography component="span">Message</Typography> Away
+        </Typography>
+        <Box className="countries-list">
+          <CountriesList
+            className="countries-list"
+            countryCardProps={{
+              className: 'country-card',
+            }}
+            selectedCountry={selectedCountry}
+            setSelectedCountry={setSelectedCountry}
           />
         </Box>
-        <Box className="right-container">
-          <ContactForm />
-        </Box>
+        <Typography className="selected-country-title">
+          {selectedCountry.name}
+        </Typography>
+        <Typography className="selected-country-description">
+          {selectedCountry.description}
+        </Typography>
+        <ContactCard
+          className="contact-card"
+          url={Email}
+          description={selectedCountry.office.email}
+        />
+        <ContactCard
+          className="contact-card"
+          url={Phone}
+          description={selectedCountry.office.phone}
+        />
+        <ContactCard
+          className="contact-card"
+          url={Location}
+          description={selectedCountry.office.address}
+        />
+      </Box>
+      <Box className="right-container">
+        <ContactForm />
       </Box>
     </Box>
   )
-  return !isLaptop ? <SectionWrapper>{content}</SectionWrapper> : <>{content}</>
+  return !isLaptop ? (
+    <Box className="about-us-contact-us-section">
+      <SectionWrapper>{content}</SectionWrapper>
+    </Box>
+  ) : (
+    <>{content}</>
+  )
 }

@@ -5,10 +5,12 @@
   position: relative;
   padding-top: 70px;
   padding-bottom: 50px;
-  justify-content: center;
+  background: linear-gradient(180deg, #FFF -34.42%, #F6F6F6 100%);
   .contact-us {
     display: flex;
-    gap: 200px;
+    gap: 100px;
+    width: 100%;
+    justify-content: center;
     @media screen and (max-width: 1499px) {
     gap: 0;
     }
