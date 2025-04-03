@@ -84,6 +84,7 @@
         }
         .description {
           width: 90%;
+          height: 110px;
           position: relative;
           z-index: 2;
           color: #fff;
@@ -93,8 +94,8 @@
           font-style: normal;
           font-weight: 400 !important;
           line-height: 26px;
-          @media screen and (max-width: 1337px) {
-            font-size: 13px !important;
+          @media screen and (max-width: 1669px) {
+            font-size: 14px !important;
           }
         }
         .core-values {
@@ -106,10 +107,13 @@
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
-          @media screen and (max-width: 1499px) {
+          @media screen and (max-width: 1609px) {
             width: 80%;
           }
-
+          @media screen and (max-width: 1091px) {
+            width: 100%;
+          }
+          
           .core-value {
             position: relative;
             z-index: 2;

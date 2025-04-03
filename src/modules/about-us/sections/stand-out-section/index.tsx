@@ -5,10 +5,11 @@ import SectionWrapper from '@/shared/wrapper'
 import StandOutCard from '../../components/card/stand-out-card'
 import { standOutList } from './stand-out'
 import './styles.scss'
+import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 export const StandOutSection = () => {
   return (
-    <SectionWrapper>
+    <AboutSectionWrapper>
       <Box className="stand-out-section">
         <Title
           text="Stand Out From The Rest"
@@ -67,6 +68,6 @@ export const StandOutSection = () => {
           </Box>
         </Box>
       </Box>
-    </SectionWrapper>
+    </AboutSectionWrapper>
   )
 }

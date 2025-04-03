@@ -3,10 +3,11 @@ import SectionWrapper from '@/shared/wrapper'
 import RatingCard from '../rating-card'
 import { ratings } from './rating'
 import './styles.scss'
+import AboutSectionWrapper from '../wrapper/about-wrapper'
 
 const Rating = () => {
   return (
-    <SectionWrapper>
+    <AboutSectionWrapper>
       <Box className="rating-section">
         <Box className="rating-container">
           {ratings.map((rating, index) => (
@@ -20,7 +21,7 @@ const Rating = () => {
           ))}
         </Box>
       </Box>
-    </SectionWrapper>
+    </AboutSectionWrapper>
   )
 }
 

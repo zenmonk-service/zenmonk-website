@@ -4,6 +4,7 @@ import SectionWrapper from '@/shared/wrapper'
 import VisionCard from '../../components/card/vision-card'
 import './styles.scss'
 import { visions } from './visions'
+import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 export const VisionSection = () => {
   return (
@@ -16,7 +17,7 @@ export const VisionSection = () => {
         Lorem Ipsum has been the industry's standard dummy text ever since the
         1500s. Lorem Ipsum has been the industry's standard{' '}
       </Typography>
-      <SectionWrapper>
+      <AboutSectionWrapper>
         <Box className="vision-list">
           {visions.map((vision, index) => {
             return (
@@ -28,7 +29,7 @@ export const VisionSection = () => {
             )
           })}
         </Box>
-      </SectionWrapper>
+      </AboutSectionWrapper>
     </Box>
   )
 }

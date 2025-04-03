@@ -5,14 +5,16 @@
   position: relative;
   padding-top: 70px;
   padding-bottom: 50px;
-  background: linear-gradient(180deg, #FFF -34.42%, #F6F6F6 100%);
+  background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
   .contact-us {
     display: flex;
     gap: 100px;
     width: 100%;
     justify-content: center;
     @media screen and (max-width: 1499px) {
-    gap: 0;
+      gap: 0;
+      padding-left: 44px;
+      padding-right: 44px;
     }
     .left-container {
       display: flex;

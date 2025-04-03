@@ -23,16 +23,16 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 50px;
   }
   .award-proof-list {
-    margin-top: 100px;
+    margin-top: 150px;
     width: max-content;
     display: flex;
     gap: 64px;
     flex-wrap: wrap;
     @media screen and (max-width: 1499px) {
       justify-content: center;
+      gap: 20px;
     }
   }
 }

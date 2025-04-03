@@ -10,6 +10,7 @@ import CountriesList from '@/shared/countries-list'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import SectionWrapper from '../wrapper'
 import './styles.scss'
+import AboutSectionWrapper from '../wrapper/about-wrapper'
 
 export const ContactUsSection = () => {
   const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0])
@@ -61,9 +62,9 @@ export const ContactUsSection = () => {
   )
   return !isLaptop ? (
     <Box className="about-us-contact-us-section">
-      <SectionWrapper>{content}</SectionWrapper>
+      <AboutSectionWrapper>{content}</AboutSectionWrapper>
     </Box>
   ) : (
-    <>{content}</>
+    <Box className="about-us-contact-us-section">{content}</Box>
   )
 }

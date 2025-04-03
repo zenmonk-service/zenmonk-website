@@ -4,6 +4,7 @@ import SectionWrapper from '@/shared/wrapper'
 import BusinessCard from '../../components/card/business-card'
 import { businesses } from './business'
 import './styles.scss'
+import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 export const BusinessSection = () => {
   return (
@@ -18,7 +19,7 @@ export const BusinessSection = () => {
         support to our clients by ensuring high success rates. We aim is to
         deliver outstanding results with the help of top-notch services.
       </Typography>
-      <SectionWrapper>
+      <AboutSectionWrapper>
         <Box className="business-card-container">
           {businesses.map((business, index) => {
             return (
@@ -32,7 +33,7 @@ export const BusinessSection = () => {
             )
           })}
         </Box>
-      </SectionWrapper>
+      </AboutSectionWrapper>
     </Box>
   )
 }

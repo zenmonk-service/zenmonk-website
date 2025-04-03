@@ -5,10 +5,11 @@ import WhyChooseUsCard from '../../components/card/why-choose-us'
 import { skills } from './skills'
 import './styles.scss'
 import { whyChooseUs } from './why-choose-us'
+import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 export const WhyChooseUsSection = () => {
   return (
-    <SectionWrapper>
+    <AboutSectionWrapper>
       <Box className="about-us-why-choose-us-section">
         <Box className="left-section">
           {whyChooseUs.slice(0, 2).map((item, index) => {
@@ -72,6 +73,6 @@ export const WhyChooseUsSection = () => {
           </Box>
         </Box>
       </Box>
-    </SectionWrapper>
+    </AboutSectionWrapper>
   )
 }
