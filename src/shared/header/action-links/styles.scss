@@ -15,7 +15,6 @@
   padding: 3px;
   border-radius: 20px;
   transition: background-color 0.3s ease-in-out;
-  // background-color: var(--global-color-primary);
 }
 
 .action-links {
@@ -25,14 +24,11 @@
   overflow: hidden;
   background: var(--global-color-primary);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-radius: 22.11px;
   box-shadow: 0px 5px 18.8px 0px rgba(0, 0, 0, 0.1);
   .action-link-button {
     text-transform: none;
-  }
-  &:hover {
-    background-color: transparent;
   }
 }
 

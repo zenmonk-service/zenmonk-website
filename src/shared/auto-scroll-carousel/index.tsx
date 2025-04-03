@@ -5,9 +5,11 @@ import './styles.scss'
 interface SliderData {
   label: string
   src: string
+  background?: string
 }
 interface AutoScrollCarouselProps {
   data: SliderData[]
+  isBgShadow?: boolean
   reverse?: true
   sliderProps?: {
     className?: string
@@ -18,18 +20,18 @@ interface AutoScrollCarouselProps {
 }
 
 const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
-  const { data, imageProps, reverse, sliderProps } = props
+  const { data, imageProps, reverse, sliderProps, isBgShadow=false } = props
   const carouselItems = [...data, ...data]
   return (
     <Box className={`slider ${sliderProps?.className}`}>
       <Box className={`slide-track ${reverse ? 'reverse' : null}`}>
-        {carouselItems.map(({ label, src },index) => (
-          <Box className="slide" key={label + index}>
-            <Image
-              src={src}
-              width={imageProps?.size ?? 150}
-              alt={label}
-            />
+        {carouselItems.map(({ label, src, background }, index) => (
+          <Box
+            className="slide"
+            key={label + index}
+            sx={{ background: isBgShadow ? background : null }}
+          >
+            <Image src={src} width={imageProps?.size ?? 150} alt={label} />
           </Box>
         ))}
       </Box>

@@ -1,11 +1,10 @@
 .rating-card {
-  flex: 1;
-  height: 198px;
-  max-width: 279.423px;
-  max-height: 150.38px;;
+  width: 279.423px;
+  height: 150.38px;
   flex-shrink: 0;
   display: flex;
-  padding: 19px;
+  height: max-content;
+  padding: 20px;
   gap: 10px;
   border-radius: 53.333px 0px;
   @media screen and (max-width: 1200px) {
@@ -14,6 +13,7 @@
   .rating-card-icon {
     width: 112px;
     height: 112px;
+    border-radius: 50%;
     @media screen and (max-width: 1499px) {
       width: calc(112px * 0.5);
       height: calc(112px * 0.5);
@@ -34,7 +34,7 @@
       line-height: normal;
       @media screen and (max-width: 1499px) {
         font-size: 20px;
-        line-height: 15px
+        line-height: 15px;
       }
     }
     .description {
@@ -44,6 +44,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      min-width: max-content;
       @media screen and (max-width: 1499px) {
         font-size: 12px;
       }

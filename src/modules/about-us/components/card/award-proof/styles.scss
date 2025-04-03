@@ -1,5 +1,5 @@
 .award-proof-card {
-  height: 400px;
+  height: auto;
   position: relative;
   flex: 1;
   @media screen and (max-width: 1499px) {
@@ -35,7 +35,7 @@
     }
 
     .title {
-      margin-top: 25%;
+      margin-top: 35%;
       width: 100%;
       color: #424242;
       font-feature-settings:

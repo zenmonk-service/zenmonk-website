@@ -14,11 +14,13 @@ export const OurClientSection = () => {
       </Typography>
 
       <InfiniteSlider
+        isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
         imageProps={{ size: 200 }}
       />
       <InfiniteSlider
+        isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
         imageProps={{ size: 200 }}

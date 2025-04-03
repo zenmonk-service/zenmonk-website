@@ -25,9 +25,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
   .infinite-slider{
-    margin-bottom: 50px;
+    margin-bottom: 80px;
+    .slide-track{
+      gap: 100px;
+    }
   }
 }

@@ -1,3 +1,3 @@
-import Vector from './vector.svg'
+import DottedCircle from './dotted-circle.svg'
 
-export { Vector }
+export { DottedCircle }

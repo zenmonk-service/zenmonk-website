@@ -35,9 +35,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }
 
   return (
-    <Box sx={{ width: '100%', pt: 12, px: 4 }}>
+    <Box sx={{ width: '100%', pt: 12 }}>
       <Grid2 container spacing={4} alignItems="center">
-        <Grid2 size={{ xs: 12, md: 6 }}>
+        <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
           <Box
             className="global-hero-section-text-wrapper"
             style={{ width: textWidth }}
@@ -52,8 +52,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <Typography variant="body1" className="global-text-description">
               {parse(description)}
             </Typography>
-            <BaseButton>EXPLORE MORE</BaseButton>
           </Box>
+          <BaseButton>EXPLORE MORE</BaseButton>
         </Grid2>
 
         <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">

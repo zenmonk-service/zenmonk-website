@@ -16,7 +16,6 @@ export const AwardProofSection = () => {
         Lorem Ipsum has been the industry's standard dummy text ever since the
         1500s. Lorem Ipsum has been the industry's standard{' '}
       </Typography>
-      <SectionWrapper>
         <Box className="award-proof-list">
           {awardProof.map((award, index) => {
             return (
@@ -29,7 +28,6 @@ export const AwardProofSection = () => {
             )
           })}
         </Box>
-      </SectionWrapper>
     </Box>
   )
 }
