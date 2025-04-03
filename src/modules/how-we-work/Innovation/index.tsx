@@ -1,38 +1,38 @@
 import Image from 'next/image'
 import { Box, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import Automated from '../assets/innovation/automated.svg'
-import Sky from '../assets/innovation/best.png'
+import PaperPlaneImg from '../assets/innovation/best.png'
 import Earth from '../assets/innovation/earth.svg'
 import PersonSittingOnDesk from '../assets/innovation/img.png'
-import Real from '../assets/innovation/real.svg'
-import Responsive from '../assets/innovation/responsive.svg'
-import Robust from '../assets/innovation/robost.svg'
+import { ServiceIcons } from './service-icons'
 import './styles.scss'
 
 const Innovation = () => {
   return (
-    <Box className="innovation-section-wrapper">
+    <Stack className="innovation-section-wrapper">
       <Stack className="innovation-section">
-        <Title
-          text={
-            'We Deliver the Best with Innovation, Precision, and Excellence.'
-          }
-          className="innovation-title"
-        />
-        <Typography className="innovation-description">
-          State burst think end are its. Arrived off she elderly beloved him
-          affix ed noisier yet. Course regard to up he hardly elder noisier.
-          state burst think end are its.
-        </Typography>
-        <Box className="images-wrapper">
+        <Stack className="text-wrapper">
+          <Title
+            className="innovation-title"
+            text={
+              'We Deliver the Best with Innovation, Precision, and Excellence.'
+            }
+          />
+          <Typography className="innovation-description">
+            State burst think end are its. Arrived off she elderly beloved him
+            affix ed noisier yet. Course regard to up he hardly elder noisier.
+            state burst think end are its.
+          </Typography>
+        </Stack>
+
+        <Stack className="content-wrapper">
           <Box className="person-sitting-on-desk">
             <Image src={PersonSittingOnDesk} alt="person sitting on desk" />
           </Box>
 
-          <Box className="more-info">
-            <Box className="deliver-the-best">
-              <Box className="more-info-info-box">
+          <Stack className="more-info">
+            <Stack className="deliver-the-best">
+              <Stack className="deliver-the-best-text-wrapper">
                 <Box className="earth-icon">
                   <Image src={Earth} alt="earth" />
                 </Box>
@@ -44,58 +44,31 @@ const Innovation = () => {
                   Ipsum has been the industry's standard dummy
                 </Typography>
                 <button className="contact-btn">Contact us</button>
+              </Stack>
+              <Box className="paper-plane-img-wrapper">
+                <Image src={PaperPlaneImg} alt="" className="paper-plane-img" />
               </Box>
+            </Stack>
 
-              {/* <Image src={PaperPlaneImg} alt="" className="paper-plane-img" /> */}
-            </Box>
-            <Box className="icons-gallery">
-              <Box>
-                <Image
-                         width={50}
-                         height={50}
-                  src={Real}
-                  alt="real-time-analytics"
-                />
-                <p>Real-time Analytics</p>
-              </Box>
-
-              <Box>
-                <Image
-                    
-                    width={50}
-                    height={50}
-                  src={Automated}
-                  alt="real-time-analytics"
-                />
-                <p>Automated Maintenance</p>
-              </Box>
-
-              <Box>
-                <Image
-                
-                width={50}
-                height={50}
-                  src={Robust}
-                  alt="robust-security"
-                />
-                <p>Robust Security </p>
-              </Box>
-
-              <Box>
-                <Image
-         
-         width={50}
-         height={50}
-                  src={Responsive}
-                  alt="robust-security"
-                />
-                <p>Responsive Design </p>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+            <Stack className="services-container">
+              {ServiceIcons.map((item) => {
+                return (
+                  <Stack className="service-images-wrapper" key={item.title}>
+                    <Image width={54} height={60} src={item.icon} alt="" />
+                    <Typography
+                      className="service-text"
+                      maxWidth={item.maxWidth}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Stack>
+                )
+              })}
+            </Stack>
+          </Stack>
+        </Stack>
       </Stack>
-    </Box>
+    </Stack>
   )
 }
 

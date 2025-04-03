@@ -3,7 +3,7 @@
   margin: auto;
   display: flex;
   gap: 80px;
-  padding: 120px 0 0;
+  margin-top: 120px;
   align-items: center;
 
   .ready-to-talk-content {
@@ -31,12 +31,11 @@
     .subheading {
       color: #757575;
       font-family: Poppins;
-      font-size: 21px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
       letter-spacing: 0.48px;
-
       margin-top: 16px;
 
 
@@ -49,11 +48,11 @@
       }
 
       @media (max-width: 899px) {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       @media (max-width: 599px) {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
 
@@ -94,7 +93,7 @@
           color: #757575;
           font-feature-settings: 'liga' off, 'clig' off;
           font-family: Poppins;
-          font-size: 21px;
+          font-size: 18px;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -108,11 +107,11 @@
           }
 
           @media (max-width: 899px) {
-            font-size: 16px;
+            font-size: 14px;
           }
 
           @media (max-width: 599px) {
-            font-size: 16px;
+            font-size: 12px;
           }
         }
 
