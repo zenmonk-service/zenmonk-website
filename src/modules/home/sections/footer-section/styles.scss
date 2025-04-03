@@ -6,7 +6,7 @@
   overflow: hidden;
   flex-direction: column;
   background-color: #424242;
-
+  background:linear-gradient(377deg, #fff -35.26%, #444c 157.02%, #000 78.97%);
   &::before {
     content: '';
     position: absolute;
@@ -49,13 +49,18 @@
     padding-right: 95px !important;
     border-bottom: 1px solid #c5c5c595;
     .logo-wrapper {
+      @media (max-width: 1600px) {
+    
+      }
       .logo {
         width: 100%;
-        max-width: 400px;
         height: 455px;
+        object-fit: cover;
         flex-shrink: 0;
-        @media (max-width: 1700px) {
-          max-width: 200px;
+        
+        @media (max-width: 1600px) {
+          // max-width: 200px;
+          object-fit: contain;
         }
         @media (max-width: 1499px) {
           width: 100%;

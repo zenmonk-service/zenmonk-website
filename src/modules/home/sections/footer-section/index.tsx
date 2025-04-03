@@ -10,6 +10,7 @@ import {
   useTheme,
 } from '@mui/material'
 import { Monk } from '@/assets/icons'
+import MONK_PNG from "./assets/monk.png";
 import { socialMedia } from '@/assets/icons/social'
 import { consultingCategories } from './list/consulting-categories'
 import { quickLink } from './list/quick-links'
@@ -24,7 +25,7 @@ const Footer = () => {
       <Box className="header">
         {isMobile && (
           <Box className="logo-wrapper">
-            <Image src={Monk} alt="logo" className="logo" />
+            <Image quality={100} src={MONK_PNG} alt="logo" className="logo" />
           </Box>
         )}
         <Typography className="branding">
@@ -36,7 +37,7 @@ const Footer = () => {
       <Box className="logo-category-wrapper">
         {!isMobile && (
           <Box className="logo-wrapper">
-            <Image quality={1000} src={Monk} alt="logo" className="logo" />
+            <Image quality={100} src={MONK_PNG} alt="logo" className="logo" />
           </Box>
         )}
         <Box className="category-wrapper">
