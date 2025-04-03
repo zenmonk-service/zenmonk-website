@@ -17,7 +17,9 @@ import './styles.scss'
 const WhyChooseUsSection = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const clientSatisficationRef = useRef<HTMLDivElement>(null)
-  const isSmallLaptop = useMediaQuery('(max-width: 1350px)')
+  const isSmallLaptop = useMediaQuery('(min-width: 1350px)')
+
+  console.log("isSmallLaptop" , isSmallLaptop)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,19 +59,27 @@ const WhyChooseUsSection = () => {
             <ThumsUp />
           </Box>
           <Box className="children">
-            <Box className={`first ${isVisible && 'animate_comeFromLeft'}`}>
+            <Box
+              className={`first ${isVisible && (isSmallLaptop ? 'animate_comeFromLeft' : 'animate_comeFromLeftS')}`}
+            >
               <CraftAndCollab />
             </Box>
 
-            <Box className={`second ${isVisible && 'animate_comeFromRight'}`}>
+            <Box
+              className={`second ${isVisible && (isSmallLaptop ? 'animate_comeFromRight' : 'animate_comeFromRightS')}`}
+            >
               <Support />
             </Box>
 
-            <Box className={`third ${isVisible && 'animate_comeFromLeft'}`}>
+            <Box
+              className={`third ${isVisible && (isSmallLaptop ? 'animate_comeFromLeft' : 'animate_comeFromLeftS')}`}
+            >
               <Deadline />
             </Box>
 
-            <Box className={`fourth ${isVisible && 'animate_comeFromRight2'}`}>
+            <Box
+              className={`fourth ${isVisible && (isSmallLaptop ? 'animate_comeFromRight2' : 'animate_comeFromRight2S')}`}
+            >
               <LatestTech />
             </Box>
           </Box>
