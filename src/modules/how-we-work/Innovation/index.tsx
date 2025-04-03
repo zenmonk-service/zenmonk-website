@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
 import PaperPlaneImg from '../assets/innovation/best.png'
 import Earth from '../assets/innovation/earth.svg'
@@ -41,9 +41,9 @@ const Innovation = () => {
                 </Typography>
                 <Typography className="deliver-the-best-description">
                   Lorem Ipsum is simply dummy text the printing and typese Lorem
-                  Ipsum has been the industry's standard dummy
+                  Ipsum has been the industry's
                 </Typography>
-                <button className="contact-btn">Contact us</button>
+                <Button className="contact-btn">Contact us</Button>
               </Stack>
               <Box className="paper-plane-img-wrapper">
                 <Image src={PaperPlaneImg} alt="" className="paper-plane-img" />
@@ -54,7 +54,11 @@ const Innovation = () => {
               {ServiceIcons.map((item) => {
                 return (
                   <Stack className="service-images-wrapper" key={item.title}>
-                    <Image width={54} height={60} src={item.icon} alt="" />
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      className={item.size === 1 ? 'img-small' : 'img-large'}
+                    />
                     <Typography
                       className="service-text"
                       maxWidth={item.maxWidth}
