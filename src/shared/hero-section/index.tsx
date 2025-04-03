@@ -52,7 +52,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <Typography variant="body1" className="global-text-description">
               {parse(description)}
             </Typography>
-            <BaseButton>Explore Service</BaseButton>
+            <BaseButton>EXPLORE MORE</BaseButton>
           </Box>
         </Grid2>
 
