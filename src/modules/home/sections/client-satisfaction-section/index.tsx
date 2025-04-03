@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Box, Typography } from '@mui/material'
 import Satisfication from '@/modules/home/satisfication'
 import Title from '@/shared/title'
-import LOGO from "./assets/logo-benzen.png";
+import LOGO from "./assets/logo-benzene.png";
 import './styles.scss'
 
 const ClientSatisfaction = () => {
@@ -31,9 +31,8 @@ const ClientSatisfaction = () => {
       <Box ref={ref} className="svg-container">
         <Satisfication />
       </Box>
-      <Box>
-        {/* <Image src={LOGO} alt="" /> */}
-      </Box>
+        <Image className='logo-left' src={LOGO} alt="" />
+        <Image className='logo-right' src={LOGO} alt="" />
     </Box>
   )
 }

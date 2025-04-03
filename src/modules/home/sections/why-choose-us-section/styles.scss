@@ -83,6 +83,12 @@
   animation: comeFromRight 1.5s forwards;
 }
 
+.animate_comeFromRight2 {
+  animation: comeFromRight2 1.5s forwards;
+}
+
+
+
 .animate_scale {
   animation: scale 1.5s forwards;
 }
@@ -94,12 +100,12 @@
   }
 
   75% {
-    transform: translateX(20px);
+    transform: translateX(60px); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(0px);
+    transform: translateX(50px); /* Ends at 50px */
     opacity: 1;
   }
 }
@@ -111,12 +117,29 @@
   }
 
   75% {
-    transform: translateX(-20px);
+    transform: translateX(-60px); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(0px);
+    transform: translateX(-50px); /* Ends at -50px */
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRight2 {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-110px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100px); /* Ends at -50px */
     opacity: 1;
   }
 }

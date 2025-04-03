@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { Box } from '@mui/material'
+import { Box, useMediaQuery } from '@mui/material'
 import {
   CraftAndCollab,
   Deadline,
@@ -17,6 +17,7 @@ import './styles.scss'
 const WhyChooseUsSection = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const clientSatisficationRef = useRef<HTMLDivElement>(null)
+  const isSmallLaptop = useMediaQuery('(max-width: 1350px)')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,7 +69,7 @@ const WhyChooseUsSection = () => {
               <Deadline />
             </Box>
 
-            <Box className={`fourth ${isVisible && 'animate_comeFromRight'}`}>
+            <Box className={`fourth ${isVisible && 'animate_comeFromRight2'}`}>
               <LatestTech />
             </Box>
           </Box>
