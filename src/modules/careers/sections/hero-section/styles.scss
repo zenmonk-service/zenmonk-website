@@ -5,6 +5,9 @@
   align-items: center;
   overflow: hidden;
   padding: 0 5%;
+  max-width: 1900px;
+  margin: auto;
+  max-height: 1080px;
   @media screen and (max-width: 1499px) {
     padding: 0;
   }

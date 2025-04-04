@@ -41,7 +41,7 @@ const serviceList: Service[] = [
       'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
   },
   {
-    id: '05',
+    id: '04',
     icon: BriefCasePerson,
     title: 'IT Consulting',
     color: '#48B95C',
@@ -49,10 +49,18 @@ const serviceList: Service[] = [
       'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
   },
   {
+    id: '05',
+    icon: Gear,
+    title: 'Software Development',
+    color: '#41CDD6',
+    description:
+      'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
+  },
+  {
     id: '06',
-    icon: BriefCasePerson,
+    icon: BriefCase,
     title: 'IT Consulting',
-    color: '#48B95C',
+    color: '#41CDD6',
     description:
       'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
   },
@@ -64,30 +72,22 @@ const serviceList: Service[] = [
     description:
       'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
   },
-  {
-    id: '08',
-    icon: BriefCasePerson,
-    title: 'IT Consulting',
-    color: '#48B95C',
-    description:
-      'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
-  },
-  {
-    id: '09',
-    icon: BriefCasePerson,
-    title: 'IT Consulting',
-    color: '#48B95C',
-    description:
-      'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
-  },
-  {
-    id: '10',
-    icon: BriefCasePerson,
-    title: 'IT Consulting',
-    color: '#48B95C',
-    description:
-      'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
-  },
+  // {
+  //   id: '09',
+  //   icon: BriefCasePerson,
+  //   title: 'IT Consulting',
+  //   color: '#48B95C',
+  //   description:
+  //     'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
+  // },
+  // {
+  //   id: '10',
+  //   icon: BriefCasePerson,
+  //   title: 'IT Consulting',
+  //   color: '#48B95C',
+  //   description:
+  //     'Develop your online presence with Tec-Sense Web development. Innovative, successful websites that engage and convert clients set  your your organization Tec-Sense web development. Innovative, successful websites that engage and convert clients set your organization apart online. that engage and convert clients set your organization apart online. ',
+  // },
 ]
 
 export { serviceList }
