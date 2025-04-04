@@ -21,7 +21,7 @@ const ReadyToTalk = () => {
 
         <Stack className="step-container">
           <Box className="steps">
-            <Typography className="step-heading">✅ Tell us more</Typography>
+            <Typography className="step-heading"> Tell us more</Typography>
             <Typography className="step-description">
               Fill out a quick form describing your needs. You can always add
               details later on and we’ll reply within a day!
@@ -30,7 +30,7 @@ const ReadyToTalk = () => {
 
           <Box className="steps">
             <Typography className="step-heading">
-              ✅ Strategic Planning
+              Strategic Planning
             </Typography>
             <Typography className="step-description">
               Fill out a quick form describing your needs. You can always add
@@ -40,7 +40,7 @@ const ReadyToTalk = () => {
 
           <Box className="steps">
             <Typography className="step-heading">
-              ✅ Workshop Kickoff
+              Workshop Kickoff
             </Typography>
             <Typography className="step-description">
               Fill out a quick form describing your needs. You can always add

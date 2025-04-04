@@ -78,7 +78,7 @@ const ActionLinks = () => {
           <Box className="arrow-up" />
           {options.map((option, index) => {
             return (
-              <Box onClick={() => selectOption(option.route)}>
+              <Box onClick={() => selectOption(option.route)} key={index}>
                 <OptionCard
                   isAlreadyOpen={alreadyOpen(option.route)}
                   description={option.description}
