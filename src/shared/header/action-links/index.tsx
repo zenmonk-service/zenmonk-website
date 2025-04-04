@@ -45,10 +45,11 @@ const ActionLinks = () => {
         {actionsLink
           .slice(0, actionsLink.length - 1)
           .map(({ href, name, options }: ActionLink, index) => {
-            console.log(pathname,'helllo')
             return (
               <Button
-                sx={{ bgcolor: pathname === href ? '#f2f2f2' : '' }}
+                sx={{ bgcolor: pathname === href ? '#f2f2f2' : '',
+                  fontWeight: pathname === href ? '600 !important' : '400'
+                }}
                 className="action-link-button"
                 key={index}
                 color="inherit"

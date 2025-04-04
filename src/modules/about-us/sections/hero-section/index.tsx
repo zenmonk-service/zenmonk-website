@@ -5,6 +5,7 @@ import './styles.scss'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 const HeroSection: React.FC = () => (
+  <div className='about-hero-section-wrapper'>
   <AboutSectionWrapper>
       <HeroComponent
         title="Meet the Innovators<br/> Behind ZENMONK"
@@ -13,6 +14,7 @@ const HeroSection: React.FC = () => (
         image={About.src}
       />
   </AboutSectionWrapper>
+  </div>
 )
 
 export { HeroSection }

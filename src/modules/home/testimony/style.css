@@ -179,6 +179,7 @@
 
 .testimony .gradient-ball {
   position: absolute;
+  z-index: -1;
 }
 
 .testimony .gradient-ball-first {
