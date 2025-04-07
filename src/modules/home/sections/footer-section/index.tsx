@@ -10,8 +10,8 @@ import {
   useTheme,
 } from '@mui/material'
 import { Monk } from '@/assets/icons'
-import MONK_PNG from "./assets/monk.png";
 import { socialMedia } from '@/assets/icons/social'
+import MONK_PNG from './assets/monk.png'
 import { consultingCategories } from './list/consulting-categories'
 import { quickLink } from './list/quick-links'
 import { serviceCategory } from './list/service-categories'
@@ -98,6 +98,11 @@ const Footer = () => {
                   <InputBase
                     placeholder="Email Address"
                     className="input-field"
+                    slotProps={{
+                      input: {
+                        className: 'input',
+                      },
+                    }}
                   />
                   <Button variant="contained" className="submit-button">
                     Submit

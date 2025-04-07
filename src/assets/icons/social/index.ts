@@ -22,14 +22,14 @@ export const socialMedia = [
     url: X,
   },
   {
-    id: 4,
-    name: 'Skype',
-    url: Skype,
-  },
-  {
     id: 5,
     name: 'YouTube',
     url: Youtube,
+  },
+  {
+    id: 4,
+    name: 'Skype',
+    url: Skype,
   },
   {
     id: 6,
