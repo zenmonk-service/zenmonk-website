@@ -3,58 +3,21 @@
 import React, { Suspense, lazy, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import './styles.scss'
+import { AiBasedSoftwares, CloudComputing, GrowthMarketing, IndustrySpecific, ItBusinessConsultation, ItTrainingHeroSection, MobileAppDevelopment, ProductDevelopment, SoftwareDevelopment, UiUx } from '@/modules/services/modules'
 
 const DefaultHeroSection = () => <div className="default-hero-section"></div>
 
-const HERO_SECTIONS: Record<string, React.LazyExoticComponent<React.FC>> = {
-  'software-development': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.SoftwareDevelopment,
-    }))
-  ),
-  'product-development': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.ProductDevelopment,
-    }))
-  ),
-  'it-training-&-workshops': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.ItTrainingHeroSection,
-    }))
-  ),
-  'mobile-app-development': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.MobileAppDevelopment,
-    }))
-  ),
-  'cloud-development': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.CloudComputing,
-    }))
-  ),
-  'it-&-business-consultation': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.ItBusinessConsultation,
-    }))
-  ),
-  'growth-&-marketing': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.GrowthMarketing,
-    }))
-  ),
-  'ai-based-softwares': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.AiBasedSoftwares,
-    }))
-  ),
-  'industry-specific-solutions': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({
-      default: m.IndustrySpecific,
-    }))
-  ),
-  'ui-ux-design': lazy(() =>
-    import('@/modules/services/modules').then((m) => ({ default: m.UiUx }))
-  ),
+const HERO_SECTIONS: Record<string, any> = {
+  'software-development': SoftwareDevelopment,
+  'product-development': ProductDevelopment,
+  'it-training-&-workshops': ItTrainingHeroSection,
+  'mobile-app-development': MobileAppDevelopment,
+  'cloud-development': CloudComputing,
+  'it-&-business-consultation': ItBusinessConsultation,
+  'growth-&-marketing': GrowthMarketing,
+  'ai-based-softwares':AiBasedSoftwares,
+  'industry-specific-solutions': IndustrySpecific,
+  'ui-ux-design': UiUx,
 }
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -76,16 +39,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div ref={heroSectionRef}>
-        <Suspense fallback={<DefaultHeroSection />}>
-          {serviceKeys.length > 0 ? (
-            serviceKeys.map((key) => {
-              const HeroComponent = HERO_SECTIONS[key]
-              return HeroComponent ? <HeroComponent key={key} /> : null
-            })
-          ) : (
-            <DefaultHeroSection />
-          )}
-        </Suspense>
+        {serviceKeys.length > 0 ? (
+          serviceKeys.map((key) => {
+            const HeroComponent = HERO_SECTIONS[key]
+            return HeroComponent ? <HeroComponent key={key} /> : null
+          })
+        ) : (
+          <DefaultHeroSection />
+        )}
       </div>
       {children}
     </div>

@@ -33,7 +33,7 @@
 .slide-track {
   display: flex;
   width: max-content;
-  animation: scroll 40s linear infinite;
+  animation: scroll 50s linear infinite;
   &.reverse {
     animation-direction: reverse;
   }

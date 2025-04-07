@@ -15,7 +15,7 @@ import './styles.scss'
 const HeroSection = () => {
   return (
     <Box className="career-hero-section-wrapper">
-      <Toolbar />
+      {/* <Toolbar /> */}
       <Box className="hero-section">
         <Image className="ellipse" src={Ellipse} alt="ellipse" />
         <Box className="hero-section-text-wrapper">

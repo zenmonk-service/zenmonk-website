@@ -43,7 +43,7 @@ const Footer = () => {
         <Box className="category-wrapper">
           <Box className="service-category-quick-links-wrapper">
             <Box className="service-category">
-              <Typography className="title" component="p">
+              <Typography className="services-title title" component="p">
                 Services
               </Typography>
               <Box className="service-category-list">
@@ -57,7 +57,7 @@ const Footer = () => {
               </Box>
             </Box>
             <Box className="quick-links">
-              <Typography className="title" component="p">
+              <Typography className="quick-links-title title" component="p">
                 Quick links
               </Typography>
               <Box className="quick-link-list">
@@ -73,7 +73,7 @@ const Footer = () => {
           </Box>
           <Box className="consulting-category-contact-wrapper">
             <Box className="consulting-category">
-              <Typography className="title" component="p">
+              <Typography className="consulting-title title" component="p">
                 Consulting
               </Typography>
               <Box className="consulting-category-list">
@@ -88,7 +88,7 @@ const Footer = () => {
             </Box>
             <Box className="contact">
               <Box className="subscribe-section">
-                <Typography className="title" component="p">
+                <Typography className="subscribe-us-title title" component="p">
                   Subscribe US
                 </Typography>
                 <Typography className="heading">
@@ -110,7 +110,7 @@ const Footer = () => {
                 </Box>
               </Box>
               <Box className="social-media-link">
-                <Typography className="title" component="p">
+                <Typography className="follow-us-title title" component="p">
                   Follow US
                 </Typography>
                 <Box className="social-media-list">
