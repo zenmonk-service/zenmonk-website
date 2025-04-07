@@ -15,6 +15,7 @@ import {
 } from '@/assets/images/hero-section'
 import BaseButton from '@/shared/button'
 import './styles.scss'
+import HomeHeroImage from './home-hero-img'
 
 const HeroSection = () => {
   return (
@@ -44,14 +45,16 @@ const HeroSection = () => {
             &nbsp;Software Inovations
           </Typography>
           <Typography component="p" className="text-description">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout.
+          Zenmonk believes in the power of harmony between- Technology and Precision, Innovation and Mindfulness.
+
+
           </Typography>
         </Box>
         <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
-        {HeroTech && (
+        <HomeHeroImage/>
+        {/* {HeroTech && (
           <Image className="hero-section-image" src={HeroTech} alt="techs" />
         )}
         <>
@@ -100,7 +103,7 @@ const HeroSection = () => {
             src={HeroCircle}
             alt="techs"
           />
-        </>
+        </> */}
       </Box>
     </Box>
   )

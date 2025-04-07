@@ -38,7 +38,8 @@ const Odometer = () => {
           >
             <Box className="left-section">
               <Typography className="heading" component="h1" variant="h1">
-                Team Across the Globe <br /> Run on Atlassian
+                Zenmonk is always available, <br /> no matter the time zone or{' '}
+                <br /> your location.
               </Typography>
               <Typography variant="h4" className="teams-number">
                 {inView && <OdometerComponent value={100000} />}+
@@ -65,7 +66,7 @@ const Odometer = () => {
               </Box>
               <Box className="companies-section">
                 <Typography className="companies-number">
-                  {inView && <OdometerComponent value={80}/>}%
+                  {inView && <OdometerComponent value={80} />}%
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
                   of Fortune 500 companies use Zenmonk product
@@ -90,7 +91,7 @@ const Odometer = () => {
               </Box>
               <Box className="companies-section">
                 <Typography className="companies-number ">
-                  {inView && <OdometerComponent value={80}/>}%
+                  {inView && <OdometerComponent value={80} />}%
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
                   of Fortune 500 companies use Zenmonk product

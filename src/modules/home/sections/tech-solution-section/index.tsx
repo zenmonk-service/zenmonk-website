@@ -14,14 +14,15 @@ const TechSolutionSection = () => {
         <Box className="tech-solution-section-text-wrapper">
           <Box className="text-heading">
             <Title
-              text="Maximizing Your Business Potential With Expert IT Solutions."
+              text="Our expertise lies in crafting business solutions"
               align="left"
             />
           </Box>
           <Typography component="p" className="text-description">
-            Welcome in the is to Zenmonk, where Software Innovation meets
-            professionalism and solution oriented mindset. We are fluent in your
-            language, proficien
+            Welcome to Zenmonk, where Software Innovation meets professionalism
+            and solution oriented mindset. We are fluent in your language,
+            proficient in technical terminology, and validate our new-age
+            expertise with custom solutions
           </Typography>
         </Box>
         <Box className="tech-solution-section-card-wrapper">
