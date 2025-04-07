@@ -57,7 +57,7 @@ const YourIdealChoice = () => {
 
       {ChoicesData.map(({ icon, title, description }: any) => {
         return (
-          <Box className="container">
+          <Box className="container"  key={title}>
             <Image src={icon} alt={title}></Image>
             <Typography className="title">{title}</Typography>
             <Typography className="description">{description}</Typography>
