@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: 0 0%;
   padding: 0 10%;
+  height: 430px;
   color: var(--global-color-primary);
   position: relative;
   padding-bottom: 50px;
@@ -24,15 +25,19 @@
     z-index: 2;
   }
   .odometer-content-wrapper {
-    height: 100%;
+    // height: 100%;
     display: flex;
-    padding-top: 60px;
+    padding-top: 45px;
     box-sizing: border-box;
     gap: 15px;
     justify-content: center;
     @media screen and (max-width:1499px) {
       padding: 12px;
       padding-bottom: 50px;
+    }
+    .desc {
+      display: grid;
+      place-items: center;
     }
     .left-section {
       display: flex;
@@ -43,7 +48,7 @@
         width: 100%;
         letter-spacing: 0.9px;
         display: flex;
-        font-family: Inter !important;
+        font-family: Poppins !important;
         font-size: 40px;
         font-style: normal;
         font-weight: 700 !important;
@@ -55,9 +60,8 @@
       }
       .teams-number {
         letter-spacing: 2px;
-        margin-top: 32px;
         width: 100%;
-        font-family: Inter;
+        font-family: Poppins;
         font-size: 80px;
         display: flex;
         font-style: normal;
@@ -69,9 +73,9 @@
         }
       }
       .description {
-        margin-top: 28px;
+
         width: 100%;
-        font-family: Inter;
+        font-family: Poppins;
         font-size: 20px;
         font-style: normal;
         font-weight: 700;
@@ -86,13 +90,12 @@
       .countries-section {
         display: flex;
         flex-direction: column;
-        gap: 11px;
         border-left: 2px solid var(--global-color-primary);
         padding-left: 30px;
         padding-right: 70px;
         .countries-number {
           color: var(--global-color-primary);
-          font-family: Inter !important;
+          font-family: Poppins !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
@@ -105,7 +108,7 @@
         .description {
           width: 261px;
           color: var(--global-color-primary);
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 20px;
           font-style: normal;
           font-weight: 700;
@@ -118,10 +121,10 @@
         padding-right: 70px;
         display: flex;
         flex-direction: column;
-        gap: 11px;
+
         .companies-number {
           color: var(--global-color-primary);
-          font-family: Inter !important;
+          font-family: Poppins !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
@@ -134,7 +137,7 @@
         .description {
           width: 261px;
           color: var(--global-color-primary);
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 20px;
           font-style: normal;
           font-weight: 700;
@@ -155,7 +158,7 @@
         padding-left: 30px;
         .countries-number {
           color: var(--global-color-primary);
-          font-family: Inter !important;
+          font-family: Poppins !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
@@ -168,7 +171,7 @@
         .description {
           width: 261px;
           color: var(--global-color-primary);
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 20px;
           font-style: normal;
           font-weight: 700;
@@ -180,10 +183,9 @@
         padding-left: 30px;
         display: flex;
         flex-direction: column;
-        gap: 11px;
         .companies-number {
           color: var(--global-color-primary);
-          font-family: Inter !important;
+          font-family: Poppins !important;
           font-size: 60px;
           font-style: normal;
           font-weight: 700;
@@ -196,7 +198,7 @@
         .description {
           width: 261px;
           color: var(--global-color-primary);
-          font-family: Inter;
+          font-family: Poppins;
           font-size: 20px;
           font-style: normal;
           font-weight: 700;
@@ -215,6 +217,6 @@
   .odometer-section {
     margin-top: 50px;
     padding: 0px !important;
-    padding-top: 60px !important;
+    padding-top: 20px !important;
   }
 }

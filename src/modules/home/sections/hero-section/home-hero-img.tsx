@@ -4,7 +4,7 @@ const HomeHeroImage = () => {
 
 
 
-<svg width="917" height="469" viewBox="0 0 917 469" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+<svg width="100%" height="469" viewBox="0 0 917 469" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <defs>
   <filter id="customDropShadow" x="-50%" y="-50%" width="200%" height="200%">
     <feDropShadow dx="-2.291" dy="3.818" stdDeviation="5.273" flood-color="rgba(52, 52, 52, 0.08)" />

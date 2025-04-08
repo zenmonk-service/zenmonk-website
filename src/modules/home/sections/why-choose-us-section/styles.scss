@@ -3,22 +3,22 @@
   height: auto;
   margin-top: 115px;
   position: relative;
-  // overflow: hidden;
   .logo {
-    width: 200px;
-    height: 320px;
+
     flex-shrink: 0;
   }
   .right-logo {
-    width: 250px;
-    height: 300px;
-    bottom: -200px;
-    right: -80px;
+
+    bottom: -220px;
+    right: -150px;
     position: absolute;
+    // @media (max-width: 1800px) {
+    //   right: 120px;
+    // }
   }
   .left-logo {
     top: 0;
-    left: -100px;
+    left: -220px;
     position: absolute;
   }
   .title {
@@ -264,11 +264,3 @@
   }
 }
 
-@media (max-width: 1499px) {
-  .why-choose-us-section {
-    .right-logo {
-   
-      right: -10px !important;
-    }
-  }
-}

@@ -11,6 +11,8 @@ import {
   ThumsUp,
 } from '@/assets/icons/why-choose-us'
 import { ZenmonkLogoV2, ZenmonkLogoV3 } from '@/assets/images'
+import LOGO from './assets/logo-benzene.png'
+
 import Title from '@/shared/title'
 import './styles.scss'
 
@@ -47,10 +49,10 @@ const WhyChooseUsSection = () => {
     <Box className="why-choose-us-section">
       <Title text="Elevate your tech journey with Zenmonk" className="title" />
       {ZenmonkLogoV2 && (
-        <Image src={ZenmonkLogoV2} alt="logo" className="logo left-logo" />
+        <Image src={LOGO} alt="logo" className="logo left-logo" />
       )}
       {ZenmonkLogoV3 && (
-        <Image src={ZenmonkLogoV3} alt="logo" className="logo right-logo" />
+        <Image src={LOGO} alt="logo" className="logo right-logo" />
       )}
 
       <Box ref={clientSatisficationRef} className="why-choose-us">

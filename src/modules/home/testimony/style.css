@@ -30,7 +30,7 @@
   font-family: var(--global-font-family);
   font-size: 16px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: normal;
 }
 
@@ -194,13 +194,13 @@ left: 30%;
 }
 
 .testimony .gradient-ball-third {
-  top: 50%;
-  right: 15%;
+  top: 55%;
+  right: 20%;
 }
 
 .testimony .gradient-ball-fourth{
   top: 0%;
-  right: 15%;
+  right: 20%;
 }
 
 

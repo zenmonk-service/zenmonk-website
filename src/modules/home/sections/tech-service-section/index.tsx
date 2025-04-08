@@ -37,7 +37,7 @@ const ServiceSection = () => {
 
   useEffect(() => {
     if (businessItemRefPosition && rightSectionHeadingRefPosition) {
-      if (businessItemRefPosition < rightSectionHeadingRefPosition) {
+      if (businessItemRefPosition  < rightSectionHeadingRefPosition ) {
         setIsOverlapped(true)
       } else {
         setIsOverlapped(false)
@@ -65,6 +65,11 @@ const ServiceSection = () => {
 
   return (
     <Box mt={15}>
+      <div
+        className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
+      >
+        <Title className="title" text={text} align="center" />
+      </div>
       <Box className="services-section">
         <Box className="services-left-container">
           {serviceList.map((item: Service, index: number) => (
@@ -81,7 +86,7 @@ const ServiceSection = () => {
             >
               <Box className="business-item-content">
                 <Box className="business-icon">
-                <Image src={item.icon as any} alt={item.title} />
+                  <Image src={item.icon as any} alt={item.title} />
                 </Box>
                 <Typography
                   component="h4"
@@ -108,7 +113,7 @@ const ServiceSection = () => {
           <div
             className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
           >
-            <Title className='title' text={text} align="center" />
+            {/* <Title className='title' text={text} align="center" /> */}
           </div>
           {ZenmonkLogo && (
             <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
@@ -143,7 +148,7 @@ const ServiceSection = () => {
                   textTransform: 'uppercase !important',
                   boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
-                  fontFamily: 'Poppins'
+                  fontFamily: 'Poppins',
                 }}
               >
                 Get Started

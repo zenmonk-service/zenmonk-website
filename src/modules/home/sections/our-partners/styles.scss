@@ -22,6 +22,7 @@
       background: var(--global-color-gradient);
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      -webkit-background-clip:text
     }
   }
 }
