@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 import './styles.scss'
+import StarIcon from './components/star-animation'
 
 interface AwardProofCardProps {
   title: string
@@ -11,6 +12,7 @@ interface AwardProofCardProps {
 const AwardProofCard = ({ image, title, description }: AwardProofCardProps) => {
   return (
     <Box className="award-proof-card">
+      <StarIcon/>
       <Image src={image} width={113} height={174} alt={`${title}-icon`} />
       <Box className="award-card-content">
         <Typography className="title" component="h3">

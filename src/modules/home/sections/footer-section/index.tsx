@@ -50,28 +50,28 @@ const Footer = () => {
               <Box className="service-category-list">
                 <Box className="service-container">
                   {serviceCategory.slice(0, 5).map((category, index) => (
-                    <Typography component="p" className="service-category-item">
+                    <Typography component="p" className="service-category-item" key={index}>
                       {category.title}
                     </Typography>
                   ))}
                 </Box>
                 <Box className="service-container">
                   {serviceCategory.slice(5, 10).map((category, index) => (
-                    <Typography component="p" className="service-category-item">
+                    <Typography component="p" className="service-category-item"  key={index}>
                       {category.title}
                     </Typography>
                   ))}
                 </Box>
                 <Box className="service-container">
                   {serviceCategory.slice(10, 15).map((category, index) => (
-                    <Typography component="p" className="service-category-item">
+                    <Typography component="p" className="service-category-item" key={index}>
                       {category.title}
                     </Typography>
                   ))}
                 </Box>
                 <Box className="service-container">
                   {serviceCategory.slice(15, 20).map((category, index) => (
-                    <Typography component="p" className="service-category-item">
+                    <Typography component="p" className="service-category-item" key={index}>
                       {category.title}
                     </Typography>
                   ))}
@@ -101,14 +101,14 @@ const Footer = () => {
               <Box className="consulting-category-list">
                 <Box className="category-container">
                   {consultingCategories.slice(0, 5).map((category, index) => (
-                    <Typography component="p" className="category-item">
+                    <Typography component="p" className="category-item" key={index}>
                       {category.title}
                     </Typography>
                   ))}
                 </Box>
                 <Box className="category-container">
                   {consultingCategories.slice(5, 10).map((category, index) => (
-                    <Typography component="p" className="category-item">
+                    <Typography component="p" className="category-item" key={index}>
                       {category.title}
                     </Typography>
                   ))}

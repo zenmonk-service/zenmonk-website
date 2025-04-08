@@ -25,14 +25,11 @@
 
 .about-section-wrapper {
   width: 100% !important;
-  padding: 20px 150px;
+  padding-left: 7.8125% !important;
+  padding-right: 7.8125% !important;
   box-sizing: border-box;
   justify-content: space-between;
   position: relative;
-  max-width: 1900px;
-  margin: auto;
-  @media screen and (max-width: 1499px) {
-    padding: 20px 50px;
-  }
+  // max-width: 1900px;
 }
 

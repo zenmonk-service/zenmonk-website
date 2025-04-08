@@ -90,6 +90,15 @@
   }
   .button-wrapper {
     margin-top: 20px;
+    flex-shrink: 0;
+    button {
+      display: flex;
+      padding: 20px 30px !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-shrink: 0;
+    }
     .send-button-icon {
       font-size: 20px;
     }

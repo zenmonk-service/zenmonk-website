@@ -1,9 +1,5 @@
 .about-hero-section-wrapper{
   max-height: 1080px;
-  .about-section-wrapper {
-    padding-left: 4%;
-    padding-right: 4%;
-  }
 }
 
 .about-hero-section {
@@ -12,6 +8,7 @@
   height: 100vh;
 
 }
+
 .image-wrapper {
   position: relative; 
   width: 100%;
@@ -22,8 +19,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  object-fit: cover; 
 }
+
+
 
 .dotted-circle {
   width: 80px !important;

@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import SectionWrapper from '@/shared/wrapper'
 import BusinessCard from '../../components/card/business-card'
 import { businesses } from './business'
 import './styles.scss'

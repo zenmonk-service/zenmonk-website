@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import SectionWrapper from '@/shared/wrapper'
 import AwardProofCard from '../../components/card/award-proof'
 import { awardProof } from './award-proof'
 import './styles.scss'

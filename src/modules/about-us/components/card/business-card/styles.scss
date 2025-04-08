@@ -1,59 +1,53 @@
 .about-us-business-card-container {
-  height: 331.521px;
+  overflow: hidden;
+  z-index: 0;
+  height: 332px;
   flex: 1;
   justify-content: center;
+  cursor: default;
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
-  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   max-width: 376.194px;
   max-height: 331.521px;
   box-shadow: 1px 1px 35.5px 0px rgba(0, 62, 176, 0.08);
-  @media screen and (max-width: 1699px) {
-    width: 325px !important;
+  position: relative;
+  background: var(--global-color-primary);
+  transition: background 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
   }
-  @media screen and (max-width: 1499px) {
-    width: 257px !important;
+
+  &.support::before {
+    background: linear-gradient(180deg, #65d6de 0%, #001617 258.51%);
   }
-  .business-card-icon-container {
-    margin-left: -20px;
-    width: 100%;
+
+  &.readymade::before {
+    background: linear-gradient(180deg, #3c95db 0%, #e00094 258.51%);
   }
-  .business-card-content {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 20px;
-    box-sizing: border-box;
-    @media screen and (max-width: 1499px) {
-      padding: 10px;
-    }
-    .business-card-title {
-      color: #383838;
-      font-family: Poppins;
-      font-size: 21.161px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-      @media screen and (max-width: 1499px) {
-        margin-top: 20px;
-        font-size: 16px;
-      }
-    }
-    .business-card-description {
-      color: #565656;
-      font-family: Poppins;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: 25px;
-      @media screen and (max-width: 1499px) {
-        width: 100%;
-        font-size: 12px;
-      }
-    }
+
+  &.customization::before {
+    background: linear-gradient(180deg, #b47bff 0%, #e00094 258.51%);
+  }
+
+  &.fast::before {
+    background: linear-gradient(180deg, #6cc77d 0%, #000902 317.38%);
+  }
+
+  &.support:hover::before,
+  &.readymade:hover::before,
+  &.customization:hover::before,
+  &.fast:hover::before {
+    opacity: 1;
   }
 
   &:hover #element_bg {
@@ -74,54 +68,69 @@
     transform: translateX(95px);
   }
 
-  &:hover #element_front path {
-    stroke: white;
-    fill: white;
-  }
-  &:hover #element_front circle {
-    stroke: white;
-    fill: white;
-  }
-
+  &:hover #element_front path,
+  &:hover #element_front circle,
+  &:hover #element_back path,
   &:hover #element_back circle {
     stroke: white;
     fill: white;
   }
 
-  &:hover #element_back path {
-    stroke: white;
-    fill: white;
+
+  @media screen and (max-width: 1699px) {
+    width: 325px !important;
   }
 
-  &:hover .business-card-title {
-    color: white;
+  @media screen and (max-width: 1499px) {
+    width: 257px !important;
   }
 
+  .business-card-icon-container {
+    margin-left: -30px;
+    width: 100%;
+  }
+
+  .business-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 1499px) {
+      padding: 10px;
+    }
+
+    .business-card-title {
+      color: #383838;
+      font-family: Poppins;
+      font-size: 21.161px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+
+      @media screen and (max-width: 1499px) {
+        margin-top: 20px;
+        font-size: 16px;
+      }
+    }
+
+    .business-card-description {
+      color: #565656;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+      @media screen and (max-width: 1499px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &:hover .business-card-title,
   &:hover .business-card-description {
     color: white;
-  }
-}
-
-.about-us-business-card-container.support {
-  &:hover {
-    background: linear-gradient(180deg, #65d6de 0%, #001617 258.51%);
-  }
-}
-
-.about-us-business-card-container.readymade {
-  &:hover {
-    background: linear-gradient(180deg, #3c95db 0%, #e00094 258.51%), #fff;
-  }
-}
-
-.about-us-business-card-container.customization {
-  &:hover {
-    background: linear-gradient(180deg, #b47bff 0%, #e00094 258.51%), #fff;
-  }
-}
-
-.about-us-business-card-container.fast {
-  &:hover {
-    background: linear-gradient(180deg, #6cc77d 0%, #000902 317.38%), #fff;
   }
 }

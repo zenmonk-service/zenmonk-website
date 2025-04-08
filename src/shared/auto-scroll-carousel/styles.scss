@@ -1,5 +1,5 @@
 .slider {
-  height: 100px;
+  height: auto;
   margin: auto;
   overflow: hidden;
   position: relative;
@@ -40,11 +40,12 @@
 }
 
 .slide {
-  height: 100px;
+  height: auto;
   width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 @keyframes scroll {

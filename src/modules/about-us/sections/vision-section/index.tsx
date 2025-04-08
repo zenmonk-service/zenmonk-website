@@ -22,6 +22,7 @@ export const VisionSection = () => {
           {visions.map((vision, index) => {
             return (
               <VisionCard
+                description={vision.description}
                 title={vision.title}
                 image={vision.image}
                 key={index}

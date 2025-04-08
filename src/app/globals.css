@@ -4,6 +4,7 @@
   --global-color-primary: #ffffff;
   --global-color-secondary: #000;
   --global-color-accent: #ffa750;
+  --global-color-dark-accent:#f59230;
   --global-color-text: #727272;
   --global-color-gradient: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
   --global-color-dark-gradient: linear-gradient(99deg, #ffa750 3.23%, #eb7c0d 97.72%);

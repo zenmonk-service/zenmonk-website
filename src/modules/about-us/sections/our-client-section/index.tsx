@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { OurPartnersList } from '@/assets/icons/collaboration'
-import InfiniteSlider from '@/shared/auto-scroll-carousel'
+import InfiniteSlider from './slider'
 import Title from '@/shared/title'
 import './styles.scss'
 
@@ -17,13 +17,21 @@ export const OurClientSection = () => {
         isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
-        imageProps={{ size: 200 }}
+        imageProps={{
+          size: {
+            width: 200,
+          },
+        }}
       />
       <InfiniteSlider
         isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
-        imageProps={{ size: 200 }}
+        imageProps={{
+          size: {
+            width: 200,
+          },
+        }}
         reverse
       />
     </Box>
