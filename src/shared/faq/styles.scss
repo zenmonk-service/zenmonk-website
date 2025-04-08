@@ -1,7 +1,9 @@
 .faq {
-  max-width: 1540px;
+  // max-width: 1621px;
   margin: auto;
   padding: 64px 24px;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
   margin-top: 60px;
   gap: 64px;
   align-items: center;
@@ -18,7 +20,7 @@
     transform: translate(-50%, -50%);
     z-index: -1;
     border-radius: 701px;
-    background: linear-gradient(99deg, rgba(255, 142, 29, 0.12) 3.23%, rgb(255, 128, 0) 103.82%);
+    background: linear-gradient(99deg, rgba(255, 142, 29, 0.12) 35.23%, rgb(255, 128, 0) 120.82%);
     filter: blur(226.60223388671875px);
   }
 
@@ -37,8 +39,8 @@
   }
 
   .section-sub-heading {
-    color: var(--global-color-accent-font-color, #0b4357);
-    font-family: Montserrat;
+    color: var(--global-color-accent-font-color, #132427);
+    font-family: Poppins;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -137,6 +139,8 @@
 @media (max-width: 1499px) {
   .faq {
     margin: 0 48px;
+    padding-left: 0;
+    padding-right: 0;
     .section-heading {
       font-size: 32px;
     }

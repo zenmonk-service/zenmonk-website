@@ -15,8 +15,8 @@ const ReadyToTalk = () => {
         />
 
         <Typography className="subheading">
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s.
+          We’ve been helping businesses create successful web applications for
+          years, and we’re excited to learn more about your project.
         </Typography>
 
         <Stack className="step-container">
@@ -24,27 +24,23 @@ const ReadyToTalk = () => {
             <Typography className="step-heading"> Tell us more</Typography>
             <Typography className="step-description">
               Fill out a quick form describing your needs. You can always add
-              details later on and we’ll reply within a day!
+              details later, and we’ll reply within a day!
             </Typography>
           </Box>
 
           <Box className="steps">
-            <Typography className="step-heading">
-              Strategic Planning
-            </Typography>
+            <Typography className="step-heading">Strategic Planning</Typography>
             <Typography className="step-description">
-              Fill out a quick form describing your needs. You can always add
-              details later on and we’ll reply within a day!
+              We’ll work together on a plan, defining goals, scope, and timeline
+              to ensure alignment with your vision.
             </Typography>
           </Box>
 
           <Box className="steps">
-            <Typography className="step-heading">
-              Workshop Kickoff
-            </Typography>
+            <Typography className="step-heading">Workshop Kickoff</Typography>
             <Typography className="step-description">
-              Fill out a quick form describing your needs. You can always add
-              details later on and we’ll reply within a day!
+              We’ll schedule a workshop to clarify details and ensure we're all
+              aligned before we start building your project.
             </Typography>
           </Box>
         </Stack>

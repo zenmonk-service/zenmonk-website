@@ -17,7 +17,6 @@ import SectionWrapper from '@/shared/wrapper'
 const page = () => {
   return (
     <Box>
-      <SectionWrapper>
         <HeroSection />
         <OurPartners />
         <AnimatedDiv>
@@ -26,10 +25,10 @@ const page = () => {
         <AnimatedDiv>
           <TechSolutionSection />
         </AnimatedDiv>
-      </SectionWrapper>
       <AnimatedDiv>
         <OurWorkSection />
       </AnimatedDiv>
+      <Box sx={{overflow:"hidden"}}>
       <SectionWrapper>
         <AnimatedDiv>
           <WhyChooseUsSection />
@@ -38,6 +37,7 @@ const page = () => {
       <AnimatedDiv>
         <Odometer />
       </AnimatedDiv>
+      </Box>
       <AnimatedDiv>
         <ClientSatisfaction />
       </AnimatedDiv>

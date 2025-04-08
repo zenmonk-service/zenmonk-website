@@ -32,14 +32,14 @@ const Odometer = () => {
       <SectionWrapper>
         <Box className="odometer-content-wrapper">
           <motion.div
+            className='desc'
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
             variants={textVariants}
           >
             <Box className="left-section">
               <Typography className="heading" component="h1" variant="h1">
-                Zenmonk is always available, <br /> no matter the time zone or{' '}
-                <br /> your location.
+              Zenmonk is always <br /> available, any time.
               </Typography>
               <Typography variant="h4" className="teams-number">
                 {inView && <OdometerComponent value={100000} />}+
@@ -61,15 +61,15 @@ const Odometer = () => {
                   {inView && <OdometerComponent value={200} />}+
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
-                  Countries have companies that use Zenmonk
+                Businesses served by Zenmonk
                 </Typography>
               </Box>
               <Box className="companies-section">
                 <Typography className="companies-number">
-                  {inView && <OdometerComponent value={80} />}%
+                  {inView && <OdometerComponent value={800} />}+
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
-                  of Fortune 500 companies use Zenmonk product
+                Projects delivered by Zenmonk
                 </Typography>
               </Box>
             </Box>
@@ -86,15 +86,15 @@ const Odometer = () => {
                   {inView && <OdometerComponent value={200} />}+
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
-                  Countries have companies that use Zenmonk
+                Awards received for excellence
                 </Typography>
               </Box>
               <Box className="companies-section">
                 <Typography className="companies-number ">
-                  {inView && <OdometerComponent value={80} />}%
+                  {inView && <OdometerComponent value={6} />}%
                 </Typography>
                 <Typography className="description" component="h3" variant="h3">
-                  of Fortune 500 companies use Zenmonk product
+                Countries benefiting from Zenmonk
                 </Typography>
               </Box>
             </Box>

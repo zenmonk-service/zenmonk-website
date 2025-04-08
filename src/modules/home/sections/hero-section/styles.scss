@@ -26,12 +26,14 @@
   display: flex;
   align-items: center;
   height: 80vh;
-  padding-top: 95px;
+  padding-top: 8%;
+  padding-left: 7.8125%;
+  padding-right: 1.42604166667%;
   max-height: 720px;
   .vector {
     position: absolute;
-    top: -10;
-    right: 43%;
+    top: 5%;
+    right: 43.5%;
     width: 500px;
     height: 550px;
   }
@@ -40,7 +42,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 41px;
+    gap: 60px;
     text-align: left;
   }
   .explore-button {
@@ -52,7 +54,7 @@
     display: flex;
     flex-direction: column;
     gap: 14px;
-    max-width: 848px;
+    max-width: 900px;
     width: 100%;
   }
 
@@ -76,10 +78,9 @@
   }
 
   .text-description {
-    max-width: 650px;
     color: var(--global-color-text) !important;
     font-family: Poppins !important;
-    font-size: 2rem !important;
+    font-size: 24px !important;
     font-weight: 400;
     opacity: 0;
     transform: none;
@@ -94,7 +95,8 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    max-height: 500px;
+    max-width: 908px;
+    max-height: 600px;
   }
 
   #balance {
@@ -115,7 +117,7 @@
   }
 
   #laptop {
-    animation: fadeInBlurScaleRotate 0.9s ease-out forwards ;
+    animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
   }
 }
 
@@ -229,6 +231,12 @@
 
 .hero-section-wrapper .base-button {
   opacity: 0;
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  text-transform: uppercase;
 }
 
 .hero-section-wrapper .base-button {
@@ -252,6 +260,7 @@
 @media (max-width: 1499px) {
   /* Your styles here */
   .hero-section-wrapper {
+    padding-left: 5%;
     .toolbar {
       display: none;
     }

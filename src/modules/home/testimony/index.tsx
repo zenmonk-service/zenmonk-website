@@ -23,55 +23,55 @@ export default function Testimony() {
     {
       review:
         'This is a premier mobile app development firm in India, recognized for our skilled team, cutting-edge technology, and customer-focused approach. We execute exceptional projects promptly and provide extensive services from design to support, backed by industry accolades and honors.',
-      by: 'Rajesh Kumar',
+      by: 'Michael Anderson',
       position: 'Chief Technology Officer',
     },
     {
       review:
         'We are a leading mobile app development agency in India, celebrated for our talented team, innovative technological solutions, and client-first philosophy. We deliver outstanding projects on schedule and offer full services from design to upkeep, supported by industry awards and achievements.',
-      by: 'Anita Sharma',
+      by: 'Jessica Collins',
       position: 'Project Manager',
     },
     {
       review:
         'This is a top-tier mobile app development studio in India, known for our proficient team, creative use of technology, and client-oriented strategy. We produce high-quality projects on time and provide complete services from design to maintenance, endorsed by industry awards and recognition.',
-      by: 'Vikram Singh',
+      by: 'Daniel Brooks',
       position: 'Lead Developer',
     },
     {
       review:
         'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards.',
-      by: 'Sonia Mehta',
+      by: 'Emily Harris',
       position: 'Marketing Director',
     },
     {
       review:
         'This is a distinguished mobile app development company in India. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
-      by: 'Karan Patel',
+      by: 'Nathan Reed',
       position: 'UI/UX Designer',
     },
     {
       review:
         'We are a notable mobile app development enterprise in India, acclaimed for our skilled team, pioneering technology, and client-oriented strategy. We provide high-quality projects on time and offer extensive services from design to support, supported by industry awards and honors.',
-      by: 'Neha Gupta',
+      by: 'Olivia Martinez',
       position: 'Business Analyst',
     },
     {
       review:
         'This is a renowned mobile app development business in India, famous for our talented team, creative use of technology, and customer-focused approach. We accomplish high-quality projects promptly and offer comprehensive services from design to maintenance.',
-      by: 'Rohit Verma',
+      by: 'Christopher Johnson',
       position: 'Quality Assurance Lead',
     },
   ]
 
   const [coordinates, setCoordinates] = useState<any>([
     '0px, 10px',
-    '-700px , -250px',
-    '700px , -250px',
-    '-800px , 0px',
-    '800px , 0px',
-    '700px , 250px',
-    '-700px , 250px',
+    '-600px , -150px',
+    '600px , -150px',
+    '-700px , 100px',
+    '700px , 100px',
+    '600px , 350px',
+    '-600px , 350px',
   ])
 
   function getNextIndex(index: number) {
@@ -193,6 +193,7 @@ export default function Testimony() {
         <Image
           className="gradient-ball gradient-ball-first"
           src={GRADIENTBALL}
+          width={25}
           alt="gradient_ball"
         />
         <Image
@@ -202,12 +203,13 @@ export default function Testimony() {
           alt="gradient_ball"
         />
         <Image
+           width={20}
           className="gradient-ball gradient-ball-third"
           src={GRADIENTBALL}
           alt="gradient_ball"
         />
         <Image
-          width={25}
+          width={40}
           className="gradient-ball gradient-ball-fourth"
           src={GRADIENTBALL}
           alt="gradient_ball"

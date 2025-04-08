@@ -6,33 +6,9 @@ export const positionsList: Department[] = [
     id: 1,
     positions: [
       {
-        title: 'UI-UX Designer',
-        heading: 'Experienced UI-UX Designer',
-        isOpening: true,
-        description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        skills: [
-          {
-            title: 'Figma',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          },
-          {
-            title: 'Problem Solving',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          },
-          {
-            title: 'Adobe XD',
-            description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          },
-        ],
-      },
-      {
         title: 'Frontend Developer',
         heading: 'React.js Frontend Developer',
-        isOpening: false,
+        isOpening: true,
         description:
           'Seeking a skilled React.js developer to build and maintain user-facing applications with modern UI frameworks.',
         skills: [
@@ -56,13 +32,43 @@ export const positionsList: Department[] = [
     ],
   },
   {
+    department: 'UI-UX Designer',
     id: 2,
+    positions: [
+      {
+        title: 'UI-UX Designer',
+        heading: 'Experienced UI-UX Designer',
+        isOpening: true,
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        skills: [
+          {
+            title: 'Figma',
+            description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          },
+          {
+            title: 'Problem Solving',
+            description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          },
+          {
+            title: 'Adobe XD',
+            description:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 3,
     department: 'Management',
     positions: [
       {
         title: 'Project Manager',
         heading: 'Agile Project Manager',
-        isOpening: false,
+        isOpening: true,
         description:
           'We are looking for a detail-oriented Project Manager to oversee software development projects using Agile methodologies.',
         skills: [
@@ -85,13 +91,13 @@ export const positionsList: Department[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     department: 'Sales',
     positions: [
       {
         title: 'Sales Executive',
         heading: 'B2B Sales Executive',
-        isOpening: false,
+        isOpening: true,
         description:
           'Join our sales team to drive business growth by acquiring new clients and maintaining strong relationships.',
         skills: [
@@ -115,7 +121,7 @@ export const positionsList: Department[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     department: 'Admin',
     positions: [
       {
@@ -144,7 +150,7 @@ export const positionsList: Department[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     department: 'Marketing',
     positions: [
       {

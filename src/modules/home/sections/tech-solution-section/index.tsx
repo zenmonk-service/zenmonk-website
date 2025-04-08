@@ -31,15 +31,10 @@ const TechSolutionSection = () => {
           })}
         </Box>
         <Box sx={{ marginBottom: '41px' }}></Box>
-        <BaseButton>EXPLORE MORE</BaseButton>
+        <BaseButton>EXPLORE SERVICES</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
         {Laptop2 && (
-          // <Image
-          //   className="tech-solution-section-image"
-          //   src={Laptop2}
-          //   alt="techs"
-          // />
           <TechSolutionSectionImage />
         )}
       </Box>

@@ -13,8 +13,8 @@ interface SkillsCardProps {
 
 const Positions = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<
-    Department | undefined
-  >(positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)))
+    Department
+  >(positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ?? positionsList[0])
 
   const hasOpenPosition = selectedDepartment?.positions.some(
     (position) => position.isOpening
@@ -28,11 +28,14 @@ const Positions = () => {
     <Box className="positions">
       <Box className="left-section">
         {positionsList.map((department, index) => {
+          const isSelected = selectedDepartment?.id === department.id
+          const aboveSelected = selectedDepartment.id - 1 === department.id;
+          const belowSelected = selectedDepartment.id + 1 === department.id;
           return (
             <Typography
-              className={`position ${
-                selectedDepartment?.id === department.id ? 'selected' : ''
-              }`}
+              className={`position ${isSelected ? 'selected' : ''} 
+                          ${aboveSelected ? 'above-selected' : ''}
+                          ${belowSelected ? 'below-selected' : ''}`}
               key={index}
               onClick={() => selectPosition(department)}
               sx={{
@@ -51,6 +54,7 @@ const Positions = () => {
       <Box className="right-section">
         {hasOpenPosition ? (
           selectedDepartment?.positions.map((department, index) => {
+            console.log(department.description)
             return (
               <Box key={index}>
                 <Typography component="h1" className="department-title">

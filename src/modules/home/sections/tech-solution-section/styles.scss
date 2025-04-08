@@ -5,6 +5,8 @@
     align-items: center;
     // height: 85vh;
     padding: 0 5%;
+    padding-left: 7.8125%;
+    padding-right: 7.8125%;
     .tech-solution-section {
       flex: 1;
       display: flex;
@@ -29,8 +31,7 @@
         }
   
         .text-description {
-          width: 582px;
-          color: #505050;
+          color: #777;
           text-align: justify;
           font-family: Poppins;
           font-size: 18px;
@@ -110,7 +111,7 @@
 
   @media (max-width: 1699px) {
     .tech-solution-section-wrapper {
-      padding: 5%;
+      // padding: 5%;
     }
     .tech-card-container {
       width: 255px;
@@ -122,7 +123,7 @@
 
   @media (max-width: 1499px) {
     .tech-solution-section-wrapper {
-      padding: 0;
+      padding:  0% 5%;
     }
 
   }

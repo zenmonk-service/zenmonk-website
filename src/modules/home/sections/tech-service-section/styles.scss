@@ -5,7 +5,8 @@
   font-family: Poppins;
   .title {
     text-align: left;
-    font-size: 32px !important;
+    font-size: 40px !important;
+    // margin-right: 25px;
   }
 
 
@@ -85,10 +86,13 @@
       position: absolute;
       width: 520.584px;
       height: 450px;
+      @media (max-width: 1700px) {
+        left: 55%;
+      }
     }
 
     .business-proof {
-      margin-top: 35px;
+      margin-top: 60px;
       width: 948px;
       height: 545px;
       border-radius: 8px;
