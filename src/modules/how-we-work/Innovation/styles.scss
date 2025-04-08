@@ -86,7 +86,7 @@
         font-family: Poppins;
         font-size: 24px;
         font-weight: 400;
-        max-width: 1070px;
+        max-width: 1160px;
 
         @media (max-width: 1499px) {
           font-size: 21px;
@@ -164,6 +164,7 @@
           border-radius: 22.202px;
           background: #FFF;
           flex-direction: row !important;
+          position: relative;
 
           @media (max-width: 899px) {
             background-image: url("../assets/innovation/paper-plane-mobile.png");

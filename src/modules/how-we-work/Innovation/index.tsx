@@ -19,9 +19,9 @@ const Innovation = () => {
             }
           />
           <Typography className="innovation-description">
-            State burst think end are its. Arrived off she elderly beloved him
-            affix ed noisier yet. Course regard to up he hardly elder noisier.
-            state burst think end are its.
+            Zenmonk delivers innovative solutions, exceeding expectations in
+            every way. Our services reflect our values, combining precision and
+            dedication to achieve successful outcomes.
           </Typography>
         </Stack>
 
@@ -40,8 +40,7 @@ const Innovation = () => {
                   We deliver the best
                 </Typography>
                 <Typography className="deliver-the-best-description">
-                  Lorem Ipsum is simply dummy text the printing and typese Lorem
-                  Ipsum has been the industry's
+                  We make robust, responsive, SEO friendly and Secure Websites that will take your business to next level.
                 </Typography>
                 <Button className="contact-btn">Contact us</Button>
               </Stack>
