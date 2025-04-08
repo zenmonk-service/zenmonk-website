@@ -6,18 +6,20 @@
   border: 2px solid #f5f5f5;
   background: var(--global-color-primary);
   display: flex;
+
   .left-section {
     padding-top: 30px;
     width: 380px;
-    height: 501px;
+    height: 498px;
     flex-shrink: 0;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
     padding: 60px 0px 60px 40px;
-    border-radius: 20px;
+    border-radius: 20px 0 0 20px;
+
+
 
     .position {
       cursor: pointer;
@@ -29,27 +31,68 @@
       font-weight: 600;
       line-height: 30px;
       width: 100%;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
       color: #B2B7B8;
 
       &:hover {
         color: #132427;
       }
     }
+
     .selected {
       background: var(--global-color-primary);
       color: #eb7c0d;
+      position: relative;
 
       &:hover {
         color: #eb7c0d;
       }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #fff;
+        top: -15px;
+        right: 0;
+        clip-path: polygon(47% 74%, 63% 61%, 76% 46%, 85% 33%, 92% 20%, 100% 0, 100% 40%, 100% 78%, 100% 100%, 0 100%, 18% 92%, 33% 84%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 15px;
+        background-color: #fff;
+        bottom: -12px;
+        right: 0;
+        clip-path: polygon(26% 17%, 16% 10%, 0 0, 100% 0, 100% 100%, 91% 82%, 84% 71%, 76% 60%, 65% 50%, 56% 41%, 46% 32%, 35% 23%);
+      }
     }
+
+    .above-selected {
+      border-bottom-right-radius: 20px;
+      position: relative;
+
+
+    }
+
+    .below-selected {
+      border-top-right-radius: 20px;
+      position: relative;
+
+
+    }
+
   }
+
   .right-section {
     padding: 40px 60px;
     overflow: scroll;
     flex: 1;
+
     .department-title {
       color: #132427;
       font-feature-settings: "liga" off, "clig" off;
@@ -60,6 +103,7 @@
       line-height: 36px;
       text-transform: capitalize;
       margin-bottom: 10px;
+
       .chip-label {
         font-size: 11px;
         margin-left: 10px;
@@ -76,6 +120,7 @@
       line-height: 30px;
       margin-bottom: 10px;
     }
+
     .skills-set-wrapper {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -83,11 +128,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+
       .skills-container {
         width: calc(50% - 10px);
         display: flex;
         flex-direction: column;
         gap: 12px;
+
         .skills-title {
           color: #132427;
           font-feature-settings: "liga" off, "clig" off;
@@ -97,6 +144,7 @@
           font-weight: 600 !important;
           line-height: 28px;
         }
+
         .skills-description {
           color: #757575;
           font-feature-settings: "liga" off, "clig" off;
@@ -107,6 +155,7 @@
           font-weight: 400;
           line-height: 30px;
         }
+
         .selected {
           background-color: var(--global-color-primary);
         }

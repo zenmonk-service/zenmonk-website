@@ -5,12 +5,10 @@
   align-items: center;
   overflow: hidden;
   padding: 0 5%;
-  max-width: 1900px;
+  max-width: 1920px;
   margin: auto;
   max-height: 1080px;
-  @media screen and (max-width: 1499px) {
-    padding: 0;
-  }
+
   .hero-section {
     display: flex;
     flex-direction: column;
@@ -63,14 +61,14 @@
     }
 
     .text-description {
-      width: 728px;
+      width: 784px;
       color: #757575 !important;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
       font-size: 24px !important;
       font-style: normal;
       font-weight: 400 !important;
-      line-height: normal;
+      line-height: 38px;
       letter-spacing: 0.48px;
       margin-bottom: 40px;
 
@@ -82,24 +80,7 @@
 
     }
   }
-  // .base-button {
-  //   margin-top: 60px;
-  //   width: 320px;
-  //   height: 70px;
-  //   flex-shrink: 0;
-  //   color: #fff;
-  //   font-family: Inter;
-  //   font-size: 25.6px !important;
-  //   font-style: normal;
-  //   font-weight: 600 !important;
-  //   line-height: normal;
-  //   text-transform: uppercase !important;
-  //   border-radius: 8px !important;
-  // }
-  .explore-button {
-    width: 180px;
-    text-transform: "uppercase !important";
-  }
+
 
   .hero-section-image-wrapper {
     flex: 1;
@@ -118,8 +99,8 @@
         position: absolute;
         top: -25%;
         right: -60%;
-        width: 998px;
-        height: 877;
+        width: 675px;
+        height: 830px;
         flex-shrink: 0;
       }
       .hero-section-circle-image {
