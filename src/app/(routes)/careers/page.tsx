@@ -9,6 +9,7 @@ import TraditionsCustoms from '@/modules/careers/sections/tradition-custom-secti
 import WorkCulture from '@/modules/careers/sections/work-culture-section'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
+import WordsByCEO from '@/modules/careers/sections/words-by-ceo'
 
 const page = () => {
   return (
@@ -25,6 +26,9 @@ const page = () => {
       </SectionWrapper>
 
       <TraditionsCustoms />
+      <SectionWrapper>
+        <WordsByCEO />
+      </SectionWrapper>
       <FAQ />
       <ContactUsSection />
     </Box>
