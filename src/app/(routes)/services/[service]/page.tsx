@@ -11,6 +11,7 @@ import ReadyToStartSoftwareDev from '@/modules/services/modules/software-develop
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
+import { CreativeIdeas } from '@/modules/ui-ux'
 
 
 const DEVELOPMENT_PROCESS_SECTION = {
@@ -47,7 +48,9 @@ const Service = () => {
       <ItSolutions />
       <TechnologyTree />
       <YourIdealChoice/>
+
       <BusinessSectors /> 
+      { serviceRoute === 'ui-ux-design' ? <CreativeIdeas/> : <></>}
       {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />

@@ -11,9 +11,7 @@ const ItSolutions = () => {
       <Stack className="it-solutions-container">
         <Title text="Future-Ready IT Solutions for Your Business Growth" />
         <Typography className="it-solution-subtitle">
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s.
+        Empower your business with cutting-edge IT solutions that drive innovation, efficiency, and scalability. Our team delivers tailored strategies and state-of-the-art technology to enhance your operations.
         </Typography>
 
         <Grid2

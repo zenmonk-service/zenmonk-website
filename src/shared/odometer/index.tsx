@@ -41,6 +41,7 @@ const OdometerComponent = ({
       fontWeight="inherit"
       fontFamily="inherit"
       className="odometer"
+
     >
       {value}
     </Typography>

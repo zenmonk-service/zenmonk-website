@@ -43,7 +43,7 @@
       .odometer-value {
         display: block;
         transform: translateZ(0);
-
+       text-align: center;
         &.odometer-last-value {
           position: absolute;
         }

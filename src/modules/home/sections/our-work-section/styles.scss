@@ -42,18 +42,18 @@
 
         .work-content {
           justify-content: flex-end;
-          height: 230px;
+          height: 130px;
           overflow: hidden;
           transition: height 1s;
 
           p {
-            margin-bottom: 8px;
-
+      
             &:first-child {
               color: #fff;
               font-family: var(--global-font-family);
               font-size: 100px;
               font-weight: 700;
+              line-height: 95px;
               text-align: left;
             }
 

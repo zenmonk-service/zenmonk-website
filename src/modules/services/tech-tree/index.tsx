@@ -20,10 +20,7 @@ const TechnologyTree = () => {
           className="tech-tree-heading"
         />
         <Typography className="tech-tree-description">
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s. Lorem Ipsum has been the industry's standard dummy
-          text ever since the 1500s..{' '}
+        We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more.
         </Typography>
       </Stack>
       <Box className="tech-tree-image-wrapper">

@@ -9,13 +9,13 @@
   &::after {
     background: linear-gradient(
       to right,
-      var(--global-color-primary) 0%,
+      var(--global-color-primary) 50%,
       rgba(255, 255, 255, 0) 100%
     );
     content: '';
     height: 108px;
     position: absolute;
-    width: 200px;
+    width: 400px;
     z-index: 2;
   }
   &::after {
@@ -33,7 +33,7 @@
 .slide-track {
   display: flex;
   width: max-content;
-  animation: scroll 50s linear infinite;
+  animation: scroll 60s linear infinite;
   &.reverse {
     animation-direction: reverse;
   }

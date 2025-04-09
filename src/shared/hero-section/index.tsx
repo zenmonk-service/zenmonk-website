@@ -35,7 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }
 
   return (
-    <Box sx={{ width: '100%', pt: 12 }}>
+    <Box className="service-hero-section" sx={{ width: '100%', pt: 12 }}>
       <Grid2 container spacing={4} alignItems="center">
         <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
           <Box

@@ -1,4 +1,4 @@
-import Hero from './hero.svg'
+import Hero from './hero.png'
 import DevelopmentProcessImage from './development-process.svg'
 
 export { Hero, DevelopmentProcessImage }

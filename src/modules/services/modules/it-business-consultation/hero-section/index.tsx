@@ -4,7 +4,7 @@ import { Hero as HeroImg } from '../assets'
 import { Toolbar } from '@mui/material'
 
 const ItBusinessConsultation: React.FC = () => (
-  <SectionWrapper>
+  <>
     <Toolbar/>
     <HeroSection
       title="Driving Innovation with <br/> IT & Business Expertise"
@@ -12,7 +12,7 @@ const ItBusinessConsultation: React.FC = () => (
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       image={HeroImg.src}
     />
-  </SectionWrapper>
+  </>
 )
 
 export { ItBusinessConsultation }
