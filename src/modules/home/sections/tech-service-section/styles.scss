@@ -133,9 +133,9 @@
 }
 .fade-transition {
   transition: 
-    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth easing for more fluid motion */
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.4s ease; /* Add a slight blur effect for extra elegance */
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth easing for more fluid motion */
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.3s ease; /* Add a slight blur effect for extra elegance */
   opacity: 1;
   transform: scale(1);
   filter: blur(0); /* Initial state, no blur */
@@ -143,8 +143,8 @@
 
 .fade-transition-hidden {
   opacity: 0;
-  transform: scale(0.8); /* Slightly smaller scale for a more refined transition */
-  filter: blur(2px); /* Apply subtle blur when hidden for a smoother transition */
+  transform: scale(0.95); /* Slightly smaller scale for a more refined transition */
+  filter: blur(5px); /* Apply subtle blur when hidden for a smoother transition */
 }
 
 
