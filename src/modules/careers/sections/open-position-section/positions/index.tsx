@@ -29,13 +29,9 @@ const Positions = () => {
       <Box className="left-section">
         {positionsList.map((department, index) => {
           const isSelected = selectedDepartment?.id === department.id
-          const aboveSelected = selectedDepartment.id - 1 === department.id;
-          const belowSelected = selectedDepartment.id + 1 === department.id;
           return (
             <Typography
-              className={`position ${isSelected ? 'selected' : ''} 
-                          ${aboveSelected ? 'above-selected' : ''}
-                          ${belowSelected ? 'below-selected' : ''}`}
+              className={`position ${isSelected ? 'selected' : ''}`}
               key={index}
               onClick={() => selectPosition(department)}
               sx={{

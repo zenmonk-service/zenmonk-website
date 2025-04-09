@@ -29,9 +29,9 @@ const Quality = () => {
         </Typography>
 
         <Stack className="stats-img-container">
+          <Image src={Third} alt="" className="stats-img" />
           <Image src={First} alt="" className="stats-img" />
           <Image src={Second} alt="" className="stats-img" />
-          <Image src={Third} alt="" className="stats-img" />
         </Stack>
       </Stack>
       <Box className="quality-img-container">

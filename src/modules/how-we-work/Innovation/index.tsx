@@ -40,7 +40,8 @@ const Innovation = () => {
                   We deliver the best
                 </Typography>
                 <Typography className="deliver-the-best-description">
-                  We make robust, responsive, SEO friendly and Secure Websites that will take your business to next level.
+                  We make robust, responsive, SEO friendly and Secure Websites
+                  that will take your business to next level. Lorem Ipsum
                 </Typography>
                 <Button className="contact-btn">Contact us</Button>
               </Stack>

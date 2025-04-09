@@ -24,7 +24,6 @@ const HeroSection = () => {
             action, simplifying tech to deliver user-centered solutions.
           </Typography>
         </Box>
-        <BaseButton sx={{ width: '180px' }}>EXPLORE MORE</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         <Image className="hero-section-image" src={Hero} alt="innovator" fill />
