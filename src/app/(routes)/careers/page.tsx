@@ -6,19 +6,19 @@ import OpenPosition from '@/modules/careers/sections/open-position-section'
 import PerkBenefits from '@/modules/careers/sections/perks-benefits-section'
 import Showcases from '@/modules/careers/sections/show-case-section'
 import TraditionsCustoms from '@/modules/careers/sections/tradition-custom-section'
+import WordsByCEO from '@/modules/careers/sections/words-by-ceo'
 import WorkCulture from '@/modules/careers/sections/work-culture-section'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
-import WordsByCEO from '@/modules/careers/sections/words-by-ceo'
 
 const page = () => {
   return (
     <Box>
       <HeroSection />
+      <PerkBenefits />
       <SectionWrapper>
-        <OpenPosition />
-        <PerkBenefits />
         <WorkCulture />
+        <OpenPosition />
       </SectionWrapper>
       <Showcases />
       <SectionWrapper>

@@ -27,9 +27,7 @@ const HeroSection = () => {
             an Impact in Tech
           </Typography>
           <Typography component="p" className="text-description">
-            We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
+          Find your Zen in your career at Zenmonk. A monastery-like workplace for growth, new ideas, and making a difference, where our team is encouraged to discover balance and purpose in work.
           </Typography>
         </Box>
         <BaseButton sx={{ width: '180px' }}>JOIN NOW</BaseButton>
@@ -38,7 +36,7 @@ const HeroSection = () => {
         <Box className="image-container">
           <Image className="big-ellipse" src={BigEllipse} alt="ellipse" />
           <Image
-            className="hero-section-image"
+            className="hero-section-image freelancer"
             src={Freelancer}
             alt="freelancer"
             fill

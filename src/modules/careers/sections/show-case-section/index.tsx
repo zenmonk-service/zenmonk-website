@@ -10,7 +10,7 @@ const Showcases = () => {
     <Box className="show-case-section">
       <Container maxWidth="xl" className="show-case-title-description-wrapper">
         <Title
-          align="left"
+          align="center"
           text="The Ultimate Showcase of Skill, Strategy, and Champions"
           className="show-case-title"
         />

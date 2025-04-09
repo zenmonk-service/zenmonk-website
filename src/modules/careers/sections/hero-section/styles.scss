@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0 5%;
+  padding: 0  7.8125%;
   max-width: 1920px;
   margin: auto;
   max-height: 1080px;
@@ -18,8 +18,8 @@
       width: 250px;
       height: 1088px;
       position: absolute;
-      top: 0;
-      left: -20%;
+      top: -110px;
+      left: -19%;
     }
 
     .hero-section-text-wrapper {
@@ -70,7 +70,7 @@
       font-weight: 400 !important;
       line-height: 38px;
       letter-spacing: 0.48px;
-      margin-bottom: 40px;
+      margin-bottom: 65px;
 
       @media (max-width: 1499px) {
         font-size: 21px !important;
@@ -92,13 +92,13 @@
     height: 100%;
      
     .image-container {
-      width: 60%;
+      width: 66%;
       height: 70%;
       position: relative;
       .big-ellipse {
         position: absolute;
-        top: -25%;
-        right: -60%;
+        top: -26%;
+        right: -67%;
         width: 675px;
         height: 830px;
         flex-shrink: 0;
@@ -117,16 +117,16 @@
 
        .hero-section-hike-image {
         position: absolute;
-        left:5;
-        bottom: 15%;
+        left:15%;
+        bottom: 9%;
         z-index: 5;
         transform: translateY(50px) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
       }
       .hero-section-experience-image {
         position: absolute;
-        right:15;
-        top: 11%;
+        right:-17%;
+        top: 24%;
         z-index: 5;
         transform: translateY(50px) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
@@ -137,8 +137,8 @@
       }
       .hero-section-happy-culture-image {
         position: absolute;
-        right:-49;
-        bottom: 11%;
+        right:-25%;
+        bottom: 8%;
         z-index: 5;
         transform: translateY(50px) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
@@ -154,4 +154,14 @@
       }
     }
   }
+}
+
+.hero-section-image.freelancer {
+  left: 15% !important;
+  top: 5% !important;
+}
+
+.hero-section-circle-image {
+  left: 15% !important;
+  top: 5% !important;
 }

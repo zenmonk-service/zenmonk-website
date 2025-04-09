@@ -6,14 +6,12 @@ import './styles.scss'
 
 const HeroSection: React.FC = () => (
   <div className='about-hero-section-wrapper'>
-  <AboutSectionWrapper>
       <HeroComponent
         title="Meet the Innovators<br/> Behind ZENMONK"
         highlightedText="ZENMONK"
         description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
         image={About.src}
       />
-  </AboutSectionWrapper>
   </div>
 )
 
