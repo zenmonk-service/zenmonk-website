@@ -13,22 +13,14 @@ import './styles.scss'
 const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
   const [description, setDescription] = useState(serviceList[0].description)
-  const [businessItemRefPosition, setbusinessItemRefPosition] = useState<
-    number | null
-  >(null)
+
   const [rightSectionHeadingRefPosition, setRightSectionHeadingRefPosition] =
     useState<number | null>(null)
 
   const [isOverlapped, setIsOverlapped] = useState<boolean>(false)
-  const businessItemRef = useRef<(HTMLDivElement | null)[]>([])
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
 
   const updatePosition = () => {
-    if (businessItemRef.current[0]) {
-      const rect = businessItemRef.current[0]?.getBoundingClientRect()
-      setbusinessItemRefPosition(rect?.top)
-    }
-
     if (rightSectionHeadingRef.current) {
       const rect = rightSectionHeadingRef.current.getBoundingClientRect()
       setRightSectionHeadingRefPosition(rect.top)
@@ -36,14 +28,13 @@ const ServiceSection = () => {
   }
 
   useEffect(() => {
-    if (businessItemRefPosition && rightSectionHeadingRefPosition) {
-      if (businessItemRefPosition  < rightSectionHeadingRefPosition ) {
+    if (rightSectionHeadingRefPosition)
+      if (rightSectionHeadingRefPosition < 120) {
         setIsOverlapped(true)
       } else {
         setIsOverlapped(false)
       }
-    }
-  }, [businessItemRefPosition, rightSectionHeadingRefPosition])
+  }, [rightSectionHeadingRefPosition])
 
   useEffect(() => {
     updatePosition()
@@ -59,12 +50,10 @@ const ServiceSection = () => {
     setDescription(Business.description)
   }
 
-  console.log('businessItemRef', businessItemRef)
-
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <Box mt={15}>
+    <Box ref={rightSectionHeadingRef} mt={15}>
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
@@ -74,7 +63,6 @@ const ServiceSection = () => {
         <Box className="services-left-container">
           {serviceList.map((item: Service, index: number) => (
             <Box
-              ref={(el: any) => (businessItemRef.current[index] = el)}
               className={`business-item`}
               onClick={() => selectItem(item)}
               sx={{
@@ -109,12 +97,7 @@ const ServiceSection = () => {
             </Box>
           ))}
         </Box>
-        <Box ref={rightSectionHeadingRef} className="services-right-container">
-          <div
-            className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
-          >
-            {/* <Title className='title' text={text} align="center" /> */}
-          </div>
+        <Box className="services-right-container">
           {ZenmonkLogo && (
             <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
           )}

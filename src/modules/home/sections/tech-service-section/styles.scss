@@ -131,21 +131,22 @@
     }
   }
 }
-
 .fade-transition {
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  transition: 
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth easing for more fluid motion */
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.4s ease; /* Add a slight blur effect for extra elegance */
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1);
+  filter: blur(0); /* Initial state, no blur */
 }
 
 .fade-transition-hidden {
   opacity: 0;
-  transform: translateY(
-    -30px
-  ); /* You can adjust the value for sliding effect */
+  transform: scale(0.8); /* Slightly smaller scale for a more refined transition */
+  filter: blur(2px); /* Apply subtle blur when hidden for a smoother transition */
 }
+
 
 @media (max-width: 1499px) {
   .services-section {
