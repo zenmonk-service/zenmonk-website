@@ -49,8 +49,6 @@ const Navbar = (props: Props) => {
               <Image
                 src={Monk}
                 alt="Logo"
-                width={71}
-                height={71}
                 className="logo"
                 onClick={navigateToHome}
               />
@@ -58,7 +56,7 @@ const Navbar = (props: Props) => {
           </Box>
           <ActionLinks />
           {!isSmallScreen && (
-            <BaseButton onClick={navigateToContact}>
+            <BaseButton onClick={navigateToContact} className="contact-button">
               {actionsLink[actionsLink.length - 1].name}
             </BaseButton>
           )}

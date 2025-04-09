@@ -47,12 +47,17 @@ const ActionLinks = () => {
           .map(({ href, name, options }: ActionLink, index) => {
             return (
               <Button
-                sx={{ bgcolor: pathname === href ? '#f2f2f2' : '',
-                  fontWeight: pathname === href ? '600 !important' : '400'
+                sx={{
+                  background: pathname.includes(href)
+                    ? 'linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%)'
+                    : '',
+                  color: pathname.includes(href) ? '#fff' : name === 'Services' ? '#000' : '#393939',
+                  '&:hover': {
+                    background: pathname.includes(href) ? '' : '#ffd5ac38',
+                  },
                 }}
                 className="action-link-button"
                 key={index}
-                color="inherit"
                 disableRipple
                 onClick={() => {
                   options ? toggleExpand() : navigateTo(href)
@@ -104,9 +109,9 @@ export default ActionLinks
 const Option: React.FC<OptionProps> = ({ isExpanded }) => (
   <Box className="expand-option-icon">
     {isExpanded ? (
-      <ExpandMore color="inherit" />
-    ) : (
       <ExpandLess color="inherit" />
+    ) : (
+      <ExpandMore color="inherit" />
     )}
   </Box>
 )

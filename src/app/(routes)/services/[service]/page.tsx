@@ -11,7 +11,7 @@ import ReadyToStartSoftwareDev from '@/modules/services/modules/software-develop
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import { CreativeIdeas } from '@/modules/ui-ux'
+import { CreativeIdeas } from '@/modules/services/modules/ui-ux/creative-ideas'
 
 
 const DEVELOPMENT_PROCESS_SECTION = {
