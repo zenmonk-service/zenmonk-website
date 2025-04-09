@@ -1,0 +1,147 @@
+.dotted-line-image{
+  background-color: red !important;
+}
+.about-us-contact-us-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  padding-top: 150px;
+  padding-bottom: 50px;
+  background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
+  overflow: hidden;
+  .contact-us {
+    display: flex;
+    gap: 100px;
+    width: 100%;
+    justify-content: center;
+    .dotted-image {
+      z-index: 2;
+      position: absolute;
+      top: -15%;
+      left: 5%;
+      width: 100%;
+      height: 120%;
+      pointer-events: none; 
+    }
+    .polygon{
+      position: absolute;
+      right: 0;
+      bottom: -10%;
+    }
+    @media screen and (max-width: 1499px) {
+      gap: 0;
+      padding-left: 44px;
+      padding-right: 44px;
+    }
+
+    .left-container {
+      display: flex;
+      flex-direction: column;
+      width: 540px;
+      @media screen and (max-width: 1499px) {
+        width: 100%;
+      }
+      .section-title {
+        color: #132427;
+        font-feature-settings:
+          'liga' off,
+          'clig' off;
+        font-family: Poppins;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 60px;
+        @media screen and (max-width: 1499px) {
+          font-size: 36px;
+          width: 100%;
+        }
+        span {
+          display: inline;
+          background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-feature-settings:
+            'liga' off,
+            'clig' off;
+          font-family: Poppins;
+          font-size: 50px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 60px;
+          @media screen and (max-width: 1499px) {
+            font-size: 36px;
+            width: 100%;
+          }
+        }
+      }
+      .countries-list {
+        margin-top: 20px;
+        gap: 20px;
+        width: 100%;
+        display: flex;
+        .country-card {
+          img {
+            width: 55px;
+          }
+        }
+      }
+      .selected-country-title {
+        margin-top: 40px;
+        color: #132427;
+        text-align: left;
+        font-family: Poppins;
+        font-size: 16.731px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .selected-country-description {
+        margin-top: 10px;
+        width: 60%;
+        color: #696969;
+        font-family: Poppins;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+        letter-spacing: 0.32px;
+        margin-bottom: 20px;
+      }
+      .contact-card {
+        margin-top: 14px !important;
+        margin-bottom: 0px !important;
+        z-index: 10;
+        img {
+          margin-left: -8px !important;
+        }
+        .contact-card-content {
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
+
+          .description {
+            margin-left: -20px;
+            color: #696969 !important;
+            font-family: Poppins;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            letter-spacing: 0.32px;
+          }
+        }
+      }
+    }
+    .right-container {
+      z-index: 10;
+    }
+    .vector {
+      bottom: -70;
+      right: -150;
+      position: absolute;
+      z-index: -10;
+    }
+  }
+}

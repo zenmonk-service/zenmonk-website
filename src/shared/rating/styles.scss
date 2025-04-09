@@ -1,0 +1,24 @@
+.rating-section{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .rating-container {
+    display: flex;
+    width: max-content;
+    height: auto;
+    flex-shrink: 0;
+    justify-content: center;
+    gap: 32px;
+    background-color: var(--global-color-primary);
+    padding: 40px;
+    border-radius: 32px 0px;
+    box-shadow: 2.667px 5.333px 21.467px 0px rgba(0, 0, 0, 0.06);
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    
+    @media screen and (max-width: 1499px) {
+      padding: 14px;
+    }
+  }
+}

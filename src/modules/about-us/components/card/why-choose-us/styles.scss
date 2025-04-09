@@ -1,0 +1,59 @@
+.why-choose-us-card {
+  width: 420px;
+  height: auto;
+  padding: 32px 40px;
+  cursor: default;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: var(--global-color-primary);
+  box-shadow: 0px 0px 84.5px 0px rgba(43, 48, 86, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  img {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+  @media screen and (max-width: 1499px) {
+    min-width: 280px;
+    width: 100%;
+    padding: 17px 17px;
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .title {
+      color: #4e4e4e;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+    .description {
+      width: 100%;
+      flex-shrink: 0;
+      color: #565656;
+      font-family: Poppins;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 10px;
+      @media screen and (max-width: 1499px) {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+services:
+  app:
+    container_name: zenmonk-website
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - ${APP_FORWARD_PORT:-80}:${PORT:-3000}
+    expose:
+      - ${PORT:-3000}
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
