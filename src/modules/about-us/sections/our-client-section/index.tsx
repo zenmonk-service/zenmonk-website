@@ -3,6 +3,7 @@ import { OurPartnersList } from '@/assets/icons/collaboration'
 import Title from '@/shared/title'
 import InfiniteSlider from './slider'
 import './styles.scss'
+import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 
 export const OurClientSection = () => {
   return (
@@ -13,7 +14,7 @@ export const OurClientSection = () => {
         that drive success, foster growth, and consistently exceed expectations.
       </Typography>
 
-      <InfiniteSlider
+      <AutoScrollCarousel
         isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
@@ -23,7 +24,7 @@ export const OurClientSection = () => {
           },
         }}
       />
-      <InfiniteSlider
+      <AutoScrollCarousel
         isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}

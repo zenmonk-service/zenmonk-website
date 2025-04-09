@@ -16,6 +16,10 @@
   position: relative;
   background: var(--global-color-primary);
   transition: background 0.3s ease;
+  @media screen and (max-width:1000px) {
+    min-width: 300px;
+    
+  }
 
   &::before {
     content: '';

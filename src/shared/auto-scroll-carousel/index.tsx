@@ -7,10 +7,11 @@ interface SliderData {
   src: string
   background?: string
 }
+
 interface AutoScrollCarouselProps {
   data: SliderData[]
   isBgShadow?: boolean
-  reverse?: true
+  reverse?: boolean
   sliderProps?: {
     className?: string
   }
@@ -23,18 +24,24 @@ interface AutoScrollCarouselProps {
 }
 
 const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
-  const { data, imageProps, reverse, sliderProps, isBgShadow=false } = props
+  const { data, imageProps, reverse, sliderProps, isBgShadow = false } = props
   const carouselItems = [...data, ...data]
+
   return (
     <Box className={`slider ${sliderProps?.className}`}>
-      <Box className={`slide-track ${reverse ? 'reverse' : null}`}>
+      <Box className={`slide-track ${reverse ? 'reverse' : ''}`}>
         {carouselItems.map(({ label, src, background }, index) => (
           <Box
             className="slide"
             key={label + index}
             sx={{ background: isBgShadow ? background : null }}
           >
-            <Image src={src} width={imageProps?.size?.width ?? 150} height={imageProps?.size?.height}alt={label} />
+            <Image 
+              src={src} 
+              width={imageProps?.size?.width ?? 150} 
+              height={imageProps?.size?.height} 
+              alt={label} 
+            />
           </Box>
         ))}
       </Box>

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import SectionWrapper from '@/shared/wrapper'
 import StandOutCard from '../../components/card/stand-out-card'
 import { standOutList } from './stand-out'
 import './styles.scss'

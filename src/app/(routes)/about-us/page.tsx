@@ -41,7 +41,7 @@ const About = () => {
         <OurClientSection />
       </AnimatedDiv>
       <AnimatedDiv>
-          <ContactUsSection />
+        <ContactUsSection />
       </AnimatedDiv>
     </Box>
   )

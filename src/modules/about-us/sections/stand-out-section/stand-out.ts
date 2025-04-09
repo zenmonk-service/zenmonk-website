@@ -1,14 +1,14 @@
 export const standOutList = [
   {
     icon: '/about-us/stand-out/mission.svg',
-    title: 'Mission',
+    title: 'Our Mission',
     image: '/about-us/stand-out/strength-people-hands.png',
     description:
       'Our mission is to help you achieve your goals and dreams by providing the best tools and resources. With expert guidance and top-quality support, we are committed to assisting you in personal growth, career success, and business advancement every step of the way.',
   },
   {
     icon: '/about-us/stand-out/vision.svg',
-    title: 'Vision',
+    title: 'Our Vision',
     image: '/about-us/stand-out/volunteer-future-expertise.png',
     description:
       'Our vision is to create a world where everyone has access to the knowledge and resources they need to succeed. We strive to empower individuals with the right tools, guidance, and opportunities, fostering growth, innovation, and equal access to success for all.',

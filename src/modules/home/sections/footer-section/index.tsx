@@ -8,7 +8,6 @@ import {
   Typography,
   useMediaQuery,
 } from '@mui/material'
-import { Monk } from '@/assets/icons'
 import { socialMedia } from '@/assets/icons/social'
 import MONK_PNG from './assets/monk.png'
 import { consultingCategories } from './list/consulting-categories'

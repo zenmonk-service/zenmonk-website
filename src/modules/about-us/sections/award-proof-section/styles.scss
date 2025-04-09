@@ -31,10 +31,10 @@
   }
   .award-proof-list {
     margin-top: 150px;
-    width: max-content;
     display: flex;
-    gap: 64px;
+    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 20px;
     @media screen and (max-width: 1499px) {
       justify-content: center;
       gap: 20px;

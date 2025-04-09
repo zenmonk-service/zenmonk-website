@@ -4,12 +4,28 @@
   --global-color-primary: #ffffff;
   --global-color-secondary: #000;
   --global-color-accent: #ffa750;
-  --global-color-dark-accent:#f59230;
+  --global-color-dark-accent: #f59230;
   --global-color-text: #727272;
-  --global-color-gradient: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
-  --global-color-dark-gradient: linear-gradient(99deg, #ffa750 3.23%, #eb7c0d 97.72%);
+  --global-color-gradient: linear-gradient(
+    99deg,
+    #eb7c0d 3.23%,
+    #ffa750 97.72%
+  );
+  --global-color-dark-gradient: linear-gradient(
+    99deg,
+    #ffa750 3.23%,
+    #eb7c0d 97.72%
+  );
   --Neutral-Grey-G900: #212529;
   --global-font-family: Poppins;
+  
+  --base-font-size: 1.6rem;
+
+  --font-size-12: max(1.2rem, 0.5rem + 0.4vw);
+  --font-size-14: max(1.4rem, 0.6rem + 0.5vw);
+  --font-size-16: max(1.6rem, 0.7rem + 0.55vw);
+  --font-size-18: max(1.8rem, 0.8rem + 0.6vw);
+  --font-size-24: max(2.4rem, 1rem + 0.75vw);
 }
 
 .flicker-logo {
@@ -38,11 +54,9 @@ body {
 
 @media (min-width: 2700px) {
   html {
-   zoom: 180%
+    /* zoom: 180% */
   }
 }
-
-
 
 ::-webkit-scrollbar {
   display: none;

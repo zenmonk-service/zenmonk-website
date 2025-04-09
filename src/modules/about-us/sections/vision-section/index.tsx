@@ -1,10 +1,9 @@
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import SectionWrapper from '@/shared/wrapper'
 import VisionCard from '../../components/card/vision-card'
-import './styles.scss'
 import { visions } from './visions'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
+import './styles.scss'
 
 export const VisionSection = () => {
   return (
@@ -14,8 +13,7 @@ export const VisionSection = () => {
         className="section-title"
       />
       <Typography component="p" className="section-description">
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s. Lorem Ipsum has been the industry's standard{' '}
+      Empower and help Small & Medium enterprises to grow by providing reliable and cost-effective services & solutions.
       </Typography>
       <AboutSectionWrapper>
         <Box className="vision-list">
