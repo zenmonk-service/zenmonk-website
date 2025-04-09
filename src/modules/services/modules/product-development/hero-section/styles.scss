@@ -2,9 +2,15 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
+    max-height: 1080px;
 }
 .hero-bg-2{
     position: absolute;
     width: 100vw;
     top: 0;
+}
+
+.digital-transformation-hero {
+    background: url("./assets/bg.png");
+    background-size: 100%;
 }

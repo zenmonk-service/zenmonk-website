@@ -14,7 +14,9 @@ import SectionWrapper from '@/shared/wrapper'
 const page = () => {
   return (
     <Box>
+      <Box sx={{overflow:"hidden"}}>
       <HeroSection />
+      </Box>
       <PerkBenefits />
       <SectionWrapper>
         <WorkCulture />
