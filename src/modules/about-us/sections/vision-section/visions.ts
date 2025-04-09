@@ -1,21 +1,21 @@
 export const visions = [
   {
-    title: 'Customer First',
+    title: 'Customer-Centricity',
     image: '/about-us/vision/customer-first.svg',
-    description: 'We take responsibility of delivering hight quality products',
+    description: 'One of our key focuses is to prioritise client satisfaction.',
   },
   {
-    title: 'Collaborate',
+    title: 'Result-Oriented Focus',
     image: '/about-us/vision/collaborate.svg',
-    description: 'We take responsibility of delivering hight quality products',
+    description: "Committed to achieving measurable results through effective and value-driven solutions.",
   },
   {
-    title: 'Be Passionate',
+    title: 'Professional Experts',
     image: '/about-us/vision/be-passionate.svg',
-    description: 'We take responsibility of delivering hight quality products',
+    description: 'Driven by enthusiasm for technology, delivering exceptional, cutting-edge results.',
   },
   {
-    title: 'Accountable',
+    title: 'Agile Delivery',
     image: '/about-us/vision/accountable.svg',
     description: 'We take responsibility of delivering hight quality products',
   },

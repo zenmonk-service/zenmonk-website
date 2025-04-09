@@ -17,10 +17,9 @@ const PerkBenefits = () => {
       <Container maxWidth="xl" className="container">
         <Title text="Perks & Benefits" className="perk-title" />
         <Typography component="p" className="description">
-          Remote does not mean "distant". At Capital Numbers, you get a
-          competitive benefits package and be part of an award-winning team.
-          Plus, by working remotely, you save more and enjoy a work /life
-          balance.
+          At Zenmonk, we believe that each individual is special and creative.
+          We prioritize our employees and give them complete independence to
+          learn, experiment and grow.
         </Typography>
         <Box className="perks-benefits-list">
           {perkBenefitsList.map((item, index) => (

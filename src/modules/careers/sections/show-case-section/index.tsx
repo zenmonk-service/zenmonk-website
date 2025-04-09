@@ -16,9 +16,8 @@ const Showcases = () => {
         />
         <Box className="show-case-description-wrapper">
           <Typography component="p" className="show-case-description">
-            State burst think end are its. Arrived off she elderly beloved him
-            affix ed noisier yet. Course regard to up he hardly elder noisier.
-            state burst think end are its.
+            A thrilling celebration of skill, strategy, and determination, where
+            champions rise to the occasion and showcase their true potential.
           </Typography>
         </Box>
       </Container>

@@ -2,30 +2,30 @@ import { Communicate, Group, Raise, Team } from './assets'
 
 export const innovations = [
   {
-    title: 'We communicate clearly and simply',
+    title: 'Unwavering Support ',
     description:
-      "Lorem Ipsum is simply dummy text th printing and typese Lorem Ipm  been the industry's standard ",
+      "Our passionate team ensures clear communication and provides consistent support for your growth.",
     image: Communicate,
     color: '#326CE5',
   },
   {
-    title: 'We communicate clearly and simply',
+    title: 'Your Opinion Matters',
     description:
-      "Lorem Ipsum is simply dummy text th printing and typese Lorem Ipm  been the industry's standard ",
+      "You matter to us and so as your opinion. We respect your perspectives and welcome ideas to foster healthy and transparent connections.",
     image: Team,
     color: '#F5912E',
   },
   {
-    title: 'We communicate clearly and simply',
+    title: 'Your Privacy Matters',
     description:
-      "Lorem Ipsum is simply dummy text th printing and typese Lorem Ipm  been the industry's standard ",
+      "We understand your concerns and, therefore completely respect your privacy. We build trustworthy and happy relationships.",
     image: Group,
     color: '#3CAFB8',
   },
   {
-    title: 'We communicate clearly and simply',
+    title: 'Fair & Competitive Pay',
     description:
-      "Lorem Ipsum is simply dummy text th printing and typese Lorem Ipm  been the industry's standard ",
+      "We appreciate your efforts and therefore offer you fair and competitive packages better than the market standards.",
     image: Raise,
     color: '#EB42D4',
   },

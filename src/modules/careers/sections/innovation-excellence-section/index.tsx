@@ -16,8 +16,9 @@ const InnovationExcellence = () => {
           className="title"
         />
         <Typography component="p" className="description">
-          Lorem Ipsum has been the industry's standard dummy text ever since the
-          1500s. Lorem Ipsum has been the industry's standard.
+          We are dedicated to fostering a supportive environment, offering
+          growth opportunities, and ensuring our team feel valued and
+          appreciated.
         </Typography>
         <Image
           alt="excellence-image"
@@ -27,7 +28,9 @@ const InnovationExcellence = () => {
       </Box>
       <Box className="right-section">
         {innovations.map((innovation, index) => {
-          return <ExcellenceCard  key={index} details={innovation}></ExcellenceCard>
+          return (
+            <ExcellenceCard key={index} details={innovation}></ExcellenceCard>
+          )
         })}
       </Box>
     </Box>

@@ -2,25 +2,25 @@ export const awardProof = [
   {
     title: 'Innovate Design Award',
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the ",
+      "We’ve won the Innovate Design Award for our user-focused, innovative solutions that exceed client expectations.",
     image: '/about-us/award-proof/design-award.svg',
   },
   {
     title: 'Best Dev Award',
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500 Lorem Ipsum has been the ",
+      "Awarded the Best Dev Award for delivering high-quality, reliable software using the latest technologies.",
     image: '/about-us/award-proof/development-award.svg',
   },
   {
-    title: 'Best  Award',
+    title: 'Best Tech Award',
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500 Lorem Ipsum has been the ",
+      "The Best Tech Award honors our commitment to delivering exceptional technical software solutions and results.",
     image: '/about-us/award-proof/client-satisfaction-award.svg',
   },
   {
     title: 'Examplory Award',
     description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500 Lorem Ipsum has been the ",
+      "The Examplory Award recognizes our consistent excellence in delivering top-tier software solutions.",
     image: '/about-us/award-proof/examplory-award.svg',
   },
 ]

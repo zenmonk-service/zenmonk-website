@@ -36,13 +36,14 @@ const WorkCulture = () => {
           <Box className="title-description-wrapper">
             <Title
               align="left"
-              text="Healthy Work Culture"
+              text="Zen Focused Work Environment"
               className="work-culture-title"
             />
             <Typography className="work-culture-description" component="p">
-              State burst think end are its. Arrived off she elderly beloved him
-              affixed noisier yet. Course regard to up he hardly elder noisier.
-              State burst think end are its.
+              At Zenmonk, we cultivate serenity and growth, balancing
+              professional success with personal well-being. Blending
+              mindfulness with innovation, we nurture a supportive community
+              where continuous learning and creative fulfillment prosper.
             </Typography>
           </Box>
           <Box className="action-button-wrapper">

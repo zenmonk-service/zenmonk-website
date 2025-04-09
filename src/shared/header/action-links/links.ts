@@ -11,7 +11,7 @@ const actionsLink = [
     options: true,
   },
   {
-    name: 'About',
+    name: 'About Us',
     href: '/about-us',
   },
   {

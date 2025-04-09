@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import { OurPartnersList } from '@/assets/icons/collaboration'
-import InfiniteSlider from './slider'
 import Title from '@/shared/title'
+import InfiniteSlider from './slider'
 import './styles.scss'
 
 export const OurClientSection = () => {
@@ -9,8 +9,8 @@ export const OurClientSection = () => {
     <Box className="about-us-our-client-section">
       <Title text="Our Clients" className="section-title" />
       <Typography component="p" className="section-description">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout.
+        We partner with a wide range of clients, offering tailored solutions
+        that drive success, foster growth, and consistently exceed expectations.
       </Typography>
 
       <InfiniteSlider

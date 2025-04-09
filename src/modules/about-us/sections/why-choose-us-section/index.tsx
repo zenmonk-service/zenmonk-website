@@ -1,10 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import Title from '@/shared/title'
+import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import WhyChooseUsCard from '../../components/card/why-choose-us'
 import { skills } from './skills'
 import './styles.scss'
 import { whyChooseUs } from './why-choose-us'
-import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 
 export const WhyChooseUsSection = () => {
   return (
@@ -41,9 +41,8 @@ export const WhyChooseUsSection = () => {
             align="left"
           />
           <Typography component="p" className="description">
-            Providing good quality customer experience and support is as
-            important and pivotal as offering top grade product or service to
-            your consumers.
+            We combine cutting-edge technology and top-notch support to deliver
+            tailored software solutions that prioritize your success.
           </Typography>
           <Box className="skills-set">
             {skills.map((skill, index) => {
