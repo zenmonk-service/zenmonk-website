@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import Positions from './sectors'
+import Sectors from './sectors'
 import './styles.scss'
 
 const BusinessSectors = () => {
@@ -13,13 +13,12 @@ const BusinessSectors = () => {
         />
       </Box>
       <Typography className="description" component="p">
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s. Lorem Ipsum <br /> has been the industry's standard dummy text
-        ever since the 1500s.
+        We deliver innovative software solutions across industries, empowering
+        businesses to overcome challenges, drive growth, and achieve success.
       </Typography>
-      <Container maxWidth="xl">
-        <Positions />
-      </Container>
+      <Box>
+        <Sectors />
+      </Box>
     </Box>
   )
 }

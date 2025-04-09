@@ -13,7 +13,8 @@
     background: #f5f5f5;
     padding: 100px 5%;
     margin-top: 120px;
-
+    justify-content: center;
+    align-items: center;
 
     @media (max-width: 1499px) {
       padding: 50px 5%;
@@ -23,15 +24,16 @@
       color: #757575;
       text-align: center;
       font-family: Poppins;
-      font-size: 24px;
+      font-size: 18px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
       letter-spacing: 0.48px;
       margin-top: 16px;
+      max-width: 1200px;
 
       @media (max-width: 1499px) {
-        font-size: 21px;
+        font-size: 17px;
       }
     }
 
@@ -42,6 +44,7 @@
       flex-shrink: 0;
       border-radius: 20px;
       background: #fff;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
       .solution-card-left {
         align-items: center;
@@ -54,6 +57,8 @@
         padding: 16px 20px;
         width: 271px;
         gap: 10px;
+        align-items: flex-start;
+        justify-content: space-between;
 
         .card-title,
         .card-description {
@@ -70,7 +75,7 @@
 
         .card-description {
           color: #727272;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 400;
           line-height: normal;
         }

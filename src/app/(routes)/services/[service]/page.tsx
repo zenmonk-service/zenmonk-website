@@ -12,6 +12,7 @@ import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import { CreativeIdeas } from '@/modules/services/modules/ui-ux/creative-ideas'
+import Rating from '@/shared/rating'
 
 
 const DEVELOPMENT_PROCESS_SECTION = {
@@ -44,13 +45,13 @@ const Service = () => {
 
   return (
     <Stack>
-      {/* <Rating /> */}
+      <Rating />
       <ItSolutions />
+      { serviceRoute === 'ui-ux-design' ? <CreativeIdeas/> : <></>}
       <TechnologyTree />
       <YourIdealChoice/>
 
       <BusinessSectors /> 
-      { serviceRoute === 'ui-ux-design' ? <CreativeIdeas/> : <></>}
       {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />
