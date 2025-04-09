@@ -1,0 +1,66 @@
+.traditions-customs-section {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background: #104048;
+  padding-bottom: 70px;
+  .bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .container {
+    width: 100%;
+    display: flex;
+    gap: 60px;
+    @media screen and (max-width: 1371px) {
+      flex-direction: column;
+      gap: 0;
+    }
+    .traditions-customs-title-description-wrapper {
+      padding: 70px 0px 0px 130px;
+      .traditions-customs-title {
+        width: 400px;
+        color: var(--White, #fff);
+        font-feature-settings:
+          'liga' off,
+          'clig' off;
+        font-family: Poppins;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 60px;
+        @media screen and (max-width: 1371px) {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 1371px) {
+        padding: 50px;
+      }
+      .traditions-customs-description {
+        width: 460px;
+        margin-top: 16px;
+        color: var(--White, #fff);
+        font-feature-settings:
+          'liga' off,
+          'clig' off;
+        font-family: Poppins;
+        font-size: 16px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        @media screen and (max-width: 1371px) {
+          width: 100%;
+        }
+      }
+    }
+    .traditions-customs-list {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

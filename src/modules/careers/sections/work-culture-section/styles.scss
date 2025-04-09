@@ -1,0 +1,57 @@
+.work-culture-section {
+  width: 100%;
+  overflow: hidden;
+  .title-description-action-wrapper {
+    width: 100%;
+    display: flex;
+    .title-description-wrapper {
+      display: flex;
+      flex-direction: column;
+      .work-culture-title {
+        color: #132427;
+        font-family: Poppins;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        @media (max-width: 1499px) {
+          font-size: 36px !important;
+        }
+      }
+      .work-culture-description {
+        margin-top: 16px;
+        width: 85%;
+        color: #757575;
+        text-align: justify;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        @media (max-width: 1499px) {
+          font-size: 17px;
+        }
+      }
+    }
+    .action-button-wrapper {
+      display: flex;
+      gap: 10px;
+      .action-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%),
+          linear-gradient(180deg, #ec6738 0.01%, #e00094 164.14%);
+        font-size: 50px;
+        color: var(--global-color-primary);
+      }
+    }
+  }
+  .work-cultures{
+    margin-top: 54px;
+    gap: 60px;
+    display: flex;
+    margin-bottom: 120px;
+  }
+}

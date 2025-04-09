@@ -1,0 +1,64 @@
+$base-line-height: 1.5;
+
+.highlighted-text-heading {
+  color: #132427;
+  flex-wrap: wrap;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600 !important;
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  font-size: max(2.4rem, 3.125vw) !important;
+  line-height: $base-line-height;
+
+  span {
+    display: inline;
+    flex-wrap: inherit;
+    font-feature-settings: inherit;
+    font-family: Poppins;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+    background: var(--global-color-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600 !important;
+  }
+}
+
+.section-title-text {
+  color: #343434;
+  font-family: Poppins !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.64px !important;
+  font-size: max(2.4rem, 3.125vw) !important;
+
+  .mark-wrapper {
+    position: relative;
+    display: inline-block;
+    line-height: 110%;
+    .word-container {
+      display: inline-block;
+    }
+
+    .mark-container {
+      position: absolute;
+      left: 0;
+      display: flex;
+      justify-content: end;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .mark-icon {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

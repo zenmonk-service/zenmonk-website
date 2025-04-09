@@ -1,0 +1,176 @@
+.services-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: Poppins;
+  .title {
+    text-align: left;
+    font-size: 40px !important;
+    // margin-right: 25px;
+  }
+
+
+  .services-left-container {
+    margin-top: 103px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-right: -110px;
+    z-index: 99;
+    .business-item {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      width: 371px;
+      padding: 24px;
+      border-radius: 10px;
+      background: var(--global-color-primary);
+      outline: 0px solid var(--global-color-accent);
+      box-shadow: 5px 4px 52.7px 0px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-8px);
+        // box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
+      }
+      .business-item-content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 10px;
+        .business-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+        }
+
+        .business-title {
+          color: #0b4357;
+          text-align: left;
+          leading-trim: both;
+          text-edge: cap;
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+      .business-count-text {
+        font-family: Montserrat !important;
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  .services-right-container {
+    display: flex;
+    margin-right: 40px;
+    height: 545px;
+    top: 180px;
+    top: 15vh;
+    position: sticky;
+    flex-direction: column;
+    .logo {
+      bottom: 45%;
+      left: 67%;
+      position: absolute;
+      width: 520.584px;
+      height: 450px;
+      @media (max-width: 1700px) {
+        left: 55%;
+      }
+    }
+
+    .business-proof {
+      margin-top: 60px;
+      width: 948px;
+      height: 545px;
+      border-radius: 8px;
+      background: #f77d03;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .business-proof-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 57px 40px 70px 167px;
+        flex-direction: column;
+        gap: 32px;
+        font-family: Poppins;
+        font-style: normal;
+        color: var(--global-color-primary);
+        .business-proof-heading {
+          font-size: 36px;
+          font-weight: 600;
+          line-height: normal;
+          font-family: Poppins;
+        }
+        .business-proof-description {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 28px;
+          font-family: Poppins;
+        }
+        .business-proof-technologies {
+          display: flex;
+          flex-direction: row;
+          gap: 50px;
+        }
+      }
+    }
+  }
+}
+.fade-transition {
+  transition: 
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth easing for more fluid motion */
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.3s ease; /* Add a slight blur effect for extra elegance */
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0); /* Initial state, no blur */
+}
+
+.fade-transition-hidden {
+  opacity: 0;
+  transform: scale(0.95); /* Slightly smaller scale for a more refined transition */
+  filter: blur(5px); /* Apply subtle blur when hidden for a smoother transition */
+}
+
+
+@media (max-width: 1499px) {
+  .services-section {
+    .services-left-container {
+      margin-right: -140px;
+    }
+    .business-item {
+      width: 300px !important;
+    }
+    .services-right-container {
+      top: 45px;
+      .logo {
+        bottom: 45%;
+        left: 55%;
+        width: 420.584px;
+        height: 350px;
+      }
+    }
+  }
+}
+
+@media (max-height: 860px) {
+  
+  .services-right-container {
+    top: 45px;
+  }
+}

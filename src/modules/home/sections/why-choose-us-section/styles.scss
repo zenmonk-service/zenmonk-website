@@ -1,0 +1,266 @@
+.why-choose-us-section {
+  width: 100%;
+  height: auto;
+  margin-top: 115px;
+  position: relative;
+  .logo {
+
+    flex-shrink: 0;
+  }
+  .right-logo {
+
+    bottom: -220px;
+    right: -150px;
+    position: absolute;
+    // @media (max-width: 1800px) {
+    //   right: 120px;
+    // }
+  }
+  .left-logo {
+    top: 0;
+    left: -220px;
+    position: absolute;
+  }
+  .title {
+    color: #132427;
+    font-family: Poppins;
+    font-size: 40px !important;
+    font-style: normal;
+    font-weight: 600 !important;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+}
+
+.why-choose-us .content {
+  display: grid;
+  place-content: center;
+  position: relative;
+  max-width: 1300px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.why-choose-us .thumsup {
+  scale: 0.2;
+  opacity: 0;
+}
+
+.why-choose-us .children .first {
+  position: absolute;
+  top: 1px;
+  left: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .second {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .third {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  opacity: 0;
+}
+
+.why-choose-us .children .fourth {
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+  opacity: 0;
+}
+
+.animate_comeFromLeft {
+  animation: comeFromLeft 1.5s forwards;
+}
+
+.animate_comeFromRight {
+  animation: comeFromRight 1.5s forwards;
+}
+
+.animate_comeFromRight2 {
+  animation: comeFromRight2 1.5s forwards;
+}
+
+
+
+.animate_scale {
+  animation: scale 1.5s forwards;
+}
+
+@keyframes comeFromLeft {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(60px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(50px); /* Ends at 50px */
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRight {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-60px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50px); /* Ends at -50px */
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRight2 {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-110px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-100px); /* Ends at -50px */
+    opacity: 1;
+  }
+}
+
+
+
+.animate_comeFromLeftS {
+  animation: comeFromLeftS 1.5s forwards;
+}
+
+.animate_comeFromRightS {
+  animation: comeFromRightS 1.5s forwards;
+}
+
+.animate_comeFromRight2S {
+  animation: comeFromRight2S 1.5s forwards;
+}
+
+
+
+@keyframes comeFromLeftS {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(10px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px); /* Ends at 50px */
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRightS {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-20px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px); /* Ends at -50px */
+    opacity: 1;
+  }
+}
+
+@keyframes comeFromRight2S {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(-10px); /* Slight overshoot */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0px); /* Ends at -50px */
+    opacity: 1;
+  }
+}
+
+
+
+
+
+@keyframes scale {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1.1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 992px) {
+  .why-choose-us {
+    margin-top: 40px;
+  }
+
+  .animate_scale {
+    animation: scaleSM 1s forwards;
+  }
+
+  .why-choose-us .content {
+    transform: scale(0.7);
+
+    margin-bottom: -80px;
+    margin-top: -80px;
+  }
+}
+
+@keyframes scaleSM {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0.8;
+    opacity: 1;
+  }
+}
+

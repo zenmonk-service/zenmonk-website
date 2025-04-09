@@ -1,0 +1,122 @@
+.ready-to-talk-product-dev-container {
+    width: 100%;
+    height: 552px;
+    background-image: url('../assets/ready-to-talk-banner.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 120px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4%;
+
+    @media (max-width: 899px) {
+        height: fit-content;
+        padding: 16px 4%;
+
+    }
+
+    @media (max-width: 599px) {
+        background-image: url('../assets/ready-to-talk-mobile-banner.svg');
+    }
+
+    .ready-to-talk-text-container {
+        justify-content: flex-start;
+
+        .ready-to-talk-heading {
+            color: #FFF;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-family: Poppins;
+            font-size: 50px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 60px;
+
+            @media (max-width: 1536px) {
+                font-size: 43px;
+            }
+
+            @media (max-width: 1199px) {
+                font-size: 36px;
+            }
+
+            @media (max-width: 899px) {
+                font-size: 30px;
+            }
+
+            @media (max-width: 599px) {
+                font-size: 24px;
+            }
+
+        }
+
+        .ready-to-talk-description {
+            color: #F5F5F5;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+
+            @media (max-width: 1536px) {
+                font-size: 17px;
+                margin-top: 18px;
+                margin-bottom: 36px;
+            }
+
+            @media (max-width: 1199px) {
+                font-size: 16px;
+                margin-top: 16px;
+                margin-bottom: 32px;
+            }
+
+            @media (max-width: 899px) {
+                font-size: 15px;
+                margin-top: 14px;
+                margin-bottom: 28px;
+            }
+
+            @media (max-width: 599px) {
+                font-size: 14px;
+                margin-top: 12px;
+                margin-bottom: 24px;
+            }
+        }
+
+        .contact-us-btn {
+            display: flex;
+            height: 44.023px;
+            padding: 10.005px 16.008px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 43.022px;
+            border: 2px solid #FFF;
+
+            width: fit-content;
+            color: #FFF;
+            font-family: Inter;
+            font-size: 14.007px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 18.009px;
+            text-transform: capitalize;
+        }
+    }
+
+    .ready-to-talk-image-container {
+
+
+        @media (max-width: 899px) {
+            height: 380px;
+            max-width: 412px;
+
+        }
+
+        .ready-to-talk-image {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+}

@@ -1,0 +1,145 @@
+.ready-to-talk-section-wrapper {
+  max-width: 1470px;
+  margin: auto;
+  display: flex;
+  gap: 80px;
+  margin-top: 120px;
+  align-items: center;
+
+  .ready-to-talk-content {
+
+    .ready-to-talk-heading {
+      font-size: 40px !important;
+
+      @media (max-width: 1499px) {
+        font-size: 36px !important;
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 32px !important;
+      }
+
+      @media (max-width: 899px) {
+        font-size: 28px !important;
+      }
+
+      @media (max-width: 599px) {
+        font-size: 24px !important;
+      }
+    }
+
+    .subheading {
+      color: #757575;
+      font-family: Poppins;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.48px;
+      margin-top: 16px;
+
+
+      @media (max-width: 1499px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 16px;
+      }
+
+      @media (max-width: 899px) {
+        font-size: 14px;
+      }
+
+      @media (max-width: 599px) {
+        font-size: 12px;
+      }
+    }
+
+    .step-container {
+      margin-top: 40px;
+      gap: 40px;
+
+      .steps {
+
+
+        .step-heading {
+          color: #132427;
+          font-feature-settings: 'liga' off, 'clig' off;
+          font-family: Poppins;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 54.03px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+
+          @media (max-width: 1499px) {
+            font-size: 26px;
+          }
+
+          @media (max-width: 1199px) {
+            font-size: 26px;
+          }
+
+          @media (max-width: 899px) {
+            font-size: 24px;
+          }
+
+          @media (max-width: 599px) {
+            font-size: 24px;
+          }
+
+          &::before {
+            content: url("../assets/ready/green-tick.svg");
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 8px
+          }
+        }
+
+        .step-description {
+          color: #757575;
+          font-feature-settings: 'liga' off, 'clig' off;
+          font-family: Poppins;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+
+          @media (max-width: 1499px) {
+            font-size: 18px;
+          }
+
+          @media (max-width: 1199px) {
+            font-size: 16px;
+          }
+
+          @media (max-width: 899px) {
+            font-size: 14px;
+          }
+
+          @media (max-width: 599px) {
+            font-size: 12px;
+          }
+        }
+
+      }
+    }
+  }
+
+  .image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+}

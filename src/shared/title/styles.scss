@@ -1,0 +1,35 @@
+.title-text {
+  color: #343434;
+  font-family: Poppins !important;
+  font-size: 40px !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: normal;
+  letter-spacing: -0.64px !important;
+  gap: 4px;
+  line-height: 46px;
+
+  .last-word {
+    position: relative;
+    display: inline-block;
+    line-height: 32px;
+    .word-container {
+      display: inline-block;
+    }
+
+    .mark-container {
+      position: absolute;
+      left: 0;
+      display: flex;
+      justify-content: end;
+      text-align: left;
+      overflow: hidden;
+      rotate: 2deg;
+    }
+
+    .mark-icon {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
