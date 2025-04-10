@@ -26,7 +26,7 @@
   --font-size-18: max(16px, 0.937vw);
   --font-size-20: max(18px, 1.041vw);
   --font-size-24: max(20px, 1.250vw);
-  --font-size-40:  max(24px, 2.083vw);
+  --font-size-40: max(24px, 2.083vw);
 }
 
 .flicker-logo {

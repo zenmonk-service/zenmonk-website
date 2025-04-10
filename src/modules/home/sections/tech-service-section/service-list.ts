@@ -1,5 +1,3 @@
-import { JSX } from 'react'
-import { StaticImageData } from 'next/image'
 import {
   Gear,
   BriefCase,
@@ -9,7 +7,7 @@ import {
 
 interface Service {
   id: string
-  icon: JSX.Element | StaticImageData
+  Icon: any
   title: string
   color: string
   hoverColor: string
@@ -19,7 +17,7 @@ interface Service {
 const serviceList: Service[] = [
   {
     id: '01',
-    icon: Gear,
+    Icon: Gear,
     title: 'Software Development',
     color: '#41CDD6',
     hoverColor:"#ecfafb",
@@ -29,7 +27,7 @@ const serviceList: Service[] = [
   },
   {
     id: '02',
-    icon: BriefCase,
+    Icon: BriefCase,
     title: 'Growth & Marketing',
     color: '#3C95DB',
     hoverColor:"#ecf4fb",
@@ -38,7 +36,7 @@ const serviceList: Service[] = [
   },
   {
     id: '03',
-    icon: Mobile,
+    Icon: Mobile,
     title: 'Mobile App Development',
     color: '#A15AFF',
     hoverColor:"#f6efff",
@@ -47,7 +45,7 @@ const serviceList: Service[] = [
   },
   {
     id: '04',
-    icon: BriefCasePerson,
+    Icon: BriefCasePerson,
     title: 'IT Training & Workshops',
     color: '#48B95C',
     hoverColor:"#edf8ef",
@@ -57,7 +55,7 @@ const serviceList: Service[] = [
   },
   {
     id: '05',
-    icon: Gear,
+    Icon: Gear,
     title: 'Product Development',
     color: '#41CDD6',
     hoverColor:"#ecfafb",
@@ -67,7 +65,7 @@ const serviceList: Service[] = [
   },
   {
     id: '06',
-    icon: BriefCase,
+    Icon: BriefCase,
     title: 'Industry-Specific Solutions',
     color: '#3C95DB',
     hoverColor:"#ecf4fb",
@@ -77,7 +75,7 @@ const serviceList: Service[] = [
   },
   {
     id: '07',
-    icon: Mobile,
+    Icon: Mobile,
     title: 'IT & Business Consultations',
     color: '#A15AFF',
     hoverColor:"#f6efff",
@@ -86,7 +84,7 @@ const serviceList: Service[] = [
   },
   {
     id: '08',
-    icon: BriefCasePerson,
+    Icon: BriefCasePerson,
     title: 'Cloud Development',
     color: '#48B95C',
     hoverColor:"#edf8ef",
@@ -95,7 +93,7 @@ const serviceList: Service[] = [
   },
   {
     id: '09',
-    icon: Gear,
+    Icon: Gear,
     title: 'UI/UX Design',
     color: '#41CDD6',
     hoverColor:"#ecfafb",
@@ -104,7 +102,7 @@ const serviceList: Service[] = [
     },
   {
     id: '10',
-    icon: BriefCase,
+    Icon: BriefCase,
     title: 'AI Based Softwares',
     color: '#3C95DB',
     hoverColor:"#ecf4fb",

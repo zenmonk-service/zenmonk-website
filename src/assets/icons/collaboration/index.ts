@@ -1,58 +1,58 @@
 import Ceinde from './logo-ceinde.svg'
-import Citealimenta from './logo-citealimenta.png'
+import Citealimenta from './Cite.svg'
 import Citican from './logo-citican.svg'
-import Cittecam from './logo-cittecam.png'
+import Cittecam from './citicam.svg'
 import Ct from './logo-ct.svg'
-import Cuanza from './logo-cuanza.png'
-import Funiber from './logo-funiber.png'
+import Cuanza from './cuanza.svg'
+import Funiber from './funiber.svg'
 import Unib from './logo-unib.svg'
-import Unicol from './logo-unincol.png'
+import Unicol from './unicol.svg'
 
 export const OurPartnersList = [
   {
     label: 'Ceinde',
-    src: Ceinde,
+    Src: Ceinde,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Citealimenta',
-    src: Citealimenta,
+    Src: Citealimenta,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
   {
     label: 'Citican',
-    src: Citican,
+    Src: Citican,
     background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
   },
   {
     label: 'Cittecam',
-    src: Cittecam,
+    Src: Cittecam,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
   {
     label: 'Cuanza',
-    src: Cuanza,
+    Src: Cuanza,
     background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
   },
   {
     label: 'Funiber',
-    src: Funiber,
+    Src: Funiber,
     background: 'linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Unib',
-    src: Unib,
+    Src: Unib,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Unicol',
-    src: Unicol,
+    Src: Unicol,
     background:
       'background: linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Ct',
-    src: Ct,
+    Src: Ct,
     background: 'linear-gradient(90deg, #FFF 0%, #CCF1FF 49%, #FFF 100%)',
   },
 ]
