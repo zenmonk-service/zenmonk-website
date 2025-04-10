@@ -45,14 +45,7 @@ const Navbar = (props: Props) => {
       <AppBar className="app-bar-container" elevation={0}>
         <Toolbar className="toolbar">
           <Box display="flex" alignItems="center">
-            {Monk && (
-              <Image
-                src={Monk}
-                alt="Logo"
-                className="logo"
-                onClick={navigateToHome}
-              />
-            )}
+          {Monk && <Monk className="logo" onClick={navigateToHome} />}
           </Box>
           <ActionLinks />
           {!isSmallScreen && (

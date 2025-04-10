@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}
       >
-        {/* <Header /> */}
+        <Header />
         {/* <HeaderWrapper/> */}
         {children}
         {/* <Footer /> */}

@@ -28,7 +28,14 @@ const OptionCard = ({
         onMouseOver={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
       >
-        <Image src={imageUrl} width={32} height={32} alt={`${title}-image`} />
+        <Image
+          src={imageUrl}
+          style={{
+            width: '1.66vw',
+            height: '1.66vw',
+          }}
+          alt={`${title}-image`}
+        />
         <Box className="option-card-content">
           <Typography variant="h6" className="title">
             {title}
@@ -38,7 +45,12 @@ const OptionCard = ({
           </Typography>
           {(isVisible || isAlreadyOpen) && (
             <Button className="link-button" color="inherit" disableRipple>
-              Explore &nbsp; <ArrowRightAltIcon fontSize="large" />
+              Explore &nbsp;
+              <ArrowRightAltIcon
+                style={{
+                  fontSize: '0.9375vw',
+                }}
+              />
             </Button>
           )}
         </Box>
