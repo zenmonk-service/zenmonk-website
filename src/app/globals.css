@@ -53,9 +53,9 @@ body {
 }
 
 @media (min-width: 2700px) {
-  html {
+  /* html {
     zoom: 180%
-  }
+  } */
 }
 
 ::-webkit-scrollbar {

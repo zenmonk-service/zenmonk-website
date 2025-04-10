@@ -67,6 +67,7 @@ const ServiceSection = () => {
               onClick={() => selectItem(item)}
               sx={{
                 '&:hover': {
+                  backgroundColor:`${item.hoverColor} !important`,
                   transform: 'translateY(-4px)',
                 },
               }}

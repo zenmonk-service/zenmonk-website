@@ -8,12 +8,12 @@ import ItSolutions from '@/modules/services/it-solutions'
 import ReadyToTalkProductDevelopment from '@/modules/services/modules/product-development/ready-to-talk'
 import DevelopmentProcess from '@/modules/services/modules/software-development/development-process'
 import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
+import { CreativeIdeas } from '@/modules/services/modules/ui-ux/creative-ideas'
+import { UiUxWhyChooseUs } from '@/modules/services/modules/ui-ux/why-choose-us'
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import { CreativeIdeas } from '@/modules/services/modules/ui-ux/creative-ideas'
 import Rating from '@/shared/rating'
-
 
 const DEVELOPMENT_PROCESS_SECTION = {
   'software-development': DevelopmentProcess,
@@ -46,12 +46,12 @@ const Service = () => {
   return (
     <Stack>
       <Rating />
-      <ItSolutions />
-      { serviceRoute === 'ui-ux-design' ? <CreativeIdeas/> : <></>}
+      {serviceRoute === 'ui-ux-design' && <UiUxWhyChooseUs />}
+      {serviceRoute === 'ui-ux-design' && <CreativeIdeas />}
+      {serviceRoute !== 'ui-ux-design' && <ItSolutions />}
       <TechnologyTree />
-      <YourIdealChoice/>
-
-      <BusinessSectors /> 
+      <YourIdealChoice />
+      <BusinessSectors />
       {/* {DevelopmentProcessComponent && <DevelopmentProcessComponent />}   */}
       {ReadyToTalkComponent && <ReadyToTalkComponent />}
       <FAQ />
