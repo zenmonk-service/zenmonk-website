@@ -1,6 +1,6 @@
 .tech-solution-section-wrapper {
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 7.8vw;
+    margin-bottom: 7.8vw;
     display: flex;
     align-items: center;
     // height: 85vh;
@@ -16,38 +16,37 @@
         text-align: left;
         display: flex;
         flex-direction: column;
-        gap:8px;
-        max-width: 848px;
+        gap: 0.41vw;
         width: 100%;
         .text-heading {
           color: #3c3c3c !important;
-          font-size: 4.8rem !important;
+          // font-size: 4.8rem !important;
           font-family: Poppins, sans-serif !important;
           font-style: normal;
           font-weight: 400;
           line-height: normal;
-          letter-spacing: 0.96px;
-          margin-bottom: 8px;
+          letter-spacing: 0.05vw;
+          margin-bottom: 0.41vw;
         }
   
         .text-description {
           color: #777;
           text-align: justify;
           font-family: Poppins;
-          font-size: 18px;
+          font-size: var(--font-size-18);
           font-style: normal;
           font-weight: 400 !important;
-          line-height: 24px;
-          letter-spacing: 0.54px !important;
+          line-height: 1.25vw;
+          letter-spacing: 0.02vw !important;
         }
       }
       .tech-solution-section-card-wrapper{
-        margin-top: 32px;
+        margin-top: 1.66vw;
         width: 100%;
         display: flex;
         flex-wrap: wrap; 
         justify-content: flex-start; 
-        gap: 24px; 
+        gap: 1.25vw; 
       }
       
     }
@@ -59,7 +58,7 @@
       justify-content: end;
       display: flex;
       img {
-        margin-right: -20px;
+        margin-right: -1.04vw;
         width: auto;
         max-width: 95%;
         height: 100%;

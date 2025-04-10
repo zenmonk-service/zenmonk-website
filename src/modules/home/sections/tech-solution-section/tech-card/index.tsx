@@ -10,7 +10,7 @@ interface TechProps {
 const TechCard = ({ icon, title }: TechProps) => {
   return (
     <Box className="tech-card-container">
-      {icon && <Image src={icon} alt={title} className="tech-card-icon" />}
+      {/* {icon && <Image src={icon} alt={title} className="tech-card-icon" />} */}
       <Typography component="p" className="tech-card-title">
         {title}
       </Typography>

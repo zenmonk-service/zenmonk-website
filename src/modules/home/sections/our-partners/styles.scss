@@ -1,24 +1,21 @@
 .heading-container {
   justify-content: center;
-  margin-top: 50px !important;
+  margin-top: 2.6% !important;
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
   margin: auto;
-
-  padding: 20px;
-  padding-bottom: 10px;
+  padding: 1.04%;
+  padding-bottom: 0.52%;
 
   .text {
     color: #777;
-    font-size: 2.4rem;
+    font-size: var(--font-size-24);
     font-style: normal;
     font-weight: 600;
-    line-height: 20px;
+    line-height: 1.04%;
     font-family: Poppins;
-    margin-bottom: 20px;
-
+    margin-bottom: 1.04%;
     span {
       background: var(--global-color-gradient);
       background-clip: text;

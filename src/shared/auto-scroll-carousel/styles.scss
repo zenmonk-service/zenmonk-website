@@ -41,11 +41,14 @@
 
 .slide {
   height: auto;
-  width: 300px;
+  width: 15.625vw;
+  svg{
+    width: 7.8125vw;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0.52%;
 }
 
 @keyframes scroll {
@@ -53,6 +56,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-300px * 9));
+    transform: translateX(calc(-15.625vw * 9));
   }
 }

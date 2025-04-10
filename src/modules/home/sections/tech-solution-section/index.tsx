@@ -30,12 +30,12 @@ const TechSolutionSection = () => {
             return <TechCard key={index} icon={tech.src} title={tech.name} />
           })}
         </Box>
-        <Box sx={{ marginBottom: '41px' }}></Box>
+        <Box sx={{ marginBottom: '2.135vw' }}></Box>
         <BaseButton>EXPLORE SERVICES</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
-        {Laptop2 && (
-          <TechSolutionSectionImage />
+        {Laptop2 && (null
+          // <TechSolutionSectionImage />
         )}
       </Box>
     </Box>

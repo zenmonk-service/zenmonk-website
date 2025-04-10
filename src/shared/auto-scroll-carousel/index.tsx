@@ -4,7 +4,7 @@ import './styles.scss'
 
 interface SliderData {
   label: string
-  src: string
+  Src: any
   background?: string
 }
 
@@ -30,18 +30,13 @@ const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
   return (
     <Box className={`slider ${sliderProps?.className}`}>
       <Box className={`slide-track ${reverse ? 'reverse' : ''}`}>
-        {carouselItems.map(({ label, src, background }, index) => (
+        {carouselItems.map(({ label, Src, background }, index) => (
           <Box
             className="slide"
             key={label + index}
             sx={{ background: isBgShadow ? background : null }}
           >
-            <Image 
-              src={src} 
-              width={imageProps?.size?.width ?? 150} 
-              height={imageProps?.size?.height} 
-              alt={label} 
-            />
+            <Src/>
           </Box>
         ))}
       </Box>

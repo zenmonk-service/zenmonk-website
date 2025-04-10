@@ -61,7 +61,7 @@ const ServiceSection = () => {
       </div>
       <Box className="services-section">
         <Box className="services-left-container">
-          {serviceList.map((item: Service, index: number) => (
+          {serviceList.map((item: Service) => (
             <Box
               className={`business-item`}
               onClick={() => selectItem(item)}
@@ -73,9 +73,9 @@ const ServiceSection = () => {
               key={item.id}
             >
               <Box className="business-item-content">
-                <Box className="business-icon">
-                  <Image src={item.icon as any} alt={item.title} />
-                </Box>
+                {/* <Box className="business-icon"> */}
+                  <item.Icon className="business-icon" />
+                {/* </Box> */}
                 <Typography
                   component="h4"
                   variant="h4"
@@ -126,10 +126,9 @@ const ServiceSection = () => {
               </Box>
               <BaseButton
                 sx={{
-                  maxWidth: '158px',
                   color: 'var(--global-color-secondary) !important',
                   textTransform: 'uppercase !important',
-                  boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                  boxShadow: '0px 0.2vw 0.2vw 0px rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
                   fontFamily: 'Poppins',
                 }}

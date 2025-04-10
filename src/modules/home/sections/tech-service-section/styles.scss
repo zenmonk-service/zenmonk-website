@@ -5,46 +5,44 @@
   font-family: Poppins;
   .title {
     text-align: left;
-    font-size: 40px !important;
-    // margin-right: 25px;
+    font-size: 2.08vw !important;
   }
 
 
   .services-left-container {
-    margin-top: 103px;
+    margin-top: 5.36vw;
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    margin-right: -110px;
+    gap: 1.66vw;
+    margin-right: -5.73vw;
     z-index: 99;
     .business-item {
       cursor: pointer;
       display: flex;
       justify-content: space-between;
-      width: 371px;
-      padding: 24px;
-      border-radius: 10px;
+      width: 19.32vw;
+      padding: 1.25vw;
+      border-radius: 0.52vw;
       background: var(--global-color-primary);
       outline: 0px solid var(--global-color-accent);
-      box-shadow: 5px 4px 52.7px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0.26vw 0.20vw 2.7vw 0px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        transform: translateY(-8px);
-        // box-shadow: 5px 4px 20px 0px rgba(247, 125, 3, 0.3);
+        transform: translateY(-0.41vw);
       }
       .business-item-content {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
         align-items: baseline;
-        gap: 10px;
+        gap: 0.52vw;
         .business-icon {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 50px;
-          height: 50px;
+          width: 2.6vw;
+          height: 2.6vw;
         }
 
         .business-title {
@@ -53,7 +51,7 @@
           leading-trim: both;
           text-edge: cap;
           font-family: Poppins;
-          font-size: 20px;
+          font-size: var(--font-size-20);
           font-style: normal;
           font-weight: 600;
           line-height: normal;
@@ -61,7 +59,7 @@
       }
       .business-count-text {
         font-family: Montserrat !important;
-        font-size: 80px;
+        font-size: 4.16vw;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -74,9 +72,9 @@
 
   .services-right-container {
     display: flex;
-    margin-right: 40px;
-    height: 545px;
-    top: 180px;
+    margin-right: 2.08vw;
+    height: 28.38vw;
+    top: 9.375vw;
     top: 15vh;
     position: sticky;
     flex-direction: column;
@@ -84,18 +82,15 @@
       bottom: 45%;
       left: 67%;
       position: absolute;
-      width: 520.584px;
-      height: 450px;
-      @media (max-width: 1700px) {
-        left: 55%;
-      }
+      width: 27.08vw;
+      height: 23.43vw;
     }
 
     .business-proof {
-      margin-top: 60px;
-      width: 948px;
-      height: 545px;
-      border-radius: 8px;
+      margin-top: 3.125vw;
+      width: 49.375vw;
+      height: 28.38vw;
+      border-radius: 0.41vw;
       background: #f77d03;
       display: flex;
       align-items: center;
@@ -104,28 +99,28 @@
         width: 100%;
         height: 100%;
         display: flex;
-        padding: 57px 40px 70px 167px;
+        padding: 2.96vw 2.08vw 3.64vw 8.69vw;
         flex-direction: column;
-        gap: 32px;
+        gap: 1.66vw;
         font-family: Poppins;
         font-style: normal;
         color: var(--global-color-primary);
         .business-proof-heading {
-          font-size: 36px;
+          font-size: 1.875vw;
           font-weight: 600;
           line-height: normal;
           font-family: Poppins;
         }
         .business-proof-description {
-          font-size: 18px;
+          font-size: var(--font-size-18);
           font-weight: 400;
-          line-height: 28px;
+          line-height: 1.46vw;
           font-family: Poppins;
         }
         .business-proof-technologies {
           display: flex;
           flex-direction: row;
-          gap: 50px;
+          gap: 2.6vw;
         }
       }
     }
@@ -144,33 +139,5 @@
 .fade-transition-hidden {
   opacity: 0;
   transform: scale(0.95); /* Slightly smaller scale for a more refined transition */
-  filter: blur(5px); /* Apply subtle blur when hidden for a smoother transition */
-}
-
-
-@media (max-width: 1499px) {
-  .services-section {
-    .services-left-container {
-      margin-right: -140px;
-    }
-    .business-item {
-      width: 300px !important;
-    }
-    .services-right-container {
-      top: 45px;
-      .logo {
-        bottom: 45%;
-        left: 55%;
-        width: 420.584px;
-        height: 350px;
-      }
-    }
-  }
-}
-
-@media (max-height: 860px) {
-  
-  .services-right-container {
-    top: 45px;
-  }
+  filter: blur(0.26vw); /* Apply subtle blur when hidden for a smoother transition */
 }
