@@ -3,36 +3,38 @@ import Title from '@/shared/title'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import WhyChooseUsCard from '../../components/card/why-choose-us'
 import { skills } from './skills'
-import './styles.scss'
 import { whyChooseUs } from './why-choose-us'
+import './styles.scss'
 
 export const WhyChooseUsSection = () => {
   return (
     <AboutSectionWrapper>
       <Box className="about-us-why-choose-us-section">
-        <Box className="left-section">
-          {whyChooseUs.slice(0, 2).map((item, index) => {
-            return (
-              <WhyChooseUsCard
-                description={item.description}
-                icon={item.icon}
-                title={item.title}
-                key={index}
-              />
-            )
-          })}
-        </Box>
-        <Box className="center-section">
-          {whyChooseUs.slice(2, 4).map((item, index) => {
-            return (
-              <WhyChooseUsCard
-                description={item.description}
-                icon={item.icon}
-                title={item.title}
-                key={index}
-              />
-            )
-          })}
+        <Box className="card-section">
+          <Box className="left-section">
+            {whyChooseUs.slice(0, 2).map((item, index) => {
+              return (
+                <WhyChooseUsCard
+                  description={item.description}
+                  icon={item.icon}
+                  title={item.title}
+                  key={index}
+                />
+              )
+            })}
+          </Box>
+          <Box className="center-section">
+            {whyChooseUs.slice(2, 4).map((item, index) => {
+              return (
+                <WhyChooseUsCard
+                  description={item.description}
+                  icon={item.icon}
+                  title={item.title}
+                  key={index}
+                />
+              )
+            })}
+          </Box>
         </Box>
         <Box className="right-section">
           <Title

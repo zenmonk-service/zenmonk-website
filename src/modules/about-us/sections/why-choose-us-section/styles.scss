@@ -8,54 +8,66 @@ $hover-bg-light-green: #e9f7ec;
   margin-bottom: 100px;
   gap: 70px;
   display: flex;
-  @media screen and (max-width: 1149px) {
-    flex-wrap: wrap;
-  }
   @media screen and (max-width: 1499px) {
     gap: 50px;
   }
-  .left-section {
-    flex: 1;
-    height: 100%;
+  @media screen and (max-width:1174px) {
+    flex-direction: column-reverse;
+  }
+  .card-section {
+    width: 100%;
     display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
-    .why-choose-us-card {
-      transition: background 0.2s ease-in-out;
-      &:nth-child(1) {
-        &:hover {
-          background: $hover-bg-light-aqua;
+    gap: max(20px,50px);
+    @media screen and (max-width: 1149px) {
+      flex-wrap: wrap;
+    }
+    .left-section {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+      .why-choose-us-card {
+        transition: background 0.2s ease-in-out;
+        &:nth-child(1) {
+          &:hover {
+            background: $hover-bg-light-aqua;
+          }
+        }
+        &:nth-child(2) {
+          &:hover {
+            background: $hover-bg-light-purple;
+          }
         }
       }
-      &:nth-child(2) {
-        &:hover {
-          background: $hover-bg-light-purple;
+    }
+    .center-section {
+      flex: 1;
+      margin-top: 70px;
+      height: 100%;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      @media screen and (max-width: 899px) {
+        margin-top: 0px;
+      }
+      .why-choose-us-card {
+        transition: background 0.2s ease-in-out;
+        &:nth-child(1) {
+          &:hover {
+            background: $hover-bg-light-blue;
+          }
+        }
+        &:nth-child(2) {
+          &:hover {
+            background: $hover-bg-light-green;
+          }
         }
       }
     }
   }
-  .center-section {
-    flex: 1;
-    margin-top: 70px;
-    height: 100%;
-    display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
-    .why-choose-us-card {
-      transition: background 0.2s ease-in-out;
-      &:nth-child(1) {
-        &:hover {
-          background: $hover-bg-light-blue;
-        }
-      }
-      &:nth-child(2) {
-        &:hover {
-          background: $hover-bg-light-green;
-        }
-      }
-    }
-  }
+
   .right-section {
     width: 600px;
     height: 100%;
@@ -76,7 +88,6 @@ $hover-bg-light-green: #e9f7ec;
 
       @media screen and (max-width: 1499px) {
         font-size: 40px !important;
-        line-height: 40px !important;
       }
     }
     .description {

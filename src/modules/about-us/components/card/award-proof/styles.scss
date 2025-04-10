@@ -43,7 +43,7 @@
         'liga' off,
         'clig' off;
       font-family: Poppins;
-      font-size: 22px;
+      font-size: var(--font-size-24) !important;
       font-style: normal;
       font-weight: 500;
       line-height: 30px;
@@ -55,7 +55,7 @@
         'liga' off,
         'clig' off;
       font-family: Poppins;
-      font-size: 16px !important;
+      font-size: var(--font-size-16) !important;
       font-style: normal;
       font-weight: 400 !important;
       line-height: 24px !important;
