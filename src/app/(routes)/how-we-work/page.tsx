@@ -15,9 +15,7 @@ const page = () => {
         <HeroSection />
       </SectionWrapper>
       <Process />
-      <SectionWrapper>
         <Quality />
-      </SectionWrapper>
       {/* <Review /> */}
       <Innovation />
       <SectionWrapper>

@@ -6,6 +6,7 @@ import {
   Second,
   Third,
   GraphIcon,
+  QualityImgMobile,
 } from '@/modules/how-we-work/assets'
 import Title from '@/shared/title'
 import TopRightDottedImage from '../assets/quality/top-right-dotted.png'
@@ -37,6 +38,7 @@ const Quality = () => {
       <Box className="quality-img-container">
         <Image src={QualityImg} alt="" className="quality-img" />
       </Box>
+        <Image src={QualityImgMobile} alt="" className="quality-img-mobile" />
       <Image
         src={VerticalDottedImage}
         alt=""

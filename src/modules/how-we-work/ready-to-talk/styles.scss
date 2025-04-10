@@ -6,6 +6,23 @@
   margin-top: 120px;
   align-items: center;
 
+  @media (max-width: 1499px) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: 1199px) {
+    margin-top: 80px;
+  }
+
+  @media (max-width: 899px) {
+    margin-top: 60px;
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: 599px) {
+    margin-top: 50px;
+  }
+
   .ready-to-talk-content {
 
     .ready-to-talk-heading {
@@ -60,9 +77,27 @@
       margin-top: 40px;
       gap: 40px;
 
+      @media (max-width: 1499px) {
+        margin-top: 36px;
+        gap: 36px;
+      }
+
+      @media (max-width: 1199px) {
+        margin-top: 32px;
+        gap: 32px;
+      }
+
+      @media (max-width: 899px) {
+        margin-top: 28px;
+        gap: 28px;
+      }
+
+      @media (max-width: 599px) {
+        margin-top: 24px;
+        gap: 24px;
+      }
+
       .steps {
-
-
         .step-heading {
           color: #132427;
           font-feature-settings: 'liga' off, 'clig' off;
@@ -70,7 +105,7 @@
           font-size: 28px;
           font-style: normal;
           font-weight: 600;
-          line-height: 54.03px;
+          // line-height: 54.03px;
           display: flex;
           align-items: center;
           gap: 18px;

@@ -47,7 +47,7 @@ const WorkCulture = () => {
             </Typography>
           </Box>
           <Box className="action-button-wrapper">
-            <IconButton className="action-button" onClick={handlePrev}>
+            <IconButton className="action-button" onClick={handlePrev} centerRipple >
               <NavigateBeforeIcon fontSize="inherit" />
             </IconButton>
             <IconButton className="action-button" onClick={handleNext}>

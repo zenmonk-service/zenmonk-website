@@ -84,20 +84,20 @@
         color: #5c5c5c;
         text-align: center;
         font-family: Poppins;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 400;
         max-width: 1160px;
 
         @media (max-width: 1499px) {
-          font-size: 21px;
+          font-size: 17px;
         }
 
         @media (max-width: 1199px) {
-          font-size: 18px;
+          font-size: 16px;
         }
 
         @media (max-width: 899px) {
-          font-size: 16px;
+          font-size: 15px;
           text-align: left;
         }
 
@@ -124,6 +124,7 @@
         height: 100%;
         max-width: 455.132px;
         max-height: 623px;
+        box-shadow: 4px 4px 30px 0px #0003;
 
         @media (max-width: 1199px) {
           display: none;
@@ -375,13 +376,13 @@
               text-align: center;
               font-feature-settings: 'liga' off, 'clig' off;
               font-family: Poppins;
-              font-size: 20px;
+              font-size: 18px;
               font-style: normal;
               font-weight: 600;
               line-height: normal;
 
               @media (max-width: 1499px) {
-                font-size: 18px;
+                font-size: 17px;
               }
 
               @media (max-width: 1199px) {
@@ -389,7 +390,7 @@
               }
 
               @media (max-width: 899px) {
-                font-size: 16px;
+                font-size: 15px;
               }
 
               @media (max-width: 599px) {
