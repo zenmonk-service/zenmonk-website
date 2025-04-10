@@ -25,9 +25,10 @@ const page = () => {
         <AnimatedDiv>
           <TechSolutionSection />
         </AnimatedDiv>
-      {/* <AnimatedDiv>
+        <AnimatedDiv>
         <OurWorkSection />
       </AnimatedDiv>
+      {/*
       <Box sx={{overflow:"hidden"}}>
       <SectionWrapper>
         <AnimatedDiv>

@@ -3,14 +3,15 @@ import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
 interface TechProps {
-  icon: string
+  Icon: string
   title: string
 }
 
-const TechCard = ({ icon, title }: TechProps) => {
+const TechCard = ({ Icon, title }: TechProps) => {
   return (
     <Box className="tech-card-container">
       {/* {icon && <Image src={icon} alt={title} className="tech-card-icon" />} */}
+      <Icon />
       <Typography component="p" className="tech-card-title">
         {title}
       </Typography>

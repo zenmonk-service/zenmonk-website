@@ -115,12 +115,10 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map((logo, index) => {
+                {techLogos.map((Src : any, index) => {
                   return (
-                    <Box key={index}>
-                      {logo.src && (
-                        <Image key={logo.name} src={logo.src} alt={logo.name} />
-                      )}
+                    <Box key={index}>    
+                        {/* <Src/> */}
                     </Box>
                   )
                 })}

@@ -37,7 +37,7 @@ $base-line-height: 1.5;
   font-family: Poppins !important;
   font-weight: 600 !important;
   letter-spacing: -0.64px !important;
-  font-size: max(2.4rem, 3.125vw) !important;
+  font-size:var(--font-size-40) !important;
 
   .mark-wrapper {
     position: relative;

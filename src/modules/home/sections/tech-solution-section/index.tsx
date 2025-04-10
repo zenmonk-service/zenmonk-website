@@ -6,6 +6,7 @@ import Title from '@/shared/title'
 import { TechSolutionSectionImage } from './image'
 import './styles.scss'
 import TechCard from './tech-card'
+import { SectionTitle } from '@/shared/typography'
 
 const TechSolutionSection = () => {
   return (
@@ -13,9 +14,10 @@ const TechSolutionSection = () => {
       <Box className="tech-solution-section">
         <Box className="tech-solution-section-text-wrapper">
           <Box className="text-heading">
-            <Title
-              text="Our expertise lies in crafting business solutions"
-              align="left"
+            <SectionTitle
+            text='Our expertise lies in crafting business solutions'
+            markText='solutions'
+            align='left'
             />
           </Box>
           <Typography component="p" className="text-description">
@@ -27,15 +29,15 @@ const TechSolutionSection = () => {
         </Box>
         <Box className="tech-solution-section-card-wrapper">
           {techSolution.map((tech: TechSolution, index) => {
-            return <TechCard key={index} icon={tech.src} title={tech.name} />
+            return <TechCard key={index} Icon={tech.src} title={tech.name} />
           })}
         </Box>
         <Box sx={{ marginBottom: '2.135vw' }}></Box>
         <BaseButton>EXPLORE SERVICES</BaseButton>
       </Box>
       <Box className="tech-solution-section-image-wrapper">
-        {Laptop2 && (null
-          // <TechSolutionSectionImage />
+        {Laptop2 && (
+          <TechSolutionSectionImage />
         )}
       </Box>
     </Box>

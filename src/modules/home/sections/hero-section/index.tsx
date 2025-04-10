@@ -1,18 +1,4 @@
-import Image from 'next/image'
 import { Box, Toolbar, Typography } from '@mui/material'
-import { Vector } from '@/assets/icons'
-import { HeroTech } from '@/assets/images'
-import {
-  HeroBalance,
-  HeroCircle,
-  HeroDb,
-  HeroFigma,
-  HeroIncome,
-  HeroJs,
-  HeroPhp,
-  HeroReact,
-  HeroXd,
-} from '@/assets/images/hero-section'
 import BaseButton from '@/shared/button'
 import HomeHeroImage from './hero.svg'
 import './styles.scss'
