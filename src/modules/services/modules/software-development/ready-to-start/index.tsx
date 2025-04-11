@@ -6,8 +6,8 @@ import './styles.scss'
 const ReadyToStartSoftwareDev = () => {
   return (
     <Box className="ready-to-start">
-      <Box>
-        <Image src={BG} alt="map" />
+      <Box sx={{ width: '100%' }}>
+        <Image src={BG} alt="map" style={{ width: '100%' }} />
       </Box>
       <Box className="text-box">
         <Typography className="title">Are you ready to start ?</Typography>

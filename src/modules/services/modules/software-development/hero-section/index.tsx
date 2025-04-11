@@ -1,6 +1,5 @@
 import { Box } from '@mui/material'
 import { HeroSection } from '@/shared/hero-section'
-import SectionWrapper from '@/shared/wrapper'
 import { Hero as HeroImg } from '../assets'
 import BackgroundImage from '../assets/hero-bg.png'
 

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 import Title from '../../../shared/title'
 import COST_EFFECTIVE from './assets/cost_effective.svg'
@@ -57,10 +56,10 @@ const YourIdealChoice = () => {
         </Typography>
       </Box>
 
-      {ChoicesData.map(({ icon, title, description }: any) => {
+      {ChoicesData.map(({ icon: Icon, title, description }: any) => {
         return (
           <Box className="container" key={title}>
-            <Image src={icon} alt={title}></Image>
+            <Icon className="icon"/>
             <Typography className="title">{title}</Typography>
             <Typography className="description">{description}</Typography>
           </Box>

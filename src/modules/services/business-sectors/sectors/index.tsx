@@ -42,11 +42,11 @@ const Sectors = () => {
       </Box>
 
       <Box className="right-section">
-        {selectedSector?.services.map((service, index) => {
+        {selectedSector?.services.map(({ image: Icon, title }, index) => {
           return (
             <Stack key={index} className="services">
-              <Image src={service.image} alt="" />
-              <Typography className="service-title">{service.title}</Typography>
+              <Icon className="icon"/>
+              <Typography className="service-title">{title}</Typography>
             </Stack>
           )
         })}
