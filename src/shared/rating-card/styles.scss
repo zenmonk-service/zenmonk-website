@@ -1,25 +1,20 @@
 .rating-card {
-  width: 14.553vw;
+  width: max(max-content, 27.979vw); /* 279.423px */
+  height: 7.832vw; /* 150.38px */
   flex-shrink: 0;
   display: flex;
   height: max-content;
-  padding: 1.042vw;
-  gap: 0.521vw;
-  border-radius: 2.778vw 0;
-
-  @media screen and (max-width: 1200px) {
-    border-radius: 1.215vw 0;
+  padding: max(16px,1.042vw); /* 20px */
+  gap: 0.521vw; /* 10px */
+  border-radius: 2.778vw 0vw; /* 53.333px 0px */
+  @media screen and (max-width:1060px) {
+    min-width: 46%;
   }
 
   .rating-card-icon {
-    width: 5.833vw;
-    height: 5.833vw;
+    width: 5.833vw; /* 112px */
+    height: 5.833vw; /* 112px */
     border-radius: 50%;
-
-    @media screen and (max-width: 1499px) {
-      width: calc(5.833vw * 0.5);
-      height: calc(5.833vw * 0.5);
-    }
   }
 
   .rating-card-content {
@@ -27,40 +22,23 @@
     justify-content: center;
     flex-direction: column;
     text-align: left;
-    gap: 0.260vw;
-
+    gap: 0.260vw; /* 5px */
     .rating {
       color: #132427;
       font-family: Poppins;
-      font-size: 1.667vw;
+      font-size: var(--font-size-24);
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-
-      @media screen and (max-width: 1499px) {
-        font-size: 1.042vw;
-        line-height: 0.781vw;
-      }
     }
 
     .description {
       color: #132427;
       font-family: Poppins;
-      font-size: 0.833vw;
+      font-size: max(12px, 0.833vw) !important;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      min-width: max-content;
-
-      @media screen and (max-width: 1499px) {
-        font-size: 0.625vw;
-      }
     }
-  }
-
-  @media (max-width: 1499px) {
-    padding: calc(2.031vw * 0.5) !important;
-    width: calc(19.115vw * 0.5);
-    height: calc(10.313vw * 0.5);
   }
 }
