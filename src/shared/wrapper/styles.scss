@@ -15,11 +15,7 @@
   box-sizing: border-box;
   justify-content: space-between;
   position: relative;
-  max-width: 1900px;
   margin: auto;
-  @media screen and (max-width: 1499px) {
-    padding: 0px 50px;
-  }
 }
 
 
@@ -31,6 +27,5 @@
   justify-content: space-between;
   position: relative;
   margin: auto;
-  max-width: 1900px;
 }
 
