@@ -1,7 +1,7 @@
 .why-choose-us-section {
   width: 100%;
   height: auto;
-  margin-top: 115px;
+  margin-top: 5.99vw;
   position: relative;
   .logo {
 
@@ -9,26 +9,28 @@
   }
   .right-logo {
 
-    bottom: -220px;
-    right: -150px;
+    bottom:-11.458vw;
+
+    right: -7.813vw;
+
     position: absolute;
     // @media (max-width: 1800px) {
-    //   right: 120px;
+    //   right: 6.25vw;
     // }
   }
   .left-logo {
     top: 0;
-    left: -220px;
+    left: -11.458vw;
     position: absolute;
   }
   .title {
     color: #132427;
     font-family: Poppins;
-    font-size: 40px !important;
+    font-size: 2.083vw    !important;
     font-style: normal;
     font-weight: 600 !important;
     line-height: normal;
-    margin-bottom: 40px;
+    margin-bottom: 2.083vw;
   }
 }
 
@@ -36,10 +38,12 @@
   display: grid;
   place-content: center;
   position: relative;
-  max-width: 1300px;
+  max-width:67.708vw;
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 60px;
+  margin-top: 1.563vw;
+
+  margin-bottom: 3.125vw;
+
 }
 
 .why-choose-us .thumsup {
@@ -49,29 +53,31 @@
 
 .why-choose-us .children .first {
   position: absolute;
-  top: 1px;
-  left: 10px;
+  top: 0.052vw;
+
+  left: 0.521vw;
+
   opacity: 0;
 }
 
 .why-choose-us .children .second {
   position: absolute;
-  top: 1px;
-  right: 10px;
+  top:0.052vw;
+  right: 0.521vw;
   opacity: 0;
 }
 
 .why-choose-us .children .third {
   position: absolute;
   bottom: 0px;
-  left: 10px;
+  left: 0.521vw;
   opacity: 0;
 }
 
 .why-choose-us .children .fourth {
   position: absolute;
-  bottom: 1px;
-  right: 10px;
+  bottom: 0.052vw;
+  right:0.521vw;
   opacity: 0;
 }
 
@@ -95,51 +101,51 @@
 
 @keyframes comeFromLeft {
   0% {
-    transform: translateX(-300px);
+    transform: translateX(-15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(60px); /* Slight overshoot */
+    transform: translateX(3.125vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(50px); /* Ends at 50px */
+    transform: translateX(2.604vw    ); /* Ends at 50px */
     opacity: 1;
   }
 }
 
 @keyframes comeFromRight {
   0% {
-    transform: translateX(300px);
+    transform: translateX(15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-60px); /* Slight overshoot */
+    transform: translateX(-3.125vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-50px); /* Ends at -50px */
+    transform: translateX(-2.604vw    ); /* Ends at -50px */
     opacity: 1;
   }
 }
 
 @keyframes comeFromRight2 {
   0% {
-    transform: translateX(300px);
+    transform: translateX(15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-110px); /* Slight overshoot */
+    transform: translateX(-5.729vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-100px); /* Ends at -50px */
+    transform: translateX(-5.208vw    ); /* Ends at -50px */
     opacity: 1;
   }
 }
@@ -162,12 +168,12 @@
 
 @keyframes comeFromLeftS {
   0% {
-    transform: translateX(-300px);
+    transform: translateX(-15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(10px); /* Slight overshoot */
+    transform: translateX(0.521vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -179,12 +185,12 @@
 
 @keyframes comeFromRightS {
   0% {
-    transform: translateX(300px);
+    transform: translateX(15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-20px); /* Slight overshoot */
+    transform: translateX(-1.042vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -196,12 +202,12 @@
 
 @keyframes comeFromRight2S {
   0% {
-    transform: translateX(300px);
+    transform: translateX(15.625vw    );
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-10px); /* Slight overshoot */
+    transform: translateX(-0.521vw    ); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -233,7 +239,7 @@
 
 @media (max-width: 1366px) and (min-width: 992px) {
   .why-choose-us {
-    margin-top: 40px;
+    margin-top: 2.083vw;
   }
 
   .animate_scale {
@@ -243,8 +249,10 @@
   .why-choose-us .content {
     transform: scale(0.7);
 
-    margin-bottom: -80px;
-    margin-top: -80px;
+    margin-bottom:-4.167vw;
+
+    margin-top:-4.167vw;
+
   }
 }
 

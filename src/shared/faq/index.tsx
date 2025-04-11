@@ -3,13 +3,13 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
+import { SectionTitle } from '../typography'
 import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import MOBILE from './assets/mobile.svg'
 import PLUS from './assets/plus.svg'
 import UI from './assets/ui.svg'
 import WEBSITE from './assets/website.svg'
-
 import './styles.scss'
 
 const questions = [
@@ -53,18 +53,20 @@ const FAQ = () => {
   return (
     <div className="faq">
       <div className="images">
-        <Image src={FAQ_IMAGE} alt="faq_image" />
-        <div className='bg-orange' ></div>
+        <FAQ_IMAGE />
+        <div className="bg-orange"></div>
       </div>
 
       <div className="content">
         <div className="section-heading">
+          {/* <SectionTitle title='From simple queries to complex ones, we’re here to help you every step of the way!' highlightedText='were here to help you' text={''} /> */}
           From simple queries to complex ones,{' '}
           <span>we’re here to help you </span> every step of the way!
         </div>
 
-        <div className="questions-category">
+        {/* <div className="questions-category">
           <div className="question-category">
+
             <Image src={MOBILE} alt="mobile" />
             <p className="category-heading">Questions about</p>
             <p className="category-name">Mobile app development</p>
@@ -81,7 +83,7 @@ const FAQ = () => {
             <p className="category-heading">Questions about</p>
             <p className="category-name">UI Design</p>
           </div>
-        </div>
+        </div> */}
 
         <p className="section-sub-heading">Top questions</p>
 
@@ -110,15 +112,12 @@ const FAQ = () => {
 
               <div>
                 {visibleAnswers[index] ? (
-                  <Image
-                    src={MINUS}
-                    alt="minus"
+                  <MINUS
                     onClick={() => toggleAnswer(index)}
                     className="toggle-icon"
                   />
                 ) : (
-                  <Image
-                    src={PLUS}
+                  <PLUS
                     alt="plus"
                     onClick={() => toggleAnswer(index)}
                     className="toggle-icon"

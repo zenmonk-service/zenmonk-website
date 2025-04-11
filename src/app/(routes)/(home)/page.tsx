@@ -28,7 +28,6 @@ const page = () => {
         <AnimatedDiv>
         <OurWorkSection />
       </AnimatedDiv>
-      {/*
       <Box sx={{overflow:"hidden"}}>
       <SectionWrapper>
         <AnimatedDiv>
@@ -45,6 +44,8 @@ const page = () => {
       <AnimatedDiv>
         <FAQ />
       </AnimatedDiv>
+      {/*
+
       <AnimatedDiv>
         <Testimony />
       </AnimatedDiv> */}

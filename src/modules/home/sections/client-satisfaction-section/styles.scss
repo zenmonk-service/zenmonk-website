@@ -1,8 +1,8 @@
 .client-satisfaction-section {
-  margin-top: 120px;
+  margin-top: 6.25vw; /* 120px / 1920 * 100 */
   width: 100%;
   height: 100%;
-  padding: 0px 48px;
+  padding: 0px 2.5vw; /* 48px / 1920 * 100 */
 
   position: relative;
   overflow: hidden;
@@ -22,20 +22,20 @@
   .title {
     color: #132427;
     font-family: Montserrat !important;
-    margin-bottom: 24px;
-    font-size: 40px !important;
+    margin-bottom: 1.25vw; /* 24px / 1920 * 100 */
+    font-size: 2.0833vw !important; /* 40px / 1920 * 100 */
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    letter-spacing: -3.2px;
+    letter-spacing: -0.1666vw; /* -3.2px / 1920 * 100 */
   }
   .description {
-    margin-top: 23px;
-    margin-bottom: 50px;
-    max-width: 2500px;
+    margin-top: 1.1979vw; /* 23px / 1920 * 100 */
+    margin-bottom: 2.6041vw; /* 50px / 1920 * 100 */
+    max-width: 130.2083vw; /* 2500px / 1920 * 100 */
 
     @media (min-width: 2000px) {
-      margin-top: 36px;
+      margin-top: 1.875vw; /* 36px / 1920 * 100 */
     }
     margin: auto;
     padding: 0 15%;
@@ -43,15 +43,15 @@
     color: #777;
     text-align: center;
     font-family: Poppins !important;
-    font-size: 18px;
+    font-size: 0.9375vw; /* 18px / 1920 * 100 */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    line-height: 28.4px;
+    line-height: 1.4791vw; /* 28.4px / 1920 * 100 */
   }
 
   .svg-container {
-    max-width: 1577px;
+    max-width: 82.1354vw; /* 1577px / 1920 * 100 */
     margin: auto;
   }
 }
@@ -60,10 +60,10 @@
 #exceeding,
 #celebrating {
   opacity: 0;
-  transform: translateY(20px); /* Start slightly below */
+  transform: translateY(1.0416vw); /* 20px / 1920 * 100 */
   animation-duration: 0.5s;
-  animation-timing-function: ease-in-out; /* Smooth easing for a clean transition */
-  animation-fill-mode: forwards; /* Keep the final state after animation */
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .in-view {
@@ -90,17 +90,17 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* Start from below */
+    transform: translateY(1.0416vw); /* 20px / 1920 * 100 */
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* Move to the original position */
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 1499px) {
   .client-satisfaction-section {
-    margin-top: 50px;
+    margin-top: 2.6041vw; /* 50px / 1920 * 100 */
 
     .description {
       padding: 0;
