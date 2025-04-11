@@ -34,7 +34,7 @@ const Innovation = () => {
             <Stack className="deliver-the-best">
               <Stack className="deliver-the-best-text-wrapper">
                 <Box className="earth-icon">
-                  <Image src={Earth} alt="earth" />
+                  <Earth />
                 </Box>
                 <Typography className="deliver-the-best-heading">
                   We deliver the best
@@ -54,9 +54,7 @@ const Innovation = () => {
               {ServiceIcons.map((item) => {
                 return (
                   <Stack className="service-images-wrapper" key={item.title}>
-                    <Image
-                      src={item.icon}
-                      alt=""
+                    <item.icon
                       className={item.size === 1 ? 'img-small' : 'img-large'}
                     />
                     <Typography

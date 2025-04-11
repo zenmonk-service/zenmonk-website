@@ -53,14 +53,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div ref={heroSectionRef}>
-        {/* {serviceRoute === 'ai-based-softwares' && (
-          <Image
-            src={dottedBg}
-            alt="Dotted Line"
-            layout="fill"
-            className="absolute-image"
-          />
-        )} */}
+        
         {serviceKeys.length > 0 ? (
           serviceKeys.map((key) => {
             const HeroComponent = HERO_SECTIONS[key]

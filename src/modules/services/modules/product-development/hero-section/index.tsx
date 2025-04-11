@@ -11,8 +11,6 @@ const ProductDevelopment: React.FC = () => {
   const isLapTop = useMediaQuery('(max-width:1499px)')
   return (
     <>
-      {/* <Image src={HeroBg} alt="hero-bg" className="hero-bg"/>
-      <Image src={HeroBg} alt="hero-bg" className="hero-bg-2"/> */}
       <Box className="digital-transformation-hero">
         <HeroSection
           title="Digital Transformation & Automation to Accelerate Growth"

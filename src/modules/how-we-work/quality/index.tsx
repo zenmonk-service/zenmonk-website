@@ -30,21 +30,22 @@ const Quality = () => {
         </Typography>
 
         <Stack className="stats-img-container">
-          <Image src={Third} alt="" className="stats-img" />
-          <Image src={First} alt="" className="stats-img" />
-          <Image src={Second} alt="" className="stats-img" />
+          <Third className="stats-img" />
+          <First className="stats-img" />
+          <Second className="stats-img" />
         </Stack>
       </Stack>
       <Box className="quality-img-container">
-        <Image src={QualityImg} alt="" className="quality-img" />
+        <QualityImg className="quality-img" />
       </Box>
-        <Image src={QualityImgMobile} alt="" className="quality-img-mobile" />
+      <QualityImgMobile className="quality-img-mobile" />
+
       <Image
         src={VerticalDottedImage}
         alt=""
         className="vertical-dotted-image"
       />
-      <Image src={GraphIcon} alt="" className="graph-icon" />
+      <GraphIcon className="graph-icon" />
       <Image
         src={TopRightDottedImage}
         alt=""

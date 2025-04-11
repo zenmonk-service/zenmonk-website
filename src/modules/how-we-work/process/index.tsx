@@ -10,7 +10,7 @@ import './styles.scss'
 const Process = () => {
   return (
     <Box className="process-section-wrapper">
-      <Image src={ProcessImg} alt="process-diagram" className="process-img" />
+      <ProcessImg className="process-img" />
       <Stack className="process-section-mobile">
         <Stack className="text-wrapper">
           <SectionTitle text="Here's How" />
@@ -21,7 +21,7 @@ const Process = () => {
           </Typography>
           <SectionTitle text="Process" />
         </Stack>
-        <Image src={ProcessMobileImage} alt="" className='process-image-mobile' />
+        <ProcessMobileImage className="process-image-mobile" />
       </Stack>
     </Box>
   )
