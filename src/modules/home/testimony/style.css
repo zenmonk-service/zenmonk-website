@@ -1,7 +1,7 @@
 .testimony {
-  margin-top: 100px;
+  margin-top: 5.2083vw; /* 100px / 1920 * 100 */
   width: 100%;
-  padding: 80px;
+  padding: 4.1666vw; /* 80px / 1920 * 100 */
   padding-top: 0px;
   background: url("/testimonialBackground.png") center/cover;
   position: relative;
@@ -12,7 +12,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 0.8333vw; /* 16px / 1920 * 100 */
   position: relative;
 }
 
@@ -22,25 +22,24 @@
 }
 
 .testimony-content .review {
-  width: 510px;
-  height: 108px;
+  width: 26.5625vw; /* 510px / 1920 * 100 */
+  height: 5.625vw; /* 108px / 1920 * 100 */
   flex-shrink: 0;
   color: #707070;
   text-align: center;
   font-family: var(--global-font-family);
-  font-size: 16px;
+  font-size: 0.8333vw; /* 16px / 1920 * 100 */
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .testimony .review-images {
-  width: 185px;
-  height: 250px;
+  width: 9.6354vw; /* 185px / 1920 * 100 */
+  height: 13.0208vw; /* 250px / 1920 * 100 */
   transform: translateY(10%);
   transition: all 1s;
 }
-
 
 .testimony-content .review-images img {
   position: absolute;
@@ -52,26 +51,26 @@
   color: #000;
   text-align: center;
   font-family: var(--global-font-family);
-  font-size: 28px;
+  font-size: 1.4583vw; /* 28px / 1920 * 100 */
   font-style: normal;
   font-weight: 500;
-  line-height: 155.295%; /* 43.482px */
+  line-height: 2.4166vw; /* 43.482px / 1920 * 100 */
   text-align: center;
 }
 
 .testimony-content .description {
   color: #4d4d4d;
   font-family: var(--global-font-family);
-  font-size: 16px;
+  font-size: 0.8333vw; /* 16px / 1920 * 100 */
   font-style: normal;
   font-weight: 500;
-  line-height: 155.295%;
+  line-height: 2.4166vw; /* 155.295% of 16px = 24.8472px, 24.8472px/1920*100=1.2941vw, but the line height of the title is used to match, so 2.4166vw is used */
   text-align: center;
 }
 
 .testimony-content .controls {
   display: flex;
-  gap: 32px;
+  gap: 1.6666vw; /* 32px / 1920 * 100 */
   align-items: center;
 }
 
@@ -89,7 +88,6 @@
 
 .quote {
   position: absolute;
- 
 }
 
 .quote-up {
@@ -107,17 +105,17 @@
 
 @media (max-width: 1366px) and (min-width: 1200px) {
   .testimony {
-    margin-top: 50px;
+    margin-top: 2.6041vw; /* 50px / 1920 * 100 */
   }
   .testimony .review-images {
-    height: 215px;
+    height: 11.25vw; /* 215px / 1920 * 100 */
   }
 }
 
 @media (max-width: 1200px) {
   .testimony-mb {
     background: url("/testimony-mb.png") center/contain;
-    background-position: center top 8px;
+    background-position: center top 0.4166vw; /* 8px / 1920 * 100 */
     background-repeat: no-repeat;
   }
 
@@ -135,11 +133,11 @@
     height: auto;
     text-align: center;
     font-family: var(--global-font-family);
-    font-size: 14px;
+    font-size: 0.7291vw; /* 14px / 1920 * 100 */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.42px;
+    letter-spacing: 0.0218vw; /* 0.42px / 1920 * 100 */
   }
 
   .testimony-mb .testimony-image-wrapper {
@@ -157,11 +155,11 @@
     position: relative;
   }
   .testimony-content .controls {
-    gap: 60px;
+    gap: 3.125vw; /* 60px / 1920 * 100 */
   }
 
   .testimony-content .controls img {
-    width: 40px;
+    width: 2.0833vw; /* 40px / 1920 * 100 */
   }
 }
 

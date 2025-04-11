@@ -44,11 +44,9 @@ const page = () => {
       <AnimatedDiv>
         <FAQ />
       </AnimatedDiv>
-      {/*
-
       <AnimatedDiv>
         <Testimony />
-      </AnimatedDiv> */}
+      </AnimatedDiv> 
     </Box>
   )
 }

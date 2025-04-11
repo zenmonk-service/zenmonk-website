@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Title from '@/shared/title'
+import { SectionTitle } from '@/shared/typography'
 import first from './assets/1.png'
 import second from './assets/2.png'
 import third from './assets/3.png'
@@ -10,10 +11,10 @@ import fourth from './assets/4.png'
 import fivth from './assets/5.png'
 import sixth from './assets/6.png'
 import seventh from './assets/7.png'
-import arrowLeft from './assets/arrowLeft.svg'
-import arrowRight from './assets/arrowRIght.svg'
+import ArrowLeft from './assets/arrowLeft.svg'
+import ArrowRight from './assets/arrowRIght.svg'
 import GRADIENTBALL from './assets/gradientBall.png'
-import quote from './assets/quote.svg'
+import Quote from './assets/quote.svg'
 import './style.css'
 
 export default function Testimony() {
@@ -64,14 +65,14 @@ export default function Testimony() {
     },
   ]
 
-  const [coordinates, setCoordinates] = useState<any>([
-    '0px, 10px',
-    '-600px , -150px',
-    '600px , -150px',
-    '-700px , 100px',
-    '700px , 100px',
-    '600px , 350px',
-    '-600px , 350px',
+  const [coordinates, setCoordinates] = useState<string[]>([
+    '0vw, 0.5208vw', // 0px, 10px
+    '-31.25vw, -7.8125vw', // -600px, -150px
+    '31.25vw, -7.8125vw', // 600px, -150px
+    '-36.4583vw, 5.2083vw', // -700px, 100px
+    '36.4583vw, 5.2083vw', // 700px, 100px
+    '31.25vw, 18.2291vw', // 600px, 350px
+    '-31.25vw, 18.2291vw', // -600px, 350px
   ])
 
   function getNextIndex(index: number) {
@@ -93,7 +94,7 @@ export default function Testimony() {
       const value = coordinates[prevIndex]
 
       coordinates[currentIndex] = value
-      coordinates[prevIndex] = '0px, 10px'
+      coordinates[prevIndex] = '0vw, 0.5208vw' // 0px, 10px
 
       return coordinates
     })
@@ -110,7 +111,7 @@ export default function Testimony() {
       const value = coordinates[nextIndex]
 
       coordinates[currentIndex] = value
-      coordinates[nextIndex] = '0px, 10px'
+      coordinates[nextIndex] = '0vw, 0.5208vw' // 0px, 10px
 
       return coordinates
     })
@@ -123,11 +124,11 @@ export default function Testimony() {
       const newCoordinates = [...prevCoordinates]
 
       const hoveredIndex = newCoordinates.indexOf(coordinate)
-      const targetIndex = newCoordinates.indexOf('0px, 10px')
+      const targetIndex = newCoordinates.indexOf('0vw, 0.5208vw') // 0px, 10px
 
-      newCoordinates[hoveredIndex] = '0px, 10px'
+      newCoordinates[hoveredIndex] = '0vw, 0.5208vw' // 0px, 10px
       newCoordinates[targetIndex] = coordinate
-      setCurrentIndex(newCoordinates.indexOf('0px, 10px'))
+      setCurrentIndex(newCoordinates.indexOf('0vw, 0.5208vw')) // 0px, 10px
 
       return newCoordinates
     })
@@ -143,17 +144,16 @@ export default function Testimony() {
           className="section-header-wrapper"
         >
           <div className="section-header-container">
-            <Title
+            <SectionTitle
               text="We deliver what we promise"
+              markText="promise"
               align="center"
               className="title"
             />
-
-            <Image className="quote quote-up" src={quote} alt="quote" />
-            <Image className="quote quote-down" src={quote} alt="quote" />
+            <Quote className="quote quote-up" />
+            <Quote className="quote quote-down" />
           </div>
-
-          <div style={{ height: '40px' }}></div>
+          <div style={{ height: '2.0833vw' }}></div> {/* 40px = 2.0833vw */}
           {/* <p className="sub-heading">Real Results, Real People</p> */}
         </div>
 
@@ -164,10 +164,10 @@ export default function Testimony() {
                 key={index}
                 style={{
                   transform: `translate(${coordinate})`,
-
-                  scale: coordinate == '0px, 10px' ? 1.5 : 0.7,
+                  width: '9.375vw',
+                  height: 'auto',
+                  scale: coordinate == '0vw, 0.5208vw' ? 1.5 : 0.7, // 0px, 10px
                 }}
-                width={180}
                 src={images[index]}
                 alt={`image-${index + 1}`}
                 onClick={() => handleOnImageClick(coordinate)}
@@ -178,16 +178,16 @@ export default function Testimony() {
           <div className="review">{review[currentIndex].review}</div>
           <div
             style={{
-              marginTop: '10px',
-              marginBottom: '20px',
+              marginTop: '0.5208vw', // 10px = 0.5208vw
+              marginBottom: '1.0416vw', //20px = 1.0416vw
             }}
           >
             <div className="title">{review[currentIndex].by}</div>
             <div className="description">{review[currentIndex].position}</div>
           </div>
           <div className="controls">
-            <Image onClick={handleOnPrev} src={arrowLeft} alt=""></Image>
-            <Image onClick={handleOnNext} src={arrowRight} alt=""></Image>
+            <ArrowLeft onClick={handleOnPrev}  />
+            <ArrowRight onClick={handleOnNext}  />
           </div>
         </div>
         <Image
@@ -203,7 +203,7 @@ export default function Testimony() {
           alt="gradient_ball"
         />
         <Image
-           width={20}
+          width={20}
           className="gradient-ball gradient-ball-third"
           src={GRADIENTBALL}
           alt="gradient_ball"
