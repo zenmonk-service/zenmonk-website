@@ -9,6 +9,7 @@ import BaseButton from '@/shared/button'
 import Title from '@/shared/title'
 import { serviceList, Service } from './service-list'
 import './styles.scss'
+import { SectionTitle } from '@/shared/typography'
 
 const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
@@ -57,7 +58,7 @@ const ServiceSection = () => {
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
-        <Title className="title" text={text} align="center" />
+        <SectionTitle text={text} markText='services' />
       </div>
       <Box className="services-section">
         <Box className="services-left-container">

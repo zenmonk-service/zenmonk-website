@@ -194,14 +194,14 @@
         .companies-number {
           color: var(--global-color-primary);
           font-family: Poppins !important;
-          font-size: 60px;
+          font-size: 3.125vw;
           font-style: normal;
           font-weight: 700;
           line-height: normal;
-          @media screen and (max-width:1499px) {
-            font-size: 50px;
-            width:max-content;
-          }
+          // @media screen and (max-width:1499px) {
+          //   font-size: 50px;
+          //   width:max-content;
+          // }
         }
         .description {
           width: 13.59375vw;
@@ -217,14 +217,14 @@
   }
 }
 
-@media (max-width: 1499px) {
-  .odometer {
-    margin-top: 50px;
-  }
+// @media (max-width: 1499px) {
+//   .odometer {
+//     margin-top: 50px;
+//   }
 
-  .odometer-section {
-    margin-top: 50px;
-    padding: 0px !important;
-    padding-top: 20px !important;
-  }
-}
+//   .odometer-section {
+//     margin-top: 50px;
+//     padding: 0px !important;
+//     padding-top: 20px !important;
+//   }
+// }
