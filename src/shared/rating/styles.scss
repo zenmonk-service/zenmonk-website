@@ -1,23 +1,38 @@
-.rating-section{
-  margin-top: 50px;
+/* Values converted from px to vw based on a 1920px reference width */
+/* Formula: (value_in_px / 1920) * 100 = value_in_vw */
+
+.rating-section {
+  /* 50px / 1920 * 100 = 2.604vw */
+  margin-top: 2.604vw; 
   display: flex;
   justify-content: center;
   align-items: center;
+
   .rating-container {
     display: flex;
     width: max-content;
     height: auto;
     flex-shrink: 0;
     justify-content: center;
-    gap: 32px;
+    /* 32px / 1920 * 100 = 1.667vw */
+    gap: 1.667vw; 
     background-color: var(--global-color-primary);
-    padding: 40px;
-    border-radius: 32px 0px;
-    box-shadow: 2.667px 5.333px 21.467px 0px rgba(0, 0, 0, 0.06);
+    /* 40px / 1920 * 100 = 2.083vw */
+    padding: 2.083vw; 
+    /* 32px / 1920 * 100 = 1.667vw; 0px = 0 */
+    border-radius: 1.667vw 0; 
+    /* 2.667px / 1920 * 100 = 0.139vw 
+       5.333px / 1920 * 100 = 0.278vw 
+       21.467px / 1920 * 100 = 1.118vw 
+       0px = 0 
+    */
+    box-shadow: 0.139vw 0.278vw 1.118vw 0 rgba(0, 0, 0, 0.06); 
     flex-wrap: wrap;
-    
-    @media screen and (max-width: 1499px) {
-      padding: 14px;
+
+    /* Breakpoint kept in px */
+    @media screen and (max-width: 1499px) { 
+      /* 14px / 1920 * 100 = 0.729vw */
+      padding: 0.729vw; 
     }
   }
 }

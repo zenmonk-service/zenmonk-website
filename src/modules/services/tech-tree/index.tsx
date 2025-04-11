@@ -7,21 +7,22 @@ import {
   TechTreeImage,
 } from './assets'
 import './style.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const TechnologyTree = () => {
   return (
     <Stack className="tech-tree-container">
       <Stack className="tech-tree-right">
-        <Title
+        <SectionTitle
           text="Zen Tech Wonders We Excel In Innovation & Excellence"
+          markText='Excellence'
           align="left"
           className="tech-tree-heading"
         />
-        <Typography className="tech-tree-description">
-          We lead the way in technological innovation, consistently delivering
+        <SectionDescription className="tech-tree-description" text='We lead the way in technological innovation, consistently delivering
           solutions that transform industries. Our commitment to excellence
-          helps businesses and individuals achieve more.
-        </Typography>
+          helps businesses and individuals achieve more.' />
+
       </Stack>
       <TechTreeImage className="tech-tree-image" />
       <HalfGearImage className="half-gear" />

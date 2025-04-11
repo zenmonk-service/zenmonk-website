@@ -6,6 +6,7 @@ import ON_TIME from './assets/on_time.svg'
 import PROVEN_SUCCESS from './assets/proven_sucess.svg'
 import SUPPORT from './assets/support.svg'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const YourIdealChoice = () => {
   const ChoicesData = [
@@ -44,16 +45,15 @@ const YourIdealChoice = () => {
   return (
     <Box className="your-ideal-choice">
       <Box className="first-container">
-        <Title
-          align="left"
-          className="title"
-          text={'Why Our Expertise'}
+        <SectionTitle
+         text='Why our expertise Your Ideal Choice'
+         markText='expertise'
+         align='left'
+      className="title"
+      markTextProps={ {rotate: 5}}
         />
-        <Typography className="title" mb={2}>Your Ideal Choice</Typography>
-        <Typography className="description">
-          See how our expert insights are prominent fit for your unique
-          challenges.
-        </Typography>
+        <SectionDescription text='See how our expert insights are prominent fit for your unique
+          challenges.' className="description"/>
       </Box>
 
       {ChoicesData.map(({ icon: Icon, title, description }: any) => {
