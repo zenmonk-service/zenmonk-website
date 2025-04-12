@@ -1,9 +1,9 @@
 import { Box, Typography } from '@mui/material'
-import Title from '@/shared/title'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import WhyChooseUsCard from '../../components/card/why-choose-us'
 import { skills } from './skills'
 import { whyChooseUs } from './why-choose-us'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 import './styles.scss'
 
 export const WhyChooseUsSection = () => {
@@ -37,15 +37,18 @@ export const WhyChooseUsSection = () => {
           </Box>
         </Box>
         <Box className="right-section">
-          <Title
-            className="section-title"
+          <SectionTitle
+            markText="Others"
+            markTextProps={
+              {
+                rotate: 2
+              }
+            }
             text="Here’s How We Are Different From Others"
             align="left"
           />
-          <Typography component="p" className="description">
-            We combine cutting-edge technology and top-notch support to deliver
-            tailored software solutions that prioritize your success.
-          </Typography>
+          <SectionDescription text="We combine cutting-edge technology and top-notch support to deliver
+            tailored software solutions that prioritize your success" className="description" />
           <Box className="skills-set">
             {skills.map((skill, index) => {
               return (

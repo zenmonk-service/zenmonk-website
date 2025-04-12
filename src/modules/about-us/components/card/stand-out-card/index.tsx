@@ -3,21 +3,23 @@ import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
 interface StandOutCardProps {
-  icon: string
+  icon: any
   title: string
   description: string
   bgImage: string
 }
 
 const StandOutCard = ({
-  icon,
+  icon:Icon,
   title,
   description,
   bgImage,
 }: StandOutCardProps) => {
   return (
     <Box className="stand-out-card" sx={{ backgroundImage: `url(${bgImage})` }}>
-      <Image src={icon} alt="Stand Out Card" width={181} height={181} />
+      <Box className="icon-container">
+        <Icon/>
+      </Box>
       <Box className="stand-out-card-content">
         <Typography component="h3" className="title">
           {title}

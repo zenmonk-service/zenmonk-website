@@ -1,20 +1,20 @@
-import { Box, Typography } from '@mui/material'
-import Title from '@/shared/title'
+import { Box } from '@mui/material'
 import VisionCard from '../../components/card/vision-card'
 import { visions } from './visions'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 export const VisionSection = () => {
   return (
     <Box className="vision-section">
-      <Title
+      <SectionTitle
+        markText="Values"
+        markTextProps={{ rotate: 2 }}
         text="Driven by Vision, Guided by Values"
         className="section-title"
       />
-      <Typography component="p" className="section-description">
-      Empower and help Small & Medium enterprises to grow by providing reliable and cost-effective services & solutions.
-      </Typography>
+      <SectionDescription text="Empower and help Small & Medium enterprises to grow by providing reliable and cost-effective services & solutions." className="section-description" />
       <AboutSectionWrapper>
         <Box className="vision-list">
           {visions.map((vision, index) => {
