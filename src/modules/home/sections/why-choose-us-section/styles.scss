@@ -4,33 +4,21 @@
   margin-top: 5.99vw;
   position: relative;
   .logo {
-
     flex-shrink: 0;
   }
   .right-logo {
-
-    bottom:-11.458vw;
-
+    bottom: -11.458vw;
     right: -7.813vw;
-
+    width: 19.81vw;
+    height: 17.8vw;
     position: absolute;
-    // @media (max-width: 1800px) {
-    //   right: 6.25vw;
-    // }
   }
   .left-logo {
     top: 0;
     left: -11.458vw;
+    width: 19.81vw;
+    height: 17.8vw;
     position: absolute;
-  }
-  .title {
-    color: #132427;
-    font-family: Poppins;
-    font-size: 2.083vw    !important;
-    font-style: normal;
-    font-weight: 600 !important;
-    line-height: normal;
-    margin-bottom: 2.083vw;
   }
 }
 
@@ -38,46 +26,54 @@
   display: grid;
   place-content: center;
   position: relative;
-  max-width:67.708vw;
+  max-width: 67.708vw;
   margin: auto;
   margin-top: 1.563vw;
 
   margin-bottom: 3.125vw;
-
 }
 
 .why-choose-us .thumsup {
   scale: 0.2;
   opacity: 0;
+  width: 41.82vw;
+  height: 40.81vw;
+  margin-top: 3vw;
 }
 
 .why-choose-us .children .first {
   position: absolute;
-  top: 0.052vw;
-
-  left: 0.521vw;
-
+  top: 3vw;
+  left: 1vw;
+  width: 28.02vw;
+  height: 26.86vw;
   opacity: 0;
 }
 
 .why-choose-us .children .second {
   position: absolute;
-  top:0.052vw;
-  right: 0.521vw;
+  top: 1vw;
+  right: -0.5vw;
+  width: 30.02vw;
+  height: 24.86vw;
   opacity: 0;
 }
 
 .why-choose-us .children .third {
   position: absolute;
-  bottom: 0px;
-  left: 0.521vw;
+  bottom: -3.5vw;
+  left: -2vw;
+  width: 28.02vw;
+  height: 20.86vw;
   opacity: 0;
 }
 
 .why-choose-us .children .fourth {
   position: absolute;
-  bottom: 0.052vw;
-  right:0.521vw;
+  bottom: -5.5vw;
+  right: -0.5vw;
+  width: 26.02vw;
+  height: 22.86vw;
   opacity: 0;
 }
 
@@ -93,64 +89,60 @@
   animation: comeFromRight2 1.5s forwards;
 }
 
-
-
 .animate_scale {
   animation: scale 1.5s forwards;
 }
 
 @keyframes comeFromLeft {
   0% {
-    transform: translateX(-15.625vw    );
+    transform: translateX(-15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(3.125vw    ); /* Slight overshoot */
+    transform: translateX(3.125vw); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(2.604vw    ); /* Ends at 50px */
+    transform: translateX(2.604vw); /* Ends at 50px */
     opacity: 1;
   }
 }
 
 @keyframes comeFromRight {
   0% {
-    transform: translateX(15.625vw    );
+    transform: translateX(15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-3.125vw    ); /* Slight overshoot */
+    transform: translateX(-3.125vw); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-2.604vw    ); /* Ends at -50px */
+    transform: translateX(-2.604vw); /* Ends at -50px */
     opacity: 1;
   }
 }
 
 @keyframes comeFromRight2 {
   0% {
-    transform: translateX(15.625vw    );
+    transform: translateX(15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-5.729vw    ); /* Slight overshoot */
+    transform: translateX(-5.729vw); /* Slight overshoot */
     opacity: 1;
   }
 
   100% {
-    transform: translateX(-5.208vw    ); /* Ends at -50px */
+    transform: translateX(-5.208vw); /* Ends at -50px */
     opacity: 1;
   }
 }
-
-
 
 .animate_comeFromLeftS {
   animation: comeFromLeftS 1.5s forwards;
@@ -164,16 +156,14 @@
   animation: comeFromRight2S 1.5s forwards;
 }
 
-
-
 @keyframes comeFromLeftS {
   0% {
-    transform: translateX(-15.625vw    );
+    transform: translateX(-15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(0.521vw    ); /* Slight overshoot */
+    transform: translateX(0.521vw); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -185,12 +175,12 @@
 
 @keyframes comeFromRightS {
   0% {
-    transform: translateX(15.625vw    );
+    transform: translateX(15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-1.042vw    ); /* Slight overshoot */
+    transform: translateX(-1.042vw); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -202,12 +192,12 @@
 
 @keyframes comeFromRight2S {
   0% {
-    transform: translateX(15.625vw    );
+    transform: translateX(15.625vw);
     opacity: 0;
   }
 
   75% {
-    transform: translateX(-0.521vw    ); /* Slight overshoot */
+    transform: translateX(-0.521vw); /* Slight overshoot */
     opacity: 1;
   }
 
@@ -216,10 +206,6 @@
     opacity: 1;
   }
 }
-
-
-
-
 
 @keyframes scale {
   0% {
@@ -236,39 +222,3 @@
     opacity: 1;
   }
 }
-
-@media (max-width: 1366px) and (min-width: 992px) {
-  .why-choose-us {
-    margin-top: 2.083vw;
-  }
-
-  .animate_scale {
-    animation: scaleSM 1s forwards;
-  }
-
-  .why-choose-us .content {
-    transform: scale(0.7);
-
-    margin-bottom:-4.167vw;
-
-    margin-top:-4.167vw;
-
-  }
-}
-
-@keyframes scaleSM {
-  0% {
-    scale: 0.2;
-    opacity: 0;
-  }
-  55% {
-    scale: 1;
-    opacity: 1;
-  }
-
-  100% {
-    scale: 0.8;
-    opacity: 1;
-  }
-}
-

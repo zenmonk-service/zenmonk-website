@@ -51,7 +51,11 @@ const ActionLinks = () => {
                   background: pathname.includes(href)
                     ? 'linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%)'
                     : '',
-                  color: pathname.includes(href) ? '#fff' : name === 'Services' ? '#000' : '#393939',
+                  color: pathname.includes(href)
+                    ? '#fff'
+                    : name === 'Services'
+                      ? '#000'
+                      : '#393939',
                   '&:hover': {
                     background: pathname.includes(href) ? '' : '#ffd5ac38',
                   },
@@ -109,9 +113,15 @@ export default ActionLinks
 const Option: React.FC<OptionProps> = ({ isExpanded }) => (
   <Box className="expand-option-icon">
     {isExpanded ? (
-      <ExpandLess color="inherit" />
+      <ExpandLess
+        color="inherit"
+        style={{ width: '1.04vw', height: '1.04vw' }}
+      />
     ) : (
-      <ExpandMore color="inherit" />
+      <ExpandMore
+        color="inherit"
+        style={{ width: '1.04vw', height: '1.04vw' }}
+      />
     )}
   </Box>
 )

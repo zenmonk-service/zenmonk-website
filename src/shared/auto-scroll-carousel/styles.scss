@@ -13,9 +13,9 @@
       rgba(255, 255, 255, 0) 100%
     );
     content: '';
-    height: 108px;
+    height: 13.5vh;
     position: absolute;
-    width: 400px;
+    width: 10vw;
     z-index: 2;
   }
   &::after {
@@ -42,7 +42,7 @@
 .slide {
   height: auto;
   width: 15.625vw;
-  svg{
+  svg {
     width: 7.8125vw;
   }
   display: flex;

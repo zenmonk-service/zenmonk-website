@@ -1,43 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik+Doodle+Shadow&display=swap');
 
-
 .creative-ideas {
   height: 100vh;
-  width: 100%; 
-  max-height: 1080px;/* Ensure it spans the full viewport width */
+  width: 100%;
+  max-height: 56.25vw; /* 1080px → (1080/1920) * 100 */
   background-image: url('/ui-ux/creative-ideas.png');
-  background-size: cover; /* Ensures the image covers the entire element */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents repetition */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
+  margin-top: 6.25vw; /* 120px → (120/1920) * 100 */
+
   p {
     color: #3c3c3c;
     text-align: center;
     font-family: 'Rubik Doodle Shadow';
-    font-size: 90.249px;
+    font-size: 4.7vw; /* 90.249px → (90.249/1920) * 100 */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    max-width: 720px;
+    max-width: 37.5vw; /* 720px → (720/1920) * 100 */
     text-align: left;
+
     @media screen and (max-width: 1499px) {
-        font-size: 60px !important;
-        max-width: 520px;
-      }
+      font-size: 3.13vw !important; /* 60px → (60/1920) * 100 */
+      max-width: 27.08vw; /* 520px → (520/1920) * 100 */
+    }
+
     .wow {
       color: #f9a91a;
       text-align: center;
       font-family: 'Rubik Doodle Shadow';
-      font-size: 280px;
+      font-size: 14.58vw;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
 
       @media screen and (max-width: 1499px) {
-        font-size: 180px !important;
+        font-size: 9.38vw !important;
       }
     }
 
@@ -46,10 +48,11 @@
         color: red;
       }
     }
+
     span:last-child {
-        .orange {
-          color: red;
-        }
+      .orange {
+        color: red;
       }
+    }
   }
 }

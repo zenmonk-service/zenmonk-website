@@ -35,9 +35,9 @@ const UiUx: React.FC = () => (
                 DESIGN
               </Typography>
               <Typography variant="body1" className="text-description">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s. Lorem Ipsum has been the industry's standard
-                dummy text ever since the 1500s.
+                Want to transform user interactions?
+                We design intuitive and engaging experiences that makes every touchpoint seamless and
+                enjoyable. Let us enhance your interface with precision and creativity.
               </Typography>
             </Box>
           </Grid>

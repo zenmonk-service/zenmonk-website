@@ -1,6 +1,4 @@
 'use client'
-
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import {
   AppBar,
@@ -44,7 +42,7 @@ const Navbar = (props: Props) => {
     <HideOnScroll {...props}>
       <AppBar className="app-bar-container" elevation={0}>
         <Toolbar className="toolbar">
-          <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center">l
           {Monk && <Monk className="logo" onClick={navigateToHome} />}
           </Box>
           <ActionLinks />

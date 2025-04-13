@@ -53,7 +53,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div ref={heroSectionRef}>
-        
         {serviceKeys.length > 0 ? (
           serviceKeys.map((key) => {
             const HeroComponent = HERO_SECTIONS[key]

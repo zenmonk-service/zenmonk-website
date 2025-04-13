@@ -29,7 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.mjs",
-    "src/assets/icons/footer/index.tsx"
   ],
   "exclude": ["node_modules"]
 }

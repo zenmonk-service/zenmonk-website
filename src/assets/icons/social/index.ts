@@ -9,31 +9,31 @@ export const socialMedia = [
   {
     id: 1,
     name: 'Facebook',
-    url: FaceBook,
+    icon: FaceBook,
   },
   {
     id: 2,
     name: 'Instagram',
-    url: Instagram,
+    icon: Instagram,
   },
   {
     id: 3,
     name: 'Twitter',
-    url: X,
+    icon: X,
   },
   {
     id: 5,
     name: 'YouTube',
-    url: Youtube,
+    icon: Youtube,
   },
   {
     id: 4,
     name: 'Skype',
-    url: Skype,
+    icon: Skype,
   },
   {
     id: 6,
     name: 'LinkedIn',
-    url: LinkedIn,
+    icon: LinkedIn,
   },
 ]

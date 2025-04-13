@@ -23,9 +23,9 @@
 
   --font-size-14: max(12px, 0.625vw);
   --font-size-16: max(14px, 0.833vw);
-  --font-size-18: max(16px, 0.937vw);
+  --font-size-18: max(14px, 0.937vw);
   --font-size-20: max(18px, 1.041vw);
-  --font-size-24: max(20px, 1.250vw);
+  --font-size-24: max(16px, 1.250vw);
   --font-size-40: max(24px, 2.083vw);
 }
 

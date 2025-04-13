@@ -2,10 +2,9 @@
 
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
-import Satisfication from '@/modules/home/satisfication'
-import Title from '@/shared/title'
-import LOGO from './assets/logo-benzene.png'
+import Box from '@mui/material/Box'
+import Satisfaction from './assets/satisfaction.svg'
+import OldLogoDecorator from './assets/old-logo.png'
 import './styles.scss'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 
@@ -21,6 +20,9 @@ const ClientSatisfaction = () => {
         text="The Evolution of Client Satisfaction"
         markText='Satisfaction'
         align="center"
+        markTextProps={{
+          rotate: 2
+        }}
         className="title"
       />
       <Box>
@@ -30,10 +32,10 @@ const ClientSatisfaction = () => {
           engagement and expert planning.' />
       </Box>
       <Box ref={ref} className="svg-container">
-        <Satisfication />
+        <Satisfaction />
       </Box>
-      <Image className="logo-left" src={LOGO} alt="" />
-      <Image className="logo-right" src={LOGO} alt="" />
+      <Image className="logo-left" src={OldLogoDecorator} alt="" />
+      <Image className="logo-right" src={OldLogoDecorator} alt="" />
     </Box>
   )
 }

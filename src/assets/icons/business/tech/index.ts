@@ -5,11 +5,11 @@ import NodeJS from './nodejs.svg'
 import RestFulAPI from './restful.svg'
 
 const techLogos = [
-  { name: 'NodeJS', Src: NodeJS },
-  { name: 'MongoDB', Src: MongoDB },
-  { name: 'RestFulAPI', Src: RestFulAPI },
-  { name: 'Docker', Src: Docker },
-  { name: 'Git', Src: Git },
+  { name: 'NodeJS', icon: NodeJS },
+  { name: 'MongoDB', icon: MongoDB },
+  { name: 'RestFulAPI', icon: RestFulAPI },
+  { name: 'Docker', icon: Docker },
+  { name: 'Git', icon: Git },
 ]
 
 export { techLogos }

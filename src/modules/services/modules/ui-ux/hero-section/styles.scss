@@ -36,6 +36,7 @@
     .text-description {
       color: #757575;
       font-family: Poppins;
+      width: 90%;
       font-size: var(--font-size-24); // 24px
       font-style: normal;
       font-weight: 400;
@@ -49,13 +50,15 @@
     transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
     animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 8px;
   }
 
   .star {
     position: absolute;
+    height: 17.29vw;
+    width: 5.99vw;
     top: 5.208vw; // 100px
     left: -0.521vw; // -10px
   }
@@ -63,12 +66,15 @@
   .ring {
     position: absolute;
     bottom: 5.208vw; // 100px
+    width: 4.58vw;
+    height: 9.43vw;
     left: -0.521vw;
   }
 
   .pen {
     position: absolute;
-    width: 4.167vw; // 80px
+    width: 3.33vw;
+    height: 3.96vw;
     top: 5.208vw; // 100px
     left: 12%;
   }
@@ -83,35 +89,47 @@
     position: absolute;
     bottom: 0;
     right: -0.521vw;
+    width: 8.28vw;
+    height: 12.45vw;
   }
 
   .square {
     position: absolute;
     top: 10.417vw; // 200px
+    height: 8.38vw;
+    width: 4.62vw;
     right: -0.521vw;
   }
 
   .paint-brush {
     position: absolute;
     top: 20%;
+    width: 7.14vw;
+    height: 7.14vw;
     left: 35%;
   }
 
   .rope {
     position: absolute;
     bottom: 0.521vw; // 10px
+    height: 5.21vw;
+    width: 5.21vw;
     left: 30%;
   }
 
   .color-brush {
     position: absolute;
     top: 50%;
+    width: 4.84vw;
+    height: 4.17vw;
     left: 42%;
   }
 
   .flower {
     position: absolute;
-    top: -1.563vw; // -30px
+    top: -1.963vw;
+    width: 17.29vw;
+    height: 6.88vw;
     left: 25%;
   }
 }

@@ -22,7 +22,7 @@ const page = () => {
         <AnimatedDiv>
           <ServiceSection />
         </AnimatedDiv>
-        <AnimatedDiv>
+        {/*<AnimatedDiv>
           <TechSolutionSection />
         </AnimatedDiv>
         <AnimatedDiv>
@@ -46,7 +46,7 @@ const page = () => {
       </AnimatedDiv>
       <AnimatedDiv>
         <Testimony />
-      </AnimatedDiv> 
+      </AnimatedDiv>  */}
     </Box>
   )
 }

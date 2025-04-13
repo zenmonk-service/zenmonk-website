@@ -16,31 +16,15 @@
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 1499px) { /* Breakpoint kept in px */
-      padding: 2.604vw 5%; /* Original: 50px 5% */
-    }
-
     .it-solution-subtitle {
       color: #757575;
       text-align: center;
-      font-family: Poppins;
-      font-size: 0.938vw; /* Original: 18px */
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.025vw; /* Original: 0.48px */
       margin-top: 0.833vw; /* Original: 16px */
       max-width: 62.5vw; /* Original: 1200px */
-
-      @media (max-width: 1499px) { /* Breakpoint kept in px */
-        font-size: 0.885vw; /* Original: 17px */
-      }
     }
 
     .solution-card {
       flex-direction: row;
-      width: 22.344vw; /* Original: 429px */
-      height: 8.229vw; /* Original: 158px */
       flex-shrink: 0;
       border-radius: 1.042vw; /* Original: 20px */
       background: #fff;
@@ -51,6 +35,10 @@
         justify-content: center;
         width: 8.229vw; /* Original: 158px */
         border-radius: 1.042vw 0 0 1.042vw; /* Original: 20px 0 0 20px */
+        .icon{
+          width: 3.906vw;
+          height: 3.906vw;
+        }
       }
 
       .solution-card-right {
@@ -67,7 +55,7 @@
             'liga' off,
             'clig' off;
           font-family: Poppins;
-          font-size: 0.938vw; /* Original: 18px */
+          font-size: var(--font-size-18); /* Original: 18px */
           font-style: normal;
           font-weight: 600;
           line-height: 1.458vw; /* Original: 28px */
@@ -75,7 +63,7 @@
 
         .card-description {
           color: #727272;
-          font-size: 0.729vw; /* Original: 14px */
+          font-size: var(--font-size-16); /* Original: 14px */
           font-weight: 400;
           line-height: normal;
         }
@@ -90,7 +78,7 @@
           width: fit-content;
           flex-direction: row;
           font-family: Poppins;
-          font-size: 0.729vw; /* Original: 14px */
+          font-size: var(--font-size-16); /* Original: 14px */
           font-style: normal;
           font-weight: 600;
           line-height: 1.563vw; /* Original: 30px */

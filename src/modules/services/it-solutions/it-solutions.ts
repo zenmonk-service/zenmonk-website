@@ -17,7 +17,7 @@ export const ITSolutions = [
   },
   {
     title: 'CRM Software',
-    description: 'Enhance relationships with customizable CRM solutions.',
+    description: 'Enhance client relationships with customizable CRM solutions.',
     redirect: 'Read More ↗',
     bgColor: '#EEF6ED',
     icon: CrmIcon,

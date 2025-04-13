@@ -1,5 +1,4 @@
-export const ThumsUp = () => {
-  const svgString = `<svg width="803" height="822" viewBox="0 0 803 822" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="100%" viewBox="0 0 803 822" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M802.019 419.469H633.047V426.243H802.019V419.469Z" fill="url(#paint0_linear_2725_13447)"/>
 <path d="M424.051 0H417.273V168.872H424.051V0Z" fill="url(#paint1_linear_2725_13447)"/>
 <path d="M424.051 0H417.273V168.872H424.051V0Z" fill="url(#paint2_linear_2725_13447)"/>
@@ -132,9 +131,3 @@ export const ThumsUp = () => {
 </linearGradient>
 </defs>
 </svg>
-
-
-    `
-
-  return <div dangerouslySetInnerHTML={{ __html: svgString }} />
-}

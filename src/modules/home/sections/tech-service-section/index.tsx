@@ -2,14 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
-import Title from '@/shared/title'
+import { SectionTitle } from '@/shared/typography'
 import { serviceList, Service } from './service-list'
 import './styles.scss'
-import { SectionTitle } from '@/shared/typography'
+import ServiceMobile from './mobile'
 
 const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
@@ -28,6 +28,7 @@ const ServiceSection = () => {
     }
   }
 
+  const isMobile = useMediaQuery(`(max-width:1200px)`)
   useEffect(() => {
     if (rightSectionHeadingRefPosition)
       if (rightSectionHeadingRefPosition < 120) {
@@ -54,13 +55,13 @@ const ServiceSection = () => {
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <Box ref={rightSectionHeadingRef} mt={15}>
+    <Box ref={rightSectionHeadingRef} mt={"5vw"}>
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
-        <SectionTitle text={text} markText='services' />
+        <SectionTitle text={text} markText="services" />
       </div>
-      <Box className="services-section">
+      {isMobile? <ServiceMobile services={serviceList} /> : <Box className="services-section">
         <Box className="services-left-container">
           {serviceList.map((item: Service) => (
             <Box
@@ -68,7 +69,7 @@ const ServiceSection = () => {
               onClick={() => selectItem(item)}
               sx={{
                 '&:hover': {
-                  backgroundColor:`${item.hoverColor} !important`,
+                  backgroundColor: `${item.hoverColor} !important`,
                   transform: 'translateY(-4px)',
                 },
               }}
@@ -76,7 +77,7 @@ const ServiceSection = () => {
             >
               <Box className="business-item-content">
                 {/* <Box className="business-icon"> */}
-                  <item.Icon className="business-icon" />
+                <item.Icon className="business-icon" />
                 {/* </Box> */}
                 <Typography
                   component="h4"
@@ -116,10 +117,10 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map((Src : any, index) => {
+                {techLogos.map((logo) => {
                   return (
-                    <Box key={index}>    
-                        {/* <Src/> */}
+                    <Box key={logo.name}>
+                      <logo.icon className="icon" />
                     </Box>
                   )
                 })}
@@ -128,7 +129,7 @@ const ServiceSection = () => {
                 sx={{
                   color: 'var(--global-color-secondary) !important',
                   textTransform: 'uppercase !important',
-                  boxShadow: '0px 0.2vw 0.2vw 0px rgba(0, 0, 0, 0.25)',
+                  boxShadow: '0vw 0.0104vw 0.0104vw 0vw rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
                   fontFamily: 'Poppins',
                 }}
@@ -138,7 +139,7 @@ const ServiceSection = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </Box>}
     </Box>
   )
 }

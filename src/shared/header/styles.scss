@@ -3,22 +3,20 @@
   z-index: 100;
   background-color: transparent !important;
 
-
   .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.04% 7.8125% 10.057px;
     .logo {
-      width: 3.86vw;
-      height: 3.75vw;
+      height: 9.375vh;
       object-fit: contain;
       object-position: left;
       cursor: pointer;
     }
 
     .contact-button {
-      color: #FFF;
+      color: #fff;
       font-family: Inter, sans-serif;
       font-size: var(--font-size-16);
       font-style: normal;
@@ -26,11 +24,25 @@
       line-height: 0.9375vw;
       padding: 0.67vw 0.83vw;
       border-radius: 2.23vw;
-      background: linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%);
+      background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
       display: flex;
       justify-content: center;
       align-items: center;
       text-transform: capitalize;
     }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .logo{
+    height: 48px;
+    width: 48px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .logo{
+    height: 32px;
+    width: 32px;
   }
 }

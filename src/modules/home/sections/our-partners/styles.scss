@@ -20,7 +20,20 @@
       background: var(--global-color-gradient);
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      -webkit-background-clip:text
+      -webkit-background-clip: text;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .heading-container {
+    margin-top: 80px !important;
+    padding-bottom: 16px;
+
+    .text {
+      line-height: normal;
+      letter-spacing: 0.16px;
+      text-align: center;
     }
   }
 }
