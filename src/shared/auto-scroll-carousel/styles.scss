@@ -15,7 +15,7 @@
     content: '';
     height: 13.5vh;
     position: absolute;
-    width: 10vw;
+    width: 20.8333333333vw;
     z-index: 2;
   }
   &::after {
@@ -42,8 +42,14 @@
 .slide {
   height: auto;
   width: 15.625vw;
-  svg {
+  @media (max-width: 900px) {
+    width: 80px !important;
+  }
+  svg{
     width: 7.8125vw;
+    @media (max-width: 900px) {
+      width: 64px !important;
+    }
   }
   display: flex;
   justify-content: center;

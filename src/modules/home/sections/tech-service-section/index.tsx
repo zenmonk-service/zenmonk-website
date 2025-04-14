@@ -7,9 +7,9 @@ import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
 import { SectionTitle } from '@/shared/typography'
+import MobileService from './mobile-service'
 import { serviceList, Service } from './service-list'
 import './styles.scss'
-import ServiceMobile from './mobile'
 
 const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
@@ -55,13 +55,13 @@ const ServiceSection = () => {
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <Box ref={rightSectionHeadingRef} mt={"5vw"}>
+    <Box ref={rightSectionHeadingRef} className="service-section-wrapper">
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
         <SectionTitle text={text} markText="services" />
       </div>
-      {isMobile? <ServiceMobile services={serviceList} /> : <Box className="services-section">
+      <Box className="services-section desktop">
         <Box className="services-left-container">
           {serviceList.map((item: Service) => (
             <Box
@@ -117,12 +117,8 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map((logo) => {
-                  return (
-                    <Box key={logo.name}>
-                      <logo.icon className="icon" />
-                    </Box>
-                  )
+                {techLogos.map(({ Src }: any, index) => {
+                  return <Src />
                 })}
               </Box>
               <BaseButton
@@ -139,7 +135,8 @@ const ServiceSection = () => {
             </Box>
           </Box>
         </Box>
-      </Box>}
+      </Box>
+      <MobileService />
     </Box>
   )
 }

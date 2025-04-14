@@ -1,5 +1,12 @@
 .our-work-section {
   margin-top: 2.604vw;
+
+  @media (max-width: 1099px) 
+  {
+      display: none;
+      
+  }
+
   .title {
     color: #132427;
     text-align: center;

@@ -49,7 +49,7 @@ const ServiceMobile = ({ services }: { services: Service[] }) => {
                   {techLogos.map((logo) => {
                     return (
                       <Box key={logo.name}>
-                        <logo.icon className="icons" />
+                        <logo.Src className="icons" />
                       </Box>
                     )
                   })}

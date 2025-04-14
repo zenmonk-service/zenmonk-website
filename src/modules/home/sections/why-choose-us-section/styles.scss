@@ -3,6 +3,9 @@
   height: auto;
   margin-top: 5.99vw;
   position: relative;
+  @media (max-width: 600px) {
+    display: none !important;
+  }
   .logo {
     flex-shrink: 0;
   }

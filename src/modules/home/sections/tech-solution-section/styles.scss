@@ -30,14 +30,7 @@
         }
   
         .text-description {
-          color: #777;
-          text-align: justify;
-          font-family: Poppins;
-          font-size: var(--font-size-18);
-          font-style: normal;
-          font-weight: 400 !important;
-          line-height: 1.25vw;
-          letter-spacing: 0.02vw !important;
+           margin-bottom: 0px;
         }
       }
       .tech-solution-section-card-wrapper{
@@ -47,6 +40,9 @@
         flex-wrap: wrap; 
         justify-content: flex-start; 
         gap: 1.25vw; 
+        @media (max-width: 1099px) {
+          gap: 16px;
+        }
       }
       
     }
@@ -68,46 +64,18 @@
     }
   }
   
-
-  
-  @media (max-width: 900px) {
+  @media (max-width: 1099px) {
     .tech-solution-section-wrapper {
-      flex-direction: column-reverse;
-      text-align: center;
-      padding: 20px;
-  
-      .tech-solution-section {
-        .tech-solution-section-text-wrapper {
-          max-width: 90%;
-  
-          .text-heading {
-            font-size: 3.2rem !important;
-          }
-  
-          .text-description {
-            font-size: 1.8rem !important;
-          }
-        }
-      }
+      display: none;
+    
     }
-  }
   
-  @media (max-width: 600px) {
-    .tech-solution-section-wrapper {
-      height: auto;
-      padding: 10px;
-      .tech-solution-section-text-wrapper {
-        .text-heading {
-          font-size: 2.8rem !important;
-        }
-  
-        .text-description {
-          font-size: 1.6rem !important;
-        }
-      }
+    .tech-mobile-solution-section-wrapper {
+      display: block !important;
     }
   }
 
+  
   @media (max-width: 1699px) {
     .tech-solution-section-wrapper {
       // padding: 5%;

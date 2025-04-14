@@ -14,6 +14,7 @@ import { ZenmonkLogoV2, ZenmonkLogoV3 } from '@/assets/images'
 import { SectionTitle } from '@/shared/typography'
 import OldLogoDecorator from './assets/logo-benzene.png'
 import './styles.scss'
+import WhyChooseUSMobile from './mobile'
 
 const WhyChooseUsSection = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -45,14 +46,8 @@ const WhyChooseUsSection = () => {
   }, [])
 
   return (
-    <Box className="why-choose-us-section">
-      <SectionTitle
-        text="Elevate your tech journey with Zenmonk"
-        markText="Zenmonk"
-        markTextProps={{
-          rotate: 2,
-        }}
-      />
+    <><Box className="why-choose-us-section">
+      <SectionTitle text="Elevate your tech journey with Zenmonk" markText='Zenmonk' className="title" />
       {ZenmonkLogoV2 && (
         <Image src={OldLogoDecorator} alt="logo" className="logo left-logo" />
       )}
@@ -93,6 +88,9 @@ const WhyChooseUsSection = () => {
         </Box>
       </Box>
     </Box>
+    <WhyChooseUSMobile/>
+    </>
+    
   )
 }
 

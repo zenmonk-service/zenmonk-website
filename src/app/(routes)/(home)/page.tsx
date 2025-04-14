@@ -22,7 +22,7 @@ const page = () => {
         <AnimatedDiv>
           <ServiceSection />
         </AnimatedDiv>
-        {/*<AnimatedDiv>
+        <AnimatedDiv>
           <TechSolutionSection />
         </AnimatedDiv>
         <AnimatedDiv>
@@ -38,6 +38,9 @@ const page = () => {
         <Odometer />
       </AnimatedDiv>
       </Box>
+        {/*
+    
+        {/*
       <AnimatedDiv>
         <ClientSatisfaction />
       </AnimatedDiv>

@@ -1,3 +1,9 @@
+.service-section-wrapper {
+  margin-top: max(6.25vw, 80px);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .services-section {
   width: 100%;
   display: flex;
@@ -70,7 +76,7 @@
   .services-right-container {
     display: flex;
     margin-right: 2.08vw;
-    height: 28.38vw;
+    height: fit-content;
     top: 9.375vw;
     top: 15vh;
     position: sticky;
@@ -86,7 +92,6 @@
     .business-proof {
       margin-top: 3.125vw;
       width: 49.375vw;
-      height: 28.38vw;
       border-radius: 0.41vw;
       background: #f77d03;
       display: flex;
@@ -111,16 +116,13 @@
         .business-proof-description {
           font-size: var(--font-size-18);
           font-weight: 400;
-          line-height: 1.46vw;
           font-family: Poppins;
         }
         .business-proof-technologies {
           display: flex;
           flex-direction: row;
           gap: 2.6vw;
-          .icon {
-            height: 4.06vw;
-          }
+          height: 4.06vw;
         }
       }
     }
@@ -247,5 +249,15 @@
         }
       }
     }
+  }
+}
+
+
+@media (max-width: 1099px) { 
+  .services-section.desktop {
+    display: none;
+  }
+  .mobile-service-section  {
+    display: flex !important;
   }
 }

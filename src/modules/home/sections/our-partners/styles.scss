@@ -1,21 +1,29 @@
 .heading-container {
   justify-content: center;
   margin-top: 2.6% !important;
+  @media (max-width: 900px) {
+    margin-top: 60px !important;
+  }
   display: flex;
   align-items: center;
   width: 100%;
   margin: auto;
   padding: 1.04%;
   padding-bottom: 0.52%;
-
+  @media (max-width: 900px) {
+  }
   .text {
     color: #777;
     font-size: var(--font-size-24);
     font-style: normal;
     font-weight: 600;
-    line-height: 1.04%;
     font-family: Poppins;
     margin-bottom: 1.04%;
+    text-align: center;
+    @media (max-width: 900px) {
+      font-size: 16px !important;
+      font-weight: 400;
+    }
     span {
       background: var(--global-color-gradient);
       background-clip: text;
@@ -37,3 +45,5 @@
     }
   }
 }
+
+
