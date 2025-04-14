@@ -3,45 +3,58 @@
   height: auto;
   display: flex;
   position: relative;
-  padding-top: 7.813vw;
-  padding-bottom: 2.604vw;
+  padding-top: max(7.813vw, 16px);
+  padding-bottom: max(2.604vw, 16px);
   background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
   overflow: hidden;
+  background-image: url("./assets/dotted-line.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 98vw 100vh;
+  background-position-x: right;
+
+  @media (max-width: 899px) {
+    background-image: url("./assets/dotted-mobile.png");
+  }
 
   .contact-us {
     display: flex;
-    gap: 5.208vw;
+    gap: max(10.9vw, 40px);
     width: 100%;
     justify-content: center;
 
-    .dotted-image {
-      z-index: 2;
-      position: absolute;
-      top: -15%;
-      left: 5%;
-      width: 100%;
-      height: 120%;
-      pointer-events: none;
+    @media (max-width: 899px) {
+      flex-direction: column;
+      align-items: center;
+      gap: max(9vw, 40px);
     }
 
     .polygon {
       position: absolute;
       right: 0;
       bottom: -10%;
+
+      @media (max-width: 899px) {
+        display: none;
+      }
     }
 
     .left-container {
       display: flex;
       flex-direction: column;
-      width: 28.125vw;
+      width: 30.125vw;
+
+      @media (max-width: 899px) {
+        width: 83vw;
+      }
 
       .section-title {
         color: #132427;
         font-family: Poppins;
-        font-size: 2.604vw;
+        font-size: max(2.604vw, 24px);
         font-style: normal;
         font-weight: 600;
-        line-height: 3.125vw;
+        line-height: max(3.125vw, 32px);
 
         span {
           display: inline;
@@ -50,56 +63,55 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-family: Poppins;
-          font-size: 2.604vw;
+          font-size: inherit;
           font-style: normal;
           font-weight: 600;
-          line-height: 3.125vw;
+          line-height: inherit;
+        }
+
+        .line-break {
+
+          @media (max-width: 899px) {
+            display: none;
+          }
         }
       }
 
       .countries-list {
-        margin-top: 1.042vw;
-        gap: 1.042vw;
+        margin-top: max(1.042vw, 22px);
+        gap: max(1.042vw, 13px);
         width: 100%;
         display: flex;
 
-        .country-card img {
-          width: 2.865vw;
-        }
       }
 
       .selected-country-title {
-        margin-top: 2.083vw;
+        margin-top: max(2.083vw, 24px);
         color: #132427;
         text-align: left;
         font-family: Poppins;
-        font-size: var(--font-size-16);
+        font-size: max(16px, 1vw);
         font-style: normal;
         font-weight: 700;
         line-height: normal;
       }
 
       .selected-country-description {
-        margin-top: 0.521vw;
+        margin-top: max(8px, 0.521vw);
         width: 60%;
         color: #696969;
         font-family: Poppins;
         font-size: var(--font-size-16);
         font-style: normal;
         font-weight: 600;
-        line-height: 1.563vw;
-        letter-spacing: 0.017vw;
-        margin-bottom: 1.042vw;
+        line-height: max(1.563vw, 22px);
+        letter-spacing: max(0.017vw, 0.28px);
       }
 
       .contact-card {
-        margin-top: 0.729vw !important;
+        margin-top: max(0.729vw, 24px) !important;
         margin-bottom: 0px !important;
         z-index: 10;
-
-        img {
-          margin-left: -0.417vw !important;
-        }
 
         .contact-card-content {
           display: flex !important;
@@ -107,14 +119,13 @@
           align-items: center;
 
           .description {
-            margin-left: -1.042vw;
             color: #696969 !important;
             font-family: Poppins;
             font-size: var(--font-size-16); // approx. 16px
             font-style: normal;
             font-weight: 600;
-            line-height: 1.563vw;
-            letter-spacing: 0.017vw;
+            line-height: max(22px, 1.563vw);
+            letter-spacing: max(0.017vw, 0.28px);
           }
         }
       }
@@ -122,13 +133,10 @@
 
     .right-container {
       z-index: 10;
-    }
 
-    .vector {
-      bottom: -3.646vw; // -70px
-      right: -7.813vw; // -150px
-      position: absolute;
-      z-index: -10;
+      @media (max-width: 899px) {
+        width: 83vw;
+      }
     }
   }
 }

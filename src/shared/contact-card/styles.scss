@@ -1,15 +1,17 @@
 .contact-card {
   width: 100%;
   display: flex;
-  gap: 1.042vw; // 20px
   margin-top: 1.25vw; // 24px
   margin-bottom: 1.25vw; // 24px
+  gap: 0.8vw;
+  width: 100%;
+  align-items: center;
 
-  .contact-card-image {
-    width: 2.292vw; // 44px
-    height: 2.292vw;
-    flex-shrink: 0;
-  }
+  // .contact-card-image {
+  //   width: 2.292vw; // 44px
+  //   height: 2.292vw;
+  //   flex-shrink: 0;
+  // }
 
   .title {
     color: white;

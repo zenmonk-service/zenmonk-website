@@ -34,7 +34,7 @@ export const countries = [
     idx: 0,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'Asha Tower, Phase 8B, SAS Nagar (Mohali), Punjab,160055',
     },
   },
@@ -50,7 +50,7 @@ export const countries = [
     idx: 2,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'Torres, Cantabria, Spain & 21, 39011,Barcelona,Spain',
     },
   },
@@ -65,7 +65,7 @@ export const countries = [
     idx: 3,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'R. Vento Sul, 126 - Campeche Leste, Florianópolis, Brazil',
     },
   },
@@ -81,7 +81,7 @@ export const countries = [
     idx: 4,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'Geronimo y Miguel H. Alcivar, 090512. Guayaquil, Ecuador',
     },
   },
@@ -96,7 +96,7 @@ export const countries = [
     idx: 5,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'Jr. Chimucápac 163, Santiago de Surco 15038, Peru',
     },
   },
@@ -111,7 +111,7 @@ export const countries = [
     idx: 6,
     office: {
       email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678, +91 9012345678',
+      phone: '+91 9012345678',
       address: 'Cl. 40 #26a8, Bogotá, Colombia',
     },
   },

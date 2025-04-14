@@ -2,13 +2,16 @@
   width: 32.86vw; // 631px
   height: auto;
   flex-shrink: 0;
-  padding: 2.14vw; // 41px
-  padding-top: 1.04vw; // 20px
-  border-radius: 1.04vw; // 20px
+  padding: max(2.14vw, 16px); // 41px
+  padding-top: max(1.04vw, 16px); // 20px
+  border-radius: max(1.04vw, 8px); // 20px
   background: #fff;
   box-shadow: 0 0 1.56vw 0 rgba(0, 0, 0, 0.1); // 30px
-
   overflow: hidden;
+
+  @media (max-width: 899px) {
+    width: 100%;
+  }
 
   .error-text {
     font-size: var(--font-size-14) !important; // 13px
@@ -34,7 +37,7 @@
   .fullname {
     width: 100%;
     display: flex;
-    gap: 1.56vw; // 30px
+    gap: max(1.56vw, 16px); // 30px
 
     .form-control {
       .first-name-input,
@@ -71,8 +74,8 @@
       }
 
       .end-adornment {
-        margin-top: 0.78vw; // 15px
-        margin-right: 1.04vw; // 20px
+        margin-top: max(0.78vw, 15px); // 15px
+        margin-right: max(1.04vw, 20px); // 20px
       }
     }
   }
@@ -81,12 +84,16 @@
     margin-top: 1.04vw; // 20px
     flex-shrink: 0;
 
+    @media (max-width: 899px) {
+      margin-top: 40px;
+    }
+
     button {
       display: flex;
-      padding: 1.04vw 1.56vw !important; // 20px 30px
+      padding: max(1.04vw, 12px) max(1.56vw, 30px) !important; // 20px 30px
       justify-content: center !important;
       align-items: center !important;
-      gap: 0.52vw !important; // 10px
+      gap: max(0.52vw, 10px) !important; // 10px
       flex-shrink: 0;
     }
 
