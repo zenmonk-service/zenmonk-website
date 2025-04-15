@@ -9,6 +9,11 @@
     border-radius: 0.26vw;
     transition: box-shadow 0.3s ease-in-out;
 
+    @media (max-width: 899px) {
+      width: 10vw; 
+      height: 6.25vw; 
+    }
+
     &:hover {
       cursor: pointer;
       box-shadow: 0 0.26vw 0.78vw rgba(145, 92, 182, 0.4); // 5px 15px

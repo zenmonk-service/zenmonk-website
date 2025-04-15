@@ -15,6 +15,8 @@
 
   @media (max-width: 899px) {
     background-image: url("./assets/dotted-mobile.png");
+    background-size: 100vw 68vh;
+    background-position-x: center;
   }
 
   .contact-us {
@@ -83,6 +85,10 @@
         width: 100%;
         display: flex;
 
+        @media (max-width: 899px) {
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
       }
 
       .selected-country-title {
