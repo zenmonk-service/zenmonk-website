@@ -34,22 +34,20 @@ const page = () => {
           <WhyChooseUsSection />
         </AnimatedDiv>
       </SectionWrapper>
-      {/* <AnimatedDiv>
+      <AnimatedDiv>
         <Odometer />
-      </AnimatedDiv> */}
+      </AnimatedDiv>
       </Box>
       <AnimatedDiv>
         <ClientSatisfaction />
       </AnimatedDiv>
-        {/*
-    
-        {/*
       <AnimatedDiv>
         <FAQ />
       </AnimatedDiv>
       <AnimatedDiv>
         <Testimony />
-      </AnimatedDiv>  */}
+      </AnimatedDiv> 
+     
     </Box>
   )
 }

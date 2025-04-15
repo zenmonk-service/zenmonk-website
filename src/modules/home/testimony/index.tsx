@@ -15,6 +15,10 @@ import ArrowLeft from './assets/arrowLeft.svg'
 import ArrowRight from './assets/arrowRIght.svg'
 import GRADIENTBALL from './assets/gradientBall.png'
 import Quote from './assets/quote.svg'
+import ALL from "./assets/ALL.svg";
+import ALR from "./assets/ALR.svg";
+
+
 import './style.css'
 
 export default function Testimony() {
@@ -214,6 +218,49 @@ export default function Testimony() {
           src={GRADIENTBALL}
           alt="gradient_ball"
         />
+      </div>
+
+
+
+
+
+      <div className="testimony-mb mobile">
+      <SectionTitle
+              text="We deliver what we promise"
+              markText="promise"
+              align="center"
+              className="title"
+            />
+
+        <div className="testimony-container">
+          <div className="testimony-content">
+            <div className="reviwer-image">
+              <Image
+                style={{
+                  width: "50%",
+                  height: "auto",
+                }}
+                src={images[currentIndex]}
+                alt=""
+              />
+            </div>
+
+            <div className="review">{review[currentIndex].review}</div>
+
+            <div
+              style={{
+                marginBottom: "20px",
+              }}
+            >
+              <div className="title">{review[currentIndex].by}</div>
+              <div className="description">{review[currentIndex].position}</div>
+            </div>
+            <div className="controls">
+              <ALL  onClick={handleOnPrev} />
+              <ALR  onClick={handleOnNext} />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

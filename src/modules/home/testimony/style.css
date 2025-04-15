@@ -12,8 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.8333vw; /* 16px / 1920 * 100 */
+  gap: Max(16px, 0.8333vw); /* 16px / 1920 * 100 */
   position: relative;
+  margin-top: 36px;
 }
 
 .testimony-content .reviwer-image {
@@ -50,27 +51,34 @@
 .testimony-content .title {
   color: #000;
   text-align: center;
-  font-family: var(--global-font-family);
-  font-size: 1.4583vw; /* 28px / 1920 * 100 */
+  font-feature-settings: 'liga' off, 'clig' off;
+  
+  /* h3 */
+  font-family: Poppins;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 2.4166vw; /* 43.482px / 1920 * 100 */
-  text-align: center;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  text-transform: capitalize;
 }
 
 .testimony-content .description {
-  color: #4d4d4d;
-  font-family: var(--global-font-family);
-  font-size: 0.8333vw; /* 16px / 1920 * 100 */
-  font-style: normal;
-  font-weight: 500;
-  line-height: 2.4166vw; /* 155.295% of 16px = 24.8472px, 24.8472px/1920*100=1.2941vw, but the line height of the title is used to match, so 2.4166vw is used */
+  color: #4D4D4D;
   text-align: center;
+  
+  /* p2 */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
 }
 
 .testimony-content .controls {
   display: flex;
-  gap: 1.6666vw; /* 32px / 1920 * 100 */
+  gap: Max(16px, 1.6666vw); /* 32px / 1920 * 100 */
   align-items: center;
 }
 
@@ -112,11 +120,14 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .testimony-mb {
     background: url("/testimony-mb.png") center/contain;
     background-position: center top 0.4166vw; /* 8px / 1920 * 100 */
     background-repeat: no-repeat;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 40px;
   }
 
   .testimony.desktop {
@@ -132,12 +143,14 @@
     width: auto;
     height: auto;
     text-align: center;
-    font-family: var(--global-font-family);
-    font-size: 0.7291vw; /* 14px / 1920 * 100 */
+    font-family: Poppins;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    letter-spacing: 0.0218vw; /* 0.42px / 1920 * 100 */
+    letter-spacing: 0.42px;
+    max-width: 600px;
+    
   }
 
   .testimony-mb .testimony-image-wrapper {
@@ -154,18 +167,17 @@
   .testimony-mb .testimony-content {
     position: relative;
   }
-  .testimony-content .controls {
-    gap: 3.125vw; /* 60px / 1920 * 100 */
-  }
 
-  .testimony-content .controls img {
-    width: 2.0833vw; /* 40px / 1920 * 100 */
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .testimony-mb {
-    background: url("/testimony-mb.png") center/cover;
+    
+      background-image: url("./assets/testimony-mb.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+  
   }
 }
 
