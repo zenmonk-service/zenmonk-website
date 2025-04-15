@@ -13,7 +13,9 @@ const ReadyToTalk = () => {
           align="left"
           text={'Ready to talk about your frontend project?'}
           markText='project'
-      
+          markTextProps={{
+            rotate:3
+          }}
         />
 
         <SectionDescription className='subheading' text=' We’ve been helping businesses create successful web applications for

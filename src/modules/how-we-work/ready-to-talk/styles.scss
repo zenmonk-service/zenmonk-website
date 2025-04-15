@@ -2,8 +2,10 @@
   margin: auto;
   display: flex;
   gap: 4.16666666667vw;
-  margin-top: 120px;
+  margin-top: 6.25vw;
   align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
 
   @media (max-width: 1499px) {
     margin-top: 100px;
@@ -51,7 +53,7 @@
       font-style: normal;
       line-height: normal;
 
-      margin-top: max(16px, 0.83333333333);
+      margin-top: max(16px, 0.83333333333vw);
 
 
       @media (max-width: 1499px) {
@@ -72,8 +74,8 @@
     }
 
     .step-container {
-      margin-top: 40px;
-      gap: 40px;
+      margin-top: 2.08333333333vw;
+      gap: 2.08333333333vw;
 
       @media (max-width: 1499px) {
         margin-top: 36px;
