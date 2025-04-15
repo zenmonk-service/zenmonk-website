@@ -1,16 +1,16 @@
 .culture-card {
   position: relative;
-  width: 320px;
-  height: 381px;
+  width: 16.6667vw;
+  height: 19.8438vw;
   flex-shrink: 0;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
+  border-radius: 0.4167vw;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -20,32 +20,34 @@
 
   .culture-card-content {
     position: absolute;
-    bottom: 20px;
+    bottom: 1.0417vw;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     transition: transform 0.3s ease-in-out;
-    margin-left: 20px;
+    margin-left: 1.0417vw;
 
     .title {
       color: #fff;
       font-family: Poppins, sans-serif;
-      font-size: 24px;
+      font-size: 1.25vw;
       font-weight: 500;
       transition: transform 0.3s ease-in-out;
     }
 
     .description {
       width: 90%;
-      margin-top: 16px;
+      margin-top: 0.833vw;
       color: #fff;
       font-family: Poppins, sans-serif;
-      font-size: 18px;
+      font-size: 0.9375vw;
       line-height: normal;
       opacity: 0;
-      max-height: 0;
+      max-height: 6.25vw;
       overflow: hidden;
-      transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+      transition:
+        opacity 0.3s ease-in-out,
+        max-height 0.3s ease-in-out;
     }
   }
 
@@ -54,7 +56,7 @@
   }
 
   &:hover .culture-card-content {
-    transform: translate(-50%, -80px);
+    transform: translate(-50%, -4.1667vw);
   }
 
   &:hover .title {
@@ -63,12 +65,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600 !important;
-    font-weight: 600;
-    transform: translateY(-10px);
+    transform: translateY(-0.5208vw);
   }
 
   &:hover .description {
     opacity: 1;
-    max-height: 120px;
+    max-height: 6.25vw;
   }
 }
