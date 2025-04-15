@@ -13,7 +13,7 @@ const ColorTypography = ({ text }: { text: string }) => {
 }
 const HeroSection = () => {
   return (
-    <Box className="hero-section">
+    <Box className="hero-section-d">
       <BallDecorator className="ball-decorator" />
       <Box className="container">
         <Box className="text-container">

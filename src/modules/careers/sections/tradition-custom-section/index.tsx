@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Box, Container, Typography } from '@mui/material'
-import { bgImage } from './assets'
+import { bgImage as BGIMAGE} from './assets'
 import TraditionCustomCard from './card/tradition-card'
 import './styles.scss'
 import { traditionsCustoms } from './tradition-customs'
@@ -8,7 +8,7 @@ import { traditionsCustoms } from './tradition-customs'
 const TraditionsCustoms = () => {
   return (
     <Box className="traditions-customs-section">
-      <Image src={bgImage} alt="bg" className="bg-image" />
+      <BGIMAGE className="bg-image" />
       <Container maxWidth="xl" className="container">
         <Box className="traditions-customs-title-description-wrapper">
           <Typography component="h1" className="traditions-customs-title">

@@ -1,4 +1,4 @@
-.hero-section {
+.hero-section-d{
   display: flex;
   align-items: center;
   height: 80vh;
@@ -202,7 +202,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .hero-section {
+  .hero-section-d {
     flex-direction: column-reverse;
     height: 75svh;
     padding-left: 16px;

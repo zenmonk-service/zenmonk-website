@@ -20,11 +20,8 @@ const InnovationExcellence = () => {
           growth opportunities, and ensuring our team feel valued and
           appreciated.
         </Typography>
-        <Image
-          alt="excellence-image"
-          src={Excellence}
-          className="excellence-image"
-        />
+        <Excellence className="excellence-image"/>
+       
       </Box>
       <Box className="right-section">
         {innovations.map((innovation, index) => {

@@ -8,7 +8,7 @@ interface PerksCardProps {
   borderColor: string
   bgColor: string
   title: string
-  image: StaticImageData
+  image: any
 }
 
 const PerkBenefits = () => {
@@ -37,11 +37,11 @@ const PerkBenefits = () => {
   )
 }
 
-const PerksCard = ({ title, image, bgColor, borderColor }: PerksCardProps) => {
+const PerksCard = ({ title, image: Image, bgColor, borderColor }: PerksCardProps) => {
   return (
     <Box sx={{ border: `1px solid ${borderColor}` }} className="perk-card">
       <Box sx={{ bgcolor: bgColor }} className="perk-card-image">
-        <Image src={image} alt={`${title}-image`} />
+        <Image/>
       </Box>
       <Typography component="p" className="perk-card-title">
         {title}
