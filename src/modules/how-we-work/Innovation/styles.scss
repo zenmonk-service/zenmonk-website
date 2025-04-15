@@ -1,8 +1,8 @@
 .innovation-section-wrapper {
-  padding: 60px 4% 66px;
+  padding: 3.125vw 4% 3.4375vw;
   background: #edf3f1;
   height: fit-content;
-  margin-top: 120px;
+  margin-top: 6.25vw;
 
   @media (max-width: 1499px) {
     margin-top: 105px;
@@ -27,7 +27,7 @@
 
   .innovation-section {
     width: 100%;
-    max-width: 1440px;
+    
     margin: auto;
     height: 100%;
     justify-content: center;
@@ -60,7 +60,7 @@
       }
 
       .innovation-title {
-        font-size: 40px !important;
+ 
 
         @media (max-width: 1499px) {
           font-size: 36px !important;
@@ -84,9 +84,7 @@
         color: #5c5c5c;
         text-align: center;
         font-family: Poppins;
-        font-size: 18px;
-        font-weight: 400;
-        max-width: 1160px;
+        max-width: 60.4166666667vw;
 
         @media (max-width: 1499px) {
           font-size: 17px;

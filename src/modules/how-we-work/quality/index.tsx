@@ -12,22 +12,24 @@ import Title from '@/shared/title'
 import TopRightDottedImage from '../assets/quality/top-right-dotted.png'
 import VerticalDottedImage from '../assets/quality/vertical-dotted.png'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const Quality = () => {
   return (
     <Box className="quality-hero-section-wrapper">
       <Stack className="first-section">
-        <Title
+        <SectionTitle
           align="left"
           text={'Our Promise of Quality Analysis'}
-          className="quality-title"
+          markText='Analysis'
+         
         />
-        <Typography className="subheading">
-          We deliver Zen-inspired precise, mindful solutions by integrating deep
+        <SectionDescription className='subheading' text=' We deliver Zen-inspired precise, mindful solutions by integrating deep
           expertise with client collaboration; prioritizing transparency,
           innovation, and purposeful development to innovate impactful
-          technology.
-        </Typography>
+          technology.' >
+        
+        </SectionDescription>
 
         <Stack className="stats-img-container">
           <Third className="stats-img" />

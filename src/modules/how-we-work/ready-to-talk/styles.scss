@@ -1,8 +1,7 @@
 .ready-to-talk-section-wrapper {
-  max-width: 1470px;
   margin: auto;
   display: flex;
-  gap: 80px;
+  gap: 4.16666666667vw;
   margin-top: 120px;
   align-items: center;
 
@@ -26,7 +25,7 @@
   .ready-to-talk-content {
 
     .ready-to-talk-heading {
-      font-size: 40px !important;
+
 
       @media (max-width: 1499px) {
         font-size: 36px !important;
@@ -48,12 +47,11 @@
     .subheading {
       color: #757575;
       font-family: Poppins;
-      font-size: 18px;
+  
       font-style: normal;
-      font-weight: 400;
       line-height: normal;
-      letter-spacing: 0.48px;
-      margin-top: 16px;
+
+      margin-top: max(16px, 0.83333333333);
 
 
       @media (max-width: 1499px) {
@@ -102,13 +100,13 @@
           color: #132427;
           font-feature-settings: 'liga' off, 'clig' off;
           font-family: Poppins;
-          font-size: 28px;
+          font-size: max(28px, 1.45833333333vw);
           font-style: normal;
           font-weight: 600;
           // line-height: 54.03px;
           display: flex;
           align-items: center;
-          gap: 18px;
+          gap: max(18px, 0.9375vw);
 
           @media (max-width: 1499px) {
             font-size: 26px;
@@ -132,7 +130,7 @@
           color: #757575;
           font-feature-settings: 'liga' off, 'clig' off;
           font-family: Poppins;
-          font-size: 18px;
+          font-size: max(18px, 0.9375vw);
           font-style: normal;
           font-weight: 400;
           line-height: normal;

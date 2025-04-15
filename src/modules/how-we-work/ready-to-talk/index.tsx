@@ -3,21 +3,23 @@ import { Box, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
 import { Ready } from '../assets'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const ReadyToTalk = () => {
   return (
     <Box className="ready-to-talk-section-wrapper">
       <Box className="ready-to-talk-content">
-        <Title
+        <SectionTitle
           align="left"
           text={'Ready to talk about your frontend project?'}
-          className="ready-to-talk-heading"
+          markText='project'
+      
         />
 
-        <Typography className="subheading">
-          We’ve been helping businesses create successful web applications for
-          years, and we’re excited to learn more about your project.
-        </Typography>
+        <SectionDescription className='subheading' text=' We’ve been helping businesses create successful web applications for
+          years, and we’re excited to learn more about your project.'>
+         
+        </SectionDescription>
 
         <Stack className="step-container">
           <Box className="steps">
