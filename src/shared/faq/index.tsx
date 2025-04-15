@@ -36,10 +36,14 @@ const questions = [
 ]
 
 const FAQ = () => {
-  const [index, setIndex] = useState<number>(0)
+  const [visibleIndex, setVisibleIndex] = useState<number>(-1)
 
   const toggleAnswer = (index: number) => {
-    setIndex(index)
+    if(visibleIndex == index) {
+      setVisibleIndex(-1)
+      return
+    }
+    setVisibleIndex(index)
   }
 
   return (
@@ -74,7 +78,7 @@ const FAQ = () => {
                   transition={{ duration: 0.3 }}
                   className="answer-wrapper"
                 >
-                  {index === index && <p className="answer">{item.answer}</p>}
+                  {visibleIndex === index && <p className="answer">{item.answer}</p>}
                 </motion.div>
               </div>
 

@@ -21,7 +21,7 @@ const ReadyToTalk = () => {
 
         <Stack className="step-container">
           <Box className="steps">
-            <Typography className="step-heading"> Tell us more</Typography>
+            <Typography className="step-heading">✅ Tell us more</Typography>
             <Typography className="step-description">
               Fill out a quick form describing your needs. You can always add
               details later, and we’ll reply within a day!
@@ -29,7 +29,7 @@ const ReadyToTalk = () => {
           </Box>
 
           <Box className="steps">
-            <Typography className="step-heading">Strategic Planning</Typography>
+            <Typography className="step-heading">✅ Strategic Planning</Typography>
             <Typography className="step-description">
               We’ll work together on a plan, defining goals, scope, and timeline
               to ensure alignment with your vision.
@@ -37,7 +37,7 @@ const ReadyToTalk = () => {
           </Box>
 
           <Box className="steps">
-            <Typography className="step-heading">Workshop Kickoff</Typography>
+            <Typography className="step-heading">✅ Workshop Kickoff</Typography>
             <Typography className="step-description">
               We’ll schedule a workshop to clarify details and ensure we're all
               aligned before we start building your project.

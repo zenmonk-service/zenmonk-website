@@ -126,17 +126,6 @@
             font-size: 24px;
           }
 
-          &::before {
-            content: "";
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 8px;
-            height: 16px;
-            width: 16px;
-            background-image: url("../assets/ready/green-tick.svg");
-            background-size: contain;
-            background-repeat: no-repeat;
-          }
         }
 
         .step-description {

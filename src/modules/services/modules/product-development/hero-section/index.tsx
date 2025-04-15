@@ -16,7 +16,7 @@ const ProductDevelopment: React.FC = () => {
           title="Digital Transformation & Automation to Accelerate Growth"
           highlightedText="Digital Transformation & Automation"
           description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
-          image={HeroImg.src}
+          image={HeroImg}
           imgWidth={isLapTop ? 400 : 525}
         />
       </Box>

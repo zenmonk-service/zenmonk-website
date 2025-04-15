@@ -47,7 +47,6 @@ const page = () => {
       <AnimatedDiv>
         <Testimony />
       </AnimatedDiv> 
-     
     </Box>
   )
 }

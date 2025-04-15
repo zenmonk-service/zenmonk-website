@@ -5,7 +5,7 @@
   background-size: cover;
   background-position: 0 0%;
   padding: 0 10%;
-  height: 22.396vw;
+  height: Max(290px, 22.396vw);
   color: var(--global-color-primary);
   position: relative;
   padding-bottom: 2.604vw;
@@ -35,7 +35,6 @@
     justify-content: center;
     @media screen and (max-width: 1499px) {
       padding: 0.625vw;
-
       padding-bottom: 2.604vw;
     }
     .desc {
@@ -75,6 +74,9 @@
           font-size: 50px;
           width: max-content;
         }
+        @media screen and (max-width: 900px) {
+          font-size: 24px !important;
+        }
       }
       .description {
         width: 100%;
@@ -83,6 +85,9 @@
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        @media screen and (max-width: 900px) {
+          font-size: 14px !important;
+        }
       }
     }
     .center-section {
@@ -104,10 +109,6 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
-          @media screen and (max-width: 1499px) {
-            font-size: 50px;
-            width: max-content;
-          }
         }
         .description {
           width: 13.594vw;
@@ -117,14 +118,17 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width: 900px) {
+            font-size: 10px;
+            width: 100%;
+            font-weight: 400;
+          }
         }
       }
       .companies-section {
         border-left: 2px solid var(--global-color-primary);
         padding-left: 1.563vw;
-
         padding-right: 3.646vw;
-
         display: flex;
         flex-direction: column;
 
@@ -132,14 +136,9 @@
           color: var(--global-color-primary);
           font-family: Poppins !important;
           font-size: 3.125vw;
-
           font-style: normal;
           font-weight: 700;
           line-height: normal;
-          @media screen and (max-width: 1499px) {
-            font-size: 50px;
-            width: max-content;
-          }
         }
         .description {
           width: 13.594vw;
@@ -149,6 +148,11 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width: 900px) {
+            font-size: 10px;
+            width: 100%;
+            font-weight: 400;
+          }
         }
       }
     }
@@ -169,10 +173,6 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
-          @media screen and (max-width: 1499px) {
-            font-size: 50px;
-            width: max-content;
-          }
         }
         .description {
           width: 13.59375vw;
@@ -182,6 +182,11 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width: 900px) {
+            font-size: 10px;
+            width: 100%;
+            font-weight: 400;
+          }
         }
       }
       .companies-section {
@@ -205,6 +210,11 @@
           font-style: normal;
           font-weight: 700;
           line-height: normal;
+          @media screen and (max-width: 900px) {
+            font-size: 10px;
+            width: 100%;
+            font-weight: 400;
+          }
         }
       }
     }
