@@ -50,10 +50,10 @@ const MobileService = () => {
                 </Typography>
               </Box>
               <Box className="tech-logos">
-                {techLogos.map(({ Src, name }: any) => {
+                {techLogos.map(({ SrcMobile, name }: any) => {
                   return (
                     <Box className="tech-logos-wrapper">
-                      <Src />
+                      <SrcMobile />
                       <Typography>{name}</Typography>
                     </Box>
                   )

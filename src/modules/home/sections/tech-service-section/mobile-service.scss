@@ -72,6 +72,8 @@
   .tech-logos {
     display: flex;
     flex-wrap: wrap;
+
+    gap: 16px;
  
   }
 
@@ -82,7 +84,8 @@
   }
 
   .tech-logos-wrapper {
-    height: 82px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
     p {
       color: #132427;
