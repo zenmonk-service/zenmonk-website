@@ -64,7 +64,7 @@ const Innovation = () => {
                     />
                     <Typography
                       className="service-text"
-                      maxWidth={item.maxWidth}
+                      maxWidth={item.maxWidth + "vw"}
                     >
                       {item.title}
                     </Typography>
