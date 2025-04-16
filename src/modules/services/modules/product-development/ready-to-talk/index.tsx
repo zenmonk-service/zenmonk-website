@@ -8,7 +8,14 @@ const ReadyToTalkProductDevelopment = () => {
     <Stack
       direction={{ xs: 'column-reverse', md: 'row' }}
       className="ready-to-talk-product-dev-container"
-      sx={{ gap: { xs: 3, md: 10, lg: 32, xl: 50 } }}
+      sx={{
+        gap: {
+          xs: '0.1563vw',
+          md: '0.5208vw',
+          lg: '1.6667vw',
+          xl: '2.6042vw',
+        },
+      }}
     >
       <Stack
         className="ready-to-talk-text-container"
@@ -16,13 +23,13 @@ const ReadyToTalkProductDevelopment = () => {
       >
         <Typography
           className="ready-to-talk-heading"
-          width={{ sm: 480, md: 480, lg: 518, xl: 612 }}
+          width={{ sm: '25vw', md: '25vw', lg: '26.7708vw', xl: '31.875vw' }}
         >
           Are you ready to start ?
         </Typography>
         <Typography
           className="ready-to-talk-description"
-          width={{ sm: 480, md: 480, lg: 518, xl: 612 }}
+          width={{ sm: '25vw', md: '25vw', lg: '26.7708vw', xl: '31.875vw' }}
         >
           Custom Software Development Tailored Solutions for Your Business
           Custom Software Development Tailored Solutions{' '}

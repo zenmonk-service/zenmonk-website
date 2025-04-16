@@ -16,6 +16,9 @@ const InnovationExcellence = () => {
           text="Our Promise of Innovation and Excellence"
           markText='Excellence'
           className="title"
+          markTextProps={{
+            rotate:3
+          }}
         />
         <SectionDescription
           text="We are dedicated to fostering a supportive environment, offering
