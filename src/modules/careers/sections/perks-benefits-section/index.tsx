@@ -1,6 +1,5 @@
-import Image, { StaticImageData } from 'next/image'
 import { Box, Container, Typography } from '@mui/material'
-import Title from '@/shared/title'
+import { SectionTitle } from '@/shared/typography'
 import { perkBenefitsList } from './perks-benefits-list'
 import './styles.scss'
 
@@ -8,14 +7,20 @@ interface PerksCardProps {
   borderColor: string
   bgColor: string
   title: string
-  image: StaticImageData
+  image: any
 }
 
 const PerkBenefits = () => {
   return (
     <Box className="perk-benefits-section">
-      <Container maxWidth="xl" className="container">
-        <Title text="Perks & Benefits" className="perk-title" />
+      <Container className="container">
+        <SectionTitle
+          text="Perks & Benefits"
+          markText="Benefits"
+          markTextProps={{
+            rotate: 2,
+          }}
+        />
         <Typography component="p" className="description">
           At Zenmonk, we believe that each individual is special and creative.
           We prioritize our employees and give them complete independence to
@@ -37,11 +42,16 @@ const PerkBenefits = () => {
   )
 }
 
-const PerksCard = ({ title, image, bgColor, borderColor }: PerksCardProps) => {
+const PerksCard = ({
+  title,
+  image: Icon,
+  bgColor,
+  borderColor,
+}: PerksCardProps) => {
   return (
     <Box sx={{ border: `1px solid ${borderColor}` }} className="perk-card">
       <Box sx={{ bgcolor: bgColor }} className="perk-card-image">
-        <Image src={image} alt={`${title}-image`} />
+        <Icon />
       </Box>
       <Typography component="p" className="perk-card-title">
         {title}

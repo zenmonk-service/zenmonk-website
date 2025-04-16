@@ -1,12 +1,14 @@
 .form-title {
-  margin-top: 20px !important;
-  width: 550px;
-  margin-bottom: 10px !important;
+  margin-top: max(1.04vw, 16px) !important; // 20px
+  width: 28.65vw; // 550px
+  margin-bottom: max(0.52vw, 10px) !important; // 10px
   color: #132427;
-  font-feature-settings: "liga" off, "clig" off;
-  font-family: Poppins;
-  font-size: 16px !important;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+  font-family: Poppins !important;
+  font-size: var(--font-size-16) !important; // 16px
   font-style: normal;
   font-weight: 400 !important;
-  line-height: 30px !important; 
+  line-height: max(1.56vw, 22px)!important; // 30px
 }

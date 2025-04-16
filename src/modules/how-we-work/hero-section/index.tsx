@@ -5,6 +5,7 @@ import BaseButton from '@/shared/button'
 import HorizontalDottedImage from '../assets/hero/horizontal-dotted-image.png'
 import VerticalDottedImage from '../assets/hero/vert-dotted-image.png'
 import './styles.scss'
+import { SectionDescription } from '@/shared/typography'
 
 const HeroSection = () => {
   return (
@@ -18,11 +19,11 @@ const HeroSection = () => {
             for <br />
             Seamless Solutions
           </Typography>
-          <Typography component="p" className="text-description">
-            We believe in ZenFusion, merging technology with mindfulness. As
+          <SectionDescription text='We believe in ZenFusion, merging technology with mindfulness. As
             your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
-          </Typography>
+            action, simplifying tech to deliver user-centered solutions.' className="text-description">
+           
+          </SectionDescription>
         </Box>
       </Box>
       <Box className="hero-section-image-wrapper">

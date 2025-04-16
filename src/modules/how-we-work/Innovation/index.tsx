@@ -6,23 +6,28 @@ import Earth from '../assets/innovation/earth.svg'
 import PersonSittingOnDesk from '../assets/innovation/img.png'
 import { ServiceIcons } from './service-icons'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const Innovation = () => {
   return (
     <Stack className="innovation-section-wrapper">
       <Stack className="innovation-section">
         <Stack className="text-wrapper">
-          <Title
+          <SectionTitle
             className="innovation-title"
             text={
               'We Deliver the Best with Innovation, Precision, and Excellence.'
             }
+            markText='Excellence'
+            markTextProps={{
+              rotate:4
+            }}
           />
-          <Typography className="innovation-description">
-            Zenmonk delivers innovative solutions, exceeding expectations in
+          <SectionDescription text="Zenmonk delivers innovative solutions, exceeding expectations in
             every way. Our services reflect our values, combining precision and
-            dedication to achieve successful outcomes.
-          </Typography>
+            dedication to achieve successful outcomes." className="innovation-description">
+            
+          </SectionDescription>
         </Stack>
 
         <Stack className="content-wrapper">
@@ -34,7 +39,7 @@ const Innovation = () => {
             <Stack className="deliver-the-best">
               <Stack className="deliver-the-best-text-wrapper">
                 <Box className="earth-icon">
-                  <Image src={Earth} alt="earth" />
+                  <Earth />
                 </Box>
                 <Typography className="deliver-the-best-heading">
                   We deliver the best
@@ -54,14 +59,12 @@ const Innovation = () => {
               {ServiceIcons.map((item) => {
                 return (
                   <Stack className="service-images-wrapper" key={item.title}>
-                    <Image
-                      src={item.icon}
-                      alt=""
+                    <item.icon
                       className={item.size === 1 ? 'img-small' : 'img-large'}
                     />
                     <Typography
                       className="service-text"
-                      maxWidth={item.maxWidth}
+                      maxWidth={item.maxWidth + "vw"}
                     >
                       {item.title}
                     </Typography>

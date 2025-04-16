@@ -1,78 +1,57 @@
 .your-ideal-choice {
-  border-radius: 50px;
+  border-radius: 2.6042vw; // 50px
   background-color: #104048 !important;
-  padding: 84px 248px;
+  padding: 4.375vw 12.9167vw; // 84px 248px
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 30px;
-  margin: 120px auto 0;
-  max-width: 1900px;
-  margin-left: 60px;
-  margin-right: 60px;
-  .first-container {
-    .title {
-      color: #fff;
-      font-family: Poppins;
-      font-size: 40px !important;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 52px; /* 130% */
-      letter-spacing: 0.8px;
-    }
+  gap: 1.5625vw; // 30px
+  margin: 6.25vw auto 0; // 120px auto 0
+  margin-left: 3.125vw; // 60px
+  margin-right: 3.125vw;
 
+  .first-container {
+    .title,
     .description {
       color: #f5f5f5;
-      font-family: Poppins;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      letter-spacing: 0.48px;
     }
   }
 
   .container {
-    padding: 25px 30px;
-    border-radius: 20px;
-    background: #fff;
+    padding: 1.3021vw 1.5625vw; // 25px 30px
+    border-radius: 1.0417vw; // 20px
+    gap: 0.4167vw; // 8px
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    background-color: #fff;
+
+    .icon{
+      height: 2.5vw;
+      width: 2.5vw;
+    }
     .title {
       color: #132427;
       font-feature-settings:
         'liga' off,
         'clig' off;
       font-family: Poppins;
-      font-size: 24px;
+      font-size: var(--font-size-20);
       font-style: normal;
       font-weight: 500;
-      line-height: 30px; /* 125% */
+      line-height: 1.5625vw; // 30px
     }
+
     .description {
       color: #757575;
       font-feature-settings:
         'liga' off,
         'clig' off;
       font-family: Poppins;
-      font-size: 14px;
+      font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: 0.28px;
+      letter-spacing: 0.0146vw; // 0.28px
     }
   }
 }
 
-@media (max-width: 1649px) {
-  .your-ideal-choice {
-    padding: 84px 88px;
-  }
-}
-
-@media (max-width: 1499px) {
-  .your-ideal-choice {
-    padding: 84px 88px;
-    grid-template-columns: 1fr 1fr;
-  }
-}

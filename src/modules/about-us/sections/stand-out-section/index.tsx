@@ -1,19 +1,24 @@
 import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
-import Title from '@/shared/title'
 import StandOutCard from '../../components/card/stand-out-card'
 import { standOutList } from './stand-out'
-import './styles.scss'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
+import { SectionTitle } from "@/shared/typography"
+import './styles.scss'
 
 export const StandOutSection = () => {
+  const OurValuesIcon = standOutList[standOutList.length - 1].icon;
+
   return (
     <AboutSectionWrapper>
       <Box className="stand-out-section">
-        <Title
+        <SectionTitle
           text="Stand Out From The Rest"
+          markText="Rest"
           align="center"
-          className="section-title"
+          markTextProps={{
+            rotate: 3
+          }}
         />
         <Box className="stand-out-card-container">
           <Box className="left-section">
@@ -36,12 +41,9 @@ export const StandOutSection = () => {
                 backgroundImage: `url(${standOutList[standOutList.length - 1].image})`,
               }}
             >
-              <Image
-                src={standOutList[standOutList.length - 1].icon}
-                alt="stand-out"
-                width={78}
-                height={100}
-              />
+              <Box className="icon-container">
+                <OurValuesIcon />
+              </Box>
               <Typography variant="h4" className="title">
                 {standOutList[standOutList.length - 1].title}
               </Typography>

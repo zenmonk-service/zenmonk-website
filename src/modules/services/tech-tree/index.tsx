@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import { Box, Stack, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import SectionWrapper from '@/shared/wrapper'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 import {
   DottedCircle,
   HalfGearImage,
@@ -14,25 +13,30 @@ const TechnologyTree = () => {
   return (
     <Stack className="tech-tree-container">
       <Stack className="tech-tree-right">
-        <Title
+        <SectionTitle
           text="Zen Tech Wonders We Excel In Innovation & Excellence"
+          markText="Excellence"
           align="left"
+          markTextProps={{
+            rotate: 2,
+          }}
           className="tech-tree-heading"
         />
-        <Typography className="tech-tree-description">
-        We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more.
-        </Typography>
+        <SectionDescription
+          className="tech-tree-description"
+          text="We lead the way in technological innovation, consistently delivering
+          solutions that transform industries. Our commitment to excellence
+          helps businesses and individuals achieve more."
+        />
       </Stack>
-      <Box className="tech-tree-image-wrapper">
-        <Image src={TechTreeImage} alt="" />
-      </Box>
-      <Image src={HalfGearImage} alt="" className="half-gear" />
-      <Image src={SmallGearImage} alt="" className="small-gear" />
-      <Image src={DottedCircle} alt="" className="dotted-circle-1" />
-      <Image src={DottedCircle} alt="" className="dotted-circle-2" />
-      <Image src={DottedCircle} alt="" className="dotted-circle-3" />
-      <Image src={DottedCircle} alt="" className="dotted-circle-4" />
-      <Image src={DottedCircle} alt="" className="dotted-circle-5" />
+      <TechTreeImage className="tech-tree-image" />
+      <HalfGearImage className="half-gear" />
+      <SmallGearImage className="small-gear" />
+      <DottedCircle className="dotted-circle-1" />
+      <DottedCircle className="dotted-circle-2" />
+      <DottedCircle className="dotted-circle-3" />
+      <DottedCircle className="dotted-circle-4" />
+      <DottedCircle className="dotted-circle-5" />
     </Stack>
   )
 }

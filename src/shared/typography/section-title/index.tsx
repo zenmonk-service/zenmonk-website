@@ -95,12 +95,7 @@ const SectionTitle = ({
                 rotate: `${markTextProps?.rotate}deg`,
               }}
             >
-              <Box
-                src={Mark.src}
-                alt="mark"
-                component="img"
-                className="mark-icon"
-              />
+              <Mark className="mark-icon" />
             </span>
           </span>
         )}

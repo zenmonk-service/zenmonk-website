@@ -1,5 +1,8 @@
+'use client'
+
 import parse from 'html-react-parser'
 import React from 'react'
+import { usePathname } from 'next/navigation'
 import { Box, Typography, Toolbar, Grid2 } from '@mui/material'
 import BaseButton from '@/shared/button'
 import './styles.scss'
@@ -8,7 +11,7 @@ interface HeroSectionProps {
   title: string
   description: string
   textWidth?: number
-  image: string
+  image: any
   highlightedText?: string
   imgWidth?: number
 }
@@ -17,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   description,
   textWidth,
-  image,
+  image: Image,
   highlightedText = '',
   imgWidth,
 }) => {
@@ -34,8 +37,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     )
   }
 
+  const pathname = usePathname()
+  const serviceRoute = pathname.split('/')[2]
+
   return (
-    <Box className="service-hero-section" sx={{ width: '100%', pt: 12 }}>
+    <Box className="service-hero-section" sx={{ width: '100%' }}>
       <Grid2 container spacing={4} alignItems="center">
         <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
           <Box
@@ -57,18 +63,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </Grid2>
 
         <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
-          <Box
-            className="global-hero-section-image-wrapper"
-            component="img"
-            src={image}
-            alt="Hero Image"
-            sx={{
-              width: imgWidth ?? '100%',
-              height: 'auto',
-              objectFit: 'contain',
-              borderRadius: 2,
-            }}
-          />
+          <Box>{serviceRoute === 'product-development' && <Image />}</Box>
+          {serviceRoute !== 'product-development' && (
+            <Box
+              className="global-hero-section-image-wrapper"
+              component="img"
+              src={Image}
+              alt="Hero Image"
+              sx={{
+                width: imgWidth ?? '100%',
+                height: 'auto',
+                objectFit: 'contain',
+                borderRadius: 2,
+              }}
+            />
+          )}
         </Grid2>
       </Grid2>
     </Box>

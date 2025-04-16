@@ -6,7 +6,7 @@ interface ExcellenceCardProps {
   details: {
     title: string
     description: string
-    image: StaticImageData
+    image: any
     color: string
   }
 }
@@ -17,11 +17,7 @@ const ExcellenceCard = ({ details }: ExcellenceCardProps) => {
       className="excellence-card"
       sx={{ border: `1px solid ${details.color}` }}
     >
-      <Image
-        alt="excellence-card-image"
-        src={details.image}
-        className="excellence-card-image"
-      />
+      <details.image className="excellence-card-image" ></details.image>
       <Typography className="title">{details.title}</Typography>
       <Typography className="description">{details.description}</Typography>
     </Box>

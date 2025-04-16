@@ -1,18 +1,30 @@
 .country-card {
-  border-radius: 8px;
+  border-radius: 0.41vw;
   transition: transform 0.3s ease-in-out;
-  img {
-    width: 70px;
-    height: 100%;
+
+  .icons {
+    width: 4.166vw; // ~80px
+    height: 2.6vw; // ~50px
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     transition: box-shadow 0.3s ease-in-out;
+
+    @media (max-width: 899px) {
+      width: 10vw; 
+      height: 6.25vw; 
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0.26vw 0.78vw rgba(145, 92, 182, 0.4); // 5px 15px
+    }
   }
 }
 
 .country-card-selected {
   transform: scale(1.1);
-  // box-shadow: 0px 0px 15px 2px rgb(61, 60, 59,0.5);
-  background: none; 
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: none;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
 }

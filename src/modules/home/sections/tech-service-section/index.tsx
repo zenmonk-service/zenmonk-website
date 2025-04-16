@@ -2,11 +2,12 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, useMediaQuery } from '@mui/material'
 import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
-import Title from '@/shared/title'
+import { SectionTitle } from '@/shared/typography'
+import MobileService from './mobile-service'
 import { serviceList, Service } from './service-list'
 import './styles.scss'
 
@@ -27,6 +28,7 @@ const ServiceSection = () => {
     }
   }
 
+  const isMobile = useMediaQuery(`(max-width:1200px)`)
   useEffect(() => {
     if (rightSectionHeadingRefPosition)
       if (rightSectionHeadingRefPosition < 120) {
@@ -53,29 +55,30 @@ const ServiceSection = () => {
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <Box ref={rightSectionHeadingRef} mt={15}>
+    <Box ref={rightSectionHeadingRef} className="service-section-wrapper">
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
-        <Title className="title" text={text} align="center" />
+        <SectionTitle text={text} markText="services" />
       </div>
-      <Box className="services-section">
+      <Box className="services-section desktop">
         <Box className="services-left-container">
-          {serviceList.map((item: Service, index: number) => (
+          {serviceList.map((item: Service) => (
             <Box
               className={`business-item`}
               onClick={() => selectItem(item)}
               sx={{
                 '&:hover': {
+                  backgroundColor: `${item.hoverColor} !important`,
                   transform: 'translateY(-4px)',
                 },
               }}
               key={item.id}
             >
               <Box className="business-item-content">
-                <Box className="business-icon">
-                  <Image src={item.icon as any} alt={item.title} />
-                </Box>
+                {/* <Box className="business-icon"> */}
+                <item.Icon className="business-icon" />
+                {/* </Box> */}
                 <Typography
                   component="h4"
                   variant="h4"
@@ -114,22 +117,15 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map((logo, index) => {
-                  return (
-                    <Box key={index}>
-                      {logo.src && (
-                        <Image key={logo.name} src={logo.src} alt={logo.name} />
-                      )}
-                    </Box>
-                  )
+                {techLogos.map(({ Src }: any, index) => {
+                  return <Src />
                 })}
               </Box>
               <BaseButton
                 sx={{
-                  maxWidth: '158px',
                   color: 'var(--global-color-secondary) !important',
                   textTransform: 'uppercase !important',
-                  boxShadow: '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                  boxShadow: '0vw 0.0104vw 0.0104vw 0vw rgba(0, 0, 0, 0.25)',
                   background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
                   fontFamily: 'Poppins',
                 }}
@@ -140,6 +136,7 @@ const ServiceSection = () => {
           </Box>
         </Box>
       </Box>
+      <MobileService />
     </Box>
   )
 }

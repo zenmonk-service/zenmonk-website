@@ -9,7 +9,6 @@ import ContactCard from '@/shared/contact-card'
 import CountriesList from '@/shared/countries-list'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import AboutSectionWrapper from '../wrapper/about-wrapper'
-import dottedLine from './assets/dotted-line.png'
 import polygon from './assets/polygon.png'
 import './styles.scss'
 
@@ -20,13 +19,12 @@ export const ContactUsSection = () => {
   const content = (
     <Box className="contact-us">
       <Image src={polygon} alt="polygon" width={300} className="polygon" />
-      <Image src={dottedLine} alt="dotted-line" className="dotted-image" />
+      {/* <Image src={dottedLine} alt="dotted-line" className="dotted-image" /> */}
       <Box className="left-container">
         <Typography component="h1" className="section-title">
-          We’re Just a <br />
+          We’re Just a <br className='line-break' />
           <Typography component="span">Message</Typography> Away
         </Typography>
-        <Box className="countries-list">
           <CountriesList
             className="countries-list"
             countryCardProps={{
@@ -35,7 +33,6 @@ export const ContactUsSection = () => {
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountry}
           />
-        </Box>
         <Typography className="selected-country-title">
           {selectedCountry.name}
         </Typography>
@@ -49,13 +46,13 @@ export const ContactUsSection = () => {
         />
         <ContactCard
           className="contact-card"
-          url={Phone}
-          description={selectedCountry.office.phone}
+          url={Location}
+          description={selectedCountry.office.address}
         />
         <ContactCard
           className="contact-card"
-          url={Location}
-          description={selectedCountry.office.address}
+          url={Phone}
+          description={selectedCountry.office.phone}
         />
       </Box>
       <Box className="right-container">

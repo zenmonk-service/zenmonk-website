@@ -17,7 +17,7 @@ const HeroSection = () => {
     <Box className="career-hero-section-wrapper">
       {/* <Toolbar /> */}
       <Box className="hero-section">
-        <Image className="ellipse" src={Ellipse} alt="ellipse" />
+        <Image className="ellipse" src={Ellipse} alt="ellipse big" />
         <Box className="hero-section-text-wrapper">
           <Typography variant="h4" className="text-heading">
             <Typography variant="inherit" component="span">
@@ -30,7 +30,7 @@ const HeroSection = () => {
           Find your Zen in your career at Zenmonk. A monastery-like workplace for growth, new ideas, and making a difference, where our team is encouraged to discover balance and purpose in work.
           </Typography>
         </Box>
-        <BaseButton sx={{ width: '180px' }}>JOIN NOW</BaseButton>
+        <BaseButton>JOIN NOW</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         <Box className="image-container">
@@ -49,22 +49,16 @@ const HeroSection = () => {
           />
           <Image
             alt="experience"
-            width={147}
-            height={150}
             src={Experience}
             className="hero-section-experience-image"
           />
           <Image
             alt="hike"
-            width={137}
-            height={113}
             src={SalaryHike}
             className="hero-section-hike-image"
           />
           <Image
             alt="happy-culture"
-            width={150}
-            height={165}
             src={HappyCulture}
             className="hero-section-happy-culture-image"
           />

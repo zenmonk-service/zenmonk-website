@@ -13,7 +13,7 @@ import {
   Rope,
   Square,
   Star,
-  Flower
+  Flower,
 } from '../assets'
 import './styles.scss'
 
@@ -35,39 +35,27 @@ const UiUx: React.FC = () => (
                 DESIGN
               </Typography>
               <Typography variant="body1" className="text-description">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s. Lorem Ipsum has been the industry's standard
-                dummy text ever since the 1500s.
+                Want to transform user interactions?
+                We design intuitive and engaging experiences that makes every touchpoint seamless and
+                enjoyable. Let us enhance your interface with precision and creativity.
               </Typography>
             </Box>
           </Grid>
 
           <Grid item xs={12} md={5}>
-            <Image
-              className="hero-image"
-              src={Hero.src}
-              alt="Hero Image"
-              width={500}
-              height={300}
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'contain',
-                borderRadius: '8px',
-              }}
-            />
+            <Hero className="hero-image" />
           </Grid>
         </Grid>
-        <Image src={Pen} alt="Pen" className="pen" />
-        <Image src={Bracket} alt="Bracket" className="bracket" />
-        <Image src={Flower} alt="Flower" className="flower" />
-        <Image src={ColorBrush} alt="ColorBrush" className="color-brush" />
-        <Image src={FilledStar} alt="FilledStar" className="filled-star" />
-        <Image src={PaintBrush} alt="PaintBrush" className="paint-brush" />
-        <Image src={Ring} alt="Ring" className="ring" />
-        <Image src={Rope} alt="Rope" className="rope" />
-        <Image src={Star} alt="Star" className="star" />
-        <Image src={Square} alt="Square" className="square" />
+        <Pen className="pen" />
+        <Bracket className="bracket" />
+        <Flower className="flower" />
+        <ColorBrush className="color-brush" />
+        <FilledStar className="filled-star" />
+        <PaintBrush className="paint-brush" />
+        <Ring className="ring" />
+        <Rope className="rope" />
+        <Star className="star" />
+        <Square className="square" />
       </SectionWrapper>
     </Box>
   </>

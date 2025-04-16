@@ -1,26 +1,22 @@
 import { Box, Container, Typography } from '@mui/material'
-import Title from '@/shared/title'
 import Positions from './positions'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const OpenPosition = () => {
   return (
     <Box className="open-position-container">
       <Box className="open-position-title-wrapper">
-        <Typography className="open-position-title" component="h1">
-          Explore Open Positions and Join
-        </Typography>
-        <Title className="open-position-sub-title" text="Our Team" />
+        <SectionTitle className="open-position-title" text="Explore Open Positions and Join Our Team" markText=''>
+        </SectionTitle>
       </Box>
-      <Typography className="description" component="p">
-        Discover a wide range of exciting career opportunities and take the next
+       <SectionDescription className='description' text=' Discover a wide range of exciting career opportunities and take the next
         step in your professional journey by
         joining our dynamic and innovative team, where your skills and passion
-        can thrive.
-      </Typography>
-      <Container maxWidth="xl">
+        can thrive.' />
+      <Box  className='position-container'>
         <Positions />
-      </Container>
+      </Box>
     </Box>
   )
 }

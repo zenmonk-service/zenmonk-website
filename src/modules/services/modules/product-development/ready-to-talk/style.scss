@@ -58,30 +58,6 @@
             line-height: 30px;
             margin-top: 20px;
             margin-bottom: 40px;
-
-            @media (max-width: 1536px) {
-                font-size: 17px;
-                margin-top: 18px;
-                margin-bottom: 36px;
-            }
-
-            @media (max-width: 1199px) {
-                font-size: 16px;
-                margin-top: 16px;
-                margin-bottom: 32px;
-            }
-
-            @media (max-width: 899px) {
-                font-size: 15px;
-                margin-top: 14px;
-                margin-bottom: 28px;
-            }
-
-            @media (max-width: 599px) {
-                font-size: 14px;
-                margin-top: 12px;
-                margin-bottom: 24px;
-            }
         }
 
         .contact-us-btn {

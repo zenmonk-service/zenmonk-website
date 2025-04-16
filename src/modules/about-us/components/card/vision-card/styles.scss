@@ -1,20 +1,24 @@
 .vision-card {
   flex: 1;
   position: relative;
-  height: 235px;
+  height: 12.2396vw;  // 235px
   flex-shrink: 0;
-  border-radius: 11.739px;
+  border-radius: 0.6107vw;  // 11.739px
   background: #212121;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 0.9375vw;  // 18px
   flex-direction: column;
+  position: relative;
   overflow: hidden;
   cursor: default;
-  @media screen and (max-width:1408px) {
-    min-width:320px;
+  .vision-card-image-container{
+    width:5.21vw;
+    height:5.21vw;
+    position:relative
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -32,9 +36,10 @@
   .vision-card-image {
     transition: transform 0.5s ease-in-out;
   }
+
   .vision-card-bg-image {
     position: absolute;
-    top: 60px; 
+    top: 3.125vw;  // 60px
     opacity: 0;
     transform: translateX(100%);
     transition: opacity 0.5s ease-in-out 0.1s, transform 0.5s ease-in-out 0.1s;
@@ -57,9 +62,10 @@
 
     .vision-card-bg-image {
       opacity: 0.8;
-      transform: translateX(80%) scale(1.5);
+      transform: translate(50%,20%) scale(1.1);
     }
   }
+
   .vision-card-description {
     width: 80%;
     z-index: 2;
@@ -73,26 +79,19 @@
       transform 0.1s ease-in-out 0.1s;
     color: var(--global-color-primary);
     font-family: Poppins;
-    font-size: 20px !important;
+    font-size: var(--font-size-20) !important;  // 20px
     font-style: normal;
     font-weight: 400 !important;
     line-height: normal;
-
-    @media screen and (max-width: 1499px) {
-      font-size: 24.304px !important;
-    }
   }
 
   .vision-card-title {
     transition: transform 0.5s ease-in-out;
     color: var(--global-color-primary);
     font-family: Poppins;
-    font-size: 24px !important;
+    font-size: var(--font-size-24) !important;  // 24px
     font-style: normal;
     font-weight: 500 !important;
     line-height: normal;
-    @media screen and (max-width: 1499px) {
-      font-size: 24.304px !important;
-    }
   }
 }

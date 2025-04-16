@@ -1,6 +1,5 @@
 $font-family-base: 'Poppins', sans-serif;
 $font-size-base: 1rem;
-$section-description-font-size: max(1.6rem, 0.7rem + 0.75vw);
 $section-description-letter-spacing: 0.03rem;
 $section-description-margin-bottom: 2.5rem;
 
@@ -11,8 +10,8 @@ $section-description-margin-bottom: 2.5rem;
     'liga' off,
     'clig' off;
   font-family: $font-family-base;
-  font-size: $section-description-font-size;
   font-style: normal;
+  font-size: var(--font-size-20);
   font-weight: 400;
   line-height: normal;
   letter-spacing: $section-description-letter-spacing;

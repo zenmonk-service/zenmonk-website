@@ -11,17 +11,17 @@ interface VisionCardProps {
 const VisionCard = ({ title, image, description }: VisionCardProps) => {
   return (
     <Box className="vision-card">
+      <Box className="vision-card-image-container">
+        <Image
+          src={image}
+          fill
+          alt={`${title}-image`}
+          className="vision-card-image"
+        />
+      </Box>
       <Image
         src={image}
-        width={100}
-        height={100}
-        alt={`${title}-image`}
-        className="vision-card-image"
-      />
-      <Image
-        src={image}
-        width={200}
-        height={200}
+        fill
         alt={`${title}-image`}
         className="vision-card-bg-image"
       />

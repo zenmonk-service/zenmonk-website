@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import { Stack } from '@mui/material'
-import Title from '@/shared/title'
 import { DevelopmentProcessImage } from '../assets/index'
 import "./style.scss"
+import { SectionTitle } from '@/shared/typography'
 
 const DevelopmentProcess = () => {
   return (
     <Stack className='development-process' gap={10} alignItems={'center'}>
-      <Title text={'Our Development Process'} />
+      <SectionTitle text={'Our Development Process'} markText='Process' />
       <div className='development-process-image-container'>
       <Image src={DevelopmentProcessImage} alt="" />
       </div>
