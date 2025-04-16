@@ -1,11 +1,11 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
 interface WhyChooseUsCardProps {
   title: string
   description: string
-  icon: string
+  icon: StaticImageData
 }
 const WhyChooseUsCard = ({
   title,
@@ -14,7 +14,9 @@ const WhyChooseUsCard = ({
 }: WhyChooseUsCardProps) => {
   return (
     <Box className="why-choose-us-card">
-      <Image src={icon} width={72} height={62} alt={`${title}-icon`} />
+      <Box className="card-image-container">
+        <Image src={icon} width={72}  height={62} alt={`${title}-icon`} />
+      </Box>
       <Box className="content">
         <Typography component="h3" className="title">
           {title}

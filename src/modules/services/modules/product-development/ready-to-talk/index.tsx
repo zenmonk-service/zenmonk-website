@@ -30,11 +30,7 @@ const ReadyToTalkProductDevelopment = () => {
         <Button className="contact-us-btn">Contact Us</Button>
       </Stack>
       <Box className="ready-to-talk-image-container">
-        <Image
-          src={ReadyToTalkPersonImage}
-          alt=""
-          className="ready-to-talk-image"
-        />
+        <ReadyToTalkPersonImage className="ready-to-talk-image" />
       </Box>
     </Stack>
   )

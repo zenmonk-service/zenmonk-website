@@ -1,7 +1,7 @@
 .testimony {
-  margin-top: 100px;
+  margin-top: 5.2083vw; /* 100px / 1920 * 100 */
   width: 100%;
-  padding: 80px;
+  padding: 4.1666vw; /* 80px / 1920 * 100 */
   padding-top: 0px;
   background: url("/testimonialBackground.png") center/cover;
   position: relative;
@@ -12,8 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: Max(16px, 0.8333vw); /* 16px / 1920 * 100 */
   position: relative;
+  margin-top: 36px;
 }
 
 .testimony-content .reviwer-image {
@@ -22,25 +23,24 @@
 }
 
 .testimony-content .review {
-  width: 510px;
-  height: 108px;
+  width: 26.5625vw; /* 510px / 1920 * 100 */
+  height: 5.625vw; /* 108px / 1920 * 100 */
   flex-shrink: 0;
   color: #707070;
   text-align: center;
   font-family: var(--global-font-family);
-  font-size: 16px;
+  font-size: 0.8333vw; /* 16px / 1920 * 100 */
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
 .testimony .review-images {
-  width: 185px;
-  height: 250px;
+  width: 9.6354vw; /* 185px / 1920 * 100 */
+  height: 13.0208vw; /* 250px / 1920 * 100 */
   transform: translateY(10%);
   transition: all 1s;
 }
-
 
 .testimony-content .review-images img {
   position: absolute;
@@ -51,27 +51,34 @@
 .testimony-content .title {
   color: #000;
   text-align: center;
-  font-family: var(--global-font-family);
-  font-size: 28px;
+  font-feature-settings: 'liga' off, 'clig' off;
+  
+  /* h3 */
+  font-family: Poppins;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  line-height: 155.295%; /* 43.482px */
-  text-align: center;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  text-transform: capitalize;
 }
 
 .testimony-content .description {
-  color: #4d4d4d;
-  font-family: var(--global-font-family);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 155.295%;
+  color: #4D4D4D;
   text-align: center;
+  
+  /* p2 */
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
 }
 
 .testimony-content .controls {
   display: flex;
-  gap: 32px;
+  gap: Max(16px, 1.6666vw); /* 32px / 1920 * 100 */
   align-items: center;
 }
 
@@ -89,7 +96,6 @@
 
 .quote {
   position: absolute;
- 
 }
 
 .quote-up {
@@ -107,18 +113,21 @@
 
 @media (max-width: 1366px) and (min-width: 1200px) {
   .testimony {
-    margin-top: 50px;
+    margin-top: 2.6041vw; /* 50px / 1920 * 100 */
   }
   .testimony .review-images {
-    height: 215px;
+    height: 11.25vw; /* 215px / 1920 * 100 */
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
   .testimony-mb {
     background: url("/testimony-mb.png") center/contain;
-    background-position: center top 8px;
+    background-position: center top 0.4166vw; /* 8px / 1920 * 100 */
     background-repeat: no-repeat;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 40px;
   }
 
   .testimony.desktop {
@@ -134,12 +143,14 @@
     width: auto;
     height: auto;
     text-align: center;
-    font-family: var(--global-font-family);
+    font-family: Poppins;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.42px;
+    max-width: 600px;
+    
   }
 
   .testimony-mb .testimony-image-wrapper {
@@ -156,18 +167,17 @@
   .testimony-mb .testimony-content {
     position: relative;
   }
-  .testimony-content .controls {
-    gap: 60px;
-  }
 
-  .testimony-content .controls img {
-    width: 40px;
-  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .testimony-mb {
-    background: url("/testimony-mb.png") center/cover;
+    
+      background-image: url("./assets/testimony-mb.png");
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+  
   }
 }
 

@@ -8,20 +8,20 @@ import {
   Deadline,
   Support,
   LatestTech,
-  ThumsUp,
+  ThumbUp,
 } from '@/assets/icons/why-choose-us'
 import { ZenmonkLogoV2, ZenmonkLogoV3 } from '@/assets/images'
-import LOGO from './assets/logo-benzene.png'
-
-import Title from '@/shared/title'
+import { SectionTitle } from '@/shared/typography'
+import OldLogoDecorator from './assets/logo-benzene.png'
 import './styles.scss'
+import WhyChooseUSMobile from './mobile'
 
 const WhyChooseUsSection = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const clientSatisficationRef = useRef<HTMLDivElement>(null)
   const isSmallLaptop = useMediaQuery('(min-width: 1350px)')
 
-  console.log("isSmallLaptop" , isSmallLaptop)
+  console.log('isSmallLaptop', isSmallLaptop)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,19 +46,19 @@ const WhyChooseUsSection = () => {
   }, [])
 
   return (
-    <Box className="why-choose-us-section">
-      <Title text="Elevate your tech journey with Zenmonk" className="title" />
+    <><Box className="why-choose-us-section">
+      <SectionTitle text="Elevate your tech journey with Zenmonk" markText='Zenmonk' className="title" />
       {ZenmonkLogoV2 && (
-        <Image src={LOGO} alt="logo" className="logo left-logo" />
+        <Image src={OldLogoDecorator} alt="logo" className="logo left-logo" />
       )}
       {ZenmonkLogoV3 && (
-        <Image src={LOGO} alt="logo" className="logo right-logo" />
+        <Image src={OldLogoDecorator} alt="logo" className="logo right-logo" />
       )}
 
       <Box ref={clientSatisficationRef} className="why-choose-us">
         <Box className="content">
           <Box className={`thumsup ${isVisible && 'animate_scale'}`}>
-            <ThumsUp />
+            <ThumbUp />
           </Box>
           <Box className="children">
             <Box
@@ -88,6 +88,9 @@ const WhyChooseUsSection = () => {
         </Box>
       </Box>
     </Box>
+    <WhyChooseUSMobile/>
+    </>
+    
   )
 }
 

@@ -4,23 +4,28 @@ import BigShowCaseCard from './card/big-card'
 import SmallShowCard from './card/small-card'
 import { showCaseList } from './show-case'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const Showcases = () => {
   return (
     <Box className="show-case-section">
-      <Container maxWidth="xl" className="show-case-title-description-wrapper">
-        <Title
+      <Box className="show-case-title-description-wrapper">
+        <SectionTitle
           align="center"
           text="The Ultimate Showcase of Skill, Strategy, and Champions"
-          className="show-case-title"
+          markText='Champions'
+          markTextProps={{
+            rotate:5
+          }}
         />
         <Box className="show-case-description-wrapper">
-          <Typography component="p" className="show-case-description">
-            A thrilling celebration of skill, strategy, and determination, where
-            champions rise to the occasion and showcase their true potential.
-          </Typography>
+        <SectionDescription
+          text="A thrilling celebration of skill, strategy, and determination, where
+            champions rise to the occasion and showcase their true potential."
+            className='show-case-description'
+        />
         </Box>
-      </Container>
+      </Box>
       <Box className="showcases">
         <Box className="top-section">
           <Box className="left-section">

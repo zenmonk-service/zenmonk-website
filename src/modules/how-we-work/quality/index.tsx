@@ -6,43 +6,48 @@ import {
   Second,
   Third,
   GraphIcon,
+  QualityImgMobile,
 } from '@/modules/how-we-work/assets'
 import Title from '@/shared/title'
 import TopRightDottedImage from '../assets/quality/top-right-dotted.png'
 import VerticalDottedImage from '../assets/quality/vertical-dotted.png'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const Quality = () => {
   return (
     <Box className="quality-hero-section-wrapper">
       <Stack className="first-section">
-        <Title
+        <SectionTitle
           align="left"
           text={'Our Promise of Quality Analysis'}
-          className="quality-title"
+          markText='Analysis'
+         
         />
-        <Typography className="subheading">
-          We deliver Zen-inspired precise, mindful solutions by integrating deep
+        <SectionDescription className='subheading' text=' We deliver Zen-inspired precise, mindful solutions by integrating deep
           expertise with client collaboration; prioritizing transparency,
           innovation, and purposeful development to innovate impactful
-          technology.
-        </Typography>
+          technology.' >
+        
+        </SectionDescription>
 
         <Stack className="stats-img-container">
-          <Image src={Third} alt="" className="stats-img" />
-          <Image src={First} alt="" className="stats-img" />
-          <Image src={Second} alt="" className="stats-img" />
+          <Third className="stats-img" />
+          <First className="stats-img" />
+          <Second className="stats-img" />
         </Stack>
       </Stack>
       <Box className="quality-img-container">
-        <Image src={QualityImg} alt="" className="quality-img" />
+        <QualityImg className="quality-img" />
       </Box>
+      <QualityImgMobile className="quality-img-mobile" />
+
       <Image
         src={VerticalDottedImage}
         alt=""
         className="vertical-dotted-image"
       />
-      <Image src={GraphIcon} alt="" className="graph-icon" />
+      <GraphIcon className="graph-icon" />
       <Image
         src={TopRightDottedImage}
         alt=""

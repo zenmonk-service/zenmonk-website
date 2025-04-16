@@ -11,12 +11,12 @@ const loading = () => {
         justifyContent: 'center',
       }}
     >
-      <Box
+      {/* <Box
         component="img"
         src="/logo.svg"
         alt="logo"
         className="flicker-logo"
-      />
+      /> */}
     </Box>
   )
 }

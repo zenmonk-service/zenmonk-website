@@ -6,6 +6,7 @@ import { WorkList } from '@/assets/images/our-work'
 import Title from '@/shared/title'
 import { projects } from './project-list'
 import './styles.scss'
+import { OurWorkMobileSection } from './mobile'
 
 const OurWorkSection = () => {
   const [activeSection, setActiveSection] = useState<number>(0)
@@ -20,6 +21,7 @@ const OurWorkSection = () => {
 
   const backgroundImage = WorkList[activeSection]?.src ?? ''
   return (
+    <>
     <Box className="our-work-section">
       <Title
         text="Our latest project's resounding success"
@@ -50,6 +52,8 @@ const OurWorkSection = () => {
         </Box>
       </Box>
     </Box>
+     <OurWorkMobileSection/>
+    </>
   )
 }
 

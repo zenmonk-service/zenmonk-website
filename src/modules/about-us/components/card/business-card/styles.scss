@@ -10,15 +10,17 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  max-width: 376.194px;
-  max-height: 331.521px;
+  height: auto;
   box-shadow: 1px 1px 35.5px 0px rgba(0, 62, 176, 0.08);
   position: relative;
   background: var(--global-color-primary);
   transition: background 0.3s ease;
-  @media screen and (max-width:1000px) {
-    min-width: 300px;
-    
+
+  @media (min-width: 600px) and (max-width:1420px) {
+    min-width: 30vw;
+  }
+  @media screen and (max-width: 599px) {
+    min-width: 50vw;
   }
 
   &::before {
@@ -90,46 +92,38 @@
   }
 
   .business-card-icon-container {
-    margin-left: -30px;
     width: 100%;
+    padding: max(16px, 1.042vw);
+
+    .icon {
+      width: max(92px, 8.33vw) !important;
+      height: max(91.737px, 4.27vw) !important;
+    }
   }
 
   .business-card-content {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 20px;
+    padding: max(16px, 1.042vw);
     box-sizing: border-box;
-
-    @media screen and (max-width: 1499px) {
-      padding: 10px;
-    }
 
     .business-card-title {
       color: #383838;
       font-family: Poppins;
-      font-size: 21.161px;
+      font-size: var(--font-size-24) !important;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-
-      @media screen and (max-width: 1499px) {
-        margin-top: 20px;
-        font-size: 16px;
-      }
     }
 
     .business-card-description {
       color: #565656;
       font-family: Poppins;
-      font-size: 16px;
+      font-size: var(--font-size-16) !important;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-
-      @media screen and (max-width: 1499px) {
-        font-size: 14px;
-      }
     }
   }
 

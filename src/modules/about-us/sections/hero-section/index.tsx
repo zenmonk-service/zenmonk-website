@@ -1,7 +1,6 @@
 
 import About from '@/assets/images/about/about.png'
 import { HeroSection as HeroComponent } from '@/shared/hero-section'
-import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import './styles.scss'
 
 const HeroSection: React.FC = () => (

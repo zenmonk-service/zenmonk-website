@@ -1,9 +1,22 @@
 'use client'
 
-import React, { Suspense, lazy, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { dottedBg } from '@/assets/icons'
+import {
+  AiBasedSoftwares,
+  CloudComputing,
+  GrowthMarketing,
+  IndustrySpecific,
+  ItBusinessConsultation,
+  ItTrainingHeroSection,
+  MobileAppDevelopment,
+  ProductDevelopment,
+  SoftwareDevelopment,
+  UiUx,
+} from '@/modules/services/modules'
 import './styles.scss'
-import { AiBasedSoftwares, CloudComputing, GrowthMarketing, IndustrySpecific, ItBusinessConsultation, ItTrainingHeroSection, MobileAppDevelopment, ProductDevelopment, SoftwareDevelopment, UiUx } from '@/modules/services/modules'
 
 const DefaultHeroSection = () => <div className="default-hero-section"></div>
 
@@ -15,13 +28,14 @@ const HERO_SECTIONS: Record<string, any> = {
   'cloud-development': CloudComputing,
   'it-&-business-consultation': ItBusinessConsultation,
   'growth-&-marketing': GrowthMarketing,
-  'ai-based-softwares':AiBasedSoftwares,
+  'ai-based-softwares': AiBasedSoftwares,
   'industry-specific-solutions': IndustrySpecific,
   'ui-ux-design': UiUx,
 }
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()
+  const serviceRoute = pathname.split('/')[2]
   const serviceKeys = pathname
     .split('/')
     .filter((segment) => HERO_SECTIONS[segment])

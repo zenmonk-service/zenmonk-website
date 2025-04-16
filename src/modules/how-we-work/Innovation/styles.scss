@@ -1,8 +1,8 @@
 .innovation-section-wrapper {
-  padding: 60px 4% 66px;
+  padding: 3.125vw 4% 3.4375vw;
   background: #edf3f1;
   height: fit-content;
-  margin-top: 120px;
+  margin-top: 6.25vw;
 
   @media (max-width: 1499px) {
     margin-top: 105px;
@@ -27,7 +27,7 @@
 
   .innovation-section {
     width: 100%;
-    max-width: 1440px;
+    
     margin: auto;
     height: 100%;
     justify-content: center;
@@ -60,7 +60,7 @@
       }
 
       .innovation-title {
-        font-size: 40px !important;
+ 
 
         @media (max-width: 1499px) {
           font-size: 36px !important;
@@ -84,20 +84,18 @@
         color: #5c5c5c;
         text-align: center;
         font-family: Poppins;
-        font-size: 24px;
-        font-weight: 400;
-        max-width: 1160px;
+        max-width: 60.4166666667vw;
 
         @media (max-width: 1499px) {
-          font-size: 21px;
+          font-size: 17px;
         }
 
         @media (max-width: 1199px) {
-          font-size: 18px;
+          font-size: 16px;
         }
 
         @media (max-width: 899px) {
-          font-size: 16px;
+          font-size: 15px;
           text-align: left;
         }
 
@@ -122,8 +120,9 @@
         border-radius: 20px;
         width: 32%;
         height: 100%;
-        max-width: 455.132px;
-        max-height: 623px;
+        max-width: 23.6995833333vw;
+        max-height: 32.4479166667vw;
+        box-shadow: 4px 4px 30px 0px #0003;
 
         @media (max-width: 1199px) {
           display: none;
@@ -140,8 +139,8 @@
 
       .more-info {
         flex: 1;
-        gap: 30px;
-        max-width: 944px;
+        gap: 1.5625vw ;
+        max-width: 49.1666666667vw;
 
         @media (max-width: 1499px) {
           gap: 28px;
@@ -163,6 +162,7 @@
         .deliver-the-best {
           border-radius: 22.202px;
           background: #FFF;
+          justify-content: space-between;
           flex-direction: row !important;
           position: relative;
 
@@ -174,7 +174,8 @@
           }
 
           .deliver-the-best-text-wrapper {
-            padding: 36px 66px;
+            padding: 1.875vw 3.4375vw;
+          
 
             @media (max-width: 1499px) {
               padding: 31px 52px;
@@ -195,9 +196,10 @@
             }
 
             .earth-icon {
-              height: 88px;
-              width: 88px;
-              margin-bottom: 18px;
+              height: 4.583vw;
+              width: 4.583vw;
+              margin-bottom: 0.9375vw;
+              
 
               img {
                 height: 100%;
@@ -236,12 +238,10 @@
                 'liga' off,
                 'clig' off;
               font-family: Poppins;
-              font-size: 32px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 32px;
-              letter-spacing: 0.64px;
-              margin-bottom: 16px;
+              font-size: 1.667vw;
+font-style: normal;
+font-weight: 600;
+margin-bottom: 0.833vw;
 
               @media (max-width: 1499px) {
                 font-size: 28px;
@@ -268,12 +268,13 @@
                 'liga' off,
                 'clig' off;
               font-family: Poppins;
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 30px;
-              max-width: 460px;
-              margin-bottom: 24px;
+              font-size: 0.833vw;
+font-style: normal;
+font-weight: 400;
+line-height: 1.563vw;
+max-width: 23.958vw;
+margin-bottom: 1.25vw;
+
 
               @media (max-width: 1499px) {
                 font-size: 14px;
@@ -296,17 +297,18 @@
             }
 
             .contact-btn {
-              padding: 12px 16px;
-              border-radius: 8px;
-              outline: none;
-              background-color: transparent;
-              border: 1px solid #eb7c0d;
-              color: #eb7c0d;
-              font-size: 18px;
-              font-style: normal;
-              font-weight: 600;
-              text-transform: uppercase;
-              width: fit-content;
+              padding: 0.625vw 0.833vw;
+border-radius: 0.417vw;
+outline: none;
+background-color: transparent;
+border: 1px solid #eb7c0d;
+color: #eb7c0d;
+font-size: 0.938vw;
+font-style: normal;
+font-weight: 600;
+text-transform: uppercase;
+width: fit-content;
+
 
               @media (max-width: 1499px) {
                 font-size: 17px;
@@ -362,26 +364,28 @@
           flex-direction: row !important;
           align-items: center;
           justify-content: center;
-          padding: 26px;
-          gap: 80px;
+          padding: 1.354vw;
+          gap: 4.167vw;
+          
 
           .service-images-wrapper {
             justify-content: center;
             align-items: center;
-            gap: 16px;
+            gap: 0.833vw;
+
 
             .service-text {
               color: #FFF;
               text-align: center;
               font-feature-settings: 'liga' off, 'clig' off;
               font-family: Poppins;
-              font-size: 20px;
+              font-size: 0.938vw;
               font-style: normal;
               font-weight: 600;
               line-height: normal;
 
               @media (max-width: 1499px) {
-                font-size: 18px;
+                font-size: 17px;
               }
 
               @media (max-width: 1199px) {
@@ -389,7 +393,7 @@
               }
 
               @media (max-width: 899px) {
-                font-size: 16px;
+                font-size: 15px;
               }
 
               @media (max-width: 599px) {
@@ -398,8 +402,9 @@
             }
 
             .img-small {
-              width: 54px;
-              height: 60px;
+              width: 2.813vw;
+              height: 3.125vw;
+              
 
               @media (max-width: 1499px) {
                 width: 48px;
@@ -423,8 +428,9 @@
             }
 
             .img-large {
-              width: 64px;
-              height: 60px;
+              width: 3.333vw;
+height: 3.125vw;
+
 
               @media (max-width: 1499px) {
                 width: 56px;

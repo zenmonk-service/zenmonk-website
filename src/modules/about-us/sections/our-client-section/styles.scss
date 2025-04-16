@@ -7,30 +7,19 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  // margin-bottom: 100px;
-  .section-title {
-    @media screen and (max-width: 1499px) {
-      font-size: 36px !important;
-    }
 
-  }
   .section-description {
-    margin-top: 10px;
     text-align: center;
+    margin-top: 0.521vw;    // 10px
     width: 70%;
-    color: #777;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 100px;
+    margin-bottom: 5.208vw; // 100px
   }
-  .infinite-slider{
-    margin-bottom: 80px;
-    .slide-track{
-      gap: 100px;
+
+  .infinite-slider {
+    margin-bottom: 4.167vw; // 80px
+
+    .slide-track {
+      gap: 5.208vw;         // 100px
     }
   }
 }

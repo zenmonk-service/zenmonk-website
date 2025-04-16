@@ -1,13 +1,4 @@
-// .section-wrapper {
-//   width: 100% !important;
-//   padding: 20px 150px;
-//   box-sizing: border-box;
-//   justify-content: space-between;
-//   position: relative;
-//   @media screen and (max-width: 1499px) {
-//     padding: 20px 50px;
-//   }
-// }
+
 
 .section-wrapper {
   width: 100% !important;
@@ -15,11 +6,7 @@
   box-sizing: border-box;
   justify-content: space-between;
   position: relative;
-  max-width: 1900px;
   margin: auto;
-  @media screen and (max-width: 1499px) {
-    padding: 20px 50px;
-  }
 }
 
 
@@ -31,6 +18,5 @@
   justify-content: space-between;
   position: relative;
   margin: auto;
-  max-width: 1900px;
 }
 

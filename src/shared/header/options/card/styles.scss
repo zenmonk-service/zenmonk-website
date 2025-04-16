@@ -1,14 +1,12 @@
-
-
 .option-card {
   display: flex;
-  padding: 8px;
+  padding: 0.41vw;
   align-items: flex-start;
-  gap: 16px;
+  gap: 0.833vw;
   align-self: stretch;
-  border-radius: 8px;
+  border-radius: 0.41vw;
   display: flex;
-  height: 112px;
+  height: 5.83vw;
   cursor: pointer;
   .option-card-content {
     display: flex;
@@ -16,32 +14,32 @@
     .title {
       color: #364656;
       font-family: Inter;
-      font-size: 14px;
+      font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 500;
-      line-height: 20px;
-      letter-spacing: -0.14px;
+      line-height: 1.04vw;
+      letter-spacing: -0.007vw;
     }
     .description {
       width: 100%;
       color: #777;
       font-family: Poppins;
-      font-size: 12px;
+      font-size: var(--font-size-14);
       font-style: normal;
       font-weight: 300;
-      line-height: 20px;
-      letter-spacing: 0.24px;
+      line-height: 1.04vw;
+      letter-spacing: 0.0125vw;
     }
     .link-button {
-      margin-top: 16px;
+      margin-top: 0.833vw;
       padding: 0px !important;
       width: max-content;
       color: #ec6738;
       font-family: Inter;
-      font-size: 14px !important;
+      font-size: var(--font-size-14) !important;
       font-style: normal;
       font-weight: 600 !important;
-      line-height: 20px;
+      line-height: 1.04vw;
     }
   }
   &:hover {

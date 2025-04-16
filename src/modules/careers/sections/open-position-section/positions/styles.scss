@@ -1,38 +1,36 @@
 .positions {
-  margin-top: 60px;
+  margin-top: 1.56vw;
   width: 100%;
-  height: 500px;
-  border-radius: 20px;
-  border: 2px solid #f5f5f5;
+  height: 26.04vw;
+  border-radius: 1.04vw;
+  border: 0.10vw solid #f5f5f5;
   background: var(--global-color-primary);
   display: flex;
 
   .left-section {
-    padding-top: 30px;
-    width: 380px;
-    height: 498px;
+    padding-top: 1.56vw;
+    width: 19.79vw;
+    height: 25.94vw;
     flex-shrink: 0;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px 0px 60px 40px;
-    border-radius: 20px 0 0 20px;
-
-
+    padding: 3.125vw 0vw 3.125vw 2.08333vw;
+    border-radius: 1.04167vw 0vw 0vw 1.04167vw;
+  
 
     .position {
       cursor: pointer;
-      padding: 20px;
+      padding: 1.04vw;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: 22px;
+      font-size: max(16px , 1.15vw);
       font-style: normal;
       font-weight: 600;
-      line-height: 30px;
       width: 100%;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      border-top-left-radius: 1.04vw;
+      border-bottom-left-radius: 1.04vw;
       color: #B2B7B8;
 
       &:hover {
@@ -54,10 +52,10 @@
       &::before {
         content: "";
         position: absolute;
-        width: 15px;
-        height: 15px;
+        width: 0.78vw;
+        height: 0.78vw;
         background-color: #fff;
-        top: -15px;
+        top: -0.78vw;
         right: 0;
         clip-path: polygon(47% 74%, 63% 61%, 76% 46%, 85% 33%, 92% 20%, 100% 0, 100% 40%, 100% 78%, 100% 100%, 0 100%, 18% 92%, 33% 84%);
       }
@@ -65,10 +63,10 @@
       &::after {
         content: "";
         position: absolute;
-        width: 20px;
-        height: 15px;
+        width: 1.04vw;
+        height: 0.78vw;
         background-color: #fff;
-        bottom: -12px;
+        bottom: -0.63vw;
         right: 0;
         clip-path: polygon(26% 17%, 16% 10%, 0 0, 100% 0, 100% 100%, 91% 82%, 84% 71%, 76% 60%, 65% 50%, 56% 41%, 46% 32%, 35% 23%);
       }
@@ -81,7 +79,7 @@
   }
 
   .right-section {
-    padding: 40px 60px;
+    padding: 2.08333vw 3.125vw;
     overflow: scroll;
     flex: 1;
 
@@ -89,16 +87,15 @@
       color: #132427;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: 30px;
+      font-size: max(20px , 1.56vw);
       font-style: normal;
       font-weight: 600;
-      line-height: 36px;
       text-transform: capitalize;
-      margin-bottom: 10px;
+      margin-bottom: 0.52vw;
 
       .chip-label {
-        font-size: 11px;
-        margin-left: 10px;
+        font-size: max(10px , 0.57vw);
+        margin-left: 0.52vw;
       }
     }
 
@@ -106,35 +103,33 @@
       color: #757575;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: 16px;
+      font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 400;
-      line-height: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 0.52vw;
     }
 
     .skills-set-wrapper {
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin-top: 1.56vw;
+      margin-bottom: 1.56vw;
       background-color: var(--global-color-primary);
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 1.04vw;
 
       .skills-container {
         width: calc(50% - 10px);
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 0.63vw;
 
         .skills-title {
           color: #132427;
           font-feature-settings: "liga" off, "clig" off;
           font-family: Poppins;
-          font-size: 18px !important;
+          font-size: var(--font-size-18) !important;
           font-style: normal;
           font-weight: 600 !important;
-          line-height: 28px;
         }
 
         .skills-description {
@@ -142,10 +137,9 @@
           font-feature-settings: "liga" off, "clig" off;
           font-family: Poppins;
           justify-content: start !important;
-          font-size: 16px !important;
+          font-size: var(--font-size-16) !important;
           font-style: normal;
           font-weight: 400;
-          line-height: 30px;
         }
 
         .selected {

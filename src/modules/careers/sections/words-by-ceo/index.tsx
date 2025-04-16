@@ -7,10 +7,10 @@ const WordsByCEO = () => {
   return (
     <Stack className="ceo-section-wrapper">
       <Box className="ceo-section-text-image">
-        <Image alt="" src={CeoTextImage} />
+        <CeoTextImage/>
       </Box>
       <Box className="ceo-section-logo">
-        <Image alt="" src={ZenmonkLogo} />
+        <ZenmonkLogo/>
       </Box>
     </Stack>
   )

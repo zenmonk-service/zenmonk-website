@@ -1,25 +1,30 @@
 import { Box, Container, Typography } from '@mui/material'
 import Title from '@/shared/title'
-import Positions from './sectors'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
+import Sectors from './sectors'
 import './styles.scss'
 
 const BusinessSectors = () => {
   return (
     <Box className="business-sectors-container">
       <Box className="business-sectors-title-wrapper">
-        <Title
+        <SectionTitle
           className="business-sectors-title"
           text="Empowering Businesses Across Multiple Sectors"
+          markText="Sectors"
+          markTextProps={{
+            rotate: 2,
+          }}
         />
       </Box>
-      <Typography className="description" component="p">
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s. Lorem Ipsum <br /> has been the industry's standard dummy text
-        ever since the 1500s.
-      </Typography>
-      <Container maxWidth="xl">
-        <Positions />
-      </Container>
+      <SectionDescription
+        className="description"
+        text=" We deliver innovative software solutions across industries, empowering
+        businesses to overcome challenges, drive growth, and achieve success"
+      />
+      <Box>
+        <Sectors />
+      </Box>
     </Box>
   )
 }

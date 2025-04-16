@@ -1,19 +1,19 @@
 .big-show-case-event-card {
-  width: 630px;
+  width: 32.81vw;
   flex-shrink: 0;
-  height: 610px;
+  height: 31.77vw;
   background-color: var(--global-color-primary);
-  border-radius: 20px;
+  border-radius: 1.04vw;
 
   @media screen and (max-width: 1371px) {
     // width: 100%;
   }
 
   .show-case-image-container {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-top-right-radius: 1.04vw;
+    border-top-left-radius: 1.04vw;
     position: relative;
-    width: 630px;
+    width: 32.81vw;
     overflow: hidden;
     
     .show-case-image {
@@ -25,28 +25,27 @@
     }
   }
   .event-details {
-    padding: 30px;
+    padding: 1.56vw;
     width: 100%;
     height: auto;
     .event-date {
       width: 100%;
       height: auto;
       display: flex;
-      gap: 10px;
+      gap: 0.52vw;
       align-items: center;
       img {
-        width: 14px;
-        height: 15.974px;
+        width: 0.73vw;
+        height: 0.83vw;
         flex-shrink: 0;
       }
       .date-text {
         color: #757575;
         font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
-        font-size: 16px;
+        font-size: var(--font-size-16);
         font-style: normal;
         font-weight: 400;
-        line-height: 30px;
       }
     }
     .event-content-details {
@@ -55,35 +54,32 @@
       display: flex;
       flex-direction: column;
 
-      gap: 30px;
+      gap: 1.56vw;
       .title-text {
-        margin-top: 19px;
+        margin-top: 0.99vw;
         color: #132427;
         font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
-        font-size: 22px !important;
+        font-size: max(16px , 1.15vw) !important;
         font-style: normal;
         font-weight: 600;
-        line-height: 30px;
       }
       .description-text {
         color: #757575;
         font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
-        font-size: 16px !important;
+        font-size: var(--font-size-16) !important;
         font-style: normal;
         font-weight: 400 !important;
-        line-height: 30px;
       }
       .button {
         padding: 0;
         display: flex;
-        gap: 10px;
+        gap: 0.52vw;
         font-family: Poppins;
-        font-size: 14px !important;
+        font-size: var(--font-size-14) !important;
         font-style: normal;
         font-weight: 600 !important;
-        line-height: 30px !important;
         align-items: center;
         width: max-content;
         background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);

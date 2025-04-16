@@ -15,13 +15,13 @@ const Country = ({
   isSelected,
   className,
 }: CountryCardProps) => {
-  const { img: url, name } = country
+  const { img: Icon, name } = country
   return (
     <Box
       className={`country-card ${isSelected ? 'country-card-selected' : ''} ${className}`}
       onMouseEnter={() => setSelectedCountry(country)}
     >
-      {url && <Image src={url} alt={name} width={100} height={100} />}
+      {Icon && <Icon className="icons"/>}
     </Box>
   )
 }

@@ -1,27 +1,22 @@
-import Image, { StaticImageData } from 'next/image'
 import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
 interface ContactCardProps {
-  url: StaticImageData
+  url: any
   title?: string
   description: string
   className?: string
 }
 
 const ContactCard = ({
-  url,
+  url: Icon,
   title,
   description,
   className,
 }: ContactCardProps) => {
   return (
     <Box className={`contact-card ${className}`}>
-      <Image
-        src={url}
-        alt={`${title ?? ''}-image`}
-        className="contact-card-image"
-      />
+      <Icon className="contact-card-image" />
       <Box className="contact-card-content">
         {title && (
           <Typography variant="h3" component="h3" className="title">

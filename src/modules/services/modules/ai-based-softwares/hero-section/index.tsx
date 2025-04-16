@@ -1,4 +1,3 @@
-import SectionWrapper from '@/shared/wrapper'
 import { Hero as HeroImg } from '../assets'
 import { HeroSection } from '@/shared/hero-section'
 

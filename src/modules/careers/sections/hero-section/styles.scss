@@ -4,52 +4,42 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0  7.8125%;
-  max-width: 1920px;
+  padding: 0 7.8125%;
   margin: auto;
-  max-height: 1080px;
 
   .hero-section {
     display: flex;
     flex-direction: column;
     text-align: left;
     position: relative;
+
     .ellipse {
-      width: 250px;
-      height: 1088px;
+      width: 13.02vw;
+      height: 56.67vw;
       position: absolute;
-      top: -110px;
-      left: -19%;
+      top: -5.73vw;
+      left: -19%;      
     }
 
     .hero-section-text-wrapper {
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      max-width: 848px;
+      gap: 0.833vw;
       width: 100%;
-
-      @media (max-width: 1499px) {
-        max-width: 500px;
-      }
     }
 
     .text-heading {
       color: #132427;
-      font-feature-settings: "liga" off, "clig" off;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Poppins;
-      font-size: 60px !important;
+      font-size: 3.125vw !important;
       font-style: normal;
       font-weight: 600 !important;
-      line-height: 70px;
+      line-height: 3.6458vw;
       text-transform: capitalize;
-
-      @media (max-width: 1499px) {
-        font-size: 36px !important;
-        line-height: 60px;
-      }
-
     }
 
     .text-heading span {
@@ -61,26 +51,20 @@
     }
 
     .text-description {
-      width: 784px;
+      width: 40.833vw;
       color: #757575 !important;
-      font-feature-settings: "liga" off, "clig" off;
+      font-feature-settings:
+        'liga' off,
+        'clig' off;
       font-family: Poppins;
-      font-size: 24px !important;
+      font-size: 1.25vw !important;
       font-style: normal;
       font-weight: 400 !important;
-      line-height: 38px;
-      letter-spacing: 0.48px;
-      margin-bottom: 65px;
-
-      @media (max-width: 1499px) {
-        font-size: 21px !important;
-        width: 600px;
-
-      }
-
+      line-height: 1.979vw;
+      letter-spacing: 0.025vw;
+      margin-bottom: 3.385vw;
     }
   }
-
 
   .hero-section-image-wrapper {
     flex: 1;
@@ -90,66 +74,73 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-     
+
     .image-container {
       width: 66%;
       height: 70%;
       position: relative;
+
       .big-ellipse {
         position: absolute;
         top: -26%;
         right: -67%;
-        width: 675px;
-        height: 830px;
+        width: 35.15625vw;
+        height: 43.2292vw;
         flex-shrink: 0;
       }
+
       .hero-section-circle-image {
         max-width: 90%;
-        margin-top: 30px;
-        margin-left: 20px;
+        margin-top: 1.5625vw;
+        margin-left: 1.0417vw;
         opacity: 1;
         z-index: 2;
         object-fit: contain;
         position: absolute;
-        transform: translateY(50px) scale(0.95) rotateX(10deg);
+        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
       }
 
-       .hero-section-hike-image {
+      .hero-section-hike-image {
         position: absolute;
-        left:15%;
+        left: 15%;
         bottom: 9%;
         z-index: 5;
-        transform: translateY(50px) scale(0.95) rotateX(10deg);
+        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+        width: 7.1354vw;
+        height: 5.8854vw;
       }
+
       .hero-section-experience-image {
         position: absolute;
-        right:-17%;
+        right: -17%;
         top: 24%;
         z-index: 5;
-        transform: translateY(50px) scale(0.95) rotateX(10deg);
+        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-        @media (max-width: 1499px) {
-          right:-35;
-  
-        }
+        width: 7.6125vw;
+        height: 7.8125vw;
       }
+
       .hero-section-happy-culture-image {
         position: absolute;
-        right:-25%;
+        right: -25%;
         bottom: 8%;
         z-index: 5;
-        transform: translateY(50px) scale(0.95) rotateX(10deg);
+        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+        height: 8.59375vw;
+        width: 7.8125vw;
       }
+
       .hero-section-image {
         max-width: 100%;
         opacity: 1;
         z-index: 4;
         object-fit: contain;
         position: absolute;
-        transform: translateY(50px) scale(0.95) rotateX(10deg);
+        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
         animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
       }
     }
@@ -158,10 +149,10 @@
 
 .hero-section-image.freelancer {
   left: 15% !important;
-  top: 5% !important;
+  top: 2.604vw !important;
 }
 
 .hero-section-circle-image {
   left: 15% !important;
-  top: 5% !important;
+  top: 2.604vw !important;
 }

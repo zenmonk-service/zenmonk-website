@@ -5,26 +5,26 @@ import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
 import { innovations } from './innovations'
 import './styles.scss'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const InnovationExcellence = () => {
   return (
     <Box className="innovation-excellence-section">
       <Box className="left-section">
-        <Title
+        <SectionTitle
           align="left"
           text="Our Promise of Innovation and Excellence"
+          markText='Excellence'
           className="title"
         />
-        <Typography component="p" className="description">
-          We are dedicated to fostering a supportive environment, offering
+        <SectionDescription
+          text="We are dedicated to fostering a supportive environment, offering
           growth opportunities, and ensuring our team feel valued and
-          appreciated.
-        </Typography>
-        <Image
-          alt="excellence-image"
-          src={Excellence}
-          className="excellence-image"
+          appreciated."
+          className="description"
         />
+        <Excellence className="excellence-image"/>
+       
       </Box>
       <Box className="right-section">
         {innovations.map((innovation, index) => {

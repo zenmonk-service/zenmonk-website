@@ -1,30 +1,45 @@
 .why-choose-us-card {
-  width: 420px;
-  height: auto;
-  padding: 32px 40px;
-  cursor: default;
-  height: auto;
-  flex-shrink: 0;
-  border-radius: 6px;
-  background: var(--global-color-primary);
-  box-shadow: 0px 0px 84.5px 0px rgba(43, 48, 86, 0.12);
   display: flex;
+  width: max(18.646vw, 21.988vw); // 358px, 422.174px
+  height: auto;
   flex-direction: column;
-  gap: 18px;
+  flex-shrink: 0;
 
-  img {
-    transition: transform 0.5s ease-in-out;
-  }
+  padding: 1.667vw 2.083vw; // 32px 40px
+  cursor: default;
+  border-radius: 0.313vw; // 6px
+  background: var(--global-color-primary);
+  box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.12); // 84.5px
+  gap: 0.938vw; // 18px
 
-  &:hover {
+  .card-image-container {
+    position: relative;
+    width: 3.75vw;   /* ~72px */
+    height: 3.229vw; /* ~62px */
+    overflow: hidden; // optional: clips image overflow
+    border-radius: 8px;
+  
     img {
-      transform: scale(1.2);
+    transition: transform 0.5s ease-in-out;
+      object-fit: cover; /* or 'contain' if you don't want crop */
+      width: 100%;
+      height: 100%;
+      transform: scale(9);
     }
   }
+  
+  
+
+  &:hover {
+    .card-image-container img {
+      transform: scale(10);
+    }
+  }
+
   @media screen and (max-width: 1499px) {
-    min-width: 280px;
+    min-width: 14.583vw; // 280px
     width: 100%;
-    padding: 17px 17px;
+    padding: 0.885vw 0.885vw; // 17px 17px
   }
 
   .content {
@@ -32,28 +47,27 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.521vw; // 10px
+
     .title {
       color: #4e4e4e;
       font-family: Poppins;
-      font-size: 18px;
+      font-size: var(--font-size-18) !important;
       font-style: normal;
       font-weight: 600;
       line-height: normal;
     }
+
     .description {
       width: 100%;
       flex-shrink: 0;
       color: #565656;
       font-family: Poppins;
-      font-size: 16px;
+      font-size: var(--font-size-16) !important;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 10px;
-      @media screen and (max-width: 1499px) {
-        font-size: 14px;
-      }
+      margin-bottom: 0.521vw; // 10px
     }
   }
 }

@@ -1,9 +1,9 @@
 .tradition-custom-card {
-  width: 300px;
-  height: 155px;
+  width: 15.63vw;
+  height: 8.07vw;
   display: flex;
-  gap: 19px;
-  border-radius: 20px;
+  gap: 0.99vw;
+  border-radius: 1.04vw;
   align-items: center;
   border: 1px solid var(--global-color-primary, #fff);
 
@@ -12,9 +12,9 @@
   }
 
   .image-container {
-    margin-left: 33px;
-    width: 64px;
-    height: 64px;
+    margin-left: 1.72vw;
+    width: 3.33vw;
+    height: 3.33vw;
     background: var(--global-color-primary, #fff);
     border-radius: 50%;
     display: grid;
@@ -30,10 +30,9 @@
       display: flex;
       color: var(--global-color-primary, #FFF);
       font-family: Poppins;
-      font-size: 50px;
+      font-size: max(24px , 2.60vw);
       font-style: normal;
       font-weight: 500;
-      line-height: 60px;
 
       @media (max-width: 1499px) {
         font-size: 36px;
@@ -43,10 +42,9 @@
       color: var(--global-color-primary, #fff);
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: 16px;
+      font-size: max(14px,0.83vw);
       font-style: normal;
       font-weight: 600;
-      line-height: 30px;
     }
   }
 }

@@ -1,0 +1,99 @@
+.mobile-service-section {
+  margin-top: 40px;
+
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+
+  .mobile-service-info-wrapper {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .mobile-service-icon {
+    width: 40px;
+  }
+
+  .mobile-service-item {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 2px 2px 13px 0px rgba(12, 98, 98, 0.13);
+    padding: 16px 24px;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .mobile-service-number {
+    font-family: Montserrat !important;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 80px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .mobile-service-content {
+    display: flex;
+    flex-direction: column;
+    align-itemss: flex-start;
+  }
+
+  .mobile-service-text {
+    color: #132427;
+    font-feature-settings:
+      'liga' off,
+      'clig' off;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.16px;
+  }
+
+  .mobile-service-description {
+    color: #777;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.28px;
+  }
+
+  .arrow-icon {
+    margin-left: auto;
+  }
+
+  .tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 16px;
+ 
+  }
+
+  .tech-card-container {
+    .tech-card-title {
+      width: 100% !important;
+    }
+  }
+
+  .tech-logos-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+    p {
+      color: #132427;
+      font-family: Poppins;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
