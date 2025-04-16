@@ -31,7 +31,7 @@ const WorkCulture = () => {
   )
 
   return (
-    <Container style={{ maxWidth: '100%' }}>
+    <Box className="work-culture-wrapper">
       <Box className="work-culture-section">
         <Box className="title-description-action-wrapper">
           <Box className="title-description-wrapper">
@@ -39,6 +39,10 @@ const WorkCulture = () => {
               align="left"
               text="Zen Focused Work Environment"
               className="work-culture-title"
+              markText='Environment'
+              markTextProps={{
+                rotate:4
+              }}
             />
             <SectionDescription
               className="work-culture-description"
@@ -67,7 +71,7 @@ const WorkCulture = () => {
           ))}
         </Box>
       </Box>
-    </Container>
+    </Box>
   )
 }
 

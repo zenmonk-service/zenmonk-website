@@ -17,7 +17,7 @@ const HeroSection = () => {
     <Box className="career-hero-section-wrapper">
       {/* <Toolbar /> */}
       <Box className="hero-section">
-        <Image className="ellipse" src={Ellipse} alt="ellipse" />
+        <Image className="ellipse" src={Ellipse} alt="ellipse big" />
         <Box className="hero-section-text-wrapper">
           <Typography variant="h4" className="text-heading">
             <Typography variant="inherit" component="span">
