@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { bgImage as BGIMAGE} from './assets'
 import TraditionCustomCard from './card/tradition-card'
 import './styles.scss'

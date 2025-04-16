@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image'
+
 import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
