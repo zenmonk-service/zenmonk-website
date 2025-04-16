@@ -2,7 +2,7 @@ export const awardProof = [
   {
     title: 'Innovate Design Award',
     description:
-      "We’ve won the Innovate Design Award for our user-focused, innovative solutions that exceed client expectations.",
+      "We’ve won the Innovate Design Award for our user-focused, innovative solutions that exceed expectations.",
     image: '/about-us/award-proof/design-award.svg',
   },
   {
