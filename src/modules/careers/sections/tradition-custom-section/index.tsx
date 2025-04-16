@@ -9,7 +9,7 @@ const TraditionsCustoms = () => {
   return (
     <Box className="traditions-customs-section">
       <BGIMAGE className="bg-image" />
-      <Container maxWidth="xl" className="container">
+      <Box  className="container">
         <Box className="traditions-customs-title-description-wrapper">
           <Typography component="h1" className="traditions-customs-title">
             Experiencing Traditions and Customs
@@ -31,7 +31,7 @@ const TraditionsCustoms = () => {
             )
           })}
         </Box>
-      </Container>
+      </Box>
     </Box>
   )
 }
