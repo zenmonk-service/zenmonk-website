@@ -1,8 +1,8 @@
 .excellence-card {
-  width: 370px;
-  height: 252px;
+  width: 19.2708333333vw;
+  height: 13.125vw;
   flex-shrink: 0;
-  border-radius: 20px;
+  border-radius: 1.04166666667vw;
   position: relative;
   @media (max-width:1554px)  {
     width: 100%;
@@ -15,26 +15,24 @@
   }
   .title {
     width: 90%;
-    padding: 40px 0px 0px 70px;
+    padding: 2.08333333333vw 0px 0px 3.64583333333vw;
     color: #132427;
     font-feature-settings: "liga" off, "clig" off;
     font-family: Poppins;
-    font-size: 22px;
+    font-size: max(16px , 1.15vw);
     font-style: normal;
     font-weight: 400;
-    line-height: 30px;
   }
   .description {
-    margin-top: 16px;
+    margin-top: 0.83vw;
     width: 90%;
-    padding-left: 70px;
+    padding-left: 3.65vw;
     color: #757575;
     font-feature-settings: "liga" off, "clig" off;
     font-family: Poppins;
-    font-size: 16px;
+    font-size: var(  --font-size-16);
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; 
    
   }
 }
