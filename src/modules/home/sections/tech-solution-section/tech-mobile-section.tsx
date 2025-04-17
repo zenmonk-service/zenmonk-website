@@ -6,6 +6,8 @@ import './tech-mobile.section.scss'
 import { TechSolution, techSolution } from '@/assets/icons/it-solution'
 import TechCard from './tech-card'
 import BaseButton from '@/shared/button'
+import MOBILEIMAGE from "./mobileImage.svg"
+import { Margin } from '@mui/icons-material'
 
 const TechMobileSolutionSection = () => {
   return (
@@ -23,7 +25,14 @@ const TechMobileSolutionSection = () => {
             proficient in technical terminology, and validate our new-age
             expertise with custom solutions"
       ></SectionDescription>
-      <TechSolutionSectionImage />
+      <Box sx={{
+        width:"100%",
+        display:"grid",
+        placeItems:"center",
+        marginBottom:"8px"
+      }}>
+      <MOBILEIMAGE  />
+      </Box>
       <Box className="tech-mobile-solution-section-card-wrapper">
           {techSolution.map((tech: TechSolution, index) => {
             return <TechCard key={index} Icon={tech.src} title={tech.name} />
