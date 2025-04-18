@@ -4,10 +4,10 @@
   flex-shrink: 0;
   border-radius: 1.04166666667vw;
   position: relative;
+  background: var(--global-color-primary, #fff);
   @media (max-width:1554px)  {
     width: 100%;
   }
-  background: var(--global-color-primary, #fff);
   .excellence-card-image {
     position: absolute;
     top: 20%;

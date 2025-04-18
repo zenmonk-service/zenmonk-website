@@ -4,15 +4,14 @@
   padding-left: 7.8125%;
   padding-right: 7.8125%;
   margin-top: Max(80px, 3.125vw);
-  @media (max-width: 900px) {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
   gap: Max(36px, 3.3333vw);
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 900px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
   .images {
     position: relative;

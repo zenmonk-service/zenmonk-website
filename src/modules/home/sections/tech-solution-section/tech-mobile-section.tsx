@@ -1,13 +1,10 @@
-import { Box, Typography } from '@mui/material'
-import { Laptop2 } from '@/assets/images'
-import { SectionDescription, SectionTitle } from '@/shared/typography'
-import { TechSolutionSectionImage } from './image'
-import './tech-mobile.section.scss'
+import { Box } from '@mui/material'
 import { TechSolution, techSolution } from '@/assets/icons/it-solution'
-import TechCard from './tech-card'
 import BaseButton from '@/shared/button'
-import MOBILEIMAGE from "./mobileImage.svg"
-import { Margin } from '@mui/icons-material'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
+import TechSolutionMobileImage from './mobileImage.svg'
+import TechCard from './tech-card'
+import './tech-mobile.section.scss'
 
 const TechMobileSolutionSection = () => {
   return (
@@ -25,20 +22,22 @@ const TechMobileSolutionSection = () => {
             proficient in technical terminology, and validate our new-age
             expertise with custom solutions"
       ></SectionDescription>
-      <Box sx={{
-        width:"100%",
-        display:"grid",
-        placeItems:"center",
-        marginBottom:"8px"
-      }}>
-      <MOBILEIMAGE  />
+      <Box
+        sx={{
+          width: '100%',
+          display: 'grid',
+          placeItems: 'center',
+          marginBottom: '8px',
+        }}
+      >
+        <TechSolutionMobileImage />
       </Box>
       <Box className="tech-mobile-solution-section-card-wrapper">
-          {techSolution.map((tech: TechSolution, index) => {
-            return <TechCard key={index} Icon={tech.src} title={tech.name} />
-          })}
-        </Box>
-        <BaseButton>EXPLORE SERVICES</BaseButton>
+        {techSolution.map((tech: TechSolution, index) => {
+          return <TechCard key={index} Icon={tech.src} title={tech.name} />
+        })}
+      </Box>
+      <BaseButton>EXPLORE SERVICES</BaseButton>
     </Box>
   )
 }

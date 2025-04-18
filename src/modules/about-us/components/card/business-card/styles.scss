@@ -67,12 +67,12 @@
   }
 
   &:hover #element_front {
-    transform: translateX(25px);
+    transform: translateX(1.302vw);
   }
-
+  
   &:hover #element_back {
-    transform: translateX(95px);
-  }
+    transform: translateX(4.948vw);
+  }  
 
   &:hover #element_front path,
   &:hover #element_front circle,
@@ -85,10 +85,6 @@
 
   @media screen and (max-width: 1699px) {
     width: 325px !important;
-  }
-
-  @media screen and (max-width: 1499px) {
-    width: 257px !important;
   }
 
   .business-card-icon-container {

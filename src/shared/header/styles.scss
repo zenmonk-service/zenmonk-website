@@ -1,13 +1,10 @@
 .app-bar-container {
-  position: fixed;
-  z-index: 100;
   background-color: transparent !important;
-
   .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.04% 7.8125% 10.057px;
+    padding: 1.04% 7.8125% 0.523%;
     .logo {
       height: 9.375vh;
       object-fit: contain;

@@ -64,11 +64,10 @@
         color: #757575 !important;
         font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
-       
+        font-size: var(--font-size-24);
         font-style: normal;
-        font-weight: 400 !important;
         line-height: normal;
-        margin-bottom: 2.08333333333vw;
+        margin-bottom: 2.08vw;
 
         @media (max-width: 1499px) {
           font-size: 21px;
