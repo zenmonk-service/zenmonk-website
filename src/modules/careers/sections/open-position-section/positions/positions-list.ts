@@ -156,7 +156,7 @@ export const positionsList: Department[] = [
       {
         title: 'Digital Marketing Specialist',
         heading: 'SEO & Social Media Marketing Specialist',
-        isOpening: false,
+        isOpening: true,
         description:
           'Looking for a digital marketing expert to manage SEO, content marketing, and social media strategies.',
         skills: [

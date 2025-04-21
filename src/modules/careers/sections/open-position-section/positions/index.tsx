@@ -11,18 +11,25 @@ interface SkillsCardProps {
   description: string
 }
 
-const Positions = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState<
-    Department
-  >(positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ?? positionsList[0])
+const SkillsCard = ({ title, description }: SkillsCardProps) => (
+  <Box className="skills-container">
+    <Typography className="skills-title" component="h3">
+      ✅&nbsp;{title}
+    </Typography>
+    <Typography className="skills-description" component="p">
+      {description}
+    </Typography>
+  </Box>
+)
 
-  const hasOpenPosition = selectedDepartment?.positions.some(
-    (position) => position.isOpening
+const Positions = () => {
+  const [selectedDepartment, setSelectedDepartment] = useState<Department>(
+    positionsList.find(dept => dept.positions.some(pos => pos.isOpening)) ?? positionsList[0]
   )
 
-  const selectPosition = (department: Department) => {
-    setSelectedDepartment(department)
-  }
+  const hasOpenPosition = selectedDepartment?.positions.some(pos => pos.isOpening)
+
+  const handleSelectPosition = (department: Department) => setSelectedDepartment(department)
 
   return (
     <Box className="positions">
@@ -31,14 +38,12 @@ const Positions = () => {
           const isSelected = selectedDepartment?.id === department.id
           return (
             <Typography
-              className={`position ${isSelected ? 'selected' : ''}`}
               key={index}
-              onClick={() => selectPosition(department)}
+              className={`position ${isSelected ? 'selected' : ''}`}
+              onClick={() => handleSelectPosition(department)}
               sx={{
                 color: 'GrayText',
-                '&:hover': {
-                  color: 'var(--global-color-secondary)',
-                },
+                '&:hover': { color: 'var(--global-color-secondary)' },
               }}
             >
               {department.department}
@@ -49,34 +54,31 @@ const Positions = () => {
 
       <Box className="right-section">
         {hasOpenPosition ? (
-          selectedDepartment?.positions.map((department, index) => {
-            console.log(department.description)
-            return (
-              <Box key={index}>
-                <Typography component="h1" className="department-title">
-                  {department.heading}
-                  <Chip
-                    className="chip-label"
-                    label={department.isOpening ? 'open' : 'closed'}
-                    color={department.isOpening ? 'success' : 'error'}
-                    variant="outlined"
+          selectedDepartment.positions.map((role, index) => (
+            <Box key={index}>
+              <Typography component="h1" className="department-title">
+                {role.heading}
+                <Chip
+                  className="chip-label"
+                  label={role.isOpening ? 'open' : 'closed'}
+                  color={role.isOpening ? 'success' : 'error'}
+                  variant="outlined"
+                />
+              </Typography>
+              <Typography component="p" className="department-description">
+                {role.description}
+              </Typography>
+              <Box className="skills-set-wrapper">
+                {role.skills.map((skill, skillIndex) => (
+                  <SkillsCard
+                    key={skillIndex}
+                    title={skill.title}
+                    description={skill.description}
                   />
-                </Typography>
-                <Typography component="p" className="department-description">
-                  {department.description}
-                </Typography>
-                <Box className="skills-set-wrapper">
-                  {department.skills.map((skill, index) => (
-                    <SkillsCard
-                      key={index}
-                      title={skill.title}
-                      description={skill.description}
-                    />
-                  ))}
-                </Box>
+                ))}
               </Box>
-            )
-          })
+            </Box>
+          ))
         ) : (
           <>
             <Box>
@@ -91,19 +93,6 @@ const Positions = () => {
           </>
         )}
       </Box>
-    </Box>
-  )
-}
-
-const SkillsCard = ({ title, description }: SkillsCardProps) => {
-  return (
-    <Box className="skills-container">
-      <Typography className="skills-title" component="h3">
-        ✅&nbsp;{title}
-      </Typography>
-      <Typography className="skills-description" component="p">
-        {description}
-      </Typography>
     </Box>
   )
 }

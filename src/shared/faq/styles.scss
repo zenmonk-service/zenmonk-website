@@ -90,9 +90,10 @@
   .question {
     color: #424242;
     font-family: Poppins;
-    font-size: var(--font-size-18);
+    font-size: var(--font-size-16);
     font-style: normal;
     font-weight: 400;
+    margin-bottom: 0.41666666666vw;
     @media (max-width: 900px) {
       color: #132427;
       margin-bottom: 4px;
@@ -101,8 +102,8 @@
 
   .answer {
     color: #777;
-    font-family: Inter;
-    font-size: var(--font-size-16);
+    font-family: Poppins;
+    font-size: var(--font-size-14);
     font-style: normal;
     font-weight: 400;
   }

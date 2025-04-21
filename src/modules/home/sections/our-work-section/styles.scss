@@ -1,29 +1,26 @@
 .our-work-section {
   margin-top: 2.604vw;
 
-  @media (max-width: 1099px) 
-  {
-      display: none;
-      
+  @media (max-width: 1099px) {
+    display: none;
   }
 
   .title {
     color: #132427;
     text-align: center;
-    font-family: Inter !important;
+    font-family: Poppins !important;
     font-size: var(--font-size-40) !important;
     font-style: normal;
     font-weight: 600 !important;
     line-height: normal;
-    letter-spacing: 0.005vw    !important;
+    letter-spacing: 0.005vw !important;
   }
 
   .our-work-container {
-    margin-top:3.125vw;
-
+    margin-top: 3.125vw;
 
     .section-container {
-      background: url("/our-work-container/ourwork1.webp") center center;
+      background: url('/our-work-container/ourwork1.webp') center center;
       background-size: cover;
       height: 30.208vw;
       width: 100%;
@@ -55,7 +52,6 @@
           transition: height 1s;
 
           p {
-      
             &:first-child {
               color: #fff;
               font-family: var(--global-font-family);
@@ -68,7 +64,7 @@
             &:nth-child(2) {
               color: #fff;
               font-family: var(--global-font-family);
-              font-size:var( --font-size-24);
+              font-size: var(--font-size-24);
               font-weight: 600;
               text-align: left;
             }
@@ -76,7 +72,7 @@
             &:nth-child(3) {
               color: #fff;
               font-family: var(--global-font-family);
-              font-size: var( --font-size-18);
+              font-size: var(--font-size-18);
               font-weight: 500;
               text-align: left;
             }
@@ -94,7 +90,7 @@
 // Responsive Styles
 @media (max-width: 1450px) {
   .our-work-container {
-    margin-top: 2.604vw    ;
+    margin-top: 2.604vw;
 
     .section-container div {
       p:nth-child(2) {
@@ -110,7 +106,7 @@
 
 @media (max-width: 1366px) and (min-width: 992px) {
   .our-work-container .section-container {
-    height:26.042vw;
+    height: 26.042vw;
 
     div {
       p:nth-child(2) {
@@ -147,13 +143,13 @@
       text-align: center;
       font-size: 3.229vw;
       font-weight: 500;
-      font-family: "Poppins";
+      font-family: 'Poppins';
       top: 0.833vw;
       left: 0.833vw;
     }
 
     .image-wrapper-container {
-      margin-top: 2.083vw      ;
+      margin-top: 2.083vw;
     }
 
     .details {
@@ -162,14 +158,14 @@
         font-family: var(--global-font-family);
         font-size: var(--font-size-18) !important;
         font-weight: 500;
-        margin-top: 0.833vw ;
+        margin-top: 0.833vw;
         margin-bottom: 0.417vw;
       }
 
       .subheading {
         color: #424242;
         font-family: var(--global-font-family);
-        font-size: var( --font-size-14);
+        font-size: var(--font-size-14);
         font-weight: 400;
       }
     }
@@ -180,7 +176,7 @@
   .image-wrapper-container-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.833vw    ;
+    gap: 0.833vw;
   }
 
   .our-work-container-mobile .our-work-container-image {

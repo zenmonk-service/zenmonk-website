@@ -1,14 +1,9 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins, Montserrat } from 'next/font/google'
+import { Poppins, Montserrat } from 'next/font/google'
 import { Footer } from '@/modules/home/sections'
 import Header from '@/shared/header'
-import HeaderWrapper from '@/shared/header/headerWrapper'
 import './globals.css'
 
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-})
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -34,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}
+        className={` ${poppins.variable} ${montserrat.variable}`}
       >
         <Header />
         {children}

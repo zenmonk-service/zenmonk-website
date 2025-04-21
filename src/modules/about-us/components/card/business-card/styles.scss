@@ -16,7 +16,7 @@
   background: var(--global-color-primary);
   transition: background 0.3s ease;
 
-  @media (min-width: 600px) and (max-width:1420px) {
+  @media (min-width: 600px) and (max-width: 1420px) {
     min-width: 30vw;
   }
   @media screen and (max-width: 599px) {
@@ -69,10 +69,10 @@
   &:hover #element_front {
     transform: translateX(1.302vw);
   }
-  
+
   &:hover #element_back {
     transform: translateX(4.948vw);
-  }  
+  }
 
   &:hover #element_front path,
   &:hover #element_front circle,
@@ -81,7 +81,6 @@
     stroke: white;
     fill: white;
   }
-
 
   @media screen and (max-width: 1699px) {
     width: 325px !important;
@@ -92,7 +91,7 @@
     padding: max(16px, 1.042vw);
 
     .icon {
-      width: max(92px, 8.33vw) !important;
+      width: max(92px, 10.33vw) !important;
       height: max(91.737px, 4.27vw) !important;
     }
   }
