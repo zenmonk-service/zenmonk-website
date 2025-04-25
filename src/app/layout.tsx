@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat } from 'next/font/google'
-import { Footer } from '@/modules/home/sections'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import Header from '@/shared/header'
 import './globals.css'
-
+import { Footer } from '@/shared/footer-section'
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -28,12 +28,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={` ${poppins.variable} ${montserrat.variable}`}
-      >
-        <Header />
-        {children}
-        <Footer />
+      <body className={` ${poppins.variable} ${montserrat.variable}`}>
+        <AppRouterCacheProvider>
+          <Header />
+          {children}
+          <Footer />
+        </AppRouterCacheProvider>
       </body>
     </html>
   )

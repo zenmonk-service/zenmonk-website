@@ -17,26 +17,24 @@ import SectionWrapper from '@/shared/wrapper'
 const page = () => {
   return (
     <Box>
-        <HeroSection />
-        <OurPartners />
-        <AnimatedDiv>
-          <ServiceSection />
-        </AnimatedDiv>
-        <AnimatedDiv>
-          <TechSolutionSection />
-        </AnimatedDiv>
-        <AnimatedDiv>
+      <HeroSection />
+      <OurPartners />
+      <ServiceSection />
+      <AnimatedDiv>
+        <TechSolutionSection />
+      </AnimatedDiv>
+      <AnimatedDiv>
         <OurWorkSection />
       </AnimatedDiv>
-      <Box sx={{overflow:"hidden"}}>
-      <SectionWrapper>
+      <Box sx={{ overflow: 'hidden' }}>
+        <SectionWrapper>
+          <AnimatedDiv>
+            <WhyChooseUsSection />
+          </AnimatedDiv>
+        </SectionWrapper>
         <AnimatedDiv>
-          <WhyChooseUsSection />
+          <Odometer />
         </AnimatedDiv>
-      </SectionWrapper>
-      <AnimatedDiv>
-        <Odometer />
-      </AnimatedDiv>
       </Box>
       <AnimatedDiv>
         <ClientSatisfaction />
@@ -46,7 +44,7 @@ const page = () => {
       </AnimatedDiv>
       <AnimatedDiv>
         <Testimony />
-      </AnimatedDiv> 
+      </AnimatedDiv>
     </Box>
   )
 }
