@@ -9,9 +9,8 @@ const UiUxWhyChooseUs: React.FC = () => (
     <SectionDescription
       className="desc"
       text="
-    Lorem Ipsum has been the industry's standard dummy text ever since the
-    1500s. Lorem Ipsum has been the industry's standard dummy text ever since
-    the 1500s."
+    Our design solutions blend user-centric principles with business outcomes.
+    We create intuitive, scalable interfaces that drive long-term engagement."
     ></SectionDescription>
     <WhyChooseUs className="why-choose-us-image" />
   </Box>

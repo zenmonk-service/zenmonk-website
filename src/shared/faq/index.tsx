@@ -39,7 +39,7 @@ const FAQ = () => {
   const [visibleIndex, setVisibleIndex] = useState<number>(-1)
 
   const toggleAnswer = (index: number) => {
-    if(visibleIndex == index) {
+    if (visibleIndex == index) {
       setVisibleIndex(-1)
       return
     }
@@ -83,7 +83,7 @@ const FAQ = () => {
               </div>
 
               <div>
-                {index === index ? (
+                {visibleIndex === index ? (
                   <MINUS
                     onClick={() => toggleAnswer(index)}
                     className="toggle-icon"

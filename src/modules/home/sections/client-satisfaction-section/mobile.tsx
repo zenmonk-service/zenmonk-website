@@ -61,7 +61,7 @@ const ClientSatisfactionMobile = () => {
       <Box className="emoji-wrapper">
         {arr.map(({ Icon, title, description }) => {
           return (
-            <Box className="emoji">
+            <Box className="emoji" key={title}>
               <Icon />
               <Typography className='title'>{title}</Typography>
               <Typography className='description'>{description}</Typography>

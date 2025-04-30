@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 import './styles.scss'
 
-interface OptionCardProps {
+interface ServiceCardProps {
   title: string
   description: string
   imageUrl: StaticImageData
@@ -12,19 +13,20 @@ interface OptionCardProps {
   isAlreadyOpen: boolean
 }
 
-const OptionCard = ({
+const ServiceCard = ({
   title,
   description,
   imageUrl,
   route,
   isAlreadyOpen,
-}: OptionCardProps) => {
+}: ServiceCardProps) => {
   const [isVisible, setIsVisible] = useState(false)
-
   return (
     <>
-      <Box
-        className={`option-card  ${isAlreadyOpen ? 'selected' : ''}`}
+      <Link
+        href={`/services/${route}`}
+        className={`service-card  ${isAlreadyOpen ? 'selected' : ''}`}
+        prefetch={false}
         onMouseOver={() => setIsVisible(true)}
         onMouseLeave={() => setIsVisible(false)}
       >
@@ -36,7 +38,7 @@ const OptionCard = ({
           }}
           alt={`${title}-image`}
         />
-        <Box className="option-card-content">
+        <Box className="service-card-content">
           <Typography variant="h6" className="title">
             {title}
           </Typography>
@@ -44,19 +46,19 @@ const OptionCard = ({
             {description}
           </Typography>
           {(isVisible || isAlreadyOpen) && (
-            <Button className="link-button" color="inherit" disableRipple>
+            <Stack direction="row" alignItems="center" justifyContent="center" className="link-button" color="inherit">
               Explore &nbsp;
               <ArrowRightAltIcon
                 style={{
                   fontSize: '0.9375vw',
                 }}
               />
-            </Button>
+            </Stack>
           )}
         </Box>
-      </Box>
+      </Link>
     </>
   )
 }
 
-export default OptionCard
+export default ServiceCard

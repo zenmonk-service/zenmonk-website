@@ -4,7 +4,6 @@ import { HeroSection } from '@/modules/how-we-work/hero-section'
 import { Process } from '@/modules/how-we-work/process'
 import { Quality } from '@/modules/how-we-work/quality'
 import { ReadyToTalk } from '@/modules/how-we-work/ready-to-talk'
-import { Review } from '@/modules/how-we-work/review'
 import SectionWrapper from '@/shared/wrapper'
 import FAQ from '@/shared/faq'
 

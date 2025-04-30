@@ -1,18 +1,13 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { Typography } from '@mui/material'
+import Typography from '@mui/material/Typography'
 import './styles.scss'
+import Odometer from 'odometer'
 
-const OdometerComponent = ({
-  value,
-  type = 'number',
-}: {
-  value: number
-  type?: 'percentage' | 'number'
-}) => {
+const OdometerComponent = ({ value }: { value: number }) => {
   const odometerRef = useRef<HTMLDivElement>(null)
-  const [Odometer, setOdometer] = useState<any>(null)
+  const [odometer, setOdometer] = useState<Odometer | null>(null)
 
   useEffect(() => {
     import('odometer').then((mod) => {
@@ -32,7 +27,7 @@ const OdometerComponent = ({
       console.log('value', value)
       od.update(value)
     }
-  }, [Odometer, value])
+  }, [odometer, value])
 
   return (
     <Typography
@@ -41,7 +36,6 @@ const OdometerComponent = ({
       fontWeight="inherit"
       fontFamily="inherit"
       className="odometer"
-
     >
       {value}
     </Typography>

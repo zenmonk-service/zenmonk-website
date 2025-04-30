@@ -13,7 +13,9 @@ const MobileService = () => {
   return (
     <Box className="mobile-service-section">
       {serviceList.map((item: any, index: number) => (
-        <Box key={item.id} className="mobile-service-item">
+        <Box key={item.id} className="mobile-service-item"  sx={{
+          backgroundColor:`${ index == openIndex && item.hoverColor} !important`
+        }}>
           <Box
             onClick={() => {
               index == openIndex ? setOpenIndex(-1) : setOpenIndex(index)

@@ -55,16 +55,16 @@
     }
   }
   .right-section {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    gap: 3.33vw;
+    justify-content: center;
+    flex-wrap: wrap;
     @media (max-width: 1554px) {
       margin-top: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    width: 100%;
-    flex: 1;
-    display: flex;
-    gap: 3.33333333333vw;
-    justify-content: center;
-    flex-wrap: wrap;
   }
 }

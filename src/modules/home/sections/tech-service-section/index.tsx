@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
-import { Box, Typography, useMediaQuery } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
@@ -28,7 +29,6 @@ const ServiceSection = () => {
     }
   }
 
-  const isMobile = useMediaQuery(`(max-width:1200px)`)
   useEffect(() => {
     if (rightSectionHeadingRefPosition)
       if (rightSectionHeadingRefPosition < 120) {
@@ -76,9 +76,7 @@ const ServiceSection = () => {
               key={item.id}
             >
               <Box className="business-item-content">
-                {/* <Box className="business-icon"> */}
                 <item.Icon className="business-icon" />
-                {/* </Box> */}
                 <Typography
                   component="h4"
                   variant="h4"
@@ -117,8 +115,8 @@ const ServiceSection = () => {
                 {description}
               </Typography>
               <Box className="business-proof-technologies">
-                {techLogos.map(({ Src }: any, index) => {
-                  return <Src />
+                {techLogos.map(({ Src }) => {
+                  return <Src key={Src} />
                 })}
               </Box>
               <BaseButton
