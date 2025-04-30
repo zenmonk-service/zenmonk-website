@@ -16,9 +16,8 @@ export const showCaseList = [
       width: 630,
     },
     description:
-      'Lorem Ipsum is simply dummy text the printing and typese Destina tion Weddings and Honeymoon Packages Lorem Ipsum has been ',
+      'Top-tier teams clash in a high-stakes cricket series, where every match is a test of grit, glory, and game-day brilliance.',
   },
-
   {
     date: 'October 19, 2022',
     title: 'Premier Elite Chess Tourna-ment Series.',
@@ -33,9 +32,8 @@ export const showCaseList = [
       height: 290,
     },
     description:
-      'Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym ',
+      'A battlefield of intellect and foresight—witness grandmasters outmaneuver rivals in this high-pressure chess showdown.',
   },
-
   {
     date: 'October 19, 2022',
     title: 'Premier Elite Carrom Tourn-ament Series.',
@@ -50,7 +48,7 @@ export const showCaseList = [
       height: 290,
     },
     description:
-      'Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym ',
+      'Precision and finesse collide on the board—top carrom talents deliver electric performances in this elite-level contest.',
   },
   {
     date: 'October 19, 2022',
@@ -66,7 +64,7 @@ export const showCaseList = [
       height: 290,
     },
     description:
-      'Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym ',
+      'A pulse-pounding football tournament where tactics, teamwork, and raw talent determine who stands tallest on the field.',
   },
   {
     date: 'October 19, 2022',
@@ -82,6 +80,6 @@ export const showCaseList = [
       height: 290,
     },
     description:
-      'Lorem Ipsum is simply dummy text the printing an typese Destina tion Weddings Honeym ',
+      'High-flying action and court dominance—elite volleyball squads battle point-for-point in an electrifying series finale.',
   },
 ]

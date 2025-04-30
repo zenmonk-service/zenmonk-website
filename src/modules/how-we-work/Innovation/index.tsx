@@ -20,13 +20,13 @@ const Innovation = () => {
             }
             markText='Excellence'
             markTextProps={{
-              rotate:4
+              rotate: 4
             }}
           />
           <SectionDescription text="Zenmonk delivers innovative solutions, exceeding expectations in
             every way. Our services reflect our values, combining precision and
             dedication to achieve successful outcomes." className="innovation-description">
-            
+
           </SectionDescription>
         </Stack>
 
@@ -46,7 +46,7 @@ const Innovation = () => {
                 </Typography>
                 <Typography className="deliver-the-best-description">
                   We make robust, responsive, SEO friendly and Secure Websites
-                  that will take your business to next level. Lorem Ipsum
+                  that will take your business to next level.
                 </Typography>
                 <Button className="contact-btn">Contact us</Button>
               </Stack>

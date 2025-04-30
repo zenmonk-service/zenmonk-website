@@ -40,22 +40,22 @@ export const positionsList: Department[] = [
         heading: 'Experienced UI-UX Designer',
         isOpening: true,
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+          'We’re seeking a creative UI/UX Designer with a strong grasp of user psychology and interface design to craft compelling, intuitive user journeys.',
         skills: [
           {
             title: 'Figma',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              'Proficient in creating wireframes, prototypes, and high-fidelity designs using Figma.',
           },
           {
             title: 'Problem Solving',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              'Strong analytical skills to translate complex workflows into elegant user experiences.',
           },
           {
             title: 'Adobe XD',
             description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              'Experience designing interactive and responsive layouts with Adobe XD tools.',
           },
         ],
       },
