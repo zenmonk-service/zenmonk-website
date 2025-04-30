@@ -3,31 +3,41 @@
 import { useEffect, useRef, useState } from 'react'
 import Typography from '@mui/material/Typography'
 import './styles.scss'
-import Odometer from 'odometer'
+
+type OdometerConstructor = new (options: any) => {
+  update: (val: number) => void
+  render: () => void
+}
 
 const OdometerComponent = ({ value }: { value: number }) => {
   const odometerRef = useRef<HTMLDivElement>(null)
-  const [odometer, setOdometer] = useState<Odometer | null>(null)
+  const [OdometerClass, setOdometerClass] = useState<OdometerConstructor | null>(null)
+  const odometerInstanceRef = useRef<any>(null)
 
   useEffect(() => {
     import('odometer').then((mod) => {
-      setOdometer(() => mod.default)
+      setOdometerClass(() => mod.default)
     })
   }, [])
 
   useEffect(() => {
-    if (Odometer && odometerRef.current) {
-      const od = new Odometer({
+    if (OdometerClass && odometerRef.current) {
+      odometerInstanceRef.current = new OdometerClass({
         el: odometerRef.current,
         value: 0,
         format: '(,ddd)',
         theme: 'minimal',
       })
-
-      console.log('value', value)
-      od.update(value)
+      odometerInstanceRef.current.render()
+      odometerInstanceRef.current.update(value)
     }
-  }, [odometer, value])
+  }, [OdometerClass])
+
+  useEffect(() => {
+    if (odometerInstanceRef.current) {
+      odometerInstanceRef.current.update(value)
+    }
+  }, [value])
 
   return (
     <Typography
