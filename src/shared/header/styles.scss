@@ -1,13 +1,10 @@
 .app-bar-container {
-  position: fixed;
-  z-index: 100;
   background-color: transparent !important;
-
   .toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.04% 7.8125% 10.057px;
+    padding: 1.04% 7.8125% 0.523%;
     .logo {
       height: 9.375vh;
       object-fit: contain;
@@ -17,7 +14,7 @@
 
     .contact-button {
       color: #fff;
-      font-family: Inter, sans-serif;
+      font-family: Poppins, sans-serif;
       font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 600;
@@ -34,14 +31,19 @@
 }
 
 @media screen and (max-width: 900px) {
-  .logo{
-    height: 48px;
-    width: 48px;
+  .logo {
+    height: 42px;
+    width: 42px;
   }
 }
 
-@media screen and (max-width: 420px) {
-  .logo{
+@media screen and (max-width: 600px) {
+  .app-bar-container {
+    background-color: #fff !important;
+    height: 56px;
+    filter: drop-shadow(0px 4px 19.9px rgba(0, 0, 0, 0.10));
+  }
+  .logo {
     height: 32px;
     width: 32px;
   }

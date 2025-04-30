@@ -1,9 +1,6 @@
 .heading-container {
   justify-content: center;
   margin-top: 2.6% !important;
-  @media (max-width: 900px) {
-    margin-top: 60px !important;
-  }
   display: flex;
   align-items: center;
   width: 100%;
@@ -11,6 +8,7 @@
   padding: 1.04%;
   padding-bottom: 0.52%;
   @media (max-width: 900px) {
+    margin-top: 60px !important;
   }
   .text {
     color: #777;

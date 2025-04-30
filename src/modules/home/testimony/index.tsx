@@ -28,46 +28,47 @@ export default function Testimony() {
     {
       review:
         'This is a premier mobile app development firm in India, recognized for our skilled team, cutting-edge technology, and customer-focused approach. We execute exceptional projects promptly and provide extensive services from design to support, backed by industry accolades and honors.',
-      by: 'Michael Anderson',
+      by: 'Alex Morgan',
       position: 'Chief Technology Officer',
     },
     {
       review:
         'We are a leading mobile app development agency in India, celebrated for our talented team, innovative technological solutions, and client-first philosophy. We deliver outstanding projects on schedule and offer full services from design to upkeep, supported by industry awards and achievements.',
-      by: 'Jessica Collins',
+      by: 'Taylor Jordan',
       position: 'Project Manager',
     },
     {
       review:
         'This is a top-tier mobile app development studio in India, known for our proficient team, creative use of technology, and client-oriented strategy. We produce high-quality projects on time and provide complete services from design to maintenance, endorsed by industry awards and recognition.',
-      by: 'Daniel Brooks',
+      by: 'Casey Brooks',
       position: 'Lead Developer',
     },
     {
       review:
         'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards.',
-      by: 'Emily Harris',
+      by: 'Jordan Ellis',
       position: 'Marketing Director',
     },
     {
       review:
         'This is a distinguished mobile app development company in India. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
-      by: 'Nathan Reed',
+      by: 'Morgan Reed',
       position: 'UI/UX Designer',
     },
     {
       review:
         'We are a notable mobile app development enterprise in India, acclaimed for our skilled team, pioneering technology, and client-oriented strategy. We provide high-quality projects on time and offer extensive services from design to support, supported by industry awards and honors.',
-      by: 'Olivia Martinez',
+      by: 'Riley Cameron',
       position: 'Business Analyst',
     },
     {
       review:
         'This is a renowned mobile app development business in India, famous for our talented team, creative use of technology, and customer-focused approach. We accomplish high-quality projects promptly and offer comprehensive services from design to maintenance.',
-      by: 'Christopher Johnson',
+      by: 'Drew Taylor',
       position: 'Quality Assurance Lead',
     },
-  ]
+  ];
+
 
   const [coordinates, setCoordinates] = useState<string[]>([
     '0vw, 0.5208vw', // 0px, 10px
@@ -190,8 +191,8 @@ export default function Testimony() {
             <div className="description">{review[currentIndex].position}</div>
           </div>
           <div className="controls">
-            <ArrowLeft onClick={handleOnPrev}  />
-            <ArrowRight onClick={handleOnNext}  />
+            <ArrowLeft onClick={handleOnPrev} />
+            <ArrowRight onClick={handleOnNext} />
           </div>
         </div>
         <Image
@@ -225,12 +226,12 @@ export default function Testimony() {
 
 
       <div className="testimony-mb mobile">
-      <SectionTitle
-              text="We deliver what we promise"
-              markText="promise"
-              align="center"
-              className="title"
-            />
+        <SectionTitle
+          text="We deliver what we promise"
+          markText="promise"
+          align="center"
+          className="title"
+        />
 
         <div className="testimony-container">
           <div className="testimony-content">
@@ -256,8 +257,8 @@ export default function Testimony() {
               <div className="description">{review[currentIndex].position}</div>
             </div>
             <div className="controls">
-              <ALL  onClick={handleOnPrev} />
-              <ALR  onClick={handleOnNext} />
+              <ALL onClick={handleOnPrev} />
+              <ALR onClick={handleOnNext} />
             </div>
           </div>
         </div>

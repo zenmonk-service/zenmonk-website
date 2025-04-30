@@ -8,6 +8,8 @@
   height: Max(290px, 22.396vw);
   color: var(--global-color-primary);
   position: relative;
+  display: grid;
+  place-items: center;
   padding-bottom: 2.604vw;
   &::before {
     content: '';
@@ -58,7 +60,8 @@
         line-height: normal;
         width: max-content;
         @media screen and (max-width: 1499px) {
-          font-size: 1.875vw;
+          font-size: 14px;
+          font-weight: 600 !important;
         }
       }
       .teams-number {
@@ -87,6 +90,7 @@
         line-height: normal;
         @media screen and (max-width: 900px) {
           font-size: 14px !important;
+          font-weight: 600;
         }
       }
     }

@@ -36,7 +36,7 @@ const ItTrainingHeroSection = () => {
       <Box className="bottom-section">
         <Box className="left-section">
           <AnimatedDiv>
-            <QuoteText text="Lorem Ipsum has been the industry's standard dummy text eversince the 1500s" />
+            <QuoteText text="Unlock in-demand tech skills and industry insights with our expert-led training programs." />
           </AnimatedDiv>
         </Box>
         <Box className="center-section">

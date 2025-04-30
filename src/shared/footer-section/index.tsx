@@ -170,12 +170,7 @@ const Footer = () => {
                     </Typography>
                     <Box className="social-media-list">
                       {socialMedia.map((item, index) => {
-                        return (
-                          <item.icon
-                            key={index}
-                            style={{ width: '2.81vw', height: '2.81vw' }}
-                          />
-                        )
+                        return <item.icon key={index} className="icons" />
                       })}
                     </Box>
                   </Box>

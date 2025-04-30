@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.3",
     "@mui/material": "^6.4.3",
+    "@mui/material-nextjs": "^7.0.2",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^12.5.0",
     "html-react-parser": "^5.2.2",

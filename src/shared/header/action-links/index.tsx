@@ -1,105 +1,38 @@
-'use client'
-
-import React, { useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
-import { ExpandMore, ExpandLess, Menu } from '@mui/icons-material'
-import {
-  Box,
-  Button,
-  createTheme,
-  IconButton,
-  useMediaQuery,
-} from '@mui/material'
-import { options } from '../options'
-import OptionCard from '../options/card'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Menu from '@mui/icons-material/Menu'
+import { Box, createTheme, IconButton, useMediaQuery } from '@mui/material'
 import { ActionLink, actionsLink } from './links'
+import { navItemStyles } from './nav-item-style'
+import ServiceLink from './service'
 import './styles.scss'
 
-interface OptionProps {
-  id: string
-  isExpanded: boolean
-  onClick: () => void
-}
-
 const theme = createTheme()
-const ActionLinks = () => {
-  const { push } = useRouter()
-  const [isExpanded, setIsExpanded] = useState(false)
-  const pathname = usePathname()
-  const toggleExpand = () => setIsExpanded((prev) => !prev)
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
-  const navigateTo = (path: string) => push(path)
-  const selectOption = (path: string) => {
-    if (alreadyOpen(path)) {
-      return
-    }
-    navigateTo('/services/' + path)
-    setIsExpanded(false)
-  }
 
-  const alreadyOpen = (path: string) => pathname.includes(path)
+const ActionLinks = () => {
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
+  const pathname = usePathname()
 
   return !isSmallScreen ? (
     <Box className="action-links-wrapper">
       <Box className="action-links">
+        <ServiceLink {...actionsLink[0]} />
         {actionsLink
-          .slice(0, actionsLink.length - 1)
-          .map(({ href, name, options }: ActionLink, index) => {
+          .slice(1, actionsLink.length - 1)
+          .map(({ href, name }: ActionLink, index) => {
             return (
-              <Button
-                sx={{
-                  background: pathname.includes(href)
-                    ? 'linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%)'
-                    : '',
-                  color: pathname.includes(href)
-                    ? '#fff'
-                    : name === 'Services'
-                      ? '#000'
-                      : '#393939',
-                  '&:hover': {
-                    background: pathname.includes(href) ? '' : '#ffd5ac38',
-                  },
-                }}
+              <Link
+                href={href}
+                style={navItemStyles(pathname, href)}
                 className="action-link-button"
+                prefetch={false}
                 key={index}
-                disableRipple
-                onClick={() => {
-                  options ? toggleExpand() : navigateTo(href)
-                }}
               >
                 {name}
-                {options && (
-                  <Option
-                    id={href}
-                    isExpanded={isExpanded}
-                    onClick={toggleExpand}
-                  />
-                )}
-              </Button>
+              </Link>
             )
           })}
       </Box>
-      {isExpanded && (
-        <Box className="overlay" onClick={() => setIsExpanded(false)} />
-      )}
-      {isExpanded && (
-        <Box className="option-menu-container">
-          <Box className="arrow-up" />
-          {options.map((option, index) => {
-            return (
-              <Box onClick={() => selectOption(option.route)} key={index}>
-                <OptionCard
-                  isAlreadyOpen={alreadyOpen(option.route)}
-                  description={option.description}
-                  imageUrl={option.imageUrl}
-                  title={option.label}
-                  route={option.route}
-                />
-              </Box>
-            )
-          })}
-        </Box>
-      )}
     </Box>
   ) : (
     <IconButton className="action-link-menu-icon">
@@ -109,19 +42,3 @@ const ActionLinks = () => {
 }
 
 export default ActionLinks
-
-const Option: React.FC<OptionProps> = ({ isExpanded }) => (
-  <Box className="expand-option-icon">
-    {isExpanded ? (
-      <ExpandLess
-        color="inherit"
-        style={{ width: '1.04vw', height: '1.04vw' }}
-      />
-    ) : (
-      <ExpandMore
-        color="inherit"
-        style={{ width: '1.04vw', height: '1.04vw' }}
-      />
-    )}
-  </Box>
-)

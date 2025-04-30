@@ -2,10 +2,10 @@ import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
 import { Hero } from '@/modules/how-we-work/assets'
 import BaseButton from '@/shared/button'
+import { SectionDescription } from '@/shared/typography'
 import HorizontalDottedImage from '../assets/hero/horizontal-dotted-image.png'
 import VerticalDottedImage from '../assets/hero/vert-dotted-image.png'
 import './styles.scss'
-import { SectionDescription } from '@/shared/typography'
 
 const HeroSection = () => {
   return (
@@ -19,11 +19,13 @@ const HeroSection = () => {
             for <br />
             Seamless Solutions
           </Typography>
-          <SectionDescription text='We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.' className="text-description">
-           
-          </SectionDescription>
+          <SectionDescription
+            text="We deliver Zen-inspired precise, 
+            mindful solutions by integrating deep expertise with client collaboration,
+            prioritizing transparency, innovation, and purposeful development to 
+            innovate impactful technology."
+            className="text-description"
+          ></SectionDescription>
         </Box>
       </Box>
       <Box className="hero-section-image-wrapper">
