@@ -3,7 +3,7 @@ import AnimatedDiv from '@/shared/animated-div'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 import OurPartnersSectionHeading from './heading'
 
-const OurPartners = () => {
+const OurPartners = async() => {
   return (
     <AnimatedDiv>
       <OurPartnersSectionHeading />

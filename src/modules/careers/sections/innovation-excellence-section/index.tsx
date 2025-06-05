@@ -1,11 +1,9 @@
-import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
-import Title from '@/shared/title'
+import Box from '@mui/material/Box'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
 import { innovations } from './innovations'
 import './styles.scss'
-import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const InnovationExcellence = () => {
   return (
@@ -14,11 +12,9 @@ const InnovationExcellence = () => {
         <SectionTitle
           align="left"
           text="Our Promise of Innovation and Excellence"
-          markText='Excellence'
+          markText="Excellence"
           className="title"
-          markTextProps={{
-            rotate:3
-          }}
+          markTextProps={{ rotate: 3 }}
         />
         <SectionDescription
           text="We are dedicated to fostering a supportive environment, offering
@@ -26,8 +22,7 @@ const InnovationExcellence = () => {
           appreciated."
           className="description"
         />
-        <Excellence className="excellence-image"/>
-       
+        <Excellence className="excellence-image" />
       </Box>
       <Box className="right-section">
         {innovations.map((innovation, index) => {

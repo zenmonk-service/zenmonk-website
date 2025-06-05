@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { AppBar, Toolbar, Box, useMediaQuery, createTheme } from '@mui/material'
-import { Monk } from '@/assets/icons'
+import Monk from '@/assets/icons/monk.svg'
 import BaseButton from '@/shared/button'
 import ActionLinks from './action-links'
 import { actionsLink } from './action-links/links'

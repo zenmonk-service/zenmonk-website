@@ -1,28 +1,17 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import Odometer from 'odometer'
+import { useEffect, useRef } from 'react'
 import Typography from '@mui/material/Typography'
 import './styles.scss'
 
-type OdometerConstructor = new (options: any) => {
-  update: (val: number) => void
-  render: () => void
-}
-
 const OdometerComponent = ({ value }: { value: number }) => {
   const odometerRef = useRef<HTMLDivElement>(null)
-  const [OdometerClass, setOdometerClass] = useState<OdometerConstructor | null>(null)
   const odometerInstanceRef = useRef<any>(null)
 
   useEffect(() => {
-    import('odometer').then((mod) => {
-      setOdometerClass(() => mod.default)
-    })
-  }, [])
-
-  useEffect(() => {
-    if (OdometerClass && odometerRef.current) {
-      odometerInstanceRef.current = new OdometerClass({
+    if (odometerRef.current) {
+      odometerInstanceRef.current = new Odometer({
         el: odometerRef.current,
         value: 0,
         format: '(,ddd)',
@@ -31,7 +20,7 @@ const OdometerComponent = ({ value }: { value: number }) => {
       odometerInstanceRef.current.render()
       odometerInstanceRef.current.update(value)
     }
-  }, [OdometerClass])
+  }, [])
 
   useEffect(() => {
     if (odometerInstanceRef.current) {

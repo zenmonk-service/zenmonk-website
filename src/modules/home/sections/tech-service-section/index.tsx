@@ -119,15 +119,7 @@ const ServiceSection = () => {
                   return <Src key={Src} />
                 })}
               </Box>
-              <BaseButton
-                sx={{
-                  color: 'var(--global-color-secondary) !important',
-                  textTransform: 'uppercase !important',
-                  boxShadow: '0vw 0.0104vw 0.0104vw 0vw rgba(0, 0, 0, 0.25)',
-                  background: 'linear-gradient(0deg, #FFF 0%, #FFF 100%)',
-                  fontFamily: 'Poppins',
-                }}
-              >
+              <BaseButton className="button">
                 Get Started
               </BaseButton>
             </Box>

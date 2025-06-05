@@ -41,7 +41,7 @@ const WorkCulture = () => {
               className="work-culture-title"
               markText='Environment'
               markTextProps={{
-                rotate:4
+                rotate:2
               }}
             />
             <SectionDescription

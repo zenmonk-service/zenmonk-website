@@ -1,4 +1,4 @@
-.hero-section-d{
+.hero-section-d {
   display: flex;
   align-items: center;
   height: 80vh;
@@ -8,11 +8,11 @@
 
   .ball-decorator {
     position: absolute;
-    width: 28.39vw;
+    width: 25.15vw;
     height: 35.56vw;
-    top: 0;
+    top: -4%;
     opacity: 0.6;
-    right: calc(12% + 28.39vw);
+    right: calc(16% + 28.39vw);
   }
   .container {
     flex: 1;
@@ -29,7 +29,7 @@
       .heading {
         color: #3c3c3c !important;
         font-size: max(24px, 2.5vw) !important;
-        font-family: 'Poppins', sans-serif !important;
+        font-family: 'Inter', sans-serif !important;
         font-weight: 400;
         letter-spacing: 0.05vw;
         opacity: 0;
@@ -53,6 +53,9 @@
         filter: none;
       }
     }
+    .button {
+      width: max(180px , 9.375vw);
+    }
   }
   .image-container {
     position: relative;
@@ -62,6 +65,9 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    img {
+      object-fit: contain;
+    }
   }
 
   .image-container {

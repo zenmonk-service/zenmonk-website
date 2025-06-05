@@ -1,5 +1,5 @@
 'use client'
-
+import { motion } from "motion/react"
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
@@ -33,7 +33,8 @@ const ClientSatisfaction = () => {
           business vision. We drive measurable outcomes through tailored
           engagement and expert planning.' />
       </Box>
-      <Box ref={ref} className="svg-container">
+      <Box sx={{position:"relative"}} ref={ref} className="svg-container">
+        <Box className="box" sx={{position:"absolute", height:"100%",bgcolor:"white",width:"100%" }}> sdsada</Box>
         <Satisfaction />
       </Box>
       <Image className="logo-left" src={OldLogoDecorator} alt="" />

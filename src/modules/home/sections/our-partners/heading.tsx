@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import './styles.scss'
 
 const generateHighlightedText = (text: string) => (
@@ -7,7 +8,7 @@ const generateHighlightedText = (text: string) => (
   </Typography>
 )
 
-const OurPartnersSectionHeading = () => {
+const OurPartnersSectionHeading = async() => {
   return (
     <Box className="heading-container">
       <Typography className="text">

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { Odometer } from '@/modules/home/odometer'
 import {
   ServiceSection,
@@ -10,7 +10,6 @@ import {
 } from '@/modules/home/sections'
 import OurPartners from '@/modules/home/sections/our-partners'
 import Testimony from '@/modules/home/testimony'
-import AnimatedDiv from '@/shared/animated-div'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
 
@@ -20,31 +19,17 @@ const page = () => {
       <HeroSection />
       <OurPartners />
       <ServiceSection />
-      <AnimatedDiv>
-        <TechSolutionSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <OurWorkSection />
-      </AnimatedDiv>
+      <TechSolutionSection />
+      <OurWorkSection />
       <Box sx={{ overflow: 'hidden' }}>
-        <SectionWrapper>
-          <AnimatedDiv>
-            <WhyChooseUsSection />
-          </AnimatedDiv>
+        {/* <SectionWrapper>
+          <WhyChooseUsSection />
         </SectionWrapper>
-        <AnimatedDiv>
-          <Odometer />
-        </AnimatedDiv>
+        <Odometer /> */}
       </Box>
-      <AnimatedDiv>
-        <ClientSatisfaction />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <FAQ />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <Testimony />
-      </AnimatedDiv>
+      {/* <ClientSatisfaction /> */}
+      <FAQ />
+      {/* <Testimony /> */}
     </Box>
   )
 }

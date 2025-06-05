@@ -26,7 +26,6 @@ const page = () => {
       <SectionWrapper>
         <InnovationExcellence />
       </SectionWrapper>
-
       <TraditionsCustoms />
       <SectionWrapper>
         <WordsByCEO />

@@ -33,38 +33,18 @@
       font-family: Poppins;
       font-style: normal;
       line-height: normal;
-      @media (max-width: 1499px) {
-        font-size: 17px;
-        margin-bottom: 50px;
-      }
-      @media (max-width: 1199px) {
-        font-size: 16px;
-      }
-      @media (max-width: 899px) {
-        font-size: 15px;
-      }
-      @media (max-width: 599px) {
-        font-size: 16px;
-      }
     }
     .excellence-image {
-      margin-top: 1.66666666667vw;
-      @media (max-width: 1554px) {
-        display: none;
-      }
+      margin-top: 1.66vw;
     }
   }
   .right-section {
     width: 100%;
     flex: 1;
     display: flex;
-    gap: 3.33vw;
+    column-gap: 3.33vw;
+    row-gap: 1.8vw;
     justify-content: center;
     flex-wrap: wrap;
-    @media (max-width: 1554px) {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
   }
 }

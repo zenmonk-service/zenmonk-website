@@ -147,68 +147,6 @@
   }
 }
 
-.animate_comeFromLeftS {
-  animation: comeFromLeftS 1.5s forwards;
-}
-
-.animate_comeFromRightS {
-  animation: comeFromRightS 1.5s forwards;
-}
-
-.animate_comeFromRight2S {
-  animation: comeFromRight2S 1.5s forwards;
-}
-
-@keyframes comeFromLeftS {
-  0% {
-    transform: translateX(-15.625vw);
-    opacity: 0;
-  }
-
-  75% {
-    transform: translateX(0.521vw); /* Slight overshoot */
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0px); /* Ends at 50px */
-    opacity: 1;
-  }
-}
-
-@keyframes comeFromRightS {
-  0% {
-    transform: translateX(15.625vw);
-    opacity: 0;
-  }
-
-  75% {
-    transform: translateX(-1.042vw); /* Slight overshoot */
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0px); /* Ends at -50px */
-    opacity: 1;
-  }
-}
-
-@keyframes comeFromRight2S {
-  0% {
-    transform: translateX(15.625vw);
-    opacity: 0;
-  }
-
-  75% {
-    transform: translateX(-0.521vw); /* Slight overshoot */
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0px); /* Ends at -50px */
-    opacity: 1;
-  }
-}
 
 @keyframes scale {
   0% {

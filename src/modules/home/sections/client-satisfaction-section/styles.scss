@@ -48,6 +48,7 @@
   }
 
   .svg-container {
+    z-index: 180;
     max-width: 82.1354vw; /* 1577px / 1920 * 100 */
     margin: auto;
   }
@@ -84,6 +85,22 @@
     animation-delay: 1.5s;
   }
 }
+
+.box {
+  width: 100%;
+  right: 0;
+  animation: shrinkWidth 10s forwards infinite;
+}
+
+@keyframes shrinkWidth {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;

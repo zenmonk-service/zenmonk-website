@@ -1,7 +1,7 @@
 .perk-benefits-section {
   width: 100%;
   height: auto;
-  margin-bottom: 5.208vw;
+  margin-bottom: 6.25vw;
 
   .container {
     max-width: 100%;
@@ -10,7 +10,7 @@
     align-items: center;
 
     .description {
-      margin-top: 0.729vw;
+      margin-top: 0.9329vw;
       margin-bottom: 3.125vw;
       color: #757575;
       text-align: center;
@@ -19,7 +19,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      width: 70%;
+      width: 50%;
     }
 
     .perks-benefits-list {
@@ -35,7 +35,6 @@
 
 .perk-card {
   border-radius: 1.0417vw;
-  box-shadow: 0vw 0vw 3.125vw 0vw rgba(0, 0, 0, 0.05);
   display: flex;
   width: 14.9479vw;
   padding: 1.25vw;

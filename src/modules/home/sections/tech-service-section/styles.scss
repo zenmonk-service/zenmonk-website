@@ -100,29 +100,38 @@
       .business-proof-content {
         width: 100%;
         height: 100%;
-        display: flex;
-        padding: 2.96vw 2.08vw 3.64vw 8.69vw;
+        padding: 2.5vw 2.08vw 2.5vw 8.69vw;
         flex-direction: column;
-        gap: 1.66vw;
-        font-family: Poppins;
+        font-family: 'Poppins';
         font-style: normal;
         color: var(--global-color-primary);
         .business-proof-heading {
           font-size: 1.875vw;
           font-weight: 600;
           line-height: normal;
-          font-family: Poppins;
+          font-family: inherit;
+          margin-bottom: max(24px, 1.25vw);
         }
         .business-proof-description {
           font-size: var(--font-size-18);
           font-weight: 400;
-          font-family: Poppins;
+          font-family: inherit;
+          margin-bottom: max(40px, 2.08vw);
         }
         .business-proof-technologies {
           display: flex;
           flex-direction: row;
           gap: 2.6vw;
           height: 4.06vw;
+          margin-bottom: max(60px, 3.125vw);
+        }
+        .button {
+          color: #21305a !important;
+          background: linear-gradient(0deg, #fff 0%, #fff 100%);
+          font-family: 'Inter';
+          font-size: var(--font-size-16) !important;
+          width: max(160px, 8.33vw);
+          box-shadow: 0px max(4px, 0.2vw) max(4px, 0.2vw) 0px rgba(0, 0, 0, 0.25) !important;
         }
       }
     }
@@ -235,12 +244,12 @@
           line-height: normal;
           letter-spacing: 0.28px;
         }
-        .technologies{
+        .technologies {
           display: flex;
           flex-wrap: wrap;
           gap: 24px;
           margin-top: 24px;
-          .icons{
+          .icons {
             width: 70px;
             height: 72px;
           }
@@ -250,12 +259,11 @@
   }
 }
 
-
-@media (max-width: 1099px) { 
+@media (max-width: 1099px) {
   .services-section.desktop {
     display: none;
   }
-  .mobile-service-section  {
+  .mobile-service-section {
     display: flex !important;
   }
 }

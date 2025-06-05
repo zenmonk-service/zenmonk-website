@@ -18,17 +18,16 @@ export const traditionsCustoms = [
     title: '20+',
     description: 'Winning Awards',
   },
-
-  {
-    id: 3,
-    image: YearExperience,
-    title: '15+',
-    description: 'Years of Experience',
-  },
   {
     id: 4,
     image: CompleteProject,
     title: '10k+',
     description: 'Completed Projects',
+  },
+  {
+    id: 3,
+    image: YearExperience,
+    title: '15+',
+    description: 'Years of Experience',
   },
 ]

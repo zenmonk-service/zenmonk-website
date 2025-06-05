@@ -1,14 +1,20 @@
 import type { Metadata } from 'next'
-import { Poppins, Montserrat } from 'next/font/google'
+import { Poppins, Montserrat, Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import Header from '@/shared/header'
 import './globals.css'
+
 import { Footer } from '@/shared/footer-section'
 
 const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
   display: 'swap',
 })
 
@@ -27,7 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <body className={` ${poppins.variable} ${montserrat.variable}`}>
         <AppRouterCacheProvider>
           <Header />

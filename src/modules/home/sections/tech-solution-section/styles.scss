@@ -1,98 +1,113 @@
 .tech-solution-section-wrapper {
-    margin-top: 7.8vw;
-    margin-bottom: 7.8vw;
+  margin-top: 7.8vw;
+  margin-bottom: 7.8vw;
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+  .tech-solution-section {
+    flex: 1;
     display: flex;
-    align-items: center;
-    // height: 85vh;
-    padding: 0 5%;
-    padding-left: 7.8125%;
-    padding-right: 7.8125%;
-    .tech-solution-section {
-      flex: 1;
+    flex-direction: column;
+    text-align: left;
+    .tech-solution-section-text-wrapper {
+      text-align: left;
       display: flex;
       flex-direction: column;
-      text-align: left;
-      .tech-solution-section-text-wrapper {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        gap: 0.41vw;
-        width: 100%;
-        .text-heading {
-          color: #3c3c3c !important;
-          // font-size: 4.8rem !important;
-          font-family: Poppins, sans-serif !important;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          letter-spacing: 0.05vw;
-          margin-bottom: 0.41vw;
-        }
-  
-        .text-description {
-           margin-bottom: 0px;
-        }
-      }
-      .tech-solution-section-card-wrapper{
-        margin-top: 1.66vw;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: flex-start; 
-        gap: 1.25vw; 
-        @media (max-width: 1099px) {
-          gap: 16px;
-        }
-      }
-      
-    }
-    .tech-solution-section-image-wrapper {
-      flex: 1;
+      gap: 0.41vw;
       width: 100%;
-      height: 100%;
-      max-height: 26.0417vw;
-      justify-content: end;
-      display: flex;
-      img {
-        margin-right: -1.04vw;
-        width: auto;
-        max-width: 95%;
-        height: 100%;
-        max-height: 100%;
-        object-fit: contain;
+      .text-heading {
+        color: #3c3c3c !important;
+        // font-size: 4.8rem !important;
+        font-family: Poppins, sans-serif !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.05vw;
+        margin-bottom: 0.41vw;
+      }
+
+      .text-description {
+        margin-bottom: 0px;
       }
     }
-  }
-  
-  @media (max-width: 1099px) {
-    .tech-solution-section-wrapper {
-      display: none;
-    
+    .tech-solution-section-card-wrapper {
+      margin-top: 1.66vw;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 1.25vw;
+      @media (max-width: 1099px) {
+        gap: 16px;
+      }
     }
-  
-    .tech-mobile-solution-section-wrapper {
-      display: block !important;
-    }
-  }
-
-  
-  @media (max-width: 1699px) {
-    .tech-solution-section-wrapper {
-      // padding: 5%;
-    }
-    .tech-card-container {
-      width: 255px;
+    .button {
+      margin-top: 2.135vw;
+      width: max(180px, 9.375vw);
     }
   }
-
-
-
-
-  @media (max-width: 1499px) {
-    .tech-solution-section-wrapper {
-      padding:  0% 5%;
+  .tech-solution-section-image-wrapper {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    max-height: 26.0417vw;
+    justify-content: end;
+    display: flex;
+    img {
+      margin-right: -1.04vw;
+      position: inherit !important;
+      width: 34.375vw !important;
+      height: auto;
+      max-width: 95%;
+      object-fit: contain;
     }
+  }
+}
 
+@media (max-width: 1099px) {
+  .tech-solution-section-wrapper {
+    display: none;
   }
 
+  .tech-mobile-solution-section-wrapper {
+    display: block !important;
+  }
+}
 
+.animate_scale{
+  animation: scale 1.5s forwards;
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1.1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes scaleSM {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+  55% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0.8;
+    opacity: 1;
+  }
+}

@@ -19,18 +19,17 @@ const HeroSection = () => {
         <Box className="text-container">
           <Typography variant="h4" className="heading">
             Super Charge Your Business <br />
-            Growth With <ColorTypography text="Efficient" />,{' '}
+            Growth With
+            <ColorTypography text="Efficient" />,
             <ColorTypography text="Intelligent" />,
-            <ColorTypography text=" Versatile" /> &nbsp;Software Innovations
+            <ColorTypography text=" Versatile" /> Software Innovations
           </Typography>
           <Typography className="description">
-            Zenmonk believes in the power of harmony between- Technology and
+            Zenmonk believes in the power of harmony between- Technology<br/> and
             Precision, Innovation and Mindfulness.
           </Typography>
         </Box>
-        <BaseButton sx={{ bgcolor: 'red', width: '100%' }}>
-          EXPLORE MORE
-        </BaseButton>
+        <BaseButton className='button'>EXPLORE MORE</BaseButton>
       </Box>
       <Box className="image-container">
         <HomeHeroImage />

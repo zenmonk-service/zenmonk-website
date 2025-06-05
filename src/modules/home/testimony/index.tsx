@@ -2,74 +2,17 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Title from '@/shared/title'
 import { SectionTitle } from '@/shared/typography'
-import first from './assets/1.png'
-import second from './assets/2.png'
-import third from './assets/3.png'
-import fourth from './assets/4.png'
-import fivth from './assets/5.png'
-import sixth from './assets/6.png'
-import seventh from './assets/7.png'
+import ALL from './assets/ALL.svg'
+import ALR from './assets/ALR.svg'
 import ArrowLeft from './assets/arrowLeft.svg'
 import ArrowRight from './assets/arrowRIght.svg'
 import GRADIENTBALL from './assets/gradientBall.png'
 import Quote from './assets/quote.svg'
-import ALL from "./assets/ALL.svg";
-import ALR from "./assets/ALR.svg";
-
-
+import { ClientReviews } from './client-reviews'
 import './style.css'
 
 export default function Testimony() {
-  const images = [first, second, third, fourth, fivth, sixth, seventh]
-
-  const review = [
-    {
-      review:
-        'This is a premier mobile app development firm in India, recognized for our skilled team, cutting-edge technology, and customer-focused approach. We execute exceptional projects promptly and provide extensive services from design to support, backed by industry accolades and honors.',
-      by: 'Alex Morgan',
-      position: 'Chief Technology Officer',
-    },
-    {
-      review:
-        'We are a leading mobile app development agency in India, celebrated for our talented team, innovative technological solutions, and client-first philosophy. We deliver outstanding projects on schedule and offer full services from design to upkeep, supported by industry awards and achievements.',
-      by: 'Taylor Jordan',
-      position: 'Project Manager',
-    },
-    {
-      review:
-        'This is a top-tier mobile app development studio in India, known for our proficient team, creative use of technology, and client-oriented strategy. We produce high-quality projects on time and provide complete services from design to maintenance, endorsed by industry awards and recognition.',
-      by: 'Casey Brooks',
-      position: 'Lead Developer',
-    },
-    {
-      review:
-        'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards.',
-      by: 'Jordan Ellis',
-      position: 'Marketing Director',
-    },
-    {
-      review:
-        'This is a distinguished mobile app development company in India. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
-      by: 'Morgan Reed',
-      position: 'UI/UX Designer',
-    },
-    {
-      review:
-        'We are a notable mobile app development enterprise in India, acclaimed for our skilled team, pioneering technology, and client-oriented strategy. We provide high-quality projects on time and offer extensive services from design to support, supported by industry awards and honors.',
-      by: 'Riley Cameron',
-      position: 'Business Analyst',
-    },
-    {
-      review:
-        'This is a renowned mobile app development business in India, famous for our talented team, creative use of technology, and customer-focused approach. We accomplish high-quality projects promptly and offer comprehensive services from design to maintenance.',
-      by: 'Drew Taylor',
-      position: 'Quality Assurance Lead',
-    },
-  ];
-
-
   const [coordinates, setCoordinates] = useState<string[]>([
     '0vw, 0.5208vw', // 0px, 10px
     '-31.25vw, -7.8125vw', // -600px, -150px
@@ -80,18 +23,15 @@ export default function Testimony() {
     '-31.25vw, 18.2291vw', // -600px, 350px
   ])
 
-  function getNextIndex(index: number) {
-    return (index + 1) % coordinates.length
-  }
+  const getNextIndex = (index: number) => (index + 1) % coordinates.length
 
-  function getPrevIndex(index: number) {
-    return (coordinates.length + index - 1) % coordinates.length
-  }
+  const getPrevIndex = (index: number) =>
+    (coordinates.length + index - 1) % coordinates.length
 
   const [currentIndex, setCurrentIndex] = useState<number>(0)
 
   function handleOnPrev() {
-    setCoordinates((data: any) => {
+    setCoordinates((data) => {
       const coordinates = [...data]
 
       const prevIndex = getPrevIndex(currentIndex)
@@ -108,7 +48,7 @@ export default function Testimony() {
   }
 
   function handleOnNext() {
-    setCoordinates((data: any) => {
+    setCoordinates((data) => {
       const coordinates = [...data]
 
       const nextIndex = getNextIndex(currentIndex)
@@ -125,7 +65,7 @@ export default function Testimony() {
   }
 
   function handleOnImageClick(coordinate: string) {
-    setCoordinates((prevCoordinates: any) => {
+    setCoordinates((prevCoordinates) => {
       const newCoordinates = [...prevCoordinates]
 
       const hoveredIndex = newCoordinates.indexOf(coordinate)
@@ -158,37 +98,37 @@ export default function Testimony() {
             <Quote className="quote quote-up" />
             <Quote className="quote quote-down" />
           </div>
-          <div style={{ height: '2.0833vw' }}></div> {/* 40px = 2.0833vw */}
-          {/* <p className="sub-heading">Real Results, Real People</p> */}
+          <div style={{ height: '2.0833vw' }} />
         </div>
 
         <div className="testimony-content">
           <div className="review-images">
-            {coordinates.map((coordinate: any, index: any) => (
+            {coordinates.map((coordinate, index) => (
               <Image
                 key={index}
                 style={{
                   transform: `translate(${coordinate})`,
-                  width: '9.375vw',
-                  height: 'auto',
                   scale: coordinate == '0vw, 0.5208vw' ? 1.5 : 0.7, // 0px, 10px
                 }}
-                src={images[index]}
+                src={ClientReviews[index].imageUrl}
+                fill
                 alt={`image-${index + 1}`}
                 onClick={() => handleOnImageClick(coordinate)}
               />
             ))}
           </div>
 
-          <div className="review">{review[currentIndex].review}</div>
+          <div className="review">{ClientReviews[currentIndex].review}</div>
           <div
             style={{
               marginTop: '0.5208vw', // 10px = 0.5208vw
               marginBottom: '1.0416vw', //20px = 1.0416vw
             }}
           >
-            <div className="title">{review[currentIndex].by}</div>
-            <div className="description">{review[currentIndex].position}</div>
+            <div className="title">{ClientReviews[currentIndex].by}</div>
+            <div className="description">
+              {ClientReviews[currentIndex].position}
+            </div>
           </div>
           <div className="controls">
             <ArrowLeft onClick={handleOnPrev} />
@@ -221,10 +161,6 @@ export default function Testimony() {
         />
       </div>
 
-
-
-
-
       <div className="testimony-mb mobile">
         <SectionTitle
           text="We deliver what we promise"
@@ -236,25 +172,20 @@ export default function Testimony() {
         <div className="testimony-container">
           <div className="testimony-content">
             <div className="reviwer-image">
-              <Image
-                style={{
-                  width: "50%",
-                  height: "auto",
-                }}
-                src={images[currentIndex]}
-                alt=""
-              />
+              <Image src={ClientReviews[currentIndex].imageUrl} fill alt="" />
             </div>
 
-            <div className="review">{review[currentIndex].review}</div>
+            <div className="review">{ClientReviews[currentIndex].review}</div>
 
             <div
               style={{
-                marginBottom: "20px",
+                marginBottom: '200px',
               }}
             >
-              <div className="title">{review[currentIndex].by}</div>
-              <div className="description">{review[currentIndex].position}</div>
+              <div className="title">{ClientReviews[currentIndex].by}</div>
+              <div className="description">
+                {ClientReviews[currentIndex].position}
+              </div>
             </div>
             <div className="controls">
               <ALL onClick={handleOnPrev} />

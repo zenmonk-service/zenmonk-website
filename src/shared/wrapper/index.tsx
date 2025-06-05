@@ -1,9 +1,7 @@
-'use client'
-
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import './styles.scss'
 
-const SectionWrapper = ({ children }: ChildrenProps) => {
+const SectionWrapper = ({ children }: { children: React.ReactNode }) => {
   return <Box className="section-wrapper">{children}</Box>
 }
 

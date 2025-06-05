@@ -1,18 +1,19 @@
 'use client'
-import { Button, ButtonProps } from '@mui/material'
+
+import Button from '@mui/material/Button'
 import './styles.scss'
 
+interface ButtonProps {
+  children: React.ReactNode
+  onClick?: () => void
+  className?: string
+}
 const BaseButton = ({ children, ...props }: ButtonProps) => {
   return (
-    <div
-      style={{
-        width: props.fullWidth ? '100%' : 'fit-content',
-        height: 'fit-content',
-      }}
-    >
+    <div className="base-button-container">
       <Button
-        className={`${props.className} base-button`}
-        {...props}
+        className={`base-button ${props?.className}`}
+        onClick={props?.onClick}
       >
         {children}
       </Button>

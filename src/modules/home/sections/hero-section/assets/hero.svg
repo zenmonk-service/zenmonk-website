@@ -733,13 +733,13 @@
 <clipPath id="clip13_2578_59645">
 <rect width="16.4614" height="16.4614" fill="white" transform="translate(772.696 147.353)"/>
 </clipPath>
-<image id="image0_2578_59645" width="611" height="610" xlink:href="./hero/monk.png"/>
-<image id="image1_2578_59645" width="1500" height="1000" xlink:href="./hero/mobile.png"/>
-<image id="image2_2578_59645" width="482" height="469" xlink:href="./hero/figma.png"/>
-<image id="image3_2578_59645" width="478" height="470" xlink:href="./hero/xd.png"/>
-<image id="image4_2578_59645" width="422" height="382" xlink:href="./hero/react.png"/>
-<image id="image5_2578_59645" width="478" height="477" xlink:href="./hero/js.png"/>
-<image id="image6_2578_59645" width="484" height="474" xlink:href="./hero/php.png"/>
-<image id="image7_2578_59645" width="472" height="471" xlink:href="./hero/mongo.png"/>
+<image id="image0_2578_59645" width="611" height="610" xlink:href="./hero/monk.webp"/>
+<image id="image1_2578_59645" width="1500" height="1000" xlink:href="./hero/mobile.webp"/>
+<image id="image2_2578_59645" width="482" height="469" xlink:href="./hero/figma.webp"/>
+<image id="image3_2578_59645" width="478" height="470" xlink:href="./hero/xd.webp"/>
+<image id="image4_2578_59645" width="422" height="382" xlink:href="./hero/react.webp"/>
+<image id="image5_2578_59645" width="478" height="477" xlink:href="./hero/js.webp"/>
+<image id="image6_2578_59645" width="484" height="474" xlink:href="./hero/php.webp"/>
+<image id="image7_2578_59645" width="472" height="471" xlink:href="./hero/mongo.webp"/>
 </defs>
 </svg>

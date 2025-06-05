@@ -1,10 +1,9 @@
-import { Box, Container, Typography } from '@mui/material'
-import Title from '@/shared/title'
+import Box from '@mui/material/Box'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BigShowCaseCard from './card/big-card'
 import SmallShowCard from './card/small-card'
 import { showCaseList } from './show-case'
 import './styles.scss'
-import { SectionDescription, SectionTitle } from '@/shared/typography'
 
 const Showcases = () => {
   return (
@@ -13,17 +12,17 @@ const Showcases = () => {
         <SectionTitle
           align="center"
           text="The Ultimate Showcase of Skill, Strategy, and Champions"
-          markText='Champions'
+          markText="Champions"
           markTextProps={{
-            rotate:5
+            rotate: 3,
           }}
         />
         <Box className="show-case-description-wrapper">
-        <SectionDescription
-          text="A thrilling celebration of skill, strategy, and determination, where
+          <SectionDescription
+            text="A thrilling celebration of skill, strategy, and determination, where
             champions rise to the occasion and showcase their true potential."
-            className='show-case-description'
-        />
+            className="show-case-description"
+          />
         </Box>
       </Box>
       <Box className="showcases">

@@ -1,6 +1,9 @@
 .career-hero-section-wrapper {
   height: 100vh;
   width: 100%;
+  background-image: url('/careers/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover; /* or contain, or any value you need */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -13,14 +16,6 @@
     text-align: left;
     position: relative;
 
-    .ellipse {
-      width: 13.02vw;
-      height: 56.67vw;
-      position: absolute;
-      top: -5.73vw;
-      left: -19%;      
-    }
-
     .hero-section-text-wrapper {
       text-align: left;
       display: flex;
@@ -31,10 +26,7 @@
 
     .text-heading {
       color: #132427;
-      font-feature-settings:
-        'liga' off,
-        'clig' off;
-      font-family: Poppins;
+      font-family: 'Poppins';
       font-size: 3.125vw !important;
       font-style: normal;
       font-weight: 600 !important;
@@ -53,16 +45,17 @@
     .text-description {
       width: 40.833vw;
       color: #757575 !important;
-      font-feature-settings:
-        'liga' off,
-        'clig' off;
-      font-family: Poppins;
+      font-family: 'Poppins';
       font-size: 1.25vw !important;
       font-style: normal;
       font-weight: 400 !important;
       line-height: 1.979vw;
       letter-spacing: 0.025vw;
       margin-bottom: 3.385vw;
+    }
+
+    .button {
+      width: max(180px, 9.375vw);
     }
   }
 
@@ -79,80 +72,6 @@
       width: 66%;
       height: 70%;
       position: relative;
-
-      .big-ellipse {
-        position: absolute;
-        top: -26%;
-        right: -67%;
-        width: 35.15625vw;
-        height: 43.2292vw;
-        flex-shrink: 0;
-      }
-
-      .hero-section-circle-image {
-        max-width: 90%;
-        margin-top: 1.5625vw;
-        margin-left: 1.0417vw;
-        opacity: 1;
-        z-index: 2;
-        object-fit: contain;
-        position: absolute;
-        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
-        animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-      }
-
-      .hero-section-hike-image {
-        position: absolute;
-        left: 15%;
-        bottom: 9%;
-        z-index: 5;
-        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
-        animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-        width: 7.1354vw;
-        height: 5.8854vw;
-      }
-
-      .hero-section-experience-image {
-        position: absolute;
-        right: -17%;
-        top: 24%;
-        z-index: 5;
-        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
-        animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-        width: 7.6125vw;
-        height: 7.8125vw;
-      }
-
-      .hero-section-happy-culture-image {
-        position: absolute;
-        right: -25%;
-        bottom: 8%;
-        z-index: 5;
-        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
-        animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-        height: 8.59375vw;
-        width: 7.8125vw;
-      }
-
-      .hero-section-image {
-        max-width: 100%;
-        opacity: 1;
-        z-index: 4;
-        object-fit: contain;
-        position: absolute;
-        transform: translateY(2.604vw) scale(0.95) rotateX(10deg);
-        animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
-      }
     }
   }
-}
-
-.hero-section-image.freelancer {
-  left: 15% !important;
-  top: 2.604vw !important;
-}
-
-.hero-section-circle-image {
-  left: 15% !important;
-  top: 2.604vw !important;
 }

@@ -3,7 +3,7 @@
   height: auto;
   position: relative;
   background: #104048;
-  padding-bottom: 3.64583333333vw;
+  padding-bottom: 2.08vw;
 
   .bg-image {
     position: absolute;
@@ -16,44 +16,24 @@
     gap: 3.125vw;
     max-width: 72.9166666667vw;
     margin: auto;
-    @media screen and (max-width: 1371px) {
-      flex-direction: column;
-      gap: 0;
-    }
     .traditions-customs-title-description-wrapper {
       padding: 3.65vw 0px 0px 6.77vw;
       .traditions-customs-title {
         width: 20.83vw;
         color: var(--White, #fff);
-        font-feature-settings:
-          'liga' off,
-          'clig' off;
         font-family: Poppins;
-        font-size: Max(24px , 2.60vw);
+        font-size: max(24px , 2.60vw);
         font-style: normal;
         font-weight: 600;
-        @media screen and (max-width: 1371px) {
-          width: 100%;
-        }
-      }
-      @media screen and (max-width: 1371px) {
-        padding: 50px;
+        line-height: max(60px, 3.125vw); /* 120% */
       }
       .traditions-customs-description {
         width: 23.96vw;
         margin-top: 0.83vw;
         color: var(--White, #fff);
-        font-feature-settings:
-          'liga' off,
-          'clig' off;
-        font-family: Poppins;
-        font-size: Max(14px , 0.83vw) !important;
-        font-style: normal;
+        font-family: inherit;
+        font-size: max(14px , 0.83vw) !important;
         font-weight: 400;
-
-        @media screen and (max-width: 1371px) {
-          width: 100%;
-        }
       }
     }
     .traditions-customs-list {
