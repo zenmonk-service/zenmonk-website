@@ -1,9 +1,7 @@
-import { Box, Stack, Typography } from '@mui/material'
-import Title from '@/shared/title'
+import Stack from '@mui/material/Stack'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import {
   DottedCircle,
-  HalfGearImage,
   SmallGearImage,
   TechTreeImage,
 } from './assets'
@@ -30,7 +28,7 @@ const TechnologyTree = () => {
         />
       </Stack>
       <TechTreeImage className="tech-tree-image" />
-      <HalfGearImage className="half-gear" />
+      <SmallGearImage className="half-gear" />
       <SmallGearImage className="small-gear" />
       <DottedCircle className="dotted-circle-1" />
       <DottedCircle className="dotted-circle-2" />

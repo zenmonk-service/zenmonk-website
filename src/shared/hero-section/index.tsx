@@ -59,7 +59,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {parse(description)}
             </Typography>
           </Box>
-          <BaseButton>EXPLORE MORE</BaseButton>
+          <BaseButton className='button'>EXPLORE MORE</BaseButton>
         </Grid2>
 
         <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">

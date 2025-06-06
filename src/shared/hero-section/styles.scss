@@ -76,6 +76,10 @@
   animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
 }
 
+.button {
+  width: max(180px, 9.375vw);
+}
+
 @keyframes fadeInBlurScaleRotate {
   0% {
     opacity: 0.8;

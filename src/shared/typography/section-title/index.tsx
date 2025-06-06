@@ -2,7 +2,7 @@
 
 import parse from 'html-react-parser'
 import { useEffect, useRef, useState } from 'react'
-import { Box, Typography, TypographyProps } from '@mui/material'
+import { Typography, TypographyProps } from '@mui/material'
 import { Mark } from './assets'
 import './styles.scss'
 
@@ -69,13 +69,12 @@ const SectionTitle = ({
     <Typography
       variant="h3"
       component="h1"
-      className="highlighted-text-heading"
+      className="highlighted-text-heading animate pop"
     >
       {highlightTitle(text)}
     </Typography>
   ) : (
     <Typography
-      component="h5"
       variant="h5"
       className={`section-title-text ${className}`}
       textAlign={align}
@@ -96,6 +95,9 @@ const SectionTitle = ({
               }}
             >
               <Mark className="mark-icon" />
+              <canvas>
+
+              </canvas>
             </span>
           </span>
         )}

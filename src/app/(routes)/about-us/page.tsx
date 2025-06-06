@@ -20,14 +20,10 @@ const About = () => {
       <Image src={dottedBg} alt="Dotted Line" fill className="absolute-image" />
       <AnimatedDiv>
         <HeroSection />
-        <Rating />
       </AnimatedDiv>
-      <AnimatedDiv>
-        <BusinessSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <StandOutSection />
-      </AnimatedDiv>
+      <Rating />
+      <BusinessSection />
+      <StandOutSection />
       <AnimatedDiv>
         <WhyChooseUsSection />
       </AnimatedDiv>

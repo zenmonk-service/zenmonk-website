@@ -26,10 +26,12 @@
 
   .half-gear {
     position: absolute;
-    left: 0;
+    left: -9.3vw;
     top: 0;
     z-index: -1;
     height: 17.0313vw; /* 327px */
+    animation: rotate360 24s linear infinite;
+    // 
   }
 
   .small-gear {
@@ -39,6 +41,7 @@
     z-index: -1;
     height: 6.3542vw; /* 122px */
     width: 6.3542vw; /* 122px */
+    animation: rotate360 24s linear infinite reverse;
   }
 
   .dotted-circle-1 {
@@ -79,5 +82,14 @@
     position: absolute;
     right: 1.5625vw; /* 30px */
     bottom: 1.5625vw; /* 30px */
+  }
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

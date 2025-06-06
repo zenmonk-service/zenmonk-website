@@ -1,0 +1,11 @@
+@keyframes bg-scrolling {
+  0% {
+    background-position: -100vw 100vw;
+  }
+}
+
+.container {
+  background-repeat: repeat;
+  animation: bg-scrolling 200s infinite;
+  animation-timing-function: linear;
+}

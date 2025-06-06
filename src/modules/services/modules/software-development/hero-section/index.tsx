@@ -1,10 +1,12 @@
-import { Box } from '@mui/material'
+import Box from '@mui/material/Box'
 import { HeroSection } from '@/shared/hero-section'
 import { Hero as HeroImg } from '../assets'
 import BackgroundImage from '../assets/hero-bg.png'
+import "./styles.scss"
 
 const SoftwareDevelopment: React.FC = () => (
   <Box
+  className="container"
     sx={{
       backgroundImage: `url(${BackgroundImage.src})`,
       backgroundSize: 'cover',
@@ -14,7 +16,9 @@ const SoftwareDevelopment: React.FC = () => (
     <HeroSection
       title="Reliable & Scalable <br/>Software Development"
       highlightedText="Software Development"
-      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+      description="Zenmonk excels in custom enterprise software development, 
+      delivering scalable and secure solutions. We provide end-to-end support
+      from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs."
       image={HeroImg.src}
     />
   </Box>

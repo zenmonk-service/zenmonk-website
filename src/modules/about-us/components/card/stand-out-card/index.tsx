@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 import './styles.scss'
 
 interface StandOutCardProps {
@@ -7,18 +7,22 @@ interface StandOutCardProps {
   title: string
   description: string
   bgImage: string
+  index: number
 }
 
 const StandOutCard = ({
-  icon:Icon,
+  icon: Icon,
   title,
   description,
   bgImage,
 }: StandOutCardProps) => {
   return (
-    <Box className="stand-out-card" sx={{ backgroundImage: `url(${bgImage})` }}>
+    <div
+      className="stand-out-card"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <Box className="icon-container">
-        <Icon/>
+        <Icon />
       </Box>
       <Box className="stand-out-card-content">
         <Typography component="h3" className="title">
@@ -28,7 +32,7 @@ const StandOutCard = ({
           {description}
         </Typography>
       </Box>
-    </Box>
+    </div>
   )
 }
 

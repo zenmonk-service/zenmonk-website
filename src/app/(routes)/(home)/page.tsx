@@ -22,14 +22,14 @@ const page = () => {
       <TechSolutionSection />
       <OurWorkSection />
       <Box sx={{ overflow: 'hidden' }}>
-        {/* <SectionWrapper>
+        <SectionWrapper>
           <WhyChooseUsSection />
         </SectionWrapper>
-        <Odometer /> */}
+        <Odometer />
       </Box>
-      {/* <ClientSatisfaction /> */}
+      <ClientSatisfaction />
       <FAQ />
-      {/* <Testimony /> */}
+      <Testimony />
     </Box>
   )
 }
