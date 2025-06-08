@@ -1,5 +1,8 @@
 'use client'
 
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
@@ -16,36 +19,8 @@ const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
   const [description, setDescription] = useState(serviceList[0].description)
 
-  const [rightSectionHeadingRefPosition, setRightSectionHeadingRefPosition] =
-    useState<number | null>(null)
-
   const [isOverlapped, setIsOverlapped] = useState<boolean>(false)
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
-
-  const updatePosition = () => {
-    if (rightSectionHeadingRef.current) {
-      const rect = rightSectionHeadingRef.current.getBoundingClientRect()
-      setRightSectionHeadingRefPosition(rect.top)
-    }
-  }
-
-  useEffect(() => {
-    if (rightSectionHeadingRefPosition)
-      if (rightSectionHeadingRefPosition < 120) {
-        setIsOverlapped(true)
-      } else {
-        setIsOverlapped(false)
-      }
-  }, [rightSectionHeadingRefPosition])
-
-  useEffect(() => {
-    updatePosition()
-    window.addEventListener('scroll', updatePosition)
-
-    return () => {
-      window.removeEventListener('scroll', updatePosition)
-    }
-  }, [])
 
   const selectItem = (Business: Service) => {
     setHeading(Business.title)
@@ -55,7 +30,7 @@ const ServiceSection = () => {
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <Box ref={rightSectionHeadingRef} className="service-section-wrapper">
+    <section ref={rightSectionHeadingRef} className="panel service-section-wrapper">
       <div
         className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
       >
@@ -98,10 +73,8 @@ const ServiceSection = () => {
             </Box>
           ))}
         </Box>
-        <Box className="services-right-container">
-          {ZenmonkLogo && (
-            <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
-          )}
+        <div className="services-right-container">
+          <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
           <Box className="business-proof">
             <Box className="business-proof-content">
               <Typography
@@ -119,15 +92,13 @@ const ServiceSection = () => {
                   return <Src key={Src} />
                 })}
               </Box>
-              <BaseButton className="button">
-                Get Started
-              </BaseButton>
+              <BaseButton className="button">Get Started</BaseButton>
             </Box>
           </Box>
-        </Box>
+        </div>
       </Box>
-      <MobileService />
-    </Box>
+      {/* <MobileService /> */}
+    </section>
   )
 }
 

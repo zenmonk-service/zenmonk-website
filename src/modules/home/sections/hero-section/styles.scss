@@ -1,10 +1,8 @@
 .hero-section-d {
+  height: 80vh;
   display: flex;
   align-items: center;
-  height: 80vh;
-  padding-top: 8%;
-  padding-left: 7.8%;
-  padding-right: 1.426%;
+  padding: 8% 1.426% 0 7.8%;
 
   .ball-decorator {
     position: absolute;
@@ -28,6 +26,7 @@
       width: 100%;
       .heading {
         color: #3c3c3c !important;
+        white-space: nowrap;
         font-size: max(24px, 2.5vw) !important;
         font-family: 'Inter', sans-serif !important;
         font-weight: 400;
@@ -54,7 +53,7 @@
       }
     }
     .button {
-      width: max(180px , 9.375vw);
+      width: max(180px, 9.375vw);
     }
   }
   .image-container {

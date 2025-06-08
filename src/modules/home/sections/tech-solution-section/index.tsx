@@ -8,7 +8,7 @@ import TechCard from './tech-card'
 
 const TechSolutionSection = () => {
   return (
-    <>
+    <section className='panel'>
       <Box className="tech-solution-section-wrapper desktop">
         <Box className="tech-solution-section">
           <Box className="tech-solution-section-text-wrapper">
@@ -39,7 +39,7 @@ const TechSolutionSection = () => {
         </Box>
       </Box>
       {/* <TechMobileSolutionSection/> */}
-    </>
+    </section>
   )
 }
 

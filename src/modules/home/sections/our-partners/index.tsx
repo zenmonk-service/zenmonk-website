@@ -1,14 +1,19 @@
 import { OurPartnersList } from '@/assets/icons/collaboration'
-import AnimatedDiv from '@/shared/animated-div'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
-import OurPartnersSectionHeading from './heading'
+import "./styles.scss"
 
-const OurPartners = async() => {
+const OurPartners = () => {
   return (
-    <AnimatedDiv>
-      <OurPartnersSectionHeading />
+    <>
+      <div className="heading-container">
+        <p className="text">
+          Fueling partners success that&nbsp;
+          <span>adapt</span>,<span>evolve</span>, and&nbsp;
+          <span>excels</span>.
+        </p>
+      </div>
       <AutoScrollCarousel data={OurPartnersList} />
-    </AnimatedDiv>
+    </>
   )
 }
 
