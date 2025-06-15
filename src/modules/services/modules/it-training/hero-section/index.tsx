@@ -72,4 +72,4 @@ const QuoteText = ({ text }: QuoteTextProps) => {
     </Box>
   )
 }
-export { ItTrainingHeroSection }
+export default ItTrainingHeroSection

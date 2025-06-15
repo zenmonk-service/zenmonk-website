@@ -1,9 +1,7 @@
 'use client'
 
 import parse from 'html-react-parser'
-import React from 'react'
-import { usePathname } from 'next/navigation'
-import { Box, Typography, Toolbar, Grid2 } from '@mui/material'
+import { Typography, Grid2 } from '@mui/material'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 
@@ -11,18 +9,18 @@ interface HeroSectionProps {
   title: string
   description: string
   textWidth?: number
-  image: any
   highlightedText?: string
   imgWidth?: number
+  url: string
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   description,
   textWidth,
-  image: Image,
   highlightedText = '',
   imgWidth,
+  url,
 }) => {
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
@@ -31,56 +29,43 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return (
       <>
         {parse(parts[0])}
-        <Typography component="span">{parse(highlightedText)}</Typography>
+        <span>{parse(highlightedText)}</span>
         {parse(parts[1])}
       </>
     )
   }
 
-  const pathname = usePathname()
-  const serviceRoute = pathname.split('/')[2]
-
   return (
-    <Box className="service-hero-section" sx={{ width: '100%' }}>
-      <Grid2 container spacing={4} alignItems="center">
+    <div className="service-hero-section">
+      <Grid2 container spacing={4} alignItems="center" height="100%">
         <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
-          <Box
+          <div
             className="global-hero-section-text-wrapper"
             style={{ width: textWidth }}
           >
-            <Typography
-              variant="h3"
-              component="h1"
-              className="global-text-heading"
-            >
-              {highlightTitle(title)}
-            </Typography>
+            <h1 className="global-text-heading">{highlightTitle(title)}</h1>
             <Typography variant="body1" className="global-text-description">
               {parse(description)}
             </Typography>
-          </Box>
-          <BaseButton className='button'>EXPLORE MORE</BaseButton>
+          </div>
+          {/* <BaseButton className="button">EXPLORE MORE</BaseButton> */}
         </Grid2>
 
         <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
-          <Box>{serviceRoute === 'product-development' && <Image />}</Box>
-          {serviceRoute !== 'product-development' && (
-            <Box
-              className="global-hero-section-image-wrapper"
-              component="img"
-              src={Image}
-              alt="Hero Image"
-              sx={{
-                width: imgWidth ?? '100%',
-                height: 'auto',
-                objectFit: 'contain',
-                borderRadius: 2,
-              }}
-            />
-          )}
+          <img
+            className="global-hero-section-image-wrapper"
+            src={url}
+            alt="Hero Image"
+            style={{
+              width: imgWidth ?? '100%',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: 2,
+            }}
+          />
         </Grid2>
       </Grid2>
-    </Box>
+    </div>
   )
 }
 

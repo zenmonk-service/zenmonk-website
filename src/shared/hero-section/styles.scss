@@ -8,6 +8,7 @@
   padding-left: 7.8125%;
   padding-right: 7.8125%;
   padding-top: 5vw;
+  height: 100svh;
 }
 
 .global-hero-section-text-wrapper {
@@ -21,9 +22,6 @@
 .global-text-heading {
   color: #132427;
   flex-wrap: wrap;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
   font-family: 'Poppins', sans-serif !important;
   font-size: 3.125vw !important;
   font-style: normal;
@@ -34,31 +32,16 @@
 }
 
 .global-text-heading span {
-  display: inline;
-  flex-wrap: wrap;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
-  font-family: Poppins;
-  font-size: inherit;
-  font-style: normal;
-  font-weight: 600;
-  line-height: inherit;
-  text-transform: capitalize;
   background: var(--global-color-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 600 !important;
 }
 
 .global-text-description {
   max-width: 38.0208vw;
   flex-wrap: wrap;
   color: #757575 !important;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
   font-family: Poppins, sans-serif !important;
   font-size: var(--font-size-24) !important;
   font-style: normal;

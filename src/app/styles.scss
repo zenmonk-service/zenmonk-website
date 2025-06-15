@@ -1,0 +1,31 @@
+    .loader {
+    position: fixed;
+    z-index: 1101 !important;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .logo {
+    width: 80px;
+    height: auto;
+    }
+
+    .company-name {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    }
