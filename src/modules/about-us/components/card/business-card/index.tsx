@@ -27,7 +27,7 @@ const BusinessCard = ({
         type: 'spring',
         stiffness: 100,
       }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.01 }}
       variants={item}
       className={`about-us-business-card-container ${name}`}
     >

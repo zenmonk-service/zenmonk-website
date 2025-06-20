@@ -2,12 +2,13 @@
   height: 80vh;
   display: flex;
   align-items: center;
+  position: relative;
   padding: 8% 1.426% 0 7.8%;
 
   .ball-decorator {
-    position: absolute;
     width: 25.15vw;
     height: 35.56vw;
+    position: absolute;
     top: -4%;
     opacity: 0.6;
     right: calc(16% + 28.39vw);

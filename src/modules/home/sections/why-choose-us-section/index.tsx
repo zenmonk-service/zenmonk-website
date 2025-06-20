@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Box from '@mui/material/Box'
 import {
   CraftAndCollab,
   Deadline,
@@ -43,7 +42,7 @@ const WhyChooseUsSection = () => {
 
   return (
     <>
-      <Box className="why-choose-us-section">
+      <div className="why-choose-us-section">
         <SectionTitle
           text="Elevate your tech journey with Zenmonk"
           markText="Zenmonk"
@@ -52,31 +51,31 @@ const WhyChooseUsSection = () => {
         <Image src={OldLogoDecorator} alt="logo" className="logo left-logo" />
         <Image src={OldLogoDecorator} alt="logo" className="logo right-logo" />
 
-        <Box ref={clientSatisficationRef} className="why-choose-us">
-          <Box className="content">
-            <Box className={`thumsup ${isVisible && 'animate_scale'}`}>
+        <div ref={clientSatisficationRef} className="why-choose-us">
+          <div className="content">
+            <div className={`thumsup ${isVisible && 'animate_scale'}`}>
               <ThumbUp />
-            </Box>
-            <Box className="children">
-              <Box className={`first ${isVisible && 'animate_comeFromLeft'}`}>
+            </div>
+            <div className="children">
+              <div className={`first ${isVisible && 'animate_comeFromLeft'}`}>
                 <CraftAndCollab />
-              </Box>
-              <Box className={`second ${isVisible && 'animate_comeFromRight'}`}>
+              </div>
+              <div className={`second ${isVisible && 'animate_comeFromRight'}`}>
                 <Support />
-              </Box>
-              <Box className={`third ${isVisible && 'animate_comeFromLeft'}`}>
+              </div>
+              <div className={`third ${isVisible && 'animate_comeFromLeft'}`}>
                 <Deadline />
-              </Box>
-              <Box
+              </div>
+              <div
                 className={`fourth ${isVisible && 'animate_comeFromRight2'}`}
               >
                 <LatestTech />
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-      <WhyChooseUSMobile />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <WhyChooseUSMobile /> */}
     </>
   )
 }

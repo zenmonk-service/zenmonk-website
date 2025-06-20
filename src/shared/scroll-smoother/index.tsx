@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { usePathname } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -12,6 +13,7 @@ export default function SmoothScroller({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname()
   useGSAP(
     () => {
       ScrollSmoother.create({
@@ -20,7 +22,7 @@ export default function SmoothScroller({
       })
     },
     {
-      dependencies: [],
+      dependencies: [pathname],
       revertOnUpdate: true,
     }
   )

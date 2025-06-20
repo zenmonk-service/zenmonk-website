@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat, Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+import CustomLoader from '@/modules/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
+import StoreProvider from '@/store/storeProvider'
 import './globals.css'
 
 const poppins = Poppins({
@@ -36,11 +38,14 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body className={` ${poppins.variable} ${montserrat.variable}`}>
         <AppRouterCacheProvider>
-          <Header />
-          <SmoothScroller>
-            {children}
-            <Footer />
-          </SmoothScroller>
+          <StoreProvider>
+            <Header />
+            <CustomLoader />
+            <SmoothScroller>
+              {children}
+              <Footer />
+            </SmoothScroller>
+          </StoreProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

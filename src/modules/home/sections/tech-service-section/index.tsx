@@ -1,9 +1,6 @@
 'use client'
 
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -19,7 +16,6 @@ const ServiceSection = () => {
   const [heading, setHeading] = useState(serviceList[0].title)
   const [description, setDescription] = useState(serviceList[0].description)
 
-  const [isOverlapped, setIsOverlapped] = useState<boolean>(false)
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
 
   const selectItem = (Business: Service) => {
@@ -27,15 +23,15 @@ const ServiceSection = () => {
     setDescription(Business.description)
   }
 
-  const text = 'Future Proof Your Business With Our IT Services'
+  const text = 'Solutions Designed For Your Success'
 
   return (
-    <section ref={rightSectionHeadingRef} className="panel service-section-wrapper">
-      <div
-        className={`fade-transition ${isOverlapped ? 'fade-transition-hidden' : ''}`}
-      >
-        <SectionTitle text={text} markText="services" />
-      </div>
+    <section ref={rightSectionHeadingRef} className="service-section-wrapper">
+      <SectionTitle
+        text={text}
+        markText="Your Success"
+        markTextProps={{ rotate: 1.8 }}
+      />
       <Box className="services-section desktop">
         <Box className="services-left-container">
           {serviceList.map((item: Service) => (

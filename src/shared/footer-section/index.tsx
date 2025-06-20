@@ -31,9 +31,8 @@ const Footer = () => {
 
         <SectionDescription
           className="branding"
-          text="Over the last decade, we have helped our clients ship products for
-          multiple platforms. We can create the software your business needs to
-          grow!"
+          text="We deliver transformative digital experiences more than just software that takes your business forward. 
+          Let us craft the beautiful chapter of your success story!"
         />
       </Box>
       <Box className="logo-category-wrapper">

@@ -1,10 +1,24 @@
+.swipe-section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.swipe-section .panel {
+  position: absolute;
+}
+
 .tech-solution-section-wrapper {
   margin-bottom: 7.8vw;
   display: flex;
   align-items: center;
   padding: 0 5%;
   padding-left: 7.8125%;
+  background-color: #fff;
+  height: 100vh;
   padding-right: 7.8125%;
+  z-index: 101;
   .tech-solution-section {
     flex: 1;
     display: flex;
@@ -24,7 +38,7 @@
         font-weight: 400;
         line-height: normal;
         letter-spacing: 0.05vw;
-        margin-bottom: 0.41vw;
+        margin-bottom: 0.8vw;
       }
 
       .text-description {

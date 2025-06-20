@@ -1,4 +1,3 @@
-import About from '@/assets/images/about/about.png'
 import { HeroSection as HeroComponent } from '@/shared/hero-section'
 import './styles.scss'
 
@@ -12,7 +11,7 @@ const HeroSection: React.FC = () => (
       As your partners in technological excellence,
       we transform values into action, 
       simplifying tech to deliver user-centered solutions."
-      image={About.src}
+      url='/about-us/about.png'
     />
   </div>
 )

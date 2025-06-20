@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Box from '@mui/material/Box'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import AboutSectionWrapper from '@/shared/wrapper/about-wrapper'
 import BusinessCard from '../../components/card/business-card'
@@ -19,7 +18,7 @@ export const BusinessSection = () => {
     },
   }
   return (
-    <Box className="business-container">
+    <div className="business-container">
       <SectionTitle
         text="We Are The Complete For Your Business Success"
         markText="Success"
@@ -57,6 +56,6 @@ export const BusinessSection = () => {
           })}
         </motion.div>
       </AboutSectionWrapper>
-    </Box>
+    </div>
   )
 }

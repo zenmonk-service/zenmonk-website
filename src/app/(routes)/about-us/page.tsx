@@ -17,10 +17,17 @@ import Rating from '@/shared/rating'
 const About = () => {
   return (
     <Box>
-      <Image src={dottedBg} alt="Dotted Line" fill className="absolute-image" />
+      <div style={{ position: 'relative', height:"100vh" }}>
+        <Image
+          src={dottedBg}
+          alt="Dotted Line"
+          fill
+          className="absolute-image"
+        />
       <AnimatedDiv>
         <HeroSection />
-      </AnimatedDiv>
+      </AnimatedDiv >
+      </div>
       <Rating />
       <BusinessSection />
       <StandOutSection />

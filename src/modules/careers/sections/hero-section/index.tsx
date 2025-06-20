@@ -10,11 +10,11 @@ const HeroSection = () => {
       <Box className="hero-section">
         <Box className="hero-section-text-wrapper">
           <Typography variant="h4" className="text-heading">
+            Join Us At {" "}
             <Typography variant="inherit" component="span">
-              Join Our Team{' '}
+              ZENMONK
             </Typography>
-            and Make <br />
-            an Impact in Tech
+            <br />
           </Typography>
           <Typography component="p" className="text-description">
             Find your Zen in your career at Zenmonk. A monastery-like workplace
@@ -22,7 +22,7 @@ const HeroSection = () => {
             encouraged to discover balance and purpose in work.
           </Typography>
         </Box>
-        <BaseButton className='button'>JOIN NOW</BaseButton>
+        <BaseButton className="button">Apply NOW</BaseButton>
       </Box>
       <Box className="hero-section-image-wrapper">
         <Box className="image-container">

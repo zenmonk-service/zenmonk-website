@@ -1,3 +1,15 @@
+.form-title {
+  margin-top: max(1.04vw, 16px) !important; // 20px
+  width: 28.65vw; // 550px
+  margin-bottom: max(0.52vw, 10px) !important; // 10px
+  color: #132427;
+  font-family: Poppins !important;
+  font-size: var(--font-size-16) !important; // 16px
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: max(1.56vw, 22px) !important; // 30px
+}
+
 .contact-form {
   width: 32.86vw; // 631px
   height: auto;
@@ -8,10 +20,6 @@
   background: #fff;
   box-shadow: 0 0 1.56vw 0 rgba(0, 0, 0, 0.1); // 30px
   overflow: hidden;
-
-  @media (max-width: 899px) {
-    width: 100%;
-  }
 
   .error-text {
     font-size: var(--font-size-14) !important; // 13px
@@ -84,11 +92,8 @@
     margin-top: 1.04vw; // 20px
     flex-shrink: 0;
 
-    @media (max-width: 899px) {
-      margin-top: 40px;
-    }
-
-    button {
+    .send-button{
+      width: 100%;
       display: flex;
       padding: max(1.04vw, 12px) max(1.56vw, 30px) !important; // 20px 30px
       justify-content: center !important;
@@ -96,9 +101,21 @@
       gap: max(0.52vw, 10px) !important; // 10px
       flex-shrink: 0;
     }
-
     .send-button-icon {
       font-size: var(--font-size-20); // 20px
     }
   }
 }
+
+.base-style {
+  color: #132427 !important;
+  font-family: "Poppins" !important;
+  font-size: var(--font-size-16) !important; // 16px
+  font-style: normal;
+  font-weight: 400;
+  line-height: max(1.56vw, 20px) !important; // 30px
+  border-radius: max(0.21vw, 4px) !important; // 4px
+  background: #fff;
+  padding: max(0.57vw, 11px) max(1.04vw, 20px) !important; // 15px 20px
+}
+

@@ -95,9 +95,6 @@ const SectionTitle = ({
               }}
             >
               <Mark className="mark-icon" />
-              <canvas>
-
-              </canvas>
             </span>
           </span>
         )}

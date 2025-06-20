@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Expand from '@mui/icons-material/ExpandLess'
 import { Box } from '@mui/material'
-import LoadingIndicator from '@/shared/loading-indicator'
 import { ActionLink } from '../links'
 import { navItemStyles } from '../nav-item-style'
 import ServiceCard from './service-card'
@@ -21,14 +20,13 @@ const ServiceLink = ({ name, href }: ActionLink) => {
         className="action-link-button"
         onClick={() => toggleExpand()}
       >
-        {name}
-        <LoadingIndicator />
+        <p>{name}</p>
         <Box className="expand-option-icon">
           <Expand
             color="inherit"
             className="icon"
             style={{
-              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+              transform: isExpanded ? 'rotate(360deg)' : 'rotate(180deg)',
             }}
           />
         </Box>
@@ -42,6 +40,7 @@ const ServiceLink = ({ name, href }: ActionLink) => {
             {services.map((service) => {
               return (
                 <ServiceCard
+                  closeMenu={() => setIsExpanded(false)}
                   isAlreadyOpen={alreadyOpen(service.route)}
                   key={service.route}
                   description={service.description}

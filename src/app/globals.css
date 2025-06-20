@@ -29,40 +29,6 @@
   --font-size-40: max(24px, 2.083vw);
 }
 
-.flicker-logo {
-  width: 400px;
-  height: 400px;
-  animation: flickerAnimation 1.5s infinite alternate;
-}
-
-@keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  font-size: 62.5%;
-}
-
-@media (min-width: 2700px) {
-  /* html {
-    zoom: 180%
-  } */
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
 ::selection {
   color: var(--global-color-primary);
   background: lightgray;
@@ -84,10 +50,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }

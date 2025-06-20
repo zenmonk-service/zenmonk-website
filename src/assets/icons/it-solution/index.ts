@@ -9,10 +9,10 @@ interface TechSolution {
 }
 
 const techSolution = [
-  { name: 'Customizable workflow', src: Tool },
-  { name: 'Quality web development', src: RankBadge },
-  { name: '24x7 customer support', src: Person },
-  { name: 'Deliver project on time', src: Time },
+  { name: 'Measurable ROI Delivery', src: Tool },
+  { name: 'Expert web development', src: RankBadge },
+  { name: '24x7 Support Network', src: Person },
+  { name: 'Timely Project Delivery', src: Time },
 ]
 
 export type { TechSolution }

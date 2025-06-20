@@ -22,9 +22,7 @@ const PerkBenefits = () => {
           }}
         />
         <Typography component="p" className="description">
-          At Zenmonk, we believe that each individual is special and creative.
-          We prioritize our employees and give them complete independence to
-          learn, experiment and grow.
+          At Zenmonk, we celebrate individuality and creativity. We place our people at the heart of everything we do — giving them the freedom, trust, and support to evolve both personally and professionally.
         </Typography>
         <Box className="perks-benefits-list">
           {perkBenefitsList.map((item, index) => (

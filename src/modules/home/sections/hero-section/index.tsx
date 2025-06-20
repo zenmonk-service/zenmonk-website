@@ -1,10 +1,14 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
+import OurPartners from '../our-partners'
 import BallDecorator from './assets/ball-decorator.svg'
 import HomeHeroImage from './assets/hero.svg'
 import './styles.scss'
-import OurPartners from '../our-partners'
 
 const HeroSection = () => {
+  const router = useRouter()
   return (
     <section>
       <div className="hero-section-d">
@@ -23,7 +27,12 @@ const HeroSection = () => {
               <br /> and Precision, Innovation and Mindfulness.
             </p>
           </div>
-          <BaseButton className="button">EXPLORE MORE</BaseButton>
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className="button"
+          >
+            GET IN TOUCH
+          </BaseButton>
         </div>
         <div className="image-container">
           <HomeHeroImage />

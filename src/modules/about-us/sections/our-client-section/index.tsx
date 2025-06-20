@@ -1,15 +1,21 @@
 import { Box } from '@mui/material'
 import { OurPartnersList } from '@/assets/icons/collaboration'
-import './styles.scss'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
+import './styles.scss'
 
 export const OurClientSection = () => {
   return (
     <Box className="about-us-our-client-section">
-      <SectionTitle markText="Clients" markTextProps={{rotate:2}} text="Our Clients" />
-      <SectionDescription text="We partner with a wide range of clients, offering tailored solutions
-        that drive success, foster growth, and consistently exceed expectations." className="section-description"/>
+      <SectionTitle
+        markText="Associations"
+        markTextProps={{ rotate: 1.8 }}
+        text="Our Proud Associations"
+      />
+      <SectionDescription
+        text="Our clients trust us to provide outstanding solutions knowing our dedication to quality, creativity, and their ongoing success drives everything we do."
+        className="section-description"
+      />
 
       <AutoScrollCarousel
         isBgShadow

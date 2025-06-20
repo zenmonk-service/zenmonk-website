@@ -1,70 +1,113 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { Box, Typography, useMediaQuery } from '@mui/material'
-import { countries, Country } from '@/assets/icons/contact-us'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
-import ContactCard from '@/shared/contact-card'
-import CountriesList from '@/shared/countries-list'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
-import AboutSectionWrapper from '../wrapper/about-wrapper'
-import polygon from './assets/polygon.png'
+import { countries } from './countries'
 import './styles.scss'
 
 export const ContactUsSection = () => {
-  const [selectedCountry, setSelectedCountry] = useState<Country>(countries[0])
-  const isLaptop = useMediaQuery('(max-width: 1499px)')
+  const [country, setCountry] = useState(countries[0])
+  const indexRef = useRef(1) // next index to select in rotation
+  const timerRef = useRef<NodeJS.Timeout | null>(null) // stores interval ID
 
-  const content = (
-    <Box className="contact-us">
-      <Image src={polygon} alt="polygon" width={300} className="polygon" />
-      {/* <Image src={dottedLine} alt="dotted-line" className="dotted-image" /> */}
-      <Box className="left-container">
-        <Typography component="h1" className="section-title">
-          We’re Just a <br className='line-break' />
-          <Typography component="span">Message</Typography> Away
-        </Typography>
-          <CountriesList
-            className="countries-list"
-            countryCardProps={{
-              className: 'country-card',
-            }}
-            selectedCountry={selectedCountry}
-            setSelectedCountry={setSelectedCountry}
-          />
-        <Typography className="selected-country-title">
-          {selectedCountry.name}
-        </Typography>
-        <Typography className="selected-country-description">
-          {selectedCountry.description}
-        </Typography>
-        <ContactCard
-          className="contact-card"
-          url={Email}
-          description={selectedCountry.office.email}
-        />
-        <ContactCard
-          className="contact-card"
-          url={Location}
-          description={selectedCountry.office.address}
-        />
-        <ContactCard
-          className="contact-card"
-          url={Phone}
-          description={selectedCountry.office.phone}
-        />
-      </Box>
-      <Box className="right-container">
-        <ContactForm />
-      </Box>
-    </Box>
-  )
-  return !isLaptop ? (
-    <Box className="about-us-contact-us-section">
-      <AboutSectionWrapper>{content}</AboutSectionWrapper>
-    </Box>
-  ) : (
-    <Box className="about-us-contact-us-section">{content}</Box>
+  const startTimer = () => {
+    // Clear existing timer before setting a new one
+    if (timerRef.current) clearInterval(timerRef.current)
+
+    timerRef.current = setInterval(() => {
+      setCountry(countries[indexRef.current])
+      indexRef.current = (indexRef.current + 1) % countries.length
+    }, 3000)
+  }
+
+  useEffect(() => {
+    startTimer() // Initial timer setup
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
+  }, [])
+
+  const handleMouseEnter = (
+    hoveredCountry: (typeof countries)[number],
+    idx: number
+  ) => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    setCountry(hoveredCountry)
+    indexRef.current = (idx + 1) % countries.length
+  }
+
+  const handleMouseLeave = () => {
+    startTimer()
+  }
+
+  return (
+    <div className="about-us-contact-us-section">
+      <div className="contact-us">
+        <div className="left-container">
+          <h1 className="section-title">
+            We&apos;re Just a <br />
+            <span>Message</span> Away
+          </h1>
+          <div style={{ display: 'flex', gap: '24px', marginTop: '24px' }}>
+            {countries.map(({ name, img }, index) => {
+              return (
+                <motion.div
+                  key={name}
+                  animate={{ scale: name === country.name ? 1.2 : 1 }}
+                  transition={{ type: 'easeInOut', stiffness: 300 }}
+                  onMouseEnter={() => handleMouseEnter(countries[index], index)}
+                  onMouseLeave={() => handleMouseLeave()}
+                  style={{
+                    backgroundImage: `url(${img})`,
+                    ...(name === country.name && {
+                      boxShadow: `0 0 0.26vw 0.26vw rgba(255, 168, 80, 0.4)`,
+                    }),
+                  }}
+                  className="country-flag"
+                />
+              )
+            })}
+          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`index-${country.name}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              <p className="selected-country-title">{country.name}</p>
+              <p className="selected-country-description">
+                {country.description}
+              </p>
+              <div className="label-container">
+                <Email className="icon" />
+                <p className="selected-country-description label">
+                  {country.office.email}
+                </p>
+              </div>
+              <div className="label-container">
+                <Location className="icon" />
+                <p className="selected-country-description label">
+                  {country.office.address}
+                </p>
+              </div>
+              <div className="label-container">
+                <Phone className="icon" />
+                <p className="selected-country-description label">
+                  {country.office.phone}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        <div className="right-container">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
   )
 }

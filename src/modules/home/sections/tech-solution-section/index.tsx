@@ -1,24 +1,30 @@
 import Image from 'next/image'
-import Box from '@mui/material/Box'
 import { TechSolution, techSolution } from '@/assets/icons/it-solution'
 import BaseButton from '@/shared/button'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import './styles.scss'
 import TechCard from './tech-card'
+import { useRouter } from 'next/navigation'
 
 const TechSolutionSection = () => {
+  const router = useRouter()
   return (
-    <section className='panel'>
-      <Box className="tech-solution-section-wrapper desktop">
-        <Box className="tech-solution-section">
-          <Box className="tech-solution-section-text-wrapper">
-            <Box className="text-heading">
+    <section className="panel">
+      <div className="tech-solution-section-wrapper desktop">
+        <div className="tech-solution-section">
+          <div className="tech-solution-section-text-wrapper">
+            <div className="text-heading">
               <SectionTitle
-                text="Our expertise lies in crafting business solutions"
-                markText="solutions"
+                text="Our Expertise Lies In Crafting"
                 align="left"
               />
-            </Box>
+              <SectionTitle
+                text="Business Solutions"
+                markText="solutions"
+                align="left"
+                markTextProps={{ rotate: 1.8 }}
+              />
+            </div>
             <SectionDescription
               className="text-description"
               text="Welcome to Zenmonk, where Software Innovation meets professionalism
@@ -26,18 +32,18 @@ const TechSolutionSection = () => {
             proficient in technical terminology, and validate our new-age
             expertise with custom solutions"
             ></SectionDescription>
-          </Box>
-          <Box className="tech-solution-section-card-wrapper">
+          </div>
+          <div className="tech-solution-section-card-wrapper">
             {techSolution.map((tech: TechSolution, index) => {
               return <TechCard key={index} Icon={tech.src} title={tech.name} />
             })}
-          </Box>
-          <BaseButton className='button'>EXPLORE SERVICES</BaseButton>
-        </Box>
-        <Box className="tech-solution-section-image-wrapper">
-          <Image fill src='/tech-solutions.png' alt="tech-solution" />
-        </Box>
-      </Box>
+          </div>
+          <BaseButton onClick={()=> router.push("/services/software-development")} className="button">EXPLORE SERVICES</BaseButton>
+        </div>
+        <div className="tech-solution-section-image-wrapper">
+          <Image fill src="/tech-solutions.png" alt="tech-solution" />
+        </div>
+      </div>
       {/* <TechMobileSolutionSection/> */}
     </section>
   )

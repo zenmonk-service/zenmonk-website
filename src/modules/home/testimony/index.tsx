@@ -90,7 +90,7 @@ export default function Testimony() {
         >
           <div className="section-header-container">
             <SectionTitle
-              text="We deliver what we promise"
+              text="Real Results, Real People"
               markText="promise"
               align="center"
               className="title"

@@ -125,7 +125,7 @@ export const ContactForm = () => {
       </FormControl>
 
       <Box className="button-wrapper">
-        <BaseButton fullWidth type="submit">
+        <BaseButton className='send-button'>
           Send Message <Send className="send-button-icon" />
         </BaseButton>
       </Box>

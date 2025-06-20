@@ -6,6 +6,7 @@ import { ActionLink, actionsLink } from './links'
 import { navItemStyles } from './nav-item-style'
 import ServiceLink from './service'
 import './styles.scss'
+import LoadingIndicator from '@/shared/loader/detector'
 
 const theme = createTheme()
 
@@ -28,6 +29,7 @@ const ActionLinks = () => {
                 prefetch={false}
                 key={index}
               >
+                <LoadingIndicator />
                 {name}
               </Link>
             )

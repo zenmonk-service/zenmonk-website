@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Box } from '@mui/material'
-import { Country as CountryType } from '@/assets/icons/contact-us'
+// import { Country as CountryType } from '../../../../public/countries'
 import './styles.scss'
 
 interface CountryCardProps {

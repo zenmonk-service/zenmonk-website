@@ -1,0 +1,98 @@
+.our-office-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8% 1.426% 0 12.8%;
+}
+
+.globe-container {
+  width: 100%;
+  max-width: 31.25vw;
+  aspect-ratio: 1;
+  margin: auto;
+  margin-right: 12vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glow-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    99deg,
+    rgba(250, 250, 249, 0.2) 3.23%,
+    rgba(238, 170, 102, 0.2) 97.72%
+  );
+  filter: blur(18.854vw);
+  z-index: 0;
+}
+
+.flags-container {
+  display: flex;
+  margin-top: 1.25vw;
+  gap: 1.875vw;
+  margin-top: 1.25vw;
+}
+
+.our-office-country-flag {
+  height: 2.5vw;
+  width: 3.75vw;
+  z-index: 1;
+  border-radius: 0.208vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0.208vw;
+  cursor: pointer;
+}
+
+.our-office-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.our-office-content .contact-title {
+  font-family: Poppins;
+  font-size: 1.25vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.our-office-content .contact-description {
+  color: #424242;
+  margin-top: 1.25vw;
+  font-family: Poppins;
+  font-size: 1.042vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.our-office-content .country-name {
+  color: var(--text-color, #132427);
+  text-align: left;
+  font-family: Poppins;
+  margin-top: 1.25vw;
+  font-size: 1.352vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.our-office-content .country-address {
+  color: #424242;
+  font-family: Poppins;
+  font-size: 1.04vw;
+  margin-top: 0.521vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 156.494%;
+  letter-spacing: 0.021vw;
+}

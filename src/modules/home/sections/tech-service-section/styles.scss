@@ -2,6 +2,7 @@
   margin-top: max(6.25vw, 80px);
   padding-left: 16px;
   padding-right: 16px;
+  z-index: 100;
 }
 
 .services-section {
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.66vw;
-    padding-bottom: 16vw;
+    padding-bottom: 2vw;
     margin-right: -5.73vw;
     z-index: 99;
     .business-item {
@@ -137,26 +138,6 @@
       }
     }
   }
-}
-.fade-transition {
-  transition:
-    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    /* Smooth easing for more fluid motion */ transform 0.3s
-      cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.3s ease; /* Add a slight blur effect for extra elegance */
-  opacity: 1;
-  transform: scale(1);
-  filter: blur(0); /* Initial state, no blur */
-}
-
-.fade-transition-hidden {
-  opacity: 0;
-  transform: scale(
-    0.95
-  ); /* Slightly smaller scale for a more refined transition */
-  filter: blur(
-    0.26vw
-  ); /* Apply subtle blur when hidden for a smoother transition */
 }
 
 @media screen and (max-width: 1200px) {
