@@ -7,15 +7,24 @@ interface ButtonProps {
   children: React.ReactNode
   onClick?: () => void
   className?: string
+  disableShine?: boolean
 }
-const BaseButton = ({ children, ...props }: ButtonProps) => {
+const BaseButton = ({
+  children,
+  disableShine = false,
+  ...props
+}: ButtonProps) => {
   return (
     <div className="base-button-container">
       <Button
-        className={`base-button ${props?.className}`}
-        onClick={props?.onClick}
+        disableRipple
+        disableFocusRipple
+        disableTouchRipple
+        className={`base-button ${props.className}`}
+        onClick={props.onClick}
       >
         {children}
+        {!disableShine && <div className="base-button-shine" />}
       </Button>
     </div>
   )

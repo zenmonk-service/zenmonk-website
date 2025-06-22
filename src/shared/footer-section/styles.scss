@@ -1,8 +1,5 @@
 .base-text {
   color: #fff;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
   font-family: Poppins !important;
   font-size: var(--font-size-16) !important;
   font-style: normal;
@@ -11,9 +8,6 @@
 
 .list-title {
   color: var(--global-color-primary);
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
   font-family: Poppins !important;
   font-size: var(--font-size-20) !important;
   font-style: normal;
@@ -155,9 +149,6 @@
                 padding-right: 0.52vw; // 10px
                 box-shadow: 0vw 0.21vw 0.68vw 0vw rgba(0, 0, 0, 0.1); // 0px 4px 13px 0px
                 color: #000000;
-                font-feature-settings:
-                  'liga' off,
-                  'clig' off;
                 font-family: Poppins;
                 font-size: var(--font-size-14);
                 font-style: normal;
@@ -166,9 +157,6 @@
 
                 .input {
                   padding: 0vw !important;
-                  font-feature-settings:
-                    'liga' off,
-                    'clig' off;
                   font-family: Poppins;
                   font-size: var(--font-size-14);
                   font-style: normal;
@@ -178,9 +166,6 @@
               }
 
               .submit-button {
-                font-feature-settings:
-                  'liga' off,
-                  'clig' off;
                 font-family: Poppins;
                 font-size: 0.73vw; // 14.029px
                 font-style: normal;
@@ -208,9 +193,6 @@
           .quick-links {
             .title {
               color: var(--global-color-primary);
-              font-feature-settings:
-                'liga' off,
-                'clig' off;
               font-family: Poppins !important;
               font-size: var(--font-size-20) !important;
               font-style: normal;

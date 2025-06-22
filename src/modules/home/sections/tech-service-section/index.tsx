@@ -88,7 +88,7 @@ const ServiceSection = () => {
                   return <Src key={Src} />
                 })}
               </Box>
-              <BaseButton className="button">Get Started</BaseButton>
+              <BaseButton disableShine className="button">Get Started</BaseButton>
             </Box>
           </Box>
         </div>

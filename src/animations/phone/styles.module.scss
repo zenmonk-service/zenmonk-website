@@ -1,0 +1,107 @@
+.container {
+  display: grid;
+  place-content: center;
+  background-color: #ffffff;
+  padding: 3rem;
+}
+
+.outerPad {
+  transform-style: preserve-3d;
+  width: 35rem;
+  height: 21rem; // taller but wider
+  transform: rotateY(-30deg) rotateX(15deg);
+  border-radius: 32px;
+  background-color: #ff2222;
+}
+
+.innerPad {
+  position: relative;
+  height: 20rem; // taller but wider
+  width: 34rem;
+  border-radius: 32px;
+  background-color: #010f04;
+  padding: 0.5rem;
+  border-width: 2px;
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+  border-color: #d1d5db;
+  border-left-color: #e5e7eb;
+  border-top-color: #e5e7eb;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cameraDot {
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 8px;
+  width: 8px;
+  background-color: #6b7280;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.headerIcons {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+  color: #9ca3af;
+}
+
+.screen {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-content: center;
+  overflow: hidden;
+  border-radius: 24px;
+  background-color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  fill: #8b5cf6;
+}
+
+.button {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #8b5cf6;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.bgGlow {
+  position: absolute;
+  bottom: -18rem;
+  left: 50%;
+  height: 24rem;
+  width: 24rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background-color: #ede9fe;
+  opacity: 0.6;
+  filter: blur(64px);
+}
+
+.screenImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // or use 'cover' if you want to fill screen and crop edges
+  border-radius: 20px;
+}

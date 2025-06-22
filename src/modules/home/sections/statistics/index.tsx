@@ -38,7 +38,7 @@ const Statistics = () => {
           >
             <div className="left-section">
               <h1 className="heading">
-                Zenmonk is always  available, no <br /> matter the time zone or your<br/> location.
+                We are always  available, no <br /> matter the time zone or your<br/> location.
               </h1>
               <h4 className="teams-number">
                 <CountUp
@@ -108,7 +108,7 @@ const Statistics = () => {
                 <p className="countries-number ">
                   <CountUp
                     from={0}
-                    to={20}
+                    to={10}
                     separator=","
                     direction="up"
                     duration={1}
