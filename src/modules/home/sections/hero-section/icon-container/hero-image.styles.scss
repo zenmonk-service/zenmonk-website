@@ -1,0 +1,85 @@
+.hero-image-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.income-this-month-top {
+  top: 6vw;
+  right: 17vw;
+  position: absolute;
+}
+
+.income-this-month-left {
+  position: absolute;
+  left: 8vw;
+  top: 13vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.circle-top {
+  position: absolute;
+  height: 9.8vw;
+  top: 5vw;
+  left: 12vw;
+  z-index: -1;
+  aspect-ratio: 1;
+  animation-name: rotate;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.phone-image {
+  position: absolute;
+  height: 12.86vw;
+  right: 3vw;
+  bottom: 7vw;
+  width: 10.41vw;
+}
+
+.circle-right {
+  position: absolute;
+  height: 9.8vw;
+  bottom: 8vw;
+  right: 8vw;
+  z-index: -1;
+  aspect-ratio: 1;
+  animation-name: rotate;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-360deg);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.52vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+

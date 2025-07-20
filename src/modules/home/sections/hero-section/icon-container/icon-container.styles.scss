@@ -1,0 +1,206 @@
+@mixin icon-container-style {
+  box-shadow: 0vw 0.3125vw 0.4167vw rgba(0, 0, 0, 0.25);
+  border-radius: 1vw;
+  background: #fafafc;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatAnimation 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.js-icon-container {
+  @include icon-container-style;
+  padding: 1.0417vw;
+  left: 0;
+  bottom: 8vw;
+  .js-icon-image {
+    min-height: 3.0729vw;
+    min-width: 3.0729vw;
+    position: relative;
+  }
+}
+
+.react-icon-container {
+  @include icon-container-style;
+  padding: 0.6771vw;
+  border-radius: 0.8vw;
+  left: 3vw;
+  top: 5vw;
+  .react-icon-image {
+    min-height: 2.3438vw;
+    min-width: 2.2396vw;
+    position: relative;
+  }
+}
+
+.php-icon-container {
+  @include icon-container-style;
+  padding: 0.5208vw;
+  border-radius: 0.6vw;
+  top: 3vw;
+  left: 12vw;
+  .php-icon-image {
+    min-height: 1.7708vw;
+    min-width: 1.8229vw;
+    position: relative;
+  }
+}
+
+.xd-icon-container {
+  @include icon-container-style;
+  padding: 0.4688vw;
+  border-radius: 0.6vw;
+  top: 2vw;
+  right: 12vw;
+  .xd-icon-image {
+    min-height: 1.5104vw;
+    min-width: 1.5104vw;
+    position: relative;
+  }
+}
+
+.figma-icon-container {
+  @include icon-container-style;
+  padding: 1.0417vw;
+  top: 5vw;
+  right: 1vw;
+  .figma-icon-image {
+    min-height: 3.5417vw;
+    min-width: 3.5417vw;
+    position: relative;
+  }
+}
+
+.mongo-icon-container {
+  @include icon-container-style;
+  padding: 0.6771vw;
+  bottom: 8vw;
+  right: 0;
+  .mongo-icon-image {
+    min-height: 2.2917vw;
+    min-width: 2.3438vw;
+    position: relative;
+  }
+}
+
+.income-this-month-container {
+  min-width: 7.4299vw;
+  min-height: 4.6093vw;
+  display: flex;
+  padding: 0.4287vw;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2143vw;
+  flex-shrink: 0;
+  border-radius: 0.2143vw;
+  background: #fff;
+  box-shadow: 0.0589vw 0.0589vw 0.7332vw 0vw rgba(69, 71, 255, 0.13);
+  .income-this-month-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .money-add-container {
+      display: flex;
+      padding: 0.2143vw;
+      justify-content: center;
+      align-items: center;
+      gap: 0.267vw;
+      border-radius: 0.2143vw;
+      .money-add-svg {
+        width: 0.5208vw;
+        height: 0.5729vw;
+      }
+    }
+    .percentage {
+      display: flex;
+      justify-self: flex-end;
+      align-items: center;
+      .arrow-up-icon {
+        width: 0.5729vw;
+        height: 0.5729vw;
+        margin-top: -0.1042vw;
+      }
+      .money-percentage {
+        color: #5db57a;
+        font-size: max(8.231px, 0.4287vw);
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 500;
+        line-height: max(12.346px, 0.643vw);
+      }
+    }
+  }
+  .income-this-month-title {
+    color: #6b7280;
+    font-size: max(8.231px, 0.4287vw);
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    margin-top: 0.4167vw;
+    letter-spacing: 0.01vw;
+    line-height: max(12.346px, 0.643vw);
+  }
+  .income-in-dollars {
+    color: #252c32;
+    font-family: 'Work Sans';
+    font-size: max(11.317px, 0.5894vw);
+    font-style: normal;
+    font-weight: 600;
+    line-height: max(16.461px, 0.8573vw);
+  }
+}
+
+.expense-card-container {
+  display: flex;
+  min-width: 7.4299vw;
+  height: 1.7768vw;
+  padding: 0.2288vw;
+  align-items: center;
+  border-radius: 0.2356vw;
+  background: #fff;
+  box-shadow: 0.0589vw 0.0589vw 0.7332vw 0vw rgba(69, 71, 255, 0.13);
+  gap: 0.2356vw;
+  flex-shrink: 0;
+  .expense-card-arrow {
+    display: flex;
+    width: 1.0304vw;
+    height: 1.0304vw;
+    padding: 0.1473vw;
+    align-items: center;
+    gap: 0.2945vw;
+    flex-shrink: 0;
+    border-radius: 0.2356vw;
+    background: linear-gradient(
+      0deg,
+      rgba(236, 103, 56, 0.25) 6.39%,
+      rgba(224, 0, 148, 0.25) 187.79%
+    );
+    box-shadow: 0.0589vw 0.0589vw 0.162vw 0vw rgba(0, 0, 0, 0.1);
+    .arrow-right-icon {
+      width: 0.7292vw;
+      height: 0.7813vw;
+    }
+  }
+  .expense-card-title {
+    color: #000;
+    font-family: Montserrat;
+    font-size: max(4.392px, 0.2288vw);
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.0069vw;
+  }
+  .expense-card-budget {
+    color: #000;
+    font-family: Montserrat;
+    margin-top: 0.1563vw;
+    font-size: max(8.784px, 0.4573vw);
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    letter-spacing: 0.0138vw;
+  }
+}

@@ -521,9 +521,9 @@ const HomePage = () => {
   return (
     <div ref={container}>
       <HeroSection />
-      <World data={sampleArcs} globeConfig={globeConfig} />;
+      {/*<World data={sampleArcs} globeConfig={globeConfig} />*/}
       {/* <Marquee /> */}
-      <ServiceSection />
+      {/* <ServiceSection />
       <div className="swipe-section">
         <TechSolutionSection />
         <OurProjects />
@@ -536,7 +536,7 @@ const HomePage = () => {
       </div>
       <ClientSatisfaction />
       <Testimony />
-      <FAQ />
+      <FAQ /> */}
     </div>
   )
 }

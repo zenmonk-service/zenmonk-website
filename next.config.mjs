@@ -21,13 +21,5 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i
     return config
   },
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.ts',
-      },
-    },
-  },
 }
 export default nextConfig

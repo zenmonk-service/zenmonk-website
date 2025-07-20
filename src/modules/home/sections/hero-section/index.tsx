@@ -3,8 +3,9 @@
 import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import OurPartners from '../our-partners'
-import BallDecorator from './assets/ball-decorator.svg'
-import HomeHeroImage from './assets/hero.svg'
+import BallBg from './assets/ball-bg.svg'
+import Ball from './assets/ball.svg'
+import HeroImage from './icon-container/hero-image'
 import './styles.scss'
 
 const HeroSection = () => {
@@ -12,7 +13,10 @@ const HeroSection = () => {
   return (
     <section>
       <div className="hero-section-d">
-        <BallDecorator className="ball-decorator" />
+        {/* <BallDecorator className="ball-decorator" /> */}
+        <div className="light-bg"></div>
+        <Ball className="ball-decorator" />
+        <BallBg className="ball-bg" />
         <div className="container">
           <div className="text-container">
             <h4 className="heading">
@@ -34,9 +38,7 @@ const HeroSection = () => {
             GET IN TOUCH
           </BaseButton>
         </div>
-        <div className="image-container">
-          <HomeHeroImage />
-        </div>
+        <HeroImage />
       </div>
       <OurPartners />
     </section>
