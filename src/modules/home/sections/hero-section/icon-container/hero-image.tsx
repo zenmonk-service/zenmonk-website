@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import CircleTop from '../assets/hero-image/circle.svg'
-import LaptopImage from '../assets/hero-image/image.png'
+import LaptopImage from '../assets/hero-image/image.svg'
 import MoneyAdd from '../assets/hero-image/money-add.svg'
 import Phone from '../assets/hero-image/phone.png'
 import Wallet from '../assets/hero-image/wallet.svg'
@@ -8,6 +8,7 @@ import ExpenseCard from './expense-card'
 import './hero-image.styles.scss'
 import './icon-container.styles.scss'
 import IncomeThisMonth from './income-this-month'
+import Screen from './screen'
 
 const HeroImage = () => {
   return (
@@ -62,15 +63,14 @@ const HeroImage = () => {
         <ExpenseCard money="+91,325.00" title="Expense" />
         <ExpenseCard money="+91,325.00" title="Expense" rotate />
       </div>
-      <Image src={Phone} className='phone-image' alt="phone"></Image>
-      <Image
-        alt="laptop"
+      <Image src={Phone} className="phone-image" alt="phone"></Image>
+      <LaptopImage
         style={{
           width: '28.5vw',
           height: '16.5vw',
         }}
-        src={LaptopImage}
-      ></Image>
+      />
+      <Screen />
     </div>
   )
 }

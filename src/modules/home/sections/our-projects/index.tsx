@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import CardSwap, { Card } from '@/animations/card-swap/card-swap'
 import { projects } from '@/modules/home/sections/our-projects/projects'
 import './styles.scss'
 
@@ -20,7 +19,7 @@ const OurProjects = () => {
   }, [])
 
   return (
-    <section className="panel" style={{ position: 'absolute', width: '100%' }}>
+    <section style={{ width: '100%' }}>
       <div
         className="our-work-container"
         style={{ background: `url(${project.imageUrl})`, position: 'relative' }}
@@ -63,32 +62,26 @@ const OurProjects = () => {
             {project.description}
           </motion.p>
         </AnimatePresence>
-        <CardSwap>
-          <Card
-            customClass="our-work-card"
-            style={{
-              background: 'url(/our-work/04.webp)',
-            }}
-          />
-          <Card
-            customClass="our-work-card"
-            style={{
-              background: 'url(/our-work/01.webp)',
-            }}
-          />
-          <Card
-            customClass="our-work-card"
-            style={{
-              background: 'url(/our-work/02.webp)',
-            }}
-          />
-          <Card
-            customClass="our-work-card"
-            style={{
-              background: 'url(/our-work/03.webp)',
-            }}
-          />
-        </CardSwap>
+        <div
+          style={{
+            background: 'url(/our-work/04.webp)',
+          }}
+        />
+        <div
+          style={{
+            background: 'url(/our-work/01.webp)',
+          }}
+        />
+        <div
+          style={{
+            background: 'url(/our-work/02.webp)',
+          }}
+        />
+        <div
+          style={{
+            background: 'url(/our-work/03.webp)',
+          }}
+        />
       </div>
     </section>
   )

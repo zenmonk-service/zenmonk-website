@@ -1,0 +1,199 @@
+.screen-container {
+  position: absolute;
+  background-color: #fff;
+  z-index: 0;
+  top: 9.3vw;
+  left: 11.6vw;
+  display: flex;
+}
+
+.screen-sidebar {
+  width: 3.95vw;
+  background-color: #f6f6f9;
+  padding: 0.42vw;
+}
+
+.dashboard-list-item {
+  display: flex;
+  align-items: center;
+  padding: 0.16vw 0.21vw;
+  gap: 0.21vw;
+  border-radius: 0.12vw;
+  background: #fff;
+}
+
+.apps {
+  width:  0.36vw;
+  height:  0.36vw;
+}
+
+.screen-logo {
+  width: 1.04vw;
+  height: 1.04vw;
+}
+
+.dashboard-title {
+  color: #656ce1;
+  font-family: 'Work Sans';
+  font-size:  0.26vw;
+  flex: 1;
+  margin-top:  0.05vw;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.screen-content {
+  background-color: #fafafa;
+}
+
+.screen-app-bar {
+  padding:  0.52vw;
+}
+
+.screen-searchbar {
+  display: flex;
+  align-items: center;
+  gap:  0.1vw;
+  background-color: #fff;
+  width: 50%;
+  height: 0.68vw;
+  border-radius:  0.1vw;
+  padding-left:  0.21vw;
+}
+
+.search-icon {
+  width:  0.36vw !important;
+  color: #84919a;
+}
+
+.search-title {
+  color: #9ca3af;
+  font-family: 'Work Sans';
+  font-size:  0.26vw;
+  margin-top:  0.05vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.dashboard-content-title {
+  color: #252c32;
+  font-family: 'Work Sans';
+  font-size: 0.42vw;
+  font-style: normal;
+  margin-left: 0.52vw;
+  margin-top:  0.21vw;
+  font-weight: 700;
+}
+
+.screen-expenses {
+  display: flex;
+}
+
+.screen-expenses-container-1,
+.screen-expenses-container-2,
+.screen-expenses-container-3 {
+  margin-top: -0.21vw;
+  transform: scale(0.6);
+}
+
+.screen-expenses-container-1 {
+  width: 6vw;
+  margin-left: -0.8vw;
+}
+.screen-expenses-container-2 {
+  width: 6.8vw;
+  margin-left: -2.3vw;
+}
+.screen-expenses-container-3 {
+  width: 5vw;
+  margin-left: -2.1vw;
+}
+
+.revenue-container {
+  display: flex;
+  width: 11vw;
+  padding: 0.24vw;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.12vw;
+  background: #fff;
+  box-shadow: -1.742px 2.903px 11.614px 0px rgba(52, 52, 52, 0.08);
+  margin-left: 0.52vw;
+}
+
+.revenue-container-title {
+  color: #6b7280;
+  font-family: 'Work Sans';
+  font-size:  0.26vw;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.total-money {
+  color: #252c32;
+  font-family: 'Work Sans';
+  font-size:  0.36vw;
+  font-style: normal;
+  margin-top:  0.21vw;
+  font-weight: 700;
+}
+
+.screen-statistics {
+  background-color: #fafafa;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-stats-icon-container {
+  width: 0.73vw;
+  height: 0.73vw;
+  border-radius: 50%;
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: -1.742px 2.903px 11.614px 0px rgba(52, 52, 52, 0.08);
+}
+
+.notification {
+  color: #84919a;
+  width: 0.63vw !important;
+  object-fit: contain;
+}
+
+.stat-logo {
+  width: 2.08vw !important;
+  margin-top: 1vw;
+  margin-left: -0.5vw;
+  height: 2.08vw !important;
+  position: relative !important;
+}
+
+.round-chart {
+  width: 6vw;
+  margin-top: -0.15vw;
+  margin-left: -1.3vw;
+}
+
+.app-bar-flex {
+  display: flex;
+  align-items: center;
+  height: 1.5vw;
+}
+
+.btn-flex {
+  display: flex;
+  align-items: center;
+}
+
+.static-list {
+  width: 5vw;
+  margin-left: -0.7vw;
+  margin-top: -0.2vw;
+}
+
+.revenue-chart {
+  height: 4vw;
+}

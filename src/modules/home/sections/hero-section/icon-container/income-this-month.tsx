@@ -6,9 +6,10 @@ interface props {
   Svg: any
   percentage: string
   svgBg: string
+  invert?: boolean
 }
 const IncomeThisMonth = (props: props) => {
-  const { Svg, svgBg, title, percentage } = props
+  const { Svg, svgBg, title, percentage, invert } = props
   return (
     <div className="income-this-month-container">
       <div className="income-this-month-flex-container">
@@ -21,8 +22,21 @@ const IncomeThisMonth = (props: props) => {
           <Svg className="money-add-svg" />
         </div>
         <div className="percentage">
-          <ArrowUP className="arrow-up-icon" />
-          <p className="money-percentage">{percentage}</p>
+          {!invert && (
+            <ArrowUP
+              className="arrow-up-icon"
+              style={{
+                transform: invert ? 'rotate(180deg)' : 'none',
+                color: 'red !important',
+              }}
+            />
+          )}
+          <p
+            className="money-percentage"
+            style={{ color: invert ? 'red' : '#5db57a' }}
+          >
+            {percentage}
+          </p>
         </div>
       </div>
       <div className="income-this-month-title">{title}</div>
