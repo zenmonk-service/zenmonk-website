@@ -5,7 +5,6 @@ import { SectionDescription, SectionTitle } from '@/shared/typography'
 import './styles.scss'
 import TechCard from './tech-card'
 import { useRouter } from 'next/navigation'
-import FloatingPhone from '@/animations/phone'
 
 const TechSolutionSection = () => {
   const router = useRouter()
@@ -43,7 +42,6 @@ const TechSolutionSection = () => {
         </div>
         <div className="tech-solution-section-image-wrapper">
           {/* <Image fill src="/tech-solutions.png" alt="tech-solution" /> */}
-          <FloatingPhone/>
         </div>
       </div>
       {/* <TechMobileSolutionSection/> */}

@@ -8,6 +8,7 @@ import ExpenseCard from './expense-card'
 import './hero-image.styles.scss'
 import './icon-container.styles.scss'
 import IncomeThisMonth from './income-this-month'
+import MobileScreen from './mobile-screen'
 import Screen from './screen'
 
 const HeroImage = () => {
@@ -64,13 +65,9 @@ const HeroImage = () => {
         <ExpenseCard money="+91,325.00" title="Expense" rotate />
       </div>
       <Image src={Phone} className="phone-image" alt="phone"></Image>
-      <LaptopImage
-        style={{
-          width: '28.5vw',
-          height: '16.5vw',
-        }}
-      />
+      <LaptopImage style={{ width: '28.5vw', height: '16.5vw' }} />
       <Screen />
+      <MobileScreen />
     </div>
   )
 }

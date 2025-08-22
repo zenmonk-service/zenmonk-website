@@ -1,4 +1,4 @@
-import ArrowUP from '../assets/hero-image/arrow-up.svg'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import './icon-container.styles.scss'
 
 interface props {
@@ -13,21 +13,16 @@ const IncomeThisMonth = (props: props) => {
   return (
     <div className="income-this-month-container">
       <div className="income-this-month-flex-container">
-        <div
-          className="money-add-container"
-          style={{
-            background: `${svgBg}`,
-          }}
-        >
+        <div className="money-add-container" style={{ background: `${svgBg}` }}>
           <Svg className="money-add-svg" />
         </div>
         <div className="percentage">
-          {!invert && (
-            <ArrowUP
+          {(
+            <ArrowUpwardIcon
               className="arrow-up-icon"
               style={{
                 transform: invert ? 'rotate(180deg)' : 'none',
-                color: 'red !important',
+                fill: invert ? "red" : "#5db57a"
               }}
             />
           )}

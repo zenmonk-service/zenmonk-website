@@ -3,17 +3,15 @@ import NotificationAdd from '@mui/icons-material/NotificationsOutlined'
 import Search from '@mui/icons-material/Search'
 import Monk from '@/assets/icons/monk.svg'
 import Apps from '../assets/apps.svg'
-import Button1 from '../assets/hero-image/button-1.svg'
-import Button from '../assets/hero-image/button.svg'
+import RevenueChart from '../assets/hero-image/line-chart.svg'
 import MoneyAdd from '../assets/hero-image/money-add.svg'
-import RevenueBar from '../assets/hero-image/revenue-bar.svg'
-import RevenueChart from '../assets/hero-image/revenue-chart.svg'
-import StaticBox from '../assets/hero-image/static-box.svg'
-import StaticBox1 from '../assets/hero-image/static-list.svg'
 import Wallet from '../assets/hero-image/wallet.svg'
 import Withdraw from '../assets/hero-image/withdraw.svg'
+import Analytics from './anaytics'
+import FilterButtons from './filter-buttons'
 import IncomeThisMonth from './income-this-month'
 import './screen.styles.scss'
+import StatList from './stats-list'
 
 const Screen = () => {
   return (
@@ -52,7 +50,7 @@ const Screen = () => {
           </div>
           <div className="screen-expenses-container-3">
             <IncomeThisMonth
-              svgBg="#FFB26A"
+              svgBg="#FFF6EE"
               Svg={Withdraw}
               invert
               percentage="04.32%"
@@ -63,8 +61,37 @@ const Screen = () => {
         <div className="revenue-container">
           <p className="revenue-container-title">Your Balance</p>
           <p className="total-money">$120,543.43</p>
-          <RevenueBar />
-          <RevenueChart className="revenue-chart" />
+          <div className="revenue-app-bar">
+            <p>Incomes</p>
+            <p>Expenses</p>
+            <p>Savings</p>
+            <p>Investment</p>
+            <p />
+          </div>
+          <div className="revenue-line-chart">
+            <div className="revenue-line-chart-y-axis">
+              <p>2000</p>
+              <p>1600</p>
+              <p>1200</p>
+              <p>800</p>
+              <p>400</p>
+              <p>0</p>
+            </div>
+            <RevenueChart />
+            <div className="revenue-line-chart-marker">
+              <p className="revenue-line-chart-marker-title">03 April</p>
+              <p className="revenue-line-chart-marker-description">$825</p>
+            </div>
+          </div>
+          <div className="revenue-line-chart-x-axis">
+            <p>01 Apr</p>
+            <p>02 Apr</p>
+            <p>03 Apr</p>
+            <p>04 Apr</p>
+            <p>05 Apr</p>
+            <p>06 Apr</p>
+            <p>07 Apr</p>
+          </div>
         </div>
       </div>
       <div className="screen-statistics">
@@ -78,15 +105,15 @@ const Screen = () => {
               fill
               alt="logo"
               className="stat-logo"
-            ></Image>
+            />
           </div>
         </div>
         <div className="btn-flex">
-          <Button style={{ scale: 0.7 }} />
-          <Button1 style={{ scale: 0.7 }} />
+          <FilterButtons />
         </div>
-        <StaticBox className="round-chart" />
-        <StaticBox1 className="static-list" />
+        <Analytics />
+        <StatList />
+        {/* <StaticBox1 className="static-list" /> */}
       </div>
     </div>
   )

@@ -2,8 +2,8 @@
   position: absolute;
   background-color: #fff;
   z-index: 0;
-  top: 9.3vw;
-  left: 11.6vw;
+  top: 8.6vw;
+  left: 11.7vw;
   display: flex;
 }
 
@@ -23,8 +23,8 @@
 }
 
 .apps {
-  width:  0.36vw;
-  height:  0.36vw;
+  width: 0.36vw;
+  height: 0.36vw;
 }
 
 .screen-logo {
@@ -35,9 +35,9 @@
 .dashboard-title {
   color: #656ce1;
   font-family: 'Work Sans';
-  font-size:  0.26vw;
+  font-size: 0.26vw;
   flex: 1;
-  margin-top:  0.05vw;
+  margin-top: 0.05vw;
   font-style: normal;
   font-weight: 500;
 }
@@ -47,30 +47,30 @@
 }
 
 .screen-app-bar {
-  padding:  0.52vw;
+  padding: 0.52vw;
 }
 
 .screen-searchbar {
   display: flex;
   align-items: center;
-  gap:  0.1vw;
+  gap: 0.1vw;
   background-color: #fff;
   width: 50%;
   height: 0.68vw;
-  border-radius:  0.1vw;
-  padding-left:  0.21vw;
+  border-radius: 0.1vw;
+  padding-left: 0.21vw;
 }
 
 .search-icon {
-  width:  0.36vw !important;
+  width: 0.36vw !important;
   color: #84919a;
 }
 
 .search-title {
   color: #9ca3af;
   font-family: 'Work Sans';
-  font-size:  0.26vw;
-  margin-top:  0.05vw;
+  font-size: 0.26vw;
+  margin-top: 0.05vw;
   font-style: normal;
   font-weight: 400;
 }
@@ -81,7 +81,7 @@
   font-size: 0.42vw;
   font-style: normal;
   margin-left: 0.52vw;
-  margin-top:  0.21vw;
+  margin-top: 0.21vw;
   font-weight: 700;
 }
 
@@ -92,7 +92,6 @@
 .screen-expenses-container-1,
 .screen-expenses-container-2,
 .screen-expenses-container-3 {
-  margin-top: -0.21vw;
   transform: scale(0.6);
 }
 
@@ -121,21 +120,118 @@
   margin-left: 0.52vw;
 }
 
+.revenue-app-bar {
+  display: flex;
+  width: 100%;
+  p {
+    font-size: 0.3vw;
+    font-family: 'Work Sans';
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    color: #6b7280;
+    padding: 0.29vw 0.24vw;
+    border-bottom: 0.0001vw solid #e5e7eb;
+    &:nth-child(2) {
+      color: #656ce1;
+      border-bottom: 0.0001vw solid #656ce1;
+    }
+    &:first-child {
+      padding-left: 0.05w;
+    }
+    &:last-child {
+      flex: 1;
+    }
+  }
+}
+
+.revenue-line-chart {
+  margin-top: 0.2vw;
+  width: 100%;
+  height: 4vw;
+  display: flex;
+  gap: 0.2vw;
+  position: relative;
+}
+
+.revenue-line-chart-y-axis {
+  color: #6b7280;
+  p {
+    font-family: 'Work Sans';
+    font-size: 0.2vw;
+    font-style: normal;
+  }
+  height: 100%;
+  width: 0.7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.revenue-line-chart-x-axis {
+  color: #9ca3af;
+  margin-top: 0.2vw;
+  p {
+    font-family: 'Work Sans';
+    font-size: 0.2vw;
+    font-style: normal;
+  }
+  width: 92%;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.revenue-line-chart-marker {
+  position: absolute;
+  top: 0.51vw;
+  left: 3.4vw;
+  width: 1.4vw;
+  height: 1vw;
+  background-color: #646be1;
+  border-radius: 15%;
+  box-shadow: -1.742px 2.903px 11.614px 0px rgba(52, 52, 52, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.revenue-line-chart-marker-title {
+  color: #eeeded;
+  font-family: 'Work Sans';
+  font-size: 0.15vw;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+.revenue-line-chart-marker-description {
+  color: #ffffff;
+  margin-top: 0.1vw;
+  font-family: 'Work Sans';
+  font-size: 0.26vw;
+  font-style: normal;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
 .revenue-container-title {
   color: #6b7280;
   font-family: 'Work Sans';
-  font-size:  0.26vw;
+  font-size: 0.26vw;
   font-style: normal;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .total-money {
   color: #252c32;
   font-family: 'Work Sans';
-  font-size:  0.36vw;
+  font-size: 0.36vw;
   font-style: normal;
-  margin-top:  0.21vw;
-  font-weight: 700;
+  margin-top: 0.21vw;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .screen-statistics {
@@ -171,12 +267,6 @@
   position: relative !important;
 }
 
-.round-chart {
-  width: 6vw;
-  margin-top: -0.15vw;
-  margin-left: -1.3vw;
-}
-
 .app-bar-flex {
   display: flex;
   align-items: center;
@@ -186,6 +276,7 @@
 .btn-flex {
   display: flex;
   align-items: center;
+  margin-right: 0.4vw;
 }
 
 .static-list {
@@ -194,6 +285,223 @@
   margin-top: -0.2vw;
 }
 
-.revenue-chart {
-  height: 4vw;
+.screen-filter-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2vw;
+  width: 100%;
+  margin-top: 0.2vw;
+  button {
+    width: 1.55vw;
+    padding: 0.2vw 0;
+    font-size: 0.2vw;
+    font-family: 'Work Sans';
+    font-weight: 500;
+    letter-spacing: 0.07px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.1vw;
+    color: #000;
+    background-color: #fff;
+    border-radius: 0.15vw;
+    border: none;
+    .icon {
+      font-size: 0.3vw;
+    }
+  }
+  .screen-filter-add-button {
+    background-color: #646be1;
+    color: #fff;
+  }
+}
+
+.screen-analytics-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.2vw;
+  border-radius: 0.2vw;
+  background: #fff;
+  box-shadow: -2.787px 4.646px 18.583px 0 rgba(52, 52, 52, 0.08);
+  position: relative;
+  height: 6vw;
+  margin-top: 0.8vw;
+  margin-left: -0.7vw;
+  margin-right: 0.25vw;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .info-icon {
+      font-size: 0.3vw;
+      color: #6b7280;
+    }
+  }
+
+  .title {
+    color: #6b7280;
+    font-family: 'Work Sans';
+    font-size: 0.3vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .round-chart {
+    margin-top: 0.4vw;
+    width: 3.5vw;
+  }
+
+  .tabs {
+    display: flex;
+    align-items: center;
+    margin-top: 0.2vw;
+    .tab {
+      padding: 0.1vw 0.3vw;
+      font-size: 0.25vw;
+      font-family: 'Work Sans';
+      font-weight: 500;
+      color: #6b7280;
+      border-bottom: 0.0001vw solid #e5e7eb;
+      &.active {
+        color: #656ce1;
+        border-bottom: 0.0001vw solid #656ce1;
+      }
+    }
+  }
+
+  .percentage {
+    color: #6b7280;
+    font-family: 'Work Sans';
+    font-size: 0.25vw;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 3.717px;
+    background: rgba(252, 252, 255, 0.8);
+    box-shadow: 0 0.929px 1.858px 0 rgba(18, 12, 41, 0.08);
+    backdrop-filter: blur(0.46458229422569275px);
+    padding: 0.2vw;
+    position: absolute;
+    &.fourth {
+      bottom: 1.5vw;
+      left: 1vw;
+    }
+    &.first {
+      top: 1.8vw;
+      left: 1vw;
+    }
+    &.second {
+      top: 1.5vw;
+      right: 1.5vw;
+    }
+    &.third {
+      bottom: 1.5vw;
+      right: 1vw;
+    }
+  }
+  .analytics-texts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.2vw;
+    margin-top: 0.4vw;
+    .analytics-text-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1vw;
+      width: 100%;
+      .icon {
+        width: 0.2vw;
+        height: 0.2vw;
+        border-radius: 50%;
+      }
+      .analytics-text {
+        color: #6b7280;
+        font-family: 'Work Sans';
+        font-size: 0.19vw;
+        font-style: normal;
+        font-weight: 500;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.stat-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  margin-top: 0.4vw;
+  margin-left: -0.7vw;
+  margin-right: 0.25vw;
+  padding: 0.2vw;
+  border-radius: 0.2vw;
+  box-shadow: -2.787px 4.646px 18.583px 0 rgba(52, 52, 52, 0.08);
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .info-icon {
+      font-size: 0.3vw;
+      color: #6b7280;
+    }
+  }
+
+  .title {
+    color: #6b7280;
+    font-family: 'Work Sans';
+    font-size: 0.3vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.2vw;
+    .list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.2vw;
+      gap: 0.2vw;
+      border-bottom: 0.0001vw solid #e5e7eb;
+      .ball {
+        width: 0.7vw;
+        height: 0.7vw;
+        border-radius: 50%;
+        background: #FFB26A;
+      }
+      .item-title {
+        font-family: 'Work Sans';
+        font-size: 0.25vw;
+        font-style: normal;
+        font-weight: 500;
+      }
+      .item-time {
+        font-family: 'Work Sans';
+        font-size: 0.2vw;
+        font-style: normal;
+        color: #6b7280;
+      }
+      .profit {
+        font-family: 'Work Sans';
+        font-size: 0.2vw;
+        font-style: normal;
+        color: #5db57a;
+      }
+    }
+  }
 }

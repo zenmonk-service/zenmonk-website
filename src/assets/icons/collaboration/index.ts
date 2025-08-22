@@ -11,48 +11,48 @@ import Unicol from './logo-unicol.svg'
 export const OurPartnersList = [
   {
     label: 'Ceinde',
-    Src: Ceinde,
+    icon: Ceinde,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Citealimenta',
-    Src: Citealimenta,
+    icon: Citealimenta,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
     {
       label: 'Citican',
-      Src: Citican,
+      icon: Citican,
       background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
     },
   {
     label: 'Cittecam',
-    Src: Cittecam,
+    icon: Cittecam,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
   {
     label: 'Cuanza',
-    Src: Cuanza,
+    icon: Cuanza,
     background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
   },
   {
     label: 'Funiber',
-    Src: Funiber,
+    icon: Funiber,
     background: 'linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Unib',
-    Src: Unib,
+    icon: Unib,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Unicol',
-    Src: Unicol,
+    icon: Unicol,
     background:
       'background: linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Ct',
-    Src: Ct,
+    icon: Ct,
     background: 'linear-gradient(90deg, #FFF 0%, #CCF1FF 49%, #FFF 100%)',
   },
 ]

@@ -1,0 +1,163 @@
+.why-choose-us-section {
+  width: 100%;
+  height: auto;
+  margin-top: 5.99vw;
+  position: relative;
+  @media (max-width: 900px) {
+    display: none !important;
+  }
+  .logo {
+    flex-shrink: 0;
+  }
+  .right-logo {
+    bottom: -11.458vw;
+    right: -7.813vw;
+    width: 19.81vw;
+    height: 17.8vw;
+    position: absolute;
+  }
+  .left-logo {
+    top: 0;
+    left: -11.458vw;
+    width: 19.81vw;
+    height: 17.8vw;
+    position: absolute;
+  }
+}
+
+.why-choose-us .content {
+  display: grid;
+  place-content: center;
+  position: relative;
+  max-width: 67.708vw;
+  margin: auto;
+  margin-top: 1.563vw;
+
+  margin-bottom: 3.125vw;
+}
+
+.why-choose-us .thumbsUp {
+  width: 41.82vw;
+  height: 40.81vw;
+  margin-top: 3vw;
+}
+
+.why-choose-us-card {
+  display: flex;
+  flex-direction: column;
+  .why-choose-us-card-title {
+    color: #343434;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    width: 50%;
+    align-self: flex-end;
+    letter-spacing: 0.022vw;
+    font-size: 1.24vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .why-choose-us-card-description {
+    width: 70%;
+    align-self: flex-end;
+    color: #505050;
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.91vw;
+    font-style: normal;
+    margin-top: 0.5vw;
+    font-weight: 300;
+    letter-spacing: 0.028vw;
+  }
+}
+
+.why-choose-us .children .first {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  top: 2.6vw;
+  left: 3vw;
+  width: 28.02vw;
+  height: 22.86vw;
+  svg {
+    width: 18.48vw;
+  }
+}
+
+.why-choose-us .children .second {
+  position: absolute;
+  top: 1vw;
+  display: flex;
+  flex-direction: column;
+  right: -0.5vw;
+  width: 30.02vw;
+  height: 24.86vw;
+  gap: 1.5vw;
+  svg {
+    width: 18.48vw;
+  }
+  .why-choose-us-card {
+    width: 70%;
+    align-self: flex-end;
+    .why-choose-us-card-title {
+      text-align: left;
+      width: 100%;
+    }
+    .why-choose-us-card-description {
+      text-align: left;
+      width: 100%;
+    }
+  }
+}
+
+.why-choose-us .children .third {
+  position: absolute;
+  bottom: -3.5vw;
+  gap: 1.5vw;
+  left: -1vw;
+  width: 28.02vw;
+  height: 20.86vw;
+  display: flex;
+  flex-direction: column;
+  svg {
+    width: 18.48vw;
+    align-self: flex-end;
+  }
+  .why-choose-us-card {
+    width: 75%;
+    .why-choose-us-card-title {
+      width: 100%;
+    }
+    .why-choose-us-card-description {
+      width: 80%;
+    }
+  }
+}
+
+.why-choose-us .children .fourth {
+  position: absolute;
+  bottom: -2.8vw;
+  right: -0.5vw;
+  width: 26.02vw;
+  height: 20.86vw;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2vw;
+  svg {
+    width: 18.48vw;
+    align-self: flex-end;
+  }
+  .why-choose-us-card {
+    width: 70%;
+    .why-choose-us-card-title {
+      text-align: left;
+      width: 100%;
+    }
+    .why-choose-us-card-description {
+      text-align: left;
+      width: 97%;
+      align-self: flex-start;
+    }
+  }
+}

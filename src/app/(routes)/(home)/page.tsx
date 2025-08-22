@@ -10,13 +10,14 @@ import {
   ServiceSection,
   HeroSection,
   TechSolutionSection,
-  WhyChooseUsSection,
   ClientSatisfaction,
 } from '@/modules/home/sections'
+import MobileScreen from '@/modules/home/sections/hero-section/icon-container/mobile-screen'
 import OurProjects from '@/modules/home/sections/our-projects'
 import Statistics from '@/modules/home/sections/statistics'
+import WhyChooseUs from '@/modules/home/sections/why-choose-us-section'
 import Testimony from '@/modules/home/testimony'
-import Marquee from '@/shared/auto-scroll-carousel/marquee'
+import Marquee from '@/shared/auto-scroll-carousel'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
 import { toggleHeader } from '@/store/features/header/header-slice'
@@ -436,23 +437,19 @@ const HomePage = () => {
   //   },
   // ]
   return (
-    <div ref={container}>
+    <div ref={container} style={{ position: 'relative' }}>
       <HeroSection />
       {/*<World data={sampleArcs} globeConfig={globeConfig} />*/}
-      {/* <Marquee /> */}
       <ServiceSection />
       <TechSolutionSection />
       <OurProjects />
-      {/*
       <div style={{ overflow: 'hidden' }}>
-        <SectionWrapper>
-          <WhyChooseUsSection />
-        </SectionWrapper>
+        <WhyChooseUs />
         <Statistics />
       </div>
       <ClientSatisfaction />
       <Testimony />
-      <FAQ /> */}
+      <FAQ />
     </div>
   )
 }
