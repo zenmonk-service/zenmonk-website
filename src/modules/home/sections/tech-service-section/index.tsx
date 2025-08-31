@@ -2,7 +2,6 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
@@ -32,13 +31,13 @@ const ServiceSection = () => {
         markText="Your Success"
         markTextProps={{ rotate: 1.8 }}
       />
-      <Box className="services-section desktop">
-        <Box className="services-left-container">
+      <div className="services-section desktop">
+        <div className="services-left-container">
           {serviceList.map((item: Service) => (
-            <Box
+            <div
               className={`business-item`}
               onClick={() => selectItem(item)}
-              sx={{
+              style={{
                 '&:hover': {
                   backgroundColor: `${item.hoverColor} !important`,
                   transform: 'translateY(-4px)',
@@ -46,7 +45,7 @@ const ServiceSection = () => {
               }}
               key={item.id}
             >
-              <Box className="business-item-content">
+              <div className="business-item-content">
                 <item.Icon className="business-icon" />
                 <Typography
                   component="h4"
@@ -55,7 +54,7 @@ const ServiceSection = () => {
                 >
                   {item.title}
                 </Typography>
-              </Box>
+              </div>
               <Typography
                 component="h5"
                 variant="h5"
@@ -66,13 +65,13 @@ const ServiceSection = () => {
               >
                 {item.id}
               </Typography>
-            </Box>
+            </div>
           ))}
-        </Box>
+        </div>
         <div className="services-right-container">
           <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
-          <Box className="business-proof">
-            <Box className="business-proof-content">
+          <div className="business-proof">
+            <div className="business-proof-content">
               <Typography
                 component="h5"
                 variant="h5"
@@ -83,18 +82,18 @@ const ServiceSection = () => {
               <Typography component="p" className="business-proof-description">
                 {description}
               </Typography>
-              <Box className="business-proof-technologies">
+              <div className="business-proof-technologies">
                 {techLogos.map(({ Src }) => {
                   return <Src key={Src} />
                 })}
-              </Box>
+              </div>
               <BaseButton disableShine className="button">
                 Get Started
               </BaseButton>
-            </Box>
-          </Box>
+            </div>
+          </div>
         </div>
-      </Box>
+      </div>
       {/* <MobileService /> */}
     </section>
   )

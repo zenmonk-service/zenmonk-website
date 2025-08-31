@@ -1,8 +1,8 @@
 'use client'
 
 import parse from 'html-react-parser'
-import { Typography, Grid2 } from '@mui/material'
-import BaseButton from '@/shared/button'
+import Grid from '@mui/material/Grid2'
+import BaseButton from '../button'
 import './styles.scss'
 
 interface HeroSectionProps {
@@ -12,6 +12,7 @@ interface HeroSectionProps {
   highlightedText?: string
   imgWidth?: number
   url: string
+  imageStyle?: React.CSSProperties
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -21,6 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   highlightedText = '',
   imgWidth,
   url,
+  imageStyle = {},
 }) => {
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
@@ -36,36 +38,39 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }
 
   return (
-    <div className="service-hero-section">
-      <Grid2 container spacing={4} alignItems="center" height="100%">
-        <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
-          <div
-            className="global-hero-section-text-wrapper"
-            style={{ width: textWidth }}
-          >
-            <h1 className="global-text-heading">{highlightTitle(title)}</h1>
-            <Typography variant="body1" className="global-text-description">
-              {parse(description)}
-            </Typography>
-          </div>
-          {/* <BaseButton className="button">EXPLORE MORE</BaseButton> */}
-        </Grid2>
+    <Grid
+      className="service-hero-section"
+      container
+      spacing={4}
+      alignItems="center"
+      height="100%"
+    >
+      <Grid size={{ xs: 12, md: 6 }} className="global-hero-section-text">
+        <div
+          className="global-hero-section-text-wrapper"
+          style={{ width: textWidth }}
+        >
+          <h1 className="global-text-heading">{highlightTitle(title)}</h1>
+          <p className="global-text-description">{parse(description)}</p>
+        </div>
+        <BaseButton className="button">EXPLORE MORE</BaseButton>
+      </Grid>
 
-        <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
-          <img
-            className="global-hero-section-image-wrapper"
-            src={url}
-            alt="Hero Image"
-            style={{
-              width: imgWidth ?? '100%',
-              height: 'auto',
-              objectFit: 'contain',
-              borderRadius: 2,
-            }}
-          />
-        </Grid2>
-      </Grid2>
-    </div>
+      <Grid size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
+        <img
+          className="global-hero-section-image-wrapper"
+          src={url}
+          alt="Hero Image"
+          style={{
+            width: imgWidth ?? '100%',
+            height: 'auto',
+            objectFit: 'contain',
+            borderRadius: 2,
+            ...imageStyle,
+          }}
+        />
+      </Grid>
+    </Grid>
   )
 }
 

@@ -51,12 +51,8 @@
   color: #fff !important;
   padding: 5px 4px !important;
   font-weight: 800;
-  border-radius: 10px !important;
+  border-radius: 4px !important;
   background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%) !important;
-  @media screen and (max-width: 600px) {
-    height: 32px !important;
-    width: 32px !important;
-  }
 }
 
 .expand-option-icon {
@@ -98,4 +94,11 @@
 
 .service-menu-container > * {
   margin-bottom: 1.04vw; /* simulates row-gap */
+}
+
+@media screen and (max-width: 600px) {
+  .action-link-menu-icon {
+    height: 24px;
+    width: 24px;
+  }
 }

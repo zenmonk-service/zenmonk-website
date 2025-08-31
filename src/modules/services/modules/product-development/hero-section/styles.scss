@@ -1,16 +1,5 @@
-.hero-bg{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    max-height: 1080px;
-}
-.hero-bg-2{
-    position: absolute;
-    width: 100vw;
-    top: 0;
-}
-
 .digital-transformation-hero {
-    background: url("/services/product-background.png");
-    background-size: 100%;
+  background: url('../assets/background.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }

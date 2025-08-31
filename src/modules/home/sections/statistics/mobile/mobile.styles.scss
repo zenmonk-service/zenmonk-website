@@ -1,0 +1,84 @@
+@mixin statistics-count-mobile {
+  color: #fff;
+  font-family: 'Montserrat', 'sans-serif';
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+
+@mixin statistics-description-mobile {
+  color: #fff;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.statistics-mobile-container {
+  padding: 43px 16px;
+  width: 100%;
+  background: url('/earth.webp');
+  background-size: cover;
+  background-position: 0 60%;
+  margin-top: 60px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.618);
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  .content {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+    .mobile-left-section {
+      width: 49%;
+      .title {
+        color: #fff;
+        font-family: 'Montserrat', 'sans-serif';
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 8px;
+      }
+      .count {
+        @include statistics-count-mobile();
+        font-size: 24px;
+      }
+      .description {
+        @include statistics-description-mobile();
+        width: 126px;
+      }
+    }
+    .mobile-right-section {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      div {
+        border-left: 2px solid var(--global-color-primary);
+        padding: 8px 11px;
+        .count {
+          @include statistics-count-mobile();
+          font-size: 14px;
+        }
+        .description {
+          @include statistics-description-mobile();
+          width: 120px;
+        }
+      }
+    }
+  }
+}

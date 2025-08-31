@@ -10,14 +10,13 @@ import {
   ServiceSection,
   HeroSection,
   TechSolutionSection,
-  ClientSatisfaction,
 } from '@/modules/home/sections'
+import ClientSatisfaction from '@/modules/home/sections/client-satisfaction-section'
 import MobileScreen from '@/modules/home/sections/hero-section/icon-container/mobile-screen'
 import OurProjects from '@/modules/home/sections/our-projects'
 import Statistics from '@/modules/home/sections/statistics'
 import WhyChooseUs from '@/modules/home/sections/why-choose-us-section'
 import Testimony from '@/modules/home/testimony'
-import Marquee from '@/shared/auto-scroll-carousel'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
 import { toggleHeader } from '@/store/features/header/header-slice'
@@ -443,10 +442,8 @@ const HomePage = () => {
       <ServiceSection />
       <TechSolutionSection />
       <OurProjects />
-      <div style={{ overflow: 'hidden' }}>
-        <WhyChooseUs />
-        <Statistics />
-      </div>
+      <WhyChooseUs />
+      <Statistics />
       <ClientSatisfaction />
       <Testimony />
       <FAQ />

@@ -1,0 +1,19 @@
+.container {
+  margin-top: 2.604vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer {
+  display: flex;
+  width: max-content;
+  height: auto;
+  justify-content: center;
+  gap: 1.667vw;
+  background-color: var(--global-color-primary);
+  padding: max(12px, 2.083vw);
+  border-radius: 1.667vw 0vw;
+  box-shadow: 0.139vw 0.278vw 1.118vw 0vw rgba(0, 0, 0, 0.06);
+  flex-wrap: wrap;
+}

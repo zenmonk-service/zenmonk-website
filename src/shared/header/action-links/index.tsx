@@ -38,7 +38,7 @@ const ActionLinks = () => {
     </Box>
   ) : (
     <IconButton className="action-link-menu-icon">
-      <Menu fontSize="large" />
+      <Menu fontSize="small" />
     </IconButton>
   )
 }

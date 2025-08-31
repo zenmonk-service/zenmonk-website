@@ -1,9 +1,5 @@
-import Image from 'next/image'
-import { Box } from '@mui/material'
-import { dottedBg } from '@/assets/icons'
 import {
   BusinessSection,
-  HeroSection,
   WhyChooseUsSection,
   AwardProofSection,
   StandOutSection,
@@ -11,26 +7,16 @@ import {
   ContactUsSection,
   OurClientSection,
 } from '@/modules/about-us/sections'
+import HeroSection from '@/modules/about-us/sections/hero-section'
 import AnimatedDiv from '@/shared/animated-div'
-import Rating from '@/shared/rating'
 
 const About = () => {
   return (
-    <Box>
-      <div style={{ position: 'relative', height:"100vh" }}>
-        <Image
-          src={dottedBg}
-          alt="Dotted Line"
-          fill
-          className="absolute-image"
-        />
-      <AnimatedDiv>
-        <HeroSection />
-      </AnimatedDiv >
-      </div>
-      <Rating />
+    <div>
+      <HeroSection />
       <BusinessSection />
       <StandOutSection />
+      {/* 
       <AnimatedDiv>
         <WhyChooseUsSection />
       </AnimatedDiv>
@@ -41,12 +27,9 @@ const About = () => {
         <VisionSection />
       </AnimatedDiv>
       <AnimatedDiv>
-        <OurClientSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
         <ContactUsSection />
-      </AnimatedDiv>
-    </Box>
+      </AnimatedDiv> */}
+    </div>
   )
 }
 

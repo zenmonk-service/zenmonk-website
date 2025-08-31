@@ -77,3 +77,36 @@
     transform: translateY(0) scale(1) rotateX(0deg);
   }
 }
+
+@media screen and (max-width: 600px) {
+  .service-hero-section{
+    order: 2;
+    // flex-direction: column-reverse;
+  }
+  .global-hero-section-text{
+    margin-top: 56px;
+  }
+  .global-hero-section-text-wrapper {
+    width: 100%;
+    gap: 16px;
+  }
+  .global-text-heading {
+    color: #132427;
+    text-align: center;
+    font-size: 28px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    text-transform: capitalize;
+  }
+  .global-text-description {
+    max-width: 100%;
+    color: #757575;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+  }
+}

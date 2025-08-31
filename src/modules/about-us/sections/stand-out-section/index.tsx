@@ -11,8 +11,7 @@ import './styles.scss'
 export const StandOutSection = () => {
   const OurValuesIcon = standOutList[standOutList.length - 1].icon
   return (
-    <AboutSectionWrapper>
-      <div className="stand-out-section">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div className="stand-out-section">
         <SectionTitle
           text="Stand Out From The Rest"
           markText="Rest"

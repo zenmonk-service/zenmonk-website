@@ -5,9 +5,6 @@
   padding: 0px 2.5vw; /* 48px / 1920 * 100 */
   position: relative;
   overflow: hidden;
-  @media (max-width: 900px) {
-    display: none;
-  }
   .logo-left {
     position: absolute;
     top: 0%;
@@ -41,10 +38,6 @@
     margin: auto;
     padding: 0 15%;
     text-align: center;
-    font-family: Poppins !important;
-    @media (min-width: 2000px) {
-      margin-top: 1.875vw; /* 36px / 1920 * 100 */
-    }
   }
 
   .svg-container {

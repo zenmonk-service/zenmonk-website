@@ -1,15 +1,13 @@
-import { Box } from '@mui/material'
-import SectionWrapper from '@/shared/wrapper'
 import RatingCard from '../rating-card'
-import { ratings } from './rating'
-import './styles.scss'
 import AboutSectionWrapper from '../wrapper/about-wrapper'
+import { ratings } from './rating'
+import styles from './styles.module.scss'
 
 const Rating = () => {
   return (
     <AboutSectionWrapper>
-      <Box className="rating-section">
-        <Box className="rating-container">
+      <div className={styles.container}>
+        <div className={styles.cardContainer}>
           {ratings.map((rating, index) => (
             <RatingCard
               key={index}
@@ -19,8 +17,8 @@ const Rating = () => {
               icon={rating.icon}
             />
           ))}
-        </Box>
-      </Box>
+        </div>
+      </div>
     </AboutSectionWrapper>
   )
 }
