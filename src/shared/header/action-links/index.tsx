@@ -7,6 +7,7 @@ import { navItemStyles } from './nav-item-style'
 import ServiceLink from './service'
 import './styles.scss'
 import LoadingIndicator from '@/shared/loader/detector'
+import { Sidebar } from '@/shared/sidebar'
 
 const theme = createTheme()
 
@@ -37,9 +38,7 @@ const ActionLinks = () => {
       </Box>
     </Box>
   ) : (
-    <IconButton className="action-link-menu-icon">
-      <Menu fontSize="small" />
-    </IconButton>
+    <Sidebar/>
   )
 }
 
