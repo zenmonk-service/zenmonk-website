@@ -24,7 +24,6 @@ const OurProjectsDesktop = () => {
   }, [isVisible])
 
   useEffect(() => {
-   
     const handleWheel = (e: WheelEvent) => {
       const atFirst = projectIndex === 0
       const atLast = projectIndex === projects.length - 1
@@ -53,6 +52,7 @@ const OurProjectsDesktop = () => {
         height: '100vh', // always full viewport
         overflow: 'hidden',
         position: 'relative',
+        zIndex:1100
       }}
     >
       <div
