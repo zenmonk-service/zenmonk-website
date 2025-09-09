@@ -22,12 +22,12 @@ export const traditionsCustoms = [
     id: 4,
     image: CompleteProject,
     title: '10k+',
-    description: 'Completed Projects',
+    description: 'Complete Project',
   },
   {
     id: 3,
     image: YearExperience,
     title: '15+',
-    description: 'Years of Experience',
+    description: 'Years Experience',
   },
 ]

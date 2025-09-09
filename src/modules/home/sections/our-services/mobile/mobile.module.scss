@@ -1,0 +1,92 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+
+  .heading {
+    margin-bottom: 40px;
+    padding: 0px 32px;
+  }
+
+  .icon {
+    width: 40px;
+  }
+
+  .card {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 2px 2px 13px 0px rgba(12, 98, 98, 0.13);
+    padding: 16px 24px;
+    gap: 10px;
+    width: 100%;
+
+    .cardContentContainer {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .count {
+        font-family: 'Poppins', sans-serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 80px;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .cardContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .title {
+    color: #132427;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.16px;
+  }
+
+  .description {
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.28px;
+  }
+
+  .arrowIcon {
+    margin-left: auto;
+  }
+
+  .techLogosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    .techLogos {
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      p {
+        color: #132427;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+}

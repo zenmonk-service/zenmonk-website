@@ -6,7 +6,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: 6.25vw; /* 120px */
+  margin-top: 6.25vw;
   position: relative;
   margin: auto;
   width: 100vw;
@@ -19,32 +19,72 @@
 
   .text-box {
     position: absolute;
-    max-width: 31.5104vw; /* 605px */
+    max-width: 31.5104vw;
     top: 15%;
     left: 10%;
 
     .title {
       color: #333 !important;
-      font-feature-settings: 'liga' off, 'clig' off;
-      font-size: 2.6042vw !important; /* 50px */
-      margin-bottom: 1.0417vw; /* 20px */
+      font-size: 2.6vw !important;
+      margin-bottom: 1.04vw;
     }
 
     .description {
-      margin-bottom: 2.0833vw; /* 40px */
+      margin-bottom: 2.08vw;
     }
 
     button {
       all: unset;
       color: #fff;
       font-family: Poppins;
-      font-size: var(--font-size-16); /* Original: 14px */
+      font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 600;
-      border-radius: 2.2408vw; /* 43.022px */
-      padding: 0.5208vw 0.8333vw; /* 10px 16px */
+      border-radius: 2.24vw;
+      padding: 0.52vw 0.83vw;
       background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ready-to-start {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    img {
+      position: relative;
+      height: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .text-box {
+      position: static;
+      max-width: 100%;
+      margin-top: 24px;
+
+      .title {
+        font-size: 24px !important;
+        line-height: normal;
+        margin-bottom: 12px;
+        text-align: center;
+      }
+
+      .description {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 13px 16px;
+        border-radius: 43.022px;
+      }
     }
   }
 }

@@ -1,0 +1,72 @@
+.ratingCard {
+  max-width: 14.58vw;
+  flex-shrink: 0;
+  display: flex;
+  height: max-content;
+  padding: 1.5625vw;
+  gap: 0.98vw;
+  border-radius: 2.778vw 0vw;
+
+  .ratingCardIcon {
+    width: 4.42vw;
+    height: 4.42vw;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8vw;
+    box-shadow: 0 0.15vw 0.52vw 0.03vw rgba(184, 184, 184, 0.15);
+  }
+
+  .ratingCardContent {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    text-align: left;
+    .rating {
+      color: #132427;
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--font-size-24);
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .ratingCardDescription {
+      color: #132427;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(12px, 0.833vw) !important;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ratingCard {
+    max-width: 100%;
+    padding: 12px;
+    gap: 8px;
+    flex: 1 1 0px;
+    border-radius: 23.004px 0;
+
+    .ratingCardIcon {
+      width: 48px;
+      height: 48px;
+      padding: 8px;
+      box-shadow: 0px 2px 8px 0px rgba(184, 184, 184, 0.15);
+    }
+
+    .ratingCardContent {
+      .rating {
+        font-size: 18px;
+      }
+
+      .ratingCardDescription {
+        font-size: 10px !important;
+      }
+    }
+  }
+}

@@ -1,18 +1,16 @@
-import Image from 'next/image'
-import { Box, Stack } from '@mui/material'
-import { CeoTextImage, ZenmonkLogo } from '../../assets/ceo-section'
+import { CeoTextImage, ZenmonkLogo as Logo } from '../../assets/ceo-section'
 import './styles.scss'
 
 const WordsByCEO = () => {
   return (
-    <Stack className="ceo-section-wrapper">
-      <Box className="ceo-section-text-image">
-        <CeoTextImage/>
-      </Box>
-      <Box className="ceo-section-logo">
-        <ZenmonkLogo/>
-      </Box>
-    </Stack>
+    <div className="ceo-section-wrapper">
+      <div className="ceo-section-text-image">
+        <CeoTextImage />
+      </div>
+      <div className="ceo-section-logo">
+        <Logo />
+      </div>
+    </div>
   )
 }
 

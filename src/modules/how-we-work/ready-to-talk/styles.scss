@@ -1,159 +1,54 @@
 .ready-to-talk-section-wrapper {
   margin: auto;
   display: flex;
-  gap: 4.16666666667vw;
+  gap: 4.17vw;
   margin-top: 6.25vw;
   align-items: center;
   padding-left: 3%;
   padding-right: 3%;
 
-  @media (max-width: 1499px) {
-    margin-top: 100px;
-  }
-
-  @media (max-width: 1199px) {
-    margin-top: 80px;
-  }
-
-  @media (max-width: 899px) {
-    margin-top: 60px;
-    flex-direction: column-reverse;
-  }
-
-  @media (max-width: 599px) {
-    margin-top: 50px;
-  }
-
   .ready-to-talk-content {
-
-    .ready-to-talk-heading {
-
-
-      @media (max-width: 1499px) {
-        font-size: 36px !important;
-      }
-
-      @media (max-width: 1199px) {
-        font-size: 32px !important;
-      }
-
-      @media (max-width: 899px) {
-        font-size: 28px !important;
-      }
-
-      @media (max-width: 599px) {
-        font-size: 24px !important;
-      }
-    }
-
     .subheading {
       color: #757575;
-      font-family: Poppins;
-  
+      font-family: 'Poppins', sans-serif;
       font-style: normal;
       line-height: normal;
-
-      margin-top: max(16px, 0.83333333333vw);
-
-
-      @media (max-width: 1499px) {
-        font-size: 18px;
-      }
-
-      @media (max-width: 1199px) {
-        font-size: 16px;
-      }
-
-      @media (max-width: 899px) {
-        font-size: 14px;
-      }
-
-      @media (max-width: 599px) {
-        font-size: 12px;
-      }
+      margin-top: max(16px, 0.83vw);
     }
 
     .step-container {
-      margin-top: 2.08333333333vw;
-      gap: 2.08333333333vw;
-
-      @media (max-width: 1499px) {
-        margin-top: 36px;
-        gap: 36px;
-      }
-
-      @media (max-width: 1199px) {
-        margin-top: 32px;
-        gap: 32px;
-      }
-
-      @media (max-width: 899px) {
-        margin-top: 28px;
-        gap: 28px;
-      }
-
-      @media (max-width: 599px) {
-        margin-top: 24px;
-        gap: 24px;
-      }
+      margin-top: 2.08vw;
+      gap: 2.08vw;
 
       .steps {
-        .step-heading {
-          color: #132427;
-          font-feature-settings: 'liga' off, 'clig' off;
-          font-family: Poppins;
-          font-size: max(28px, 1.45833333333vw);
-          font-style: normal;
-          font-weight: 600;
-          // line-height: 54.03px;
+        .step-header {
           display: flex;
           align-items: center;
           gap: max(18px, 0.9375vw);
-
-          @media (max-width: 1499px) {
-            font-size: 26px;
+          .step-icon {
+            width: 28px;
+            height: 32px;
           }
-
-          @media (max-width: 1199px) {
-            font-size: 26px;
-          }
-
-          @media (max-width: 899px) {
-            font-size: 24px;
-          }
-
-          @media (max-width: 599px) {
-            font-size: 24px;
-          }
-
+        }
+        .step-heading {
+          color: #132427;
+          font-family: 'Poppins', sans-serif;
+          font-size: max(28px, 1.45vw);
+          font-style: normal;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: max(18px, 0.9375vw);
         }
 
         .step-description {
           color: #757575;
-          font-feature-settings: 'liga' off, 'clig' off;
-          font-family: Poppins;
+          font-family: 'Poppins', sans-serif;
           font-size: max(18px, 0.9375vw);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
-
-          @media (max-width: 1499px) {
-            font-size: 18px;
-          }
-
-          @media (max-width: 1199px) {
-            font-size: 16px;
-          }
-
-          @media (max-width: 899px) {
-            font-size: 14px;
-          }
-
-          @media (max-width: 599px) {
-            font-size: 12px;
-          }
         }
-
       }
     }
   }
@@ -170,5 +65,41 @@
       width: 100%;
     }
   }
+}
 
+@media screen and (max-width: 600px) {
+  .ready-to-talk-section-wrapper {
+    padding: 0 16px;
+    margin: 64px 0px;
+    flex-direction: column-reverse;
+    .ready-to-talk-content {
+      .subheading {
+        font-size: 14px !important;
+        letter-spacing: 0.28px;
+        margin-bottom: 24px;
+      }
+      .step-container {
+        gap: 24px;
+        .steps {
+          .step-header {
+            gap: 8px;
+            .step-icon{
+              width: 18px;
+              height: 19px;
+            }
+          }
+          .step-heading {
+            font-size: 12px;
+            line-height: normal;
+          }
+          .step-description {
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 20px;
+            letter-spacing: 0.24px;
+          }
+        }
+      }
+    }
+  }
 }

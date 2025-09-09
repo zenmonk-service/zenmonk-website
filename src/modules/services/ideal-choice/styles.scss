@@ -1,12 +1,12 @@
 .your-ideal-choice {
-  border-radius: 2.6042vw; // 50px
+  border-radius: 2.6vw;
   background-color: #104048 !important;
-  padding: 4.375vw 12.9167vw; // 84px 248px
+  padding: 4.375vw 12.9167vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5625vw; // 30px
-  margin: 6.25vw auto 0; // 120px auto 0
-  margin-left: 3.125vw; // 60px
+  gap: 1.5625vw;
+  margin: 6.25vw auto 0;
+  margin-left: 3.125vw;
   margin-right: 3.125vw;
 
   .first-container {
@@ -17,41 +17,85 @@
   }
 
   .container {
-    padding: 1.3021vw 1.5625vw; // 25px 30px
-    border-radius: 1.0417vw; // 20px
-    gap: 0.4167vw; // 8px
+    padding: 1.3021vw 1.5625vw;
+    border-radius: 1.0417vw;
+    gap: 0.4167vw;
     display: flex;
     flex-direction: column;
     background-color: #fff;
 
-    .icon{
+    .icon {
       height: 2.5vw;
       width: 2.5vw;
     }
     .title {
       color: #132427;
-      font-feature-settings:
-        'liga' off,
-        'clig' off;
-      font-family: Poppins;
+      font-family: 'Poppins', sans-serif;
       font-size: var(--font-size-20);
       font-style: normal;
       font-weight: 500;
-      line-height: 1.5625vw; // 30px
+      line-height: 1.5625vw;
     }
 
     .description {
       color: #757575;
-      font-feature-settings:
-        'liga' off,
-        'clig' off;
-      font-family: Poppins;
+      font-family: 'Poppins', sans-serif;
       font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      letter-spacing: 0.0146vw; // 0.28px
+      letter-spacing: 0.0146vw;
     }
   }
 }
 
+@media screen and (max-width: 768px) {
+  .your-ideal-choice {
+    padding: 24px 16px;
+    border-radius: 0px;
+    margin: 0;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .first-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        font-size: var(--font-size-24);
+        line-height: normal;
+        text-align: center;
+        width: 63%;
+      }
+
+      .description {
+        font-size: var(--font-size-14);
+        line-height: normal;
+        letter-spacing: 0.28px;
+        margin-top: 16px;
+      }
+    }
+
+    .container {
+      padding: 24px 36px;
+      border-radius: 16px;
+      gap: 6px;
+      .icon {
+        height: 40px;
+        width: 40px;
+      }
+      .title {
+        font-size: 18px;
+        line-height: normal;
+      }
+
+      .description {
+        font-size: 12px;
+        line-height: normal;
+      }
+    }
+  }
+}

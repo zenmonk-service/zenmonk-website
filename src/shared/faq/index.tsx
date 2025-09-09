@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { Collapse } from '@mui/material'
 import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
@@ -36,14 +37,14 @@ const questions = [
 ]
 
 const FAQ = () => {
-  const [visibleIndex, setVisibleIndex] = useState<number>(-1)
+  const [visibleIndex, setVisibleIndex] = useState<number[]>([])
 
   const toggleAnswer = (index: number) => {
-    if (visibleIndex == index) {
-      setVisibleIndex(-1)
-      return
+    if (visibleIndex.includes(index)) {
+      const newIndex = visibleIndex.filter((idx) => idx !== index)
+      return setVisibleIndex(newIndex)
     }
-    setVisibleIndex(index)
+    setVisibleIndex((prev) => [...prev, index])
   }
 
   return (
@@ -68,22 +69,17 @@ const FAQ = () => {
                 <p className="question" onClick={() => toggleAnswer(index)}>
                   {item.question}
                 </p>
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={
-                    index === index
-                      ? { height: 'auto', opacity: 1 }
-                      : { height: 0, opacity: 0 }
-                  }
-                  transition={{ duration: 0.3 }}
-                  className="answer-wrapper"
+                <Collapse
+                  in={visibleIndex.includes(index)}
+                  timeout="auto"
+                  unmountOnExit
                 >
-                  {visibleIndex === index && <p className="answer">{item.answer}</p>}
-                </motion.div>
+                  <p className="answer">{item.answer}</p>
+                </Collapse>
               </div>
 
               <div>
-                {visibleIndex === index ? (
+                {visibleIndex.includes(index) ? (
                   <MINUS
                     onClick={() => toggleAnswer(index)}
                     className="toggle-icon"

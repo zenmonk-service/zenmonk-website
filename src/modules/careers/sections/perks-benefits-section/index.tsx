@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from '@mui/material'
+import Container from '@mui/material/Container'
 import { SectionTitle } from '@/shared/typography'
 import { perkBenefitsList } from './perks-benefits-list'
 import './styles.scss'
@@ -12,19 +12,22 @@ interface PerksCardProps {
 
 const PerkBenefits = () => {
   return (
-    <Box className="perk-benefits-section">
+    <div className="perk-benefits-section">
       <Container className="container">
         <SectionTitle
           text="Perks & Benefits"
           markText="Benefits"
+          className="title"
           markTextProps={{
             rotate: 2,
           }}
         />
-        <Typography component="p" className="description">
-          At Zenmonk, we celebrate individuality and creativity. We place our people at the heart of everything we do — giving them the freedom, trust, and support to evolve both personally and professionally.
-        </Typography>
-        <Box className="perks-benefits-list">
+        <p className="description">
+          At Zenmonk, we celebrate individuality and creativity. We place our
+          people at the heart of everything we do — giving them the freedom,
+          trust, and support to evolve both personally and professionally.
+        </p>
+        <div className="perks-benefits-list">
           {perkBenefitsList.map((item, index) => (
             <PerksCard
               borderColor={item.borderColor}
@@ -34,9 +37,9 @@ const PerkBenefits = () => {
               image={item.image}
             />
           ))}
-        </Box>
+        </div>
       </Container>
-    </Box>
+    </div>
   )
 }
 
@@ -47,14 +50,12 @@ const PerksCard = ({
   borderColor,
 }: PerksCardProps) => {
   return (
-    <Box sx={{ border: `1px solid ${borderColor}` }} className="perk-card">
-      <Box sx={{ bgcolor: bgColor }} className="perk-card-image">
+    <div style={{ border: `1px solid ${borderColor}` }} className="perk-card">
+      <div style={{ backgroundColor: bgColor }} className="perk-card-image">
         <Icon />
-      </Box>
-      <Typography component="p" className="perk-card-title">
-        {title}
-      </Typography>
-    </Box>
+      </div>
+      <p className="perk-card-title">{title}</p>
+    </div>
   )
 }
 export default PerkBenefits

@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
@@ -7,8 +6,8 @@ import './styles.scss'
 
 const InnovationExcellence = () => {
   return (
-    <Box className="innovation-excellence-section">
-      <Box className="left-section">
+    <div className="innovation-excellence-section">
+      <div className="left-section">
         <SectionTitle
           align="left"
           text="Our Promise of Innovation and Excellence"
@@ -23,15 +22,13 @@ const InnovationExcellence = () => {
           className="description"
         />
         <Excellence className="excellence-image" />
-      </Box>
-      <Box className="right-section">
+      </div>
+      <div className="right-section">
         {innovations.map((innovation, index) => {
-          return (
-            <ExcellenceCard key={index} details={innovation}></ExcellenceCard>
-          )
+          return <ExcellenceCard key={index} details={innovation} />
         })}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

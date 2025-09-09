@@ -36,7 +36,7 @@ const DevelopmentProcess = () => {
       case 'cloud-development':
         return <Cloud />
       case 'ui-ux-design':
-        return <Ui />
+        return <DevelopmentProcess />
       case 'ai-based-softwares':
         return <AI />
       default:

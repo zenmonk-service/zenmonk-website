@@ -20,9 +20,9 @@
     flex-direction: column;
     .title {
       display: flex;
-      color: var(--global-color-primary, #FFF);
-      font-family: "Poppins";
-      font-size: max(24px , 2.60vw);
+      color: var(--global-color-primary, #fff);
+      font-family: 'Poppins';
+      font-size: max(24px, 2.6vw);
       font-style: normal;
       font-weight: 500;
       line-height: max(60px, 3.125vw); /* 120% */
@@ -30,9 +30,39 @@
     .description {
       color: var(--global-color-primary, #fff);
       font-family: inherit;
-      font-size: max(14px,0.83vw);
+      font-size: max(14px, 0.83vw);
       font-style: normal;
       font-weight: 600;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tradition-custom-card {
+    width: calc(50% - 9px);
+    height: auto;
+    border-radius: 10px;
+    padding: 18px 6px;
+    gap: 6px;
+    .image-container {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      .image{
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .content {
+      .title {
+        font-size: 28px;
+        line-height: 34.095px;
+      }
+      .description {
+        font-size: 12px;
+      }
     }
   }
 }

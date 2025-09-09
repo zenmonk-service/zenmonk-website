@@ -22,17 +22,17 @@
         width: 20.83vw;
         color: var(--White, #fff);
         font-family: Poppins;
-        font-size: max(24px , 2.60vw);
+        font-size: max(24px, 2.6vw);
         font-style: normal;
         font-weight: 600;
-        line-height: max(60px, 3.125vw); /* 120% */
+        line-height: max(60px, 3.125vw);
       }
       .traditions-customs-description {
         width: 23.96vw;
         margin-top: 0.83vw;
         color: var(--White, #fff);
         font-family: inherit;
-        font-size: max(14px , 0.83vw) !important;
+        font-size: max(14px, 0.83vw) !important;
         font-weight: 400;
       }
     }
@@ -43,6 +43,36 @@
       gap: 1.56vw;
       justify-content: center;
       align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .traditions-customs-section {
+    padding: 28px 16px;
+    margin-top: 60px;
+    .container {
+      gap: 16px;
+      flex-direction: column;
+      max-width: 100%;
+      margin: 0;
+      .traditions-customs-title-description-wrapper {
+        padding: 0px;
+        .traditions-customs-title {
+          width: 100%;
+          font-size: 20px;
+          line-height: normal;
+        }
+        .traditions-customs-description {
+          width: 100%;
+          margin-top: 14px;
+        }
+      }
+      .traditions-customs-list {
+        margin-top: 16px;
+        gap: 18px;
+        justify-content: space-between;
+      }
     }
   }
 }

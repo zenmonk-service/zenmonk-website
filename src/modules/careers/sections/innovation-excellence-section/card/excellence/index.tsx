@@ -1,5 +1,3 @@
-import Typography from '@mui/material/Typography'
-import Box from '@mui/material/Box'
 import './styles.scss'
 
 interface ExcellenceCardProps {
@@ -13,14 +11,14 @@ interface ExcellenceCardProps {
 
 const ExcellenceCard = ({ details }: ExcellenceCardProps) => {
   return (
-    <Box
+    <div
       className="excellence-card"
-      sx={{ border: `1px solid ${details.color}` }}
+      style={{ border: `1px solid ${details.color}` }}
     >
-      <details.image className="excellence-card-image" ></details.image>
-      <Typography className="title">{details.title}</Typography>
-      <Typography className="description">{details.description}</Typography>
-    </Box>
+      <details.image className="excellence-card-image" />
+      <p className="title">{details.title}</p>
+      <p className="description">{details.description}</p>
+    </div>
   )
 }
 

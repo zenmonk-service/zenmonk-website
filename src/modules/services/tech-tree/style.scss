@@ -2,9 +2,9 @@
   flex-direction: row !important;
   align-items: center;
   justify-content: center;
-  margin-top: 6.25vw; /* 120px */
+  margin-top: 6.25vw;
   padding: 0 4%;
-  gap: 7.0833vw; /* 136px */
+  gap: 7.0833vw;
   position: relative;
 
   .tech-tree-image {
@@ -15,12 +15,12 @@
 
   .tech-tree-right {
     .tech-tree-heading {
-      width: 23.4375vw; /* 450px */
+      width: 23.4375vw;
     }
 
     .tech-tree-description {
-      margin-top: 0.8333vw; /* 16px */
-      width: 34.2708vw; /* 658px */
+      margin-top: 0.8333vw;
+      width: 34.2708vw;
     }
   }
 
@@ -29,59 +29,59 @@
     left: -9.3vw;
     top: 0;
     z-index: -1;
-    height: 17.0313vw; /* 327px */
+    height: 17.0313vw;
     animation: rotate360 24s linear infinite;
-    // 
+    //
   }
 
   .small-gear {
     position: absolute;
-    left: 7.2917vw; /* 140px */
-    top: 9.6875vw; /* 186px */
+    left: 7.2917vw;
+    top: 9.6875vw;
     z-index: -1;
-    height: 6.3542vw; /* 122px */
-    width: 6.3542vw; /* 122px */
+    height: 6.3542vw;
+    width: 6.3542vw;
     animation: rotate360 24s linear infinite reverse;
   }
 
   .dotted-circle-1 {
-    height: 2.8646vw; /* 55px */
-    width: 2.8646vw; /* 55px */
+    height: 2.8646vw;
+    width: 2.8646vw;
     position: absolute;
-    left: 19.2708vw; /* 370px */
-    top: -1.0417vw; /* -20px */
+    left: 19.2708vw;
+    top: -1.0417vw;
   }
 
   .dotted-circle-2 {
-    height: 1.9792vw; /* 38px */
-    width: 1.9792vw; /* 38px */
+    height: 1.9792vw;
+    width: 1.9792vw;
     position: absolute;
-    left: 38.5417vw; /* 740px */
+    left: 38.5417vw;
     top: 0px;
   }
 
   .dotted-circle-3 {
-    height: 1.9792vw; /* 38px */
-    width: 1.9792vw; /* 38px */
+    height: 1.9792vw;
+    width: 1.9792vw;
     position: absolute;
-    right: 2.6042vw; /* 50px */
-    top: -2.0833vw; /* -40px */
+    right: 2.6042vw;
+    top: -2.0833vw;
   }
 
   .dotted-circle-4 {
-    height: 1.9792vw; /* 38px */
-    width: 1.9792vw; /* 38px */
+    height: 1.9792vw;
+    width: 1.9792vw;
     position: absolute;
-    left: 10.4167vw; /* 200px */
-    top: 32.2917vw; /* 620px */
+    left: 10.4167vw;
+    top: 32.2917vw;
   }
 
   .dotted-circle-5 {
-    height: 1.9792vw; /* 38px */
-    width: 1.9792vw; /* 38px */
+    height: 1.9792vw;
+    width: 1.9792vw;
     position: absolute;
-    right: 1.5625vw; /* 30px */
-    bottom: 1.5625vw; /* 30px */
+    right: 1.5625vw;
+    bottom: 1.5625vw;
   }
 }
 
@@ -91,5 +91,82 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tech-tree-container {
+    flex-direction: column !important;
+    margin-top: 60px;
+    padding: 0 16px;
+    overflow: hidden;
+
+    .tech-tree-image {
+      height: auto;
+      width: 100%;
+    }
+
+    .tech-tree-right {
+      text-align: center;
+
+      .tech-tree-heading {
+        width: 100%;
+        text-align: center;
+      }
+
+      .tech-tree-description {
+        margin-top: 4vw;
+        width: 100%;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+    }
+
+    .half-gear {
+      width: 72.907px;
+      height: 73px;
+    }
+
+    .small-gear {
+      height: 10vw;
+      width: 10vw;
+      left: 15vw;
+      top: 15vw;
+    }
+
+    .dotted-circle-1 {
+      height: 6vw;
+      width: 6vw;
+      left: 40vw;
+      top: -5vw;
+    }
+
+    .dotted-circle-2 {
+      height: 4vw;
+      width: 4vw;
+      left: 70vw;
+      top: -3vw;
+    }
+
+    .dotted-circle-3 {
+      height: 4vw;
+      width: 4vw;
+      right: 5vw;
+      top: -5vw;
+    }
+
+    .dotted-circle-4 {
+      height: 4vw;
+      width: 4vw;
+      left: 10vw;
+      top: 70vw;
+    }
+
+    .dotted-circle-5 {
+      width: 47.187px;
+      height: 47.187px;
+      bottom: 20%;
+      right: -4%;
+    }
   }
 }

@@ -1,0 +1,127 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.1354vw;
+}
+
+.section {
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+  padding-top: 5vw;
+  height: 100svh;
+}
+
+.textWrapper {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(2.6042vw) scale(0.95) rotateX(10deg);
+  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+}
+
+.heading {
+  color: #132427;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 3.125vw !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  line-height: 3.6458vw;
+  text-transform: capitalize;
+  margin-bottom: 0.8333vw !important;
+}
+
+.heading span {
+  background: var(--global-color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 38.02vw;
+  flex-wrap: wrap;
+  color: #757575 !important;
+  font-family: Poppins, sans-serif !important;
+  font-size: var(--font-size-24) !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: normal;
+  letter-spacing: 0.025vw;
+  margin-bottom: 2.0833vw;
+}
+
+.image {
+  margin-top: 2.6vw;
+  transform: translateY(2.6vw) scale(0.95) rotateX(10deg);
+  width: 46.875vw;
+  height: 33.854vw;
+  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
+}
+
+.button {
+  width: max(180px, 9.375vw);
+}
+
+@keyframes fadeInBlurScaleRotate {
+  0% {
+    opacity: 0.8;
+    transform: translateY(2.6vw) scale(0.95) rotateX(10deg);
+  }
+  60% {
+    opacity: 0.9;
+    transform: translateY(-0.52vw) scale(1.02) rotateX(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    flex-direction: column-reverse;
+    padding: 0;
+    gap: 16px !important;
+  }
+
+  .text {
+    order: 2;
+
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      margin-top: 40px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+  }
+
+  .textWrapper {
+    width: 100%;
+    gap: 16px;
+    padding: 0 16px;
+  }
+
+  .heading {
+    color: #132427;
+    text-align: center;
+    font-size: 28px !important;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    text-transform: capitalize;
+  }
+
+  .description {
+    max-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0.28px;
+  }
+
+  .imageContainer {
+    margin-top: 64px;
+  }
+}

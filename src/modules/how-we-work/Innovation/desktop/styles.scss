@@ -1,0 +1,165 @@
+.innovation-section-wrapper {
+  padding: 3.125vw 4% 3.4375vw;
+  background: #edf3f1;
+  height: fit-content;
+  margin-top: 6.25vw;
+  .innovation-section {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    .text-wrapper {
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+
+      .innovation-description {
+        color: #5c5c5c;
+        text-align: center;
+        font-family: Poppins;
+        max-width: 60.42vw;
+      }
+    }
+
+    .content-wrapper {
+      flex-direction: row !important;
+      gap: 33px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .person-sitting-on-desk {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        width: 32%;
+        height: 100%;
+        max-width: 23.6995833333vw;
+        max-height: 32.4479166667vw;
+        box-shadow: 4px 4px 30px 0px #0003;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 20px;
+        }
+      }
+
+      .more-info {
+        flex: 1;
+        gap: 1.5625vw;
+        max-width: 49.2vw;
+
+        .deliver-the-best {
+          border-radius: 22.202px;
+          background: #fff;
+          justify-content: space-between;
+          flex-direction: row !important;
+          position: relative;
+
+          .deliver-the-best-text-wrapper {
+            padding: 1.875vw 3.4375vw;
+
+            .earth-icon {
+              height: 4.583vw;
+              width: 4.583vw;
+              margin-bottom: 0.9375vw;
+
+              img {
+                height: 100%;
+                width: 100%;
+              }
+            }
+
+            .deliver-the-best-heading {
+              color: #132427;
+              font-family: Poppins;
+              font-size: 1.667vw;
+              font-style: normal;
+              font-weight: 600;
+              margin-bottom: 0.833vw;
+            }
+
+            .deliver-the-best-description {
+              color: #757575;
+              font-feature-settings:
+                'liga' off,
+                'clig' off;
+              font-family: Poppins;
+              font-size: 0.833vw;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 1.563vw;
+              max-width: 23.958vw;
+              margin-bottom: 1.25vw;
+            }
+
+            .contact-btn {
+              padding: 0.625vw 0.833vw;
+              border-radius: 0.417vw;
+              outline: none;
+              background-color: transparent;
+              border: 1px solid #eb7c0d;
+              color: #eb7c0d;
+              font-size: 0.938vw;
+              font-style: normal;
+              font-weight: 600;
+              text-transform: uppercase;
+              width: fit-content;
+            }
+          }
+
+          .paper-plane-img-wrapper {
+            width: 38%;
+
+            .paper-plane-img {
+              height: 100%;
+              width: 100%;
+              border-radius: 22.202px;
+              object-fit: fill;
+            }
+          }
+        }
+
+        .services-container {
+          border-radius: 22.202px;
+          background: linear-gradient(76deg, #eb7c0d -53.02%, #ffa750 66.53%);
+          flex-direction: row !important;
+          align-items: center;
+          justify-content: center;
+          padding: 1.354vw;
+          gap: 4.167vw;
+
+          .service-images-wrapper {
+            justify-content: center;
+            align-items: center;
+            gap: 0.833vw;
+
+            .service-text {
+              color: #fff;
+              text-align: center;
+              font-family: 'Poppins', sans-serif;
+              font-size: 0.938vw;
+              font-style: normal;
+              font-weight: 600;
+              line-height: normal;
+            }
+
+            .img-small {
+              width: 2.813vw;
+              height: 3.125vw;
+            }
+
+            .img-large {
+              width: 3.333vw;
+              height: 3.125vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

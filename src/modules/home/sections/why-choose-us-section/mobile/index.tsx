@@ -35,7 +35,7 @@ export default function WhyChooseUSMobile() {
         </div>
         <div className="card">
           <TimelineSvg />
-          <div>
+          <div style={{ marginLeft: '12px' }}>
             <p className="title">
               Latest Tech Solutions for your business goals
             </p>

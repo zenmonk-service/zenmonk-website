@@ -6,21 +6,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
 import LGlobe from '@/animations/globe-animation'
-import {
-  ServiceSection,
-  HeroSection,
-  TechSolutionSection,
-} from '@/modules/home/sections'
-import ClientSatisfaction from '@/modules/home/sections/client-satisfaction-section'
+import { HeroSection } from '@/modules/home/sections'
 import MobileScreen from '@/modules/home/sections/hero-section/icon-container/mobile-screen'
 import OurProjects from '@/modules/home/sections/our-projects'
+import ClientSatisfaction from '@/modules/home/sections/client-satisfaction'
+import OurServices from '@/modules/home/sections/our-services'
 import Statistics from '@/modules/home/sections/statistics'
 import WhyChooseUs from '@/modules/home/sections/why-choose-us-section'
 import Testimony from '@/modules/home/testimony'
+import Marquee from '@/shared/auto-scroll-carousel'
 import FAQ from '@/shared/faq'
 import SectionWrapper from '@/shared/wrapper'
 import { toggleHeader } from '@/store/features/header/header-slice'
 import { useAppDispatch } from '@/store/hooks'
+import TechSolution  from '@/modules/home/sections/tech-solution'
 
 const World = dynamic(
   () => import('@/animations/globe-animation/new').then((m) => m.World),
@@ -31,22 +30,6 @@ const World = dynamic(
 
 const HomePage = () => {
   const container = useRef(null)
-
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger)
-      ScrollTrigger.create({
-        trigger: '.services-right-container',
-        pin: true,
-        endTrigger: '.services-left-container',
-        start: '+=0',
-        end: `bottom+=${window.innerWidth * 0.119} bottom`,
-      })
-    },
-    {
-      scope: container,
-    }
-  )
 
   // const colors = ['#06b6d4', '#3b82f6', '#6366f1']
 
@@ -439,8 +422,8 @@ const HomePage = () => {
     <div ref={container} style={{ position: 'relative' }}>
       <HeroSection />
       {/*<World data={sampleArcs} globeConfig={globeConfig} />*/}
-      <ServiceSection />
-      <TechSolutionSection />
+      <OurServices />
+      <TechSolution />
       <OurProjects />
       <WhyChooseUs />
       <Statistics />

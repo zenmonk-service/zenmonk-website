@@ -1,7 +1,6 @@
 'use client'
 
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { AppBar, Toolbar, Box, useMediaQuery, createTheme } from '@mui/material'
@@ -12,7 +11,6 @@ import ActionLinks from './action-links'
 import { actionsLink } from './action-links/links'
 import './styles.scss'
 
-const Motion = motion.create(Monk)
 const Navbar = () => {
   const theme = createTheme()
   const { push } = useRouter()
@@ -27,7 +25,7 @@ const Navbar = () => {
     >
       <Toolbar className="toolbar">
         <Box display="flex" alignItems="center">
-          <Motion layoutId="logo" className="logo" onClick={navigateToHome} />
+          <Monk className="logo" onClick={navigateToHome} />
         </Box>
         <ActionLinks />
         {!isSmallScreen && (

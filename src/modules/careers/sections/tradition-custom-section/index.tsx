@@ -1,25 +1,23 @@
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import { bgImage as BGIMAGE } from './assets'
+import { bgImage as BackgroundImage } from './assets'
 import TraditionCustomCard from './card/tradition-card'
 import './styles.scss'
 import { traditionsCustoms } from './tradition-customs'
 
 const TraditionsCustoms = () => {
   return (
-    <Box className="traditions-customs-section">
-      <BGIMAGE className="bg-image" />
-      <Box className="container">
-        <Box className="traditions-customs-title-description-wrapper">
-          <Typography component="h1" className="traditions-customs-title">
+    <div className="traditions-customs-section">
+      <BackgroundImage className="bg-image" />
+      <div className="container">
+        <div className="traditions-customs-title-description-wrapper">
+          <h1 className="traditions-customs-title">
             Experiencing Traditions and Customs
-          </Typography>
-          <Typography className="traditions-customs-description" component="p">
-            Discover rich cultural heritage passed down through generations—timeless
-            rituals that shape identity and community.
-          </Typography>
-        </Box>
-        <Box className="traditions-customs-list">
+          </h1>
+          <p className="traditions-customs-description">
+            Discover rich cultural heritage passed down through
+            generations—timeless rituals that shape identity and community.
+          </p>
+        </div>
+        <div className="traditions-customs-list">
           {traditionsCustoms.map((tradition, index) => {
             return (
               <TraditionCustomCard
@@ -30,9 +28,9 @@ const TraditionsCustoms = () => {
               />
             )
           })}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </div>
   )
 }
 

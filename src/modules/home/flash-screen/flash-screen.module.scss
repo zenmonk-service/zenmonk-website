@@ -1,0 +1,48 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 1302;
+  background-color: #fff;
+  position: relative;
+}
+
+.word {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  z-index: 1302;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter {
+  color: #fd8e38;
+  -webkit-text-stroke-width: max(3.41px, 0.177vw);
+  -webkit-text-stroke-color: #fd8e38;
+  font-family: 'Kameron', sans-serif;
+  font-size: max(282px, 14.6875vw);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.logoContainer {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoWrapper {
+  position: absolute;
+}
+
+.logo {
+  width: max(284px, 13.75vw);
+}

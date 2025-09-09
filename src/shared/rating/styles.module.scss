@@ -1,5 +1,4 @@
 .container {
-  margin-top: 2.604vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +8,7 @@
   display: flex;
   width: max-content;
   height: auto;
+  max-width: 67.39vw;
   justify-content: center;
   gap: 1.667vw;
   background-color: var(--global-color-primary);
@@ -16,4 +16,18 @@
   border-radius: 1.667vw 0vw;
   box-shadow: 0.139vw 0.278vw 1.118vw 0vw rgba(0, 0, 0, 0.06);
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .cardContainer {
+    max-width: 100%;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 24.386px 0;
+    box-shadow: 2.032px 4.064px 16.359px 0 rgba(40, 81, 120, 0.12);
+    gap: 12px;
+  }
 }

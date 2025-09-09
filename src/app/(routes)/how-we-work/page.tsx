@@ -1,27 +1,18 @@
-import { Box } from '@mui/material'
-import { Innovation } from '@/modules/how-we-work/Innovation'
-import { HeroSection } from '@/modules/how-we-work/hero-section'
-import { Process } from '@/modules/how-we-work/process'
-import { Quality } from '@/modules/how-we-work/quality'
-import { ReadyToTalk } from '@/modules/how-we-work/ready-to-talk'
-import SectionWrapper from '@/shared/wrapper'
-import FAQ from '@/shared/faq'
+import Innovation from '@/modules/how-we-work/Innovation'
+import HeroSection from '@/modules/how-we-work/hero-section'
+import Process from '@/modules/how-we-work/process'
+import Quality from '@/modules/how-we-work/quality'
+import ReadyToTalk from '@/modules/how-we-work/ready-to-talk'
 
 const page = () => {
   return (
-    <Box>
-      <SectionWrapper>
-        <HeroSection />
-      </SectionWrapper>
+    <div>
+      <HeroSection />
       <Process />
-        <Quality />
-      {/* <Review /> */}
+      <Quality />
       <Innovation />
-      <SectionWrapper>
-        <ReadyToTalk />
-      </SectionWrapper>
-      <FAQ />
-    </Box>
+      <ReadyToTalk />
+    </div>
   )
 }
 

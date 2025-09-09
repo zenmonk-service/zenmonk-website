@@ -1,5 +1,3 @@
-
-import { Box, Typography } from '@mui/material'
 import './styles.scss'
 
 interface TraditionCustomCardProps {
@@ -9,24 +7,20 @@ interface TraditionCustomCardProps {
 }
 
 const TraditionCustomCard = ({
-  image : Image,
+  image: Image,
   title,
   description,
 }: TraditionCustomCardProps) => {
   return (
-    <Box className="tradition-custom-card">
-      <Box className="image-container">
-        <Image className="image"/>
-      </Box>
-      <Box className="content">
-        <Typography component="h1" className="title">
-          {title}
-        </Typography>
-        <Typography component="p" className="description">
-          {description}
-        </Typography>
-      </Box>
-    </Box>
+    <div className="tradition-custom-card">
+      <div className="image-container">
+        <Image alt="image" className="image" />
+      </div>
+      <div className="content">
+        <h1 className="title">{title}</h1>
+        <p className="description">{description}</p>
+      </div>
+    </div>
   )
 }
 

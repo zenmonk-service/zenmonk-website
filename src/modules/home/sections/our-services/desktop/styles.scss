@@ -1,0 +1,253 @@
+.service-section-wrapper {
+  margin-top: max(6.25vw, 80px);
+  padding-left: 16px;
+  padding-right: 16px;
+  z-index: 100;
+}
+
+.services-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-family: Poppins;
+  .title {
+    text-align: left;
+    font-size: 2.08vw !important;
+  }
+
+  .services-left-container {
+    margin-top: 5.36vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.66vw;
+    padding-bottom: 5vw;
+    margin-right: -5.73vw;
+    z-index: 99;
+    .business-item {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      width: max(276px, 19.32vw);
+      padding: 1.25vw;
+      border-radius: 0.52vw;
+      background: var(--global-color-primary);
+      outline: 0px solid var(--global-color-accent);
+      box-shadow: 0.26vw 0.2vw 2.7vw 0px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease-in-out;
+      align-items: center;
+      &:hover {
+        transform: translateY(-0.41vw);
+      }
+      .business-item-content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: baseline;
+        gap: 0.52vw;
+        .business-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.6vw;
+          height: 2.6vw;
+        }
+
+        .business-title {
+          color: #0b4357;
+          text-align: left;
+          font-family: Poppins;
+          font-size: var(--font-size-20);
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+        }
+      }
+      .business-count-text {
+        font-family: Montserrat !important;
+        font-size: 4.16vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  .services-right-container {
+    display: flex;
+    margin-right: 2.08vw;
+    height: fit-content;
+    top: 9.375vw;
+    top: 15vh;
+    position: sticky;
+    flex-direction: column;
+    .logo {
+      bottom: 45%;
+      left: 67%;
+      position: absolute;
+      width: 27.08vw;
+      height: 23.43vw;
+      z-index: -1;
+    }
+
+    .business-proof {
+      margin-top: 3.125vw;
+      width: 49.375vw;
+      border-radius: 0.41vw;
+      background: #f77d03;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .business-proof-content {
+        width: 100%;
+        height: 100%;
+        padding: 2.5vw 2.08vw 2.5vw 8.69vw;
+        flex-direction: column;
+        font-family: 'Poppins';
+        font-style: normal;
+        color: var(--global-color-primary);
+        .business-proof-heading {
+          font-size: 1.875vw;
+          font-weight: 600;
+          line-height: normal;
+          font-family: inherit;
+          margin-bottom: max(24px, 1.25vw);
+        }
+        .business-proof-description {
+          font-size: var(--font-size-18);
+          font-weight: 400;
+          font-family: inherit;
+          margin-bottom: max(40px, 2.08vw);
+        }
+        .business-proof-technologies {
+          display: flex;
+          flex-direction: row;
+          gap: 2.6vw;
+          height: 4.06vw;
+          margin-bottom: max(60px, 3.125vw);
+        }
+        .button {
+          color: #21305a !important;
+          background: linear-gradient(0deg, #fff 0%, #fff 100%);
+          font-family: 'Inter';
+          font-size: var(--font-size-16) !important;
+          width: max(158px, 8.22vw);
+          box-shadow: 0px max(4px, 0.2vw) max(4px, 0.2vw) 0px
+            rgba(0, 0, 0, 0.25) !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mobile-service-container {
+    margin-top: 5.36vw;
+    padding-left: 7.8%;
+    padding-right: 7.8%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .mobile-service-card {
+      display: flex;
+      align-items: center;
+      padding: 28.5px 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 2px 2px 13px 0px rgba(12, 98, 98, 0.13);
+      .mobile-count-text {
+        font-family: Montserrat !important;
+        font-size: max(60px, 4.16vw);
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 90px;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .mobile-service-sub-container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 10px;
+        .mobile-service-icon {
+          height: max(40px, 4.06vw);
+          width: max(40px, 4.06vw);
+        }
+        .mobile-service-title {
+          color: #132427;
+          text-align: left;
+          font-feature-settings:
+            'liga' off,
+            'clig' off;
+          font-family: Poppins;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: -0.16px;
+        }
+      }
+      .icons {
+        width: 24px;
+        height: 24px;
+      }
+      .info-container {
+        width: 100%;
+        margin-top: 32px;
+        .title {
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          letter-spacing: -0.2px;
+          text-transform: capitalize;
+          background: var(
+            --new-zen,
+            linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          margin-bottom: 8px;
+        }
+        .description {
+          color: #777;
+
+          /* p2 */
+          font-family: Poppins;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 0.28px;
+        }
+        .technologies {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 24px;
+          margin-top: 24px;
+          .icons {
+            width: 70px;
+            height: 72px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1099px) {
+  .services-section.desktop {
+    display: none;
+  }
+  .mobile-service-section {
+    display: flex !important;
+  }
+}

@@ -110,7 +110,7 @@
       .description {
         color: #696969 !important;
         font-family: Poppins;
-        font-size: var(--font-size-16); // approx. 16px
+        font-size: var(--font-size-16);
         font-style: normal;
         font-weight: 600;
         line-height: max(22px, 1.563vw);
@@ -122,4 +122,102 @@
 
 .right-container {
   z-index: 10;
+}
+
+@media screen and (max-width: 600px) {
+  .about-us-contact-us-section {
+    padding: 0 16px;
+    height: auto;
+    margin-top: 60px;
+  }
+  .contact-us {
+    flex-direction: column;
+    width: 100%;
+  }
+  .left-container {
+    width: 100%;
+
+    .section-title {
+      span {
+        background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .countries-list {
+      margin-top: max(1.042vw, 22px);
+      gap: max(1.042vw, 13px);
+      width: 100%;
+      display: flex;
+    }
+
+    .selected-country-title {
+      margin-top: max(2.083vw, 24px);
+      color: #132427;
+      text-align: left;
+      font-family: Poppins;
+      font-size: max(16px, 1vw);
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .selected-country-description {
+      margin-top: max(8px, 0.521vw);
+      width: 100%;
+      color: #696969;
+      font-family: Poppins;
+      font-size: var(--font-size-16);
+      font-style: normal;
+      font-weight: 600;
+      line-height: max(1.563vw, 22px);
+      letter-spacing: max(0.017vw, 0.28px);
+      &.label {
+        margin-top: 0px;
+      }
+    }
+
+    .country-flag {
+      height: 28px;
+      width: 45px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .label-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 16px;
+      .icon {
+        height: 24px;
+        width: 32px;
+        display: flex;
+      }
+    }
+    .label-container:nth-of-type(2) {
+      margin-left: 0.15vw;
+    }
+    .contact-card {
+      margin-top: max(0.729vw, 24px) !important;
+      margin-bottom: 0px !important;
+      z-index: 10;
+
+      .contact-card-content {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        .description {
+          font-size: var(--font-size-16);
+          line-height: max(22px, 1.563vw);
+        }
+      }
+    }
+  }
 }

@@ -13,7 +13,6 @@ const HeroSection = () => {
   return (
     <section>
       <div className="hero-section-d">
-        {/* <BallDecorator className="ball-decorator" /> */}
         <div className="light-bg"></div>
         <Ball className="ball-decorator" />
         <BallBg className="ball-bg" />

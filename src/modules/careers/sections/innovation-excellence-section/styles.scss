@@ -1,36 +1,20 @@
 .innovation-excellence-section {
   width: 100%;
   display: flex;
-  padding: 6.30208333333vw;
-
-  @media (max-width: 1499px) {
-    padding: 40px;
-  }
-
-  @media (max-width: 1554px) {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+  padding: 6.3vw;
   .left-section {
     width: 40%;
-    @media (max-width: 1554px) {
-      width: 100%;
-    }
     .title {
       width: 27.5vw;
       color: #132427;
       font-family: Poppins;
       font-style: normal;
       font-weight: 600;
-      @media (max-width: 1499px) {
-        width: 100%;
-      }
     }
     .description {
-      margin-top: 0.83333333333vw;
+      margin-top: 0.83vw;
       color: #757575;
-      font-family: Poppins;
+      font-family: 'Poppins', sans-serif;
       font-style: normal;
       line-height: normal;
     }
@@ -46,5 +30,32 @@
     row-gap: 1.8vw;
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .innovation-excellence-section {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+    margin-top: 80px;
+    align-items: center;
+    .left-section {
+      width: 100%;
+      .title {
+        width: 90%;
+      }
+      .description {
+        font-size: 14px;
+        margin-top: 16px;
+      }
+      .excellence-image {
+        display: none;
+      }
+    }
+    .right-section {
+      gap: 16px;
+      padding-left: 32px;
+    }
   }
 }

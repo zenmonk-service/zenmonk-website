@@ -1,6 +1,4 @@
-import { Box, Typography } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import Title from '../../../shared/title'
 import COST_EFFECTIVE from './assets/cost_effective.svg'
 import EXPERT_KNOWLEDGE from './assets/expert_knowledge.svg'
 import ON_TIME from './assets/on_time.svg'
@@ -38,10 +36,10 @@ const YourIdealChoice = () => {
   ]
 
   return (
-    <Box className="your-ideal-choice">
-      <Box className="first-container">
+    <div className="your-ideal-choice">
+      <div className="first-container">
         <SectionTitle
-          text="Why our expertise Your Ideal Choice"
+          text="Why Our Expertise is Your Ideal Choice"
           markText="expertise"
           align="left"
           className="title"
@@ -52,18 +50,18 @@ const YourIdealChoice = () => {
           challenges."
           className="description"
         />
-      </Box>
+      </div>
 
       {ChoicesData.map(({ icon: Icon, title, description }: any) => {
         return (
-          <Box className="container" key={title}>
+          <div className="container" key={title}>
             <Icon className="icon" />
-            <Typography className="title">{title}</Typography>
-            <Typography className="description">{description}</Typography>
-          </Box>
+            <p className="title">{title}</p>
+            <p className="description">{description}</p>
+          </div>
         )
       })}
-    </Box>
+    </div>
   )
 }
 

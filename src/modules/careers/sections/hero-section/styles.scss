@@ -1,5 +1,5 @@
 .career-hero-section-wrapper {
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   background-image: url('/careers/background.svg');
   background-repeat: no-repeat;
@@ -72,6 +72,39 @@
       width: 66%;
       height: 70%;
       position: relative;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .career-hero-section-wrapper {
+    padding: 0 16px;
+    flex-direction: column-reverse;
+    margin-top: 56px;
+    .hero-section{
+      .text-heading{
+        font-size: 28px !important;
+        text-align: center;
+        line-height: normal;
+      }
+      .text-description{
+        width: 100%;
+        font-size: 16px !important;
+        line-height: normal;
+        text-align: center;
+      }
+      .hero-section-text-wrapper{
+        gap: 16px;
+      }
+      .button{
+        width: 160px;
+        margin: auto;
+        margin-top: 40px;
+      }
+    }
+    .hero-section-image-wrapper{
+      height: 100%;
+      width: 88%;      
     }
   }
 }

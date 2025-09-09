@@ -1,18 +1,22 @@
 .container {
-  height: 85vh;
+  height: 97vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
-  padding-top: 5vw;
 }
 
 .backgroundWrapper {
-  background-image: url('/about-us/dotted-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
+}
+
+.backgroundLine{
+  position: absolute;
+  left: 1.825%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
 .title {
@@ -31,13 +35,13 @@
   max-width: 37vw;
   flex-wrap: wrap;
   color: #757575;
-  font-family: Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: var(--font-size-24);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.025vw;
-  margin-bottom: 2.0833vw;
+  margin-bottom: 3.125vw;
 }
 
 .highlightedText {
@@ -46,17 +50,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.imageContainer {
+  width: 80%;
+}
 .heroImage {
   width: 100%;
 }
 
 .button {
-  width: 11vw !important;
+  width: 10vw !important;
 }
 
 @media screen and (max-width: 600px) {
-  .backgroundWrapper{
+  .backgroundWrapper {
     background-image: url('/about-us/mobile-dotted-bg.png');
   }
 

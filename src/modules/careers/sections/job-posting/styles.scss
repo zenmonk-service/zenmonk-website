@@ -1,0 +1,57 @@
+.open-position-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-bottom: 6.25vw;
+  flex-direction: column;
+  align-items: center;
+
+  .position-container {
+    max-width: 75vw;
+  }
+
+  .open-position-title-wrapper {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .description {
+    margin-top: 0.833vw;
+    color: #757575;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9375vw !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: normal;
+    letter-spacing: 0.025vw;
+    width: 62.5vw;
+    padding-left: 2.083vw;
+    padding-right: 2.083vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .open-position-container {
+    padding: 0 16px;
+    margin-top: 64px;
+    .open-position-title {
+      text-align: left;
+      width: 100%;
+    }
+    .description {
+      font-size: 14px !important;
+      margin-top: 16px;
+      width: 100%;
+      text-align: left;
+      padding: 0px;
+    }
+    .position-container{
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -3,7 +3,7 @@
 import parse from 'html-react-parser'
 import Grid from '@mui/material/Grid2'
 import BaseButton from '../button'
-import './styles.scss'
+import styles from './hero-section.module.scss'
 
 interface HeroSectionProps {
   title: string
@@ -39,26 +39,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <Grid
-      className="service-hero-section"
+      className={styles.section}
       container
       spacing={4}
       alignItems="center"
       height="100%"
     >
-      <Grid size={{ xs: 12, md: 6 }} className="global-hero-section-text">
-        <div
-          className="global-hero-section-text-wrapper"
-          style={{ width: textWidth }}
-        >
-          <h1 className="global-text-heading">{highlightTitle(title)}</h1>
-          <p className="global-text-description">{parse(description)}</p>
+      <Grid size={{ xs: 12, md: 6 }} className={styles.text}>
+        <div className={styles.textWrapper} style={{ width: textWidth }}>
+          <h1 className={styles.heading}>{highlightTitle(title)}</h1>
+          <p className={styles.description}>{parse(description)}</p>
         </div>
-        <BaseButton className="button">EXPLORE MORE</BaseButton>
+        <div className={styles.buttonContainer}>
+          <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+        </div>
       </Grid>
 
-      <Grid size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
+      <Grid
+        size={{ xs: 12, md: 6 }}
+        className={styles.imageContainer}
+        display="flex"
+        justifyContent="center"
+      >
         <img
-          className="global-hero-section-image-wrapper"
+          className={styles.image}
           src={url}
           alt="Hero Image"
           style={{

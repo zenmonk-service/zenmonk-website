@@ -1,9 +1,9 @@
 import { useMediaQuery } from '@mui/material'
-import StatisticsDesktop from './desktop/desktop'
-import StatisticsMobile from './mobile/mobile'
+import StatisticsDesktop from './desktop'
+import StatisticsMobile from './mobile'
 
 const Statistics = () => {
-  const isMobile = useMediaQuery(`(max-width:600px)`)
+  const isMobile = useMediaQuery('(max-width:600px)')
   return isMobile ? <StatisticsMobile /> : <StatisticsDesktop />
 }
 

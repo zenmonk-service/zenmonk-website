@@ -16,15 +16,6 @@
       width: 90%;
     }
 
-    .show-case-title {
-      color: #132427;
-      font-family: Poppins;
-
-      @media (max-width: 1499px) {
-        font-size: 36px !important;
-      }
-
-    }
     .show-case-description {
       width: 72%;
       margin: auto;
@@ -87,6 +78,43 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .show-case-section {
+    padding: 0 16px;
+    background: #fff;
+    .show-case-title-description-wrapper {
+      max-width: 100%;
+      margin: 0;
+      .show-case-title {
+        text-align: left;
+        width: 100%;
+      }
+      .show-case-description {
+        text-align: left;
+        margin-top: 24px;
+        font-size: 14px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 100%;
+        margin-bottom: 24px;
+      }
+    }
+  }
+  .showcases {
+    gap: 16px;
+    .top-section {
+      gap: 16px;
+      .right-section {
+        gap: 16px;
+      }
+    }
+    .bottom-section{
+      gap: 16px;
     }
   }
 }

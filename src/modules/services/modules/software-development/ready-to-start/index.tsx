@@ -1,16 +1,15 @@
 import Image from 'next/image'
-import Box from '@mui/material/Box'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BG from './assets/bg.png'
 import './styles.scss'
 
 const ReadyToStartSoftwareDev = () => {
   return (
-    <Box className="ready-to-start">
-      <Box sx={{ width: '100%' }}>
+    <div className="ready-to-start">
+      <div style={{ width: '100%' }}>
         <Image src={BG} alt="map" style={{ width: '100%' }} />
-      </Box>
-      <Box className="text-box">
+      </div>
+      <div className="text-box">
         <SectionTitle
           className="title"
           text="Are you ready to start ?"
@@ -23,8 +22,8 @@ const ReadyToStartSoftwareDev = () => {
           Custom Software Development Tailored Solutions"
         />
         <button>Contact us</button>
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
 

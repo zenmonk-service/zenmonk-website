@@ -1,7 +1,7 @@
 .auto-scroll-container {
   padding: 2.5vw;
   .auto-scroll-images {
-    width: 7.8125vw;
-    padding: 0.52%;
+    width: max(86px, 7.8125vw);
+    padding: max(5.5px, 0.52%);
   }
 }

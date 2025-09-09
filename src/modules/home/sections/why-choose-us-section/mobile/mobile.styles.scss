@@ -1,5 +1,4 @@
 .why-choose-us-mobile-container {
-  margin-top: 80px;
   padding: 16px;
 }
 
@@ -13,7 +12,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
 
       &:nth-child(even) {
         svg:first-child {

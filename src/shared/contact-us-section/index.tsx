@@ -9,11 +9,10 @@ import './styles.scss'
 
 export const ContactUsSection = () => {
   const [country, setCountry] = useState(countries[0])
-  const indexRef = useRef(1) // next index to select in rotation
-  const timerRef = useRef<NodeJS.Timeout | null>(null) // stores interval ID
+  const indexRef = useRef(1)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const startTimer = () => {
-    // Clear existing timer before setting a new one
     if (timerRef.current) clearInterval(timerRef.current)
 
     timerRef.current = setInterval(() => {
@@ -23,7 +22,7 @@ export const ContactUsSection = () => {
   }
 
   useEffect(() => {
-    startTimer() // Initial timer setup
+    startTimer()
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current)

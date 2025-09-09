@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BigShowCaseCard from './card/big-card'
 import SmallShowCard from './card/small-card'
@@ -7,27 +6,28 @@ import './styles.scss'
 
 const Showcases = () => {
   return (
-    <Box className="show-case-section">
-      <Box className="show-case-title-description-wrapper">
+    <div className="show-case-section">
+      <div className="show-case-title-description-wrapper">
         <SectionTitle
           align="center"
+          className="show-case-title"
           text="The Ultimate Showcase of Skill, Strategy, and Champions"
           markText="Champions"
           markTextProps={{
             rotate: 3,
           }}
         />
-        <Box className="show-case-description-wrapper">
+        <div className="show-case-description-wrapper">
           <SectionDescription
             text="A thrilling celebration of skill, strategy, and determination, where
             champions rise to the occasion and showcase their true potential."
             className="show-case-description"
           />
-        </Box>
-      </Box>
-      <Box className="showcases">
-        <Box className="top-section">
-          <Box className="left-section">
+        </div>
+      </div>
+      <div className="showcases">
+        <div className="top-section">
+          <div className="left-section">
             <BigShowCaseCard
               cardProps={{
                 details: {
@@ -38,8 +38,8 @@ const Showcases = () => {
                 },
               }}
             />
-          </Box>
-          <Box className="right-section">
+          </div>
+          <div className="right-section">
             {showCaseList.slice(1, 3).map((event, index) => (
               <SmallShowCard
                 key={index}
@@ -53,9 +53,9 @@ const Showcases = () => {
                 }}
               />
             ))}
-          </Box>
-        </Box>
-        <Box className="bottom-section">
+          </div>
+        </div>
+        <div className="bottom-section">
           {showCaseList.slice(3, 5).map((event, index) => (
             <SmallShowCard
               key={index}
@@ -69,9 +69,9 @@ const Showcases = () => {
               }}
             />
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -4,8 +4,8 @@
   justify-content: center;
   height: 100vh;
   max-height: 56.25vw;
-  padding-top: 4.94791666667vw;
-  gap: 8.33333333333vw;
+  padding-top: 4.94792vw;
+  gap: 8.33vw;
   margin: auto;
 
   .hero-section {
@@ -17,38 +17,18 @@
       text-align: left;
       display: flex;
       flex-direction: column;
-      max-width: 41.6145833333vw;
+      max-width: 41.61vw;
       width: 100%;
 
       .text-heading {
         color: #132427;
-        font-feature-settings: "liga" off, "clig" off;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: max(60px, 3.125vw);
         font-style: normal;
         font-weight: 600 !important;
-        line-height: max(70px , 3.64583333333vw);
+        line-height: max(70px, 3.6458vw);
         text-transform: capitalize;
-        margin-bottom: 0.83333333333vw;
-
-        @media (max-width: 1499px) {
-          font-size: 51px;
-          line-height: 60px;
-        }
-
-        @media (max-width: 1199px) {
-          font-size: 42px;
-          line-height: 50px;
-        }
-
-        @media (max-width: 899px) {
-          font-size: 33px;
-          line-height: 50px;
-        }
-
-        @media (max-width: 599px) {
-          font-size: 24px;
-        }
+        margin-bottom: 0.83vw;
       }
 
       .text-heading span {
@@ -60,40 +40,14 @@
       }
 
       .text-description {
-
         color: #757575 !important;
-        font-feature-settings: "liga" off, "clig" off;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: var(--font-size-24);
         font-style: normal;
         line-height: normal;
         margin-bottom: 2.08vw;
-
-        @media (max-width: 1499px) {
-          font-size: 21px;
-          width: 650px;
-          margin-bottom: 36px;
-        }
-
-        @media (max-width: 1199px) {
-          font-size: 18px;
-          margin-bottom: 32px;
-          width: 485px;
-        }
-
-        @media (max-width: 899px) {
-          font-size: 16px;
-          margin-bottom: 28px;
-          // width: 490px;
-        }
-
-        @media (max-width: 599px) {
-          font-size: 14px;
-          margin-bottom: 24px;
-        }
       }
     }
-
   }
 
   .hero-section-image-wrapper {
@@ -120,160 +74,80 @@
 
   .top-horizontal-dotted-image {
     position: absolute;
-    top: 0.52vw; /* 10px / 1920 * 100 */
+    top: 0.52vw;
     right: 18%;
     z-index: -10;
     width: 15.9375vw;
     height: auto;
   }
-  
+
   .bottom-horizontal-dotted-image {
     position: absolute;
-    bottom: 0vw; /* 0px remains 0vw */
+    bottom: 0vw;
     left: 7.5%;
     z-index: -10;
-    width: 15.9375vw;
+    width: 15.9vw;
     height: auto;
   }
-  
+
   .vertical-dotted-image {
     position: absolute;
-    left: -0.42vw;  /* -8px / 1920 * 100 */
-    top: 7.08vw;    /* 136px / 1920 * 100 */
+    left: -0.42vw;
+    top: 7.08vw;
     z-index: -10;
-    width: 8.02vw;  /* 154px / 1920 * 100 */
-    height: 13.96vw; /* 268px / 1920 * 100 */
-  }
-  
-
-  @media (max-width: 1499px) {
-    gap: 120px;
-  }
-
-  @media (max-width: 1199px) {
-    gap: 80px
-  }
-
-  @media (max-width: 899px) {
-    gap: 40px
-  }
-
-}
-
-@keyframes fadeInBlurScaleRotate {
-  0% {
-    opacity: 0.8;
-    transform: translateY(50px) scale(0.95) rotateX(10deg);
-  }
-
-  60% {
-    opacity: 0.9;
-    transform: translateY(-10px) scale(1.02) rotateX(2deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
+    width: 8.02vw;
+    height: 13.96vw;
   }
 }
 
-@keyframes fadeInScaleRotate {
-  0% {
-    opacity: 0.8;
-    transform: translateY(50px) scale(0.95) rotateX(10deg);
-  }
-
-  60% {
-    opacity: 0.9;
-    transform: translateY(-10px) scale(1.02) rotateX(2deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(-360deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-    opacity: 1;
-  }
-}
-
-
-/* 🔹 Responsive Adjustments */
-@media (max-width: 899px) {
+@media screen and (max-width: 600px) {
   .how-we-work-hero-section-wrapper {
+    height: 100%;
+    max-height: 100%;
+    padding-top: 4.94792vw;
+    gap: 24px;
+    margin: 0;
     flex-direction: column-reverse;
-    text-align: center;
-    padding: 20px;
-  }
-}
+    margin-top: 80px;
 
-@media (max-width: 599px) {
-  .how-we-work-hero-section-wrapper {
-    height: auto;
-    padding: 10px;
-  }
+    .hero-section {
+      padding: 0 16px;
+      .hero-section-text-wrapper {
+        max-width: 100%;
+        width: 100%;
 
-}
+        .text-heading {
+          font-size: 28px;
+          line-height: 31px;
+          text-align: center;
+        }
 
-/* Slide Up & Fade In Animation */
-@keyframes slideUpFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
+        .text-description {
+          font-size: 16px;
+          margin-bottom: 40px;
+          text-align: center;
+          margin-top: 16px;
+        }
+      }
+    }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .hero-section-image-wrapper {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
 
-.hero-section-text-wrapper .text-heading,
-.hero-section-text-wrapper .text-description {
-  opacity: 0;
-  transform: translateY(50px);
-  visibility: hidden;
-}
+      .hero-section-image {
+        max-width: 100%;
+        transform: none;
+        position: relative !important;
+      }
+    }
 
-/* Apply Slide-Up Animation */
-.hero-section-text-wrapper .text-heading {
-  animation: slideUpFadeIn 0.8s ease-out forwards;
-  animation-delay: 0.2s;
-  visibility: visible;
-}
-
-.hero-section-text-wrapper .text-description {
-  animation: slideUpFadeIn 0.8s ease-out forwards;
-  animation-delay: 0.4s;
-  visibility: visible;
-}
-
-.hero-section-wrapper .base-button {
-  opacity: 0;
-}
-
-.hero-section-wrapper .base-button {
-  animation: slideUpFadeInB 0.8s ease-out forwards;
-  animation-delay: 0.6s;
-  visibility: visible;
-}
-
-@keyframes slideUpFadeInB {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+    .top-horizontal-dotted-image,
+    .bottom-horizontal-dotted-image,
+    .vertical-dotted-image {
+      display: none;
+    }
   }
 }

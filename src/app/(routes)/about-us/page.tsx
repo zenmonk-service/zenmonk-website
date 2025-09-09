@@ -1,14 +1,6 @@
-import {
-  BusinessSection,
-  WhyChooseUsSection,
-  AwardProofSection,
-  StandOutSection,
-  VisionSection,
-  ContactUsSection,
-  OurClientSection,
-} from '@/modules/about-us/sections'
+import { BusinessSection } from '@/modules/about-us/sections'
+import StandOutSection from '@/modules/about-us/sections/stand-out-section'
 import HeroSection from '@/modules/about-us/sections/hero-section'
-import AnimatedDiv from '@/shared/animated-div'
 
 const About = () => {
   return (
@@ -17,18 +9,10 @@ const About = () => {
       <BusinessSection />
       <StandOutSection />
       {/* 
-      <AnimatedDiv>
-        <WhyChooseUsSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <AwardProofSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <VisionSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <ContactUsSection />
-      </AnimatedDiv> */}
+      <WhyChooseUsSection />
+      <AwardProofSection />
+      <VisionSection />
+      <ContactUsSection /> */}
     </div>
   )
 }
