@@ -1,46 +1,85 @@
 'use client'
 
 import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { projects } from '@/modules/home/sections/our-projects/projects'
+import useOnScreen from '@/shared/hooks/use-on-screen'
+import InfiniteScroll from './infinite-scroll'
 import './styles.scss'
 
 const OurProjectsDesktop = () => {
-  const [project, setProject] = useState(projects[0])
-  let index = 1
+  const [projectIndex, setProjectIndex] = useState(0)
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  const isVisible = useOnScreen(sectionRef as any)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProject(projects[index])
-      index = (index + 1) % projects.length
-    }, 5000)
+    if (isVisible && sectionRef.current) {
+      sectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }
+    setProjectIndex(0)
+  }, [isVisible])
 
-    return () => clearInterval(interval) // cleanup
-  }, [])
+  useEffect(() => {
+   
+    const handleWheel = (e: WheelEvent) => {
+      const atFirst = projectIndex === 0
+      const atLast = projectIndex === projects.length - 1
+
+      if ((e.deltaY > 0 && !atLast) || (e.deltaY < 0 && !atFirst)) {
+        e.preventDefault()
+        setProjectIndex((prev) => (e.deltaY > 0 ? prev + 1 : prev - 1))
+      }
+    }
+
+    const sectionEl = sectionRef.current
+    sectionEl?.addEventListener('wheel', handleWheel, { passive: false })
+
+    return () => {
+      sectionEl?.removeEventListener('wheel', handleWheel)
+    }
+  }, [projectIndex])
+
+  const project = projects[projectIndex] || projects[0]
 
   return (
-    <section style={{ width: '100%' }}>
+    <section
+      ref={sectionRef}
+      style={{
+        width: '100%',
+        height: '100vh', // always full viewport
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
       <div
         className="our-work-container"
-        style={{ background: `url(${project.imageUrl})`, position: 'relative' }}
+        style={{
+          background: `url(${project?.imageUrl}) center/cover no-repeat`,
+          height: '100%',
+          width: '100%',
+          position: 'relative',
+        }}
       >
-        <div className="shadow" style={{ zIndex: 1 }} />
+        <div className="shadow" />
         <AnimatePresence mode="wait">
           <motion.p
-            style={{ zIndex: 0 }}
-            key={`index-${project.index}`}
+            key={`index-${project?.index}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
             className="our-work-card-count"
           >
-            {String(project.index).padStart(2, '0')}
+            {String(project?.index).padStart(2, '0')}
           </motion.p>
         </AnimatePresence>
         <AnimatePresence mode="wait">
           <motion.p
-            key={`index-${project.index}`}
+            key={`title-${project.index}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -52,7 +91,7 @@ const OurProjectsDesktop = () => {
         </AnimatePresence>
         <AnimatePresence mode="wait">
           <motion.p
-            key={`index-${project.index}`}
+            key={`desc-${project.index}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -62,26 +101,14 @@ const OurProjectsDesktop = () => {
             {project.description}
           </motion.p>
         </AnimatePresence>
-        <div
-          style={{
-            background: 'url(/our-work/04.webp)',
-          }}
-        />
-        <div
-          style={{
-            background: 'url(/our-work/01.webp)',
-          }}
-        />
-        <div
-          style={{
-            background: 'url(/our-work/02.webp)',
-          }}
-        />
-        <div
-          style={{
-            background: 'url(/our-work/03.webp)',
-          }}
-        />
+
+        <div className="our-work-card-images">
+          <InfiniteScroll
+            projects={projects}
+            projectIndex={projectIndex}
+            setProjectIndex={setProjectIndex}
+          />
+        </div>
       </div>
     </section>
   )

@@ -40,10 +40,10 @@ export default function RootLayout({
           <StoreProvider>
             <Header />
             <CustomLoader />
-            <SmoothScroller>
-              {children}
-              <Footer />
-            </SmoothScroller>
+            {/* <SmoothScroller > */}
+            {children}
+            <Footer />
+            {/* </SmoothScroller> */}
           </StoreProvider>
         </AppRouterCacheProvider>
       </body>
