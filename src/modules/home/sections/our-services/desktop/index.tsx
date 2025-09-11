@@ -1,9 +1,9 @@
 'use client'
 
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
@@ -20,78 +20,75 @@ const OurServicesDesktop = () => {
     setSelectedIndex(index)
   }
 
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: '.services-right-container',
+      pin: true,
+      scrub: true,
+      start: 'center center',
+      end: () => {
+        const el = rightSectionHeadingRef.current!
+        const extra = el.clientHeight * 0.38
+        return el.offsetTop + el.offsetHeight - extra
+      },
+    })
+  }, [rightSectionHeadingRef])
+
   const text = 'Solutions Designed For Your Success'
 
   return (
-    <section ref={rightSectionHeadingRef} className="service-section-wrapper">
+    <section className="service-section-wrapper">
       <SectionTitle
         text={text}
         markText="Your Success"
+        className="service-section-home-title"
         markTextProps={{ rotate: 1.8 }}
       />
-      <Box className="services-section desktop">
-        <Box className="services-left-container">
+      <div className="services-section desktop">
+        <div ref={rightSectionHeadingRef} className="services-left-container">
           {serviceList.map((service, index) => (
-            <Box
+            <div
               className="business-item"
               onClick={() => selectItem(index)}
-              sx={{
-                '&:hover': {
-                  backgroundColor: `${service.hoverColor} !important`,
-                  transform: 'translateY(-4px)',
-                },
-              }}
               key={service.id}
             >
-              <Box className="business-item-content">
+              <div className="business-item-content">
                 <service.Icon className="business-icon" />
-                <Typography
-                  component="h4"
-                  variant="h4"
-                  className="business-title"
-                >
-                  {service.title}
-                </Typography>
-              </Box>
-              <Typography
-                component="h5"
-                variant="h5"
+                <h4 className="business-title">{service.title}</h4>
+              </div>
+              <h5
                 className="business-count-text"
-                sx={{
+                style={{
                   background: `linear-gradient(180deg, ${service.color} -64.31%, #FFF 99.87%)`,
                 }}
               >
                 {service.id}
-              </Typography>
-            </Box>
+              </h5>
+            </div>
           ))}
-        </Box>
+        </div>
         <div className="services-right-container">
           <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
-          <Box className="business-proof">
-            <Box className="business-proof-content">
-              <Typography
-                component="h5"
-                variant="h5"
-                className="business-proof-heading"
-              >
+          <div className="business-proof">
+            <div className="business-proof-content">
+              <h5 className="business-proof-heading">
                 {serviceList[selectedIndex].title}
-              </Typography>
-              <Typography component="p" className="business-proof-description">
+              </h5>
+              <p className="business-proof-description">
                 {serviceList[selectedIndex].description}
-              </Typography>
-              <Box className="business-proof-technologies">
+              </p>
+              <div className="business-proof-technologies">
                 {techLogos.map(({ Src }) => {
                   return <Src key={Src} />
                 })}
-              </Box>
+              </div>
               <BaseButton disableShine className="button">
                 Get Started
               </BaseButton>
-            </Box>
-          </Box>
+            </div>
+          </div>
         </div>
-      </Box>
+      </div>
     </section>
   )
 }

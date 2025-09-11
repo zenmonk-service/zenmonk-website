@@ -1,23 +1,28 @@
+import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Menu from '@mui/icons-material/Menu'
-import { Box, createTheme, IconButton, useMediaQuery } from '@mui/material'
+import { createTheme, useMediaQuery } from '@mui/material'
+import LoadingIndicator from '@/shared/loader/detector'
+import { MenuToggle } from '@/shared/sidebar/menu-toggle'
 import { ActionLink, actionsLink } from './links'
 import { navItemStyles } from './nav-item-style'
 import ServiceLink from './service'
 import './styles.scss'
-import LoadingIndicator from '@/shared/loader/detector'
-import { Sidebar } from '@/shared/sidebar'
+import Navigation from '@/shared/sidebar/menu'
 
 const theme = createTheme()
 
-const ActionLinks = () => {
+interface ActionLinksProp {
+  isOpen: boolean
+  toggle: () => void
+}
+const ActionLinks = ({ isOpen, toggle }: ActionLinksProp) => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const pathname = usePathname()
 
   return !isSmallScreen ? (
-    <Box className="action-links-wrapper">
-      <Box className="action-links">
+    <div className="action-links-wrapper">
+      <div className="action-links">
         <ServiceLink {...actionsLink[0]} />
         {actionsLink
           .slice(1, actionsLink.length - 1)
@@ -35,10 +40,24 @@ const ActionLinks = () => {
               </Link>
             )
           })}
-      </Box>
-    </Box>
+      </div>
+    </div>
   ) : (
-    <Sidebar/>
+    <>
+      <AnimatePresence>{isOpen && <Navigation />}</AnimatePresence>
+      <div
+        style={{
+          clipPath: `inset(calc(100% - 38px) 27px 10px calc(100% - 54px) round 4px)`,
+          background: 'var(--global-color-gradient)',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: '100%',
+        }}
+      />
+      <MenuToggle toggle={toggle} />
+    </>
   )
 }
 

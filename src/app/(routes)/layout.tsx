@@ -5,6 +5,7 @@ import CustomLoader from '@/modules/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
+import ScrollProvider from '@/shared/scroll-smoother/scroll-provider'
 import StoreProvider from '@/store/storeProvider'
 
 const poppins = Poppins({
@@ -38,12 +39,14 @@ export default function RootLayout({
       <body className={` ${poppins.variable} ${montserrat.variable}`}>
         <AppRouterCacheProvider>
           <StoreProvider>
-            <Header />
-            <CustomLoader />
-            {/* <SmoothScroller > */}
-            {children}
-            <Footer />
-            {/* </SmoothScroller> */}
+            <ScrollProvider>
+              <Header />
+              <SmoothScroller>
+                <CustomLoader />
+                {children}
+                <Footer />
+              </SmoothScroller>
+            </ScrollProvider>
           </StoreProvider>
         </AppRouterCacheProvider>
       </body>

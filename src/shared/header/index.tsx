@@ -1,10 +1,13 @@
 'use client'
 
 import clsx from 'clsx'
+import { motion, useCycle } from 'framer-motion'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { AppBar, Toolbar, Box, useMediaQuery, createTheme } from '@mui/material'
 import Monk from '@/assets/icons/monk.svg'
+import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { useAppSelector } from '@/store/hooks'
 import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
@@ -17,9 +20,20 @@ const Navbar = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const navigateToHome = () => push('/')
   const hide = useAppSelector((state) => state.header.hide)
+  const [isOpen, toggleOpen] = useCycle(false, true)
+  const { current } = useScrollSmoother()
+
+  useEffect(() => {
+    if (current) {
+      current.paused(isOpen)
+    }
+  }, [current])
 
   return (
     <AppBar
+      initial={false}
+      animate={isOpen ? 'open' : 'closed'}
+      component={motion.nav}
       className={clsx('app-bar-container', { hide })}
       elevation={0}
     >
@@ -27,7 +41,7 @@ const Navbar = () => {
         <Box display="flex" alignItems="center">
           <Monk className="logo" onClick={navigateToHome} />
         </Box>
-        <ActionLinks />
+        <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
         {!isSmallScreen && (
           <Link href="/contact" className="contact-button">
             <LoadingIndicator />

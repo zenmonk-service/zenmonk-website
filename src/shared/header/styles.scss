@@ -41,12 +41,30 @@
 @media screen and (max-width: 600px) {
   .app-bar-container {
     background-color: #fff !important;
-    height: 56px;
+    filter: drop-shadow(0 4px 19.9px rgba(0, 0, 0, 0.1));
     .toolbar {
+      min-height: 46px;
+      height: 46px;
       .logo {
         height: 32px;
         width: 32px;
       }
     }
+  }
+
+  .menu-toggle-btn {
+    position: absolute;
+    right: 15px;
+    outline: none;
+    border: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
   }
 }

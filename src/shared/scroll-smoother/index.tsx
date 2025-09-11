@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { usePathname } from 'next/navigation'
+import { useScrollSmoother } from './scroll-context'
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
@@ -14,10 +15,11 @@ export default function SmoothScroller({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
+  const smootherRef = useScrollSmoother()
+
   useGSAP(
     () => {
-      ScrollSmoother.create({
-        smooth: 2,
+      smootherRef.current = ScrollSmoother.create({
         effects: true,
       })
     },
@@ -26,6 +28,7 @@ export default function SmoothScroller({
       revertOnUpdate: true,
     }
   )
+
   return (
     <div id="smooth-wrapper">
       <div id="smooth-content">{children}</div>

@@ -4,21 +4,23 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { projects } from '@/modules/home/sections/our-projects/projects'
 import useOnScreen from '@/shared/hooks/use-on-screen'
+import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import InfiniteScroll from './infinite-scroll'
 import './styles.scss'
 
 const OurProjectsDesktop = () => {
   const [projectIndex, setProjectIndex] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { current } = useScrollSmoother()
 
   const isVisible = useOnScreen(sectionRef as any)
 
   useEffect(() => {
     if (isVisible && sectionRef.current) {
-      sectionRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      })
+      if (current) {
+        console.log(current)
+        current.scrollTo(sectionRef.current, true, 'center center')
+      }
     }
     setProjectIndex(0)
   }, [isVisible])
@@ -52,7 +54,7 @@ const OurProjectsDesktop = () => {
         height: '100vh', // always full viewport
         overflow: 'hidden',
         position: 'relative',
-        zIndex:1100
+        zIndex: 1100,
       }}
     >
       <div

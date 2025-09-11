@@ -8,7 +8,7 @@ import './globals.css'
 export default function FlashScreenLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const [showFlashScreen, setShowFlashScreen] = useState(true)
+  const [showFlashScreen, setShowFlashScreen] = useState(false)
   const page = usePathname()
   return showFlashScreen && page === '/' ? (
     <FlashScreen closeScreen={() => setShowFlashScreen(false)} />
