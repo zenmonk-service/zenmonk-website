@@ -1,0 +1,36 @@
+.container {
+  background-color: red;
+}
+
+.menuToggleContainer {
+  clip-path: inset(calc(100% - 38px) 27px 10px calc(100% - 54px) round 4px);
+  background: var(--global-color-gradient);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.menuToggleButton {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  outline: none;
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+@media (min-width: 600px) {
+  .container {
+    display: none;
+  }
+}

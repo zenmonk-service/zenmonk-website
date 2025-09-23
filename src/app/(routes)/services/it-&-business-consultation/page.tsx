@@ -13,7 +13,7 @@ const ItAndBusinessConsultingPage = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id='it-and-business-consultation' />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

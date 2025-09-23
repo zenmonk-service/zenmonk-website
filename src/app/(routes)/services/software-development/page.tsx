@@ -9,11 +9,12 @@ import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
 
 const SoftwareDevelopmentPage = () => {
+  const serviceId = 'software-development'
   return (
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id={serviceId} />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

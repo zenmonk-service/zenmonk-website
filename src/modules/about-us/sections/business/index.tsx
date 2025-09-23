@@ -41,10 +41,10 @@ export const BusinessSection = () => {
         variants={container}
         className="business-card-container"
       >
-        {businesses.map((business, index) => {
+        {businesses.map((business) => {
           return (
             <BusinessCard
-              key={index}
+              key={business.title}
               description={business.description}
               title={business.title}
               Icon={business.icon}

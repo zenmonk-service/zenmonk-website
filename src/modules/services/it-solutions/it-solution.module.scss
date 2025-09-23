@@ -1,87 +1,85 @@
-.it-solutions-container-wrapper {
+.wrapper {
   margin-left: 3%;
   margin-right: 3%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .it-solutions-container {
+  .container {
     width: 100%;
-    max-width: 100vw; /* Original: 1920px */
+    max-width: 100vw;
     height: fit-content;
-    border-radius: 2.604vw; /* Original: 50px */
+    border-radius: 2.604vw;
     background: #f5f5f5;
-    padding: 5.208vw 5%; /* Original: 100px 5% */
-    margin-top: 6.25vw; /* Original: 120px */
+    padding: 5.208vw 5%;
+    margin-top: 6.25vw;
     justify-content: center;
     align-items: center;
 
-    .it-solution-subtitle {
+    .subtitle {
       color: #757575;
       text-align: center;
-      margin-top: 0.833vw; /* Original: 16px */
-      max-width: 62.5vw; /* Original: 1200px */
+      margin-top: 0.833vw;
+      padding: 0px 14vw;
     }
 
-    .solution-card {
-      flex-direction: row;
-      flex-shrink: 0;
-      border-radius: 1.042vw; /* Original: 20px */
+    .card {
+      display: flex;
+      border-radius: 1.04vw;
       background: #fff;
-      box-shadow: 0 0.208vw 0.208vw 0 rgba(0, 0, 0, 0.05); /* Original: 0px 4px 4px 0px */
-
-      .solution-card-left {
+      box-shadow: 0 0.208vw 0.208vw 0 rgba(0, 0, 0, 0.05);
+      .left {
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: 8.229vw; /* Original: 158px */
-        border-radius: 1.042vw 0 0 1.042vw; /* Original: 20px 0 0 20px */
+        width: 8.229vw;
+        border-radius: 1.04vw 0 0 1.04vw;
         .icon {
-          width: 3.906vw;
-          height: 3.906vw;
+          width: 3.9vw;
+          height: 3.9vw;
         }
       }
 
-      .solution-card-right {
-        padding: 0.833vw 1.042vw; /* Original: 16px 20px */
-        width: 14.115vw; /* Original: 271px */
-        gap: 0.521vw; /* Original: 10px */
+      .right {
+        padding: 0.833vw 1.04vw;
+        width: 14.115vw;
+        gap: 0.521vw;
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
 
-        .card-title,
-        .card-description {
+        .title,
+        .description {
           color: #132427;
-          font-feature-settings:
-            'liga' off,
-            'clig' off;
-          font-family: Poppins;
-          font-size: var(--font-size-18); /* Original: 18px */
+          font-family: 'Poppins', sans-serif;
+          font-size: var(--font-size-18);
           font-style: normal;
           font-weight: 600;
-          line-height: 1.458vw; /* Original: 28px */
+          line-height: 1.458vw;
         }
 
-        .card-description {
+        .description {
           color: #727272;
-          font-size: var(--font-size-16); /* Original: 14px */
+          font-size: var(--font-size-16);
           font-weight: 400;
           line-height: normal;
         }
 
-        .card-btn {
+        .btn {
           display: flex;
           align-items: center;
           justify-content: center;
           text-transform: capitalize;
-          gap: 0.521vw; /* Original: 10px */
+          gap: 0.521vw;
           padding: 0;
           width: fit-content;
           flex-direction: row;
           font-family: Poppins;
-          font-size: var(--font-size-16); /* Original: 14px */
+          font-size: var(--font-size-16);
           font-style: normal;
           font-weight: 600;
-          line-height: 1.563vw; /* Original: 30px */
+          line-height: 1.563vw;
           background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
           background-clip: text;
           -webkit-background-clip: text;
@@ -93,15 +91,16 @@
 }
 
 @media screen and (max-width: 768px) {
-  .it-solutions-container-wrapper {
+  .wrapper {
     padding: 0 16px;
-    .it-solutions-container {
+
+    .container {
       border-radius: 16px;
       padding: 32px 0px;
       margin-top: 60px;
       background-color: transparent;
 
-      .it-solution-subtitle {
+      .subtitle {
         font-size: var(--font-size-14);
         margin-top: 16px;
         line-height: normal;
@@ -109,12 +108,12 @@
         max-width: 100%;
       }
 
-      .solution-card {
+      .card {
         width: 100%;
         border-radius: 15.571px;
         filter: drop-shadow(0 1.557px 23.357px rgba(40, 122, 144, 0.1));
 
-        .solution-card-left {
+        .left {
           width: 40%;
           border-radius: 15.571px 0 0 15.571px;
           padding: 16px 0;
@@ -124,23 +123,23 @@
           }
         }
 
-        .solution-card-right {
+        .right {
           padding: 16px;
           width: 100%;
           gap: 8px;
 
-          .card-title,
-          .card-description {
+          .title,
+          .description {
             font-size: var(--font-size-18);
             line-height: normal;
           }
 
-          .card-description {
+          .description {
             font-size: var(--font-size-14);
             line-height: normal;
           }
 
-          .card-btn {
+          .btn {
             font-size: var(--font-size-14);
             line-height: normal;
             svg {

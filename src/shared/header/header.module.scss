@@ -1,0 +1,57 @@
+.appBarContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  top: 0;
+  justify-content: space-between;
+  padding: 1.04% 7.8125%;
+  position: sticky;
+  z-index: 1;
+}
+
+.appBarIconContainer {
+  height: 3.85vw;
+  width: 3.75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.appBarContactButton {
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 600;
+  padding: max(13px, 0.67vw) max(14px, 0.83vw);
+  border-radius: 2.23vw;
+  background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+@media (min-width: 601px) and (max-width: 1152px) {
+  .appBarContactButton {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .appBarContainer {
+    background-color: #fff !important;
+    height: 46px;
+    filter: drop-shadow(0 4px 19.9px rgba(0, 0, 0, 0.1));
+  }
+
+  .appBarContactButton {
+    display: none;
+  }
+
+  .appBarIconContainer {
+    height: 32px;
+    width: 32px;
+  }
+}

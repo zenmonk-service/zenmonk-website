@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
-import CircleHollow from '../assets/circle.svg'
-import CircleFilled from '../assets/filled.svg'
-import Plus from '../assets/plus.svg'
-import './styles.scss'
+import EclipseSvg from '../assets/circle.svg'
+import CircleSvg from '../assets/filled.svg'
+import PlusSvg from '../assets/plus.svg'
+import styles from './business-card.module.scss'
+
+const Plus = motion.create(PlusSvg)
+const Eclipse = motion.create(EclipseSvg)
+const Circle = motion.create(CircleSvg)
 
 interface BusinessCardProps {
   Icon: any
@@ -11,6 +15,7 @@ interface BusinessCardProps {
   fill: string
   background: string
 }
+
 const BusinessCard = ({
   Icon,
   title,
@@ -27,19 +32,11 @@ const BusinessCard = ({
     rest: {
       color: '#383838',
       x: 0,
-      transition: {
-        duration: 0.2,
-        type: 'tween',
-        ease: 'easeIn',
-      },
+      transition: { duration: 0.2, type: 'tween', ease: 'easeIn' },
     },
     hover: {
       color: '#FFF',
-      transition: {
-        duration: 0.2,
-        type: 'tween',
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.2, type: 'tween', ease: 'easeOut' },
     },
   }
 
@@ -47,19 +44,11 @@ const BusinessCard = ({
     rest: {
       color: '#565656',
       x: 0,
-      transition: {
-        duration: 0.2,
-        type: 'tween',
-        ease: 'easeIn',
-      },
+      transition: { duration: 0.2, type: 'tween', ease: 'easeIn' },
     },
     hover: {
       color: '#FFF',
-      transition: {
-        duration: 0.2,
-        type: 'tween',
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.2, type: 'tween', ease: 'easeOut' },
     },
   }
 
@@ -74,34 +63,27 @@ const BusinessCard = ({
       variants={item}
       whileHover="hover"
       animate="rest"
-      className="about-us-business-card-container"
+      className={styles.container}
     >
-      <div className="business-card-icon-container">
+      <div className={styles.iconContainer}>
         <motion.div
-          className="icon"
+          className={styles.icon}
           variants={{
             rest: {
               backgroundColor: background,
-              boxShadow: 'none',
-              transition: {
-                ease: 'easeInOut',
-                type: 'tween',
-                duration: 0.4,
-              },
+              boxShadow: '0px',
+              transition: { type: 'tween', duration: 0.4 },
             },
             hover: {
               backgroundColor: '#fff',
-              boxShadow: '0 4% 4% rgba(0, 0, 0, 0.25)',
-              transition: {
-                duration: 0.4,
-                type: 'tween',
-                ease: 'easeIn',
-              },
+              boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
+              transition: { duration: 0.4, type: 'tween' },
             },
           }}
         >
           <Icon style={{ fill }} />
         </motion.div>
+
         <Plus
           style={{
             position: 'absolute',
@@ -109,6 +91,25 @@ const BusinessCard = ({
             top: '14%',
             left: '3%',
             stroke: fill,
+            zIndex: 2,
+          }}
+          variants={{
+            rest: {
+              top: '14%',
+              left: '3%',
+              stroke: fill,
+            },
+            hover: {
+              stroke: '#fff',
+              scale: 1.1,
+              x: '6.25vw',
+              y: 10,
+              rotate: -360,
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
           }}
         />
         <Plus
@@ -120,16 +121,49 @@ const BusinessCard = ({
             left: '29.5%',
             stroke: fill,
           }}
+          variants={{
+            rest: {
+              bottom: '12%',
+              left: '29.5%',
+              stroke: fill,
+            },
+            hover: {
+              stroke: '#fff',
+              x: "4.16vw",
+              y: -15,
+              rotate: -90,
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
+          }}
         />
-        <CircleHollow
+        <Eclipse
           style={{
             position: 'absolute',
             width: '0.62vw',
             bottom: '8%',
             stroke: fill,
           }}
+          variants={{
+            rest: {
+              width: '0.62vw',
+              bottom: '8%',
+              stroke: fill,
+            },
+            hover: {
+              stroke: '#fff',
+              x: '6.25vw',
+              y: '-0.52vw',
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
+          }}
         />
-        <CircleHollow
+        <Eclipse
           style={{
             position: 'absolute',
             width: '0.62vw',
@@ -137,24 +171,81 @@ const BusinessCard = ({
             left: '29%',
             stroke: fill,
           }}
+          variants={{
+            rest: {
+              top: '16%',
+              left: '29%',
+              stroke: fill,
+            },
+            hover: {
+              stroke: '#fff',
+              x: "4.16vw",
+              y: 15,
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
+          }}
         />
-        <CircleFilled
+        <Circle
           style={{
             position: 'absolute',
             width: '0.36vw',
             top: '50%',
             left: '32%',
+            fill,
+          }}
+          variants={{
+            rest: {
+              top: '50%',
+              left: '32%',
+              stroke: fill,
+            },
+            hover: {
+              x: '2.08vw',
+              y: -5,
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
+          }}
+        />
+        <motion.div
+          style={{
+            position: 'absolute',
+            minWidth: '0.36vw',
+            height: '0.36vw',
+            top: '50%',
+            borderRadius: '50%',
+            left: '32%',
+            background: '#fff',
+          }}
+          variants={{
+            rest: {
+              top: '50%',
+              left: '32%',
+              opacity: 0,
+            },
+            hover: {
+              x: '2.08vw',
+              y: -5,
+              opacity: 0.4,
+              transition: {
+                duration: 0.8,
+                type: 'spring',
+              },
+            },
           }}
         />
       </div>
-      <div className="business-card-content">
-        <motion.h3 variants={textMotion} className="business-card-title">
+
+      <div className={styles.content}>
+        <motion.h3 variants={textMotion} className={styles.title}>
           {title}
         </motion.h3>
-        <motion.p
-          variants={descriptionMotion}
-          className="business-card-description"
-        >
+        <motion.p variants={descriptionMotion} className={styles.description}>
           {description}
         </motion.p>
       </div>

@@ -1,23 +1,18 @@
 'use client'
 
-import clsx from 'clsx'
 import { motion, useCycle } from 'framer-motion'
 import { useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { AppBar, Toolbar, Box, useMediaQuery, createTheme } from '@mui/material'
 import Monk from '@/assets/icons/monk.svg'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { useAppSelector } from '@/store/hooks'
 import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
-import { actionsLink } from './action-links/links'
-import './styles.scss'
+import styles from './header.module.scss'
 
 const Navbar = () => {
-  const theme = createTheme()
   const { push } = useRouter()
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const navigateToHome = () => push('/')
   const hide = useAppSelector((state) => state.header.hide)
   const [isOpen, toggleOpen] = useCycle(false, true)
@@ -30,26 +25,20 @@ const Navbar = () => {
   }, [current])
 
   return (
-    <AppBar
+    <motion.nav
       initial={false}
       animate={isOpen ? 'open' : 'closed'}
-      component={motion.nav}
-      className={clsx('app-bar-container', { hide })}
-      elevation={0}
+      className={styles.appBarContainer}
     >
-      <Toolbar className="toolbar">
-        <Box display="flex" alignItems="center">
-          <Monk className="logo" onClick={navigateToHome} />
-        </Box>
-        <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
-        {!isSmallScreen && (
-          <Link href="/contact" className="contact-button">
-            <LoadingIndicator />
-            {actionsLink[actionsLink.length - 1].name}
-          </Link>
-        )}
-      </Toolbar>
-    </AppBar>
+      <div className={styles.appBarIconContainer}>
+        <Monk onClick={navigateToHome} />
+      </div>
+      <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
+      <Link href="/contact" className={styles.appBarContactButton}>
+        <LoadingIndicator />
+        Contact Us
+      </Link>
+    </motion.nav>
   )
 }
 

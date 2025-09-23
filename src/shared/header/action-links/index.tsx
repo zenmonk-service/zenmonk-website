@@ -1,63 +1,56 @@
-import { AnimatePresence } from 'framer-motion'
+'use client'
+
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { createTheme, useMediaQuery } from '@mui/material'
 import LoadingIndicator from '@/shared/loader/detector'
-import { MenuToggle } from '@/shared/sidebar/menu-toggle'
-import { ActionLink, actionsLink } from './links'
-import { navItemStyles } from './nav-item-style'
+import MobileMenuLink from '../mobile-menu-links'
+import styles from './action-link.module.scss'
+import { navLinks } from './links'
 import ServiceLink from './service'
-import './styles.scss'
-import Navigation from '@/shared/sidebar/menu'
-
-const theme = createTheme()
 
 interface ActionLinksProp {
   isOpen: boolean
   toggle: () => void
 }
-const ActionLinks = ({ isOpen, toggle }: ActionLinksProp) => {
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
-  const pathname = usePathname()
 
-  return !isSmallScreen ? (
-    <div className="action-links-wrapper">
-      <div className="action-links">
-        <ServiceLink {...actionsLink[0]} />
-        {actionsLink
-          .slice(1, actionsLink.length - 1)
-          .map(({ href, name }: ActionLink, index) => {
-            return (
-              <Link
-                href={href}
-                style={navItemStyles(pathname, href)}
-                className="action-link-button"
-                prefetch={false}
-                key={index}
-              >
-                <LoadingIndicator />
-                {name}
-              </Link>
-            )
-          })}
+const ActionLinks = (props: ActionLinksProp) => {
+  const pathname = usePathname()
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
+
+  const handleClick = () => {
+    if (containerRef.current) {
+      setAnchorEl(containerRef.current)
+    }
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  return (
+    <div>
+      <div className={styles.actionLinksContainer} ref={containerRef}>
+        <ServiceLink
+          anchorEl={anchorEl}
+          handleClick={handleClick}
+          handleClose={handleClose}
+        />
+        {navLinks.map(({ href, name }) => (
+          <Link
+            href={href}
+            className={styles.actionLink}
+            prefetch={false}
+            key={name}
+          >
+            <LoadingIndicator />
+            {name}
+          </Link>
+        ))}
       </div>
+      <MobileMenuLink {...props} />
     </div>
-  ) : (
-    <>
-      <AnimatePresence>{isOpen && <Navigation />}</AnimatePresence>
-      <div
-        style={{
-          clipPath: `inset(calc(100% - 38px) 27px 10px calc(100% - 54px) round 4px)`,
-          background: 'var(--global-color-gradient)',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          bottom: 0,
-          width: '100%',
-        }}
-      />
-      <MenuToggle toggle={toggle} />
-    </>
   )
 }
 

@@ -13,7 +13,7 @@ const GrowthAndMarketing = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id="growth-and-marketing" />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

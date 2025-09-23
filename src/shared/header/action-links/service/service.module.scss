@@ -1,0 +1,54 @@
+.serviceActionLink {
+  text-transform: none;
+  background-color: #fff;
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif !important;
+  padding: max(13px, 0.67vw) max(14px, 0.83vw);
+  border-radius: 2.24vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.05vw solid white;
+  &:hover {
+    background-color: #ffd5ac38;
+    border: 0.05vw solid #ffa750;
+  }
+}
+
+.expandIconContainer {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.expandIcon {
+  width: 1.04vw;
+  height: 1.04vw;
+  rotate: 0;
+  color: inherit;
+}
+
+.servicesMenuContainer {
+  border-radius: 0.52vw;
+  width: 50vw;
+  column-count: 2;
+  row-gap: 1.04vw;
+  column-gap: 1.04vw;
+  background-color: var(--global-color-primary);
+  padding: 1.08vw;
+}
+
+.arrowUp {
+  top: -0.52vw;
+  left: 7.8125vw;
+  position: absolute;
+  border-left: 1.04vw solid transparent;
+  border-right: 1.04vw solid transparent;
+  border-bottom: 1.04vw solid var(--global-color-primary);
+}
+
+.servicesMenuContainer > * {
+  margin-bottom: 1.04vw;
+}

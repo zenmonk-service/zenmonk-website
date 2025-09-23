@@ -4,25 +4,19 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { techLogos } from '@/assets/icons/business/tech'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
 import { SectionTitle } from '@/shared/typography'
-import { serviceList } from '../services'
-import './styles.scss'
+import { services } from '@/static/services'
+import styles from './our-services.module.scss'
 
 const OurServicesDesktop = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-
+  const [selectedService, setSelectedService] = useState(services[0])
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
-
-  const selectItem = (index: number) => {
-    setSelectedIndex(index)
-  }
 
   useGSAP(() => {
     ScrollTrigger.create({
-      trigger: '.services-right-container',
+      trigger: `.${styles.servicesRightContainer}`,
       pin: true,
       scrub: true,
       start: 'center center',
@@ -37,52 +31,65 @@ const OurServicesDesktop = () => {
   const text = 'Solutions Designed For Your Success'
 
   return (
-    <section className="service-section-wrapper">
+    <section className={styles.serviceSectionWrapper}>
       <SectionTitle
         text={text}
         markText="Your Success"
         className="service-section-home-title"
         markTextProps={{ rotate: 1.8 }}
       />
-      <div className="services-section desktop">
-        <div ref={rightSectionHeadingRef} className="services-left-container">
-          {serviceList.map((service, index) => (
+      <div className={`${styles.servicesSection} desktop`}>
+        <div
+          ref={rightSectionHeadingRef}
+          className={styles.servicesLeftContainer}
+        >
+          {services.map((service, index) => (
             <div
-              className="business-item"
-              onClick={() => selectItem(index)}
+              className={styles.businessItem}
+              onClick={() => setSelectedService(service)}
               key={service.id}
             >
-              <div className="business-item-content">
-                <service.Icon className="business-icon" />
-                <h4 className="business-title">{service.title}</h4>
+              <div className={styles.businessItemContent}>
+                <service.icon
+                  style={{ fill: service.styles.color }}
+                  className={styles.businessIcon}
+                />
+                <h4 className={styles.businessTitle}>{service.name}</h4>
               </div>
               <h5
-                className="business-count-text"
+                className={styles.businessCountText}
                 style={{
-                  background: `linear-gradient(180deg, ${service.color} -64.31%, #FFF 99.87%)`,
+                  background: `linear-gradient(180deg, ${service.styles.color} -64.31%, #FFF 99.87%)`,
                 }}
               >
-                {service.id}
+                {(index + 1).toString().padStart(2, '0')}
               </h5>
             </div>
           ))}
         </div>
-        <div className="services-right-container">
-          <Image className="logo" src={ZenmonkLogo} alt="zenmonk-logo" />
-          <div className="business-proof">
-            <div className="business-proof-content">
-              <h5 className="business-proof-heading">
-                {serviceList[selectedIndex].title}
+        <div className={styles.servicesRightContainer}>
+          <Image className={styles.logo} src={ZenmonkLogo} alt="zenmonk-logo" />
+          <div className={styles.businessProof}>
+            <div className={styles.businessProofContent}>
+              <h5 className={styles.businessProofHeading}>
+                {selectedService.name}
               </h5>
-              <p className="business-proof-description">
-                {serviceList[selectedIndex].description}
+              <p className={styles.businessProofDescription}>
+                {selectedService.description}
               </p>
-              <div className="business-proof-technologies">
-                {techLogos.map(({ Src }) => {
-                  return <Src key={Src} />
-                })}
+              <div className={styles.businessProofTechnologies}>
+                {selectedService.services
+                  .slice(0, 5)
+                  .map(({ id, icon: ServiceIcon, title }) => (
+                    <div key={id} className={styles.businessProofCard}>
+                      <div className={styles.businessProofIcon}>
+                        <ServiceIcon />
+                      </div>
+                      <p className={styles.businessProofCardTitle}>{title}</p>
+                    </div>
+                  ))}
               </div>
-              <BaseButton disableShine className="button">
+              <BaseButton disableShine className={styles.button}>
                 Get Started
               </BaseButton>
             </div>

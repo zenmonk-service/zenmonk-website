@@ -13,7 +13,7 @@ const ItTrainingAndWorkshopsPage = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id='it-training-and-workshops'/>
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

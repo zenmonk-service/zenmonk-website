@@ -1,58 +1,78 @@
-import { useState } from 'react'
+'use client'
+
+import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import Expand from '@mui/icons-material/ExpandLess'
-import { Box } from '@mui/material'
-import { ActionLink } from '../links'
-import { navItemStyles } from '../nav-item-style'
+import Popover from '@mui/material/Popover'
 import ServiceCard from './service-card'
+import styles from './service.module.scss'
 import { services } from './services.constant'
 
-const ServiceLink = ({ name, href }: ActionLink) => {
+const ExpandIcon = motion.create(Expand)
+
+interface Props {
+  anchorEl: HTMLElement | null
+  handleClick: () => void
+  handleClose: () => void
+}
+const ServiceLink = (props: Props) => {
+  const { anchorEl, handleClick, handleClose } = props
   const pathname = usePathname()
-  const [isExpanded, setIsExpanded] = useState(false)
-  const toggleExpand = () => setIsExpanded((prev) => !prev)
+
   const alreadyOpen = (path: string) => pathname.includes(path)
 
+  const open = Boolean(anchorEl)
   return (
     <>
-      <Box
-        sx={navItemStyles(pathname, href)}
-        className="action-link-button"
-        onClick={() => toggleExpand()}
+      <button
+        // style={navItemStyles(pathname, '/services')}
+        className={styles.serviceActionLink}
+        onClick={handleClick}
       >
-        <p>{name}</p>
-        <Box className="expand-option-icon">
-          <Expand
-            color="inherit"
-            className="icon"
-            style={{
-              transform: isExpanded ? 'rotate(360deg)' : 'rotate(180deg)',
-            }}
+        <p>Services</p>
+        <div className={styles.expandIconContainer}>
+          <ExpandIcon
+            className={styles.expandIcon}
+            animate={{ rotate: open ? 0 : 180 }}
           />
-        </Box>
-      </Box>
-
-      {isExpanded && (
-        <>
-          <Box className="overlay" onClick={() => setIsExpanded(false)} />
-          <Box className="service-menu-container">
-            <Box className="arrow-up" />
-            {services.map((service) => {
-              return (
-                <ServiceCard
-                  closeMenu={() => setIsExpanded(false)}
-                  isAlreadyOpen={alreadyOpen(service.route)}
-                  key={service.route}
-                  description={service.description}
-                  imageUrl={service.imageUrl}
-                  title={service.label}
-                  route={service.route}
-                />
-              )
-            })}
-          </Box>
-        </>
-      )}
+        </div>
+      </button>
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        slotProps={{
+          paper: {
+            elevation: 0,
+            style: {
+              borderRadius: '0.53vw',
+              boxShadow: '2px 4px 42.3px 0 rgba(19, 103, 109, 0.14)',
+            },
+          },
+        }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <div className={styles.servicesMenuContainer}>
+          <div className={styles.arrowUp} />
+          {services.map((service) => (
+            <ServiceCard
+              isActive={alreadyOpen(service.route)}
+              key={service.route}
+              description={service.description}
+              imageUrl={service.imageUrl}
+              name={service.name}
+              route={service.route}
+            />
+          ))}
+        </div>
+      </Popover>
     </>
   )
 }

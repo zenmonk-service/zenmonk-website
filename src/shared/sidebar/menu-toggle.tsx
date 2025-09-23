@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 
 interface Props {
   toggle: () => void
+  className: string
 }
 const Path = (props: any) => (
   <motion.path
@@ -13,8 +14,8 @@ const Path = (props: any) => (
   />
 )
 
-export const MenuToggle = ({ toggle }: Props) => (
-  <button onClick={toggle} className="menu-toggle-btn">
+export const MenuToggle = ({ toggle, className }: Props) => (
+  <button onClick={toggle} className={className}>
     <svg width="18" height="18" viewBox="0 0 23 23">
       <Path
         variants={{

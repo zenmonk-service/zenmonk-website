@@ -13,7 +13,7 @@ const CloudDevelopmentPage = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id='cloud-development' />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

@@ -1,48 +1,46 @@
-import Image from 'next/image'
-import { Hero } from '@/modules/how-we-work/assets'
+'use client'
+
+import { motion } from 'framer-motion'
 import { SectionDescription } from '@/shared/typography'
-import HorizontalDottedImage from '../assets/hero/horizontal-dotted-image.png'
-import VerticalDottedImage from '../assets/hero/vert-dotted-image.png'
-import './styles.scss'
+import DottedBackground from './assets/dotted-background.svg'
+import HeroImage from './hero-image'
+import styles from './hero-section.module.scss'
 
 const HeroSection = () => {
   return (
-    <div className="how-we-work-hero-section-wrapper">
-      <div className="hero-section">
-        <div className="hero-section-text-wrapper">
-          <p className="text-heading">
+    <div className={styles.howWeWorkHeroSectionWrapper}>
+      <div className={styles.heroSection}>
+        <div className={styles.heroSectionTextWrapper}>
+          <motion.p
+            initial={{ opacity: 0, y: '2.6vw' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className={styles.textHeading}
+          >
             <span>How We Work</span> for <br />
             Seamless Solutions
-          </p>
+          </motion.p>
           <SectionDescription
+            initial={{ opacity: 0, y: '2.6vw' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.6,
+              ease: 'easeOut',
+            }}
             text="We deliver Zen-inspired precise, 
             mindful solutions by integrating deep expertise with client collaboration,
             prioritizing transparency, innovation, and purposeful development to 
             innovate impactful technology."
-            className="text-description"
+            className={styles.textDescription}
           />
         </div>
       </div>
-      <div className="hero-section-image-wrapper">
-        <Image className="hero-section-image" src={Hero} alt="innovator" fill />
-      </div>
-      <Image
-        alt="bottom-horizontal-dotted-image"
-        src={HorizontalDottedImage}
-        className="bottom-horizontal-dotted-image"
-      />
-      <Image
-        alt="top-horizontal-dotted-image"
-        src={HorizontalDottedImage}
-        className="top-horizontal-dotted-image"
-      />
-      <Image
-        alt="vertical-dotted-image"
-        src={VerticalDottedImage}
-        className="vertical-dotted-image"
-      />
+      <HeroImage />
+      <DottedBackground className={styles.topHorizontalDottedImage} />
+      <DottedBackground className={styles.verticalDottedImage} />
     </div>
   )
 }
 
-export default HeroSection 
+export default HeroSection

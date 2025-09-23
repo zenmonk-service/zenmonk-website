@@ -16,7 +16,7 @@ const UiUxDesignPage = () => {
       <Rating />
       <UiUxWhyChooseUs />
       <CreativeIdeas />
-      <ItSolutions />
+      <ItSolutions id='ui-ux-design'/>
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

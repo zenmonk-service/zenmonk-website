@@ -1,0 +1,162 @@
+.serviceSectionWrapper {
+  margin-top: max(6.25vw, 80px);
+}
+
+.servicesSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.125vw;
+}
+
+.servicesLeftContainer {
+  margin-top: 3.125vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.66vw;
+  padding-bottom: 5vw;
+  margin-right: -5.73vw;
+  z-index: 1;
+}
+
+.businessItem {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  width: max(276px, 19.32vw);
+  padding: 1.25vw;
+  border-radius: 0.52vw;
+  background: var(--global-color-primary);
+  outline: 0px solid var(--global-color-accent);
+  box-shadow: 0.26vw 0.2vw 2.7vw 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  align-items: center;
+}
+
+.businessItemContent {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 0.52vw;
+}
+
+.businessIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6vw;
+  fill: #fff;
+  height: 2.6vw;
+}
+
+.businessTitle {
+  color: #0b4357;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-20);
+  font-weight: 600;
+}
+
+.businessCountText {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 4.16vw;
+  font-weight: 600;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+}
+
+.servicesRightContainer {
+  display: flex;
+  margin-right: 2.08vw;
+  height: fit-content;
+  flex-direction: column;
+  will-change: transform;
+  position: relative;
+}
+
+.logo {
+  bottom: 45%;
+  left: 67%;
+  position: absolute;
+  width: 27.08vw;
+  height: 23.43vw;
+  z-index: -1;
+}
+
+.businessProof {
+  width: 49.375vw;
+  border-radius: 0.41vw;
+  height: 28vw;
+  background: #f77d03;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.businessProofContent {
+  width: 100%;
+  height: 100%;
+  padding: 2.5vw 2.08vw 2.5vw 8.69vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  color: var(--global-color-primary);
+}
+
+.businessProofHeading {
+  font-size: 1.875vw;
+  font-weight: 600;
+  line-height: normal;
+  font-family: inherit;
+  margin-bottom: max(16px, 0.83vw);
+}
+
+.businessProofDescription {
+  font-size: var(--font-size-14);
+  font-weight: 400;
+  flex: 1;
+  font-family: inherit;
+}
+
+.businessProofTechnologies {
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+  margin-bottom: max(60px, 3.125vw);
+}
+
+.businessProofCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.businessProofIcon {
+  margin-bottom: 0.4vw;
+  svg {
+    height: 2.08vw;
+    object-fit: contain;
+    fill: #fff;
+  }
+}
+
+.businessProofCardTitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-14);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.button {
+  align-self: flex-end;
+  color: #21305a !important;
+  background: linear-gradient(0deg, #fff 0%, #fff 100%) !important;
+  font-family: 'Inter', sans-serif;
+  font-size: var(--font-size-16) !important;
+  width: max(158px, 8.22vw);
+  box-shadow: 0px max(4px, 0.2vw) max(4px, 0.2vw) 0px rgba(0, 0, 0, 0.25) !important;
+}

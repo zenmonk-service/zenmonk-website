@@ -13,7 +13,7 @@ const IndustrySpecificSolutions = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id='industries-specific-solution' />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

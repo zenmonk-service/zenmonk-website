@@ -11,34 +11,34 @@ export const businesses = [
     fill: '#65D6DE',
     title: '24X7 Support',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'We provide top-grade products along with exceptional customer experience and 24/7 supports.',
   },
   {
     icon: ReadyMadeSolution,
-    title: 'Ready Made Solutions',
+    title: 'Pioneering New Ideas',
     background: 'rgb(60, 149, 219, 0.15)',
     hover: 'linear-gradient(180deg, #3C95DB 0%, #E00094 258.51%)',
     fill: '#3C95DB',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'We transform your vision into a future-ready reality by incorporating cutting-edge innovations.',
   },
 
   {
     icon: Customization,
     background: 'rgb(180, 123, 255, 0.15)',
     hover: 'linear-gradient(180deg, #B47BFF 0%, #E00094 258.51%)',
-    title: 'Customization',
+    title: 'Driving the Digital Future',
     fill: '#B47BFF',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'We empower your business to lead in the digital age with our innovative and tech-driven solutions.',
   },
   {
     icon: FastDevelopment,
-    title: 'Secure',
+    title: 'Fast Development',
     fill: '#6CC77D',
     background: 'rgb(108, 199, 125, 0.15)',
     hover: 'linear-gradient(180deg, #6CC77D 0%, #000902 317.38%)',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'We deliver high-quality and cost effective services allowing you to maximize your return on investment.',
   },
 ]

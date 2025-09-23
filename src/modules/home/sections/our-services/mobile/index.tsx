@@ -5,7 +5,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import Collapse from '@mui/material/Collapse'
 import { techLogos } from '@/assets/icons/business/tech'
 import { SectionTitle } from '@/shared/typography'
-import { serviceList } from '../services'
+import { services } from '@/static/services'
 import styles from './mobile.module.scss'
 
 const OurServicesMobile = () => {
@@ -31,14 +31,14 @@ const OurServicesMobile = () => {
         className={styles.heading}
         markTextProps={{ rotate: 1.8 }}
       />
-      {serviceList.map((service, index: number) => {
+      {services.map((service, index: number) => {
         const isOpened = openedServices.includes(index)
         return (
           <div
             key={service.id}
             className={styles.card}
             style={{
-              backgroundColor: `${isOpened && service.hoverColor}`,
+              backgroundColor: `${isOpened && service.styles.hoverColor}`,
             }}
           >
             <div
@@ -48,15 +48,15 @@ const OurServicesMobile = () => {
               className={styles.cardContentContainer}
             >
               <p
-                style={{ background: countColor(service.color) }}
+                style={{ background: countColor(service.styles.color) }}
                 className={styles.count}
               >
-                {service.id}
+                {(index + 1).toString().padStart(2, '0')}
               </p>
 
               <div className={styles.cardContent}>
-                <service.Icon className={styles.icon} />
-                <p className={styles.title}>{service.title}</p>
+                <service.icon className={styles.icon} />
+                <p className={styles.title}>{service.name}</p>
               </div>
 
               <div className={styles.arrowIcon}>
@@ -70,12 +70,14 @@ const OurServicesMobile = () => {
                   <p className={styles.description}>{service.description}</p>
                 </div>
                 <div className={styles.techLogosContainer}>
-                  {techLogos.map(({ SrcMobile, name }) => (
-                    <div className={styles.techLogos} key={name}>
-                      <SrcMobile />
-                      <p>{name}</p>
-                    </div>
-                  ))}
+                  {service.services
+                    .slice(0, 5)
+                    .map(({ icon: Icon, title, id }) => (
+                      <div className={styles.techLogos} key={id}>
+                        <Icon style={{ fill: '#fff' }} />
+                        <p>{title}</p>
+                      </div>
+                    ))}
                 </div>
               </Collapse>
             </div>

@@ -1,15 +1,4 @@
-interface ActionLink {
-  name: string
-  href: string
-  options?: boolean
-}
-
-const actionsLink = [
-  {
-    name: 'Services',
-    href: '/services',
-    options: true,
-  },
+export const navLinks = [
   {
     name: 'About Us',
     href: '/about-us',
@@ -22,11 +11,4 @@ const actionsLink = [
     name: 'How we work',
     href: '/how-we-work',
   },
-  {
-    name: 'Contact us',
-    href: '/contact',
-  },
 ]
-
-export { actionsLink }
-export type { ActionLink }

@@ -23,7 +23,7 @@
     right: calc(15% + 30vw);
     z-index: 2;
     opacity: 0.9;
-    background-color: #FFF;
+    background-color: #fff;
   }
 
   .ball-bg {
@@ -66,7 +66,7 @@
       }
       .description {
         color: var(--global-color-text) !important;
-        font-family: Poppins !important;
+        font-family: 'Poppins', sans-serif !important;
         font-size: var(--font-size-24) !important;
         font-weight: 400;
         opacity: 0;
@@ -94,7 +94,6 @@
     }
   }
 }
-
 
 @keyframes fadeInScaleRotate {
   0% {
@@ -141,18 +140,6 @@
   animation: slideUpFadeIn 0.8s ease-out forwards;
   animation-delay: 0.4s;
   visibility: visible;
-}
-
-/* Slide Up & Fade In Animation */
-@keyframes slideUpFadeInB {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @media screen and (max-width: 900px) {

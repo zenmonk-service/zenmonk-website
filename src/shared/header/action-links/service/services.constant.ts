@@ -1,4 +1,11 @@
 import {
+  Gear,
+  BriefCase,
+  Mobile,
+  BriefCasePerson,
+} from '@/assets/icons/business'
+
+import {
   growthMarketing,
   industrySpecific,
   itBusiness,
@@ -11,70 +18,70 @@ import {
 
 export const services = [
   {
-    label: 'Software Development',
+    name: 'Software Development',
     description:
       'We build scalable and secure software tailored to your business needs.',
     imageUrl: softwareDevelopment,
     route: 'software-development',
   },
   {
-    label: 'Mobile App Development',
+    name: 'Mobile App Development',
     description:
       'Creating intuitive and engaging mobile apps for iOS and Android users.',
     imageUrl: mobileDevelopment,
     route: 'mobile-app-development',
   },
   {
-    label: 'Product Development',
+    name: 'Product Development',
     description:
       'From idea to launch, we help you craft powerful digital products.',
     imageUrl: productDevelopment,
     route: 'product-development',
   },
   {
-    label: 'IT & Business Consultations',
+    name: 'IT & Business Consultations',
     description:
       'Expert guidance to align technology with your business objectives.',
     imageUrl: itBusiness,
     route: 'it-&-business-consultation',
   },
   {
-    label: 'UI/UX Design',
+    name: 'UI/UX Design',
     description:
       'Designing seamless user experiences with clean and modern interfaces.',
     imageUrl: uiUx,
     route: 'ui-ux-design',
   },
   {
-    label: 'Growth & Marketing',
+    name: 'Growth & Marketing',
     description:
       'Strategies that boost visibility, engagement, and customer retention.',
     imageUrl: growthMarketing,
     route: 'growth-&-marketing',
   },
   {
-    label: 'IT Training & Workshops',
+    name: 'IT Training & Workshops',
     description:
       'Upskill your team with practical, hands-on training and workshops.',
     imageUrl: itTraining,
     route: 'it-training-&-workshops',
   },
   {
-    label: 'Industry-Specific Solutions',
+    name: 'Industry-Specific Solutions',
     description:
       'Tailored solutions designed to meet your industry’s unique needs.',
     imageUrl: industrySpecific,
     route: 'industry-specific-solutions',
   },
   {
-    label: 'Cloud development',
+    name: 'Cloud development',
     description:
       'Deploy, scale, and manage apps efficiently with cloud-first solutions.',
     imageUrl: itTraining,
     route: 'cloud-development',
   },
   {
-    label: 'AI Based Softwares',
+    name: 'AI Based Softwares',
     description:
       'Intelligent solutions powered by AI to drive smarter decisions.',
     imageUrl: industrySpecific,
