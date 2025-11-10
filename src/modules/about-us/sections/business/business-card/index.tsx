@@ -76,7 +76,7 @@ const BusinessCard = ({
             },
             hover: {
               backgroundColor: '#fff',
-              boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
+              boxShadow: '0 max(4px, 0.2vw) max(4px, 0.2vw) rgba(0, 0, 0, 0.25)',
               transition: { duration: 0.4, type: 'tween' },
             },
           }}
@@ -87,7 +87,7 @@ const BusinessCard = ({
         <Plus
           style={{
             position: 'absolute',
-            width: '0.62vw',
+            width: 'max(12px, 0.62vw)',
             top: '14%',
             left: '3%',
             stroke: fill,
@@ -115,7 +115,7 @@ const BusinessCard = ({
         <Plus
           style={{
             position: 'absolute',
-            width: '0.62vw',
+            width: 'max(12px, 0.62vw)',
             transform: 'rotate(45deg)',
             bottom: '12%',
             left: '29.5%',
@@ -142,13 +142,13 @@ const BusinessCard = ({
         <Eclipse
           style={{
             position: 'absolute',
-            width: '0.62vw',
+            width: 'max(12px, 0.62vw)',
             bottom: '8%',
             stroke: fill,
           }}
           variants={{
             rest: {
-              width: '0.62vw',
+              width: 'max(12px, 0.62vw)',
               bottom: '8%',
               stroke: fill,
             },
@@ -166,7 +166,7 @@ const BusinessCard = ({
         <Eclipse
           style={{
             position: 'absolute',
-            width: '0.62vw',
+            width: 'max(12px, 0.62vw)',
             top: '16%',
             left: '29%',
             stroke: fill,
@@ -191,7 +191,7 @@ const BusinessCard = ({
         <Circle
           style={{
             position: 'absolute',
-            width: '0.36vw',
+            width: 'max(8px, 0.36vw)',
             top: '50%',
             left: '32%',
             fill,

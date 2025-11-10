@@ -1,4 +1,4 @@
-import { BusinessSection } from '@/modules/about-us/sections'
+import { BusinessSection, WhyChooseUsSection } from '@/modules/about-us/sections'
 import StandOutSection from '@/modules/about-us/sections/stand-out-section'
 import HeroSection from '@/modules/about-us/sections/hero-section'
 
@@ -8,8 +8,8 @@ const About = () => {
       <HeroSection />
       <BusinessSection />
       <StandOutSection />
-      {/* 
       <WhyChooseUsSection />
+      {/* 
       <AwardProofSection />
       <VisionSection />
       <ContactUsSection /> */}

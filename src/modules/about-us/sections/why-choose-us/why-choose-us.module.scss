@@ -1,0 +1,111 @@
+$hover-bg-light-aqua: #e8f9fa;
+$hover-bg-light-purple: #f4ebff;
+$hover-bg-light-blue: #e2effa;
+$hover-bg-light-green: #e9f7ec;
+
+.aboutUsWhyChooseUsSection {
+  width: 100%;
+  margin-bottom: 5.2vw;
+  gap: 3.6vw;
+  display: flex;
+}
+
+.cardSection {
+  width: max-content;
+  display: flex;
+  gap: max(1.042vw, 2.604vw);
+}
+
+.leftSection {
+  width: max-content;
+  height: 100%;
+  display: flex;
+  gap: 2.6vw;
+  flex-direction: column;
+}
+
+.centerSection {
+  width: max-content;
+  margin-top: 3.6vw;
+  height: 100%;
+  display: flex;
+  gap: 2.6vw;
+  flex-direction: column;
+}
+
+.whyChooseUsCard {
+  transition: background 0.2s ease-in-out;
+}
+
+.leftSection .whyChooseUsCard:nth-child(1):hover {
+  background: $hover-bg-light-aqua;
+}
+
+.leftSection .whyChooseUsCard:nth-child(2):hover {
+  background: $hover-bg-light-purple;
+}
+
+.centerSection .whyChooseUsCard:nth-child(1):hover {
+  background: $hover-bg-light-blue;
+}
+
+.centerSection .whyChooseUsCard:nth-child(2):hover {
+  background: $hover-bg-light-green;
+}
+
+.rightSection {
+  width: 31.25vw;
+  height: 100%;
+}
+
+.sectionTitle {
+  margin-top: 7.3vw;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.6vw;
+  font-style: normal;
+  line-height: 132%;
+  font-weight: 600 !important;
+}
+
+.description {
+  margin-top: 0.781vw;
+  height: auto;
+  padding-bottom: 0.260vw;
+  color: #555;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.937vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 90%;
+  min-width: 19.8vw;
+}
+
+.skillsSet {
+  margin-top: 1.6vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.52vw;
+}
+
+.skillTitle {
+  margin-bottom: 0.26vw;
+  color: #424242;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.rating {
+  display: flex;
+  gap: 0.7vw;
+  img {
+    width: 2vw;
+    height: 2vw;
+  }
+}

@@ -1,6 +1,6 @@
 export * from './hero-section'
 export * from './business'
-export * from './why-choose-us-section'
+export * from './why-choose-us'
 export * from './award-proof-section'
 export * from './stand-out-section/desktop'
 export * from './vision-section'
