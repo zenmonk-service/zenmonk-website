@@ -1,12 +1,12 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import { Message, Phone, Send, Telegram } from '@mui/icons-material'
 import { Box, FormControl, FormHelperText } from '@mui/material'
 import BaseButton from '@/shared/button'
 import { BaseInput } from './input'
 import './styles.scss'
 import { Title } from './title'
+import { Message, Mobile, PaperPlane, Send } from '@/assets/icons/contact-us/contact'
 
 type ContactFormData = {
   firstName: string
@@ -71,7 +71,7 @@ export const ContactForm = () => {
         <BaseInput
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
-          endAdornment={<Telegram className="end-adornment" />}
+          endAdornment={<PaperPlane className="end-adornment" />}
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -92,7 +92,7 @@ export const ContactForm = () => {
         <BaseInput
           className={`phone-number-input ${errors.phone ? 'error-border' : ''}`}
           placeHolder="Phone"
-          endAdornment={<Phone className="end-adornment" />}
+          endAdornment={<Mobile className="end-adornment" />}
           {...register('phone', {
             required: 'Phone number is required',
             pattern: { value: /^[0-9]+$/, message: 'Invalid phone number' },

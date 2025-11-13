@@ -89,7 +89,7 @@
   }
 
   .button-wrapper {
-    margin-top: 1.04vw; // 20px
+    margin-top: max(20px, 1.25vw); // 20px
     flex-shrink: 0;
 
     .send-button {
@@ -100,6 +100,10 @@
       align-items: center !important;
       gap: max(0.52vw, 10px) !important; // 10px
       flex-shrink: 0;
+      font-family: Poppins;
+      font-size: var(--font-size-20);
+      font-weight: 600;
+      text-transform: none;
     }
     .send-button-icon {
       font-size: var(--font-size-20); // 20px
@@ -191,7 +195,7 @@
     }
 
     .button-wrapper {
-      margin-top: 1.04vw; // 20px
+      margin-top: max(20px, 1.25vw); // 20px
       flex-shrink: 0;
 
       .send-button {
