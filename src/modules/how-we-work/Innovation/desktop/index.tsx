@@ -7,8 +7,14 @@ import Earth from '../../assets/innovation/earth.svg'
 import PersonSittingOnDesk from '../../assets/innovation/img.png'
 import { ServiceIcons } from '../service-icons'
 import './styles.scss'
+import { useRouter } from 'next/navigation'
 
 const InnovationDesktop = () => {
+  const router = useRouter();
+  const handleContactClick = () => {
+    router.push('/contact');
+  }
+
   return (
     <Stack className="innovation-section-wrapper">
       <Stack className="innovation-section">
@@ -47,7 +53,7 @@ const InnovationDesktop = () => {
                   We make robust, responsive, SEO friendly and Secure Websites
                   that will take your business to next level.
                 </p>
-                <Button className="contact-btn">Contact us</Button>
+                <Button className="contact-btn" onClick={handleContactClick}>Contact us</Button>
               </Stack>
               <div className="paper-plane-img-wrapper">
                 <Image src={PaperPlaneImg} alt="" className="paper-plane-img" />

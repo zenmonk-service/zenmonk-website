@@ -91,7 +91,7 @@ export default function Testimony() {
           <div className="section-header-container">
             <SectionTitle
               text="Real Results, Real People"
-              markText="promise"
+              markText="People"
               align="center"
               className="title"
             />

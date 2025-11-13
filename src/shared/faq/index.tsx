@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Collapse } from '@mui/material'
 import FAQ_IMAGE from './assets/faq.svg'

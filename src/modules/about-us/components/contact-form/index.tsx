@@ -111,7 +111,7 @@ export const ContactForm = () => {
           <BaseInput
             multiline
             className={`message-input`}
-            placeHolder="Write message ..."
+            placeHolder="Write Message.."
             rows={3}
             {...register('message', { required: 'Message cannot be empty' })}
           />
