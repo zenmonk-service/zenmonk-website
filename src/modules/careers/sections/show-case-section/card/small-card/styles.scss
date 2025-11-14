@@ -72,11 +72,12 @@
         font-weight: 400;
       }
       .button {
+        text-transform: none;
         padding: 0;
         display: flex;
         gap: 0.52vw;
         font-family: Poppins;
-        font-size: var(--font-size-14) !important;
+        font-size: max(14px, 0.72916666666vw);
         font-style: normal;
         font-weight: 600 !important;
         align-items: center;
@@ -88,6 +89,9 @@
         .icon {
           color: #eb7c0d;
           font-size: inherit;
+        }
+        .MuiTouchRipple-root span {
+          background-color: rgba(255, 128, 0, 0.3);
         }
       }
     }

@@ -1,7 +1,6 @@
 import Image from 'next/image'
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import Button from '@mui/material/Button'
-import { Calender } from '../../assets'
+import { Calender, SmallArrow } from '../../assets'
 import './styles.scss'
 
 interface BigShowCaseCardProps {
@@ -37,7 +36,7 @@ const BigShowCaseCard = ({ cardProps }: BigShowCaseCardProps) => {
           <h1 className="title-text">{cardDetails?.title}</h1>
           <p className="description-text">{cardDetails?.description}</p>
           <Button className="button" variant="text">
-            Show More <ArrowRightAltIcon className="icon" />
+            Show More <SmallArrow className="icon" />
           </Button>
         </div>
       </div>

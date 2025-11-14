@@ -20,21 +20,25 @@
       object-fit: contain;
     }
   }
+
   .event-details {
     padding: 1.56vw;
     width: 100%;
     height: auto;
+
     .event-date {
       width: 100%;
       height: auto;
       display: flex;
       gap: 0.52vw;
       align-items: center;
+
       img {
         width: 0.73vw;
         height: 0.83vw;
         flex-shrink: 0;
       }
+
       .date-text {
         color: #757575;
         font-family: 'Poppins', sans-serif;
@@ -43,6 +47,7 @@
         font-weight: 400;
       }
     }
+
     .event-content-details {
       width: 100%;
       height: auto;
@@ -58,6 +63,7 @@
         font-style: normal;
         font-weight: 600;
       }
+
       .description-text {
         color: #757575;
         font-family: Poppins;
@@ -65,12 +71,14 @@
         font-style: normal;
         font-weight: 400 !important;
       }
+
       .button {
+        text-transform: none;
         padding: 0;
         display: flex;
         gap: 0.52vw;
         font-family: Poppins;
-        font-size: var(--font-size-14) !important;
+        font-size: max(14px, 0.72916666666vw);
         font-style: normal;
         font-weight: 600 !important;
         align-items: center;
@@ -79,9 +87,17 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
         .icon {
-          color: #eb7c0d;
-          font-size: inherit;
+          background: linear-gradient(99deg, #EB7C0D 3.23%, #FFA750 97.72%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-size: max(14px, 0.72916666666vw);
+        }
+
+        .MuiTouchRipple-root span {
+          background-color: rgba(255, 128, 0, 0.3);
         }
       }
     }
@@ -94,28 +110,36 @@
     height: auto;
     border-radius: 11.36px;
     background: #f6f6f6;
+
     .show-case-image-container {
       border-radius: 11.36px;
       width: 100%;
     }
+
     .event-details {
       padding: 16px;
+
       .event-date {
         gap: 4px;
+
         img {
           width: 12px;
           height: 12px;
         }
+
         .date-text {
           font-size: 12px;
         }
       }
+
       .event-content-details {
         gap: 8px;
+
         .title-text {
           margin-top: 16px;
           font-size: 12px !important;
         }
+
         .description-text {
           font-size: 12px !important;
           margin-bottom: 8px;

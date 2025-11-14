@@ -94,6 +94,7 @@
 
     .send-button {
       width: 100%;
+      height: max(60px, 3.125vw);
       display: flex;
       padding: max(1.04vw, 12px) max(1.56vw, 30px) !important; // 20px 30px
       justify-content: center !important;
