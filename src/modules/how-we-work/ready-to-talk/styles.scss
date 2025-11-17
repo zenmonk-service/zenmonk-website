@@ -4,13 +4,16 @@
   gap: 4.17vw;
   margin-top: 6.25vw;
   align-items: center;
-  padding-left: 3%;
-  padding-right: 3%;
+  padding-left: 7.8%;
+  padding-right: 7.8%;
+  padding-bottom: 6%;
 
   .ready-to-talk-content {
+    align-self: flex-start;
     .subheading {
       color: #757575;
       font-family: 'Poppins', sans-serif;
+      font-size: max(16px, 0.9375vw);
       font-style: normal;
       line-height: normal;
       margin-top: max(16px, 0.83vw);
@@ -24,16 +27,13 @@
         .step-header {
           display: flex;
           align-items: center;
-          gap: max(18px, 0.9375vw);
-          .step-icon {
-            width: 28px;
-            height: 32px;
-          }
+          gap: max(8px, 0.9375vw);
         }
+
         .step-heading {
           color: #132427;
           font-family: 'Poppins', sans-serif;
-          font-size: max(28px, 1.45vw);
+          font-size: max(16px, 1.458vw);
           font-style: normal;
           font-weight: 600;
           display: flex;
@@ -44,7 +44,7 @@
         .step-description {
           color: #757575;
           font-family: 'Poppins', sans-serif;
-          font-size: max(18px, 0.9375vw);
+          font-size: max(16px, 0.9375vw);
           font-style: normal;
           font-weight: 400;
           line-height: normal;
@@ -54,15 +54,33 @@
   }
 
   .image-container {
+    align-self: center;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    mask-image: linear-gradient(to bottom,
+        black 97%,
+        transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom,
+        black 97%,
+        transparent 100%);
+
 
     img {
       height: 100%;
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .ready-to-talk-section-wrapper {
+    flex-direction: column-reverse;
+
+    .image-container {
+      max-width: 500px;
     }
   }
 }
@@ -72,26 +90,32 @@
     padding: 0 16px;
     margin: 64px 0px;
     flex-direction: column-reverse;
+
     .ready-to-talk-content {
       .subheading {
         font-size: 14px !important;
         letter-spacing: 0.28px;
         margin-bottom: 24px;
       }
+
       .step-container {
         gap: 24px;
+
         .steps {
           .step-header {
             gap: 8px;
-            .step-icon{
+
+            .step-icon {
               width: 18px;
               height: 19px;
             }
           }
+
           .step-heading {
-            font-size: 12px;
+            font-size: 14px;
             line-height: normal;
           }
+
           .step-description {
             font-size: 12px;
             margin-top: 8px;
