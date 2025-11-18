@@ -14,8 +14,9 @@ const InnovationMobile = () => {
         className={styles.title}
       />
       <p className={styles.description}>
-        State burst think end are its. Arrived off she elderly beloved him affix
-        ed noisier yet. Course regard to up he hardly elder noisier.
+        Zenmonk delivers innovative solutions, exceeding expectations in every
+        way. Our services reflect our values, combining precision and dedication
+        to achieve successful outcomes.
       </p>
       <div className={styles.deliverCard}>
         <div className={styles.deliverCardIcon}>

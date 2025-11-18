@@ -34,7 +34,7 @@ const ItSolutions = ({ id }: { id: string }) => {
           container
           rowSpacing={{ xs: '14px', sm: '28px', md: '2.083vw' }}
           columnSpacing={{ xs: '14px', sm: '28px', md: '2.083vw' }}
-          sx={{ mt: '3.645vw', justifyContent: 'center' }}
+          sx={{ justifyContent: 'center' }}
         >
           {services.map((service, index) => {
             const { background, fill } = cardStyles[index]

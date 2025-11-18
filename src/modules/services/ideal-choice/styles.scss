@@ -1,18 +1,31 @@
 .your-ideal-choice {
   border-radius: 2.6vw;
   background-color: #104048 !important;
-  padding: 4.375vw 12.9167vw;
+  padding: 4.375vw 11.45vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5625vw;
-  margin: 6.25vw auto 0;
-  margin-left: 3.125vw;
-  margin-right: 3.125vw;
+  margin: 6.25vw 3.125vw 0;
+
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 4.375vw 6.25vw;
+  }
 
   .first-container {
-    .title,
+    display: flex;
+    flex-direction: column;
+    gap: 0.833vw;
+    .title{
+      color: #f5f5f5;
+      font-size: max(24px, 2.083vw);
+      letter-spacing: max(0.48px, 0.043vw) !important;
+    }
     .description {
       color: #f5f5f5;
+      font-size: max(16px, 0.9375vw);
+      margin: 0;
+      letter-spacing: max(0.28px, 0.028vw) !important;
     }
   }
 
@@ -34,7 +47,7 @@
       font-size: var(--font-size-20);
       font-style: normal;
       font-weight: 500;
-      line-height: 1.5625vw;
+      line-height: max(25px, 1.5625vw); 
     }
 
     .description {
@@ -64,18 +77,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 16px;
       .title {
         font-size: var(--font-size-24);
         line-height: normal;
         text-align: center;
-        width: 63%;
       }
 
       .description {
         font-size: var(--font-size-14);
         line-height: normal;
         letter-spacing: 0.28px;
-        margin-top: 16px;
+        margin-bottom: 10px;
       }
     }
 

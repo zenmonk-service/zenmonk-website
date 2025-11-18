@@ -69,6 +69,7 @@ const ServiceLink = (props: Props) => {
               imageUrl={service.imageUrl}
               name={service.name}
               route={service.route}
+              handleClose={handleClose}
             />
           ))}
         </div>
