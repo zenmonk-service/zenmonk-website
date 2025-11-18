@@ -34,7 +34,7 @@ export const OurServices = [
         id: 'software-development-crm-software',
         title: 'CRM Software',
         description:
-          'Enhance customer relationships with customizable CRM solutions that improve engagement and satisfaction.',
+          'Strengthen customer relationships with customizable CRM that boosts engagement and satisfaction.',
         icon: SoftwareDevelopment.Crm,
       },
       {

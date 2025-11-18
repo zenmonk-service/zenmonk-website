@@ -32,14 +32,15 @@ const ItSolutions = ({ id }: { id: string }) => {
         />
         <Grid
           container
-          rowSpacing={{ xs: '14px', sm: '28px', md: '2.083vw' }}
-          columnSpacing={{ xs: '14px', sm: '28px', md: '2.083vw' }}
+          rowSpacing={{ xs: '14px', sm: '28px', md: '2vw' }}
+          columnSpacing={{ xs: '14px', sm: '28px', md: '2vw' }}
+          className={styles.containerGrid}
           sx={{ justifyContent: 'center' }}
         >
           {services.map((service, index) => {
             const { background, fill } = cardStyles[index]
             return (
-              <Grid key={service.id}>
+              <Grid key={service.id} > {/* item */}
                 <div className={styles.card}>
                   <div
                     style={{ backgroundColor: background }}

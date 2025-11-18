@@ -40,7 +40,7 @@ const YourIdealChoice = () => {
       <div className="first-container">
         <SectionTitle
           text="Why Our Expertise is Your Ideal Choice"
-          markText="expertise"
+          markText="Expertise"
           align="left"
           className="title"
           markTextProps={{ rotate: 5 }}
