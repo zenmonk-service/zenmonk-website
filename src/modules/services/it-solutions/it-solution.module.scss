@@ -20,7 +20,7 @@
       color: #757575;
       text-align: center;
       margin-top: 0.833vw;
-      padding: 0px 14vw;
+      padding: 0px 5vw;
       font-size: max(16px, 0.833vw);
     }
 
@@ -133,6 +133,7 @@
 @media screen and (max-width: 768px) {
   .wrapper {
     padding: 0 16px;
+    margin: unset;
 
     .container {
       border-radius: 16px;
@@ -143,6 +144,7 @@
       .subtitle {
         font-size: 14px;
         margin-top: 16px;
+        padding: unset;
         line-height: normal;
         letter-spacing: 0.28px;
         max-width: 100%;

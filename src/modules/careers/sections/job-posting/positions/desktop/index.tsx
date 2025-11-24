@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { Box, Chip, Typography } from '@mui/material'
+import { Box, Chip, Stack, Typography } from '@mui/material'
 import { Department } from '../../../types'
+import Check from '../assets/desktopCheck.svg'
 import { positionsList } from '../positions'
 import './styles.scss'
+import BaseButton from '@/shared/button'
 
 interface SkillsCardProps {
   title: string
@@ -13,9 +15,12 @@ interface SkillsCardProps {
 
 const SkillsCard = ({ title, description }: SkillsCardProps) => (
   <Box className="skills-container">
-    <Typography className="skills-title" component="h3">
-      ✅&nbsp;{title}
-    </Typography>
+    <Stack direction="row" alignItems="center" gap={'0.520vw'}>
+      <Check />
+      <Typography className="skills-title" component="h3">
+        {title}
+      </Typography>
+    </Stack>
     <Typography className="skills-description" component="p">
       {description}
     </Typography>
@@ -24,12 +29,16 @@ const SkillsCard = ({ title, description }: SkillsCardProps) => (
 
 const PositionsDesktop = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<Department>(
-    positionsList.find(dept => dept.positions.some(pos => pos.isOpening)) ?? positionsList[0]
+    positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ??
+      positionsList[0]
   )
 
-  const hasOpenPosition = selectedDepartment?.positions.some(pos => pos.isOpening)
+  const hasOpenPosition = selectedDepartment?.positions.some(
+    (pos) => pos.isOpening
+  )
 
-  const handleSelectPosition = (department: Department) => setSelectedDepartment(department)
+  const handleSelectPosition = (department: Department) =>
+    setSelectedDepartment(department)
 
   return (
     <Box className="positions">
@@ -56,18 +65,23 @@ const PositionsDesktop = () => {
         {hasOpenPosition ? (
           selectedDepartment.positions.map((role, index) => (
             <Box key={index}>
-              <Typography component="h1" className="department-title">
-                {role.heading}
-                <Chip
-                  className="chip-label"
-                  label={role.isOpening ? 'open' : 'closed'}
-                  color={role.isOpening ? 'success' : 'error'}
-                  variant="outlined"
-                />
-              </Typography>
-              <Typography component="p" className="department-description">
-                {role.description}
-              </Typography>
+              <Stack direction="row" alignItems="flex-start" gap={'1.042vw'}>
+                <Box>
+                  <Typography component="h1" className="department-title">
+                    {role.heading}
+                    <Chip
+                      className="chip-label"
+                      label={role.isOpening ? 'open' : 'closed'}
+                      color={role.isOpening ? 'success' : 'error'}
+                      variant="outlined"
+                    />
+                  </Typography>
+                  <Typography component="p" className="department-description">
+                    {role.description}
+                  </Typography>
+                </Box>
+                <BaseButton className='apply-btn' >Apply Now</BaseButton>
+              </Stack>
               <Box className="skills-set-wrapper">
                 {role.skills.map((skill, skillIndex) => (
                   <SkillsCard

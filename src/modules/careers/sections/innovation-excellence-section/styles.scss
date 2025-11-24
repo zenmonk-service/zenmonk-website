@@ -1,35 +1,54 @@
 .innovation-excellence-section {
   width: 100%;
   display: flex;
-  padding: 6.3vw;
+  justify-content: space-between;
+  padding: 6.3vw 8.072vw;
+  gap: 8.072vw;
+
   .left-section {
-    width: 40%;
+    width: 48%;
+
     .title {
-      width: 27.5vw;
+      width: 100%;
       color: #132427;
       font-family: Poppins;
       font-style: normal;
       font-weight: 600;
     }
+
     .description {
       margin-top: 0.83vw;
+      margin-bottom: 1.666vw;
       color: #757575;
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       line-height: normal;
     }
-    .excellence-image {
-      margin-top: 1.66vw;
-    }
+
   }
+
   .right-section {
     width: 100%;
     flex: 1;
-    display: flex;
+    display: grid;
     column-gap: 3.33vw;
     row-gap: 1.8vw;
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .innovation-excellence-section {
+    gap: 3.072vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .innovation-excellence-section {
+    .right-section {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 
@@ -40,19 +59,24 @@
     padding: 0 16px;
     margin-top: 80px;
     align-items: center;
+
     .left-section {
       width: 100%;
+
       .title {
         width: 90%;
       }
+
       .description {
         font-size: 14px;
         margin-top: 16px;
       }
+
       .excellence-image {
         display: none;
       }
     }
+
     .right-section {
       gap: 16px;
       padding-left: 32px;

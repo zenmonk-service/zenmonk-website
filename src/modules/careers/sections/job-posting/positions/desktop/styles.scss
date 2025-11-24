@@ -1,31 +1,32 @@
 .positions {
-  margin-top: 1.56vw;
+  margin-top: 3.125vw;
   width: 100%;
-  height: 26.04vw;
+  height: 26.2vw;
   border-radius: 1.04vw;
-  border: 0.10vw solid #f5f5f5;
+  border: max(2px, 0.106667vw) solid #f5f5f5;
   background: var(--global-color-primary);
   display: flex;
 
   .left-section {
     padding-top: 1.56vw;
     width: 19.79vw;
-    height: 25.94vw;
+    height: 100%;
     flex-shrink: 0;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3.125vw 0vw 3.125vw 2.08333vw;
+    padding: 2.125vw 0vw 2.125vw 2.08333vw;
     border-radius: 1.04167vw 0vw 0vw 1.04167vw;
-  
+
 
     .position {
       cursor: pointer;
       padding: 1.04vw;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: max(16px , 1.15vw);
+      font-size: 1.146vw;
+      line-height: 1.5625vw;
       font-style: normal;
       font-weight: 600;
       width: 100%;
@@ -87,15 +88,22 @@
       color: #132427;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: max(20px , 1.56vw);
+      font-size: 1.56vw;
       font-style: normal;
       font-weight: 600;
       text-transform: capitalize;
       margin-bottom: 0.52vw;
 
       .chip-label {
-        font-size: max(10px , 0.57vw);
+        font-size: 0.9375vw;
         margin-left: 0.52vw;
+        padding: 0.416vw 0.833vw;
+        height: fit-content;
+        border-radius: 0.625vw;
+
+        span {
+          padding: unset;
+        }
       }
     }
 
@@ -103,10 +111,21 @@
       color: #757575;
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: var(--font-size-16);
+      font-size: 0.833vw;
       font-style: normal;
       font-weight: 400;
       margin-bottom: 0.52vw;
+    }
+
+    .apply-btn {
+      padding: 0.416vw 0.83vw;
+      font-size: 0.9375vw;
+      text-transform: none;
+      border-radius: 0.625vw;
+      width: 6.8vw;
+      height: 2.29vw;
+      display: flex;
+      align-items: center;
     }
 
     .skills-set-wrapper {
@@ -127,7 +146,7 @@
           color: #132427;
           font-feature-settings: "liga" off, "clig" off;
           font-family: Poppins;
-          font-size: var(--font-size-18) !important;
+          font-size: 0.937vw !important;
           font-style: normal;
           font-weight: 600 !important;
         }
@@ -137,7 +156,7 @@
           font-feature-settings: "liga" off, "clig" off;
           font-family: Poppins;
           justify-content: start !important;
-          font-size: var(--font-size-16) !important;
+          font-size: 0.833vw !important;
           font-style: normal;
           font-weight: 400;
         }
