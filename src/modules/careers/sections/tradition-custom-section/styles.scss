@@ -3,32 +3,46 @@
   height: auto;
   position: relative;
   background: #104048;
-  padding-bottom: 2.08vw;
+  padding: 2.083vw 0;
 
   .bg-image {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
   }
+
+  .bg-image-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
   .container {
     width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 3.125vw;
-    max-width: 72.9166666667vw;
+    max-width: 62.5vw;
     margin: auto;
+
     .traditions-customs-title-description-wrapper {
-      padding: 3.65vw 0px 0px 6.77vw;
+      max-width: 26.5625vw;
+
       .traditions-customs-title {
-        width: 20.83vw;
         color: var(--White, #fff);
         font-family: Poppins;
         font-size: max(24px, 2.6vw);
         font-style: normal;
         font-weight: 600;
-        line-height: max(60px, 3.125vw);
+        line-height: max(28px, 3.125vw);
       }
+
       .traditions-customs-description {
-        width: 23.96vw;
         margin-top: 0.83vw;
         color: var(--White, #fff);
         font-family: inherit;
@@ -36,42 +50,91 @@
         font-weight: 400;
       }
     }
+
     .traditions-customs-list {
-      margin-top: 2.08vw;
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 1.56vw;
       justify-content: center;
       align-items: center;
+      max-width: 62.5vw;
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .traditions-customs-section {
+    .container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 83.5vw;
+
+      .traditions-customs-title-description-wrapper {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .traditions-customs-list {
+        max-width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+  }
+}
+
 
 @media screen and (max-width: 600px) {
   .traditions-customs-section {
     padding: 28px 16px;
     margin-top: 60px;
+
+    .bg-image {
+      display: none;
+    }
+
+    .bg-image-mobile {
+      display: block;
+    }
+
     .container {
       gap: 16px;
+      align-items: unset;
+      justify-content: unset;
       flex-direction: column;
       max-width: 100%;
       margin: 0;
+
       .traditions-customs-title-description-wrapper {
-        padding: 0px;
+        max-width: 100%;
+        text-align: left;
+
         .traditions-customs-title {
           width: 100%;
           font-size: 20px;
           line-height: normal;
         }
+
         .traditions-customs-description {
           width: 100%;
           margin-top: 14px;
         }
       }
+
       .traditions-customs-list {
-        margin-top: 16px;
         gap: 18px;
         justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .traditions-customs-section {
+    .container {
+      .traditions-customs-list {
+        grid-template-columns: 1fr;
       }
     }
   }

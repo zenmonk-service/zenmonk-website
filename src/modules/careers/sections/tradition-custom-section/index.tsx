@@ -1,12 +1,13 @@
-import { bgImage as BackgroundImage } from './assets'
+import { bgImage as BackgroundImage, bgMobileImage as BackgroundImageMobile } from './assets'
 import TraditionCustomCard from './card/tradition-card'
 import './styles.scss'
 import { traditionsCustoms } from './tradition-customs'
 
-const TraditionsCustoms = () => {
+const TraditionsCustoms = () => { 
   return (
     <div className="traditions-customs-section">
       <BackgroundImage className="bg-image" />
+      <BackgroundImageMobile className="bg-image-mobile" />
       <div className="container">
         <div className="traditions-customs-title-description-wrapper">
           <h1 className="traditions-customs-title">
