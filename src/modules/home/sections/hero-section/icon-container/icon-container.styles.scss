@@ -16,6 +16,7 @@
   left: 0;
   bottom: 8vw;
   z-index: 2;
+
   .js-icon-image {
     min-height: max(29px, 3.0729vw);
     min-width: max(29px, 3.0729vw);
@@ -29,6 +30,7 @@
   border-radius: max(8px, 0.8vw);
   left: 3vw;
   top: 5vw;
+
   .react-icon-image {
     min-height: max(22px, 2.3438vw);
     min-width: max(21px, 2.2396vw);
@@ -42,6 +44,7 @@
   border-radius: max(6px, 0.6vw);
   top: 3vw;
   left: 12vw;
+
   .php-icon-image {
     min-height: max(17px, 1.7708vw);
     min-width: max(18px, 1.8229vw);
@@ -55,6 +58,7 @@
   border-radius: max(6px, 0.6vw);
   top: 2vw;
   right: 12vw;
+
   .xd-icon-image {
     min-height: max(15px, 1.5104vw);
     min-width: max(15px, 1.5104vw);
@@ -67,6 +71,7 @@
   padding: max(10px, 1.0417vw);
   top: 5vw;
   right: 1vw;
+
   .figma-icon-image {
     min-height: max(34px, 3.5417vw);
     min-width: max(34px, 3.5417vw);
@@ -79,6 +84,7 @@
   padding: max(6px, 0.6771vw);
   bottom: 8vw;
   right: 0;
+
   .mongo-icon-image {
     min-height: max(22px, 2.2917vw);
     min-width: max(22px, 2.3438vw);
@@ -179,11 +185,9 @@
     gap: 0.2945vw;
     flex-shrink: 0;
     border-radius: 0.2356vw;
-    background: linear-gradient(
-      0deg,
-      rgba(236, 103, 56, 0.25) 6.39%,
-      rgba(224, 0, 148, 0.25) 187.79%
-    );
+    background: linear-gradient(0deg,
+        rgba(236, 103, 56, 0.25) 6.39%,
+        rgba(224, 0, 148, 0.25) 187.79%);
     box-shadow: 0.0589vw 0.0589vw 0.162vw rgba(0, 0, 0, 0.1);
 
     .arrow-right-icon {
@@ -194,7 +198,7 @@
 
   .expense-card-title {
     color: #000;
-    font-family: Montserrat;
+    font-family: "Poppins", sans-serif;
     font-size: 0.2288vw;
     font-style: normal;
     font-weight: 600;
@@ -204,7 +208,7 @@
 
   .expense-card-budget {
     color: #000;
-    font-family: Montserrat;
+    font-family: "Poppins", sans-serif;
     margin-top: 0.1563vw;
     font-size: 0.4573vw;
     font-style: normal;

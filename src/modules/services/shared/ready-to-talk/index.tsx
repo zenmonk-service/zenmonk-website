@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Button, Stack } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { RTTGirlImg } from './assets'
 import './style.scss'
@@ -12,9 +11,9 @@ const ReadyToTalkShared = () => {
         className="ready-to-talk-shared-container"
         gap={{ lg: '3.0208vw' }}
       >
-        <Box className="image-container">
+        <div className="image-container">
           <RTTGirlImg className="rtt-img" />
-        </Box>
+        </div>
 
         <Stack className="ready-to-talk-shared-content">
           <SectionTitle
