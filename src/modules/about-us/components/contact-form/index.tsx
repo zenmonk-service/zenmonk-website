@@ -1,10 +1,10 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import { Box, FormControl, FormHelperText } from '@mui/material'
+import { FormControl, FormHelperText } from '@mui/material'
 import BaseButton from '@/shared/button'
-import { BaseInput } from './input'
 import './styles.scss'
+import TextField from './textfield'
 import { Title } from './title'
 import { Message, Mobile, PaperPlane, Send } from '@/assets/icons/contact-us/contact'
 
@@ -28,15 +28,11 @@ export const ContactForm = () => {
   }
 
   return (
-    <Box
-      className="contact-form"
-      component="form"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <Title text="Full Name" />
-      <Box className="fullname">
+      <div className="fullname">
         <FormControl error={!!errors.firstName} className="form-control">
-          <BaseInput
+          <TextField
             className={`first-name-input ${
               errors.firstName ? 'error-border' : ''
             }`}
@@ -51,7 +47,7 @@ export const ContactForm = () => {
         </FormControl>
 
         <FormControl error={!!errors.lastName} className="form-control">
-          <BaseInput
+          <TextField
             className={`last-name-input ${
               errors.lastName ? 'error-border' : ''
             }`}
@@ -64,11 +60,11 @@ export const ContactForm = () => {
             </FormHelperText>
           )}
         </FormControl>
-      </Box>
+      </div>
 
       <Title text="Email" />
       <FormControl error={!!errors.email} className="form-control">
-        <BaseInput
+        <TextField
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
           endAdornment={<PaperPlane className="end-adornment" />}
@@ -89,7 +85,7 @@ export const ContactForm = () => {
 
       <Title text="Your Phone" />
       <FormControl error={!!errors.phone} className="form-control">
-        <BaseInput
+        <TextField
           className={`phone-number-input ${errors.phone ? 'error-border' : ''}`}
           placeHolder="Phone"
           endAdornment={<Mobile className="end-adornment" />}
@@ -107,8 +103,8 @@ export const ContactForm = () => {
 
       <Title text="Message" />
       <FormControl error={!!errors.message} className="form-control">
-        <Box className={`message ${errors.message ? 'error-border' : ''}`}>
-          <BaseInput
+        <div className={`message ${errors.message ? 'error-border' : ''}`}>
+          <TextField
             multiline
             className={`message-input`}
             placeHolder="Write Message.."
@@ -116,7 +112,7 @@ export const ContactForm = () => {
             {...register('message', { required: 'Message cannot be empty' })}
           />
           <Message className="end-adornment" />
-        </Box>
+        </div>
         {errors.message && (
           <FormHelperText className="error-text">
             {errors.message.message}
@@ -124,11 +120,11 @@ export const ContactForm = () => {
         )}
       </FormControl>
 
-      <Box className="button-wrapper">
-        <BaseButton className='send-button'>
+      <div className="button-wrapper">
+        <BaseButton className="send-button">
           Send Message <Send className="send-button-icon" />
         </BaseButton>
-      </Box>
-    </Box>
+      </div>
+    </form>
   )
 }

@@ -12,6 +12,7 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 .contact-us {
   display: flex;
   gap: max(10.9vw, 40px);
@@ -51,7 +52,7 @@
     margin-top: max(2.083vw, 24px);
     color: #132427;
     text-align: left;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: max(16px, 1vw);
     font-style: normal;
     font-weight: 700;
@@ -62,39 +63,43 @@
     margin-top: max(8px, 0.521vw);
     width: 100%;
     color: #696969;
-    font-family: Poppins;
+    font-family: "Poppins", sans-serif;
     font-size: var(--font-size-16);
     font-style: normal;
     font-weight: 600;
     line-height: max(1.563vw, 22px);
     letter-spacing: max(0.017vw, 0.28px);
+
     &.label {
       margin-top: 0px;
     }
   }
 
   .country-flag {
-    height: 48px;
-    width: 72px;
+    height: 2.5vw;
+    width: 3.75vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 4px;
+    border-radius: 0.2vw;
     cursor: pointer;
   }
 
   .label-container {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-top: 16px;
+    gap: 0.729vw;
+    margin-top: 1.042vw;
+
     .icon {
       display: flex;
     }
   }
+
   .label-container:nth-of-type(2) {
-    margin-left: 0.15vw; /* or whatever margin you want */
+    margin-left: 0.15vw;
   }
+
   .contact-card {
     margin-top: max(0.729vw, 24px) !important;
     margin-bottom: 0px !important;
@@ -107,7 +112,7 @@
 
       .description {
         color: #696969 !important;
-        font-family: Poppins;
+        font-family: "Poppins", sans-serif;
         font-size: var(--font-size-16);
         font-style: normal;
         font-weight: 600;
@@ -128,10 +133,12 @@
     height: auto;
     margin-top: 60px;
   }
+
   .contact-us {
     flex-direction: column;
     width: 100%;
   }
+
   .left-container {
     width: 100%;
 
@@ -155,7 +162,7 @@
       margin-top: max(2.083vw, 24px);
       color: #132427;
       text-align: left;
-      font-family: Poppins;
+      font-family: "Poppins", sans-serif;
       font-size: max(16px, 1vw);
       font-style: normal;
       font-weight: 700;
@@ -166,12 +173,13 @@
       margin-top: max(8px, 0.521vw);
       width: 100%;
       color: #696969;
-      font-family: Poppins;
+      font-family: "Poppins", sans-serif;
       font-size: var(--font-size-16);
       font-style: normal;
       font-weight: 600;
       line-height: max(1.563vw, 22px);
       letter-spacing: max(0.017vw, 0.28px);
+
       &.label {
         margin-top: 0px;
       }
@@ -192,15 +200,18 @@
       align-items: center;
       gap: 14px;
       margin-top: 16px;
+
       .icon {
         height: 24px;
         width: 32px;
         display: flex;
       }
     }
+
     .label-container:nth-of-type(2) {
       margin-left: 0.15vw;
     }
+
     .contact-card {
       margin-top: max(0.729vw, 24px) !important;
       margin-bottom: 0px !important;

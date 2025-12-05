@@ -50,7 +50,7 @@ export const ContactUsSection = () => {
             We&apos;re Just a <br />
             <span>Message</span> Away
           </h1>
-          <div style={{ display: 'flex', gap: '24px', marginTop: '24px' }}>
+          <div style={{ display: 'flex', gap: '1.25vw', marginTop: '1.25vw' }}>
             {countries.map(({ name, img }, index) => {
               return (
                 <motion.div

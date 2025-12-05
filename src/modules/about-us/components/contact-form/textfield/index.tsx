@@ -2,9 +2,9 @@
 
 import { JSX, forwardRef } from 'react'
 import { InputBase, InputBaseProps } from '@mui/material'
-import './styles.scss'
+import styles from './textfield.module.scss'
 
-interface BaseInputProps extends Omit<InputBaseProps, 'color'> {
+interface TextFieldProps extends Omit<InputBaseProps, 'color'> {
   className?: string
   placeHolder?: string
   endAdornment?: JSX.Element
@@ -12,11 +12,13 @@ interface BaseInputProps extends Omit<InputBaseProps, 'color'> {
   multiline?: boolean
 }
 
-const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ className, placeHolder, endAdornment, ...rest }, ref) => {
     return (
       <InputBase
-        className={`${className} base-style`}
+        spellCheck={false}
+        autoComplete="off"
+        className={`${className} ${styles.textfieldBase}`}
         placeholder={placeHolder}
         endAdornment={endAdornment}
         inputRef={ref}
@@ -25,5 +27,6 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
     )
   }
 )
-BaseInput.displayName = 'BaseInput'
-export { BaseInput }
+TextField.displayName = 'TextField'
+
+export default TextField
