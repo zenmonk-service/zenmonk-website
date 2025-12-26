@@ -22,7 +22,7 @@ const Loader = () => {
 
   return (
     <AnimatePresence>
-      {!animateOut && (
+      {/* {!animateOut && (
         <motion.div
           className="loader"
           initial={{ y: '100%' }}
@@ -61,7 +61,7 @@ const Loader = () => {
             )}
           </AnimatePresence>
         </motion.div>
-      )}
+      )} */}
     </AnimatePresence>
   )
 }

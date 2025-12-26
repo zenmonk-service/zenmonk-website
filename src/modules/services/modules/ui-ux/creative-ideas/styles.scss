@@ -1,58 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+/* ================= ROOT LAYOUT ================= */
 
 .creative-ideas {
-  height: 100vh;
   width: 100%;
-  max-height: 56.25vw; /* 1080px → (1080/1920) * 100 */
-  background-image: url('/ui-ux/creative-ideas.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 6.25vw; /* 120px → (120/1920) * 100 */
+  box-sizing: border-box;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
 
-  p {
-    color: #3c3c3c;
-    text-align: center;
-    font-family: 'Rubik Doodle Shadow';
-    font-size: 4.7vw; /* 90.249px → (90.249/1920) * 100 */
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    max-width: 37.5vw; /* 720px → (720/1920) * 100 */
-    text-align: left;
+/* ================= HANDS ================= */
 
-    @media screen and (max-width: 1499px) {
-      font-size: 3.13vw !important; /* 60px → (60/1920) * 100 */
-      max-width: 27.08vw; /* 520px → (520/1920) * 100 */
-    }
+.hand-fixed {
+  width: 26.85vw;
+  height: 42.58vw;
+  flex-shrink: 0;
 
-    .wow {
-      color: #f9a91a;
-      text-align: center;
-      font-family: 'Rubik Doodle Shadow';
-      font-size: 14.58vw;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      @media screen and (max-width: 1499px) {
-        font-size: 9.38vw !important;
-      }
-    }
+  position: relative;
+}
 
-    span:first-child {
-      .orange {
-        color: red;
-      }
-    }
+/* ================= CONTENT ================= */
 
-    span:last-child {
-      .orange {
-        color: red;
-      }
-    }
+.creative-ideas-content {
+  width: 29.25vw;
+}
+
+.creative-ideas-content p {
+  margin: 0;
+  font-family: 'Rubik Doodle Shadow', sans-serif;
+  font-size: 4.5vw;
+  line-height: 1.05;
+  color: #3c3c3c;
+  margin-left: -5.04vw;
+
+}
+
+.orange {
+  color: #f9a91a;
+}
+
+.wow {
+  font-size: 15vw !important;
+  color: #f9a91a !important;
+}
+
+/* ================= SUBTITLE ================= */
+
+.creative-ideas-subtitle {
+  display: flex;
+  margin-top: 12px;
+}
+
+.creative-ideas-subtitle p {
+  font-size: 5vw;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* ================= MOBILE ================= */
+
+
+@media (max-width: 600px) {
+
+  .hand-fixed {
+    aspect-ratio: 50 / 50;
+  }
+
+  .creative-ideas-content p{
+    font-size: 6vw;
+    width: max-content;
+    margin-left: -7.54vw;
+  } 
+
+  .left{
+    margin-bottom: 8rem;
+    margin-left: -1rem;
+  }
+  .right{
+    margin-right: -1rem;
+  }
+
+  .wow {
+    font-size: 18vw !important;
+    line-height: 1;
+  }
+
+  .creative-ideas {
+    align-items: center; /* cross-axis */
+    margin-bottom: 0rem;
   }
 }

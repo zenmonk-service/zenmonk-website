@@ -108,7 +108,7 @@ const StandOutSectionDesktop = () => {
       {/* List with stagger animation */}
       <motion.div className={styles.list} variants={listVariants}>
         {options.map((option, idx) => {
-          const MotionMyIcon = motion(option.icon)
+          const MotionMyIcon = motion.create(option.icon)
           return (
             <motion.div
               key={idx}
