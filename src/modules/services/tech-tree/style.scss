@@ -1,172 +1,81 @@
 .tech-tree-container {
-  flex-direction: row !important;
-  align-items: center;
-  justify-content: center;
-  margin-top: 6.25vw;
-  padding: 0 4%;
-  gap: 7.0833vw;
   position: relative;
+  padding: 5.25vw 1.25vw;
+  overflow: hidden;
+}
 
-  .tech-tree-image {
-    width: 100%;
-    height: 40.0521vw;
-    width: 31.6146vw;
-  }
+/* ---------- MAIN ROW ---------- */
+.tech-tree-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5vw;
+  padding-inline: 15vw;
+} 
 
+.tech-tree-left {
+  max-width: 38vw;
+}
+
+/* ---------- TEXT ---------- */
+.tech-tree-heading {
+  margin-top: 2vw;
+  font-size: 2.5vw;
+}
+
+.tech-tree-description {
+  font-size: var(--font-size-18) !important;
+  opacity: 0.85;
+}
+
+/* ---------- IMAGE ---------- */
+.tech-tree-right svg,
+.tech-tree-right img {
+  width: 21.88vw;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ---------- RANDOM BG ICONS ---------- */
+.tech-tree-container :global(.container) {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+.tech-tree-left {
+  max-width: 100% !important;
+}
   .tech-tree-right {
-    .tech-tree-heading {
-      width: 23.4375vw;
-    }
-
-    .tech-tree-description {
-      margin-top: 0.8333vw;
-      width: 34.2708vw;
-    }
-  }
-
-  .half-gear {
-    position: absolute;
-    left: -9.3vw;
-    top: 0;
-    z-index: -1;
-    height: 17.0313vw;
-    animation: rotate360 24s linear infinite;
-    //
-  }
-
-  .small-gear {
-    position: absolute;
-    left: 7.2917vw;
-    top: 9.6875vw;
-    z-index: -1;
-    height: 6.3542vw;
-    width: 6.3542vw;
-    animation: rotate360 24s linear infinite reverse;
-  }
-
-  .dotted-circle-1 {
-    height: 2.8646vw;
-    width: 2.8646vw;
-    position: absolute;
-    left: 19.2708vw;
-    top: -1.0417vw;
-  }
-
-  .dotted-circle-2 {
-    height: 1.9792vw;
-    width: 1.9792vw;
-    position: absolute;
-    left: 38.5417vw;
-    top: 0px;
-  }
-
-  .dotted-circle-3 {
-    height: 1.9792vw;
-    width: 1.9792vw;
-    position: absolute;
-    right: 2.6042vw;
-    top: -2.0833vw;
-  }
-
-  .dotted-circle-4 {
-    height: 1.9792vw;
-    width: 1.9792vw;
-    position: absolute;
-    left: 10.4167vw;
-    top: 32.2917vw;
-  }
-
-  .dotted-circle-5 {
-    height: 1.9792vw;
-    width: 1.9792vw;
-    position: absolute;
-    right: 1.5625vw;
-    bottom: 1.5625vw;
-  }
-}
-
-@keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .tech-tree-container {
     flex-direction: column !important;
-    margin-top: 60px;
-    padding: 0 16px;
-    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
 
-    .tech-tree-image {
-      height: auto;
-      width: 100%;
-    }
+    /* ✅ mobile padding instead of margins */
+    padding-inline: 16px;
+    padding-block: 16px;
+  }
 
-    .tech-tree-right {
-      text-align: center;
+  .tech-tree-heading {
+    margin-top: 2vw;
+    font-size: 24px;
+  }
 
-      .tech-tree-heading {
-        width: 100%;
-        text-align: center;
-      }
+  .tech-tree-description {
+    margin-bottom: 0px !important;
+    font-size: 14px;
+  }
 
-      .tech-tree-description {
-        margin-top: 4vw;
-        width: 100%;
-        margin-top: 16px;
-        font-size: 14px;
-      }
-    }
-
-    .half-gear {
-      width: 72.907px;
-      height: 73px;
-    }
-
-    .small-gear {
-      height: 10vw;
-      width: 10vw;
-      left: 15vw;
-      top: 15vw;
-    }
-
-    .dotted-circle-1 {
-      height: 6vw;
-      width: 6vw;
-      left: 40vw;
-      top: -5vw;
-    }
-
-    .dotted-circle-2 {
-      height: 4vw;
-      width: 4vw;
-      left: 70vw;
-      top: -3vw;
-    }
-
-    .dotted-circle-3 {
-      height: 4vw;
-      width: 4vw;
-      right: 5vw;
-      top: -5vw;
-    }
-
-    .dotted-circle-4 {
-      height: 4vw;
-      width: 4vw;
-      left: 10vw;
-      top: 70vw;
-    }
-
-    .dotted-circle-5 {
-      width: 47.187px;
-      height: 47.187px;
-      bottom: 20%;
-      right: -4%;
-    }
+  .tech-tree-right svg,
+  .tech-tree-right img {
+    width: 280px;
+    max-width: 100%;
   }
 }
