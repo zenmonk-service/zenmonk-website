@@ -6,13 +6,14 @@ import './styles.scss'
 
 interface SliderData {
   label: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
   background?: string
 }
 
 interface AutoScrollCarouselProps {
   data: SliderData[]
   showBackground?: boolean
+  isBgShadow?: boolean
   reverse?: boolean
   sliderProps?: {
     className?: string
@@ -25,15 +26,19 @@ interface AutoScrollCarouselProps {
   }
 }
 
-const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
-  const { data, showBackground, reverse } = props
+const AutoScrollCarousel = ({
+  data,
+  showBackground,
+  isBgShadow,
+  reverse,
+}: AutoScrollCarouselProps) => {
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setWidth(window.innerWidth)
-    }
+    setWidth(window.innerWidth)
   }, [])
+
+  const shouldShowBackground = showBackground ?? isBgShadow ?? false
 
   return (
     <Marquee
@@ -46,9 +51,11 @@ const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
     >
       {data.map(({ label, icon: Svg, background }, index) => (
         <div
-          style={{ background: showBackground ? background : undefined }}
+          key={`${label}-${index}`}
           className="auto-scroll-container"
-          key={label + index}
+          style={{
+            background: shouldShowBackground ? background : undefined,
+          }}
         >
           <Svg className="auto-scroll-images" />
         </div>

@@ -1,6 +1,6 @@
 import useMediaQuery from '@mui/material/useMediaQuery'
 import ClientSatisfactionDesktop from './desktop/desktop'
-import ClientSatisfactionMobile from './mobile/mobile'
+import ClientSatisfactionMobile from '../client-satisfaction/mobile'
 
 const ClientSatisfaction = () => {
   const isMobile = useMediaQuery(`(max-width:600px)`)

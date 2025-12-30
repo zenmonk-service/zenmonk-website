@@ -10,22 +10,23 @@
   color: var(--global-color-primary);
   font-family: Poppins !important;
   font-size: var(--font-size-20) !important;
-  font-style: normal;
   font-weight: 600 !important;
-  line-height: 1.15vw !important;
+  line-height: 1.2;              /* unitless = text-relative */
   position: relative;
   display: inline-block;
+
   &::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -0.51vw;
+    bottom: 1px;                   /* stick to text bottom */
+    transform: translateY(0.25em); /* push slightly below text */
     width: 100%;
-    height: 0.1vw;
-    flex-shrink: 0;
-    background: linear-gradient(90deg, #ec6738 0%, #201f1f10 100%);
+    height: 0.104vw;          /* fixed visual thickness */
+    background: linear-gradient(100deg, #ec6738 0%, #201f1f10 100%);
   }
 }
+
 
 .footer-section {
   position: relative;
@@ -42,21 +43,6 @@
     #444c 157.02%,
     #000 78.97%
   );
-  &::before {
-    content: '';
-    position: absolute;
-    top: 15%;
-    right: 10%;
-    width: 50%;
-    height: 100%;
-    background-image: url('/monk.webp');
-    background-size: 32.52vw 31.56vw;
-    background-position: right center;
-    background-repeat: no-repeat;
-    z-index: 3;
-    opacity: 1;
-  }
-
   &::after {
     content: '';
     position: absolute;
@@ -150,7 +136,6 @@
                 box-shadow: 0vw 0.21vw 0.68vw 0vw rgba(0, 0, 0, 0.1); // 0px 4px 13px 0px
                 color: #000000;
                 font-family: Poppins;
-                font-size: var(--font-size-14);
                 font-style: normal;
                 font-weight: 300;
                 line-height: 1.15vw; // 22px
@@ -158,7 +143,7 @@
                 .input {
                   padding: 0vw !important;
                   font-family: Poppins;
-                  font-size: var(--font-size-14);
+                  font-size: var(--font-size-16) !important;
                   font-style: normal;
                   font-weight: 300;
                   line-height: 1.15vw; // 22.046px
@@ -384,9 +369,6 @@
             width: 100%;
           }
           .quick-links-social-media-wrapper {
-            .quick-links {
-              background-color: red;
-            }
             width: 100%;
           }
           .social-media-link {

@@ -8,6 +8,5 @@ export const ScrollContext =
 
 export function useScrollSmoother() {
   const ctx = useContext(ScrollContext)
-  if (!ctx) throw new Error('useScrollSmoother must be used inside <ScrollProvider>')
   return ctx
 }

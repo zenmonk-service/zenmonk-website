@@ -11,7 +11,8 @@ import './styles.scss'
 const OurProjectsDesktop = () => {
   const [projectIndex, setProjectIndex] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const { current } = useScrollSmoother()
+  const smootherRef = useScrollSmoother()
+  const current = smootherRef?.current
 
   const isVisible = useOnScreen(sectionRef as any)
 

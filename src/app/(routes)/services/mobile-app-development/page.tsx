@@ -13,7 +13,7 @@ const MobileAppDevelopmentPage = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions />
+      <ItSolutions id="custom-app-development" />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

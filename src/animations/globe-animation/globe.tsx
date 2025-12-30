@@ -1,16 +1,17 @@
+'use client'
+
 import createGlobe from 'cobe'
 import React, { useEffect, useRef } from 'react'
 import { useSpring } from 'react-spring'
 
-const Globe = ({
-  clickRef,
-  focusRef,
-}: {
+type GlobeProps = {
   clickRef: React.RefObject<boolean>
-  focusRef: React.RefObject<number[]>
-}) => {
-  const canvasRef = useRef(null)
-  const pointerInteracting = useRef<null | number>(null)
+  focusRef: React.RefObject<[number, number]>
+}
+
+const Globe = ({ clickRef, focusRef }: GlobeProps) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const pointerInteracting = useRef<number | null>(null)
   const pointerInteractionMovement = useRef(0)
   const [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -21,17 +22,25 @@ const Globe = ({
       precision: 0.001,
     },
   }))
+
   useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
     let width = 0
     let currentPhi = 0
     let currentTheta = 0
     const doublePi = Math.PI * 2
-    const onResize = () =>
-      canvasRef.current && (width = canvasRef.current.offsetWidth)
+
+    const onResize = () => {
+      width = canvas.offsetWidth
+    }
+
     window.addEventListener('resize', onResize)
     onResize()
-    const globe = createGlobe(canvasRef.current!, {
-      devicePixelRatio: 2,
+
+    const globe = createGlobe(canvas, {
+      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       width: width * 2,
       height: width * 2,
       phi: 0,
@@ -51,37 +60,45 @@ const Globe = ({
         { location: [-27.5954, -48.548], size: 0.1 },
       ],
       onRender: (state) => {
-        if (clickRef.current) {
+        if (clickRef.current && focusRef.current) {
           state.phi = currentPhi
           state.theta = currentTheta
+
           const [focusPhi, focusTheta] = focusRef.current
+
           const distPositive = (focusPhi - currentPhi + doublePi) % doublePi
           const distNegative = (currentPhi - focusPhi + doublePi) % doublePi
-          // Control the speed
-          if (distPositive < distNegative) {
-            currentPhi += distPositive * 0.08
-          } else {
-            currentPhi -= distNegative * 0.08
-          }
+
+          currentPhi +=
+            distPositive < distNegative
+              ? distPositive * 0.08
+              : -distNegative * 0.08
+
           currentTheta = currentTheta * 0.92 + focusTheta * 0.08
-          state.width = width * 2
-          state.height = width * 2
         } else {
-          if (!pointerInteracting.current) {
+          if (pointerInteracting.current === null) {
             currentPhi += 0.005
           }
           state.phi = currentPhi + r.get()
-          state.width = width * 2
-          state.height = width * 2
         }
+
+        state.width = width * 2
+        state.height = width * 2
       },
     })
-    setTimeout(() => (canvasRef.current.style.opacity = '1'))
+
+    // Fade in after first paint
+    const fadeIn = setTimeout(() => {
+      canvas.style.opacity = '1'
+    }, 0)
+
     return () => {
+      clearTimeout(fadeIn)
       globe.destroy()
       window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [api, clickRef, focusRef, r])
+
   return (
     <canvas
       ref={canvasRef}
@@ -91,36 +108,39 @@ const Globe = ({
         contain: 'layout paint size',
         opacity: 0,
         transition: 'opacity 1s ease',
+        cursor: 'grab',
       }}
       onPointerDown={(e) => {
         pointerInteracting.current =
           e.clientX - pointerInteractionMovement.current
-        canvasRef.current.style.cursor = 'grabbing'
+        if (canvasRef.current) {
+          canvasRef.current.style.cursor = 'grabbing'
+        }
       }}
       onPointerUp={() => {
         pointerInteracting.current = null
-        canvasRef.current.style.cursor = 'grab'
+        if (canvasRef.current) {
+          canvasRef.current.style.cursor = 'grab'
+        }
       }}
       onPointerOut={() => {
         pointerInteracting.current = null
-        canvasRef.current.style.cursor = 'grab'
+        if (canvasRef.current) {
+          canvasRef.current.style.cursor = 'grab'
+        }
       }}
       onMouseMove={(e) => {
         if (pointerInteracting.current !== null) {
           const delta = e.clientX - pointerInteracting.current
           pointerInteractionMovement.current = delta
-          api.start({
-            r: delta / 200,
-          })
+          api.start({ r: delta / 200 })
         }
       }}
       onTouchMove={(e) => {
         if (pointerInteracting.current !== null && e.touches[0]) {
           const delta = e.touches[0].clientX - pointerInteracting.current
           pointerInteractionMovement.current = delta
-          api.start({
-            r: delta / 100,
-          })
+          api.start({ r: delta / 100 })
         }
       }}
     />

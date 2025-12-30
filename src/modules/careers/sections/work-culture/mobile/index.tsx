@@ -67,7 +67,7 @@ const WorkCultureMobile = () => {
     resetRef.current = resetTrack()
   }
 
-  const handleDragEnd = (_, info: PanInfo): void => {
+  const handleDragEnd = (_:any, info: PanInfo): void => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
     if (resetRef.current) clearTimeout(resetRef.current)
     const offset = info.offset.x

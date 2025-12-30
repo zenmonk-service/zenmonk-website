@@ -1,3 +1,5 @@
+import { StaticStyle } from "./random-bg-icons"
+
 const DESKTOP_POSITIONS: StaticStyle[] = [
   { top: '8%', left: '6%' },
   { top: '35%', left: '88%' },
@@ -11,13 +13,13 @@ const DESKTOP_POSITIONS: StaticStyle[] = [
 ]
 
 const MOBILE_POSITIONS: StaticStyle[] = [
-  { top: '10%', left: '-4%' },
-  { top: '35%', left: '72%' },
+  { top: '10%', left: '-100%' },
+  { top: '40%', left: '80%' },
   { top: '40%', left: '-2%' },
-  { top: '5%', left: '94%' },
+  { top: '5%', left: '104%' },
   { top: '85%', left: '10%' },
-  { top: '48%', left: '95%' },
-  { top: '75%', left: '74%' },
+  { top: '75%', left: '104%' },
+  { top: '58%', left: '85%' },
   { top: '65%', left: '-2%' },
   { top: '85%', left: '85%' },
 ]

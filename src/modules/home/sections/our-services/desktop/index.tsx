@@ -2,7 +2,7 @@
 
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useState, useRef } from 'react'
+import { useState, useRef, useTransition } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { ZenmonkLogo } from '@/assets/images'
@@ -13,6 +13,7 @@ import styles from './our-services.module.scss'
 
 const OurServicesDesktop = () => {
   const [selectedService, setSelectedService] = useState(services[0])
+  const [isPending, startTransition] = useTransition()
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
   const router = useRouter()
 
@@ -48,7 +49,11 @@ const OurServicesDesktop = () => {
           {services.map((service, index) => (
             <div
               className={styles.businessItem}
-              onClick={() => setSelectedService(service)}
+              onClick={() => {
+                startTransition(() => {
+                  setSelectedService(service)
+                })
+              }}
               key={service.id}
             >
               <div className={styles.businessItemContent}>
@@ -70,6 +75,11 @@ const OurServicesDesktop = () => {
           ))}
         </div>
         <div className={styles.servicesRightContainer}>
+          {isPending && (
+            <div className={styles.loadingOverlay}>
+              <div className={styles.loader}></div>
+            </div>
+          )}
           <Image className={styles.logo} src={ZenmonkLogo} alt="zenmonk-logo" />
           <div className={styles.businessProof}>
             <div className={styles.businessProofContent}>

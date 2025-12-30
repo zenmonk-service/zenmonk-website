@@ -14,8 +14,14 @@ const cardStyles = [
   { background: '#F8F2FF', fill: '#B47BFF' },
 ]
 
-const ItSolutions = ({ id }: { id: string }) => {
-  const { services } = OurServices.find((service) => service.id === id)!
+const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
+  const serviceData = OurServices.find((service) => service.id === id)
+
+  if (!serviceData) {
+    return null
+  }
+
+  const { services } = serviceData
   return (
     <div className={styles.wrapper} id={id}>
       <div className={styles.container}>
