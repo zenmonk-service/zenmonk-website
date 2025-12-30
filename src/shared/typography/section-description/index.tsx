@@ -5,7 +5,7 @@ import './styles.scss'
 
 interface SectionDescriptionProps extends MotionProps {
   text: string
-  className: string
+  className?: string
 }
 
 const SectionDescription = (props: SectionDescriptionProps) => {
