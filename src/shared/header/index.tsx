@@ -14,7 +14,6 @@ import styles from './header.module.scss'
 const Navbar = () => {
   const { push } = useRouter()
   const navigateToHome = () => push('/')
-  const hide = useAppSelector((state) => state.header.hide)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const smootherRef = useScrollSmoother()
   const current = smootherRef?.current
@@ -23,12 +22,20 @@ const Navbar = () => {
     if (current) {
       current.paused(isOpen)
     }
-  }, [current])
+  }, [current, isOpen])
+
+  const isPageLoading = useAppSelector((state) => state.header.isLoading)
 
   return (
     <motion.nav
       initial={false}
-      animate={isOpen ? 'open' : 'closed'}
+      variants={{
+        open: { y: 0 },
+        closed: { y: 0 },
+        hidden: { y: '-100%', opacity: 0 },
+      }}
+      animate={isPageLoading ? 'hidden' : isOpen ? 'open' : 'closed'}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={styles.appBarContainer}
     >
       <div className={styles.appBarIconContainer}>

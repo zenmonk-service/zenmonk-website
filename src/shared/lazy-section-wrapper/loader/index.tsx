@@ -1,10 +1,13 @@
 'use client'
 import { useEffect } from 'react'
+import { toggleLoader } from '@/store/features/header/header-slice'
+import { useAppDispatch } from '@/store/hooks'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import styles from './loading.module.css'
 
 export default function FullScreenLoading() {
   const smootherRef = useScrollSmoother()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     // 1. Local Scroll Lock (Fallback)
@@ -16,6 +19,9 @@ export default function FullScreenLoading() {
       smootherRef.current.paused(true)
     }
 
+    // 3. Global Loading State
+    dispatch(toggleLoader(true))
+
     return () => {
       // Restore scroll
       document.body.style.overflow = originalStyle
@@ -24,8 +30,11 @@ export default function FullScreenLoading() {
       if (smootherRef?.current) {
         smootherRef.current.paused(false)
       }
+
+      // Reset Global Loading State
+      dispatch(toggleLoader(false))
     }
-  }, [smootherRef])
+  }, [smootherRef, dispatch])
 
   return (
     <div className={styles.container}>

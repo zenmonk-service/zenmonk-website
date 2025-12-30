@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import './globals.css'
+import StoreProvider from '@/store/storeProvider'
 
 export default function FlashScreenLayout({
   children,
@@ -13,6 +14,8 @@ export default function FlashScreenLayout({
   return showFlashScreen && page === '/' ? (
     <FlashScreen closeScreen={() => setShowFlashScreen(false)} />
   ) : (
-    children
+    <StoreProvider>
+      {children}
+    </StoreProvider>
   )
 }
