@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/ai-based-softwares/hero-sect
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const AiBasedSoftwaresPage = () => {
   return (
     <div>
       <HeroSection />
-      <Rating />
-      <ItSolutions />
+      <ItSolutions id='ai-solutions' />
       <TechnologyTree />
       <DevelopmentProcess />
       <YourIdealChoice />

@@ -42,7 +42,7 @@ export default function RootLayout({
             <ScrollProvider>
               <Header />
               <SmoothScroller>
-                <CustomLoader />
+                {/* <CustomLoader /> */}
                 {children}
                 <Footer />
               </SmoothScroller>

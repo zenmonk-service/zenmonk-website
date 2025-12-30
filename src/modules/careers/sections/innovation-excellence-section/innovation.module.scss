@@ -1,0 +1,87 @@
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 6.3vw 8.072vw;
+  gap: 8.072vw;
+}
+
+/* ---------- Left Section ---------- */
+.leftSection {
+  width: 48%;
+}
+
+.title {
+  width: 90%;
+  color: #132427;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 0.83vw;
+  margin-bottom: 1.666vw;
+  color: #757575;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  line-height: normal;
+}
+
+/* ---------- Right Section ---------- */
+.rightSection {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  column-gap: 3.33vw;
+  row-gap: 1.8vw;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: space-between;
+}
+
+/* ---------- Large Screens ---------- */
+@media screen and (max-width: 1500px) {
+  .section {
+    gap: 3.072vw;
+  }
+}
+
+/* ---------- Tablet ---------- */
+@media screen and (max-width: 1200px) {
+  .rightSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media screen and (max-width: 600px) {
+  .section {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+    margin-top: 80px;
+    align-items: center;
+  }
+
+  .leftSection {
+    width: 100%;
+  }
+
+  .title {
+    width: 90%;
+  }
+
+  .description {
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .excellenceImage {
+    display: none;
+  }
+
+  .rightSection {
+    gap: 16px;
+    padding-left: 32px;
+  }
+}

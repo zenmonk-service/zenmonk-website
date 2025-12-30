@@ -16,13 +16,13 @@ export const traditionsCustoms = [
     id: 2,
     image: WinningAward,
     title: '20+',
-    description: 'Winning Awards',
+    description: 'Winning award',
   },
   {
     id: 4,
     image: CompleteProject,
     title: '10k+',
-    description: 'Complete Project',
+    description: 'Complete project',
   },
   {
     id: 3,

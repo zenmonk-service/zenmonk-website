@@ -468,4 +468,55 @@ export const OurServices = [
       },
     ],
   },
+  {
+    id: 'ai-solutions',
+    route: '/ai-based-softwares',
+    name: 'AI Solutions',
+    description:
+      'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
+    services: [
+      {
+        id: 'industry-specific-solution-banking-solutions',
+        title: 'Banking Solutions',
+        description:
+          'Transform your financial operations with secure and scalable software solutions.',
+        icon: IndustrySpecificSolution.Banking,
+      },
+      {
+        id: 'industry-specific-solution-consumer-solutions',
+        title: 'Consumer Solutions',
+        description:
+          'Optimize your CPG operations with software tailored to streamline production and distribution.',
+        icon: IndustrySpecificSolution.Consumer,
+      },
+      {
+        id: 'industry-specific-solution-education-solutions',
+        title: 'Education Solutions',
+        description:
+          'Enhance learning experiences with innovative EdTech solutions.',
+        icon: IndustrySpecificSolution.Education,
+      },
+      {
+        id: 'industry-specific-solution-healthcare-it-solutions',
+        title: 'Healthcare IT Solutions',
+        description:
+          'Improve patient care with advanced healthcare IT solutions that streamline operations.',
+        icon: IndustrySpecificSolution.HealthCare,
+      },
+      {
+        id: 'industry-specific-solution-business-operations-optimization',
+        title: 'Business Operations Optimization',
+        description:
+          'Increase operational efficiency with business process optimization software.',
+        icon: IndustrySpecificSolution.Business,
+      },
+      {
+        id: 'industry-specific-solution-ecommerce-solutions',
+        title: 'E-commerce Solutions',
+        description:
+          'Enhance your retail and e-commerce operations with scalable digital solutions.',
+        icon: IndustrySpecificSolution.Retail,
+      },
+    ],
+  },
 ]

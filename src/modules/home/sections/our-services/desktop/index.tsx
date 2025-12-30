@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useState, useRef } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { ZenmonkLogo } from '@/assets/images'
 import BaseButton from '@/shared/button'
 import { SectionTitle } from '@/shared/typography'
@@ -13,6 +14,7 @@ import styles from './our-services.module.scss'
 const OurServicesDesktop = () => {
   const [selectedService, setSelectedService] = useState(services[0])
   const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
+  const router = useRouter()
 
   useGSAP(() => {
     ScrollTrigger.create({
@@ -89,7 +91,11 @@ const OurServicesDesktop = () => {
                     </div>
                   ))}
               </div>
-              <BaseButton disableShine className={styles.button}>
+              <BaseButton
+                disableShine
+                className={styles.button}
+                onClick={() => router.push(`/services${selectedService.route}`)}
+              >
                 Get Started
               </BaseButton>
             </div>

@@ -1,0 +1,52 @@
+.whyChooseUs {
+  margin: auto;
+  margin-top: 6.25vw;
+  padding-left: 10%;
+  padding-right: 10%;
+  position: relative;
+}
+
+.title {
+  margin-bottom: 1.04vw;
+}
+
+.description {
+  margin: auto;
+  max-width: 70%;
+  text-align: center;
+  margin-top: 1.25vw;
+}
+
+.listContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2.08vw;
+  margin-top: 4vw;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.sectionBachground {
+  position: absolute;
+  left: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .whyChooseUs {
+    margin-top: 60px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .description {
+    margin-top: 24px;
+    max-width: 100%;
+  }
+
+  .sectionBachground{
+    width: 100%;
+    z-index: -1;
+    margin-top: 40svh;
+  }
+}

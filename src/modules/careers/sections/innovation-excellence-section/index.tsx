@@ -1,34 +1,37 @@
 import { SectionDescription, SectionTitle } from '@/shared/typography'
+import styles from './innovation.module.scss'
 import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
 import { innovations } from './innovations'
-import './styles.scss'
 
 const InnovationExcellence = () => {
   return (
-    <div className="innovation-excellence-section">
-      <div className="left-section">
+    <section className={styles.section}>
+      <div className={styles.leftSection}>
         <SectionTitle
           align="left"
           text="Our Promise of Innovation and Excellence"
           markText="Excellence"
-          className="title"
+          className={styles.title}
           markTextProps={{ rotate: 3 }}
         />
+
         <SectionDescription
           text="We are dedicated to fostering a supportive environment, offering
           growth opportunities, and ensuring our team feel valued and
           appreciated."
-          className="description"
+          className={styles.description}
         />
-        <Excellence className="excellence-image" />
+
+        <Excellence className={styles.excellenceImage} />
       </div>
-      <div className="right-section">
-        {innovations.map((innovation, index) => {
-          return <ExcellenceCard key={index} details={innovation} />
-        })}
+
+      <div className={styles.rightSection}>
+        {innovations.map((innovation, index) => (
+          <ExcellenceCard key={index} details={innovation} />
+        ))}
       </div>
-    </div>
+    </section>
   )
 }
 

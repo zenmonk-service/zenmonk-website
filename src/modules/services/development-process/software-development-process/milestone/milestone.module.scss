@@ -1,0 +1,20 @@
+.milestoneBackground {
+  height: 7.9vw;
+  width: 10.5vw;
+  position: absolute;
+}
+
+.milestoneBaseLine {
+  height: 1.6vw;
+  width: 100vw;
+  position: relative;
+  background-color: #000000;
+}
+
+.milestoneContainer {
+  position: relative;
+  height: 38.33vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
