@@ -1,11 +1,23 @@
 'use client'
 
-import { useAppSelector } from '@/store/hooks'
-import styles from './loader.module.scss'
+import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { toggleLoader } from '@/store/features/header/header-slice'
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
+import FullScreenLoading from '@/shared/lazy-section-wrapper/loader'
 
 const CustomLoader = () => {
+  const dispatch = useAppDispatch()
+  const pathname = usePathname()
   const isPageLoading = useAppSelector((state) => state.header.isLoading)
-  return false ? <div className={styles.container}></div> : null
+
+  useEffect(() => {
+    // Force reset loader on navigation
+    dispatch(toggleLoader(false))
+  }, [pathname, dispatch])
+
+  return isPageLoading ? <FullScreenLoading /> : null
 }
 
 export default CustomLoader
+

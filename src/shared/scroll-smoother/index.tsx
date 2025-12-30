@@ -19,9 +19,11 @@ export default function SmoothScroller({
 
   useGSAP(
     () => {
-      smootherRef.current = ScrollSmoother.create({
-        effects: true,
-      })
+      if (smootherRef) {
+        smootherRef.current = ScrollSmoother.create({
+          effects: true,
+        })
+      }
     },
     {
       dependencies: [pathname],

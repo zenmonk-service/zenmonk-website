@@ -6,6 +6,7 @@ import GrowthAndMarketingSolution from '@/assets/services/growth'
 import IndustrySpecificSolution from '@/assets/services/industry'
 import ProductDevelopment from '@/assets/services/product-development'
 import SoftwareDevelopment from '@/assets/services/software-development'
+import ItTraining from '@/assets/services/it-training'
 import UiUxDesign from '@/assets/services/ui-ux-design'
 
 export const OurServices = [
@@ -465,6 +466,94 @@ export const OurServices = [
         description:
           'Enhance your retail and e-commerce operations with scalable digital solutions.',
         icon: IndustrySpecificSolution.Retail,
+      },
+    ],
+  },
+  {
+    id: 'it-training-and-workshops',
+    route: '/it-training-&-workshops',
+    name: 'IT Training & Workshops',
+    description:
+      'Upskill your team with practical, hands-on training and workshops. We provide expert-led programs covering agile methodologies, cloud computing, devops, and full-stack development.',
+    services: [
+      {
+        id: 'it-training-agile',
+        title: 'Agile Training',
+        description:
+          'Master agile methodologies to improve team collaboration and project delivery.',
+        icon: ItTraining.AgileTraining,
+      },
+      {
+        id: 'it-training-cloud',
+        title: 'Cloud Training',
+        description:
+          'Learn to build and manage scalable cloud infrastructure with our expert-led sessions.',
+        icon: ItTraining.CloudTraining,
+      },
+      {
+        id: 'it-training-devops',
+        title: 'DevOps Training',
+        description:
+          'Adopt DevOps practices to streamline your development and operations workflows.',
+        icon: ItTraining.DevopsTraining,
+      },
+      {
+        id: 'it-training-mern',
+        title: 'MERN Stack Training',
+        description:
+          'Master full-stack web development with the MERN (MongoDB, Express, React, Node) stack.',
+        icon: ItTraining.MernTraining,
+      },
+      {
+        id: 'it-training-ui',
+        title: 'UI/UX Training',
+        description:
+          'Develop the skills to create intuitive and engaging user experiences.',
+        icon: ItTraining.UiTraining,
+      },
+      {
+        id: 'it-training-technical',
+        title: 'Technical Skills',
+        description:
+          'Enhance your technical expertise with specialized training in the latest technologies.',
+        icon: ItTraining.TechnicalSkill,
+      },
+    ],
+  },
+  {
+    id: 'ai-based-softwares',
+    route: '/ai-based-softwares',
+    name: 'AI Based Softwares',
+    description:
+      'Empower your business with intelligent AI-driven software. We specialize in developing custom AI solutions that automate processes, provide deep insights, and drive innovation.',
+    services: [
+      {
+        id: 'ai-development',
+        title: 'AI Development',
+        description:
+          'Build custom AI solutions tailored to your unique business needs and objectives.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'machine-learning',
+        title: 'Machine Learning',
+        description:
+          'Implement machine learning models to analyze data and predict future trends.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'nlp-solutions',
+        title: 'NLP Solutions',
+        description:
+          'Enhance user interactions with advanced natural language processing technologies.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'predictive-analytics',
+        title: 'Predictive Analytics',
+        description:
+          'Leverage data to forecast outcomes and make informed strategic decisions.',
+        icon: DigitalTransformation.DataAnalytics,
       },
     ],
   },

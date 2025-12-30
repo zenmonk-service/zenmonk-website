@@ -16,7 +16,8 @@ const Navbar = () => {
   const navigateToHome = () => push('/')
   const hide = useAppSelector((state) => state.header.hide)
   const [isOpen, toggleOpen] = useCycle(false, true)
-  const { current } = useScrollSmoother()
+  const smootherRef = useScrollSmoother()
+  const current = smootherRef?.current
 
   useEffect(() => {
     if (current) {

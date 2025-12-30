@@ -2,8 +2,8 @@
 
 import FullScreenLoading from '@/shared/lazy-section-wrapper/loader'
 
-const Loader = () => {
+const loading = () => {
   return <FullScreenLoading />
 }
 
-export default Loader
+export default loading
