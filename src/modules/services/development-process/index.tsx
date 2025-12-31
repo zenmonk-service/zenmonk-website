@@ -12,6 +12,7 @@ import Mobile from './assets/product.svg'
 import Consult from './assets/product.svg'
 import Software from './assets/software.svg'
 import Ui from './assets/ui.svg'
+import SoftwareDevelopmentProcess from './software-development-process'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
@@ -20,7 +21,7 @@ const DevelopmentProcess = () => {
   const renderAsset = () => {
     switch (serviceRoute) {
       case 'software-development':
-        return <Software />
+        return <SoftwareDevelopmentProcess />
       case 'growth-&-marketing':
         return <Growth />
       case 'mobile-app-development':

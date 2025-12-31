@@ -1,0 +1,141 @@
+.traditionsCustomsSection {
+  width: 100%;
+  height: auto;
+  position: relative;
+  background: #104048;
+  padding: 2.083vw 0;
+}
+
+.bgImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.bgImageMobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.125vw;
+  margin: auto;
+}
+
+.titleDescriptionWrapper {
+  max-width: 26.5vw;
+}
+
+.title {
+  color: var(--White, #fff);
+  font-family: Poppins;
+  font-size: max(24px, 2.6vw);
+  font-style: normal;
+  font-weight: 600;
+  line-height: max(28px, 3.125vw);
+}
+
+.description {
+  margin-top: 0.83vw;
+  color: var(--White, #fff);
+  font-family: inherit;
+  font-size: max(14px, 0.83vw) !important;
+  font-weight: 400;
+  line-height: max(30px, 1.56vw);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.56vw;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- Tablet ---------- */
+@media screen and (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 83.5vw;
+  }
+
+  .titleDescriptionWrapper {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .list {
+    max-width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .description {
+    line-height: max(24px, 1.25vw);
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media screen and (max-width: 600px) {
+  .traditionsCustomsSection {
+    padding: 28px 16px;
+    margin-top: 60px;
+  }
+
+  .bgImage {
+    display: none;
+  }
+
+  .bgImageMobile {
+    display: block;
+  }
+
+  .container {
+    gap: 16px;
+    align-items: unset;
+    justify-content: unset;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .titleDescriptionWrapper {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .title {
+    width: 100%;
+    font-size: 20px;
+    line-height: normal;
+  }
+
+  .description {
+    width: 100%;
+    margin-top: 14px;
+    line-height: normal;
+  }
+
+  .list {
+    gap: 14px;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+@media screen and (max-width: 360px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

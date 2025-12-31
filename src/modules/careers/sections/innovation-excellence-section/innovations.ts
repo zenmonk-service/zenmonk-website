@@ -11,14 +11,14 @@ export const innovations = [
   {
     title: 'Your Opinion Matters',
     description:
-      "You matter to us and so as your opinion. We respect your perspectives and welcome ideas to foster healthy and transparent connections.",
+      "You matter to us, and so does your opinion. We welcome ideas that build healthy, transparent connections.",
     image: Team,
     color: '#F5912E',
   },
   {
     title: 'Your Privacy Matters',
     description:
-      "We understand your concerns and, therefore completely respect your privacy. We build trustworthy and happy relationships.",
+      "We respect your privacy and value trust in every relationship we build, ensuring transparency and peace of mind.",
     image: Group,
     color: '#3CAFB8',
   },

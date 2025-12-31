@@ -1,19 +1,37 @@
-import { Box, Typography } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import WhyChooseUs from './assets/whyChooseUsImg.svg'
-import './styles.scss'
+import Bg from './assets/bg.svg'
+import Card from './card'
+import { whyChooseUsList } from './list'
+import styles from './styles.module.scss'
 
-const UiUxWhyChooseUs: React.FC = () => (
-  <Box className="why-choose-us">
-    <SectionTitle align="center" className="title" text={'Why Choose Us'} />
+const UiUxWhyChooseUs = () => (
+  <div className={styles.whyChooseUs}>
+    <SectionTitle
+      align="center"
+      className={styles.title}
+      text="Why Choose Us"
+    />
     <SectionDescription
-      className="desc"
-      text="
-    Our design solutions blend user-centric principles with business outcomes.
-    We create intuitive, scalable interfaces that drive long-term engagement."
-    ></SectionDescription>
-    <WhyChooseUs className="why-choose-us-image" />
-  </Box>
+      className={styles.description}
+      text="Our design solutions blend user-centric principles with business outcomes.
+      We create intuitive, scalable interfaces that drive long-term engagement."
+    />
+    <Bg className={styles.sectionBachground}/>
+    <div className={styles.listContainer}>
+      {whyChooseUsList.map((item) => {
+        return (
+          <Card
+            icon={item.icon}
+            key={item.name}
+            name={item.name}
+            description={item.description}
+            background={item.backgroud}
+            marginLeft={item.ml}
+          />
+        )
+      })}
+    </div>
+  </div>
 )
 
-export { UiUxWhyChooseUs }
+export default UiUxWhyChooseUs

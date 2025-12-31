@@ -1,4 +1,4 @@
-import './styles.scss'
+import styles from './card.module.scss'
 
 interface ExcellenceCardProps {
   details: {
@@ -10,14 +10,13 @@ interface ExcellenceCardProps {
 }
 
 const ExcellenceCard = ({ details }: ExcellenceCardProps) => {
+  const { title, description, image: Image, color } = details
+
   return (
-    <div
-      className="excellence-card"
-      style={{ border: `1px solid ${details.color}` }}
-    >
-      <details.image className="excellence-card-image" />
-      <p className="title">{details.title}</p>
-      <p className="description">{details.description}</p>
+    <div className={styles.card} style={{ border: `1px solid ${color}` }}>
+      <Image className={styles.image} />
+      <p className={styles.title}>{title}</p>
+      <p className={styles.description}>{description}</p>
     </div>
   )
 }

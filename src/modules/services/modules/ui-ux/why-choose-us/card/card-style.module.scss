@@ -1,0 +1,50 @@
+.cardContainer {
+  position: relative;
+  width: 25.3vw;
+  height: 19.27vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vw;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.icon {
+  width: max(50px, 2.9vw);
+}
+
+.title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: max(18px, 1.5vw);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.02vw;
+}
+
+.description {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 60%;
+  letter-spacing: 0.01vw;
+}
+
+@media screen and (max-width: 600px) {
+  .cardContainer {
+    width: 100%;
+    height: 300px;
+  }
+}

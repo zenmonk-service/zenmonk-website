@@ -1,26 +1,52 @@
-import './styles.scss'
+'use client'
+
+import { motion } from 'framer-motion'
+import styles from './tradition-card.module.scss'
 
 interface TraditionCustomCardProps {
-  image: any
+  Icon: any
+  index: number
   title: string
   description: string
 }
 
-const TraditionCustomCard = ({
-  image: Image,
-  title,
-  description,
-}: TraditionCustomCardProps) => {
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: '2vw',
+    scale: 0.9,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+      delay: index * 0.1,
+    },
+  }),
+}
+
+const TraditionCustomCard = (props: TraditionCustomCardProps) => {
+  const { Icon, title, description, index } = props
   return (
-    <div className="tradition-custom-card">
-      <div className="image-container">
-        <Image alt="image" className="image" />
+    <motion.div
+      className={styles.card}
+      initial="hidden"
+      whileInView="visible"
+      variants={cardVariants}
+      viewport={{ amount: 0.8, once: true }}
+      custom={index}
+    >
+      <div className={styles.imageContainer}>
+        <Icon alt="image" className={styles.image} />
       </div>
-      <div className="content">
-        <h1 className="title">{title}</h1>
-        <p className="description">{description}</p>
+      <div className={styles.content}>
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.description}>{description}</p>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
