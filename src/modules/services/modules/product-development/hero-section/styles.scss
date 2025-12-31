@@ -1,5 +1,9 @@
 .digital-transformation-hero {
-  background: url('../assets/background.svg');
-  background-size: 100%;
+ background-image: url('../assets/background.svg');
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  background-position-y: 80%;
+  position: relative;
 }

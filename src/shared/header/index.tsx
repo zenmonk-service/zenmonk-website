@@ -34,7 +34,7 @@ const Navbar = () => {
         closed: { y: 0 },
         hidden: { y: '-100%', opacity: 0 },
       }}
-      animate={isPageLoading ? 'hidden' : isOpen ? 'open' : 'closed'}
+      // animate={isPageLoading ? 'hidden' : isOpen ? 'open' : 'closed'}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={styles.appBarContainer}
     >
