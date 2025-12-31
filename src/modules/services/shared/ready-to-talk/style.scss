@@ -1,64 +1,155 @@
-.ready-to-talk-shared-section {
+.ready-to-talk-wrapper {
+  padding: 4.375vw 11.45vw;
+}
+
+/* ================= DESKTOP ================= */
+.ready-to-talk-container {
+  position: relative;
+  max-width: 100vw;
+  border-radius: 1.25vw;
+  background: url('./assets/ready-to-talk-banner.svg') center / cover no-repeat;
+  box-shadow: 0 1.04vw 3.125vw rgba(0, 0, 0, 0.12);
+
   display: flex;
   align-items: center;
+  gap: 2.5vw;
+  padding: 3.375vw 11.45vw;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+}
+
+/* WHITE OVERLAY */
+.ready-to-talk-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.35); /* adjust opacity */
+  z-index: 1;
+}
+
+/* KEEP CHILDREN ABOVE OVERLAY */
+.ready-to-talk-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* IMAGE */
+.rtt-image {
+  flex: 0 0 42%;
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
-  padding: 0 4%;
+}
 
-  .ready-to-talk-shared-container {
+.rtt-image svg,
+.rtt-image img {
+  width: 100%;
+  height: auto;
+  max-height: 22.88vw; /* 420px */
+  object-fit: contain;
+}
+
+/* CONTENT */
+.rtt-content {
+  flex: 1;
+  max-width: 35vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.83vw; /* 16px */
+} 
+.rtt-subheading{
+  max-width: 90%;
+}
+.rtt-button {
+  margin-top: 0.63vw !important; /* 12px */
+  width: max-content;
+  padding: 0.47vw 0.89vw;
+  border-radius: 4px !important; /* 8px */
+  font-weight: 600 !important;
+  background: linear-gradient(75deg, #eb7c0d, #ffa750) !important;
+  color: #fff !important;
+  font-size: max(16px, 0.9375vw) !important;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .ready-to-talk-container {
+    gap: 32px;
+    padding: 2.25vw !important;
+  }
+
+  .rtt-image {
+    background-position: 90% !important;
+  }
+  
+  .rtt-image svg,
+  .rtt-image img {
+    background-position: 30% !important;
+    max-height: 31.88vw; /* 420px */
+}
+  .ready-to-talk-wrapper {
+    padding: 0 !important;
+  }
+
+  .ready-to-talk-container {
+    gap: 32px;
+    padding: 2.25vw !important;
+    padding-bottom: 0px !important;
+  }
+
+  .rtt-heading {
+    font-size: 30px !important;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .ready-to-talk-container {
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    background: none;
+    box-shadow: none;
+    text-align: center !important;
+
+  }
+
+  .rtt-image {
     width: 100%;
-    max-width: 75vw;
-    margin: 0 auto;
-    border-radius: 1.25vw;
-    height: 26.66vw;
-    background: #FFFFF9;
-    box-shadow: 0.1041vw 0.2083vw 2.2031vw 0vw rgba(0, 0, 0, 0.14);
-    background-image: url("./assets/ready-to-talk-banner.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
+    background: url('./assets/ready-to-talk-banner.svg') center / cover no-repeat;
+    padding: 32px 16px 0;
+  }
+
+  .rtt-image svg,
+  .rtt-image img {
+    max-height: 280px;
+    margin-left: -35%;
+  }
+
+  .ready-to-talk-container {
+    gap: 0;
+    padding: 0 !important;
+  }
+  .rtt-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 16px 32px;
+    gap: 16px;
+    text-align: center;
     align-items: center;
-    justify-content: center;
-    padding: 0 4%;
+    background: #fff9e9;
+  }
 
-    .image-container {
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
 
-      .rtt-img {
-        width: 100%;
-      }
-    }
+  .rtt-heading {
+    text-align: center !important;
+    max-width: 100%;
+  }
 
-    .ready-to-talk-shared-content {
-      gap: 1.25vw;
-      max-width: 28.9583vw;
-
-      .heading {
-        color: #424242 !important;
-        font-family: Poppins !important;
-      }
-
-      .subheading {
-        color: #747474;
-        font-family: Poppins !important;
-        font-style: normal;
-        margin-bottom: 2.29vw;
-      }
-
-      .rtt-button {
-        color: #FFF;
-        font-family: Poppins, sans-serif !important;
-        font-size: 0.9375vw;
-        font-style: normal;
-        font-weight: 600;
-        line-height: normal;
-        width: 7.86vw;
-        height: 2.08vw;
-        border-radius: 0.21vw;
-        background: linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%);
-      }
-    }
+  .rtt-subheading {
+    text-align: center !important;
+    max-width: 100%;
   }
 }

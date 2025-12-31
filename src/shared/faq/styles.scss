@@ -1,6 +1,6 @@
 .faq {
   margin: auto;
-  padding: 3.3333vw 1.25vw;
+  padding: 5.3333vw 1.25vw;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
   margin-top: Max(80px, 3.125vw);
@@ -8,9 +8,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   @media (max-width: 900px) {
     padding-left: 16px;
     padding-right: 16px;
+    height: auto;
   }
 
   .images {
@@ -44,6 +46,7 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.0417vw; // -0.8px
+    min-height: 100px;
 
     span {
       color: #eb7c0d;
@@ -69,7 +72,8 @@
   .questions-wrapper {
     display: flex;
     flex-direction: column;
-    gap: Max(16px, 0.8333vw);
+    gap: max(16px, 0.8333vw);
+    min-height: 26.04vw;
   }
 
   .question-wrapper {
@@ -113,4 +117,5 @@
 .toggle-icon {
   width: Max(34px, 1.823vw);
   height: Max(34px, 1.823vw);
+  cursor: pointer;
 }

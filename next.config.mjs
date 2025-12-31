@@ -5,14 +5,13 @@ const nextConfig = {
   },
 
   reactStrictMode: false,
-  swcMinify: true,
   compress: true,
 
   transpilePackages: ['three'],
 
   // ⛔ REQUIRED: disable turbopack
   experimental: {
-    turbo: false,
+    turbo: {},
   },
 
   images: {

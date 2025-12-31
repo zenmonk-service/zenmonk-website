@@ -1,33 +1,35 @@
-import { Button, Stack } from '@mui/material'
+'use client'
+
+import { Box, Button, Stack } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { RTTGirlImg } from './assets'
 import './style.scss'
 
 const ReadyToTalkShared = () => {
   return (
-    <Stack className="ready-to-talk-shared-section">
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        className="ready-to-talk-shared-container"
-        gap={{ lg: '3.0208vw' }}
-      >
-        <div className="image-container">
-          <RTTGirlImg className="rtt-img" />
-        </div>
+    <Stack className="ready-to-talk-wrapper">
+      <Box className="ready-to-talk-container">
+        {/* IMAGE */}
+        <Box className="rtt-image">
+          <RTTGirlImg />
+        </Box>
 
-        <Stack className="ready-to-talk-shared-content">
+        {/* CONTENT */}
+        <Box className="rtt-content">
           <SectionTitle
-            className="heading"
-            text="NOT KNOW WHERE TO START ?"
+            className="rtt-heading"
+            text="NOT KNOW WHERE TO START?"
             align="left"
           />
+
           <SectionDescription
-            className="subheading"
+            className="rtt-subheading"
             text="Let’s get help from zenmonk’s software development experts"
           />
-          <Button className="rtt-button">Read More</Button>
-        </Stack>
-      </Stack>
+
+          <Button className="rtt-button">READ MORE</Button>
+        </Box>
+      </Box>
     </Stack>
   )
 }

@@ -11,6 +11,6 @@ export default function LoadingIndicator() {
 
   useEffect(() => {
     dispatch(toggleLoader(pending))
-  }, [pending])
+  }, [pending, dispatch])
   return null
 }

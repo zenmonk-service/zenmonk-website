@@ -1,7 +1,7 @@
 $font-family-base: 'Poppins', sans-serif;
 $font-size-base: 1rem;
 $section-description-letter-spacing: 0.03rem;
-$section-description-margin-bottom: 2.5rem;
+$section-description-margin-bottom: 1vw;
 
 .custom-section-description {
   flex-wrap: wrap;
@@ -11,7 +11,7 @@ $section-description-margin-bottom: 2.5rem;
     'clig' off;
   font-family: $font-family-base;
   font-style: normal;
-  font-size: var(--font-size-20);
+  font-size: max(16px, 1vw);
   font-weight: 400;
   line-height: normal;
   letter-spacing: $section-description-letter-spacing;

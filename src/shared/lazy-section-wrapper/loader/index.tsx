@@ -19,9 +19,6 @@ export default function FullScreenLoading() {
       smootherRef.current.paused(true)
     }
 
-    // 3. Global Loading State
-    dispatch(toggleLoader(true))
-
     return () => {
       // Restore scroll
       document.body.style.overflow = originalStyle
@@ -30,9 +27,6 @@ export default function FullScreenLoading() {
       if (smootherRef?.current) {
         smootherRef.current.paused(false)
       }
-
-      // Reset Global Loading State
-      dispatch(toggleLoader(false))
     }
   }, [smootherRef, dispatch])
 

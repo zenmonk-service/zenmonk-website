@@ -36,14 +36,10 @@ const questions = [
 ]
 
 const FAQ = () => {
-  const [visibleIndex, setVisibleIndex] = useState<number[]>([])
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleAnswer = (index: number) => {
-    if (visibleIndex.includes(index)) {
-      const newIndex = visibleIndex.filter((idx) => idx !== index)
-      return setVisibleIndex(newIndex)
-    }
-    setVisibleIndex((prev) => [...prev, index])
+    setOpenIndex((prev) => (prev === index ? null : index))
   }
 
   return (
@@ -62,37 +58,40 @@ const FAQ = () => {
         <p className="section-sub-heading">Top questions</p>
 
         <div className="questions-wrapper">
-          {questions.map((item, index) => (
-            <div key={index} className="question-wrapper">
-              <div>
-                <p className="question" onClick={() => toggleAnswer(index)}>
-                  {item.question}
-                </p>
-                <Collapse
-                  in={visibleIndex.includes(index)}
-                  timeout="auto"
-                  unmountOnExit
-                >
-                  <p className="answer">{item.answer}</p>
-                </Collapse>
-              </div>
+          {questions.map((item, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div key={index} className="question-wrapper">
+                <div>
+                  <p className="question" onClick={() => toggleAnswer(index)}>
+                    {item.question}
+                  </p>
+                  <Collapse
+                    in={isOpen}
+                    timeout="auto"
+                    unmountOnExit
+                  >
+                    <p className="answer">{item.answer}</p>
+                  </Collapse>
+                </div>
 
-              <div>
-                {visibleIndex.includes(index) ? (
-                  <MINUS
-                    onClick={() => toggleAnswer(index)}
-                    className="toggle-icon"
-                  />
-                ) : (
-                  <PLUS
-                    alt="plus"
-                    onClick={() => toggleAnswer(index)}
-                    className="toggle-icon"
-                  />
-                )}
+                <div>
+                  {isOpen ? (
+                    <MINUS
+                      onClick={() => toggleAnswer(index)}
+                      className="toggle-icon"
+                    />
+                  ) : (
+                    <PLUS
+                      onClick={() => toggleAnswer(index)}
+                      className="toggle-icon"
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
+
         </div>
       </div>
     </div>
