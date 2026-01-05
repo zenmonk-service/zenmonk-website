@@ -31,15 +31,20 @@ const OurServicesDesktop = () => {
     })
   }, [rightSectionHeadingRef])
 
-  const text = 'Solutions Designed For Your Success'
+  const text = 'Future Proof Your Business With Our IT Services'
 
   return (
     <section className={styles.serviceSectionWrapper}>
       <SectionTitle
         text={text}
-        markText="Your Success"
+        markText="Services"
         className="service-section-home-title"
-        markTextProps={{ rotate: 1.8 }}
+        markTextProps={{
+          rotate: 4,
+          style: {
+            marginTop: "-0.45vw"
+          }
+        }}
       />
       <div className={`${styles.servicesSection} desktop`}>
         <div

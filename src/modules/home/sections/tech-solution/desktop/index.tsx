@@ -4,6 +4,7 @@ import BaseButton from '@/shared/button'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import './styles.scss'
 import TechCard from '../tech-card'
+import Image from 'next/image'
 
 const TechSolutionDesktop = () => {
   const router = useRouter()
@@ -41,7 +42,7 @@ const TechSolutionDesktop = () => {
         </BaseButton>
       </div>
       <div className="tech-solution-section-image-wrapper">
-        {/* <Image fill src="/tech-solutions.png" alt="tech-solution" /> */}
+        <Image fill src="/tech-solution.png" alt="tech-solution" />
       </div>
     </div>
   )

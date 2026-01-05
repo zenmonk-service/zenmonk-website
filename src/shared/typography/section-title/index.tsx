@@ -92,7 +92,8 @@ const SectionTitle = ({
               className={`mark-container ${markTextProps?.className}`}
               style={{
                 width: markWidth ? `${markWidth}px` : 'auto',
-                rotate: `${markTextProps?.rotate}deg`,
+                rotate: `${markTextProps?.rotate ?? 4}deg`,
+                marginTop:`${markTextProps?.style?.marginTop ?? "-0.45vw"}`,
                 ...markTextProps?.style,
               }}
             >

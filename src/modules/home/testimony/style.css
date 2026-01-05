@@ -20,6 +20,9 @@
 .testimony-content .reviwer-image {
   display: grid;
   place-items: center;
+  position: relative;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .testimony-content .review {
@@ -148,6 +151,7 @@
     line-height: normal;
     letter-spacing: 0.42px;
     max-width: 600px;
+    min-height: 165px !important;
   }
 
   .testimony-mb .testimony-image-wrapper {

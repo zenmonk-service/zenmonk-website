@@ -177,11 +177,7 @@ export default function Testimony() {
 
             <div className="review">{ClientReviews[currentIndex].review}</div>
 
-            <div
-              style={{
-                marginBottom: '200px',
-              }}
-            >
+            <div>
               <div className="title">{ClientReviews[currentIndex].by}</div>
               <div className="description">
                 {ClientReviews[currentIndex].position}
