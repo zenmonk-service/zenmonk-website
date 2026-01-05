@@ -3,7 +3,7 @@
 import { motion, useCycle } from 'framer-motion'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { useAppSelector } from '@/store/hooks'
@@ -13,6 +13,7 @@ import styles from './header.module.scss'
 
 const Navbar = () => {
   const { push } = useRouter()
+  const pathname = usePathname()
   const navigateToHome = () => push('/')
   const [isOpen, toggleOpen] = useCycle(false, true)
   const smootherRef = useScrollSmoother()
@@ -42,7 +43,10 @@ const Navbar = () => {
         <Monk onClick={navigateToHome} />
       </div>
       <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
-      <Link href="/contact" className={styles.appBarContactButton}>
+      <Link
+        href="/contact"
+        className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
+      >
         <LoadingIndicator />
         Contact Us
       </Link>

@@ -8,5 +8,6 @@ import Saturn from './saturn.svg'
 import Star from './star.svg'
 import Teacher from './teacher.png'
 import SmallSaturn from "./small-saturn.svg"
+import Doodle from "./doodle.svg"
 
-export { Teacher, Quote2, Quote1, Quote, Year15, Ellipse, Roll, Saturn, Star ,SmallSaturn}
+export { Teacher, Quote2, Quote1, Quote, Year15, Ellipse, Roll, Saturn, Star , SmallSaturn, Doodle}

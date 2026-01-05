@@ -11,9 +11,14 @@
   justify-content: center;
   align-items: center;
   border: 0.05vw solid white;
-  &:hover {
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
     background-color: #ffd5ac38;
     border: 0.05vw solid #ffa750;
+    color: #ffa750;
   }
 }
 

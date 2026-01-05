@@ -40,7 +40,7 @@ const ActionLinks = (props: ActionLinksProp) => {
         {navLinks.map(({ href, name }) => (
           <Link
             href={href}
-            className={styles.actionLink}
+            className={`${styles.actionLink} ${pathname === href ? styles.active : ''}`}
             prefetch={false}
             key={name}
           >

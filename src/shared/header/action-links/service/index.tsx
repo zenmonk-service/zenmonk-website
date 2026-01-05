@@ -26,7 +26,7 @@ const ServiceLink = (props: Props) => {
     <>
       <button
         // style={navItemStyles(pathname, '/services')}
-        className={styles.serviceActionLink}
+        className={`${styles.serviceActionLink} ${pathname.includes('/services') ? styles.active : ''}`}
         onClick={handleClick}
       >
         <p>Services</p>

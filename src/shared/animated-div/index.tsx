@@ -6,14 +6,17 @@ interface AnimatedDivProps {
   children: React.ReactNode
   delay?: number
   duration?: number
+  className?: string
 }
 
 const AnimatedDiv = ({
   children,
   delay = 0.2,
   duration = 0.8,
+  className,
 }: AnimatedDivProps) => (
   <motion.div
+    className={className}
     initial={{ opacity: 0, y: 60 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{

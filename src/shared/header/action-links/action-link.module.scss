@@ -21,9 +21,13 @@
   align-items: center;
   border: 0.05vw solid white;
   cursor: pointer;
-  &:hover {
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
     background-color: #ffd5ac38;
     border: 0.05vw solid #ffa750;
+    color: #ffa750;
   }
 }
 

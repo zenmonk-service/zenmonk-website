@@ -32,6 +32,13 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  &.active {
+    border: 1.5px solid #fff;
+    box-shadow: 0 0 10px rgba(235, 124, 13, 0.4);
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1152px) {
