@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import IconButton from '@mui/material/IconButton'
@@ -9,25 +10,20 @@ import CultureCard from '../card/culture-card'
 import './styles.scss'
 import { workCultures } from '../work-cultures'
 
-const CARDS_TO_SHOW = 4
+const CARD_WIDTH_VW = 20
+const GAP_VW = 3.125
 
 const WorkCultureDesktop = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const totalCultures = workCultures.length
+  const [index, setIndex] = useState(0)
+  const totalItems = workCultures.length
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalCultures)
+    setIndex((prev) => (prev + 1) % totalItems)
   }
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalCultures - 1 : prevIndex - 1
-    )
+    setIndex((prev) => (prev - 1 + totalItems) % totalItems)
   }
-
-  const visibleCultures = Array.from({ length: CARDS_TO_SHOW }).map(
-    (_, i) => workCultures[(currentIndex + i) % totalCultures]
-  )
 
   return (
     <div className="work-culture-wrapper">
@@ -39,16 +35,10 @@ const WorkCultureDesktop = () => {
               text="Zen Focused Work Environment"
               className="work-culture-title"
               markText="Environment"
-              markTextProps={{
-                rotate: 2,
-              }}
             />
             <SectionDescription
               className="work-culture-description"
-              text="At Zenmonk, we cultivate serenity and growth, balancing
-              professional success with personal well-being. Blending
-              mindfulness with innovation, we nurture a supportive community
-              where continuous learning and creative fulfillment prosper."
+              text="At Zenmonk, we cultivate serenity and growth, balancing professional success with personal well-being. Blending mindfulness with innovation, we nurture a supportive community where continuous learning and creative fulfillment prosper."
             ></SectionDescription>
           </div>
           <div className="action-button-wrapper">
@@ -64,10 +54,24 @@ const WorkCultureDesktop = () => {
             </IconButton>
           </div>
         </div>
-        <div className="work-cultures">
-          {visibleCultures.map((culture, index) => (
-            <CultureCard key={index} details={culture} />
-          ))}
+
+        <div className="work-cultures-mask">
+          <motion.div
+            className="work-cultures-track"
+            animate={{
+              x: `-${index * (CARD_WIDTH_VW + GAP_VW)}vw`,
+            }}
+            transition={{
+              type: 'spring',
+              stiffness: 120,
+              damping: 20,
+            }}
+          >
+            {/* Render multiple sets to allow infinite-like button navigation */}
+            {[...workCultures, ...workCultures].map((culture, i) => (
+              <CultureCard key={`${culture.title}-${i}`} details={culture} />
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

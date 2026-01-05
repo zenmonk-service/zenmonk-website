@@ -16,6 +16,7 @@
   }
   .track {
     display: flex;
+    margin-top: 24px;
     .carouselItem {
       position: relative;
       overflow: hidden;
@@ -43,7 +44,7 @@
         flex-direction: column;
         gap: 16px;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         padding: 24px;
         width: 100%;
         .cardTitle {

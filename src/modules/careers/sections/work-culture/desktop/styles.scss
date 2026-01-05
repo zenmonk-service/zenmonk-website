@@ -56,10 +56,17 @@
     }
   }
 
-  .work-cultures {
+  .work-cultures-mask {
     margin-top: 2.8125vw;
-    gap: 3.125vw;
-    display: flex;
     margin-bottom: 6.25vw;
+    width: 100%;
+    overflow: hidden;
+    padding: 1vw 0;
+  }
+
+  .work-cultures-track {
+    display: flex;
+    gap: 3.125vw;
+    padding-right: 3.125vw; // Add gap at the end for seamless looping
   }
 }

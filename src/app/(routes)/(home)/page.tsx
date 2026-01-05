@@ -24,7 +24,7 @@ import TechnologyTree from '@/modules/services/tech-tree'
 import GlobeSection from '@/animations/globe-animation'
 
 const World = dynamic(
-  () => import('@/animations/globe-animation/new').then((m) => m.World),
+  () => import('@/animations/globe-animation/config').then((m) => m.World),
   {
     ssr: false,
   }
