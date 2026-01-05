@@ -9,7 +9,7 @@
   justify-content: center !important;
   align-items: center !important;
   background: rgb(255, 255, 255) !important; 
-  z-index: 999 !important;
+  z-index: 9999 !important;
 }
 
 /* Your loader stays the same */

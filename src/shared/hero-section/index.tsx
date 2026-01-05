@@ -4,6 +4,7 @@ import parse from 'html-react-parser'
 import Grid from '@mui/material/Grid2'
 import BaseButton from '../button'
 import styles from './hero-section.module.scss'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   title: string
@@ -11,8 +12,10 @@ interface HeroSectionProps {
   textWidth?: number
   highlightedText?: string
   imgWidth?: number
-  url: string
+  url?: string
   imageStyle?: React.CSSProperties
+  children?: React.ReactNode
+  showImage?: boolean
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -23,6 +26,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   imgWidth,
   url,
   imageStyle = {},
+  children,
+  showImage = true,
 }) => {
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
@@ -61,18 +66,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         display="flex"
         justifyContent="center"
       >
-        <img
-          className={styles.image}
-          src={url}
-          alt="Hero Image"
-          style={{
-            width: imgWidth ?? '100%',
-            height: 'auto',
-            objectFit: 'contain',
-            borderRadius: 2,
-            ...imageStyle,
-          }}
-        />
+        {showImage && url && (
+          <Image
+            className={styles.image}
+            src={url}
+            alt="Hero Image"
+            width={600}
+            height={600}
+            priority
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: 2,
+              ...imageStyle,
+            }}
+          />
+        )}
+        {children}
       </Grid>
     </Grid>
   )

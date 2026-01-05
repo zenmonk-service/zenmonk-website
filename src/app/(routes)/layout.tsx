@@ -37,14 +37,14 @@ export default function RootLayout({
     <html lang="en" className={inter.className}>
       <body className={` ${poppins.variable} ${montserrat.variable}`}>
         <AppRouterCacheProvider>
-            <ScrollProvider>
-              <Header />
-              <SmoothScroller>
-                {/* <CustomLoader /> */}
-                {children}
-                <Footer />
-              </SmoothScroller>
-            </ScrollProvider>
+          <ScrollProvider>
+            <Header />
+            <CustomLoader />
+            <SmoothScroller>
+              {children}
+              <Footer />
+            </SmoothScroller>
+          </ScrollProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

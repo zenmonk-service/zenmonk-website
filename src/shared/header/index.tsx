@@ -39,12 +39,14 @@ const Navbar = () => {
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={styles.appBarContainer}
     >
-      <div className={styles.appBarIconContainer}>
-        <Monk onClick={navigateToHome} />
-      </div>
+      <Link href="/" className={styles.appBarIconContainer} prefetch={false}>
+        <LoadingIndicator />
+        <Monk />
+      </Link>
       <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
       <Link
         href="/contact"
+        prefetch={false}
         className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
       >
         <LoadingIndicator />

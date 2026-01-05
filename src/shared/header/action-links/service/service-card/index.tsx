@@ -25,20 +25,26 @@ const ServiceCard = ({
 
   const isPageLoading = useAppSelector((state) => state.header.isLoading)
   const [click, setClick] = useState(false);
-  
+
   console.log('isPageLoading: ', isPageLoading);
   useEffect(() => {
-    if (!isPageLoading && click)  {
+    if (!isPageLoading && click) {
       handleClose()
     }
   }, [isPageLoading, click, handleClose])
-  
+
   return (
     <Link
       href={`/services/${route}`}
       className={`${styles.serviceCard}  ${isActive ? styles.selected : ''}`}
       prefetch={false}
-      onClick={() => setClick(true)}
+      onClick={(e) => {
+        if (isActive) {
+          e.preventDefault()
+          return
+        }
+        setClick(true)
+      }}
     >
       <LoadingIndicator />
       <Image

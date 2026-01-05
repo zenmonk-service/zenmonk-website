@@ -8,31 +8,26 @@ import Settings from '../assets/settings.svg'
 import Work from '../assets/work.svg'
 import styles from './menu.module.scss'
 
-const services = [
-  'Software Development',
-  'Growth & Marketing',
-  'Mobile App Development',
-  'IT Training & Workshops',
-  'Product Development',
-  'Industry Specific Solutions',
-  'IT & Business Consultations',
-  'Cloud Development',
-  'UI/UX Design',
-  'AI Based Softwares',
-]
+import Link from 'next/link'
+import LoadingIndicator from '@/shared/loader/detector'
+import { usePathname } from 'next/navigation'
+import { services } from '@/shared/header/action-links/service/services.constant'
 
 const items = [
   {
     title: 'About Us',
     icon: HomeWork,
+    href: '/about-us',
   },
   {
     title: 'Careers',
     icon: School,
+    href: '/careers',
   },
   {
     title: 'How we work',
     icon: Work,
+    href: '/how-we-work',
   },
 ]
 const variants = {
@@ -64,6 +59,10 @@ const ItemVariants = {
 const Arrow = motion.create(ArrowDown)
 const Navigation = () => {
   const [isOpened, setIsOpened] = useState(false)
+  const pathname = usePathname()
+
+  const isServiceActive = (route: string) => pathname.includes(route)
+
   return (
     <motion.ul
       key="nav"
@@ -98,25 +97,43 @@ const Navigation = () => {
         timeout="auto"
         unmountOnExit
       >
-        {services.map((title) => (
-          <div className={styles.collapsableService} key={title}>
-            <p className={styles.collapsableTitle}>{title}</p>
-          </div>
+        {services.map((service) => (
+          <Link
+            href={`/services/${service.route}`}
+            className={`${styles.collapsableService} ${isServiceActive(service.route) ? styles.active : ''}`}
+            key={service.route}
+            prefetch={false}
+            onClick={(e) => {
+              if (isServiceActive(service.route)) {
+                e.preventDefault()
+              }
+            }}
+          >
+            <LoadingIndicator />
+            <p className={styles.collapsableTitle}>{service.name}</p>
+          </Link>
         ))}
       </Collapse>
-      {items.map(({ title, icon: Icon }) => (
-        <motion.li
+      {items.map(({ title, icon: Icon, href }) => (
+        <Link
+          href={href}
           key={title}
-          variants={ItemVariants}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className={styles.sideBarMenuItem}
+          prefetch={false}
+          className={styles.sideBarMenuItemLink}
         >
-          <div className={styles.iconPlaceholder}>
-            <Icon />
-          </div>
-          <p className={styles.menuItemTitle}>{title}</p>
-        </motion.li>
+          <LoadingIndicator />
+          <motion.li
+            variants={ItemVariants}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className={styles.sideBarMenuItem}
+          >
+            <div className={styles.iconPlaceholder}>
+              <Icon />
+            </div>
+            <p className={styles.menuItemTitle}>{title}</p>
+          </motion.li>
+        </Link>
       ))}
     </motion.ul>
   )
