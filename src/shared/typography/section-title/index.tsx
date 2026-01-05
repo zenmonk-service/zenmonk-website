@@ -15,6 +15,7 @@ interface TitleProps extends TypographyProps {
   markTextProps?: {
     rotate?: number
     className?: string
+    style?: React.CSSProperties
   }
 }
 
@@ -92,6 +93,7 @@ const SectionTitle = ({
               style={{
                 width: markWidth ? `${markWidth}px` : 'auto',
                 rotate: `${markTextProps?.rotate}deg`,
+                ...markTextProps?.style,
               }}
             >
               <Mark className="mark-icon" />

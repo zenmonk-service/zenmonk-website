@@ -12,7 +12,7 @@ export const countries = [
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
-      address: 'Asha Tower, Phase 8B, SAS Nagar (Mohali), Punjab,160055',
+      address: 'Asha Tower, Phase 8B, Industrial Area, Sector 75, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160055',
     },
   },
 

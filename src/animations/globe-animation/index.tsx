@@ -6,20 +6,17 @@ import { countries } from '@/shared/contact-us-section/countries'
 import { SectionTitle } from '@/shared/typography'
 import Globe from './globe'
 import './styles.scss'
+import { Box } from '@mui/material'
 
-export default function Cobe() {
+export default function GlobeSection() {
   const clickRef = useRef<boolean>(false)
-  const focusRef = useRef<[number, number]>([0, 0])
-
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const [country, setCountry] = useState(countries[0])
 
   const indexRef = useRef(1)
-  const onClick = (coords: number[]) => {
-    const [lat, long] = coords
-    if (lat == null || long == null) return
 
+  const onClick = (countryData: typeof countries[0]) => {
     clickRef.current = true
 
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
@@ -28,15 +25,17 @@ export default function Cobe() {
       clickRef.current = false
     }, 2000)
 
-    focusRef.current = [
-      Math.PI - ((long * Math.PI) / 180 - Math.PI / 2),
-      (lat * Math.PI) / 180,
-    ]
+    setCountry(countryData)
+    // Update indexRef so auto-rotation continues from here
+    indexRef.current = (countries.indexOf(countryData) + 1) % countries.length
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountry(countries[indexRef.current])
+      if (clickRef.current) return // Don't auto-rotate if user just clicked
+
+      const nextCountry = countries[indexRef.current]
+      setCountry(nextCountry)
       indexRef.current = (indexRef.current + 1) % countries.length
     }, 3000)
 
@@ -44,62 +43,73 @@ export default function Cobe() {
   }, [])
 
   return (
-    <div className="our-office-container">
-      <div className="our-office-content">
-        <p className="contact-title">Contact Us</p>
+    <section className="our-office-section">
+      <div className="our-office-container">
+        <div className="our-office-header">
+          <p className="contact-title">Contact Us</p>
 
-        <SectionTitle
-          align="left"
-          text="Lets fire up your business!"
-          markText="business!"
-          markTextProps={{ rotate: 2 }}
-        />
+          <SectionTitle
+            align="left"
+            text="Lets fire up your business!"
+            markText="business!"
+            markTextProps={{
+              rotate: 5,
+              style: { marginTop: '-0.45vw' },
+            }}
+          />
 
-        <p className="contact-description">
-          Team up with us today for an unforgettable experience
-        </p>
-
-        <div className="flags-container">
-          {countries.map((countryData) => {
-            const { name, img, coordinates } = countryData
-
-            return (
-              <motion.div
-                key={name}
-                className="our-office-country-flag"
-                whileHover={{ scale: 1.1 }}
-                animate={{ scale: name === country.name ? 1.2 : 1 }}
-                transition={{ type: 'easeInOut', stiffness: 300 }}
-                onClick={() => onClick(coordinates)}
-                style={{
-                  backgroundImage: `url(${img})`,
-                  ...(name === country.name && {
-                    boxShadow: `0 0 0.26vw 0.26vw rgba(255, 168, 80, 0.4)`,
-                  }),
-                }}
-              />
-            )
-          })}
+          <p className="contact-description">
+            Team up with us today for an unforgettable experience
+          </p>
         </div>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={country.name}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="country-name">{country.name}</p>
-            <p className="country-address">{country.office.address}</p>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        <div className="globe-container">
+          <div className="glow-background" />
+          <div className="globe-shadow" />
+          <Globe
+            clickRef={clickRef}
+            coordinates={country.coordinates as [number, number]}
+            activeCountryName={country.name}
+          />
+        </div>
 
-      <div className="globe-container">
-        <div className="glow-background" />
-        <Globe clickRef={clickRef} focusRef={focusRef} />
+        <Box className="our-office-country-flag-container">
+          <div className="flags-container">
+            {countries.map((countryData) => {
+              const { name, img } = countryData
+              const active = name === country.name
+
+              return (
+                <motion.div
+                  key={name}
+                  className={`our-office-country-flag ${active ? 'selected' : ''}`}
+                  whileHover={{ scale: 1.1 }}
+                  animate={{ scale: active ? 1.15 : 1 }}
+                  transition={{ type: 'spring', stiffness: 260 }}
+                  onClick={() => onClick(countryData)}
+                  style={{
+                    backgroundImage: `url(${img})`,
+                  }}
+                />
+              )
+            })}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={country.name}
+              className="country-info"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <p className="country-name">{country.name}</p>
+              <p className="country-address">{country.office.address}</p>
+            </motion.div>
+          </AnimatePresence>
+        </Box>
       </div>
-    </div>
+    </section>
   )
 }

@@ -21,6 +21,7 @@ import { toggleHeader } from '@/store/features/header/header-slice'
 import { useAppDispatch } from '@/store/hooks'
 import TechSolution  from '@/modules/home/sections/tech-solution'
 import TechnologyTree from '@/modules/services/tech-tree'
+import GlobeSection from '@/animations/globe-animation'
 
 const World = dynamic(
   () => import('@/animations/globe-animation/new').then((m) => m.World),
@@ -428,7 +429,8 @@ const HomePage = () => {
       <OurProjects />
       <WhyChooseUs />
       <Statistics />
-      <ClientSatisfaction />
+      <GlobeSection/>
+      {/* <ClientSatisfaction /> */}
       <Testimony />
       <FAQ />
     </div>
