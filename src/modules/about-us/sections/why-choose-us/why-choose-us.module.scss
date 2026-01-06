@@ -5,23 +5,52 @@ $hover-bg-light-green: #e9f7ec;
 
 .aboutUsWhyChooseUsSection {
   width: 100%;
-  margin-bottom: 5.2vw;
-  gap: 3.6vw;
   display: flex;
+  margin-top: 5.2vw;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 1037px) {
+    flex-direction: column-reverse;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    gap: 40px;
+    padding: 0 20px;
+    height: auto;
+  }
 }
 
 .cardSection {
-  width: max-content;
+  width: 50%;
   display: flex;
-  gap: max(1.042vw, 2.604vw);
+  justify-content: space-evenly;
+  gap: 2.25vw; /* 24px */
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 }
 
 .leftSection {
   width: max-content;
   height: 100%;
   display: flex;
-  gap: 2.6vw;
+  gap: 2.08vw; /* 40px */
   flex-direction: column;
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    gap: 20px;
+    height: auto;
+  }
 }
 
 .centerSection {
@@ -29,33 +58,47 @@ $hover-bg-light-green: #e9f7ec;
   margin-top: 3.6vw;
   height: 100%;
   display: flex;
-  gap: 2.6vw;
+  gap: 2.08vw; /* 40px */
   flex-direction: column;
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    margin-top: 0;
+    gap: 20px;
+  }
 }
 
 .whyChooseUsCard {
   transition: background 0.2s ease-in-out;
 }
 
-.leftSection .whyChooseUsCard:nth-child(1):hover {
-  background: $hover-bg-light-aqua;
+.leftSection > :nth-child(1):hover {
+  background: $hover-bg-light-aqua !important;
 }
 
-.leftSection .whyChooseUsCard:nth-child(2):hover {
-  background: $hover-bg-light-purple;
+.leftSection > :nth-child(2):hover {
+  background: $hover-bg-light-purple !important;
 }
 
-.centerSection .whyChooseUsCard:nth-child(1):hover {
-  background: $hover-bg-light-blue;
+.centerSection > :nth-child(1):hover {
+  background: $hover-bg-light-blue !important;
 }
 
-.centerSection .whyChooseUsCard:nth-child(2):hover {
-  background: $hover-bg-light-green;
+.centerSection > :nth-child(2):hover {
+  background: $hover-bg-light-green !important;
 }
 
 .rightSection {
   width: 31.25vw;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .sectionTitle {
@@ -66,20 +109,33 @@ $hover-bg-light-green: #e9f7ec;
   font-style: normal;
   line-height: 132%;
   font-weight: 600 !important;
+
+  @media screen and (max-width: 1037px) {
+    font-size: 28px;
+    margin-top: 0;
+    line-height: 1.3;
+  }
 }
 
 .description {
   margin-top: 0.781vw;
   height: auto;
-  padding-bottom: 0.260vw;
+  padding-bottom: 0.26vw;
   color: #555;
   font-family: "Poppins", sans-serif;
-  font-size: 0.937vw;
+  font-size: var(--font-size-18);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   width: 90%;
   min-width: 19.8vw;
+
+  @media screen and (max-width: 1037px) {
+    font-size: 16px;
+    width: 100%;
+    min-width: unset;
+    margin-top: 16px;
+  }
 }
 
 .skillsSet {
@@ -88,17 +144,37 @@ $hover-bg-light-green: #e9f7ec;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.52vw;
+  gap: 1.2vw;
+
+  @media screen and (max-width: 1037px) {
+    margin-top: 30px;
+    gap: 20px;
+  }
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+
+  @media screen and (max-width: 1037px) {
+    gap: 8px;
+  }
 }
 
 .skillTitle {
   margin-bottom: 0.26vw;
   color: #424242;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1vw;
+  font-size: 1.2vw;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
+  @media screen and (max-width: 1037px) {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
 }
 
 .rating {
@@ -106,7 +182,12 @@ $hover-bg-light-green: #e9f7ec;
   gap: 0.7vw;
 
   img {
-    width: 2vw;
-    height: 2vw;
+    width: 1.67vw; /* 32px */
+    height: 1.67vw;
+
+    @media screen and (max-width: 1037px) {
+      width: 32px;
+      height: 32px;
+    }
   }
 }

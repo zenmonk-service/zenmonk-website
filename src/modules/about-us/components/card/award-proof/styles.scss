@@ -3,41 +3,75 @@
   position: relative;
   overflow: visible;
   flex: 1;
-  width: max(12.24vw, 17.792vw); // 235px
-  height: 13.542vw; // 260px
+  width: 18vw;
+  min-height: 15vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+  }
 
   img {
-    margin-left: -1.042vw; // -20px
+    margin-left: 0;
     transition: transform 0.3s ease-in-out;
   }
 
   img {
     position: absolute;
-    width: 10.052vw; // 193px
-    height: 9.375vw !important; // 180px
-    top: -4.167vw; // -80px
-    left: 0;
+    width: 9vw;
+    height: 9vw !important;
+    object-fit: contain;
+    top: -4vw;
+    transform: none;
 
     @media screen and (max-width: 1499px) {
       top: -30%;
-      left: -1.042vw; // -20px
+    }
+
+    @media screen and (max-width: 1037px) {
+      width: 140px;
+      height: 140px !important;
+      top: -70px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      margin-left: 0 !important;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 768px) {
+      left: -17px !important;
+      transform: none !important;
     }
   }
 
   .award-card-content {
-    width:100%;
+    width: 100%;
     display: flex;
     padding: 1.563vw; // 30px
     flex-direction: column;
     gap: 0.521vw; // 10px
     flex-shrink: 0;
+    flex: 1;
+    /* Stretch to fill card */
     border-radius: 1.042vw; // 20px
     transition: background-color 0.3s ease-in-out;
     background: var(--global-color-primary);
     box-shadow: 0px 0px 3.125vw 0px rgba(0, 0, 0, 0.05); // 60px
 
+    @media screen and (max-width: 1037px) {
+      padding: 24px 20px 20px 20px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
+    }
+
     .title {
-      margin-top: 4.167vw; // 80px
+      margin-top: 4vw; // Adjusted for left image
       width: 100%;
       color: #424242;
       font-feature-settings:
@@ -48,6 +82,13 @@
       font-style: normal;
       font-weight: 500;
       line-height: 1.563vw; // 30px
+
+      @media screen and (max-width: 1037px) {
+        margin-top: 60px;
+        font-size: 20px !important;
+        line-height: 28px;
+        margin-bottom: 8px;
+      }
     }
 
     .description {
@@ -60,8 +101,13 @@
       font-size: var(--font-size-16) !important;
       font-style: normal;
       font-weight: 400 !important;
-      line-height: 1.25vw !important; // 24px
       text-align: left !important;
+
+      @media screen and (max-width: 1037px) {
+        font-size: 14px !important;
+        line-height: 22px !important;
+        width: 100%;
+      }
     }
   }
 
@@ -69,12 +115,15 @@
     .hover-expand-wrapper .main-star {
       transform: translate(130%, -60%) scale(2);
     }
+
     .small-star {
       transform: translate(-80%, -200%) scale(1.5);
     }
+
     .bottom-arrow {
       transform: translate(120%, -200%) scale(1.5);
     }
+
     .circle-part {
       transform: translate(-180%, 80%) scale(2);
     }
@@ -84,12 +133,15 @@
     .hover-expand-wrapper .main-star {
       transform: translate(180%, -57.5%) scale(1.5);
     }
+
     .bottom-arrow {
       transform: translate(200%, -150%) scale(1.5);
     }
+
     .small-star {
       transform: translate(-80%, 40%) scale(1.6);
     }
+
     .circle-part {
       transform: translate(-150%, -120%) scale(2);
     }
@@ -99,12 +151,15 @@
     .hover-expand-wrapper .main-star {
       transform: translate(180%, -180%) scale(1.5);
     }
+
     .bottom-arrow {
       transform: translate(-20%, -220%) scale(1.6);
     }
+
     .small-star {
       transform: translate(200%, 57.5%) scale(1.5);
     }
+
     .circle-part {
       transform: translate(-150%, 0px) scale(2);
     }
@@ -114,12 +169,15 @@
     .hover-expand-wrapper .main-star {
       transform: translate(220%, -57.5%) scale(1.5);
     }
+
     .bottom-arrow {
       transform: translate(-280%, 0px) scale(1.5);
     }
+
     .small-star {
       transform: translate(220%, -180%) scale(1.5);
     }
+
     .circle-part {
       transform: translate(-20%, -220%) scale(1.2);
     }
@@ -129,12 +187,15 @@
     img {
       transform: translate(0.781vw, -0.521vw) scale(1.2); // 15px, 10px
     }
+
     .award-card-content {
       background-color: #f6c0542c;
     }
+
     .hover-expand-wrapper {
       opacity: 1;
     }
+
     .main-star {
       transform: translate(3.125vw, -3.125vw) scale(1.2); // 60px
     }

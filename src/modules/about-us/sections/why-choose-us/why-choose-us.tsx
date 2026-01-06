@@ -10,8 +10,6 @@ export const whyChooseUs = [
       'Our software solutions are customizable, allowing businesses to adjust settings to their specific needs, ensuring seamless user experience.',
     icon: FlexibleTimingGif,
   },
-
-
   {
     title: 'Life Time Updates',
     description:

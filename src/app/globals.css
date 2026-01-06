@@ -42,7 +42,7 @@ body {
   font-style: normal !important;
   color: var(--global-color-secondary);
   background: var(--global-color-primary);
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 .no-scroll{

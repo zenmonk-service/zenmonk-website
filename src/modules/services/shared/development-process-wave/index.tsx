@@ -80,9 +80,9 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
   return (
     <section className="wave-process-section">
       <div className="monk-container">
-        <MonkSVG className="monk-graphic" />
+        {/* <MonkSVG className="monk-graphic" /> */}
       </div>
-      {showTitle && <SectionTitle text={title} markText={highlightedText} align='center' />}
+      {showTitle && <SectionTitle  text={title} markText={highlightedText} align='center' />}
 
       <div className="process-wrapper">
         {/* Circles and Text Overlays - Moved before SVG to allow sibling selector targeting in CSS */}

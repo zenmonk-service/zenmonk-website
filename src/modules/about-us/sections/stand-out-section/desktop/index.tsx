@@ -9,30 +9,30 @@ import styles from './desktop.module.scss'
 
 const options = [
   {
-    title: 'Our Mission Title',
+    title: 'Research & Analysis',
     description:
-      'Providing good quality customer experience and support is as import and pivotal as offering top grade product.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
     icon: SearchSvg,
     scale: 5,
   },
   {
-    title: 'Our Mission Title',
+    title: 'Reliable Delivery',
     description:
-      'Providing good quality customer experience and support is as import and pivotal as offering top grade product.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
     icon: DownloadSvg,
     scale: 5,
   },
   {
-    title: 'Our Mission Title',
+    title: 'Fast Execution',
     description:
-      'Providing good quality customer experience and support is as import and pivotal as offering top grade product.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
     icon: ThunderSvg,
     scale: 3.8,
   },
   {
-    title: 'Our Mission Title',
+    title: 'Strategic Planning',
     description:
-      'Providing good quality customer experience and support is as import and pivotal as offering top grade product.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
     icon: NoteSvg,
     scale: 4.2,
   },

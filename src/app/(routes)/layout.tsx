@@ -34,19 +34,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className={` ${poppins.variable} ${montserrat.variable}`}>
-        <AppRouterCacheProvider>
-          <ScrollProvider>
-            <Header />
-            <CustomLoader />
-            <SmoothScroller>
-              {children}
-              <Footer />
-            </SmoothScroller>
-          </ScrollProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <div className={`${inter.className} ${poppins.variable} ${montserrat.variable}`}>
+      <AppRouterCacheProvider>
+        <ScrollProvider>
+          <Header />
+          <CustomLoader />
+          <SmoothScroller>
+            {children}
+            <Footer />
+          </SmoothScroller>
+        </ScrollProvider>
+      </AppRouterCacheProvider>
+    </div>
   )
 }

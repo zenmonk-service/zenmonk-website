@@ -9,12 +9,12 @@ export const AwardProofSection = () => {
     <Box className="award-proof-section">
       <SectionTitle
         markTextProps={{ rotate: 2 }}
-        markText='Time'
-        text="Prestigious Accolades That We Have Received Over Time"
+        markText='Services'
+        text="Awards Proof Your Business With Our IT Services"
       />
       <SectionDescription
         text="We are thrilled to showcase our esteemed awards that we have received
-        throughout our business journey." className='section-description'/>
+        throughout our business journey." className='section-description' />
       <Box className="award-proof-list">
         {awardProof.map((award, index) => {
           return (

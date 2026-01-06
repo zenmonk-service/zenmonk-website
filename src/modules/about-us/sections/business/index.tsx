@@ -20,7 +20,7 @@ export const BusinessSection = () => {
   return (
     <div className={styles.businessContainer}>
       <SectionTitle
-        text="We Are The Complete For Your Business Success"
+        text="We Are The Complete Solution For Your Business Success"
         markText="Success"
         markTextProps={{ rotate: 2 }}
         align="center"
@@ -30,7 +30,7 @@ export const BusinessSection = () => {
       <SectionDescription
         className={styles.description}
         text="We offer exceptional services, quality customer experience and loyal
-        support to our clients by ensuring high success rates. We aim is to
+        support to our clients by ensuring high success rates. We aim to
         deliver outstanding results with the help of top-notch services."
       />
 

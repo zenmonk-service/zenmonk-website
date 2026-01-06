@@ -1,43 +1,60 @@
 .why-choose-us-card {
   display: flex;
-  width: max(18.646vw, 21.988vw); // 358px, 422.174px
+  width: 21.88vw;
+  /* 420px */
   height: auto;
   flex-direction: column;
   flex-shrink: 0;
 
-  padding: 1.667vw 2.083vw; // 32px 40px
+  padding: 1.667vw 2.083vw;
+  /* 32px 40px */
   cursor: default;
-  border-radius: 0.313vw; // 6px
-  background: #FFF;
+  border-radius: 0.313vw;
+  /* 6px */
+  background: #fff;
   box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.08);
-  gap: 0.938vw; // 18px
+  gap: 0.94vw;
+  /* 18px */
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
 
   .card-image-container {
     position: relative;
     width: 3.75vw;
-    /* ~72px */
-    height: 3.229vw;
-    /* ~62px */
-    // overflow: hidden; 
+    /* 72px */
+    height: 3.23vw;
+    /* 62px */
+    flex-shrink: 0;
+    scale: 1.8;
+    overflow: hidden;
+
+    @media screen and (max-width: 1037px) {
+      width: 60px;
+      height: 60px;
+    }
 
     img {
       transition: transform 0.5s ease-in-out;
-      object-fit: contain;
       width: 100%;
       height: 100%;
-    }
-  }
-
-  &:hover {
-    .card-image-container img {
-      transform: scale(1.1);
+      object-fit: contain;
+      display: block;
+      transform: scale(8.5);
     }
   }
 
   @media screen and (max-width: 1499px) {
-    min-width: 14.583vw; // 280px
+    min-width: 14.58vw;
+    /* 280px */
     width: 100%;
-    padding: 0.885vw 0.885vw; // 17px 17px
+    padding: 24px;
+    gap: 16px;
+    /* 17px */
   }
 
   .content {
@@ -45,7 +62,12 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 0.521vw; // 10px
+    gap: 0.521vw;
+    /* 10px */
+
+    @media screen and (max-width: 1037px) {
+      gap: 10px;
+    }
 
     .title {
       color: #4e4e4e;
@@ -54,6 +76,10 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
+
+      @media screen and (max-width: 1037px) {
+        font-size: 18px !important;
+      }
     }
 
     .description {
@@ -65,7 +91,13 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 0.521vw; // 10px
+      margin-bottom: 0.521vw;
+      /* 10px */
+
+      @media screen and (max-width: 1037px) {
+        font-size: 14px !important;
+        margin-bottom: 0;
+      }
     }
   }
 }
