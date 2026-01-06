@@ -3,14 +3,28 @@
 import Stack from '@mui/material/Stack'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import { TechTreeImage1 } from './assets'
-import { Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group9, Group10 } from './assets';
+import { TechTreeImage1, Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group9, Group10 } from './assets'
 import { RandomBgIcons } from './random-bg-icons/random-bg-icons'
 import './style.scss'
 
-const TechnologyTree = () => {
+interface TechnologyTreeProps {
+  Icons?: React.ComponentType<any>[]
+  MainImage?: React.ReactNode
+  title?: string
+  highlightedWord?: string
+  description?: string
+  markTextProps?: { rotate?: number }
+}
+
+const TechnologyTree = ({
+  Icons = [Group2, Group4, Group10, Group5, Group6, Group7, Group1, Group9, Group3],
+  MainImage = <TechTreeImage1 />,
+  title = "Zen Tech Wonders We Excel In Innovation & Excellence",
+  highlightedWord = "Excellence",
+  description = "We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more.",
+  markTextProps = { rotate: 2 }
+}: TechnologyTreeProps) => {
   const isMobile = useMediaQuery('(max-width:770px)')
-  const Icons = [Group2, Group4, Group10, Group5, Group6, Group7, Group1, Group9, Group3];
 
   return (
     <Stack className="tech-tree-container">
@@ -30,22 +44,20 @@ const TechnologyTree = () => {
           gap={{ xs: 2, md: '0.83vw' }}
         >
           <SectionTitle
-            text="Zen Tech Wonders We Excel In Innovation & Excellence"
-            markText="Excellence"
+            text={title}
+            markText={highlightedWord}
             align={isMobile ? 'center' : 'left'}
-            markTextProps={{ rotate: 2 }}
+            markTextProps={markTextProps}
             className="tech-tree-heading"
           />
 
           <SectionDescription
             className="tech-tree-description"
-            text="We lead the way in technological innovation, consistently delivering
-            solutions that transform industries. Our commitment to excellence
-            helps businesses and individuals achieve more."
+            text={description}
           />
         </Stack>
 
-        <TechTreeImage1 />
+        {MainImage}
       </Stack>
     </Stack>
   )
