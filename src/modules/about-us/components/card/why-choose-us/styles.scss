@@ -8,31 +8,29 @@
   padding: 1.667vw 2.083vw; // 32px 40px
   cursor: default;
   border-radius: 0.313vw; // 6px
-  background: var(--global-color-primary);
-  box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.12); // 84.5px
+  background: #FFF;
+  box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.08);
   gap: 0.938vw; // 18px
 
   .card-image-container {
     position: relative;
-    width: 3.75vw;   /* ~72px */
-    height: 3.229vw; /* ~62px */
-    overflow: hidden; // optional: clips image overflow
-    border-radius: 8px;
-  
+    width: 3.75vw;
+    /* ~72px */
+    height: 3.229vw;
+    /* ~62px */
+    // overflow: hidden; 
+
     img {
-    transition: transform 0.5s ease-in-out;
-      object-fit: cover; /* or 'contain' if you don't want crop */
+      transition: transform 0.5s ease-in-out;
+      object-fit: contain;
       width: 100%;
       height: 100%;
-      transform: scale(9);
     }
   }
-  
-  
 
   &:hover {
     .card-image-container img {
-      transform: scale(10);
+      transform: scale(1.1);
     }
   }
 

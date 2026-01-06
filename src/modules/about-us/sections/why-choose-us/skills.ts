@@ -1,10 +1,10 @@
 export const skills = [
   {
-    title: 'Development',
+    title: 'Designing',
     rating: 5,
   },
   {
-    title: 'Designing',
+    title: 'Development',
     rating: 5,
   },
 ]
