@@ -85,8 +85,8 @@ const SoftwareDevelopmentHeroSection = () => {
               <motion.div
                 key={icon.id}
                 className="orbit-icon"
-                initial={{ scale: 0, opacity: 0, z: 200 }}
-                animate={{ scale: 1, opacity: 1, z: 0 }}
+                initial={{ scale: 0, opacity: 0, z: 200, x: '-50%', y: '-50%' }}
+                animate={{ scale: 1, opacity: 1, z: 0, x: '-50%', y: '-50%' }}
                 transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
                 style={{
                   left: getValue(x),
@@ -107,7 +107,7 @@ const SoftwareDevelopmentHeroSection = () => {
           {outerIcons.map((icon, i) => {
             const angleRad = degToRad(icon.angle)
 
-            const r = icon.radius
+            const r = isMobile ? 340 : icon.radius
             const x = Math.cos(angleRad) * r
             const y = -Math.sin(angleRad) * r
 
@@ -115,8 +115,8 @@ const SoftwareDevelopmentHeroSection = () => {
               <motion.div
                 key={icon.id}
                 className="orbit-icon"
-                initial={{ scale: 0, opacity: 0, z: 200 }}
-                animate={{ scale: 1, opacity: 1, z: 0 }}
+                initial={{ scale: 0, opacity: 0, z: 200, x: '-50%', y: '-50%' }}
+                animate={{ scale: 1, opacity: 1, z: 0, x: '-50%', y: '-50%' }}
                 transition={{ duration: 1, delay: 0.7 + i * 0.1 }}
                 style={{
                   left: getValue(x),

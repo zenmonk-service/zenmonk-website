@@ -3,29 +3,20 @@ export const degToRad = (deg: number) => (deg * Math.PI) / 180
 export const randomBetween = (min: number, max: number) =>
   min + Math.random() * (max - min)
 
-export const generateRandomPositions = (
+export const generateCircularPositions = (
   count: number,
-  minRadius: number,
-  maxRadius: number,
-  minAngleGap: number
+  radius: number,
+  startAngle: number = 0,
+  clockwise: boolean = true
 ) => {
   const positions: { angle: number; radius: number }[] = []
-  let attempts = 0
+  const angleStep = 360 / count
 
-  while (positions.length < count && attempts < 5000) {
-    const angle = Math.random() * 360
-    const radius =
-      minRadius + Math.random() * (maxRadius - minRadius)
-
-    const isAngleTooClose = positions.some(
-      p => Math.abs(((p.angle - angle + 540) % 360) - 180) < minAngleGap
-    )
-
-    if (!isAngleTooClose) {
-      positions.push({ angle, radius })
-    }
-
-    attempts++
+  for (let i = 0; i < count; i++) {
+    positions.push({
+      angle: (startAngle + (clockwise ? -i : i) * angleStep + 360) % 360,
+      radius: radius,
+    })
   }
 
   return positions
