@@ -1,3 +1,4 @@
+'use client'
 import { OurPartnersList } from '@/assets/icons/collaboration'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 import './styles.scss'

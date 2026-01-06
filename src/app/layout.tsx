@@ -19,6 +19,12 @@ export default function FlashScreenLayout({
     }
   }, [])
 
+  useEffect(() => {
+    if (!showFlashScreen) {
+      document.body.style.overflow = ''
+    }
+  }, [showFlashScreen])
+
   const handleCloseScreen = () => {
     localStorage.setItem('zenmonk_visited', 'true')
     setShowFlashScreen(false)
@@ -26,8 +32,8 @@ export default function FlashScreenLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={showFlashScreen && page === '/' ? 'no-scroll' : ''}>
-        {showFlashScreen && page === '/' ? (
+      <body>
+        {showFlashScreen ? (
           <FlashScreen closeScreen={handleCloseScreen} />
         ) : (
           <StoreProvider>{children}</StoreProvider>

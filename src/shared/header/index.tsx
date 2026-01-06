@@ -1,7 +1,7 @@
 'use client'
 
-import { motion, useCycle } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
@@ -19,6 +19,18 @@ const Navbar = () => {
   const smootherRef = useScrollSmoother()
   const current = smootherRef?.current
 
+  const [hidden, setHidden] = useState(false)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+  })
+
   useEffect(() => {
     if (current) {
       current.paused(isOpen)
@@ -31,11 +43,10 @@ const Navbar = () => {
     <motion.nav
       initial={false}
       variants={{
-        open: { y: 0 },
-        closed: { y: 0 },
-        hidden: { y: '-100%', opacity: 0 },
+        visible: { y: 0 },
+        hidden: { y: '-100%' },
       }}
-      // animate={isPageLoading ? 'hidden' : isOpen ? 'open' : 'closed'}
+      animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={styles.appBarContainer}
     >

@@ -6,7 +6,7 @@ import './styles.scss'
 
 interface SliderData {
   label: string
-  icon: React.ComponentType<{ className?: string }>
+  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>
   background?: string
 }
 
@@ -18,6 +18,7 @@ interface AutoScrollCarouselProps {
   sliderProps?: {
     className?: string
   }
+  space?: number;
   imageProps?: {
     size?: {
       height?: number
@@ -31,6 +32,9 @@ const AutoScrollCarousel = ({
   showBackground,
   isBgShadow,
   reverse,
+  imageProps,
+  sliderProps,
+  space = 24,
 }: AutoScrollCarouselProps) => {
   const [width, setWidth] = useState(0)
 
@@ -42,9 +46,10 @@ const AutoScrollCarousel = ({
 
   return (
     <Marquee
+      className={sliderProps?.className}
       pauseOnHover
       gradient
-      gradientWidth={width / 4}
+      gradientWidth={width / 10}
       speed={width / 40}
       autoFill
       direction={reverse ? 'right' : 'left'}
@@ -55,9 +60,16 @@ const AutoScrollCarousel = ({
           className="auto-scroll-container"
           style={{
             background: shouldShowBackground ? background : undefined,
+            marginRight: space,
           }}
         >
-          <Svg className="auto-scroll-images" />
+          <Svg
+            className="auto-scroll-images"
+            style={{
+              width: imageProps?.size?.width,
+              height: imageProps?.size?.height,
+            }}
+          />
         </div>
       ))}
     </Marquee>
