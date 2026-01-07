@@ -9,15 +9,20 @@ export type StaticStyle = {
   top: string
   left: string
   transform?: string
+  size?: string | number
 }
 
-export function RandomBgIcons({ Icons }: { Icons: any[] }) {
+export function RandomBgIcons({ Icons, size }: { Icons: any[]; size?: string | number }) {
   const isMobile = useMediaQuery('(max-width:780px)')
   const POSITIONS = isMobile ? MOBILE_POSITIONS : DESKTOP_POSITIONS
   return (
     <div className={styles.container}>
       {Icons?.map((Icon, index) => (
         <Box
+          sx={{
+            width: size,
+            height: size,
+          }}
           key={index}
           className={`${styles.icon} ${styles.float}`}
           style={POSITIONS[index]}

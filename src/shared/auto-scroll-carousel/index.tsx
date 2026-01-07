@@ -1,79 +1,55 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Marquee from 'react-fast-marquee'
-import './styles.scss'
 
-interface SliderData {
-  label: string
-  icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>
+export interface SliderData {
   background?: string
 }
 
-interface AutoScrollCarouselProps {
-  data: SliderData[]
+interface AutoScrollCarouselProps<T extends SliderData> {
+  data: T[]
   showBackground?: boolean
   isBgShadow?: boolean
   reverse?: boolean
   sliderProps?: {
     className?: string
   }
-  space?: number;
-  imageProps?: {
-    size?: {
-      height?: number
-      width?: number
-    }
-  }
+  space?: number
+  renderItem: (item: T, index: number) => React.ReactNode
 }
 
-const AutoScrollCarousel = ({
+export default function AutoScrollCarousel<T extends SliderData>({
   data,
   showBackground,
   isBgShadow,
-  reverse,
-  imageProps,
+  reverse = false,
   sliderProps,
   space = 24,
-}: AutoScrollCarouselProps) => {
-  const [width, setWidth] = useState(0)
-
-  useEffect(() => {
-    setWidth(window.innerWidth)
-  }, [])
-
+  renderItem,
+}: AutoScrollCarouselProps<T>) {
   const shouldShowBackground = showBackground ?? isBgShadow ?? false
 
   return (
     <Marquee
       className={sliderProps?.className}
+      speed={40}
       pauseOnHover
-      gradient
-      gradientWidth={width / 10}
-      speed={width / 40}
-      autoFill
+      gradient={false}
+      autoFill   // ✅ REQUIRED for infinite illusion
       direction={reverse ? 'right' : 'left'}
     >
-      {data.map(({ label, icon: Svg, background }, index) => (
+      {data.map((item, index) => (
         <div
-          key={`${label}-${index}`}
+          key={index}
           className="auto-scroll-container"
           style={{
-            background: shouldShowBackground ? background : undefined,
             marginRight: space,
+            background: shouldShowBackground ? item.background : undefined,
           }}
         >
-          <Svg
-            className="auto-scroll-images"
-            style={{
-              width: imageProps?.size?.width,
-              height: imageProps?.size?.height,
-            }}
-          />
+          {renderItem(item, index)}
         </div>
       ))}
     </Marquee>
   )
 }
-
-export default AutoScrollCarousel

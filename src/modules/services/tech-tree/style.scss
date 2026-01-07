@@ -3,6 +3,15 @@
   padding: 5.25vw 1.25vw;
   overflow: hidden;
 }
+.gear-container{
+  position: absolute;
+  left: -8%;
+  height: 327px;
+  width: 382px;
+  @media (max-width:782px) {
+    display: none;
+  }
+}
 
 /* ---------- MAIN ROW ---------- */
 .tech-tree-right {

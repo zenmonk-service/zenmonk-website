@@ -13,6 +13,8 @@ import Group6 from "./Group (6).svg";
 import Group7 from "./Group (7).svg";
 import Group9 from "./Group (9).svg";
 import Group10 from "./Group (10).svg";
+import Gears from "./Gears.png"
+import DevTechTree from "./dev-tech-tree.svg"
 
 
-export { TechTreeImage, DottedCircle, SmallGearImage, Group1, Group2, Group3, Group4, Group5, Group6, Group7, TechTreeImage1, Group, Group9, Group10 }
+export { Gears, TechTreeImage, DevTechTree, DottedCircle, SmallGearImage, Group1, Group2, Group3, Group4, Group5, Group6, Group7, TechTreeImage1, Group, Group9, Group10 }

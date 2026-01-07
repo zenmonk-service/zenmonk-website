@@ -15,7 +15,7 @@ const WhyChooseUsCard = ({
   return (
     <Box className="why-choose-us-card">
       <Box className="card-image-container">
-        <Image unoptimized src={icon.src} fill alt={`${title}-icon`} />
+        <Image loading="lazy" unoptimized src={icon.src} fill alt={`${title}-icon`} />
       </Box>
       <Box className="content">
         <Typography component="h3" className="title">

@@ -96,10 +96,10 @@ const StandOutSectionDesktop = () => {
             Our <br /> <span>Mission</span>
           </div>
           <div className={styles.description}>
-            Providing good quality customer experience and <br /> support is as
-            important and pivotal as offering top <br /> grade product.
-            Providing good quality customer <br /> experience and support is as
-            important and <br /> pivotal as offering top grade product.
+            Providing good quality customer experience and support is as
+            important and pivotal as offering top grade product.
+            Providing good quality customer experience and support is as
+            important and pivotal as offering top grade product.
           </div>
           <div className={styles.divider} />
         </div>

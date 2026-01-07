@@ -15,6 +15,12 @@
   box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.08);
   gap: 0.94vw;
   /* 18px */
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: translateY(-0.52vw);
+    box-shadow: 0 1.04vw 2.6vw 0 rgba(43, 48, 86, 0.12);
+  }
 
   @media screen and (max-width: 1037px) {
     width: 100%;

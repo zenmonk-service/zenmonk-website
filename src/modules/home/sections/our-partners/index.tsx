@@ -2,6 +2,7 @@
 import { OurPartnersList } from '@/assets/icons/collaboration'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 import './styles.scss'
+import Image from 'next/image'
 
 const OurPartners = () => {
   return (
@@ -13,7 +14,22 @@ const OurPartners = () => {
           <span>excels</span>.
         </p>
       </div>
-      <AutoScrollCarousel data={OurPartnersList} />
+      <AutoScrollCarousel
+        isBgShadow
+        data={OurPartnersList}
+        sliderProps={{ className: 'infinite-slider' }}
+        space={70}
+        renderItem={(item) => (
+          <Image
+            src={item.icon}
+            alt={item.label}
+            width={240}
+            height={120}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+      />
     </>
   )
 }

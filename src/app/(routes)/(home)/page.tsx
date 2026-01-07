@@ -429,10 +429,10 @@ const HomePage = () => {
       <OurProjects />
       <WhyChooseUs />
       <Statistics />
-      <GlobeSection/>
-      {/* <ClientSatisfaction /> */}
-      <Testimony />
+      <ClientSatisfaction />
       <FAQ />
+      <GlobeSection/>
+      <Testimony />
     </div>
   )
 }

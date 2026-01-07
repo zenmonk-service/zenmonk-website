@@ -1,112 +1,180 @@
 .client-satisfaction-section {
-  margin-top: 6.25vw; /* 120px / 1920 * 100 */
+  padding-top: 6.25vw;
   width: 100%;
-  height: 100%;
-  padding: 0px 2.5vw; /* 48px / 1920 * 100 */
+  min-height: 100vh;
+  height: auto;
+  padding-bottom: 10vw;
   position: relative;
   overflow: hidden;
+
   @media (max-width: 900px) {
     display: none;
   }
+
   .logo-left {
     position: absolute;
-    top: 0%;
+    top: -10%;
     left: -5%;
-    width: 19.81vw;
-    height: 17.8vw;
+    width: 14.8vw;
+    height: 14.8vw;
   }
 
   .logo-right {
     position: absolute;
     bottom: 0%;
     right: 3%;
-    width: 19.81vw;
-    height: 17.8vw;
+    width: 10.8vw;
+    height: 10.8vw;
   }
 
   .title {
     color: #132427;
     font-family: Poppins !important;
-    margin-bottom: 1.25vw; /* 24px / 1920 * 100 */
-    font-size: 2.0833vw !important; /* 40px / 1920 * 100 */
+    /* 24px / 1920 * 100 */
+    font-size: 2.0833vw !important;
+    /* 40px / 1920 * 100 */
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    letter-spacing: -0.1666vw; /* -3.2px / 1920 * 100 */
+    letter-spacing: -0.1666vw;
+    /* -3.2px / 1920 * 100 */
   }
+
   .description {
-    margin-top: 1.1979vw; /* 23px / 1920 * 100 */
-    margin-bottom: 2.6041vw; /* 50px / 1920 * 100 */
-    max-width: 130.2083vw; /* 2500px / 1920 * 100 */
+    margin-top: 1.1979vw !important;
+    max-width: 130.2083vw;
     margin: auto;
     padding: 0 15%;
     text-align: center;
     font-family: Poppins !important;
+
     @media (min-width: 2000px) {
-      margin-top: 1.875vw; /* 36px / 1920 * 100 */
+      margin-top: 1.875vw;
+      /* 36px / 1920 * 100 */
     }
   }
 
   .svg-container {
     z-index: 180;
-    max-width: 82.1354vw; /* 1577px / 1920 * 100 */
-    margin: auto;
+    max-width: 75%;
+    margin: auto 9%;
+
+    .satisfaction-step {
+      opacity: 0;
+    }
+
+    .text-overlay {
+      position: absolute;
+      width: 22%;
+      text-align: center;
+      opacity: 0;
+
+      /* 1. Previous Work Frustration (Sad) */
+      &.text-1 {
+        bottom: 40%;
+        left: 5%;
+      }
+
+      /* 2. Engagement And Resolution (Think) */
+      &.text-2 {
+        bottom: -24%;
+        left: 32%;
+      }
+
+      /* 3. Exceeding Expectations (Smile) */
+      &.text-3 {
+        top: 30%;
+        left: 48%;
+      }
+
+      /* 4. Celebrating Success (Happy) */
+      &.text-4 {
+        top: 45%;
+        right: -10%;
+      }
+    }
+
+    &.animate {
+      .arrow-mask {
+        animation: revealArrow 3.5s linear forwards;
+      }
+
+      .satisfaction-step,
+      .text-overlay {
+        animation: rotateIn 0.6s ease-out forwards;
+      }
+
+      /* Delays based on arrow progress (approx positions: 14%, 39%, 63%, 87%) */
+      .step-1,
+      .text-1 {
+        animation-delay: 0.5s;
+      }
+
+      .step-2,
+      .text-2 {
+        animation-delay: 1.4s;
+      }
+
+      .step-3,
+      .text-3 {
+        animation-delay: 2.2s;
+      }
+
+      .step-4,
+      .text-4 {
+        animation-delay: 3.0s;
+      }
+
+      /* Different start rotations for "random" effect */
+      .step-1 {
+        --start-rot: -45deg;
+      }
+
+      .step-2 {
+        --start-rot: 30deg;
+      }
+
+      .step-3 {
+        --start-rot: -90deg;
+      }
+
+      .step-4 {
+        --start-rot: 60deg;
+      }
+
+      .text-overlay {
+        animation-name: fadeInUp;
+        /* Override for text to just fade up, not rotate */
+      }
+    }
   }
 }
-#previous,
-#engagement,
-#exceeding,
-#celebrating {
-  opacity: 0;
-  transform: translateY(1.0416vw); /* 20px / 1920 * 100 */
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
 
-.in-view {
-  #previous {
-    animation-name: fadeInUp;
-    animation-delay: 0s;
-  }
-
-  #engagement {
-    animation-name: fadeInUp;
-    animation-delay: 0.5s;
-  }
-
-  #exceeding {
-    animation-name: fadeInUp;
-    animation-delay: 0.9s;
-  }
-
-  #celebrating {
-    animation-name: fadeInUp;
-    animation-delay: 1.5s;
-  }
-}
-
-.box {
-  width: 100%;
-  right: 0;
-  animation: shrinkWidth 10s forwards infinite;
-}
-
-@keyframes shrinkWidth {
-  from {
+@keyframes revealArrow {
+  to {
     width: 100%;
   }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(var(--start-rot));
+  }
+
   to {
-    width: 0%;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }
 
 @keyframes fadeInUp {
-  0% {
+  from {
     opacity: 0;
-    transform: translateY(1.0416vw); /* 20px / 1920 * 100 */
+    transform: translateY(20px);
   }
-  100% {
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }

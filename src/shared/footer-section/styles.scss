@@ -11,7 +11,8 @@
   font-family: Poppins !important;
   font-size: var(--font-size-20) !important;
   font-weight: 600 !important;
-  line-height: 1.2;              /* unitless = text-relative */
+  line-height: 1.2;
+  /* unitless = text-relative */
   position: relative;
   display: inline-block;
 
@@ -19,10 +20,13 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: 1px;                   /* stick to text bottom */
-    transform: translateY(0.25em); /* push slightly below text */
+    bottom: 1px;
+    /* stick to text bottom */
+    transform: translateY(0.25em);
+    /* push slightly below text */
     width: 100%;
-    height: 0.104vw;          /* fixed visual thickness */
+    height: 0.104vw;
+    /* fixed visual thickness */
     background: linear-gradient(100deg, #ec6738 0%, #201f1f10 100%);
   }
 }
@@ -37,30 +41,28 @@
   overflow: hidden;
   flex-direction: column;
   background-color: #424242;
-  background: linear-gradient(
-    377deg,
-    var(--global-color-primary) -35.26%,
-    #444c 157.02%,
-    #000 78.97%
-  );
+  background: linear-gradient(377deg,
+      var(--global-color-primary) -35.26%,
+      #444c 157.02%,
+      #000 78.97%);
+
   &::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      133deg,
-      var(--global-color-primary) -35.26%,
-      rgba(68, 68, 68, 0.8) -11.98%,
-      #000 78.97%
-    );
+    background: linear-gradient(133deg,
+        var(--global-color-primary) -35.26%,
+        rgba(68, 68, 68, 0.8) -11.98%,
+        #000 78.97%);
     z-index: 2;
     pointer-events: none;
   }
 
-  > * {
+  >* {
     position: relative;
     z-index: 3;
   }
+
   .logo-category-wrapper {
     width: 100%;
     height: auto;
@@ -69,36 +71,51 @@
     justify-content: center;
     border-bottom: 1px solid #c5c5c595;
     gap: 0px;
+
     .logo-wrapper {
       margin: auto;
+
       .logo {
         width: 100%;
-        height: 22.83vw; /* 400px */
+        height: 22.83vw;
+        /* 400px */
         object-fit: contain;
         flex-shrink: 0;
       }
     }
+
     .category-wrapper {
       width: 74%;
       display: flex;
       flex-direction: column;
-      padding: 0.83vw; /* 16px */
-      gap: 1.67vw; /* 32px */
+      padding: 0.83vw;
+      /* 16px */
+      gap: 1.67vw;
+
+      /* 32px */
       .service-category-quick-links-wrapper {
-        margin-top: 1.56vw; /* 30px */
+        margin-top: 1.56vw;
+        /* 30px */
         display: flex;
         flex-wrap: wrap;
-        gap: 2.19vw; /* 42px */
+        gap: 2.19vw;
+        /* 42px */
       }
+
       .consulting-category-contact-wrapper {
-        margin-top: 1.04vw; /* 20px */
-        padding-bottom: 2.92vw; /* 56px */
+        margin-top: 1.04vw;
+        /* 20px */
+        padding-bottom: 2.92vw;
+        /* 56px */
         display: flex;
         flex-wrap: wrap;
-        gap: 2.59vw; /* 42px */
+        gap: 2.59vw;
+
+        /* 42px */
         .consulting-category {
           width: max-content;
         }
+
         .contact {
           display: flex;
           flex-wrap: wrap;
@@ -120,7 +137,7 @@
               display: flex;
               flex-wrap: wrap;
               width: 100%;
-              justify-content: start;
+              justify-content: flex-start;
               background-color: var(--global-color-primary);
               border-radius: 0.31vw; // 6px
               overflow: hidden;
@@ -162,11 +179,9 @@
                 height: 1.67vw; // 32px
                 color: var(--global-color-primary);
                 border-radius: 0.31vw; // 6px
-                background: linear-gradient(
-                  75deg,
-                  #eb7c0d 4.02%,
-                  #ffa750 83.84%
-                );
+                background: linear-gradient(75deg,
+                    #eb7c0d 4.02%,
+                    #ffa750 83.84%);
               }
             }
           }
@@ -175,6 +190,7 @@
         .quick-links-social-media-wrapper {
           display: flex;
           justify-content: space-between;
+
           .quick-links {
             .title {
               color: var(--global-color-primary);
@@ -185,6 +201,7 @@
               line-height: 22.046px;
               position: relative;
               display: inline-block;
+
               &::after {
                 content: '';
                 position: absolute;
@@ -217,6 +234,7 @@
                 line-height: 20px;
                 cursor: pointer;
                 transition: all 0.3s ease-in-out;
+
                 &:hover {
                   color: var(--global-color-primary);
                 }
@@ -224,6 +242,7 @@
             }
           }
         }
+
         .social-media-link {
           .social-media-list {
             margin-top: 0.83vw;
@@ -232,6 +251,7 @@
             gap: 0.52vw;
             padding: 0.52vw;
             padding-left: 0vw;
+
             .icons {
               width: 2.81vw;
               height: 2.81vw;
@@ -249,13 +269,16 @@
     align-items: center;
     border-bottom: 1px solid #c5c5c595;
     gap: 45px;
+
     .logo-wrapper {
       margin-left: 100px;
+
       .logo {
         width: 128px;
         height: 156px;
         flex-shrink: 0;
       }
+
       p {
         text-transform: uppercase;
         font-family: 'Poppins', sans-serif;
@@ -281,10 +304,12 @@
       text-align: center;
     }
   }
+
   .copyright {
     margin: auto;
     padding-top: 0.83vw;
     padding-bottom: 0.83vw;
+
     p {
       margin-bottom: 0;
       color: var(--global-color-primary);
@@ -294,18 +319,22 @@
 
 .list-container {
   display: flex;
-  gap: 2.59vw; /* 42px */
+  gap: 2.59vw;
+  /* 42px */
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .list {
-  margin-top: 1.04vw; /* 20px */
-  width: 12vw; /* 185px */
+  margin-top: 1.04vw;
+  /* 20px */
+  width: 12vw;
+  /* 185px */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 0.31vw; /* 6px */
+  gap: 0.31vw;
+  /* 6px */
 }
 
 @media screen and (max-width: 600px) {
@@ -316,13 +345,16 @@
       height: max-content !important;
       justify-content: space-between;
       padding: 16px 26px;
+
       .logo-wrapper {
         margin-left: 0px !important;
+
         .logo {
           width: 100px;
           height: 118px;
         }
       }
+
       .branding {
         text-align: left !important;
         font-size: 12px;
@@ -333,14 +365,17 @@
         margin-bottom: 0px;
       }
     }
+
     .logo-category-wrapper {
       .category-wrapper {
         width: 100%;
         padding: 16px;
+
         .consulting-category-contact-wrapper {
           .contact {
             flex-direction: column-reverse;
             gap: 12px;
+
             .submit-button {
               padding: 5px 14px !important;
               width: 79px !important;
@@ -348,36 +383,45 @@
               font-size: 14px !important;
               height: auto !important;
             }
+
             .input-field {
               box-shadow: none !important;
               height: 100% !important;
             }
+
             .input {
               font-size: 14px !important;
               height: 32px;
             }
+
             .email {
               margin-top: 14px !important;
               border-radius: 6px !important;
               padding: 5px;
             }
+
             .subscribe-section {
               width: 83%;
             }
           }
+
           .consulting-category {
             width: 100%;
           }
+
           .quick-links-social-media-wrapper {
             width: 100%;
           }
+
           .social-media-link {
             flex: 1;
             width: 100%;
+
             .social-media-list {
               gap: 10px;
               padding: 10px;
               padding-left: 0;
+
               .icons {
                 width: 40px;
                 height: 40px;
@@ -393,15 +437,19 @@
     width: 44%;
     gap: 7px;
   }
+
   .base-text {
     font-size: 12px !important;
-    line-height: 20.042px !important; /* 167.014% */
+    line-height: 20.042px !important;
+    /* 167.014% */
     font-weight: 300;
     letter-spacing: 0.12px !important;
   }
+
   .list-title {
     margin-bottom: 16px !important;
     line-height: 22.046px !important;
+
     &::after {
       content: '';
       position: absolute;

@@ -3,18 +3,13 @@
 import { usePathname } from 'next/navigation'
 import { SectionTitle } from '@/shared/typography'
 import Cloud from './assets/cloud.svg'
-import Digital from './assets/digital.svg'
-import Growth from './assets/growth.svg'
-import AI from './assets/growthtwo.svg'
 import It from './assets/it.svg'
-import Mobile from './assets/product.svg'
 import Consult from './assets/product.svg'
-import Software from './assets/software.svg'
-import Ui from './assets/ui.svg'
 import ProductDevelopmentProcess from './product-development-process'
 import SoftwareDevelopmentProcess from './software-development-process'
 import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
 import DevelopmentProcessWave from '../shared/development-process-wave'
+import DevelopmentProcessRoad from '../shared/development-process-road'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
@@ -27,7 +22,7 @@ const DevelopmentProcess = () => {
       case 'growth-&-marketing':
         return <DevelopmentProcessWave />
       case 'mobile-app-development':
-        return <Mobile />
+        return <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
         return <It />
       case 'product-development':

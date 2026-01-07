@@ -1,12 +1,12 @@
-import Ceinde from './logo-ceinde.svg'
-import Citealimenta from './logo-cite.svg'
-import Citican from './logo-citican.svg'
-import Cittecam from './logo-citicam.svg'
-import Ct from './logo-ct.svg'
-import Cuanza from './logo-cuanza.svg'
-import Funiber from './logo-funiber.svg'
-import Unib from './logo-unib.svg'
-import Unicol from './logo-unicol.svg'
+import Ceinde from './logo-ceinde.svg?url'
+import Citealimenta from './logo-cite.svg?url'
+import Citican from './logo-citicam.svg?url'
+import Cittecam from './logo-citicam.svg?url'
+import Ct from './logo-ct.svg?url'
+import Cuanza from './logo-cuanza.svg?url'
+import Funiber from './logo-funiber.svg?url'
+import Unib from './logo-unib.svg?url'
+import Unicol from './logo-unicol.svg?url'
 
 export const OurPartnersList = [
   {
@@ -19,11 +19,11 @@ export const OurPartnersList = [
     icon: Citealimenta,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
-    {
-      label: 'Citican',
-      icon: Citican,
-      background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
-    },
+  {
+    label: 'Citican',
+    icon: Citican,
+    background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
+  },
   {
     label: 'Cittecam',
     icon: Cittecam,

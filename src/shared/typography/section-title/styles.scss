@@ -40,16 +40,18 @@ $base-line-height: 1.5;
     position: relative;
     display: inline-block;
     line-height: 115%;
+
     .word-container {
       display: inline-block;
-
+      position: relative;
+      z-index: 1;
     }
 
     .mark-container {
       position: absolute;
       left: 0;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       overflow: hidden;
       pointer-events: none;
     }

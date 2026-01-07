@@ -14,7 +14,6 @@ import styles from './header.module.scss'
 const Navbar = () => {
   const { push } = useRouter()
   const pathname = usePathname()
-  const navigateToHome = () => push('/')
   const [isOpen, toggleOpen] = useCycle(false, true)
   const smootherRef = useScrollSmoother()
   const current = smootherRef?.current

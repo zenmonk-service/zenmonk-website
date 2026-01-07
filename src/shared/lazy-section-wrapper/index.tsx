@@ -1,33 +1,28 @@
-'use client';
+'use client'
 
-import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer'
 
 export function LazySection({
   children,
-  fallback,
+  minHeight = '40vh',
 }: {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
+  children: React.ReactNode
+  minHeight?: string
 }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: '200px',
+  })
 
-  useEffect(() => {
-    if (!ref.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' } // preload before visible
-    );
-
-    observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return <div ref={ref}>{visible ? children : fallback}</div>;
+  return (
+    <div
+      ref={ref}
+      style={{
+        minHeight,
+        visibility: inView ? 'visible' : 'hidden',
+      }}
+    >
+      {children}
+    </div>
+  )
 }

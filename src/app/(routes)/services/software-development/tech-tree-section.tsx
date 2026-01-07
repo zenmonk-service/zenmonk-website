@@ -7,7 +7,7 @@ import Circle from './circle.svg'
 
 const TechTreeSection = () => {
   return (
-    <TechnologyTree Icons={[Circle,Circle,Circle,Circle,Circle]} MainImage={<SoftwareDevelopment />} />
+    <TechnologyTree Icons={[Circle,Circle]} MainImage={<SoftwareDevelopment />} showGears/>
   )
 }
 

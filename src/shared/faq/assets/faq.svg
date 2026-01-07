@@ -122,11 +122,11 @@
 <stop stop-color="#EB7C0D"/>
 <stop offset="0.939377" stop-color="#FFA750"/>
 </linearGradient>
-<image id="image0_3097_6639" width="484" height="474" preserveAspectRatio="meet" xlink:href="/hero/php.webp"/>
-<image id="image1_3097_6639" width="472" height="471" preserveAspectRatio="meet" xlink:href="/hero/mongo.webp"/>
-<image id="image2_3097_6639" width="478" height="477" preserveAspectRatio="meet" xlink:href="/hero/js.webp"/>
-<image id="image3_3097_6639" width="422" height="382" preserveAspectRatio="meet" xlink:href="/hero/react.webp"/>
-<image id="image4_3097_6639" width="482" height="469" preserveAspectRatio="meet" xlink:href="/hero/figma.webp"/>
-<image id="image5_3097_6639" width="2000" height="1333" preserveAspectRatio="meet    " xlink:href="/faq.webp"/>
+<image id="image0_3097_6639" width="484" height="474" preserveAspectRatio="xMidYMid meet" xlink:href="/hero/php.webp"/>
+<image id="image1_3097_6639" width="472" height="471" preserveAspectRatio="xMidYMid meet" xlink:href="/hero/mongo.webp"/>
+<image id="image2_3097_6639" width="478" height="477" preserveAspectRatio="xMidYMid meet" xlink:href="/hero/js.webp"/>
+<image id="image3_3097_6639" width="422" height="382" preserveAspectRatio="xMidYMid meet" xlink:href="/hero/react.webp"/>
+<image id="image4_3097_6639" width="482" height="469" preserveAspectRatio="xMidYMid meet" xlink:href="/hero/figma.webp"/>
+<image id="image5_3097_6639" width="2000" height="1333" preserveAspectRatio="xMidYMid meet" xlink:href="/faq.webp"/>
 </defs>
 </svg>

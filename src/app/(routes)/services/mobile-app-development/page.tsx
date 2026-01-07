@@ -14,7 +14,7 @@ const MobileAppDevelopmentPage = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id="custom-app-development" />
-      <TechnologyTree />
+      <TechnologyTree isTechTree noRandomIcons/>
       <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />
