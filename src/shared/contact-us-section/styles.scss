@@ -6,7 +6,7 @@
   position: relative;
   background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
   overflow: hidden;
-  padding: max(4vw, 40px) max(2vw, 20px);
+  padding: 0 max(2vw, 20px);
   padding-bottom: 0;
 
   .contact-us-bg {
@@ -37,6 +37,8 @@
   height: 26.04vw;
   min-height: 365px;
   min-width: 350px;
+  margin-left: 1.2vw;
+  margin-top: -1.2vw;
 
   .section-title {
     color: #132427;
@@ -164,9 +166,7 @@
 
 .right-container {
   z-index: 10;
-  @media (max-width:728px) {
-    margin-top: 4.2vw;
-  }
+  margin-top: 4.2vw;
 }
 
 .polygon {
