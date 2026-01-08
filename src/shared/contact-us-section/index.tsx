@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from 'react'
 import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import { countries } from './countries'
-import './styles.scss'
 import Image from 'next/image'
+import Polygon from './assets/polygon.svg'
+import './styles.scss'
 
 export const ContactUsSection = () => {
   const [country, setCountry] = useState(countries[0])
@@ -45,7 +46,7 @@ export const ContactUsSection = () => {
 
   return (
     <div className="about-us-contact-us-section">
-        <Image src="/contact-us-bg.svg" className='contact-us-bg' alt="contact-us-bg" fill />
+      <Image src="/contact-us-bg.svg" className='contact-us-bg' alt="contact-us-bg" fill />
       <div className="contact-us">
         <div className="left-container">
           <h1 className="section-title">
@@ -64,11 +65,8 @@ export const ContactUsSection = () => {
                   onMouseLeave={() => handleMouseLeave()}
                   style={{
                     backgroundImage: `url(${img})`,
-                    ...(isSelected && {
-                      boxShadow: `0px 0px 33px 1px #FFC878`,
-                    }),
                   }}
-                  className="country-flag"
+                  className={`country-flag ${isSelected ? 'selected' : ''}`}
                 />
               )
             })}
@@ -110,6 +108,7 @@ export const ContactUsSection = () => {
           <ContactForm />
         </div>
       </div>
+     <Polygon className="polygon"/>
     </div>
   )
 }
