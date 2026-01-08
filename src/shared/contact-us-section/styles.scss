@@ -1,29 +1,37 @@
 .about-us-contact-us-section {
   width: 100%;
-  height: 100svh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: max(7.813vw, 16px);
-  padding-bottom: max(2.604vw, 16px);
   background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
   overflow: hidden;
-  background: url('/dotted-line.webp') center center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  padding: max(4vw, 40px) max(2vw, 20px);
+
+  .contact-us-bg {
+    object-fit: contain;
+    z-index: 0;
+    opacity: 0.8;
+  }
 }
 
 .contact-us {
   display: flex;
   gap: max(10.9vw, 40px);
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
+
 .left-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 30.125vw;
+  min-width: 350px;
 
   .section-title {
     color: #132427;
@@ -32,6 +40,10 @@
     font-style: normal;
     font-weight: 600;
     line-height: max(3.125vw, 32px);
+
+    @media (max-width:328px) {
+      display: flex;
+    }
 
     span {
       background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
@@ -78,21 +90,39 @@
   .country-flag {
     height: 2.5vw;
     width: 3.75vw;
+    min-height: 28px;
+    min-width: 45px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 0.2vw;
     cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Glowing animation */
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 0.52vw 0.52vw rgba(255, 200, 120, 0.7);
+    }
+
+    50% {
+      box-shadow: 0 0 0.78vw 0.78vw rgba(255, 220, 150, 0.9);
+    }
   }
 
   .label-container {
     display: flex;
     align-items: center;
-    gap: 0.729vw;
-    margin-top: 1.042vw;
+    gap: max(0.729vw, 10px);
+    margin-top: max(1.042vw, 16px);
 
     .icon {
       display: flex;
+      width: max(1.5vw, 20px);
+      height: max(1.5vw, 20px);
     }
   }
 
@@ -127,106 +157,126 @@
   z-index: 10;
 }
 
-@media screen and (max-width: 600px) {
+/* Tablet and below */
+@media screen and (max-width: 1024px) {
   .about-us-contact-us-section {
-    padding: 0 16px;
-    height: auto;
-    margin-top: 60px;
+    min-height: auto;
+    padding: 60px 20px;
   }
 
   .contact-us {
     flex-direction: column;
-    width: 100%;
+    gap: 40px;
   }
 
   .left-container {
     width: 100%;
+    min-width: unset;
+    max-width: 600px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .about-us-contact-us-section {
+    padding: 40px 16px;
+    min-height: auto;
+
+    .contact-us-bg {
+      display: none;
+    }
+  }
+
+  .contact-us {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .left-container {
+    width: 100%;
+    min-width: unset;
 
     .section-title {
-      span {
-        background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
-
-    .countries-list {
-      margin-top: max(1.042vw, 22px);
-      gap: max(1.042vw, 13px);
-      width: 100%;
+      font-size: 24px;
+      line-height: 32px;
       display: flex;
-    }
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
 
-    .selected-country-title {
-      margin-top: max(2.083vw, 24px);
-      color: #132427;
-      text-align: left;
-      font-family: "Poppins", sans-serif;
-      font-size: max(16px, 1vw);
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-    }
-
-    .selected-country-description {
-      margin-top: max(8px, 0.521vw);
-      width: 100%;
-      color: #696969;
-      font-family: "Poppins", sans-serif;
-      font-size: var(--font-size-16);
-      font-style: normal;
-      font-weight: 600;
-      line-height: max(1.563vw, 22px);
-      letter-spacing: max(0.017vw, 0.28px);
-
-      &.label {
-        margin-top: 0px;
+      br {
+        display: none;
       }
+    }
+
+    .countries-flags-container {
+      gap: 16px !important;
+      margin-top: 16px !important;
     }
 
     .country-flag {
       height: 28px;
-      width: 45px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      width: 62.5px;
+      min-height: 39.34px;
+      min-width: 62.5px;
       border-radius: 4px;
-      cursor: pointer;
+    }
+
+    .selected-country-title {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .selected-country-description {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
     }
 
     .label-container {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 12px;
 
       .icon {
-        height: 24px;
-        width: 32px;
-        display: flex;
+        width: 20px;
+        height: 20px;
       }
     }
 
     .label-container:nth-of-type(2) {
-      margin-left: 0.15vw;
+      margin-left: 0;
+    }
+  }
+
+  .right-container {
+    width: 100%;
+  }
+}
+
+/* Small mobile */
+@media screen and (max-width: 480px) {
+  .about-us-contact-us-section {
+    padding: 32px 12px;
+  }
+
+  .contact-us {
+    gap: 24px;
+  }
+
+  .left-container {
+    .section-title {
+      font-size: 20px;
+      line-height: 28px;
     }
 
-    .contact-card {
-      margin-top: max(0.729vw, 24px) !important;
-      margin-bottom: 0px !important;
-      z-index: 10;
-
-      .contact-card-content {
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-
-        .description {
-          font-size: var(--font-size-16);
-          line-height: max(22px, 1.563vw);
-        }
-      }
+    .country-flag {
+      height: 24px;
+      width: 40px;
+      min-height: 24px;
+      min-width: 40px;
     }
   }
 }

@@ -5,6 +5,7 @@ import HeroSection from '@/modules/about-us/sections/hero-section'
 import {
   AwardProofSection,
   BusinessSection,
+  ContactUsSection,
   OurClientSection,
   WhyChooseUsSection,
 } from '@/modules/about-us/sections'
@@ -19,6 +20,7 @@ const About = () => {
       <WhyChooseUsSection />
       <AwardProofSection />
       {/* <OurClientSection /> */}
+      <ContactUsSection/>
     </div>
   )
 }

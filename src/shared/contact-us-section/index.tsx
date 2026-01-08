@@ -6,6 +6,7 @@ import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import { countries } from './countries'
 import './styles.scss'
+import Image from 'next/image'
 
 export const ContactUsSection = () => {
   const [country, setCountry] = useState(countries[0])
@@ -44,25 +45,27 @@ export const ContactUsSection = () => {
 
   return (
     <div className="about-us-contact-us-section">
+        <Image src="/contact-us-bg.svg" className='contact-us-bg' alt="contact-us-bg" fill />
       <div className="contact-us">
         <div className="left-container">
           <h1 className="section-title">
             We&apos;re Just a <br />
             <span>Message</span> Away
           </h1>
-          <div style={{ display: 'flex', gap: '1.25vw', marginTop: '1.25vw' }}>
+          <div className="countries-flags-container" style={{ display: 'flex', gap: '1.25vw', marginTop: '1.25vw' }}>
             {countries.map(({ name, img }, index) => {
+              const isSelected = name === country.name
               return (
                 <motion.div
                   key={name}
-                  animate={{ scale: name === country.name ? 1.2 : 1 }}
+                  animate={{ scale: isSelected ? 1.2 : 1 }}
                   transition={{ type: 'easeInOut', stiffness: 300 }}
                   onMouseEnter={() => handleMouseEnter(countries[index], index)}
                   onMouseLeave={() => handleMouseLeave()}
                   style={{
                     backgroundImage: `url(${img})`,
-                    ...(name === country.name && {
-                      boxShadow: `0 0 0.26vw 0.26vw rgba(255, 168, 80, 0.4)`,
+                    ...(isSelected && {
+                      boxShadow: `0px 0px 33px 1px #FFC878`,
                     }),
                   }}
                   className="country-flag"
