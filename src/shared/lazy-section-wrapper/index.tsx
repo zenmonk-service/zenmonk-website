@@ -5,9 +5,11 @@ import { useInView } from 'react-intersection-observer'
 export function LazySection({
   children,
   minHeight = '40vh',
+  fallback = null,
 }: {
   children: React.ReactNode
   minHeight?: string
+  fallback?: React.ReactNode
 }) {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -15,14 +17,8 @@ export function LazySection({
   })
 
   return (
-    <div
-      ref={ref}
-      style={{
-        minHeight,
-        visibility: inView ? 'visible' : 'hidden',
-      }}
-    >
-      {children}
+    <div ref={ref} style={{ minHeight }}>
+      {inView ? children : fallback}
     </div>
   )
 }
