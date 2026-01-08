@@ -35,7 +35,7 @@ export default function AutoScrollCarousel<T extends SliderData>({
       speed={40}
       pauseOnHover
       gradient={false}
-      autoFill   // ✅ REQUIRED for infinite illusion
+      autoFill
       direction={reverse ? 'right' : 'left'}
     >
       {data.map((item, index) => (

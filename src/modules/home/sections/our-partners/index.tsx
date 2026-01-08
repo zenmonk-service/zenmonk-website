@@ -23,8 +23,8 @@ const OurPartners = () => {
           <Image
             src={item.icon}
             alt={item.label}
-            width={240}
-            height={120}
+            width={150}
+            height={100}
             loading="lazy"
             decoding="async"
           />
