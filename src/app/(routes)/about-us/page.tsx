@@ -21,7 +21,7 @@ const About = () => {
       <WhyChooseUsSection />
       <AwardProofSection />
       <VisionSection/>
-      {/* <OurClientSection /> */}
+      <OurClientSection />
       <ContactUsSection/>
     </div>
   )

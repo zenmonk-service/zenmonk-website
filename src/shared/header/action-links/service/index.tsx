@@ -15,18 +15,20 @@ interface Props {
   handleClick: () => void
   handleClose: () => void
 }
+
 const ServiceLink = (props: Props) => {
   const { anchorEl, handleClick, handleClose } = props
   const pathname = usePathname()
 
   const alreadyOpen = (path: string) => pathname.includes(path)
-
   const open = Boolean(anchorEl)
+
   return (
     <>
       <button
-        // style={navItemStyles(pathname, '/services')}
-        className={`${styles.serviceActionLink} ${pathname.includes('/services') ? styles.active : ''}`}
+        className={`${styles.serviceActionLink} ${
+          pathname.includes('/services') ? styles.active : ''
+        }`}
         onClick={handleClick}
       >
         <p>Services</p>
@@ -37,6 +39,7 @@ const ServiceLink = (props: Props) => {
           />
         </div>
       </button>
+
       <Popover
         open={open}
         anchorEl={anchorEl}
@@ -46,7 +49,7 @@ const ServiceLink = (props: Props) => {
             elevation: 0,
             style: {
               borderRadius: '0.53vw',
-              boxShadow: '2px 4px 42.3px 0 rgba(19, 103, 109, 0.14)',
+              boxShadow: '0.10vw 0.21vw 2.20vw rgba(19, 103, 109, 0.14)',
             },
           },
         }}
@@ -63,8 +66,8 @@ const ServiceLink = (props: Props) => {
           <div className={styles.arrowUp} />
           {services.map((service) => (
             <ServiceCard
-              isActive={alreadyOpen(service.route)}
               key={service.route}
+              isActive={alreadyOpen(service.route)}
               description={service.description}
               imageUrl={service.imageUrl}
               name={service.name}

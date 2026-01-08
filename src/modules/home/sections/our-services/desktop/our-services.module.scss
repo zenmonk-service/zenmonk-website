@@ -1,5 +1,6 @@
 .serviceSectionWrapper {
-  margin-top: max(6.25vw, 80px);
+  margin-top: max(4.25vw, 80px);
+  overflow: visible; // Safety first
 }
 
 .servicesSection {
@@ -7,6 +8,7 @@
   display: flex;
   justify-content: center;
   margin-top: 3.125vw;
+  overflow: visible; // Ensure no clipping
 }
 
 .servicesLeftContainer {
@@ -31,6 +33,12 @@
   box-shadow: 0.26vw 0.2vw 2.7vw 0px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
   align-items: center;
+
+  &.active {
+    box-shadow: 0.26vw 0.2vw 3.5vw 0px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+    z-index: 2;
+  }
 }
 
 .businessItemContent {
@@ -116,28 +124,48 @@
 
 .businessProofDescription {
   font-size: var(--font-size-18);
+  min-height: 5.5vw;
+  max-height: 7vw;
+  overflow-y: auto;
   font-weight: 400;
-  flex: 1;
   font-family: inherit;
+  margin-bottom: 1.5vw;
+
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 0.2vw;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 0.1vw;
+  }
 }
 
 .businessProofTechnologies {
   display: flex;
   flex-direction: row;
-  gap: 3vw;
-  margin-bottom: max(60px, 3.125vw);
+  flex-wrap: wrap;
+  gap: 1.5vw;
+  margin-bottom: 2.5vw;
 }
 
 .businessProofCard {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-width: 6vw;
 }
 
 .businessProofIcon {
   margin-bottom: 0.4vw;
+
   svg {
-    height: 2.08vw;
+    height: 2vw;
+    width: 2vw;
     object-fit: contain;
     fill: #fff;
   }
@@ -145,7 +173,7 @@
 
 .businessProofCardTitle {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-16);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -189,6 +217,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

@@ -7,6 +7,8 @@
   height: 100vh;
   padding-right: 7.8125%;
   z-index: 101;
+  position: relative;
+
 
   .tech-solution-section {
     flex: 1;
@@ -64,6 +66,7 @@
     justify-content: flex-end;
     display: flex;
 
+
     img {
       margin-right: -1.04vw;
       position: inherit !important;
@@ -72,6 +75,34 @@
       max-width: 95%;
       object-fit: contain;
     }
+  }
+}
+
+.expense-img-laptop {
+  width: 8.42vw;
+  height: 8.58vw;
+  position: absolute;
+  top: 20%;
+  right: 15%;
+}
+
+.circle-img-laptop {
+  width: 10.42vw;
+  height: 10.58vw;
+  position: absolute;
+  top: 20%;
+  right: 25%;
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 

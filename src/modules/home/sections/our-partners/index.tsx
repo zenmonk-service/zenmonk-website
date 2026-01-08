@@ -9,25 +9,30 @@ const OurPartners = () => {
     <>
       <div className="heading-container">
         <p className="text">
-          Fueling partners success that&nbsp;
-          <span>adapt</span>, <span>evolve</span>, and&nbsp;
+          Fuelling client success that&nbsp;
+          <span>adapts</span>, <span>evolves</span>, and&nbsp;
           <span>excels</span>.
         </p>
       </div>
       <AutoScrollCarousel
-        isBgShadow
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
-        space={70}
+        itemWidth={280}
+        itemHeight={140}
+        space={40}
+        duration={50}
         renderItem={(item) => (
-          <Image
-            src={item.icon}
-            alt={item.label}
-            width={150}
-            height={100}
-            loading="lazy"
-            decoding="async"
-          />
+          <div style={{ width: '60%', height: '50%', position: 'relative' }}>
+            <Image
+              src={item.icon as string}
+              alt={item.label}
+              fill
+              sizes="(max-width: 768px) 100vw, 20vw"
+              loading="lazy"
+              decoding="async"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         )}
       />
     </>

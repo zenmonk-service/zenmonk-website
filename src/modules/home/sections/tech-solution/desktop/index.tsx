@@ -5,6 +5,8 @@ import { SectionDescription, SectionTitle } from '@/shared/typography'
 import './styles.scss'
 import TechCard from '../tech-card'
 import Image from 'next/image'
+import Circle from '../assets/circle.png'
+import Expense from '../assets/expense.svg?url'
 
 const TechSolutionDesktop = () => {
   const router = useRouter()
@@ -44,6 +46,8 @@ const TechSolutionDesktop = () => {
       <div className="tech-solution-section-image-wrapper">
         <Image fill src="/tech-solution.png" alt="tech-solution" />
       </div>
+        <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
+        <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
     </div>
   )
 }

@@ -24,42 +24,42 @@ export const services = [
     services: [
       {
         id: 'software-development-enterprise-solutions',
-        title: 'Enterprise Solutions',
+        title: 'Enterprise',
         description:
           'Streamline operations with scalable enterprise software solutions that drive efficiency and growth.',
         icon: SoftwareDevelopment.Enterprise,
       },
       {
         id: 'software-development-erp-software',
-        title: 'ERP Software',
+        title: 'ERP',
         description:
           'Optimize business processes with robust ERP software tailored to your operational needs.',
         icon: SoftwareDevelopment.Erp,
       },
       {
         id: 'software-development-crm-software',
-        title: 'CRM Software',
+        title: 'CRM',
         description:
           'Enhance customer relationships with customizable CRM solutions that improve engagement and satisfaction.',
         icon: SoftwareDevelopment.Crm,
       },
       {
         id: 'software-development-hcm-software',
-        title: 'HCM Software',
+        title: 'HCM',
         description:
           'Manage your workforce effectively with human capital management software designed to support HR operations.',
         icon: SoftwareDevelopment.Hcm,
       },
       {
         id: 'software-development-scm-software',
-        title: 'SCM Software',
+        title: 'SCM',
         description:
           'Improve supply chain efficiency with advanced SCM solutions that ensure seamless logistics and inventory management.',
         icon: SoftwareDevelopment.Scm,
       },
       {
         id: 'software-development-custom-software-solutions',
-        title: 'Custom Software Solutions',
+        title: 'Custom',
         description:
           'Get tailored software solutions designed to meet your unique business challenges and objectives.',
         icon: SoftwareDevelopment.CustomSolution,
@@ -80,14 +80,14 @@ export const services = [
     services: [
       {
         id: 'product-development-saas-products',
-        title: 'SaaS Products',
+        title: 'SaaS',
         description:
           'Develop scalable SaaS products that cater to your industry-specific needs and drive growth.',
         icon: ProductDevelopment.Saas,
       },
       {
         id: 'product-development-ecommerce-solutions',
-        title: 'E-commerce Solutions',
+        title: 'E-commerce',
         description:
           'Build robust e-commerce platforms to enhance your online retail experience and drive sales.',
         icon: ProductDevelopment.Ecomm,
@@ -101,21 +101,21 @@ export const services = [
       },
       {
         id: 'product-development-web-applications',
-        title: 'Web Applications',
+        title: 'Web Apps',
         description:
           'Create high-performance web applications tailored to your business needs.',
         icon: ProductDevelopment.WebApplication,
       },
       {
         id: 'product-development-custom-software-solutions',
-        title: 'Custom Software Solutions',
+        title: 'Custom',
         description:
           'Get customized software solutions that address your unique business challenges.',
         icon: ProductDevelopment.CustomSoftwareSolution,
       },
       {
         id: 'product-development-mvp-development',
-        title: 'MVP Development',
+        title: 'MVP',
         description:
           'Launch your product quickly with a Minimum Viable Product to validate your idea in the market.',
         icon: ProductDevelopment.Mvp,
@@ -136,42 +136,42 @@ export const services = [
     services: [
       {
         id: 'custom-app-development-mobile-app-development',
-        title: 'Mobile App Development',
+        title: 'Mobile Apps',
         description:
           "Create dynamic and user-friendly mobile applications to boost your business's digital presence.",
         icon: CustomAppDevelopment.MobileAppDevelopment,
       },
       {
         id: 'custom-app-development-application-integration',
-        title: 'Application Integration',
+        title: 'Integration',
         description:
           'Seamlessly integrate your applications for enhanced workflow and connectivity across platforms.',
         icon: CustomAppDevelopment.ApplicationIntegration,
       },
       {
         id: 'custom-app-development-custom-software-solutions',
-        title: 'Custom Software Solutions',
+        title: 'Custom',
         description:
           'Develop tailored software solutions that meet your specific business goals and technical requirements.',
         icon: CustomAppDevelopment.CustomSoftwareSolutions,
       },
       {
         id: 'custom-app-development-api-development',
-        title: 'API Development',
+        title: 'API',
         description:
           'Build and integrate powerful APIs to extend the functionality and connectivity of your applications.',
         icon: CustomAppDevelopment.ApiDevelopment,
       },
       {
         id: 'custom-app-development-cross-platform-development',
-        title: 'Cross-Platform Development',
+        title: 'Cross-Platform',
         description:
           'Deliver apps that work seamlessly across multiple platforms, ensuring a consistent user experience.',
         icon: CustomAppDevelopment.CrossPlatformDevelopment,
       },
       {
         id: 'custom-app-development-progressive-web-app',
-        title: 'Progressive Web App',
+        title: 'PWA',
         description:
           'Create fast, reliable, and engaging web apps that offer native-like experiences across devices.',
         icon: CustomAppDevelopment.ProgressiveWebApp,
@@ -192,7 +192,7 @@ export const services = [
     services: [
       {
         id: 'ui-ux-design-user-research',
-        title: 'User Research',
+        title: 'Research',
         description:
           'Gain valuable insights into user behavior to guide your design and development decisions.',
         icon: UiUxDesign.UserResearch,
@@ -213,21 +213,21 @@ export const services = [
       },
       {
         id: 'ui-ux-design-usability-testing',
-        title: 'Usability Testing',
+        title: 'Testing',
         description:
           'Ensure your digital products provide an excellent user experience through thorough usability testing.',
         icon: UiUxDesign.UsabilityTesting,
       },
       {
         id: 'ui-ux-design-interface-design',
-        title: 'Interface Design',
+        title: 'UI Design',
         description:
           'Design visually appealing and intuitive interfaces that enhance user engagement.',
         icon: UiUxDesign.InterfaceDesign,
       },
       {
         id: 'ui-ux-design-interaction-design',
-        title: 'Interaction Design',
+        title: 'UX Design',
         description:
           'Craft seamless and engaging user interactions for a more intuitive digital experience.',
         icon: UiUxDesign.InteractionDesign,
@@ -248,42 +248,42 @@ export const services = [
     services: [
       {
         id: 'cloud-development-cloud-computing',
-        title: 'Cloud Computing',
+        title: 'Computing',
         description:
           'Leverage cloud computing to scale your business and improve operational efficiency.',
         icon: CloudDevelopment.CloudComputing,
       },
       {
         id: 'cloud-development-cloud-security-services',
-        title: 'Cloud Security Services',
+        title: 'Security',
         description:
           'Protect your cloud infrastructure with top-tier security solutions.',
         icon: CloudDevelopment.CloudSecurity,
       },
       {
         id: 'cloud-development-iaas',
-        title: 'Infrastructure as a Service (IaaS)',
+        title: 'IaaS',
         description:
           'Utilize IaaS for flexible, scalable cloud infrastructure tailored to your needs.',
         icon: CloudDevelopment.Iaas,
       },
       {
         id: 'cloud-development-paas',
-        title: 'Platform as a Service (PaaS)',
+        title: 'PaaS',
         description:
           'Accelerate development with PaaS solutions that streamline the application lifecycle.',
         icon: CloudDevelopment.Paas,
       },
       {
         id: 'cloud-development-cloud-migration',
-        title: 'Cloud Migration',
+        title: 'Migration',
         description:
           'Seamlessly migrate your applications and data to the cloud with minimal disruption.',
         icon: CloudDevelopment.CloudMigration,
       },
       {
         id: 'cloud-development-cloud-optimization',
-        title: 'Cloud Optimization',
+        title: 'Optimization',
         description:
           'Optimize your cloud resources to maximize efficiency and reduce costs.',
         icon: CloudDevelopment.CloudOptimization,
@@ -304,42 +304,42 @@ export const services = [
     services: [
       {
         id: 'digital-transformation-digital-strategy-development',
-        title: 'Digital Strategy Development',
+        title: 'Strategy',
         description:
           'Develop a comprehensive digital strategy to enhance your business operations and growth.',
         icon: DigitalTransformation.DigitalStrategy,
       },
       {
         id: 'digital-transformation-digital-workflow-automation',
-        title: 'Digital Workflow Automation',
+        title: 'Workflow',
         description:
           'Automate workflows to improve efficiency and reduce manual tasks.',
         icon: DigitalTransformation.InteractionDesign,
       },
       {
         id: 'digital-transformation-process-automation',
-        title: 'Process Automation',
+        title: 'Automation',
         description:
           'Streamline your processes with advanced automation solutions.',
         icon: DigitalTransformation.ProcessAutomation,
       },
       {
         id: 'digital-transformation-data-analytics-insights',
-        title: 'Data Analytics & Insights',
+        title: 'Analytics',
         description:
           'Leverage data analytics to gain insights and make informed decisions.',
         icon: DigitalTransformation.DataAnalytics,
       },
       {
         id: 'digital-transformation-technology-integration',
-        title: 'Technology Integration',
+        title: 'Integration',
         description:
           'Seamlessly integrate new technologies to enhance your business operations.',
         icon: DigitalTransformation.TechnologyIntegration,
       },
       {
         id: 'digital-transformation-machine-learning-solutions',
-        title: 'Machine Learning Solutions',
+        title: 'ML Solutions',
         description:
           'Implement AI and machine learning solutions to drive innovation and efficiency.',
         icon: DigitalTransformation.Ai,
@@ -367,35 +367,35 @@ export const services = [
       },
       {
         id: 'it-business-consultation-business-consulting',
-        title: 'Business Consulting',
+        title: 'Business',
         description:
           'Get strategic insights and solutions to drive your business forward.',
         icon: ItAndBusinessConsultation.BusinessConsulting,
       },
       {
         id: 'it-business-consultation-project-management',
-        title: 'Project Management',
+        title: 'Management',
         description:
           'Manage projects effectively from inception to completion with expert project management services.',
         icon: ItAndBusinessConsultation.ProjectManagement,
       },
       {
         id: 'it-business-consultation-technology-audits',
-        title: 'Technology Audits',
+        title: 'Audits',
         description:
           'Assess and improve your technology infrastructure with in-depth audits.',
         icon: ItAndBusinessConsultation.TechnologyAudits,
       },
       {
         id: 'it-business-consultation-managed-it-services',
-        title: 'Managed IT Services',
+        title: 'Managed IT',
         description:
           'Focus on your core business while we manage your IT needs.',
         icon: ItAndBusinessConsultation.ManagedIt,
       },
       {
         id: 'it-business-consultation-strategic-planning',
-        title: 'Strategic Planning',
+        title: 'Planning',
         description:
           'Create and implement a strategic roadmap that aligns with your long-term goals.',
         icon: ItAndBusinessConsultation.StrategicPlanning,
@@ -416,42 +416,42 @@ export const services = [
     services: [
       {
         id: 'growth-and-marketing-digital-marketing-strategy',
-        title: 'Digital Marketing Strategy',
+        title: 'Strategy',
         description:
           'Develop and implement digital marketing strategies that boost your online presence and drive growth.',
         icon: GrowthAndMarketingSolution.DigitalMarketing,
       },
       {
         id: 'growth-and-marketing-seo',
-        title: 'SEO (Search Engine Optimization)',
+        title: 'SEO',
         description:
           'Improve your search engine rankings with expert SEO strategies.',
         icon: GrowthAndMarketingSolution.Seo,
       },
       {
         id: 'growth-and-marketing-social-media-marketing',
-        title: 'Social Media Marketing',
+        title: 'SMM',
         description:
           'Engage your audience and build your brand through targeted social media marketing.',
         icon: GrowthAndMarketingSolution.SocialMedia,
       },
       {
         id: 'growth-and-marketing-content-marketing',
-        title: 'Content Marketing',
+        title: 'Content',
         description:
           'Create compelling content that attracts and retains customers.',
         icon: GrowthAndMarketingSolution.ContentMarketing,
       },
       {
         id: 'growth-and-marketing-performance-analytics',
-        title: 'Performance Analytics',
+        title: 'Analytics',
         description:
           'Measure and optimize your marketing efforts with in-depth performance analytics.',
         icon: GrowthAndMarketingSolution.Performance,
       },
       {
         id: 'growth-and-marketing-branding-positioning',
-        title: 'Branding & Positioning',
+        title: 'Branding',
         description:
           "Establish and enhance your brand's presence with strategic branding and positioning.",
         icon: GrowthAndMarketingSolution.Branding,
@@ -472,42 +472,42 @@ export const services = [
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
-        title: 'Banking Solutions',
+        title: 'Banking',
         description:
           'Transform your financial operations with secure and scalable software solutions.',
         icon: IndustrySpecificSolution.Banking,
       },
       {
         id: 'industry-specific-solution-consumer-solutions',
-        title: 'Consumer Solutions',
+        title: 'CPG',
         description:
           'Optimize your CPG operations with software tailored to streamline production and distribution.',
         icon: IndustrySpecificSolution.Consumer,
       },
       {
         id: 'industry-specific-solution-education-solutions',
-        title: 'Education Solutions',
+        title: 'EdTech',
         description:
           'Enhance learning experiences with innovative EdTech solutions.',
         icon: IndustrySpecificSolution.Education,
       },
       {
         id: 'industry-specific-solution-healthcare-it-solutions',
-        title: 'Healthcare IT Solutions',
+        title: 'Health',
         description:
           'Improve patient care with advanced healthcare IT solutions that streamline operations.',
         icon: IndustrySpecificSolution.HealthCare,
       },
       {
         id: 'industry-specific-solution-business-operations-optimization',
-        title: 'Business Operations Optimization',
+        title: 'Ops',
         description:
           'Increase operational efficiency with business process optimization software.',
         icon: IndustrySpecificSolution.Business,
       },
       {
         id: 'industry-specific-solution-ecommerce-solutions',
-        title: 'E-commerce Solutions',
+        title: 'E-comm',
         description:
           'Enhance your retail and e-commerce operations with scalable digital solutions.',
         icon: IndustrySpecificSolution.Retail,
@@ -528,42 +528,42 @@ export const services = [
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
-        title: 'Banking Solutions',
+        title: 'Banking',
         description:
           'Transform your financial operations with secure and scalable software solutions.',
         icon: IndustrySpecificSolution.Banking,
       },
       {
         id: 'industry-specific-solution-consumer-solutions',
-        title: 'Consumer Solutions',
+        title: 'CPG',
         description:
           'Optimize your CPG operations with software tailored to streamline production and distribution.',
         icon: IndustrySpecificSolution.Consumer,
       },
       {
         id: 'industry-specific-solution-education-solutions',
-        title: 'Education Solutions',
+        title: 'EdTech',
         description:
           'Enhance learning experiences with innovative EdTech solutions.',
         icon: IndustrySpecificSolution.Education,
       },
       {
         id: 'industry-specific-solution-healthcare-it-solutions',
-        title: 'Healthcare IT Solutions',
+        title: 'Health',
         description:
           'Improve patient care with advanced healthcare IT solutions that streamline operations.',
         icon: IndustrySpecificSolution.HealthCare,
       },
       {
         id: 'industry-specific-solution-business-operations-optimization',
-        title: 'Business Operations Optimization',
+        title: 'Ops',
         description:
           'Increase operational efficiency with business process optimization software.',
         icon: IndustrySpecificSolution.Business,
       },
       {
         id: 'industry-specific-solution-ecommerce-solutions',
-        title: 'E-commerce Solutions',
+        title: 'E-comm',
         description:
           'Enhance your retail and e-commerce operations with scalable digital solutions.',
         icon: IndustrySpecificSolution.Retail,

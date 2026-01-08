@@ -1,29 +1,47 @@
+
+'use client'
+
+import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
-import Hero from './assets/hero.svg'
 import './styles.scss'
+import HeroImage from './hero-image'
 
 const HeroSection = () => {
+  const router = useRouter()
   return (
-    <div className="career-hero-section-wrapper">
-      <div className="hero-section">
-        <div className="hero-section-text-wrapper">
-          <h4 className="text-heading">
-            Join Us At <span>ZENMONK</span>
-            <br />
-          </h4>
-          <p className="text-description">
-            Find your Zen in your career at Zenmonk. A monastery-like workplace
-            for growth, new ideas, and making a difference, where our team is
-            encouraged to discover balance and purpose in work.
-          </p>
+    <section>
+      <div className="hero-section-d">
+        <div className="bg-polyhedron">
+          <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M400 50L750 400L400 750L50 400L400 50Z" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M400 50L50 400L400 750M400 50L750 400L400 750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M50 400H750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M400 50V750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <circle cx="400" cy="400" r="150" stroke="#E2E8F0" strokeWidth="0.5" strokeDasharray="5 5" />
+          </svg>
         </div>
-        <BaseButton className="button">Apply NOW</BaseButton>
+        <div className="container">
+          <div className="text-container">
+            <h4 className="heading">
+              <span>Join Our Team</span> and Make <br />an Impact in Tech
+            </h4>
+            <p className="description">
+              We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
+            </p>
+          </div>
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className="button"
+          >
+            EXPLORE MORE
+          </BaseButton>
+        </div>
+        <div className="hero-visual">
+          <HeroImage/>
+        </div>
       </div>
-      <div className="hero-section-image-wrapper">
-        <Hero />
-      </div>
-    </div>
+    </section>
   )
 }
 
-export default HeroSection
+export { HeroSection }

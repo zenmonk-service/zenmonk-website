@@ -11,45 +11,51 @@ import Image from 'next/image'
 export const OurClientSection = memo(() => {
   return (
     <Box className="about-us-our-client-section">
-      <SectionTitle markText="Our Clients" text="Our Clients" />
+      <SectionTitle markText="Clients" text="Our Clients" />
 
       <SectionDescription
-        text="Our clients trust us to provide outstanding solutions knowing our dedication to quality, creativity, and their ongoing success drives everything we do."
+        text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
         className="section-description"
       />
 
-      <Stack direction="column" spacing={2}>
+      <Stack direction="column" className="carousel-stack">
         <AutoScrollCarousel
-          isBgShadow
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
-          space={70}
+          itemWidth={350}
+          space={60}
+          duration={50}
+          showBackground
           renderItem={(item) => (
             <Image
-              src={item.icon}
+              src={item.icon as string}
               alt={item.label}
-              width={240}
-              height={120}
+              width={220}
+              height={100}
               loading="lazy"
               decoding="async"
+              style={{ objectFit: 'contain' }}
             />
           )}
         />
 
         <AutoScrollCarousel
-          isBgShadow
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
           reverse
-          space={70}
+          itemWidth={350}
+          space={60}
+          duration={50}
+          showBackground
           renderItem={(item) => (
             <Image
-              src={item.icon}
+              src={item.icon as string}
               alt={item.label}
-              width={240}
-              height={120}
+              width={220}
+              height={100}
               loading="lazy"
               decoding="async"
+              style={{ objectFit: 'contain' }}
             />
           )}
         />

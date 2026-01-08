@@ -1,5 +1,5 @@
 import { ContactUsSection } from '@/modules/about-us/sections'
-import HeroSection from '@/modules/careers/sections/hero-section'
+import { HeroSection } from '@/modules/careers/sections/hero-section'
 import InnovationExcellence from '@/modules/careers/sections/innovation-excellence-section'
 import JobPosting from '@/modules/careers/sections/job-posting'
 import PerkBenefits from '@/modules/careers/sections/perks-benefits-section'

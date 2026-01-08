@@ -12,12 +12,17 @@ interface Props {
   setProjectIndex: (index: number) => void
 }
 
+/** px → vw helper (1920 base) */
+const pxToVw = (px: number) => `${(px / 1920) * 100}vw`
+
 export default function InfiniteScroll({
   projects,
   projectIndex,
   setProjectIndex,
 }: Props) {
   const scrollableSection = useRef<HTMLDivElement>(null)
+
+  // DESIGN VALUES (px)
   const cardWidth = 300
   const cardGap = 16
 
@@ -50,7 +55,11 @@ export default function InfiniteScroll({
     }
   }, [])
 
-  const smoothScrollTo = (element: HTMLDivElement, target: number, duration = 1000) => {
+  const smoothScrollTo = (
+    element: HTMLDivElement,
+    target: number,
+    duration = 1000
+  ) => {
     const start = element.scrollLeft
     const change = target - start
     const startTime = performance.now()
@@ -81,7 +90,10 @@ export default function InfiniteScroll({
     const baseIndex = projects.length
     const targetIndex = baseIndex + projectIndex
 
-    const offset = targetIndex * (cardWidth + cardGap) - containerWidth / 2 + cardWidth / 2
+    const offset =
+      targetIndex * (cardWidth + cardGap) -
+      containerWidth / 2 +
+      cardWidth / 2
 
     smoothScrollTo(container, offset, 800)
   }, [projectIndex, projects.length])
@@ -96,25 +108,26 @@ export default function InfiniteScroll({
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
         scrollBehavior: 'auto',
-        padding: '20px 0',
-        marginBottom:"100px"
+        padding: `${pxToVw(20)} 0`,
+        marginBottom: pxToVw(100),
       }}
     >
       {infiniteProjects.map((p, idx) => {
         const isActive = idx % projects.length === projectIndex
+
         return (
           <div
             key={idx}
             style={{
-              minWidth: `${cardWidth}px`,
-              height: '200px',
-              marginRight: `${cardGap}px`,
-              background: `url(${p.imageUrl}) center/cover no-repeat`,
+              minWidth: pxToVw(cardWidth),
+              height: pxToVw(200),
+              marginRight: pxToVw(cardGap),
+              background: `url(${p.imageUrl}) center / cover no-repeat`,
               flexShrink: 0,
               cursor: 'pointer',
               border: isActive ? '2px solid white' : 'none',
               transform: isActive ? 'scale(1.15)' : 'scale(0.9)',
-              borderRadius:"12px",
+              borderRadius: pxToVw(12),
               opacity: isActive ? 1 : 0.3,
               transition: 'transform 0.3s, opacity 0.3s, border 0.3s',
             }}

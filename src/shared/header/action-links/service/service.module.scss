@@ -5,7 +5,7 @@
   font-style: normal;
   font-weight: 400;
   font-family: 'Poppins', sans-serif !important;
-  padding: max(13px, 0.67vw) max(14px, 0.83vw);
+  padding: max(0.68vw, 0.67vw) max(0.73vw, 0.83vw);
   border-radius: 2.24vw;
   display: flex;
   justify-content: center;
@@ -29,8 +29,8 @@
 }
 
 .expandIcon {
-  width: 1.04vw;
-  height: 1.04vw;
+  min-width: 1.04vw;
+  min-height: 1.04vw;
   rotate: 0;
   color: inherit;
 }
@@ -53,7 +53,3 @@
   border-right: 1.04vw solid transparent;
   border-bottom: 1.04vw solid var(--global-color-primary);
 }
-
-// .servicesMenuContainer > * {
-//   margin-bottom: 1.04vw;
-// }

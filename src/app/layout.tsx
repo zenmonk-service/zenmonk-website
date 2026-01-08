@@ -24,6 +24,7 @@ const poppins = Poppins({
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 const montserrat = Montserrat({
@@ -48,9 +49,9 @@ export default function FlashScreenLayout({
 
   useEffect(() => {
     // Ensuring scroll is unlocked when component unmounts or loading finishes
-    if (!showFlashScreen) {
-      document.body.style.overflow = ''
-    }
+    // if (!showFlashScreen) {
+    //   document.body.style.overflow = ''
+    // }
   }, [showFlashScreen])
 
   const handleCloseScreen = () => {

@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import * as THREE from 'three'
 import { countries } from '@/shared/contact-us-section/countries'
+import GlobeShadow from "./globe-shadow.svg"
 
-// Dynamic import for react-globe.gl to avoid SSR issues
 const Globe = dynamic(() => import('react-globe.gl'), { ssr: false })
 
 type GlobeProps = {
@@ -99,26 +99,43 @@ const GlobeComponent = ({ clickRef, coordinates, activeCountryName }: GlobeProps
   return (
     <div ref={containerRef} style={{ width: '100%', height: '100%', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {dimensions.width > 0 && dimensions.height > 0 && (
-        <Globe
-          ref={globeRef}
-          onGlobeReady={handleGlobeReady}
-          width={dimensions.width}
-          height={dimensions.height}
-          backgroundColor="rgba(0,0,0,0)"
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
-          bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-          showAtmosphere={true}
-          atmosphereColor="#cae1ff"
-          atmosphereAltitude={0.15}
-          htmlElementsData={countries.map((c) => ({
-            lat: c.coordinates[0],
-            lng: c.coordinates[1],
-            name: c.name,
-          }))}
-          htmlElement={(d: any) => {
-            const isActive = d.name === activeCountryName
-            const el = document.createElement('div')
-            el.innerHTML = `
+        <>
+          <div
+            style={{
+              position: 'absolute',
+              width: '80%',
+              height: '80%',
+              borderRadius: '699.906px',
+              background:
+                'linear-gradient(99deg, rgba(235, 124, 13, 0.20) 3.23%, rgba(255, 167, 80, 0.20) 97.72%)',
+              filter: 'blur(226.2487030029297px)',
+              pointerEvents: 'none',
+              transform: 'translate(-50%, -50%)',
+              left: '50%',
+              top: '50%',
+              zIndex: -2,
+            }}
+          />
+          <Globe
+            ref={globeRef}
+            onGlobeReady={handleGlobeReady}
+            width={dimensions.width}
+            height={dimensions.height}
+            backgroundColor="rgba(0,0,0,0)"
+            globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
+            bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+            showAtmosphere={true}
+            atmosphereColor="#cae1ff"
+            atmosphereAltitude={0.15}
+            htmlElementsData={countries.map((c) => ({
+              lat: c.coordinates[0],
+              lng: c.coordinates[1],
+              name: c.name,
+            }))}
+            htmlElement={(d: any) => {
+              const isActive = d.name === activeCountryName
+              const el = document.createElement('div')
+              el.innerHTML = `
               <div style="cursor: pointer; display: flex; flex-direction: column; align-items: center; pointer-events: none; transform: translate(-50%, -100%); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: ${isActive ? 1 : 0};">
                 <svg viewBox="0 0 34 42" class="globe-marker-svg" fill="none" xmlns="http://www.w3.org/2000/svg" style="
                   filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.35)); 
@@ -131,11 +148,56 @@ const GlobeComponent = ({ clickRef, coordinates, activeCountryName }: GlobeProps
                 </svg>
               </div>
             `
-            return el
-          }}
-          enablePointerInteraction={false}
-        />
+              return el
+            }}
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="324"
+            height="24"
+            viewBox="0 0 324 24"
+            fill="none"
+            style={{
+              position: 'absolute',
+              bottom: '15%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: -1,
+            }}
+          >
+            <g filter="url(#filter0_f_2954_17186)">
+              <path
+                d="M321.25 11.875C321.25 17.0527 249.895 21.25 161.875 21.25C73.8546 21.25 2.5 17.0527 2.5 11.875C2.5 6.69733 73.8546 2.5 161.875 2.5C249.895 2.5 321.25 6.69733 321.25 11.875Z"
+                fill="#ADADAD"
+              />
+            </g>
+            <defs>
+              <filter
+                id="filter0_f_2954_17186"
+                x="0"
+                y="0"
+                width="323.75"
+                height="23.75"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+              >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend
+                  mode="normal"
+                  in="SourceGraphic"
+                  in2="BackgroundImageFix"
+                  result="shape"
+                />
+                <feGaussianBlur
+                  stdDeviation="1.25"
+                  result="effect1_foregroundBlur_2954_17186"
+                />
+              </filter>
+            </defs>
+          </svg>
+        </>
       )}
+      <GlobeShadow className="globe-shadow" />
     </div>
   )
 }

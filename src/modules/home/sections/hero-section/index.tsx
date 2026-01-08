@@ -1,43 +1,48 @@
+
 'use client'
 
 import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import OurPartners from '../our-partners'
-import BallBg from './assets/ball-bg.svg'
-import Ball from './assets/ball.svg'
-import HeroImage from './icon-container/hero-image'
 import './styles.scss'
+import HeroImage from './hero-image'
 
 const HeroSection = () => {
   const router = useRouter()
   return (
     <section>
       <div className="hero-section-d">
-        <div className="light-bg"></div>
-        <Ball className="ball-decorator" />
-        <BallBg className="ball-bg" />
+        <div className="bg-polyhedron">
+          <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M400 50L750 400L400 750L50 400L400 50Z" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M400 50L50 400L400 750M400 50L750 400L400 750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M50 400H750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <path d="M400 50V750" stroke="#E2E8F0" strokeWidth="0.5" />
+            <circle cx="400" cy="400" r="150" stroke="#E2E8F0" strokeWidth="0.5" strokeDasharray="5 5" />
+          </svg>
+        </div>
         <div className="container">
           <div className="text-container">
             <h4 className="heading">
-              Super Charge Your Business
-              <br />
-              Growth With
-              <span>&nbsp;Efficient</span>,<span>&nbsp;Intelligent</span>,<br />
-              <span>Versatile</span>, Software Innovations
+              Super Charge Your Business<br />
+              Growth With <span>Efficient</span>, <span>Intelligent</span>,<br />
+              <span>Versatile</span> Software Innovations
             </h4>
             <p className="description">
-              Zenmonk believes in the power of harmony between- Technology
-              <br /> and Precision, Innovation and Mindfulness.
+              It is a long established fact that a reader will be distracted by
+              <br /> the readable content of a page when looking at its layout.
             </p>
           </div>
           <BaseButton
             onClick={() => router.push('/contact')}
             className="button"
           >
-            GET IN TOUCH
+            EXPLORE MORE
           </BaseButton>
         </div>
-        <HeroImage />
+        <div className="hero-visual">
+          <HeroImage />
+        </div>
       </div>
       <OurPartners />
     </section>

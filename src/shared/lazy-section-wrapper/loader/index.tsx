@@ -17,9 +17,8 @@ export default function FullScreenLoading() {
     document.body.style.overflow = 'hidden'
 
     // 2. GSAP Smoother Pause
-    const smoother = smootherRef?.current
-    if (smoother) {
-      smoother.paused(true)
+    if (smootherRef?.current) {
+      smootherRef.current.paused(true)
     }
 
     return () => {
@@ -27,8 +26,8 @@ export default function FullScreenLoading() {
       document.body.style.overflow = originalStyle
 
       // Resume GSAP Smoother
-      if (smoother) {
-        smoother.paused(false)
+      if (smootherRef?.current) {
+        smootherRef.current.paused(false)
       }
     }
   }, [smootherRef, dispatch])

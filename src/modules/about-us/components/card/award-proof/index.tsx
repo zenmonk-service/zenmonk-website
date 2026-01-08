@@ -12,8 +12,10 @@ interface AwardProofCardProps {
 const AwardProofCard = ({ image, title, description }: AwardProofCardProps) => {
   return (
     <Box className="award-proof-card">
-      {/* <StarIcon/> */}
-      <Image src={image} width={113} height={174} alt={`${title}-icon`} />
+      <Box className="award-image-container">
+        <StarIcon />
+        <Image src={image} width={113} height={174} alt={`${title}-icon`} className="award-main-image" />
+      </Box>
       <Box className="award-card-content">
         <Typography className="title" component="h3">
           {title}

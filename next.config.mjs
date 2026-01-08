@@ -29,5 +29,22 @@ const nextConfig = {
     fileLoaderRule.exclude = /\.svg$/i
     return config
   },
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media2.giphy.com',
+      },
+      {
+         protocol: 'https',
+         hostname: 'cdn.jsdelivr.net',
+      },
+      {
+         protocol: 'https',
+         hostname: 'i.imgur.com',
+      }
+    ],
+  },
 }
 export default nextConfig

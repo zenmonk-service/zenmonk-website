@@ -7,9 +7,11 @@
   margin: auto;
   padding: 1.04%;
   padding-bottom: 0.52%;
+
   @media (max-width: 900px) {
     margin-top: 60px !important;
   }
+
   .text {
     color: #777;
     font-size: var(--font-size-24);
@@ -17,17 +19,20 @@
     font-weight: 600;
     font-family: Poppins;
     text-align: center;
+
     @media (max-width: 900px) {
       font-size: 16px !important;
       font-weight: 400;
     }
+
     span {
-      background: var(--global-color-gradient);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
+      color: #eb7c0d; // Using direct orange for highlighted words
     }
   }
+}
+
+.infinite-slider {
+  // margin: 3.125vw 0 !important; // 60px vertical margin
 }
 
 @media screen and (max-width: 390px) {
@@ -42,5 +47,3 @@
     }
   }
 }
-
-

@@ -65,7 +65,6 @@ export default function GlobeSection() {
 
         <div className="globe-container">
           <div className="glow-background" />
-          <div className="globe-shadow" />
           <Globe
             clickRef={clickRef}
             coordinates={country.coordinates as [number, number]}
@@ -78,7 +77,7 @@ export default function GlobeSection() {
             {countries.map((countryData) => {
               const { name, img } = countryData
               const active = name === country.name
-
+              
               return (
                 <motion.div
                   key={name}
@@ -90,7 +89,7 @@ export default function GlobeSection() {
                   style={{
                     backgroundImage: `url(${img})`,
                   }}
-                />
+                  />
               )
             })}
           </div>

@@ -37,6 +37,7 @@ const Navbar = () => {
   }, [current, isOpen])
 
   const isPageLoading = useAppSelector((state) => state.header.isLoading)
+  const isHeaderHidden = useAppSelector((state) => state.header.hide)
 
   return (
     <motion.nav
@@ -45,7 +46,7 @@ const Navbar = () => {
         visible: { y: 0 },
         hidden: { y: '-100%' },
       }}
-      animate={hidden ? "hidden" : "visible"}
+      animate={hidden || isHeaderHidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={styles.appBarContainer}
     >

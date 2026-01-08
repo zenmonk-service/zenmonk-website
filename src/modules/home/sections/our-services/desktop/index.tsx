@@ -1,8 +1,9 @@
 'use client'
 
 import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useState, useRef, useTransition } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { ZenmonkLogo } from '@/assets/images'
@@ -13,28 +14,77 @@ import styles from './our-services.module.scss'
 
 const OurServicesDesktop = () => {
   const [selectedService, setSelectedService] = useState(services[0])
-  const [isPending, startTransition] = useTransition()
-  const rightSectionHeadingRef = useRef<HTMLDivElement | null>(null)
+  const leftContainerRef = useRef<HTMLDivElement | null>(null)
   const router = useRouter()
 
+  const orangeBoxRef = useRef<HTMLDivElement | null>(null)
+  const triggersRef = useRef<ScrollTrigger[]>([])
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
   useGSAP(() => {
-    ScrollTrigger.create({
-      trigger: `.${styles.servicesRightContainer}`,
-      pin: true,
-      scrub: true,
-      start: 'center center',
-      end: () => {
-        const el = rightSectionHeadingRef.current!
-        const extra = el.clientHeight * 0.38
-        return el.offsetTop + el.offsetHeight - extra
-      },
+    triggersRef.current.forEach(t => t.kill())
+    triggersRef.current = []
+
+    const items = gsap.utils.toArray<HTMLElement>(`.${styles.businessItem}`)
+
+    // 1. Entrance animation for items 
+    if (items.length > 0) {
+      gsap.fromTo(items,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: items[0],
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+          }
+        }
+      )
+    }
+
+    // 2. Pinning logic - Unpin exactly when the LAST item's center hits the viewport center (middle of the orange box)
+    const rightContainer = containerRef.current?.querySelector(`.${styles.servicesRightContainer}`)
+    const lastItem = items[items.length - 1]
+
+    if (rightContainer && lastItem) {
+      const pinTrigger = ScrollTrigger.create({
+        trigger: rightContainer as HTMLElement,
+        pin: true,
+        start: 'center center',
+        endTrigger: lastItem,
+        end: 'center center', // Midpoint: unpin when the last card is perfectly centered in the orange box
+        pinSpacing: true,
+        anticipatePin: 1,
+      })
+      triggersRef.current.push(pinTrigger)
+    }
+
+    // 3. Selection logic - Change content exactly when item center hits viewport center
+    items.forEach((item, index) => {
+      const trigger = ScrollTrigger.create({
+        trigger: item,
+        start: 'center center',
+        onEnter: () => setSelectedService(services[index]),
+        onEnterBack: () => setSelectedService(services[index]),
+      })
+      triggersRef.current.push(trigger)
     })
-  }, [rightSectionHeadingRef])
+
+    ScrollTrigger.refresh()
+
+    return () => {
+      triggersRef.current.forEach((t) => t.kill())
+    }
+  }, { scope: containerRef, dependencies: [] })
 
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <section className={styles.serviceSectionWrapper}>
+    <section className={styles.serviceSectionWrapper} ref={containerRef}>
       <SectionTitle
         text={text}
         markText="Services"
@@ -42,23 +92,17 @@ const OurServicesDesktop = () => {
         markTextProps={{
           rotate: 4,
           style: {
-            marginTop: "-0.45vw"
-          }
+            marginTop: '-0.45vw',
+          },
         }}
       />
       <div className={`${styles.servicesSection} desktop`}>
-        <div
-          ref={rightSectionHeadingRef}
-          className={styles.servicesLeftContainer}
-        >
+        <div ref={leftContainerRef} className={styles.servicesLeftContainer}>
           {services.map((service, index) => (
             <div
-              className={styles.businessItem}
-              onClick={() => {
-                startTransition(() => {
-                  setSelectedService(service)
-                })
-              }}
+              className={`${styles.businessItem} ${selectedService.id === service.id ? styles.active : ''
+                }`}
+              onClick={() => setSelectedService(service)}
               key={service.id}
             >
               <div className={styles.businessItemContent}>
@@ -79,21 +123,13 @@ const OurServicesDesktop = () => {
             </div>
           ))}
         </div>
+
         <div className={styles.servicesRightContainer}>
-          {isPending && (
-            <div className={styles.loadingOverlay}>
-              <div className={styles.loader}></div>
-            </div>
-          )}
           <Image className={styles.logo} src={ZenmonkLogo} alt="zenmonk-logo" />
-          <div className={styles.businessProof}>
+          <div ref={orangeBoxRef} className={styles.businessProof}>
             <div className={styles.businessProofContent}>
-              <h5 className={styles.businessProofHeading}>
-                {selectedService.name}
-              </h5>
-              <p className={styles.businessProofDescription}>
-                {selectedService.description}
-              </p>
+              <h5 className={styles.businessProofHeading}>{selectedService.name}</h5>
+              <p className={styles.businessProofDescription}>{selectedService.description}</p>
               <div className={styles.businessProofTechnologies}>
                 {selectedService.services
                   .slice(0, 5)
