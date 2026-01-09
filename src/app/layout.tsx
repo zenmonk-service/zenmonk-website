@@ -3,7 +3,7 @@
 import type { Metadata } from 'next'
 import { Poppins, Montserrat, Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import './globals.css'
@@ -47,13 +47,6 @@ export default function FlashScreenLayout({
     }
   }, [])
 
-  useEffect(() => {
-    // Ensuring scroll is unlocked when component unmounts or loading finishes
-    // if (!showFlashScreen) {
-    //   document.body.style.overflow = ''
-    // }
-  }, [showFlashScreen])
-
   const handleCloseScreen = () => {
     localStorage.setItem('zenmonk_visited', 'true')
     setShowFlashScreen(false)
@@ -71,7 +64,9 @@ export default function FlashScreenLayout({
                 <Header />
                 <CustomLoader />
                 <SmoothScroller>
-                  {children}
+                  <Suspense fallback={null}>
+                    {children}
+                  </Suspense>
                   <Footer />
                 </SmoothScroller>
               </ScrollProvider>
