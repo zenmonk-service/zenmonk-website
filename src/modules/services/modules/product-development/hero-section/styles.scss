@@ -1,9 +1,201 @@
-.digital-transformation-hero {
- background-image: url('../assets/background.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh;
-  background-position-y: 80%;
+.product-dev-hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 7.8%;
+  gap: 2.083vw; // 40px
   position: relative;
+  background: url('../assets/background.svg');
+  background-size: cover !important;
+  background-position: right 50%;
+
+  height: 100vh;
+  overflow: hidden;
+  clip-path: url(#hero-wave);
+
+  .content-side {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25vw; // 24px
+    z-index: 2;
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: max(24px, 2.5vw);
+      font-weight: 600;
+      color: #132427;
+      line-height: 1.2;
+      margin: 0;
+
+      .highlight {
+        color: #EB7C0D;
+        display: block;
+      }
+    }
+
+    .hero-desc {
+      font-family: 'Poppins', sans-serif;
+      font-size: max(16px, 1.1vw);
+      color: #777;
+      line-height: 1.6;
+      max-width: 90%;
+      margin: 0;
+    }
+  }
+
+  .visual-side {
+    width: 50%;
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    right: -5%;
+    bottom: -3%;
+
+    @media (max-width: 1024px) {
+      right: 0;
+      position: unset;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      max-width: 31.25vw; // 600px
+      margin-bottom: 1.5vw;
+      scale: 0.9;
+    }
+
+    .main-image-wrapper {
+      width: 100%;
+
+      .product-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+
+        @media (max-width: 1024px) {
+          max-width: 400px;
+        }
+      }
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: -30%;
+      left: 22%;
+      background: #fff;
+      padding: 1.25vw;
+      border-radius: 0.42vw;
+      border: 0.05vw solid #cde2e6;
+      width: 14.58vw;
+      z-index: 2;
+      box-shadow: 0 0.21vw 1.04vw rgba(0, 0, 0, 0.05);
+
+      animation: floating 3s ease-in-out infinite;
+
+      p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.73vw;
+        color: #559CA9;
+        line-height: 1.5;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .bubble-arrow {
+        position: absolute;
+        bottom: -1.25vw;
+        right: 4.17vw;
+        width: 2.6vw;
+        height: 2.6vw;
+        background: #fff;
+        transform: rotate(45deg);
+        border-right: 0.05vw solid #cde2e6;
+        border-bottom: 0.05vw solid #cde2e6;
+      }
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-0.5vw); // subtle lift
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+  }
+
+  .floating {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  // Mobile Styles
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding: 0;
+    gap: 0;
+    height: auto;
+    min-height: auto;
+    clip-path: none;
+    background: none;
+
+    .content-side {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      margin-top: -7.25vw;
+      padding: 0 20px 50px;
+
+      .hero-title {
+        font-size: 28px;
+        line-height: 1.3;
+
+        br {
+          display: none;
+        }
+      }
+
+      .hero-desc {
+        font-size: 14px;
+        max-width: 100%;
+        line-height: 1.5;
+      }
+    }
+
+    .visual-side {
+      width: 100%;
+      justify-content: center;
+      background: #EEFBFF url('../assets/background.svg');
+      background-size: cover !important;
+      background-position: center bottom;
+      clip-path: url(#hero-wave);
+      padding: 120px 20px 66px;
+      position: relative;
+
+      .image-container {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .main-image-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+      }
+
+      .speech-bubble {
+        display: none;
+      }
+    }
+  }
 }

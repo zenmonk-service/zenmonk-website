@@ -151,50 +151,6 @@ const GlobeComponent = ({ clickRef, coordinates, activeCountryName }: GlobeProps
               return el
             }}
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="324"
-            height="24"
-            viewBox="0 0 324 24"
-            fill="none"
-            style={{
-              position: 'absolute',
-              bottom: '15%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              zIndex: -1,
-            }}
-          >
-            <g filter="url(#filter0_f_2954_17186)">
-              <path
-                d="M321.25 11.875C321.25 17.0527 249.895 21.25 161.875 21.25C73.8546 21.25 2.5 17.0527 2.5 11.875C2.5 6.69733 73.8546 2.5 161.875 2.5C249.895 2.5 321.25 6.69733 321.25 11.875Z"
-                fill="#ADADAD"
-              />
-            </g>
-            <defs>
-              <filter
-                id="filter0_f_2954_17186"
-                x="0"
-                y="0"
-                width="323.75"
-                height="23.75"
-                filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
-              >
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feBlend
-                  mode="normal"
-                  in="SourceGraphic"
-                  in2="BackgroundImageFix"
-                  result="shape"
-                />
-                <feGaussianBlur
-                  stdDeviation="1.25"
-                  result="effect1_foregroundBlur_2954_17186"
-                />
-              </filter>
-            </defs>
-          </svg>
         </>
       )}
       <GlobeShadow className="globe-shadow" />

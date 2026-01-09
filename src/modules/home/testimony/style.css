@@ -21,8 +21,8 @@
   display: grid;
   place-items: center;
   position: relative;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 120px;
+  min-height: 120px;
 }
 
 .testimony-content .review {
@@ -129,6 +129,10 @@
     padding-left: 16px;
     padding-right: 16px;
     margin-top: 40px;
+    @media (max-width: 900px) {
+      background-position: 0 30% !important;
+      background-size: cover;
+    }
   }
 
   .testimony.desktop {
@@ -136,6 +140,7 @@
   }
 
   .testimony-mb.mobile {
+    height: 100vh;
     display: block;
   }
 
@@ -152,6 +157,7 @@
     letter-spacing: 0.42px;
     max-width: 600px;
     min-height: 165px !important;
+    width: 85%;
   }
 
   .testimony-mb .testimony-image-wrapper {

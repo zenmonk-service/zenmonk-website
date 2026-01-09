@@ -26,7 +26,7 @@ const DevelopmentProcess = () => {
       case 'it-training-&-workshops':
         return <It />
       case 'product-development':
-        return <ProductDevelopmentProcess />
+        return <DevelopmentProcessRoad />
       case 'industry-specific-solutions':
       case 'ai-based-softwares':
         return <DevelopmentProcessHexagon />

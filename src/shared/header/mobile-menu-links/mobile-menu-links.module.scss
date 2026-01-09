@@ -1,7 +1,3 @@
-.container {
-  background-color: red;
-}
-
 .menuToggleContainer {
   clip-path: inset(calc(100% - 38px) 27px 10px calc(100% - 54px) round 4px);
   background: var(--global-color-gradient);
@@ -22,6 +18,7 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  color: #fff;
   cursor: pointer;
   width: 50px;
   height: 50px;

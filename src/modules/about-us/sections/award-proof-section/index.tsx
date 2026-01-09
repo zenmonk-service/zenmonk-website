@@ -8,7 +8,7 @@ export const AwardProofSection = () => {
   return (
     <Box className="award-proof-section">
       <SectionTitle
-        markTextProps={{ rotate: 2 }}
+        className='section-title'
         markText='Services'
         text="Awards Proof Your Business With Our IT Services"
       />

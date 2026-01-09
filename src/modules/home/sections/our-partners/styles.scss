@@ -1,16 +1,12 @@
 .heading-container {
   justify-content: center;
-  margin-top: 2.6% !important;
   display: flex;
   align-items: center;
   width: 100%;
   margin: auto;
-  padding: 1.04%;
+  padding: 1%;
   padding-bottom: 0.52%;
-
-  @media (max-width: 900px) {
-    margin-top: 60px !important;
-  }
+  margin-top: -10%;
 
   .text {
     color: #777;
@@ -31,19 +27,27 @@
   }
 }
 
-.infinite-slider {
-  // margin: 3.125vw 0 !important; // 60px vertical margin
-}
 
 @media screen and (max-width: 390px) {
   .heading-container {
-    margin-top: 80px !important;
     padding-bottom: 16px;
+    margin-top: 0%;
 
     .text {
       line-height: normal;
       letter-spacing: 0.16px;
       text-align: center;
     }
+  }
+}
+
+.partner-logo-wrapper {
+  width: 60%;
+  height: 50%;
+  position: relative;
+
+  @media (max-width: 900px) {
+    width: 90%;
+    height: 90%;
   }
 }

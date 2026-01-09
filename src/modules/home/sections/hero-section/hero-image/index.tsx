@@ -1,15 +1,14 @@
 import Image from 'next/image'
 import laptopDashboard from '../assets/laptop.svg?url'
-import Expense from '../assets/expense.svg?url'
-import Revenue from '../assets/revenue.svg?url'
-import Gify from '../assets/giphy.gif'
+import Expense from '../assets/expense.png'
+import Revenue from '../assets/revenue.svg'
 import Figma from "../assets/figma.png"
 import React from "../assets/react.png"
 import Js from "../assets/js.png"
 import Mongo from "../assets/mongo.png"
 import Php from "../assets/php.png"
 import Xd from "../assets/xd.png"
-import Circle from "../assets/circle.png"
+import Circle from "../assets/circle.svg?url"
 
 const HeroImage = () => {
   return (
@@ -23,17 +22,8 @@ const HeroImage = () => {
           height={400}
           className="circle-img"
         />
-        <Image src={Gify}
-          alt="Ball Animated"
-          width={600}
-          height={400}
-          className="ball-img"
-        />
-        <Image
-          src={Revenue}
-          alt="Revenue"
-          width={600}
-          height={400}
+
+        <Revenue
           className="revenue-img"
         />
         <Image

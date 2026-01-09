@@ -9,11 +9,28 @@
   margin-bottom: 6.25vw;
 
   .section-description {
+    margin-top: 0.781vw;
+    height: auto;
+    padding-bottom: 0.26vw;
+    color: #555;
+    font-family: "Poppins", sans-serif;
+    font-size: var(--font-size-18);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 90%;
+    min-width: 19.8vw;
     text-align: center;
-    margin-top: 1vw;
-    width: 60%;
-    margin-bottom: 3.125vw; // 60px
+
+    @media screen and (max-width: 1037px) {
+      font-size: 14px;
+      width: 100%;
+      min-width: unset;
+      margin-top: 16px;
+      margin-bottom: 40px;
+    }
   }
+
 
   .carousel-stack {
     width: 100%;

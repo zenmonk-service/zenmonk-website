@@ -16,5 +16,11 @@ import Group10 from "./Group (10).svg";
 import Gears from "./Gears.png"
 import DevTechTree from "./dev-tech-tree.svg"
 
+import NestJS from "./nestjs.svg";
+import Kubernetes from "./kubernetes.svg";
+import NodeJS from "./nodejs.svg";
+import Azure from "./azure.svg";
+import RabbitMQ from "./rabbitmq.svg";
+import MongoDB from "./mongodb.svg";
 
-export { Gears, TechTreeImage, DevTechTree, DottedCircle, SmallGearImage, Group1, Group2, Group3, Group4, Group5, Group6, Group7, TechTreeImage1, Group, Group9, Group10 }
+export { Gears, TechTreeImage, DevTechTree, DottedCircle, SmallGearImage, Group1, Group2, Group3, Group4, Group5, Group6, Group7, TechTreeImage1, Group, Group9, Group10, NestJS, Kubernetes, NodeJS, Azure, RabbitMQ, MongoDB }

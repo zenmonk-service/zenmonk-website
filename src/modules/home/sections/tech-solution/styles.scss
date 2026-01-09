@@ -90,7 +90,7 @@
   width: 10.42vw;
   height: 10.58vw;
   position: absolute;
-  top: 20%;
+  top: 16%;
   right: 25%;
   z-index: -1;
   animation: rotate 10s linear infinite;
@@ -108,11 +108,60 @@
 
 @media (max-width: 1099px) {
   .tech-solution-section-wrapper {
-    display: none;
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 40px 20px;
+    padding-bottom: 0;
+
+    .tech-solution-section {
+      width: 100%;
+
+      .tech-solution-section-text-wrapper {
+        gap: 16px;
+
+        .text-heading {
+          margin-bottom: 16px;
+        }
+      }
+
+      .tech-solution-section-card-wrapper {
+        margin-top: 32px;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .button {
+        margin-top: 32px;
+        width: 100%;
+      }
+    }
+
+    .tech-solution-section-image-wrapper {
+      width: 90%;
+      height: 300px;
+      max-height: unset;
+      margin-bottom: 32px;
+
+      img {
+        width: 100% !important;
+        margin-right: 0;
+        margin: 0 auto;
+      }
+    }
   }
 
-  .tech-mobile-solution-section-wrapper {
-    display: block !important;
+  .expense-img-laptop {
+    width: 60px;
+    height: 60px;
+    top: 5%;
+    right: 5%;
+  }
+
+  .circle-img-laptop {
+    width: 80px;
+    height: 80px;
+    top: 5%;
+    right: 15%;
   }
 }
 

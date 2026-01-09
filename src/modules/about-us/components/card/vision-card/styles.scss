@@ -150,52 +150,7 @@
       line-height: 20px !important;
     }
 
-    // Disable hover effects on mobile
-    &:hover {
-      .vision-card-image {
-        transform: none;
-      }
+    // Hover effects allowed on mobile
 
-      .vision-card-title {
-        transform: none;
-      }
-
-      .vision-card-description {
-        opacity: 0;
-        transform: translate(-50%, -50%);
-      }
-
-      .vision-card-bg-image {
-        opacity: 0;
-        transform: translateX(100%);
-      }
-    }
-
-    &::after {
-      display: none;
-    }
-  }
-}
-
-/* Small mobile */
-@media screen and (max-width: 480px) {
-  .vision-card {
-    min-height: 140px;
-    padding: 20px 12px;
-    gap: 10px;
-
-    .vision-card-image-container {
-      min-width: 50px;
-      min-height: 50px;
-    }
-
-    .vision-card-title {
-      font-size: 16px !important;
-    }
-
-    .vision-card-description {
-      font-size: 13px !important;
-      line-height: 18px !important;
-    }
   }
 }

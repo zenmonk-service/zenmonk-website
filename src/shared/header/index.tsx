@@ -3,7 +3,7 @@
 import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { useAppSelector } from '@/store/hooks'
@@ -12,7 +12,6 @@ import ActionLinks from './action-links'
 import styles from './header.module.scss'
 
 const Navbar = () => {
-  const { push } = useRouter()
   const pathname = usePathname()
   const [isOpen, toggleOpen] = useCycle(false, true)
   const smootherRef = useScrollSmoother()
@@ -36,7 +35,6 @@ const Navbar = () => {
     }
   }, [current, isOpen])
 
-  const isPageLoading = useAppSelector((state) => state.header.isLoading)
   const isHeaderHidden = useAppSelector((state) => state.header.hide)
 
   return (

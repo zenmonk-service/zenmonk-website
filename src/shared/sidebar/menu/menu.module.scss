@@ -1,15 +1,37 @@
 .sideBarMenu {
   padding: 24px 0px;
-  position: absolute;
+  position: fixed;
   top: 46px;
-  z-index: -2;
+  z-index: 9999;
   background-color: #fff;
   display: flex;
-  width: 100%;
+  width: 100vw;
   left: 0;
-  height: 100svh;
-  max-height: 100svh;
+  height: calc(100svh - 46px);
+  max-height: calc(100svh - 46px);
   flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sideBarMenuItemLink {
+  text-decoration: none;
+  width: 100%;
+
+  &.active {
+    .menuItemTitle {
+      color: #eb7c0d;
+      font-weight: 600;
+    }
+
+    .iconPlaceholder {
+      svg {
+        path {
+          fill: #eb7c0d;
+        }
+      }
+    }
+  }
 }
 
 .sideBarMenuItem {
@@ -47,11 +69,27 @@
   padding-left: 82px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
+  padding-bottom: 16px;
 }
 
 .collapsableService {
-  padding: 8px 0px;
+  padding: 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &.active {
+    .collapsableTitle {
+      color: #eb7c0d;
+      font-weight: 600;
+    }
+  }
+
+  &:hover {
+    .collapsableTitle {
+      color: #eb7c0d;
+    }
+  }
 }
 
 .collapsableTitle {
@@ -60,5 +98,5 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.5;
 }

@@ -61,7 +61,9 @@ export default function AutoScrollCarousel<T extends SliderData>({
   const trackStyle: CSSProperties = {
     animationDuration: `${duration}s`,
     animationDirection: reverse ? 'reverse' : 'normal',
-    width: pxToVw(items.length * itemWidth),
+    width: 'max-content',
+    ['--item-width' as any]: pxToVw(itemWidth),
+    ['--item-padding' as any]: pxToVw(space / 2),
   }
 
   return (
@@ -75,10 +77,6 @@ export default function AutoScrollCarousel<T extends SliderData>({
           <div
             key={index}
             className="slide-item"
-            style={{
-              width: pxToVw(itemWidth),
-              padding: `0 ${pxToVw(space / 2)}`,
-            }}
           >
             <div
               className="slide-content-wrapper"

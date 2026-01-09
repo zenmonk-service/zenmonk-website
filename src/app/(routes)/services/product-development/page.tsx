@@ -14,7 +14,7 @@ const ProductDevelopmentPage = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id='product-development' />
-      <TechnologyTree />
+      <TechnologyTree isTechTree noRandomIcons/>
       <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />

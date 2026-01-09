@@ -6,12 +6,13 @@ import BaseButton from '@/shared/button'
 import OurPartners from '../our-partners'
 import './styles.scss'
 import HeroImage from './hero-image'
+import Geometry from '@/shared/geometry'
 
 const HeroSection = () => {
   const router = useRouter()
   return (
     <section>
-      <div className="hero-section-d">
+      <div className="hero-section-home">
         <div className="bg-polyhedron">
           <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M400 50L750 400L400 750L50 400L400 50Z" stroke="#E2E8F0" strokeWidth="0.5" />
@@ -22,9 +23,10 @@ const HeroSection = () => {
           </svg>
         </div>
         <div className="container">
+          <Geometry/>
           <div className="text-container">
             <h4 className="heading">
-              Super Charge Your Business<br />
+              Super Charge Your Business<br />{" "}
               Growth With <span>Efficient</span>, <span>Intelligent</span>,<br />
               <span>Versatile</span> Software Innovations
             </h4>

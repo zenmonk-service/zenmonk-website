@@ -5,12 +5,15 @@ import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 import HeroImage from './hero-image'
+import Decorator from "./assets/decorator.svg"
 
 const HeroSection = () => {
   const router = useRouter()
   return (
     <section>
       <div className="hero-section-d">
+        <Decorator className="decorator" />
+        <Decorator className="decorator-2" />
         <div className="bg-polyhedron">
           <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M400 50L750 400L400 750L50 400L400 50Z" stroke="#E2E8F0" strokeWidth="0.5" />
@@ -37,7 +40,7 @@ const HeroSection = () => {
           </BaseButton>
         </div>
         <div className="hero-visual">
-          <HeroImage/>
+          <HeroImage />
         </div>
       </div>
     </section>

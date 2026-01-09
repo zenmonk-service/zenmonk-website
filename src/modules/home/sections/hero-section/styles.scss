@@ -1,26 +1,52 @@
-.hero-section-d {
-  height: 80vh;
+.hero-section-home {
+  height: 100vh;
   display: flex;
-  align-items: end;
+  align-items: center;
+  justify-content: space-between;
   z-index: 0;
   position: relative;
-  padding: 1% 7.8%;
 
+  .bg-polyhedron {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    z-index: -1;
+    opacity: 0.6;
+    display: block;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
 
   .hero-visual {
-    flex: 1.2;
+    flex: 1;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
     position: relative;
     z-index: 10;
     width: 100%;
     aspect-ratio: 1.5;
 
+    @media (max-width: 728px) {
+      margin-top: 6.25vw;
+
+    }
+
     .laptop-frame {
       width: 100%;
       height: auto;
       z-index: 2;
+
+      @media (max-width:728px) {
+        margin-left: 5.26vw;
+
+      }
 
       .laptop-img {
         width: 34.01vw;
@@ -33,7 +59,7 @@
       position: absolute;
       width: 4.1vw;
       height: 4.1vw;
-      min-width: 40px;
+      min-width: 60px;
       min-height: 40px;
       background: white;
       border-radius: 0.94vw;
@@ -53,38 +79,39 @@
       }
 
       &.iconReact {
-        top: 22%;
-        left: 10%;
+        top: 5%;
+        left: 0%;
         animation: float 6s infinite ease-in-out;
       }
 
       &.iconPhp {
-        top: 5%;
-        left: 30%;
+        top: -15%;
+        left: 20%;
         animation: float 7s infinite ease-in-out;
       }
 
       &.iconXd {
-        top: 10%;
-        right: 25%;
+        top: -10%;
+        right: 30%;
         animation: float 5s infinite ease-in-out;
       }
 
       &.iconFigma {
-        top: 30%;
-        right: 0%;
+        top: 10%;
+        right: 8%;
         animation: float 8s infinite ease-in-out;
       }
 
       &.iconNode {
-        bottom: 20%;
-        left: 0%;
+        bottom: 25%;
+        left: -5%;
         animation: float 6.5s infinite ease-in-out;
       }
 
       &.iconMongo {
-        bottom: 20%;
-        right: -10%;
+        bottom: 25%;
+        right: 3%;
+        scale: 0.8;
         animation: float 7.5s infinite ease-in-out;
       }
     }
@@ -94,9 +121,11 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: max(40px, 3.125vw);
     text-align: left;
     z-index: 5;
+    padding: 1% 7.8%;
 
     .text-container {
       text-align: left;
@@ -104,37 +133,33 @@
       flex-direction: column;
       gap: 0.73vw;
       width: 100%;
+      margin-top: -2.75vw;
 
       .heading {
-        color: #3c3c3c !important;
-        // white-space: nowrap;
-        font-size: max(24px, 2.5vw) !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 700 !important;
+        color: #3c3c3c;
+        font-size: max(24px, 2.5vw);
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
         letter-spacing: 0.05vw;
         line-height: 1.2;
         opacity: 0;
-        transform: none;
         min-width: max-content;
-        filter: none;
 
         span {
           background: var(--global-color-gradient);
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-weight: 700 !important;
+          font-weight: 700;
         }
       }
 
       .description {
-        color: var(--global-color-text) !important;
-        font-family: 'Poppins', sans-serif !important;
-        font-size: max(16px, 1.25vw) !important;
+        color: var(--global-color-text);
+        font-family: 'Poppins', sans-serif;
+        font-size: max(16px, 1.25vw);
         font-weight: 400;
         opacity: 0;
-        transform: none;
-        filter: none;
       }
     }
 
@@ -144,47 +169,35 @@
   }
 }
 
+// Background decorations
 .circle-img {
   width: 10.42vw;
   height: 10.58vw;
   position: absolute;
-  top: 22%;
-  left: 28%;
+  top: 5%;
+  left: 20%;
   z-index: -1;
   animation: rotate 10s linear infinite;
-}
-
-.ball-img {
-  width: 22vw;
-  height: 22vw;
-  position: absolute;
-  top: 5%;
-  left: -48%;
-  mix-blend-mode: multiply;
-  z-index: 3;
-  opacity: 0.1;
-  filter: invert(1) brightness(2);
 }
 
 .revenue-img {
   width: 7.42vw;
   height: 4.58vw;
   position: absolute;
-  top: 30%;
-  left: 48%;
-  animation: float 8s infinite ease-in-out;
-
+  top: 10%;
+  scale: 1.2;
+  left: 40%;
 }
 
 .expense-img {
   width: 5.96vw;
   height: 8.46vw;
   position: absolute;
-  top: 48.5%;
-  left: 20%;
+  top: 32%;
+  left: 12%;
 }
 
-
+// Keyframes
 @keyframes float {
 
   0%,
@@ -207,24 +220,6 @@
   }
 }
 
-@keyframes fadeInScaleRotate {
-  0% {
-    opacity: 0.8;
-    transform: translateY(50px) scale(0.95) rotateX(10deg);
-  }
-
-  60% {
-    opacity: 0.9;
-    transform: translateY(-10px) scale(1.02) rotateX(2deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotateX(0deg);
-  }
-}
-
-/* Slide Up & Fade In Animation */
 @keyframes slideUpFadeIn {
   0% {
     opacity: 0;
@@ -237,6 +232,7 @@
   }
 }
 
+// Animation application
 .text-container .heading,
 .text-container .description {
   opacity: 0;
@@ -244,7 +240,6 @@
   visibility: hidden;
 }
 
-/* Apply Slide-Up Animation */
 .text-container .heading {
   animation: slideUpFadeIn 0.8s ease-out forwards;
   animation-delay: 0.2s;
@@ -257,63 +252,180 @@
   visibility: visible;
 }
 
+// Mobile Styles
 @media screen and (max-width: 900px) {
-  .hero-section-d {
+  .hero-section-home {
     flex-direction: column-reverse;
-    height: auto;
-    min-height: 100svh;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 120px;
-    padding-bottom: 60px;
+    padding-top: 40px;
     justify-content: center;
+    align-items: center;
+    gap: 6.25vw;
+    display: flex; // Ensure display flex is active
 
     .hero-visual {
+      flex: unset;
       width: 100%;
-      max-width: 500px;
-      margin: 40px auto 0;
-      aspect-ratio: 1.5;
+      max-width: 400px;
+      margin: 0 auto;
+      aspect-ratio: auto;
+      height: auto;
+      display: block; // Reset flex from desktop
+      margin-bottom: 24px;
+      z-index: 10;
+      position: relative; // Ensure stacking context
+
+      .laptop-frame {
+        position: relative;
+
+        .laptop-img {
+          width: 100%;
+          height: auto;
+        }
+      }
 
       .floating-icon {
-        width: 45px;
-        height: 45px;
-        padding: 8px;
+        width: 36px;
+        height: 36px;
+        min-width: unset;
+        min-height: unset;
+        padding: 6px;
         border-radius: 8px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        &.iconReact {
+          top: 0%;
+          left: 0%;
+          animation: float 6s infinite ease-in-out;
+        }
+
+        &.iconPhp {
+          top: -30%;
+          left: 20%;
+          animation: float 7s infinite ease-in-out;
+        }
+
+        &.iconXd {
+          top: -30%;
+          right: 25%;
+          animation: float 5s infinite ease-in-out;
+        }
+
+        &.iconFigma {
+          top: 0%;
+          right: 3%;
+          animation: float 8s infinite ease-in-out;
+        }
+
+        &.iconNode {
+          bottom: 20%;
+          left: -5%;
+          animation: float 6.5s infinite ease-in-out;
+        }
+
+        &.iconMongo {
+          bottom: 25%;
+          right: -5%;
+          display: none;
+          scale: 0.8;
+          animation: float 7.5s infinite ease-in-out;
+        }
       }
     }
 
-    .ball-decorator {
-      display: none;
+    .bg-polyhedron {
+      top: 250px;
+      transform: translate(-50%, 0) scale(1.2);
+      opacity: 0.4;
+      display: block; // Ensure visible
     }
 
     .container {
       align-items: center;
-      gap: 24px;
+      gap: 16px;
       padding: 0;
+      margin-top: 0px;
+      flex: unset; // Reset flex grow
+      display: flex;
+      flex-direction: column;
 
       .text-container {
         align-items: center;
+        width: 100%;
+        gap: 16px;
 
         .heading {
           text-align: center;
-          letter-spacing: -0.4px;
-          line-height: 1.2;
-          font-size: 32px !important;
+          letter-spacing: -0.5px;
+          line-height: 1.3;
+          font-size: 24px !important;
           white-space: normal;
+          color: #3C3C3C;
+          min-width: unset;
+
+          br {
+            display: none;
+          }
+
+          span {
+            color: #eb7c0d;
+            background: none;
+            -webkit-text-fill-color: unset;
+          }
         }
 
         .description {
-          margin-top: 12px;
-          line-height: 1.5;
+          margin-top: 0;
+          line-height: 1.6;
           letter-spacing: 0px;
           text-align: center;
-          font-size: 16px !important;
+          font-size: 14px !important;
+          color: #666;
+          padding: 0 10px;
+
+          br {
+            display: none;
+          }
         }
       }
 
       .button {
-        width: 200px;
+        width: max-content;
+        min-width: 160px;
+        padding: 12px 24px;
+        height: auto;
+        font-size: 14px;
+        margin-top: 16px;
+        background: linear-gradient(90deg, #F89E37 0%, #EA7C0C 100%);
+        border-radius: 6px;
       }
     }
+  }
+
+  .ball-img {
+    display: none;
+  }
+
+  .circle-img,
+  .revenue-img,
+  .expense-img {
+    scale: 3;
+  }
+
+  .expense-img {
+    scale: 3;
+    top: 35% !important;
+    left: 10% !important;
+  }
+
+  .revenue-img {
+    scale: 3;
+    top: -5% !important;
   }
 }

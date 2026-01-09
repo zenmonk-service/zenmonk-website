@@ -113,18 +113,22 @@
 
       .main-star {
         transform: translate(45%, 75%) scale(1.4) rotate(45deg);
+        transition-delay: 0.05s;
       }
 
       .bottom-arrow {
         transform: translate(30%, 80%) scale(1.1) rotate(-15deg);
+        transition-delay: 0.15s;
       }
 
       .small-star {
         transform: translate(85%, 85%) scale(1.2) rotate(15deg);
+        transition-delay: 0.25s;
       }
 
       .circle-part {
         transform: translate(5%, 50%) scale(1);
+        transition-delay: 0.35s;
       }
     }
 
@@ -160,31 +164,39 @@
   @media screen and (max-width: 1037px) {
     width: 100%;
     min-height: auto;
+    margin-top: 60px;
 
     .award-image-container {
       width: 120px;
       height: 120px;
-      margin: -60px auto 0;
+      position: absolute;
+      left: 0;
+      margin: 0 auto;
+      top: -60px;
     }
 
     .award-card-content {
       padding: 24px 20px;
+      padding-top: 75px;
       border-radius: 12px;
+      align-items: flex-start;
 
       .title {
-        margin-top: 60px;
-        text-align: center;
+        margin-top: 0;
+        text-align: left;
         font-size: 18px !important;
       }
 
       .description {
-        text-align: center;
+        text-align: left;
         font-size: 14px !important;
       }
     }
 
     .hover-expand-wrapper {
-      display: none; // Better to hide on mobile to prevent overflow
+      display: block; // Keep visible as requested in previous step
+      opacity: 1;
+      display: none; // Hiding the stars for now as they are not in the reference image provided
     }
   }
 }

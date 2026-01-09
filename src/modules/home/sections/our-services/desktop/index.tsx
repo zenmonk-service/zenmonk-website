@@ -90,7 +90,6 @@ const OurServicesDesktop = () => {
         markText="Services"
         className="service-section-home-title"
         markTextProps={{
-          rotate: 4,
           style: {
             marginTop: '-0.45vw',
           },

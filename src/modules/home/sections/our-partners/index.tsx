@@ -17,12 +17,11 @@ const OurPartners = () => {
       <AutoScrollCarousel
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
-        itemWidth={280}
-        itemHeight={140}
+        itemWidth={350}
         space={40}
         duration={50}
         renderItem={(item) => (
-          <div style={{ width: '60%', height: '50%', position: 'relative' }}>
+          <div className="partner-logo-wrapper">
             <Image
               src={item.icon as string}
               alt={item.label}

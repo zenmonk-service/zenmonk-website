@@ -1,18 +1,17 @@
 'use client'
 
-import type { Metadata } from 'next'
 import { Poppins, Montserrat, Inter } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { useEffect, useState, Suspense } from 'react'
 import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
-import './globals.css'
 import StoreProvider from '@/store/storeProvider'
 import CustomLoader from '@/modules/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
 import ScrollProvider from '@/shared/scroll-smoother/scroll-provider'
+import './globals.css'
 
 const poppins = Poppins({
   variable: '--font-poppins',

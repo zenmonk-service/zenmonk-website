@@ -57,7 +57,7 @@ const ItemVariants = {
 }
 
 const Arrow = motion.create(ArrowDown)
-const Navigation = () => {
+const Navigation = ({ toggle }: { toggle: () => void }) => {
   const [isOpened, setIsOpened] = useState(false)
   const pathname = usePathname()
 
@@ -74,8 +74,6 @@ const Navigation = () => {
     >
       <motion.li
         variants={ItemVariants}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
         className={styles.sideBarMenuItem}
         onClick={() => {
           setIsOpened((prev) => !prev)
@@ -106,6 +104,8 @@ const Navigation = () => {
             onClick={(e) => {
               if (isServiceActive(service.route)) {
                 e.preventDefault()
+              } else {
+                toggle()
               }
             }}
           >
@@ -114,27 +114,29 @@ const Navigation = () => {
           </Link>
         ))}
       </Collapse>
-      {items.map(({ title, icon: Icon, href }) => (
-        <Link
-          href={href}
-          key={title}
-          prefetch={false}
-          className={styles.sideBarMenuItemLink}
-        >
-          <LoadingIndicator />
-          <motion.li
-            variants={ItemVariants}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className={styles.sideBarMenuItem}
+      {items.map(({ title, icon: Icon, href }) => {
+        const isActive = pathname.startsWith(href)
+        return (
+          <Link
+            href={href}
+            key={title}
+            prefetch={false}
+            className={`${styles.sideBarMenuItemLink} ${isActive ? styles.active : ''}`}
+            onClick={toggle}
           >
-            <div className={styles.iconPlaceholder}>
-              <Icon />
-            </div>
-            <p className={styles.menuItemTitle}>{title}</p>
-          </motion.li>
-        </Link>
-      ))}
+            <LoadingIndicator />
+            <motion.li
+              variants={ItemVariants}
+              className={styles.sideBarMenuItem}
+            >
+              <div className={styles.iconPlaceholder}>
+                <Icon />
+              </div>
+              <p className={styles.menuItemTitle}>{title}</p>
+            </motion.li>
+          </Link>
+        )
+      })}
     </motion.ul>
   )
 }
