@@ -62,6 +62,7 @@ const BusinessCard = ({
       }}
       variants={item}
       whileHover="hover"
+      whileTap="hover"
       animate="rest"
       className={styles.container}
     >

@@ -1,32 +1,27 @@
-import BaseButton from '@/shared/button'
+'use client'
 import Rating from '@/shared/rating'
-import HeroImage from './assets/ai-hero-image.svg'
+import HeroImage from './assets/hero-image.svg?url'
 import Background from './assets/dotted-bg.svg'
 import styles from './styles.module.scss'
+import { HeroSection } from '@/shared/hero-section'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const AiSolutionsHeroSection = () => {
+  const isMobile = useMediaQuery('(max-width: 728px)')
   return (
     <div className={styles.backgroundWrapper}>
       <Background className={styles.backgroundLine} />
-      <div className={styles.container}>
-        <div className={styles.textContainer}>
-          <h1 className={styles.title}>
-            <span className={styles.highlightedText}>
-              Digital Transformation <br/>& Automation
-            </span>
-            &nbsp;To <br/> Accelerate Growth
-          </h1>
-          <p className={styles.description}>
-            We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
-          </p>
-          <BaseButton className={styles.button}> Let&apos;s Connect</BaseButton>
-        </div>
-        <div className={styles.imageContainer}>
-          <HeroImage className={styles.heroImage} />
-        </div>
-      </div>
+      <HeroSection
+        url={HeroImage}
+        title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
+        highlightedText="Cloud Solutions"
+        description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
+        imageStyle={{
+          maxWidth: isMobile ? '293px' : '500px',
+          margin: '0 auto',
+          display: 'block',
+        }}
+      />
       <Rating />
     </div>
   )

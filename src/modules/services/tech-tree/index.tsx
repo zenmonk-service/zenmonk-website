@@ -42,7 +42,7 @@ const TechnologyTree = ({
       {/* Foreground */}
       <Stack
         className="tech-tree-right"
-        direction="row"
+        direction={{ xs: 'column', md: 'row' }}
         alignItems={{ xs: 'center', md: 'center' }}
         gap={{ xs: 3, md: '0.83vw' }}
       >

@@ -1,33 +1,23 @@
-import BaseButton from '@/shared/button'
-import Rating from '@/shared/rating'
-import HeroImage from './assets/cloud.svg'
-import Background from './assets/hero-bg.svg'
-import styles from './styles.module.scss'
+'use client'
+import { HeroSection } from '@/shared/hero-section'
+import HeroImage from './assets/cloud.svg?url'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const CloudSolutionsHeroSection = () => {
-  return (
-    <div className={styles.backgroundWrapper}>
-      <Background className={styles.backgroundLine} />
-      <div className={styles.container}>
-        <div className={styles.textContainer}>
-          <h1 className={styles.title}>
-            Building Secure,
-            <br /> Scalable, and Reliable <br />
-            <span className={styles.highlightedText}>Cloud Solutions</span>
-          </h1>
-          <p className={styles.description}>
-            Need a cloud solution that adapts to your business needs? We design
-            agile, scalable, and secure cloud environments, allowing you to
-            focus on growth while we manage the technical complexities.
-          </p>
-          <BaseButton className={styles.button}> Explore More</BaseButton>
-        </div>
-        <div className={styles.imageContainer}>
-          <HeroImage className={styles.heroImage} />
-        </div>
-      </div>
-      <Rating />
-    </div>
-  )
+
+  const isMobile = useMediaQuery('(max-width: 728px)')
+
+  return <HeroSection
+    url={HeroImage}
+    title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
+    highlightedText="Cloud Solutions"
+    description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
+    imageStyle={{
+      margin: '0 auto',
+      display: 'block',
+      marginLeft: isMobile ? "-10%" : ''
+    }}
+  />
 }
+
 export default CloudSolutionsHeroSection

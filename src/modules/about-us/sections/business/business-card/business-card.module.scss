@@ -48,11 +48,11 @@
 .iconContainer {
   width: 100%;
   position: relative;
-  padding: 0.83vw;
+  padding: max(22px, 0.93vw);
 
   .icon {
     border-radius: 50%;
-    padding: 0.93vw;
+    padding: max(22px, 0.93vw);
     width: 5vw;
     height: 5vw;
     display: flex;

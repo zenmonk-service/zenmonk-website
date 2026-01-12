@@ -3,12 +3,14 @@
   padding: 5.25vw 1.25vw;
   overflow: hidden;
 }
-.gear-container{
+
+.gear-container {
   position: absolute;
   left: -8.5%;
   height: 327px;
   width: 382px;
   scale: 0.9;
+
   @media (max-width:782px) {
     display: none;
   }
@@ -24,7 +26,7 @@
   gap: 2.5vw;
   padding-inline: 15vw;
   scale: 1.2;
-} 
+}
 
 .tech-tree-left {
   max-width: 38vw;
@@ -60,11 +62,13 @@
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-.tech-tree-left {
-  max-width: 100% !important;
-}
+  .tech-tree-left {
+    max-width: 100% !important;
+  }
+
   .tech-tree-right {
-    flex-direction: column !important;
+    scale: 1;
+    width: 100%;
     align-items: center;
     text-align: center;
     gap: 24px;

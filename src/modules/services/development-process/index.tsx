@@ -1,18 +1,19 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { SectionTitle } from '@/shared/typography'
-import Cloud from './assets/cloud.svg'
+import { SectionDescription, SectionTitle } from '@/shared/typography'
 import It from './assets/it.svg'
-import Consult from './assets/product.svg'
-import ProductDevelopmentProcess from './product-development-process'
 import SoftwareDevelopmentProcess from './software-development-process'
 import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
 import DevelopmentProcessWave from '../shared/development-process-wave'
 import DevelopmentProcessRoad from '../shared/development-process-road'
+import DevelopmentProcessIT from '../shared/development-process-it'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+import DevelopmentProcessMobile from '../shared/development-process-it/mobile'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const serviceRoute = pathname.split('/')[2]
 
   const renderAsset = () => {
@@ -24,27 +25,27 @@ const DevelopmentProcess = () => {
       case 'mobile-app-development':
         return <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
-        return <It />
+        return isMobile ? <DevelopmentProcessRoad /> : <It />
       case 'product-development':
         return <DevelopmentProcessRoad />
       case 'industry-specific-solutions':
       case 'ai-based-softwares':
         return <DevelopmentProcessHexagon />
       case 'it-&-business-consultation':
-        return <Consult />
+        return <DevelopmentProcessIT />
       case 'cloud-development':
-        return <Cloud />
+        return <DevelopmentProcessIT />
       case 'ui-ux-design':
         return <DevelopmentProcessHexagon />
       default:
-        return <Cloud />
+        return <DevelopmentProcessIT />
     }
   }
 
   return (
     <div
       style={{
-        marginTop: '1.125vw',
+        marginTop: '6.2vw',
       }}
     >
       {serviceRoute !== 'ui-ux-design' && (

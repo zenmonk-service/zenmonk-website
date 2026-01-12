@@ -72,7 +72,7 @@
       position: inherit !important;
       width: 34.375vw !important;
       height: auto;
-      max-width: 95%;
+      max-width: 100%;
       object-fit: contain;
     }
   }
@@ -153,15 +153,15 @@
   .expense-img-laptop {
     width: 60px;
     height: 60px;
-    top: 5%;
-    right: 5%;
+    top: 1%;
+    right: 42%;
   }
 
   .circle-img-laptop {
     width: 80px;
     height: 80px;
-    top: 5%;
-    right: 15%;
+    top: 0%;
+    right: 54%;
   }
 }
 

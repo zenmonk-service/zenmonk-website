@@ -16,7 +16,7 @@
 
     .first-section-content {
       width: 100%;
-      padding-left: 1.6vw;
+
 
       .quality-title {
         font-size: 2.08vw !important;
@@ -99,6 +99,7 @@
     max-width: 100svw;
     overflow: hidden;
     flex-direction: column;
+    position: relative;
 
     .top-right-dotted-image,
     .graph-icon,
@@ -112,8 +113,9 @@
 
     .quality-img-mobile {
       display: initial;
-      width: 100%;
       height: auto;
+      width: 577.8px !important;
+      height: 462.2px !important;
     }
 
     .first-section {
@@ -130,18 +132,20 @@
 
         .subheading {
           margin-top: 16px;
-          margin-bottom: 32px;
+          margin-bottom: 0;
           width: 100%;
           font-size: 14px;
         }
       }
 
       .stats-img-container {
-        display: flex !important;
-        justify-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
-        width: 100%;
+        width: 100% !important;
         gap: 16px;
+        position: absolute;
+        scale: 0.7;
+        transform: rotate(-18deg) translate(-10%, -12%);
       }
     }
   }

@@ -171,11 +171,45 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
         {steps.map((step, index) => (
           <div
             key={index}
-            className="mobile-step"
-            style={{ '--step-color': step.color || '#ccc' } as React.CSSProperties}
+            className={`mobile-step ${index % 2 === 0 ? 'left-align' : 'right-align'}`}
           >
-            <div className="mobile-icon">
-              {step.icon}
+            <div className="mobile-icon-wrapper">
+              <svg
+                viewBox="0 0 100 100"
+                className="mobile-hex-bg"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <defs>
+                  <linearGradient id="mobile_grad_0" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#175BDD" />
+                    <stop offset="1" stopColor="#17BDDD" />
+                  </linearGradient>
+                  <linearGradient id="mobile_grad_1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#771FCC" />
+                    <stop offset="1" stopColor="#AC68ED" />
+                  </linearGradient>
+                  <linearGradient id="mobile_grad_2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#CF0063" />
+                    <stop offset="1" stopColor="#F23690" />
+                  </linearGradient>
+                  <linearGradient id="mobile_grad_3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#EA9E24" />
+                    <stop offset="1" stopColor="#EAD124" />
+                  </linearGradient>
+                  <linearGradient id="mobile_grad_4" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop stopColor="#BDCE29" />
+                    <stop offset="1" stopColor="#8AB000" />
+                  </linearGradient>
+                </defs>
+                <path
+                  fill={`url(#mobile_grad_${index % 5})`}
+                  // Using a simpler path for a flat-topped hexagon with rounded corners
+                  d="M22.5 5.5 C 25 1.5 29 1 33 1 L 67 1 C 71 1 75 1.5 77.5 5.5 L 97 43 C 99 47 99 53 97 57 L 77.5 94.5 C 75 98.5 71 99 67 99 L 33 99 C 29 99 25 98.5 22.5 94.5 L 3 57 C 1 53 1 47 3 43 Z"
+                />
+              </svg>
+              <div className="mobile-icon-content">
+                {step.icon}
+              </div>
             </div>
             <div className="mobile-content">
               <h3 style={{ color: step.color }}>{step.title}</h3>

@@ -151,7 +151,7 @@
       align-items: center;
       text-align: center;
       gap: 16px;
-      margin-top: -7.25vw;
+      margin-top: -12.25vw;
       padding: 0 20px 50px;
 
       .hero-title {
@@ -175,9 +175,10 @@
       justify-content: center;
       background: #EEFBFF url('../assets/background.svg');
       background-size: cover !important;
-      background-position: center bottom;
+      background-position: center -20% !important;
       clip-path: url(#hero-wave);
-      padding: 120px 20px 66px;
+      padding: 120px 20px 26px;
+      padding-bottom: 0;
       position: relative;
 
       .image-container {

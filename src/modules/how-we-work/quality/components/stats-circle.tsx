@@ -2,15 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
-
-const MOBILE_BREAKPOINT = 768
-
-const responsiveSize = (px: number, base = 1920) => {
-  if (typeof window === 'undefined') return `${px}px`
-  return window.innerWidth <= MOBILE_BREAKPOINT
-    ? `${px}px`
-    : `${(px / base) * 100}vw`
-}
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 interface StatsCircleProps {
   percentage: number
@@ -29,7 +21,12 @@ export const StatsCircle = ({
   color,
   trackColor = '#E9EDF0',
 }: StatsCircleProps) => {
+  const isMobile = useMediaQuery('(max-width:768px)')
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 })
+
+  const responsiveSize = (px: number, base = 1920) => {
+    return isMobile ? `${px}px` : `${(px / base) * 100}vw`
+  }
 
   // SVG geometry (KEEP PX)
   const radius = 70
@@ -87,7 +84,7 @@ export const StatsCircle = ({
         width="100%"
         height="100%"
         viewBox={`0 0 ${size} ${size}`}
-        style={{ position: 'absolute', inset: 0 }}
+        style={{ position: 'absolute', inset: 0, transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}
       >
         <circle
           cx={center}
@@ -124,7 +121,7 @@ export const StatsCircle = ({
         />
       </svg>
 
-      <div style={{ textAlign: 'center', zIndex: 1, marginTop: responsiveSize(20) }}>
+      <div style={{ textAlign: 'center', zIndex: 1, marginTop: responsiveSize(20), transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}>
         <div style={{
           color: '#404040',
           fontSize: responsiveSize(28),

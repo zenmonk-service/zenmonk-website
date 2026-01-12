@@ -13,8 +13,8 @@ import Step4 from './assets/4.png'
 import Step5 from './assets/5.png'
 import Step6 from './assets/6.png'
 
-import './styles.scss'
 import { steps, StepTitlePlate } from './steps'
+import './styles.scss'
 
 const stepIcons = [Step1, Step2, Step3, Step4, Step5, Step6]
 

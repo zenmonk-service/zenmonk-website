@@ -2,12 +2,12 @@ import Image from 'next/image'
 import {
   Quality as QualityImg,
   GraphIcon,
-  QualityImgMobile,
 } from '@/modules/how-we-work/assets'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import TopRightDottedImage from '../assets/quality/top-right-dotted.png'
 import VerticalDottedImage from '../assets/quality/vertical-dotted.png'
 import { StatsCircle } from './components/stats-circle'
+import QualityImgMobile from './assets/Image.png'
 import './styles.scss'
 
 
@@ -18,6 +18,7 @@ const Quality = () => {
         <div className="first-section-content">
           <SectionTitle
             align="left"
+            className="quality-title"
             text="Our Promise of Quality Analysis"
             markText="Analysis"
             markTextProps={{
@@ -63,10 +64,10 @@ const Quality = () => {
         <Image src={QualityImg} alt="quality-img" className="quality-img" fill />
       </div>
       <Image
-        src={QualityImg}
+        src={QualityImgMobile}
         alt="quality-img-mobile"
         className="quality-img-mobile"
-        style={{ width: '100%', height: 'auto', maxWidth: '622px' }}
+        style={{ width: '100%', height: 'auto' }}
       />
 
       <Image

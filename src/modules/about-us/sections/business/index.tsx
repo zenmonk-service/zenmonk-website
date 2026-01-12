@@ -37,7 +37,7 @@ export const BusinessSection = () => {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ amount: 1, once: true }}
+        viewport={{ amount: 0.2, once: true }}
         variants={container}
         className={styles.businessCardContainer}
       >
