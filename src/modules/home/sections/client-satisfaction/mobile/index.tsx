@@ -56,7 +56,6 @@ const ClientSatisfactionMobile = () => {
         text="The Evolution of Client Satisfaction"
         markText="Satisfaction"
         align="center"
-        markTextProps={{ rotate: 2 }}
       />
       <SectionDescription
         className={styles.description}

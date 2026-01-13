@@ -53,34 +53,41 @@
 }
 
 .testimony-content .title {
-  color: #000;
   text-align: center;
   font-family: Poppins;
-  font-size: var(--font-size-20);
+  color:  #132427;
+  text-align: center;
+  font-family: Poppins;
   font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.2px;
-  text-transform: capitalize;
+  font-weight: 600;
+  font-size: max(20px,  1.4583vw);
+  line-height: max(53.506px, 2.7868vw);
+  @media (max-width:728px) {
+    font-weight: 500;
+  }
 }
 
 .testimony-content .description {
   color: #4d4d4d;
   text-align: center;
-
-  /* p2 */
+  color: #424242;
   font-family: Poppins;
-  font-size: var(--font-size-14);
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 0.28px;
+  font-weight: 500;
+  font-size: max(14px,  0.8333vw);
+  line-height: 1.5924vw;
+    @media (max-width:728px) {
+    font-weight: 400;
+  }
 }
 
 .testimony-content .controls {
   display: flex;
   gap: Max(16px, 1.6666vw); /* 32px / 1920 * 100 */
   align-items: center;
+  svg{
+    cursor: pointer;
+  }
 }
 
 .testimony-content .controls img {

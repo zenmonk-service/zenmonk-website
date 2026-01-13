@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Collapse } from '@mui/material'
+import { AnimatePresence, motion } from 'framer-motion'
 import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
@@ -62,36 +62,38 @@ const FAQ = () => {
             const isOpen = openIndex === index
             return (
               <div key={index} className="question-wrapper">
-                <div>
+                <div style={{ flex: 1 }}>
                   <p className="question" onClick={() => toggleAnswer(index)}>
                     {item.question}
                   </p>
-                  <Collapse
-                    in={isOpen}
-                    timeout="auto"
-                    unmountOnExit
-                  >
-                    <p className="answer">{item.answer}</p>
-                  </Collapse>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <p className="answer">{item.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                <div>
+                <div
+                  onClick={() => toggleAnswer(index)}
+                  style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                >
                   {isOpen ? (
-                    <MINUS
-                      onClick={() => toggleAnswer(index)}
-                      className="toggle-icon"
-                    />
+                    <MINUS className="toggle-icon" />
                   ) : (
-                    <PLUS
-                      onClick={() => toggleAnswer(index)}
-                      className="toggle-icon"
-                    />
+                    <PLUS className="toggle-icon" />
                   )}
                 </div>
               </div>
             )
           })}
-
         </div>
       </div>
     </div>

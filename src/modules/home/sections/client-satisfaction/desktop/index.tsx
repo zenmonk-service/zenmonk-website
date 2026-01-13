@@ -2,7 +2,6 @@
 
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
-// import RoadmapAnimation from '@/animations/roadmap'
 import RoadmapSVG from './roadmap-svg'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import OldLogoDecorator from '../assets/old-logo.png'
@@ -20,7 +19,6 @@ const ClientSatisfactionDesktop = () => {
         text="The Evolution of Client Satisfaction"
         markText="Satisfaction"
         align="center"
-        markTextProps={{ rotate: 1.8 }}
         className="title"
       />
       <SectionDescription

@@ -48,6 +48,7 @@ const TechSolution = () => {
       </div>
         <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
         <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
+        <Image src={Circle} alt="Circle2" className='circle-img-laptop-2' width={200} height={200} />
     </div>
   )
 }

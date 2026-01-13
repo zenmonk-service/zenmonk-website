@@ -77,11 +77,12 @@
   }
 
   .description {
-    font-family: 'Poppins', sans-serif;
-    font-size: var(--font-size-16) !important;
+    color: #565656;
+    font-family: Poppins;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    font-size: max(16px, 0.8333vw);
+    line-height: 1.3021vw;
   }
 }
 

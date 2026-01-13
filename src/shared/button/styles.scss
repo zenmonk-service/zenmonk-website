@@ -2,7 +2,7 @@
   .base-button {
     font-size: max(14px, 0.729vw);
     display: flex;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), sans-serif;
     border-radius: max(6px, 0.31vw);
     line-height: max(18px, 0.093vw);
     height: max(44px, 2.29vw);

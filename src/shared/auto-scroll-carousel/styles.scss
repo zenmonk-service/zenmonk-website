@@ -80,22 +80,27 @@
   justify-content: center;
   border-radius: 0.63vw;
   /* 12px */
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* 12px */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform;
 
   img {
-    filter: grayscale(0);
     opacity: 1;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     max-width: 80%;
     max-height: 70%;
     object-fit: contain;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateZ(0);
 
     img {
-      transform: scale(1.1);
+      transform: scale(1.1) translateZ(0);
     }
   }
 }

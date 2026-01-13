@@ -12,8 +12,7 @@
 }
 
 .contact-form {
-  width: 100%;
-  max-width: 631px;
+  width: max(631px, 32.8646vw);
   height: auto;
   flex-shrink: 0;
   padding: max(2.14vw, 16px);

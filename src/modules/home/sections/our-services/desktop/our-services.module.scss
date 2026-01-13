@@ -164,16 +164,20 @@
   margin-bottom: 0.4vw;
 
   svg {
-    height: 2vw;
-    width: 2vw;
+    height: 2.5vw;
+    width: 2.5vw;
     object-fit: contain;
-    fill: #fff;
+    path {
+      fill: rgba(255, 255, 255, 0.811);
+      stroke: rgba(255, 255, 255, 0.819);
+      stroke-width: 1.5px;
+    }
   }
 }
 
 .businessProofCardTitle {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--font-size-16);
+  font-size: max(18px,0.9375vw);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -183,7 +187,7 @@
   align-self: flex-end;
   color: #21305a !important;
   background: linear-gradient(0deg, #fff 0%, #fff 100%) !important;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-size: var(--font-size-16) !important;
   width: max(158px, 8.22vw);
   box-shadow: 0px max(4px, 0.2vw) max(4px, 0.2vw) 0px rgba(0, 0, 0, 0.25) !important;

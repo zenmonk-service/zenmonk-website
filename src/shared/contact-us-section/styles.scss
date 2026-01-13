@@ -21,7 +21,6 @@
   display: flex;
   gap: max(10.9vw, 40px);
   width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
   justify-content: center;
   align-items: center;
@@ -41,6 +40,7 @@
   margin-top: -1.2vw;
 
   .section-title {
+    min-width: 100%;
     color: #132427;
     font-family: Poppins;
     font-size: max(2.604vw, 24px);

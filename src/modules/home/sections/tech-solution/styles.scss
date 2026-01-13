@@ -82,16 +82,27 @@
   width: 8.42vw;
   height: 8.58vw;
   position: absolute;
-  top: 20%;
-  right: 15%;
+  top: 18%;
+  right: 18%;
+  scale: 1.1;
 }
 
 .circle-img-laptop {
   width: 10.42vw;
   height: 10.58vw;
   position: absolute;
-  top: 16%;
+  top: 20%;
   right: 25%;
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+.circle-img-laptop-2 {
+  width: 10.42vw;
+  height: 10.58vw;
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
   z-index: -1;
   animation: rotate 10s linear infinite;
 }

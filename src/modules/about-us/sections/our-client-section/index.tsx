@@ -23,18 +23,18 @@ export const OurClientSection = memo(() => {
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
           itemWidth={350}
-          space={60}
+          space={120}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={220}
-              height={100}
+              width={500}
+              height={300}
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
             />
           )}
         />
@@ -44,18 +44,18 @@ export const OurClientSection = memo(() => {
           sliderProps={{ className: 'infinite-slider' }}
           reverse
           itemWidth={350}
-          space={60}
+          space={120}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={220}
-              height={100}
+              width={500}
+              height={300}
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain' }}
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
             />
           )}
         />

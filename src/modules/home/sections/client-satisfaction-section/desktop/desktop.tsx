@@ -19,7 +19,6 @@ const ClientSatisfactionDesktop = () => {
         text="The Evolution of Client Satisfaction"
         markText="client Satisfaction"
         align="center"
-        markTextProps={{ rotate: 1.8 }}
         className="title"
       />
       <div style={{ position: 'relative' }} ref={ref} className="svg-container">

@@ -21,6 +21,7 @@ const poppins = Poppins({
 })
 
 const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600', '700', '800'],
@@ -53,7 +54,7 @@ export default function FlashScreenLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${poppins.variable} ${montserrat.variable}`}>
+      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}>
         {showFlashScreen ? (
           <FlashScreen closeScreen={handleCloseScreen} />
         ) : (

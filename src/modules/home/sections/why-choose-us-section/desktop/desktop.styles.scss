@@ -3,12 +3,15 @@
   height: auto;
   margin-top: 5.99vw;
   position: relative;
+
   @media (max-width: 900px) {
     display: none !important;
   }
+
   .logo {
     flex-shrink: 0;
   }
+
   .right-logo {
     bottom: -11.458vw;
     right: -7.813vw;
@@ -16,6 +19,7 @@
     height: 17.8vw;
     position: absolute;
   }
+
   .left-logo {
     top: 0;
     left: -11.458vw;
@@ -45,28 +49,34 @@
 .why-choose-us-card {
   display: flex;
   flex-direction: column;
+  gap: 0.260vw;
+  background-color: transparent !important;
+
   .why-choose-us-card-title {
-    color: #343434;
+    color: #132427;
     text-align: right;
-    font-family: 'Inter', sans-serif;
-    width: 50%;
+    width: 60%;
     align-self: flex-end;
-    letter-spacing: 0.022vw;
-    font-size: 1.24vw;
-    font-style: normal;
+    font-family: Poppins;
+    font-size: 1.25vw;
     font-weight: 500;
+    line-height: 120.862%;
+    letter-spacing: 0.025vw;
+
   }
+
   .why-choose-us-card-description {
     width: 70%;
     align-self: flex-end;
-    color: #505050;
+    color: #777;
     text-align: right;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.91vw;
+    font-family: Poppins;
+    font-size: 0.9375vw;
     font-style: normal;
-    margin-top: 0.5vw;
     font-weight: 300;
-    letter-spacing: 0.028vw;
+    line-height: normal;
+    letter-spacing: 0.028125vw;
+
   }
 }
 
@@ -79,6 +89,7 @@
   left: 3vw;
   width: 28.02vw;
   height: 22.86vw;
+
   svg {
     width: 18.48vw;
   }
@@ -89,20 +100,24 @@
   top: 1vw;
   display: flex;
   flex-direction: column;
-  right: -0.5vw;
+  right: -1.5vw;
   width: 30.02vw;
   height: 24.86vw;
   gap: 1.5vw;
+
   svg {
     width: 18.48vw;
   }
+
   .why-choose-us-card {
     width: 70%;
     align-self: flex-end;
+
     .why-choose-us-card-title {
       text-align: left;
       width: 100%;
     }
+
     .why-choose-us-card-description {
       text-align: left;
       width: 100%;
@@ -114,22 +129,26 @@
   position: absolute;
   bottom: -3.5vw;
   gap: 1.5vw;
-  left: -1vw;
+  left: -1.5vw;
   width: 28.02vw;
   height: 20.86vw;
   display: flex;
   flex-direction: column;
+
   svg {
     width: 18.48vw;
     align-self: flex-end;
   }
+
   .why-choose-us-card {
     width: 75%;
+
     .why-choose-us-card-title {
       width: 100%;
     }
+
     .why-choose-us-card-description {
-      width: 80%;
+      width: 100%;
     }
   }
 }
@@ -144,16 +163,20 @@
   display: flex;
   flex-direction: column;
   gap: 0.2vw;
+
   svg {
     width: 18.48vw;
     align-self: flex-end;
   }
+
   .why-choose-us-card {
     width: 70%;
+
     .why-choose-us-card-title {
       text-align: left;
       width: 100%;
     }
+
     .why-choose-us-card-description {
       text-align: left;
       width: 97%;

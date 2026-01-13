@@ -138,8 +138,8 @@
       .heading {
         color: #3c3c3c;
         font-size: max(24px, 2.5vw);
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
+        font-family: var(--font-inter), sans-serif;
+        font-weight: 400;
         letter-spacing: 0.05vw;
         line-height: 1.2;
         opacity: 0;
@@ -150,7 +150,7 @@
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-weight: 700;
+          font-weight: 500;
         }
       }
 

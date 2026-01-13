@@ -14,15 +14,6 @@ const HeroSection = () => {
       <div className="hero-section-d">
         <Decorator className="decorator" />
         <Decorator className="decorator-2" />
-        <div className="bg-polyhedron">
-          <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M400 50L750 400L400 750L50 400L400 50Z" stroke="#E2E8F0" strokeWidth="0.5" />
-            <path d="M400 50L50 400L400 750M400 50L750 400L400 750" stroke="#E2E8F0" strokeWidth="0.5" />
-            <path d="M50 400H750" stroke="#E2E8F0" strokeWidth="0.5" />
-            <path d="M400 50V750" stroke="#E2E8F0" strokeWidth="0.5" />
-            <circle cx="400" cy="400" r="150" stroke="#E2E8F0" strokeWidth="0.5" strokeDasharray="5 5" />
-          </svg>
-        </div>
         <div className="container">
           <div className="text-container">
             <h4 className="heading">

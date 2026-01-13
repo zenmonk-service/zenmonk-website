@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 type Project = {
   imageUrl: string
@@ -87,13 +88,22 @@ export default function InfiniteScroll({
 
     const container = scrollableSection.current
     const containerWidth = container.clientWidth
+
+    // Measure actual rendered dimensions from the first card
+    const firstCard = container.firstElementChild as HTMLElement
+    if (!firstCard) return
+
+    const currentCardWidth = firstCard.offsetWidth
+    const style = window.getComputedStyle(firstCard)
+    const currentCardGap = parseFloat(style.marginRight) || 0
+
     const baseIndex = projects.length
     const targetIndex = baseIndex + projectIndex
 
     const offset =
-      targetIndex * (cardWidth + cardGap) -
+      targetIndex * (currentCardWidth + currentCardGap) -
       containerWidth / 2 +
-      cardWidth / 2
+      currentCardWidth / 2
 
     smoothScrollTo(container, offset, 800)
   }, [projectIndex, projects.length])
@@ -122,17 +132,30 @@ export default function InfiniteScroll({
               minWidth: pxToVw(cardWidth),
               height: pxToVw(200),
               marginRight: pxToVw(cardGap),
-              background: `url(${p.imageUrl}) center / cover no-repeat`,
               flexShrink: 0,
               cursor: 'pointer',
               border: isActive ? '2px solid white' : 'none',
-              transform: isActive ? 'scale(1.15)' : 'scale(0.9)',
+              transform: isActive ? 'scale(1.15) translateZ(0)' : 'scale(0.9) translateZ(0)',
               borderRadius: pxToVw(12),
               opacity: isActive ? 1 : 0.3,
               transition: 'transform 0.3s, opacity 0.3s, border 0.3s',
+              position: 'relative',
+              overflow: 'hidden',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              willChange: 'transform',
             }}
             onClick={() => setProjectIndex(idx % projects.length)}
-          />
+          >
+            <Image
+              src={p.imageUrl}
+              alt={`Project ${idx}`}
+              fill
+              sizes="(max-width: 1920px) 16vw, 300px"
+              priority
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
         )
       })}
     </div>

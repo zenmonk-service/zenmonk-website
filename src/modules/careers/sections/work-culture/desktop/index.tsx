@@ -10,8 +10,8 @@ import CultureCard from '../card/culture-card'
 import './styles.scss'
 import { workCultures } from '../work-cultures'
 
-const CARD_WIDTH_VW = 20
-const GAP_VW = 3.125
+const CARD_WIDTH_VW = 16
+const GAP_VW = 1.5
 
 const WorkCultureDesktop = () => {
   const [index, setIndex] = useState(0)

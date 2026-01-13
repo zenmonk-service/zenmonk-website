@@ -1,15 +1,17 @@
 .work-culture-wrapper {
-  max-width: 80vw;
   margin: auto;
+  width: 100%;
+
 }
 
 .work-culture-section {
-  width: 100%;
   overflow: hidden;
+
 
   .title-description-action-wrapper {
     width: 100%;
     display: flex;
+    padding: 1% 7.8%;
 
     .title-description-wrapper {
       display: flex;
@@ -62,11 +64,11 @@
     width: 100%;
     overflow: hidden;
     padding: 1vw 0;
+    margin-left: 7.8%;
   }
 
   .work-cultures-track {
     display: flex;
-    gap: 3.125vw;
-    padding-right: 3.125vw; // Add gap at the end for seamless looping
+    gap: 1.5vw;
   }
 }
