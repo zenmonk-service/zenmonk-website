@@ -7,7 +7,9 @@
   align-items: center;
 
   .position-container {
-    max-width: 75vw;
+    width: 100%;
+    max-width: 80vw;
+    min-height: 800px;
   }
 
   .open-position-title-wrapper {
@@ -38,10 +40,12 @@
   .open-position-container {
     padding: 0 16px;
     margin-top: 64px;
+
     .open-position-title {
       text-align: left;
       width: 100%;
     }
+
     .description {
       font-size: 14px !important;
       margin-top: 16px;
@@ -50,9 +54,11 @@
       text-align: left;
       padding: 0px;
     }
-    .position-container{
+
+    .position-container {
       max-width: 100%;
       width: 100%;
+      min-height: max-content !important;
     }
   }
 }

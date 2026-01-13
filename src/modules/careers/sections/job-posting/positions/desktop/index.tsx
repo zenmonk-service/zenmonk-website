@@ -1,12 +1,9 @@
-'use client'
-
-import { useState } from 'react'
-import { Box, Chip, Stack, Typography } from '@mui/material'
-import { Department } from '../../../types'
+import React, { useState } from 'react'
+import { Box } from '@mui/material'
+import { Department, Position } from '../../../types'
 import Check from '../assets/desktopCheck.svg'
-import { positionsList } from '../positions'
-import './styles.scss'
 import BaseButton from '@/shared/button'
+import './styles.scss'
 
 interface SkillsCardProps {
   title: string
@@ -15,96 +12,99 @@ interface SkillsCardProps {
 
 const SkillsCard = ({ title, description }: SkillsCardProps) => (
   <Box className="skills-container">
-    <Stack direction="row" alignItems="center" gap={'0.520vw'}>
-      <Check />
-      <Typography className="skills-title" component="h3">
+    <Box className="skills-header">
+      <Check className="check-icon" />
+      <Box component="span" className="skills-title">
         {title}
-      </Typography>
-    </Stack>
-    <Typography className="skills-description" component="p">
+      </Box>
+    </Box>
+    <Box component="p" className="skills-description">
       {description}
-    </Typography>
+    </Box>
   </Box>
 )
 
-const PositionsDesktop = () => {
-  const [selectedDepartment, setSelectedDepartment] = useState<Department>(
-    positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ??
-      positionsList[0]
-  )
+interface PositionsDesktopProps {
+  positionsList: Department[]
+  onApply: (id: string, title: string) => void
+}
 
-  const hasOpenPosition = selectedDepartment?.positions.some(
-    (pos) => pos.isOpening
+const PositionsDesktop = ({ positionsList, onApply }: PositionsDesktopProps) => {
+  const [selectedDepartment, setSelectedDepartment] = useState<Department>(
+    positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ||
+    positionsList[0]
   )
 
   const handleSelectPosition = (department: Department) =>
     setSelectedDepartment(department)
 
   return (
-    <Box className="positions">
-      <Box className="left-section">
+    <Box component="div" className="positions">
+      <Box component="div" className="left-section">
         {positionsList.map((department, index) => {
           const isSelected = selectedDepartment?.id === department.id
           return (
-            <Typography
+            <Box
+              component="div"
               key={index}
               className={`position ${isSelected ? 'selected' : ''}`}
               onClick={() => handleSelectPosition(department)}
-              sx={{
-                color: 'GrayText',
-                '&:hover': { color: 'var(--global-color-secondary)' },
-              }}
             >
               {department.department}
-            </Typography>
+            </Box>
           )
         })}
       </Box>
 
-      <Box className="right-section">
-        {hasOpenPosition ? (
-          selectedDepartment.positions.map((role, index) => (
-            <Box key={index}>
-              <Stack direction="row" alignItems="flex-start" gap={'1.042vw'}>
-                <Box>
-                  <Typography component="h1" className="department-title">
-                    {role.heading}
-                    <Chip
-                      className="chip-label"
-                      label={role.isOpening ? 'open' : 'closed'}
-                      color={role.isOpening ? 'success' : 'error'}
-                      variant="outlined"
-                    />
-                  </Typography>
-                  <Typography component="p" className="department-description">
-                    {role.description}
-                  </Typography>
+      <Box component="div" className="right-section">
+        {selectedDepartment?.positions?.length > 0 ? (
+          <Box component="div" className="roles-list">
+            {selectedDepartment.positions.map((role: Position) => (
+              <Box component="div" key={role.id} className="role-content">
+                <Box component="h2" className="role-title">
+                  {role.heading}
                 </Box>
-                <BaseButton className='apply-btn' >Apply Now</BaseButton>
-              </Stack>
-              <Box className="skills-set-wrapper">
-                {role.skills.map((skill, skillIndex) => (
-                  <SkillsCard
-                    key={skillIndex}
-                    title={skill.title}
-                    description={skill.description}
-                  />
-                ))}
+                <Box component="div" className="role-descriptions">
+                  <Box component="p" className="role-description">
+                    {role.description}
+                  </Box>
+                </Box>
+
+                <Box component="div" className="skills-grid">
+                  {role.skills.map((skill, skillIndex) => (
+                    <SkillsCard
+                      key={skillIndex}
+                      title={skill.title}
+                      description={skill.description}
+                    />
+                  ))}
+                </Box>
+
+                <Box component="div" className="action-footer">
+                  <BaseButton
+                    className="apply-btn"
+                    onClick={() => onApply(role.id, role.heading)}
+                  >
+                    APPLY
+                  </BaseButton>
+                </Box>
+
+                {selectedDepartment.positions.length > 1 && (
+                  <Box component="div" className="role-separator" />
+                )}
               </Box>
-            </Box>
-          ))
+            ))}
+          </Box>
         ) : (
-          <>
-            <Box>
-              <Typography component="h1" className="department-title">
-                No Open Positions
-              </Typography>
-              <Typography component="p" className="department-description">
-                Currently, there are no available positions in this department.
-                Please check back later for updates.
-              </Typography>
+          <Box component="div" className="no-positions">
+            <Box component="h2" className="role-title">
+              No Open Positions
             </Box>
-          </>
+            <Box component="p" className="role-description">
+              Currently, there are no available positions in this department.
+              Please check back later for updates.
+            </Box>
+          </Box>
         )}
       </Box>
     </Box>

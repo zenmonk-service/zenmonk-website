@@ -52,15 +52,19 @@ const Navbar = () => {
         <LoadingIndicator />
         <Monk />
       </Link>
-      <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
-      <Link
-        href="/contact"
-        prefetch={false}
-        className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
-      >
-        <LoadingIndicator />
-        Contact Us
-      </Link>
+      {!pathname?.includes('/track-application/') && (
+        <>
+          <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
+          <Link
+            href="/contact"
+            prefetch={false}
+            className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
+          >
+            <LoadingIndicator />
+            Contact Us
+          </Link>
+        </>
+      )}
     </motion.nav>
   )
 }

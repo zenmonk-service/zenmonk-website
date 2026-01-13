@@ -4,6 +4,7 @@ export interface Skill {
 }
 
 export interface Position {
+  id: string
   title: string
   heading: string
   isOpening: boolean

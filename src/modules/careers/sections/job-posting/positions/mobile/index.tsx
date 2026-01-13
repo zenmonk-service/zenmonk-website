@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
-import { Collapse, Divider } from '@mui/material'
+import { Collapse, Divider, Box } from '@mui/material'
 import Check from '../assets/check.svg'
 import Minus from '../assets/minus.svg'
 import Plus from '../assets/plus.svg'
-import { positionsList } from '../positions'
+import { Department, Position } from '../../../types'
+import BaseButton from '@/shared/button'
 import styles from './mobile.module.scss'
 
-const PositionsMobile = () => {
+interface PositionsMobileProps {
+  positionsList: Department[]
+  onApply: (id: string, title: string) => void
+}
+
+const PositionsMobile = ({ positionsList, onApply }: PositionsMobileProps) => {
   const [selectedIndexes, setSelectedIndexes] = useState<number[]>([])
 
   const handleClick = (index: number) => {
@@ -16,51 +22,65 @@ const PositionsMobile = () => {
       setSelectedIndexes((prev) => [...prev, index])
     }
   }
+
   return (
     <div className={styles.container}>
-      {positionsList.map((position, index) => {
-        const isSelected = selectedIndexes.includes(index)
+      {positionsList.map((dept, deptIndex) => {
+        const isSelected = selectedIndexes.includes(deptIndex)
         return (
-          <div className={styles.card} key={position.id}>
+          <div className={styles.card} key={dept.id}>
             <div
               className={styles.content}
+              onClick={() => handleClick(deptIndex)}
               style={{
-                paddingBottom: index === positionsList.length - 1 ? 0 : '16px',
+                paddingBottom: deptIndex === positionsList.length - 1 && !isSelected ? 0 : '16px',
+                cursor: 'pointer'
               }}
             >
-              <p className={styles.cardTitle}>{position.department}</p>
-              <div
-                className={styles.iconContainer}
-                onClick={() => handleClick(index)}
-              >
+              <p className={styles.cardTitle}>{dept.department}</p>
+              <div className={styles.iconContainer}>
                 {isSelected ? <Minus /> : <Plus />}
               </div>
             </div>
             <Collapse in={isSelected}>
               <div className={styles.collapseContainer}>
-                <div className={styles.collapseDescription}>
-                  {position.positions[0].description}
-                </div>
-                <div className={styles.skillList}>
-                  {position.positions[0].skills.map((skill) => {
-                    return (
-                      <div className={styles.skillListItem} key={skill.title}>
-                        <div className={styles.skillListItemContent}>
-                          <Check />
-                          <p className={styles.skillListItemTitle}>
-                            {skill.title}
-                          </p>
-                        </div>
-                        <p className={styles.skillListItemDescription}>
-                          {skill.description}
-                        </p>
-                      </div>
-                    )
-                  })}
-                </div>
+                {dept.positions.map((role: Position) => (
+                  <div key={role.id} className={styles.roleContainer}>
+                    <h3 className={styles.roleTitle}>{role.heading}</h3>
+                    <div className={styles.collapseDescription}>
+                      {role.description}
+                    </div>
+                    <div className={styles.skillList}>
+                      {role.skills.map((skill) => {
+                        return (
+                          <div className={styles.skillListItem} key={skill.title}>
+                            <div className={styles.skillListItemContent}>
+                              <Check className="check-icon" />
+                              <p className={styles.skillListItemTitle}>
+                                {skill.title}
+                              </p>
+                            </div>
+                            <p className={styles.skillListItemDescription}>
+                              {skill.description}
+                            </p>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    <div className={styles.actionFooter}>
+                      <BaseButton
+                        className={styles.applyBtn}
+                        onClick={() => onApply(role.id, role.heading)}
+                      >
+                        APPLY
+                      </BaseButton>
+                    </div>
+                    <div className={styles.roleSeparator} />
+                  </div>
+                ))}
               </div>
             </Collapse>
-            {index !== positionsList.length - 1 && (
+            {deptIndex !== positionsList.length - 1 && (
               <Divider className={styles.divider} />
             )}
           </div>

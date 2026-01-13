@@ -1,24 +1,26 @@
 .positions {
   margin-top: 3.125vw;
   width: 100%;
-  height: 26.2vw;
-  border-radius: 1.04vw;
-  border: max(2px, 0.106667vw) solid #f5f5f5;
-  background: var(--global-color-primary);
+  height: 35vw;
+  min-height: 500px;
+  border-radius: 1.5vw;
+  border: 1px solid #E5E7EB;
+  background: #ffffff;
   display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
   .left-section {
     padding-top: 1.56vw;
     width: 19.79vw;
     height: 100%;
     flex-shrink: 0;
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 2.125vw 0vw 2.125vw 2.08333vw;
     border-radius: 1.04167vw 0vw 0vw 1.04167vw;
-
 
     .position {
       cursor: pointer;
@@ -40,15 +42,9 @@
     }
 
     .selected {
-      background: var(--global-color-primary);
+      background: #ffffff;
       color: #eb7c0d;
       position: relative;
-      // --r: 20px;
-      // border-block: var(--r) solid #0000;
-      // border-radius: var(--r) 0 0 var(--r)/calc(2*var(--r));
-      // mask:
-      //   radial-gradient(var(--r) at 0 var(--r), #0000 98%, #000 101%) 100% calc(-1*var(--r))/var(--r) 100% repeat-y,
-      //   conic-gradient(#000 0 0) padding-box;
 
       &::before {
         content: "";
@@ -76,95 +72,145 @@
         color: #eb7c0d;
       }
     }
-
   }
 
   .right-section {
-    padding: 2.08333vw 3.125vw;
-    overflow: scroll;
+    padding: 3.5vw;
     flex: 1;
+    overflow-y: auto;
+    background-color: #ffffff;
 
-    .department-title {
-      color: #132427;
-      font-feature-settings: "liga" off, "clig" off;
-      font-family: Poppins;
-      font-size: 1.56vw;
-      font-style: normal;
-      font-weight: 600;
-      text-transform: capitalize;
-      margin-bottom: 0.52vw;
+    /* Custom scrollbar */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
 
-      .chip-label {
-        font-size: 0.9375vw;
-        margin-left: 0.52vw;
-        padding: 0.416vw 0.833vw;
-        height: fit-content;
-        border-radius: 0.625vw;
+    &::-webkit-scrollbar-track {
+      background: #F1F1F1;
+      border-radius: 10px;
+    }
 
-        span {
-          padding: unset;
-        }
+    &::-webkit-scrollbar-thumb {
+      background: #D1D5DB;
+      border-radius: 10px;
+    }
+
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4vw;
+    }
+
+    .role-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5vw;
+    }
+
+    .role-separator {
+      height: 1px;
+      background: #E5E7EB;
+      width: 100%;
+      margin: 2vw 0;
+
+      &:last-child {
+        display: none;
       }
     }
 
-    .department-description {
-      color: #757575;
-      font-feature-settings: "liga" off, "clig" off;
-      font-family: Poppins;
-      font-size: 0.833vw;
-      font-style: normal;
-      font-weight: 400;
-      margin-bottom: 0.52vw;
+    .role-title {
+      color: #111827;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2vw;
+      font-weight: 700;
+      margin: 0 0 1vw 0;
     }
 
-    .apply-btn {
-      padding: 0.416vw 0.83vw;
-      font-size: 0.9375vw;
-      text-transform: none;
-      border-radius: 0.625vw;
-      width: 6.8vw;
-      height: 2.29vw;
+    .role-descriptions {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 1vw;
+      margin-bottom: 2vw;
     }
 
-    .skills-set-wrapper {
-      margin-top: 1.56vw;
-      margin-bottom: 1.56vw;
-      background-color: var(--global-color-primary);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.04vw;
+    .role-description {
+      color: #4B5563;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05vw;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3vw;
+      row-gap: 2vw;
+      margin-top: 1vw;
 
       .skills-container {
-        width: calc(50% - 10px);
         display: flex;
         flex-direction: column;
-        gap: 0.63vw;
+        gap: 0.5vw;
+
+        .skills-header {
+          display: flex;
+          align-items: center;
+          gap: 0.6vw;
+
+          .check-icon {
+            width: 1.3vw;
+            height: 1.3vw;
+            color: #10B981; // Green
+            flex-shrink: 0;
+          }
+        }
 
         .skills-title {
-          color: #132427;
-          font-feature-settings: "liga" off, "clig" off;
-          font-family: Poppins;
-          font-size: 0.937vw !important;
-          font-style: normal;
-          font-weight: 600 !important;
+          color: #111827;
+          font-family: 'Poppins', sans-serif;
+          font-size: 1.15vw;
+          font-weight: 600;
         }
 
         .skills-description {
-          color: #757575;
-          font-feature-settings: "liga" off, "clig" off;
-          font-family: Poppins;
-          justify-content: start !important;
-          font-size: 0.833vw !important;
-          font-style: normal;
-          font-weight: 400;
-        }
-
-        .selected {
-          background-color: var(--global-color-primary);
+          color: #6B7280;
+          font-family: 'Poppins', sans-serif;
+          font-size: 0.95vw;
+          line-height: 1.6;
+          padding-left: 2vw;
+          margin: 0;
         }
       }
+    }
+
+    .action-footer {
+      margin-top: 3vw;
+      margin-bottom: 2vw;
+
+      .apply-btn {
+        background-color: #F69333;
+        color: white;
+        padding: 1vw 3vw;
+        font-size: 1vw;
+        font-weight: 600;
+        border-radius: 0.5vw;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #E67E22;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+      }
+    }
+
+    .no-positions {
+      text-align: center;
+      margin-top: 5vw;
     }
   }
 }
