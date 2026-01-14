@@ -2,12 +2,14 @@
   width: 24.42vw;
   height: 24.58vw;
   position: absolute;
-  top: -10%;
+  top: -50%;
+  /* Initial starting position */
   right: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.6;
+  opacity: 0;
+  animation: slideDownGeometry 1.5s ease-out forwards;
 
   @media (max-width: 768px) {
     display: none;
@@ -50,7 +52,6 @@
     width: 100%;
     height: 100%;
     background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.603) 80%, rgba(255, 255, 255, 0) 100%);
-    ;
     rotate: 60deg;
     z-index: 3;
     pointer-events: none;
@@ -64,5 +65,17 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDownGeometry {
+  0% {
+    top: -50%;
+    opacity: 0;
+  }
+
+  100% {
+    top: -10%;
+    opacity: 0.6;
   }
 }

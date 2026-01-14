@@ -1,14 +1,16 @@
-.hero-section-home-container{
+.hero-section-home-container {
   display: flex;
   height: 85vh;
   width: 100%;
   flex-direction: column;
   padding-top: max(128px, 5.0625vw);
+
   @media (max-width:728px) {
     height: 100vh;
     padding-top: 5.0625vw;
   }
 }
+
 .hero-section-home {
   height: 100%;
   display: flex;
@@ -85,6 +87,8 @@
       filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
       z-index: 3;
       padding: 0.8vw;
+      opacity: 0;
+      transform: scale(0);
 
       img {
         width: 100%;
@@ -93,42 +97,27 @@
       }
 
       &.iconReact {
-        top: 5%;
-        left: 0%;
-        animation: float 6s infinite ease-in-out;
+        animation: enterReact 1s ease-out 1s forwards, float 6s infinite ease-in-out 2s;
       }
 
       &.iconPhp {
-        top: -5%;
-        left: 15%;
-        scale: 0.7 !important;
-        animation: float 7s infinite ease-in-out;
+        animation: enterPhp 1s ease-out 1.2s forwards, float 7s infinite ease-in-out 2.2s;
       }
 
       &.iconXd {
-        top: -5%;
-        right: 30%;
-        scale: 0.7 !important;
-        animation: float 5s infinite ease-in-out;
+        animation: enterXd 1s ease-out 1.4s forwards, float 5s infinite ease-in-out 2.4s;
       }
 
       &.iconFigma {
-        top: 10%;
-        right: 8%;
-        animation: float 8s infinite ease-in-out;
+        animation: enterFigma 1s ease-out 1.6s forwards, float 8s infinite ease-in-out 2.6s;
       }
 
       &.iconNode {
-        bottom: 25%;
-        left: -5%;
-        animation: float 6.5s infinite ease-in-out;
+        animation: enterNode 1s ease-out 1.8s forwards, float 6.5s infinite ease-in-out 2.8s;
       }
 
       &.iconMongo {
-        bottom: 25%;
-        right: 3%;
-        scale: 0.8;
-        animation: float 7.5s infinite ease-in-out;
+        animation: enterMongo 1s ease-out 2.0s forwards, float 7.5s infinite ease-in-out 3.0s;
       }
     }
   }
@@ -200,9 +189,11 @@
   width: 7.42vw;
   height: 4.58vw;
   position: absolute;
-  top: 10%;
-  scale: 1.2;
+  top: 20%;
   left: 40%;
+  animation: enterRevenue 1s ease-out 2.2s forwards, floatRevenue 4s ease-in-out infinite 3.2s;
+  opacity: 0;
+  transform: scale(0);
 }
 
 .expense-img {
@@ -211,6 +202,8 @@
   position: absolute;
   top: 32%;
   left: 12%;
+  animation: enterExpense 1s ease-out 2.4s forwards, float 4s ease-in-out infinite 3.4s;
+  opacity: 0;
 }
 
 // Keyframes
@@ -223,6 +216,18 @@
 
   50% {
     transform: translateY(-15px);
+  }
+}
+
+@keyframes floatRevenue {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1.2);
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.2);
   }
 }
 
@@ -245,6 +250,135 @@
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Icon Entry Animations
+@keyframes enterReact {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: 5%;
+    left: 0%;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes enterPhp {
+  0% {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: -5%;
+    left: 15%;
+    opacity: 1;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes enterXd {
+  0% {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: -5%;
+    right: 30%;
+    opacity: 1;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes enterFigma {
+  0% {
+    top: 50%;
+    right: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: 10%;
+    right: 8%;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes enterNode {
+  0% {
+    bottom: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    bottom: 25%;
+    left: -5%;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes enterMongo {
+  0% {
+    bottom: 50%;
+    right: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    bottom: 25%;
+    right: 3%;
+    opacity: 1;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes enterRevenue {
+  0% {
+    top: 42%;
+    left: 40%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: 15%;
+    left: 40%;
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes enterExpense {
+  0% {
+    top: 32%;
+    left: 20%;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    top: 32%;
+    left: 12%;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

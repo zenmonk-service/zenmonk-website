@@ -86,12 +86,13 @@
     }
 
     .expense-img-laptop {
-      width: 8.42vw;
-      height: 8.58vw;
+      width: 6.42vw;
+      height: 6.58vw;
       position: absolute !important;
-      top: -20%;
+      top: -18%;
       right: -8%;
       object-fit: contain;
+      animation: float 4s ease-in-out infinite;
     }
 
     .circle-img-laptop {
@@ -186,7 +187,6 @@
         width: 81.798px;
         height: 47.815px;
         object-fit: contain;
-        scale: 1.4;
       }
 
       .circle-img-laptop {
