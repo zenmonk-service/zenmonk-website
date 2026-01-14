@@ -3,7 +3,6 @@ import Hero from "../assets/hero.svg?url"
 
 const HeroImage = () => {
   return (
-    <div>
       <div className="laptop-frame">
         <Image
           src={Hero}
@@ -13,7 +12,6 @@ const HeroImage = () => {
           className="laptop-img"
         />
       </div>
-    </div>
   )
 }
 

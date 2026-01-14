@@ -4,9 +4,6 @@
   align-items: center;
   width: 100%;
   margin: auto;
-  padding: 1%;
-  padding-bottom: 0.52%;
-  margin-top: -10%;
 
   .text {
     color: #777;
@@ -15,6 +12,8 @@
     font-weight: 600;
     font-family: Poppins;
     text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1.3542vw;
 
     @media (max-width: 900px) {
       font-size: 16px !important;
@@ -43,11 +42,14 @@
 
 .partner-logo-wrapper {
   width: 60%;
-  height: 50%;
+  height: max(38px, 3.1771vw);
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @media (max-width: 900px) {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 38px;
   }
 }

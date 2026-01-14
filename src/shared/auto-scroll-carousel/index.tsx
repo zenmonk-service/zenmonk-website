@@ -68,18 +68,18 @@ export default function AutoScrollCarousel<T extends SliderData>({
 
   return (
     <div
-      className={`slider ${showBackground ? 'slider-bg' : ''} ${isBgShadow ? 'slider-shadow' : ''
+      className={`auto-scroll-slider ${showBackground ? 'auto-scroll-slider-bg' : ''} ${isBgShadow ? 'auto-scroll-slider-shadow' : ''
         } ${sliderProps?.className || ''}`}
       style={sliderProps?.style}
     >
-      <div className="slide-track" style={trackStyle}>
+      <div className="auto-scroll-slide-track" style={trackStyle}>
         {items.map((item, index) => (
           <div
             key={index}
-            className="slide-item"
+            className="auto-scroll-slide-item"
           >
             <div
-              className="slide-content-wrapper"
+              className="auto-scroll-slide-content-wrapper"
               style={{
                 background: showBackground
                   ? bgColor || (item as SliderData).background

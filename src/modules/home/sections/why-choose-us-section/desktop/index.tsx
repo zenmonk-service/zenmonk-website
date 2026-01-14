@@ -11,7 +11,7 @@ import './desktop.styles.scss'
 
 const WhyChooseUsDesktop = () => {
   return (
-    <div className='why-choose-us-section'>
+    <div className='why-choose-us-home-section'>
       <SectionTitle
         text="Elevate your tech journey with Zenmonk"
         markText="Zenmonk"
@@ -20,7 +20,7 @@ const WhyChooseUsDesktop = () => {
       <Image src={OldLogoDecorator} alt="logo" className="logo left-logo" />
       <Image src={OldLogoDecorator} alt="logo" className="logo right-logo" />
 
-      <div className="why-choose-us">
+      <div className="why-choose-us-home">
         <div className="content">
           <motion.div
             initial={{ scale: 0.2, opacity: 0 }}
@@ -42,11 +42,11 @@ const WhyChooseUsDesktop = () => {
               viewport={{ amount: 0.5, once: true }}
               className="first"
             >
-              <div className="why-choose-us-card">
-                <p className="why-choose-us-card-title">
+              <div className="why-choose-us-home-card">
+                <p className="why-choose-us-home-card-title">
                   We Comprehend, Customize, and Create
                 </p>
-                <p className="why-choose-us-card-description">
+                <p className="why-choose-us-home-card-description">
                   Understanding your unique needs to craft tailored software
                   with precision.
                 </p>
@@ -64,11 +64,11 @@ const WhyChooseUsDesktop = () => {
               className="second"
             >
               <SupportSvg />
-              <div className="why-choose-us-card">
-                <p className="why-choose-us-card-title">
+              <div className="why-choose-us-home-card">
+                <p className="why-choose-us-home-card-title">
                   24/7 Support with Quick Response
                 </p>
-                <p className="why-choose-us-card-description">
+                <p className="why-choose-us-home-card-description">
                   Available round the clock extending guaranteed response within
                   24 hours
                 </p>
@@ -84,11 +84,11 @@ const WhyChooseUsDesktop = () => {
               viewport={{ amount: 0.5, once: true }}
               className="third"
             >
-              <div className="why-choose-us-card">
-                <p className="why-choose-us-card-title">
+              <div className="why-choose-us-home-card">
+                <p className="why-choose-us-home-card-title">
                   Latest Tech Solutions for your business goals
                 </p>
-                <p className="why-choose-us-card-description">
+                <p className="why-choose-us-home-card-description">
                   Real business results for companies with the goal of growing
                   revenue
                 </p>
@@ -106,11 +106,11 @@ const WhyChooseUsDesktop = () => {
               className="fourth"
             >
               <TechSvg />
-              <div className="why-choose-us-card">
-                <p className="why-choose-us-card-title">
+              <div className="why-choose-us-home-card">
+                <p className="why-choose-us-home-card-title">
                   Mastering Deadlines with Focused Discipline
                 </p>
-                <p className="why-choose-us-card-description">
+                <p className="why-choose-us-home-card-description">
                   Aiming for agile development for timely project completion at
                   short notice.
                 </p>

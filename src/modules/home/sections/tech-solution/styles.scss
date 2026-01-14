@@ -25,7 +25,6 @@
 
       .text-heading {
         color: #3c3c3c !important;
-        // font-size: 4.8rem !important;
         font-family: Poppins, sans-serif !important;
         font-style: normal;
         font-weight: 400;
@@ -61,50 +60,60 @@
   .tech-solution-section-image-wrapper {
     flex: 1;
     width: 100%;
-    height: 100%;
-    max-height: 26.0417vw;
-    justify-content: flex-end;
+    justify-content: end;
     display: flex;
+    position: relative;
+    // background-color: red;
 
+    &.mobile {
+      display: none;
+    }
 
-    img {
-      margin-right: -1.04vw;
-      position: inherit !important;
-      width: 34.375vw !important;
+    &:not(.mobile) {
+      @media (max-width: 1099px) {
+        display: none;
+      }
+    }
+
+    /* Target only the main hero image which is a direct child or specific class */
+    >img {
+      right: 0;
+      position: relative !important;
       height: auto;
+      width: 34.38vw !important;
       max-width: 100%;
       object-fit: contain;
     }
+
+    .expense-img-laptop {
+      width: 8.42vw;
+      height: 8.58vw;
+      position: absolute !important;
+      top: -20%;
+      right: -8%;
+      object-fit: contain;
+    }
+
+    .circle-img-laptop {
+      width: 10.42vw;
+      height: 10.58vw;
+      position: absolute !important;
+      top: -25%;
+      left: 2.5%;
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
+
+    .circle-img-laptop-2 {
+      width: 10.42vw;
+      height: 10.58vw;
+      position: absolute !important;
+      bottom: -20%;
+      right: -10%;
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
   }
-}
-
-.expense-img-laptop {
-  width: 8.42vw;
-  height: 8.58vw;
-  position: absolute;
-  top: 18%;
-  right: 18%;
-  scale: 1.1;
-}
-
-.circle-img-laptop {
-  width: 10.42vw;
-  height: 10.58vw;
-  position: absolute;
-  top: 20%;
-  right: 25%;
-  z-index: -1;
-  animation: rotate 10s linear infinite;
-}
-
-.circle-img-laptop-2 {
-  width: 10.42vw;
-  height: 10.58vw;
-  position: absolute;
-  bottom: 20%;
-  right: 15%;
-  z-index: -1;
-  animation: rotate 10s linear infinite;
 }
 
 @keyframes rotate {
@@ -149,30 +158,59 @@
 
     .tech-solution-section-image-wrapper {
       width: 90%;
-      height: 300px;
+      height: 100%;
       max-height: unset;
       margin-bottom: 32px;
+      position: relative;
+
+      @media (max-width:728px) {
+        width: 100%;
+      }
+
+      &.mobile {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
 
       img {
         width: 100% !important;
         margin-right: 0;
         margin: 0 auto;
       }
+
+      .expense-img-laptop {
+        position: absolute !important;
+        top: -10%;
+        right: -8%;
+        width: 81.798px;
+        height: 47.815px;
+        object-fit: contain;
+        scale: 1.4;
+      }
+
+      .circle-img-laptop {
+        width: 74.534px;
+        height: 75.972px;
+        position: absolute !important;
+        top: -18%;
+        left: -40%;
+        z-index: -1;
+        scale: 1.2;
+        animation: rotate 10s linear infinite;
+      }
+
+      .circle-img-laptop-2 {
+        width: 74.534px;
+        height: 75.972px;
+        position: absolute !important;
+        bottom: -18%;
+        right: -10%;
+        z-index: -1;
+        scale: 1.2;
+        animation: rotate 10s linear infinite;
+      }
     }
-  }
-
-  .expense-img-laptop {
-    width: 60px;
-    height: 60px;
-    top: 1%;
-    right: 42%;
-  }
-
-  .circle-img-laptop {
-    width: 80px;
-    height: 80px;
-    top: 0%;
-    right: 54%;
   }
 }
 

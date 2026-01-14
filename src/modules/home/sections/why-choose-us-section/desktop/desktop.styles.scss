@@ -1,4 +1,4 @@
-.why-choose-us-section {
+.why-choose-us-home-section {
   width: 100%;
   height: auto;
   margin-top: 5.99vw;
@@ -29,7 +29,7 @@
   }
 }
 
-.why-choose-us .content {
+.why-choose-us-home .content {
   display: grid;
   place-content: center;
   position: relative;
@@ -40,19 +40,19 @@
   margin-bottom: 3.125vw;
 }
 
-.why-choose-us .thumbsUp {
+.why-choose-us-home .thumbsUp {
   width: 41.82vw;
   height: 40.81vw;
   margin-top: 3vw;
 }
 
-.why-choose-us-card {
+.why-choose-us-home-card {
   display: flex;
   flex-direction: column;
   gap: 0.260vw;
   background-color: transparent !important;
 
-  .why-choose-us-card-title {
+  .why-choose-us-home-card-title {
     color: #132427;
     text-align: right;
     width: 60%;
@@ -65,7 +65,7 @@
 
   }
 
-  .why-choose-us-card-description {
+  .why-choose-us-home-card-description {
     width: 70%;
     align-self: flex-end;
     color: #777;
@@ -80,7 +80,7 @@
   }
 }
 
-.why-choose-us .children .first {
+.why-choose-us-home .children .first {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -95,7 +95,7 @@
   }
 }
 
-.why-choose-us .children .second {
+.why-choose-us-home .children .second {
   position: absolute;
   top: 1vw;
   display: flex;
@@ -109,23 +109,23 @@
     width: 18.48vw;
   }
 
-  .why-choose-us-card {
+  .why-choose-us-home-card {
     width: 70%;
     align-self: flex-end;
 
-    .why-choose-us-card-title {
+    .why-choose-us-home-card-title {
       text-align: left;
       width: 100%;
     }
 
-    .why-choose-us-card-description {
+    .why-choose-us-home-card-description {
       text-align: left;
       width: 100%;
     }
   }
 }
 
-.why-choose-us .children .third {
+.why-choose-us-home .children .third {
   position: absolute;
   bottom: -3.5vw;
   gap: 1.5vw;
@@ -140,20 +140,20 @@
     align-self: flex-end;
   }
 
-  .why-choose-us-card {
+  .why-choose-us-home-card {
     width: 75%;
 
-    .why-choose-us-card-title {
+    .why-choose-us-home-card-title {
       width: 100%;
     }
 
-    .why-choose-us-card-description {
+    .why-choose-us-home-card-description {
       width: 100%;
     }
   }
 }
 
-.why-choose-us .children .fourth {
+.why-choose-us-home .children .fourth {
   position: absolute;
   bottom: -2.8vw;
   right: -0.5vw;
@@ -169,15 +169,15 @@
     align-self: flex-end;
   }
 
-  .why-choose-us-card {
+  .why-choose-us-home-card {
     width: 70%;
 
-    .why-choose-us-card-title {
+    .why-choose-us-home-card-title {
       text-align: left;
       width: 100%;
     }
 
-    .why-choose-us-card-description {
+    .why-choose-us-home-card-description {
       text-align: left;
       width: 97%;
       align-self: flex-start;

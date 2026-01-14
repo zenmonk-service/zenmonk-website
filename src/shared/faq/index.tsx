@@ -33,6 +33,16 @@ const questions = [
     answer:
       "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
   },
+  {
+    question: 'What are the best practices for improving app performance?',
+    answer:
+      "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
+  },
+  {
+    question: 'What are the best practices for improving app performance?',
+    answer:
+      "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
+  },
 ]
 
 const FAQ = () => {

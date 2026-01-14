@@ -1,4 +1,4 @@
-@keyframes infiniteLogoScroll {
+@keyframes auto-scroll-infiniteLogoScroll {
   0% {
     transform: translateX(0);
   }
@@ -8,15 +8,13 @@
   }
 }
 
-.slider {
+.auto-scroll-slider {
   position: relative;
   overflow: hidden;
-  height: auto;
+  height: 4.1667vw;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 1.04vw 0;
-  /* 20px */
   display: flex;
   align-items: center;
 
@@ -49,10 +47,11 @@
   }
 }
 
-.slide-track {
+.auto-scroll-slide-track {
   display: flex;
   align-items: center;
-  animation-name: infiniteLogoScroll;
+  height: 100%;
+  animation-name: auto-scroll-infiniteLogoScroll;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 
@@ -61,20 +60,18 @@
   }
 }
 
-.slide-item {
+.auto-scroll-slide-item {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  height: 7.29vw;
-  /* 140px */
+  height: auto;
   width: var(--item-width);
   padding: 0 var(--item-padding);
 }
 
-.slide-content-wrapper {
+.auto-scroll-slide-content-wrapper {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,8 +86,8 @@
   img {
     opacity: 1;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    max-width: 80%;
-    max-height: 70%;
+    max-width: 100%;
+    height: auto;
     object-fit: contain;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -107,13 +104,14 @@
 
 /* ================= MOBILE ================= */
 @media screen and (max-width: 768px) {
-  .slider {
+  .auto-scroll-slider {
     padding: 10px 0;
+    height: 100%;
   }
 
-  .slide-item {
-    height: 100px;
-    min-height: 100px;
+  .auto-scroll-slide-item {
+    height: auto;
+    min-height: auto;
     width: 180px;
     min-width: 180px;
     /* Fixed width for mobile to prevent squash */

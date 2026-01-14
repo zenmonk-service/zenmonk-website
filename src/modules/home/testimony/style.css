@@ -1,10 +1,11 @@
 .testimony {
-  margin-top: 6.2083vw; /* 100px / 1920 * 100 */
+  margin-top: 7.25vw; /* 100px / 1920 * 100 */
   width: 100%;
   padding: 4.1666vw; /* 80px / 1920 * 100 */
   padding-top: 0px;
   background: url('/testimonialBackground.png') center/cover;
   position: relative;
+  margin-bottom: 6.25vw;
 }
 
 .testimony-content {

@@ -16,9 +16,8 @@ const TechSolution = () => {
       <div className="tech-solution-section">
         <div className="tech-solution-section-text-wrapper">
           <div className="text-heading">
-            <SectionTitle text="Our Expertise Lies In Crafting" align="left" />
             <SectionTitle
-              text="Business Solutions"
+              text="Maximizing Your Business Potential With Expert IT Solutions"
               markText="solutions"
               align="left"
             />
@@ -30,6 +29,12 @@ const TechSolution = () => {
               proficient in technical terminology, and validate our new-age
               expertise with custom solutions"
           />
+          <div className="tech-solution-section-image-wrapper mobile">
+            <Image fill src={TechSolutionMobile} alt="tech-solution" />
+            <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
+            <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
+            <Image src={Circle} alt="Circle2" className='circle-img-laptop-2' width={200} height={200} />
+          </div>
         </div>
         <div className="tech-solution-section-card-wrapper">
           {techSolution.map(({ name, Icon }, index) => (
@@ -45,10 +50,10 @@ const TechSolution = () => {
       </div>
       <div className="tech-solution-section-image-wrapper">
         <Image fill src={TechSolutionMobile} alt="tech-solution" />
-      </div>
         <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
         <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
         <Image src={Circle} alt="Circle2" className='circle-img-laptop-2' width={200} height={200} />
+      </div>
     </div>
   )
 }

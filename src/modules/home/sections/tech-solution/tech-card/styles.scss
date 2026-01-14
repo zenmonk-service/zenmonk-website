@@ -4,7 +4,7 @@
   width: 19.79vw;
   height: 4.27vw;
   flex-shrink: 0;
-  gap: max(18px,1.5625vw);
+  gap: max(18px, 1.5625vw);
   background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
   box-shadow: 0.1vw 0.1vw 1.04vw 0px rgba(0, 0, 0, 0.13);
   transition: all 0.3s ease-in-out;
@@ -25,7 +25,6 @@
   .tech-card-title {
     display: flex;
     align-items: center;
-    width: 7.23vw;
     color: #424242;
     font-family: Poppins;
     font-size: max(16px, 0.84vw);

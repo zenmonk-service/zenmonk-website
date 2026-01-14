@@ -1,8 +1,8 @@
 'use client'
 import { OurPartnersList } from '@/assets/icons/collaboration'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
-import './styles.scss'
 import Image from 'next/image'
+import './styles.scss'
 
 const OurPartners = () => {
   return (

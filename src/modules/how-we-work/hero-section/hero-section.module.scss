@@ -4,11 +4,14 @@
   justify-content: center;
   padding: 156px 7.8% 120px 7.8%;
   gap: 8.3vw;
+  height: 100vh;
+
   .heroSection {
     display: flex;
     flex-direction: column;
     text-align: left;
     width: 50%;
+
     .heroSectionTextWrapper {
       text-align: left;
       display: flex;
@@ -44,11 +47,20 @@
       }
     }
   }
+
   .topHorizontalDottedImage {
     position: absolute;
     top: -3%;
     right: 18%;
     z-index: -10;
+    transform: rotate(90deg);
+    height: 14.96vw;
+  }
+
+  .bottomHorizontalDottedImage {
+    position: absolute;
+    left: 12%;
+    top: 12.5%;
     transform: rotate(90deg);
     height: 14.96vw;
   }
@@ -106,10 +118,13 @@
     gap: 16px;
     padding-left: 3%;
     padding-right: 3%;
+
     .heroSection {
       padding: 0px;
+
       .heroSectionTextWrapper {
         max-width: 100%;
+
         .textDescription {
           font-size: 16px;
         }

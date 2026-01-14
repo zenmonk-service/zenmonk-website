@@ -38,6 +38,7 @@ const HeroSection = () => {
       </div>
       <HeroImage />
       <DottedBackground className={styles.topHorizontalDottedImage} />
+      <DottedBackground className={styles.bottomHorizontalDottedImage} />
       <DottedBackground className={styles.verticalDottedImage} />
     </div>
   )

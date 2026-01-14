@@ -3,18 +3,17 @@
 
 import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
-import OurPartners from '../our-partners'
-import './styles.scss'
 import HeroImage from './hero-image'
 import Geometry from '@/shared/geometry'
+import './styles.scss'
 
 const HeroSection = () => {
   const router = useRouter()
   return (
-    <section>
+    <div className="hero-section-home-container">
       <div className="hero-section-home">
         <div className="container">
-        <Geometry/>
+          <Geometry />
           <div className="text-container">
             <h4 className="heading">
               Super Charge Your Business<br />{" "}
@@ -37,8 +36,7 @@ const HeroSection = () => {
           <HeroImage />
         </div>
       </div>
-      <OurPartners />
-    </section>
+    </div>
   )
 }
 

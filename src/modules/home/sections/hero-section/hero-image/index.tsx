@@ -12,7 +12,7 @@ import Circle from "../assets/circle.svg?url"
 
 const HeroImage = () => {
   return (
-    <div>
+    <>
       <div className="laptop-frame">
 
         {/* ball animated */}
@@ -22,7 +22,6 @@ const HeroImage = () => {
           height={400}
           className="circle-img"
         />
-
         <Revenue
           className="revenue-img"
         />
@@ -34,11 +33,11 @@ const HeroImage = () => {
           className="expense-img"
         />
         <Image
-          src={laptopDashboard.src}
+          src={laptopDashboard}
           alt="Laptop Dashboard"
-          width={600}
-          height={400}
           className="laptop-img"
+          priority
+          unoptimized
         />
       </div>
       <div className="floating-icon iconReact">
@@ -59,7 +58,7 @@ const HeroImage = () => {
       <div className="floating-icon iconMongo">
         <Image src={Mongo} alt="MongoDB" width={40} height={40} />
       </div>
-    </div>
+    </>
   )
 }
 

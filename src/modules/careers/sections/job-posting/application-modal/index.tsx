@@ -160,7 +160,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
-          minHeight: isMobile ? 'auto' : '800px'
         }}
       >
         {submitSuccess ? <SuccessMessage jobTitle={jobTitle} tracking_id={submittedApplication?.tracking_id} /> : (

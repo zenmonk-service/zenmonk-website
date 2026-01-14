@@ -11,6 +11,7 @@ import Testimony from '@/modules/home/testimony'
 import FAQ from '@/shared/faq'
 import GlobeSection from '@/animations/globe-animation'
 import TechSolution from '@/modules/home/sections/tech-solution'
+import OurPartners from '@/modules/home/sections/our-partners'
 
 const HomePage = () => {
   const container = useRef(null)
@@ -18,6 +19,7 @@ const HomePage = () => {
   return (
     <div ref={container} style={{ position: 'relative' }}>
       <HeroSection />
+      <OurPartners />
       <OurServices />
       <TechSolution />
       <OurProjects />

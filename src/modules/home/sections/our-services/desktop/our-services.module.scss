@@ -1,5 +1,5 @@
 .serviceSectionWrapper {
-  margin-top: max(4.25vw, 80px);
+  margin-top: max(80px,6.25vw);
   overflow: visible; // Safety first
 }
 
@@ -7,7 +7,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 3.125vw;
+  margin-top: max(46px,3.18vw);
   overflow: visible; // Ensure no clipping
 }
 
@@ -85,7 +85,7 @@
 }
 
 .logo {
-  bottom: 45%;
+  bottom: 52%;
   left: 67%;
   position: absolute;
   width: 27.08vw;
@@ -101,6 +101,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1400px) {
+    height: auto;
+  }
 }
 
 .businessProofContent {
