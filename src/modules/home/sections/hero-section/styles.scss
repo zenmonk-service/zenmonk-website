@@ -193,7 +193,6 @@
   left: 40%;
   animation: enterRevenue 1s ease-out 2.2s forwards, floatRevenue 4s ease-in-out infinite 3.2s;
   opacity: 0;
-  transform: scale(0);
 }
 
 .expense-img {
@@ -442,6 +441,8 @@
         min-height: unset;
         padding: 6px;
         border-radius: 8px;
+        opacity: 1 !important; // Ensure visible on mobile
+        transform: scale(1) !important; // Ensure scaled up on mobile
 
         img {
           width: 100%;
@@ -452,31 +453,31 @@
         &.iconReact {
           top: 0%;
           left: 0%;
-          animation: float 6s infinite ease-in-out;
+          animation: float 6s infinite ease-in-out !important; // Only float
         }
 
         &.iconPhp {
           top: -30%;
           left: 20%;
-          animation: float 7s infinite ease-in-out;
+          animation: float 7s infinite ease-in-out !important; // Only float
         }
 
         &.iconXd {
           top: -30%;
           right: 25%;
-          animation: float 5s infinite ease-in-out;
+          animation: float 5s infinite ease-in-out !important; // Only float
         }
 
         &.iconFigma {
           top: 0%;
           right: 3%;
-          animation: float 8s infinite ease-in-out;
+          animation: float 8s infinite ease-in-out !important; // Only float
         }
 
         &.iconNode {
           bottom: 20%;
           left: -5%;
-          animation: float 6.5s infinite ease-in-out;
+          animation: float 6.5s infinite ease-in-out !important; // Only float
         }
 
         &.iconMongo {
@@ -484,7 +485,7 @@
           right: -5%;
           display: none;
           scale: 0.8;
-          animation: float 7.5s infinite ease-in-out;
+          animation: float 7.5s infinite ease-in-out !important; // Only float
         }
       }
     }
@@ -569,13 +570,18 @@
   }
 
   .expense-img {
+    opacity: 1;
     scale: 3;
     top: 35% !important;
     left: 10% !important;
+    animation: none;
   }
 
   .revenue-img {
+    opacity: 1;
     scale: 3;
     top: -5% !important;
+    left: 40% !important;
+    animation: none;
   }
 }

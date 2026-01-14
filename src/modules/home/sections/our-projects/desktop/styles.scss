@@ -17,11 +17,59 @@
       rgba(0, 0, 0, 0) 100%);
   width: 100%;
   height: 100%;
+  z-index: 20;
 }
+
+//casousal
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+
+.deck {
+  position: absolute;
+  right: 4vw; // Changed from right to left
+  bottom: 4vw;
+
+  display: flex;
+  // gap: 1.25vw; // Handled by card margin for animation purposes
+
+  z-index: 50;
+
+  /* carousel behavior */
+  overflow-x: auto;
+  max-width: 45vw;
+
+  padding-bottom: 0.5vw;
+
+  scrollbar-width: none; // Firefox
+}
+
+.deck::-webkit-scrollbar {
+  display: none; // Chrome
+}
+
+
+.card {
+  position: relative;
+  width: 11vw;
+  min-width: 11vw; // IMPORTANT: prevents shrink
+  aspect-ratio: 1 / 1;
+
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0 0.21vw 2.59vw rgba(0, 0, 0, 0.5);
+}
+
+
 
 .our-work-card-count {
   position: relative;
-  z-index: 2;
+  z-index: 50;
 
   color: transparent;
   -webkit-text-stroke-width: 0.67vw;
@@ -60,6 +108,8 @@
   z-index: 1;
   font-weight: 600;
   line-height: normal;
+  z-index: 50;
+
 }
 
 .our-work-card-description {
@@ -73,6 +123,8 @@
   font-weight: 400;
   line-height: 141.667%;
   opacity: 0.85;
+  z-index: 50;
+
 }
 
 .exit-fullscreen-container {
@@ -126,7 +178,6 @@
   background-position: center center !important;
   background-size: contain !important;
   box-shadow: 0 0.21vw 2.59vw rgba(0, 0, 0, 0.5);
-  /* 4px 49.8px */
 }
 
 .our-work-card-images {
@@ -135,13 +186,11 @@
   display: flex;
   position: relative;
   bottom: 7.81vw;
-  /* 150px */
+  z-index: 20;
+  /* Increased to ensure clickability over masks/overlays */
   right: 1.04vw;
-  /* 20px */
   gap: 1.25vw;
-  /* 24px */
   justify-content: flex-end;
-  padding-bottom: 1.04vw;
-  /* 20px */
+  margin-bottom: 100px;
   box-sizing: border-box;
 }
