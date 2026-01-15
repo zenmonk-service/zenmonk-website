@@ -6,7 +6,7 @@ import HeroSection from '@/modules/services/modules/cloud-computing/hero-section
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import { Rating } from '@mui/material'
+import Rating from '@/shared/rating'
 
 const CloudDevelopmentPage = () => {
   return (
