@@ -7,6 +7,7 @@ import ReadyToStartSoftwareDev from '@/modules/services/modules/software-develop
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
 import TechTreeSection from './tech-tree-section'
+import { Box } from '@mui/material'
 
 
 const SoftwareDevelopmentPage = () => {
@@ -22,6 +23,7 @@ const SoftwareDevelopmentPage = () => {
       <BusinessSectors />
       <ReadyToStartSoftwareDev />
       <FAQ />
+      <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
     </div>
   )
 }

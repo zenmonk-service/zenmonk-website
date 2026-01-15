@@ -7,6 +7,7 @@ import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
+import { Box } from '@mui/material'
 
 const IndustrySpecificSolutions = () => {
   return (
@@ -14,10 +15,11 @@ const IndustrySpecificSolutions = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id='industries-specific-solution' />
-      <TechnologyTree />
-      <DevelopmentProcess />
+      <TechnologyTree isTechTree noRandomIcons/>
       <YourIdealChoice />
       <BusinessSectors />
+      <DevelopmentProcess />
+      <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
       <ReadyToTalkShared />
       <FAQ />
     </div>

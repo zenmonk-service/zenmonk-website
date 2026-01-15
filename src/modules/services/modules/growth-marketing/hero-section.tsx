@@ -9,9 +9,12 @@ const GrowthMarketingHeroSection = () => (
   >
     <HeroSection
       url="/services/growth.png"
-      title="Growth & Marketing<br/> That Drives Real Results"
+      title="Growth & Marketing That Drives Real Results"
       highlightedText="Growth & Marketing"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+      imageStyle={{
+        scale: 1.2,
+      }}
     />
   </div>
 )

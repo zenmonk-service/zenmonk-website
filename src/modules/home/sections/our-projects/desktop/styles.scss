@@ -1,71 +1,46 @@
-.our-work-container {
+.our-projects-section-wrapper {
+  width: 100%;
   height: 100vh;
-  display: flex;
+}
+
+.our-work-container {
   position: relative;
-  background-position: center center;
-  background-size: cover !important;
-  flex-direction: column;
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
-.shadow {
-  position: absolute;
-  background: linear-gradient(90deg,
-      #000 0%,
-      rgba(0, 0, 0, 0.5) 41%,
-      rgba(0, 0, 0, 0) 100%);
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-}
-
-//casousal
-.background {
+/* ===== FULLSCREEN MORPH TARGET ===== */
+.shared-bg {
   position: absolute;
   inset: 0;
-  z-index: 1;
-}
-
-
-.deck {
-  position: absolute;
-  right: 4vw; // Changed from right to left
-  bottom: 4vw;
-
-  display: flex;
-  // gap: 1.25vw; // Handled by card margin for animation purposes
-
-  z-index: 50;
-
-  /* carousel behavior */
-  overflow-x: auto;
-  max-width: 45vw;
-
-  padding-bottom: 0.5vw;
-
-  scrollbar-width: none; // Firefox
-}
-
-.deck::-webkit-scrollbar {
-  display: none; // Chrome
-}
-
-
-.card {
-  position: relative;
-  width: 11vw;
-  min-width: 11vw; // IMPORTANT: prevents shrink
-  aspect-ratio: 1 / 1;
-
-  border-radius: 12px;
+  z-index: 10;
   overflow: hidden;
-  cursor: pointer;
+}
 
-  box-shadow: 0 0.21vw 2.59vw rgba(0, 0, 0, 0.5);
+/* ===== DARK OVERLAY ===== */
+.shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  background: linear-gradient(90deg,
+      #000 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 
+/* ===== TEXT CONTENT ===== */
+/* ===== TEXT CONTENT (UPDATED) ===== */
+.project-details-container {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  /* Let clicks pass through to deck if needed */
+  display: flex;
+  flex-direction: column;
+}
 
 .our-work-card-count {
   position: relative;
@@ -77,12 +52,9 @@
   font-family: 'Poppins';
   font-size: 17.88vw;
   font-weight: 700;
-  line-height: 140.22%;
-  padding-left: 5vw;
+  line-height: 120%;
+  padding-left: 4vw;
   padding-top: 4vw;
-
-  /* REMOVE THIS — it degrades clarity */
-  /* filter: drop-shadow(...) */
 }
 
 /* DARK MASK */
@@ -105,18 +77,15 @@
   font-size: 3.18vw;
   font-style: normal;
   padding-left: 5vw;
-  z-index: 1;
+  z-index: 50;
   font-weight: 600;
   line-height: normal;
-  z-index: 50;
-
 }
 
 .our-work-card-description {
   color: #fff;
   font-family: Poppins;
   font-size: 1.25vw;
-  z-index: 1;
   width: 50%;
   padding-left: 5vw;
   font-style: normal;
@@ -124,47 +93,6 @@
   line-height: 141.667%;
   opacity: 0.85;
   z-index: 50;
-
-}
-
-.exit-fullscreen-container {
-  position: absolute;
-  top: 3vw;
-  right: 5vw;
-  z-index: 100;
-}
-
-.exit-button {
-  display: flex;
-  align-items: center;
-  gap: 0.8vw;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 0.6vw 1.25vw;
-  border-radius: 100px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.83vw;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-0.10vw);
-    /* -2px */
-    border-color: rgba(255, 255, 255, 0.4);
-  }
-
-  svg {
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: translateY(0.16vw);
-    /* 3px */
-  }
 }
 
 .project-detail-content {
@@ -174,23 +102,37 @@
   z-index: 1;
 }
 
-.our-work-card {
-  background-position: center center !important;
-  background-size: contain !important;
-  box-shadow: 0 0.21vw 2.59vw rgba(0, 0, 0, 0.5);
+/* ===== DECK ===== */
+.deck {
+  position: absolute;
+  right: 4vw;
+  bottom: 4vw;
+
+  display: flex;
+  gap: 1.25vw;
+
+  max-width: 90vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  z-index: 50;
+
+  scrollbar-width: none;
 }
 
-.our-work-card-images {
-  width: 100%;
-  height: 100%;
-  display: flex;
+.deck::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== CARD ===== */
+.card {
   position: relative;
-  bottom: 7.81vw;
-  z-index: 20;
-  /* Increased to ensure clickability over masks/overlays */
-  right: 1.04vw;
-  gap: 1.25vw;
-  justify-content: flex-end;
-  margin-bottom: 100px;
-  box-sizing: border-box;
+  width: 12vw;
+  min-width: 12vw;
+  aspect-ratio: 1 / 1.2;
+
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0 0.21vw 2.59vw rgba(0, 0, 0, 0.5);
 }

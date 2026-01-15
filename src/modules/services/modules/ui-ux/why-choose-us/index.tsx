@@ -9,6 +9,7 @@ const UiUxWhyChooseUs = () => (
     <SectionTitle
       align="center"
       className={styles.title}
+      markText='Us'
       text="Why Choose Us"
     />
     <SectionDescription

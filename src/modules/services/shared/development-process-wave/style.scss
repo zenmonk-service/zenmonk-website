@@ -10,7 +10,6 @@
     position: relative;
     width: 100%;
     max-width: 67.71vw;
-    margin-bottom: 5vw;
     aspect-ratio: 1316 / 850;
 
     .svg-container {
@@ -198,6 +197,30 @@
         width: 4px;
         background: var(--step-color);
         border-radius: 0 4px 4px 0;
+      }
+
+      &:nth-child(1) {
+        --step-color: #2EC2CC;
+
+        .mobile-number {
+          font-size: 3.71vw;
+        }
+      }
+
+      &:nth-child(2) {
+        --step-color: #A263F5;
+      }
+
+      &:nth-child(3) {
+        --step-color: #6CC77D;
+      }
+
+      &:nth-child(4) {
+        --step-color: #FA579A;
+      }
+
+      &:nth-child(5) {
+        --step-color: #421CB4;
       }
 
       .mobile-number {

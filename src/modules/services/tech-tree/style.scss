@@ -1,17 +1,18 @@
 .tech-tree-container {
   position: relative;
-  padding: 5.25vw 1.25vw;
+  padding: 6.50vw 1.25vw;
+  padding-bottom: 5.25vw;
   overflow: hidden;
 }
 
 .gear-container {
   position: absolute;
   left: -8.5%;
-  height: 327px;
-  width: 382px;
+  height: 17.03vw;
+  width: 19.9vw;
   scale: 0.9;
 
-  @media (max-width:782px) {
+  @media (max-width: 782px) {
     display: none;
   }
 }
@@ -39,7 +40,7 @@
 }
 
 .tech-tree-description {
-  font-size: var(--font-size-18) !important;
+  font-size: max(14px, 0.94vw) !important;
   opacity: 0.85;
 }
 
@@ -90,7 +91,7 @@
 
   .tech-tree-right svg,
   .tech-tree-right img {
-    width: 280px;
+    width: 330px;
     max-width: 100%;
   }
 }

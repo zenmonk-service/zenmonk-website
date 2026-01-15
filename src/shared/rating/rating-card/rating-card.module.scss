@@ -5,6 +5,7 @@
   height: max-content;
   padding: 1.5625vw;
   gap: 0.98vw;
+  min-height: 85px;
   border-radius: 2.778vw 0vw;
 
   .ratingCardIcon {
@@ -40,6 +41,7 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      min-width: max-content;
     }
   }
 }
@@ -47,14 +49,15 @@
 @media screen and (max-width: 768px) {
   .ratingCard {
     max-width: 100%;
-    padding: 12px;
+    padding: 10px;
     gap: 8px;
     flex: 1 1 0px;
     border-radius: 23.004px 0;
+    align-items: center;
 
     .ratingCardIcon {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       padding: 8px;
       box-shadow: 0px 2px 8px 0px rgba(184, 184, 184, 0.15);
     }

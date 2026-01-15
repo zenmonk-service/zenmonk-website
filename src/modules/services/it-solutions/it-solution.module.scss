@@ -22,6 +22,7 @@
       margin-top: 0.833vw;
       padding: 0px 5vw;
       font-size: max(16px, 0.833vw);
+      margin-bottom: 2.08vw;
     }
 
     .containerGrid {
@@ -63,7 +64,7 @@
         .description {
           color: #132427;
           font-family: 'Poppins', sans-serif;
-          font-size: max(16px, 0.9375vw);
+          font-size: max(16px, 0.94vw);
           font-style: normal;
           font-weight: 600;
           line-height: 1.458vw;
@@ -71,7 +72,7 @@
 
         .description {
           color: #727272;
-          font-size: var(--font-size-16);
+          font-size: max(12px, 0.83vw);
           font-weight: 400;
           line-height: normal;
         }
@@ -144,6 +145,7 @@
       .subtitle {
         font-size: 14px;
         margin-top: 16px;
+        margin-bottom: 40px;
         padding: unset;
         line-height: normal;
         letter-spacing: 0.28px;

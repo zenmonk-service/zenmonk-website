@@ -13,7 +13,6 @@
     align-items: center;
     position: relative;
     z-index: 10;
-    width: 100%;
     aspect-ratio: 1.5;
 
     .laptop-frame {
@@ -78,11 +77,11 @@
       .heading {
         color: #3c3c3c !important;
         // white-space: nowrap;
-        font-size: max(24px, 2.5vw) !important;
+        font-size: max(28px, 3.125vw) !important;
         font-family: var(--font-inter), sans-serif !important;
         font-weight: 700 !important;
         letter-spacing: 0.05vw;
-        line-height: 1.2;
+        line-height: 110.714%;
         opacity: 0;
         transform: none;
         min-width: max-content;
@@ -105,6 +104,7 @@
         opacity: 0;
         transform: none;
         filter: none;
+        width: 80%;
       }
     }
 

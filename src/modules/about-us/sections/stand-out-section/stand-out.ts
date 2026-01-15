@@ -1,36 +1,36 @@
-import Mission from './assets/mission.svg'
-import OurValues from './assets/our-values.svg'
-import Vision from './assets/vision.svg'
+
+import SearchSvg from './assets/search.svg'
+import DownloadSvg from './assets/download.svg'
+import ThunderSvg from './assets/thunder.svg'
+import NoteSvg from './assets/note.svg'
 
 export const standOutList = [
   {
-    icon: Mission,
-    title: 'Our Mission',
-    image: '/about-us/stand-out/strength-people-hands.png',
+    title: 'Research & Analysis',
     description:
-      'Our mission is to help you achieve your goals and dreams by providing the best tools and resources. With expert guidance and top-quality support, we are committed to assisting you in personal growth, career success, and business advancement every step of the way.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+    icon: SearchSvg,
+    scale: 5,
   },
   {
-    icon: Vision,
-    title: 'Our Vision',
-    image: '/about-us/stand-out/volunteer-future-expertise.png',
+    title: 'Reliable Delivery',
     description:
-      'Our vision is to create a world where everyone has access to the knowledge and resources they need to succeed. We strive to empower individuals with the right tools, guidance, and opportunities, fostering growth, innovation, and equal access to success for all.',
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+    icon: DownloadSvg,
+    scale: 5,
   },
   {
-    icon: OurValues,
-    title: 'Our core values',
-    image: '/about-us/stand-out/people-hands.png',
+    title: 'Fast Execution',
     description:
-      'Our core values define our commitment to integrity, accountability, excellence, innovation, inclusivity, and customer-centricity. We uphold ethical standards, and user experiences to empower growth, success, and positive impact for all.',
-    coreValues: [
-      //only title
-      { title: 'Integrity' },
-      { title: 'Cutomer Focus' },
-      { title: 'Accountability' },
-      { title: 'Inclusiveness' },
-      { title: 'Collaboration' },
-      { title: 'Innovation' },
-    ],
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+    icon: ThunderSvg,
+    scale: 3.8,
+  },
+  {
+    title: 'Strategic Planning',
+    description:
+      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+    icon: NoteSvg,
+    scale: 4.2,
   },
 ]

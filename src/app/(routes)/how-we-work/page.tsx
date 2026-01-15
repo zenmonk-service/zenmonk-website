@@ -6,13 +6,13 @@ import ReadyToTalk from '@/modules/how-we-work/ready-to-talk'
 
 const page = () => {
   return (
-    <div>
+    <>
       <HeroSection />
       <Process />
       <Quality />
       <Innovation />
       <ReadyToTalk />
-    </div>
+    </>
   )
 }
 

@@ -5,41 +5,54 @@
   gap: 2.6vw;
   margin-top: 6.25vw;
 
-  .ceo-section-text-image {
-    width: max-content;
-    height: 100%;
+  .ceo-section {
+    position: relative;
+    display: flex;
+    width: 37.9266vw;
+    height: 32.4212vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     img {
-      width: 100%;
-      height: 100%;
+      z-index: -1;
     }
   }
 
-  .ceo-section-logo {
-    width: max-content;
-    height: 100%;
 
-    img {
-      width: 100%;
-      height: 100%;
-    }
-
-    @media (max-width: 899px) {
-      display: none;
-    }
+  .words-by-ceo {
+    width: 80%;
+    margin-top: 50px;
+    padding: 0 24px;
+    z-index: 1;
+    color: #232323;
+    text-align: center;
+    font-family: Satisfy;
+    font-size: max(24px, 2.0833vw);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.0208vw;
   }
+
+  .ceo-details {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 728px) {
   .ceo-section-wrapper {
     padding: 0 16px;
     flex-direction: column;
-    .ceo-section-text-image {
-      width: 100%;
-      svg {
-        width: calc(100svw - 32px);
-        height: calc(100svw - 32px);
-      }
+
+    .ceo-section {
+      width: 407.641px;
+      height: 363.484px;
+    }
+    .ceo-section-logo{
+      display: none;
     }
   }
 }

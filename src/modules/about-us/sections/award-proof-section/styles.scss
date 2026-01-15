@@ -35,7 +35,6 @@
       font-size: 14px;
       width: 100%;
       min-width: unset;
-      margin-bottom: 40px;
       text-align: left;
       padding: 24px;
       padding-top: 0;
@@ -45,6 +44,7 @@
   .award-proof-list {
     width: 100%;
     padding: 1% 7.8125%;
+    padding-bottom: 0;
     display: flex;
     justify-content: center;
     gap: 1vw;

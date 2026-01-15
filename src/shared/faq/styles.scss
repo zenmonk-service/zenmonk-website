@@ -1,12 +1,10 @@
 .faq {
   margin: auto;
-  padding: 5.3333vw 1.25vw;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
-  margin-top: Max(80px, 3.125vw);
+  margin-top: Max(80px, 6.125vw);
   gap: Max(36px, 3.3333vw);
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100vh;
   @media (max-width: 900px) {

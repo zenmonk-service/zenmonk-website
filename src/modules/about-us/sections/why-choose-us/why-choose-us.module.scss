@@ -6,13 +6,13 @@ $hover-bg-light-green: #e9f7ec;
 .aboutUsWhyChooseUsSection {
   width: 100%;
   display: flex;
-  margin-top: 5.2vw;
+  margin-top: 6.25vw;
   justify-content: space-evenly;
 
   @media screen and (max-width: 1037px) {
     flex-direction: column-reverse;
     margin-bottom: 60px;
-    margin-top: 40px;
+    margin-top: 64px;
     gap: 40px;
     padding: 0 20px;
     height: auto;

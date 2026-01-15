@@ -1,6 +1,6 @@
 'use client'
 
-import React, { CSSProperties, ReactNode, useMemo } from 'react'
+import { CSSProperties, ReactNode, useMemo } from 'react'
 import './styles.scss'
 
 export interface SliderData {
@@ -62,34 +62,56 @@ export default function AutoScrollCarousel<T extends SliderData>({
     animationDuration: `${duration}s`,
     animationDirection: reverse ? 'reverse' : 'normal',
     width: 'max-content',
+    height: 'max-content',
     ['--item-width' as any]: pxToVw(itemWidth),
-    ['--item-padding' as any]: pxToVw(space / 2),
   }
 
   return (
     <div
-      className={`auto-scroll-slider ${showBackground ? 'auto-scroll-slider-bg' : ''} ${isBgShadow ? 'auto-scroll-slider-shadow' : ''
-        } ${sliderProps?.className || ''}`}
-      style={sliderProps?.style}
+      {...({
+        className: `auto-scroll-slider ${showBackground ? 'auto-scroll-slider-bg' : ''
+          } ${isBgShadow ? 'auto-scroll-slider-shadow' : ''} ${sliderProps?.className || ''
+          }`,
+        style: sliderProps?.style,
+      } as any)}
     >
-      <div className="auto-scroll-slide-track" style={trackStyle}>
+      <div
+        {...({
+          className: 'auto-scroll-slide-track',
+          style: { ...trackStyle, gap: pxToVw(space) },
+        } as any)}
+      >
         {items.map((item, index) => (
           <div
             key={index}
-            className="auto-scroll-slide-item"
-          >
-            <div
-              className="auto-scroll-slide-content-wrapper"
-              style={{
+            {...({
+              className: 'auto-scroll-slide-item',
+              style: {
                 background: showBackground
                   ? bgColor || (item as SliderData).background
                   : undefined,
+              },
+            } as any)}
+          >
+            {(() => {
+              const contentStyle: CSSProperties = {
+                background: showBackground
+                  ? bgColor || item.background
+                  : undefined,
                 height: itemHeight ? pxToVw(itemHeight) : undefined,
                 position: 'relative',
-              }}
-            >
-              {renderItem(item, index)}
-            </div>
+              }
+              return (
+                <div
+                  {...({
+                    style: contentStyle,
+                    className: 'auto-scroll-slide-content-wrapper',
+                  } as any)}
+                >
+                  {renderItem(item, index)}
+                </div>
+              )
+            })()}
           </div>
         ))}
       </div>

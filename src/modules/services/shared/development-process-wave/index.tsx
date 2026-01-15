@@ -3,7 +3,6 @@
 import React from 'react'
 import './style.scss'
 import { SectionTitle } from '@/shared/typography'
-import MonkSVG from './assets/monk.svg';
 
 interface ProcessStep {
   title: string;
@@ -82,7 +81,7 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
       <div className="monk-container">
         {/* <MonkSVG className="monk-graphic" /> */}
       </div>
-      {showTitle && <SectionTitle  text={title} markText={highlightedText} align='center' />}
+      {showTitle && <SectionTitle text={title} markText={highlightedText} align='center' />}
 
       <div className="process-wrapper">
         {/* Circles and Text Overlays - Moved before SVG to allow sibling selector targeting in CSS */}
@@ -214,7 +213,7 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
       {/* Mobile Version */}
       <div className="mobile-flow">
         {steps.map((step, index) => (
-          <div key={index} className="mobile-step" style={{ '--step-color': step.color } as React.CSSProperties}>
+          <div key={index} className="mobile-step">
             <div className="mobile-number">{step.number}</div>
             <div className="mobile-text">
               <h3>{step.title}</h3>

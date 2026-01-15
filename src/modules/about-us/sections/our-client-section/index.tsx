@@ -4,9 +4,9 @@ import { Box, Stack } from '@mui/material'
 import { OurPartnersList } from '@/assets/icons/collaboration'
 import AutoScrollCarousel from '@/shared/auto-scroll-carousel'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import './styles.scss'
 import { memo } from 'react'
 import Image from 'next/image'
+import './styles.scss'
 
 export const OurClientSection = memo(() => {
   return (
@@ -23,15 +23,15 @@ export const OurClientSection = memo(() => {
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
           itemWidth={350}
-          space={120}
+          space={200}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={500}
-              height={300}
+              width={420}
+              height={160}
               loading="lazy"
               decoding="async"
               style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
@@ -44,15 +44,15 @@ export const OurClientSection = memo(() => {
           sliderProps={{ className: 'infinite-slider' }}
           reverse
           itemWidth={350}
-          space={120}
+          space={200}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={500}
-              height={300}
+              width={420}
+              height={160}
               loading="lazy"
               decoding="async"
               style={{ objectFit: 'contain', width: '100%', height: 'auto' }}

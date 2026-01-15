@@ -23,15 +23,13 @@ const ProductDevelopment: React.FC = () => {
         </svg>
 
         <h1 className="hero-title">
-          Reliable & Growth-Oriented <br />
+          Reliable & Growth-Oriented
           <span className="highlight">Product Development</span>
         </h1>
         <p className="hero-desc">
           We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
         </p>
-        <div className="btn-container">
-          <BaseButton className="explore-btn">EXPLORE MORE</BaseButton>
-        </div>
+        <BaseButton className="explore-btn" sx={{ marginTop: 'max(40px, 3.25vw)' }}>EXPLORE MORE</BaseButton>
       </div>
       <div className="visual-side">
         <div className="image-container">

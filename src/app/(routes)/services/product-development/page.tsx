@@ -16,8 +16,8 @@ const ProductDevelopmentPage = () => {
       <ItSolutions id='product-development' />
       <TechnologyTree isTechTree noRandomIcons/>
       <DevelopmentProcess />
-      <YourIdealChoice />
-      <BusinessSectors />
+      {/* <YourIdealChoice /> */}
+      {/* <BusinessSectors /> */}
       <ReadyToTalkProductDevelopment />
       <FAQ />
     </div>

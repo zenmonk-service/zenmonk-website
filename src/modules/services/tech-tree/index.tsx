@@ -3,7 +3,7 @@
 import Stack from '@mui/material/Stack'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import { TechTreeImage1, Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group9, Group10, Gears, DevTechTree } from './assets'
+import { TechTreeImage1, Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group10, Gears, DevTechTree, Group, SharpDevTechTree } from './assets'
 import { RandomBgIcons } from './random-bg-icons/random-bg-icons'
 import { Box } from '@mui/material'
 import Image from 'next/image'
@@ -22,12 +22,12 @@ interface TechnologyTreeProps {
 }
 
 const TechnologyTree = ({
-  Icons = [Group2, Group4, Group10, Group5, Group6, Group7, Group1, Group9, Group3],
+  Icons = [Group2, Group4, Group10, Group5, Group6, Group7, Group1, Group, Group3],
   MainImage = <TechTreeImage1 />,
   title = "Zen Tech Wonders We Excel In Innovation & Excellence",
   highlightedWord = "Excellence",
   description = "We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more.",
-  markTextProps = { rotate: 2 },
+  markTextProps,
   showGears = false,
   isTechTree = false,
   noRandomIcons
@@ -65,7 +65,7 @@ const TechnologyTree = ({
           />
         </Stack>
 
-        {isTechTree ? <DevTechTree /> : MainImage}
+        {isTechTree ? <Image src={SharpDevTechTree} alt="dev-tech-tree" width={100} height={100}   /> : MainImage}
       </Stack>
     </Stack>
   )

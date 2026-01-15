@@ -6,8 +6,8 @@
   .process-container {
     width: 100%;
     position: relative;
-    margin-top: 60px;
-    padding-bottom: 100px;
+    margin-top: 3.125vw;        // 60px
+    padding-bottom: 5.208vw;   // 100px
   }
 
   .process-path-svg {
@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    max-width: 180px;
+    max-width: 9.375vw;        // 180px
     transform: translate(-50%, -50%);
     width: 100%;
     justify-content: center;
@@ -62,18 +62,18 @@
   }
 
   .step-icon-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 1.042vw; // 20px
   }
 
   .step-icon-border {
-    width: 150px;
-    height: 150px;
+    width: 7.813vw;        // 150px
+    height: 7.813vw;       // 150px
     border-radius: 50%;
-    border: 6px solid;
+    border: 0.313vw solid; // 6px
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.313vw 1.042vw rgba(0, 0, 0, 0.1); // 6px 20px
   }
 
   .step-icon-inner {
@@ -91,9 +91,9 @@
   }
 
   .step-title {
-    font-size: 16px;
+    font-size: 0.833vw;     // 16px
     font-weight: 700;
-    margin: 0 0 12px 0;
+    margin: 0 0 0.625vw 0;  // 12px
     line-height: 1.3;
     color: #2c2c2c;
     width: 100%;
@@ -102,7 +102,7 @@
   }
 
   .step-description {
-    font-size: 13px;
+    font-size: 0.677vw; // 13px
     color: #999;
     line-height: 1.6;
     margin: 0;
@@ -110,13 +110,13 @@
 
   @media (max-width: 1200px) {
     .step-icon-border {
-      width: 130px;
-      height: 130px;
-      border-width: 5px;
+      width: 6.771vw;        // 130px
+      height: 6.771vw;       // 130px
+      border-width: 0.26vw;  // 5px
     }
 
     .step-item {
-      max-width: 180px;
+      max-width: 9.375vw; // 180px
     }
   }
 }

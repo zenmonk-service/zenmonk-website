@@ -2,6 +2,9 @@
   width: 100%;
   height: 100vh;
   overflow: visible;
+  @media (max-width:728px) {
+    height: auto;
+  }
 }
 
 .our-office-container {
@@ -13,6 +16,9 @@
   padding: 1% 7.8%;
   align-items: center; // Center vertically for the premium look in image 0
   min-height: 80vh;
+  @media (max-width:728px) {
+    min-height: auto;
+  }
 }
 
 .our-office-header {
@@ -91,12 +97,14 @@
   display: flex;
   flex-direction: column;
   min-height: 300px; // Maintain space for info
-  margin-top: -15vw;
+  margin-top: -16.5vw;
 }
 
 .flags-container {
   display: flex;
-  gap: 1.875vw;
+  gap: 1.25vw;
+  flex-wrap: wrap;
+  width: 70%;
 }
 
 .our-office-country-flag {
@@ -175,7 +183,8 @@
   }
 
   .flags-container {
-    gap: 12px;
+    width: 100%;
+    gap: 10px;
   }
 
   .our-office-country-flag {

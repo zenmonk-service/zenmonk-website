@@ -7,7 +7,7 @@
   align-items: center;
   background: #000;
   flex-direction: column;
-  padding:1% 7.8125%;
+  padding: 0% 7.8%;
 
   .section-title {
     margin-top: 3.02vw;
@@ -19,14 +19,14 @@
     text-align: center;
     width: 45.8333vw; // 90%
     color: var(--global-color-primary) !important;
-    margin-bottom: 1.98vw;
+    margin-bottom: 2.76vw;
   }
 
   .vision-list {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 4.02vw; // 77px
+    margin-bottom: 4.01vw; // 77px
     flex-wrap: wrap;
     gap: 2.6042vw; // 50px
   }

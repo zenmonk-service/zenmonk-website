@@ -1,0 +1,56 @@
+.ceoDetailsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-right: 12%;
+
+  img {
+    width: 50px;
+    height: 85px;
+
+    @media (max-width:728px) {
+      width: 40px;
+      height: 65px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.2vw;
+
+    .name {
+      color: #000;
+      font-family: Poppins;
+      font-size: max(14px, 1.25vw) !important;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+
+    }
+
+    .designation {
+      color: #666;
+      font-family: Poppins;
+      font-size: max(10px, 0.9375vw) !important;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    @media (max-width:728px) {
+      margin-top: 24px;
+
+      .name {
+        font-size: 14px;
+      }
+
+      .designation {
+        font-size: 10px;
+      }
+    }
+  }
+
+}

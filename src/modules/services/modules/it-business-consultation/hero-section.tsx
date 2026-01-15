@@ -12,6 +12,9 @@ const ItBusinessConsultationHeroSection = () => (
       highlightedText="IT & Business Expertise"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       url="/services/it.png"
+      imageStyle={{
+        scale: 1.2,
+      }}
     />
   </div>
 )

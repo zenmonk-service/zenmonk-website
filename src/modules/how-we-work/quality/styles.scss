@@ -5,7 +5,7 @@
   margin: 6.25vw auto 0;
   position: relative;
   background-color: white;
-  padding: 1% 7.8%;
+  padding: 0 7.8%;
   gap: max(5.21vw, 10.9375vw);
   /* 100px, 210px */
 
@@ -29,6 +29,7 @@
         font-style: normal;
         line-height: normal;
         margin-top: max(16px, 0.9375vw);
+        margin-bottom: max(60px, 3.55vw);
         font-size: var(--font-size-16);
         /* 16px */
       }

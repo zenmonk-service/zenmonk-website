@@ -1,8 +1,8 @@
 import { Box } from '@mui/material'
 import AwardProofCard from '../../components/card/award-proof'
 import { awardProof } from './award-proof'
-import './styles.scss'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
+import './styles.scss'
 
 export const AwardProofSection = () => {
   return (

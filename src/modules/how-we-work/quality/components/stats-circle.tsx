@@ -121,10 +121,10 @@ export const StatsCircle = ({
         />
       </svg>
 
-      <div style={{ textAlign: 'center', zIndex: 1, marginTop: responsiveSize(20), transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}>
+      <div style={{ textAlign: 'center', zIndex: 1, transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}>
         <div style={{
           color: '#404040',
-          fontSize: responsiveSize(28),
+          fontSize: responsiveSize(30),
           fontWeight: 700,
           lineHeight: '1',
         }}>
@@ -133,9 +133,9 @@ export const StatsCircle = ({
 
         <div style={{
           color: '#404040',
-          fontSize: responsiveSize(12),
+          fontSize: responsiveSize(14),
           fontWeight: 700,
-          lineHeight: '1.2',
+          lineHeight: 'normal',
           marginTop: responsiveSize(4),
         }}>
           {label}<br />{subLabel}

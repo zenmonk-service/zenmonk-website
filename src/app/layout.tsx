@@ -1,6 +1,6 @@
 'use client'
 
-import { Poppins, Montserrat, Inter } from 'next/font/google'
+import { Poppins, Montserrat, Inter, Satisfy } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { useEffect, useState, Suspense } from 'react'
 import { usePathname } from 'next/navigation'
@@ -12,6 +12,14 @@ import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
 import ScrollProvider from '@/shared/scroll-smoother/scroll-provider'
 import './globals.css'
+
+
+const satisfy = Satisfy({
+  variable: '--font-satisfy',
+  subsets: ['latin'],
+  weight: ['400'],
+  display: 'swap',
+})
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -54,7 +62,7 @@ export default function FlashScreenLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable}`}>
+      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} ${satisfy.variable}`}>
         {showFlashScreen ? (
           <FlashScreen closeScreen={handleCloseScreen} />
         ) : (

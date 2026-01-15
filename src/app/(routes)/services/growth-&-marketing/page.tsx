@@ -14,7 +14,7 @@ const GrowthAndMarketing = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id="growth-and-marketing" />
-      <TechnologyTree />
+      <TechnologyTree noRandomIcons isTechTree/>
       <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />

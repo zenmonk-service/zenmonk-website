@@ -5,10 +5,8 @@
 }
 
 .section {
-  padding-left: 7.8125%;
-  padding-right: 7.8125%;
-  padding-top: 2vw;
-  height: 100svh;
+  padding: 8.125vw 7.8% 6.25vw;
+  height: 100vh;
 }
 
 .textWrapper {
@@ -23,7 +21,7 @@
   color: #132427;
   flex-wrap: wrap;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 3.125vw !important;
+  font-size: max(28px, 3.125vw) !important;
   font-style: normal;
   font-weight: 600 !important;
   line-height: 3.6458vw;
@@ -44,7 +42,7 @@
   flex-wrap: wrap;
   color: #757575 !important;
   font-family: Poppins, sans-serif !important;
-  font-size: var(--font-size-24) !important;
+  font-size: max(16px, 1.25vw) !important;
   font-style: normal;
   font-weight: 400 !important;
   line-height: normal;
@@ -56,7 +54,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 40vw;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -64,8 +61,10 @@
 }
 
 .image {
-  margin-top: 2.6vw;
-  transform: translateY(2.6vw) scale(0.95) rotateX(10deg);
+  width: 29.48vw !important;
+  height: 33.36vw !important;
+  min-width: 353.505px;
+  min-height: 346.203px;
   animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
 }
 

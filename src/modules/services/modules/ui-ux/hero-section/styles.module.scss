@@ -38,18 +38,19 @@
 .textDescription {
   color: #757575;
   font-family: 'Poppins', sans-serif;
-  font-size: var(--font-size-24);
+  font-size: max(16px, 1.25vw);
   font-style: normal;
   font-weight: 400;
   width: 75%;
-  line-height: 1.979vw;
+  line-height: normal;
   letter-spacing: 0.038vw;
 }
 
 .imageContainer {
   position: relative;
-  margin-top: 6vw;
+  margin-top: 4vw;
   flex: 1;
+  scale: 0.85;
 }
 
 .heroImage {

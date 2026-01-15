@@ -4,10 +4,10 @@ import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { HeroSection } from '@/shared/hero-section'
-import './styles.scss'
 import innerIcons from './icon-positions/inner-icons'
 import outerIcons from './icon-positions/outer-icons'
 import { degToRad } from './icon-positions/icons-positions'
+import './styles.scss'
 
 const pxToVw = (px: number, base = 1920) => `${(px / base) * 100}vw`
 
@@ -39,8 +39,8 @@ const SoftwareDevelopmentHeroSection = () => {
       }}
     >
       <HeroSection
-        title="Software<br/>Development"
-        highlightedText="Software"
+        title="Reliable & Scalable Software Development"
+        highlightedText="Software Development"
         description="Zenmonk delivers scalable and secure enterprise software, providing end-to-end support from legacy modernization to deployment. We ensure optimal performance with solutions tailored to your business needs."
         url="/services/software-development/engineer.png"
         imageStyle={{

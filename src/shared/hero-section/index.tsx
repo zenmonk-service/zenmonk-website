@@ -71,8 +71,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className={styles.image}
             src={url}
             alt="Hero Image"
-            width={600}
-            height={600}
+            width={400}
+            height={500}
             priority
             style={{
               width: '100%',

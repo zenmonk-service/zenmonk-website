@@ -6,6 +6,9 @@ const IndustrySpecificHeroSection = () => (
     title="Industry Specific<br/>Solutions"
     highlightedText="Industry Specific"
     description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+    imageStyle={{
+      scale: 1.2,
+    }}
   />
 )
 

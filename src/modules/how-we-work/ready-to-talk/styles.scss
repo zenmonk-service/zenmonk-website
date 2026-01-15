@@ -2,14 +2,20 @@
   margin: auto;
   display: flex;
   gap: 4.17vw;
-  margin-top: 6.25vw;
   align-items: center;
-  padding-left: 7.8%;
-  padding-right: 7.8%;
-  padding-bottom: 5%;
+  padding: 6.25vw 7.8%;
 
   .ready-to-talk-content {
     align-self: flex-start;
+
+    .ready-to-talk-title {
+      width: 80%;
+
+      @media (max-width:728px) {
+        width: 100%;
+      }
+    }
+
     .subheading {
       color: #757575;
       font-family: 'Poppins', sans-serif;

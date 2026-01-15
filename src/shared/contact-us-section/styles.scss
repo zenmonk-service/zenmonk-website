@@ -181,6 +181,14 @@
   }
 }
 
+.countries-flags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.83vw !important;
+  margin-top: 0.83vw !important;
+}
+
+
 /* Tablet and below */
 @media screen and (max-width: 1024px) {
   .about-us-contact-us-section {

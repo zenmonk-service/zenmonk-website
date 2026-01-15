@@ -96,4 +96,56 @@ export const countries = [
       address: 'Cl. 40 #26a8, Bogotá, Colombia',
     },
   },
+
+  //usa
+  {
+    markerOffset: -15,
+    name: 'USA',
+    coordinates: [4.7110, -74.0721],
+    title: 'USA',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    img: '/countries/usa.svg',
+    idx: 6,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+      address: 'Cl. 40 #26a8, Bogotá, Colombia',
+    },
+  }
+  ,
+  // argentina
+  {
+    markerOffset: -15,
+    name: 'Argentina',
+    coordinates: [4.7110, -74.0721],
+    title: 'Argentina',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    img: '/countries/argentina.svg',
+    idx: 6,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+      address: 'Cl. 40 #26a8, Bogotá, Colombia',
+    },
+  },
+
+  //mexico
+  {
+    markerOffset: -15,
+    name: 'Mexico',
+    coordinates: [4.7110, -74.0721],
+    title: 'Mexico',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    img: '/countries/mexico.svg',
+    idx: 6,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+      address: 'Cl. 40 #26a8, Bogotá, Colombia',
+    },
+  }
+
 ]

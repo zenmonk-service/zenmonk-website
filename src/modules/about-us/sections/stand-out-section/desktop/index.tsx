@@ -1,42 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import DownloadSvg from '../assets/download.svg'
-import NoteSvg from '../assets/note.svg'
-import SearchSvg from '../assets/search.svg'
-import ThunderSvg from '../assets/thunder.svg'
 import styles from './desktop.module.scss'
-
-const options = [
-  {
-    title: 'Research & Analysis',
-    description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
-    icon: SearchSvg,
-    scale: 5,
-  },
-  {
-    title: 'Reliable Delivery',
-    description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
-    icon: DownloadSvg,
-    scale: 5,
-  },
-  {
-    title: 'Fast Execution',
-    description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
-    icon: ThunderSvg,
-    scale: 3.8,
-  },
-  {
-    title: 'Strategic Planning',
-    description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
-    icon: NoteSvg,
-    scale: 4.2,
-  },
-]
+import { standOutList } from '../stand-out'
 
 const StandOutSectionDesktop = () => {
   const textMotion = {
@@ -107,7 +73,7 @@ const StandOutSectionDesktop = () => {
 
       {/* List with stagger animation */}
       <motion.div className={styles.list} variants={listVariants}>
-        {options.map((option, idx) => {
+        {standOutList.map((option, idx) => {
           const MotionMyIcon = motion.create(option.icon)
           return (
             <motion.div

@@ -14,10 +14,10 @@ const ItAndBusinessConsultingPage = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id='it-and-business-consultation' />
-      <TechnologyTree />
-      <DevelopmentProcess />
+      <TechnologyTree noRandomIcons isTechTree/>
       <YourIdealChoice />
       <BusinessSectors />
+      <DevelopmentProcess />
       <ReadyToTalkShared />
       <FAQ />
     </div>
