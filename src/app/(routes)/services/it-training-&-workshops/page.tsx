@@ -16,7 +16,7 @@ const ItTrainingAndWorkshopsPage = () => {
       <Rating />
       <ItSolutions id='it-training-and-workshops'/>
       <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
-      <TechnologyTree />
+      <TechnologyTree  isTechTree noRandomIcons/>
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />

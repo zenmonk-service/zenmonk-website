@@ -1,4 +1,4 @@
-  'use client'
+'use client'
 
 import { usePathname } from 'next/navigation'
 import { SectionTitle } from '@/shared/typography'
@@ -11,6 +11,8 @@ import DevelopmentProcessIT from '../shared/development-process-it'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import CircularDevelopmentProcess from '../shared/circular-development-process'
 import DesigningProcess from '../shared/designing-process/DesigningProcess'
+import DevelopmentProcessExpertIt from '../shared/development-process-expert-it'
+import DevelopmentProductSteps from '../shared/development-product-steps'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
@@ -26,9 +28,9 @@ const DevelopmentProcess = () => {
       case 'mobile-app-development':
         return <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
-        return isMobile ? <DevelopmentProcessRoad /> : <It />
+        return <DevelopmentProcessExpertIt />
       case 'product-development':
-        return <DevelopmentProcessRoad />
+        return <DevelopmentProductSteps />
       case 'industry-specific-solutions':
         return <DevelopmentProcessHexagon />
       case 'ai-based-softwares':

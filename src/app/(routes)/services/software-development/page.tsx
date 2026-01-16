@@ -6,8 +6,8 @@ import HeroSection from '@/modules/services/modules/software-development/hero-se
 import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
-import TechTreeSection from './tech-tree-section'
 import { Box } from '@mui/material'
+import TechnologyTree from '@/modules/services/tech-tree'
 
 
 const SoftwareDevelopmentPage = () => {
@@ -17,7 +17,7 @@ const SoftwareDevelopmentPage = () => {
       <HeroSection />
       <Rating />
       <ItSolutions id={serviceId} />
-      <TechTreeSection />
+      <TechnologyTree noRandomIcons isTechTree />
       <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />

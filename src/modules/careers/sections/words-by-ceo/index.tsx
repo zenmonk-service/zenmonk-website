@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { CeoTextImage, ZenmonkLogo as Logo, CeoWordImage, Board, Ceo } from '../../assets/ceo-section'
-import './styles.scss'
+import { ZenmonkLogo as Logo, Board, Ceo } from '../../assets/ceo-section'
 import Details from './ceo-details'
+import './styles.scss'
 
 const WordsByCEO = () => {
   return (

@@ -60,7 +60,7 @@ const SuccessMessage = ({ jobTitle, tracking_id }: { jobTitle: string, tracking_
           <path
             d="M20 6L9 17L4 12"
             stroke="white"
-            strokeWidth={isMobile ? '2.5' : '0.16vw'}
+            strokeWidth={isMobile ? '2.5' : '0.3rem'}
             strokeLinecap="round"
             strokeLinejoin="round"
           />

@@ -6,12 +6,12 @@
   padding-right: 12%;
 
   img {
-    width: 50px;
-    height: 85px;
+    width: 2.604vw;   // 50px
+    height: 4.427vw;  // 85px
 
-    @media (max-width:728px) {
-      width: 40px;
-      height: 65px;
+    @media (max-width: 728px) {
+      width: 40px;  // 40px
+      height: 65px; // 65px
     }
   }
 
@@ -28,7 +28,6 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
-
     }
 
     .designation {
@@ -40,17 +39,8 @@
       line-height: normal;
     }
 
-    @media (max-width:728px) {
-      margin-top: 24px;
-
-      .name {
-        font-size: 14px;
-      }
-
-      .designation {
-        font-size: 10px;
-      }
+    @media (max-width: 728px) {
+      margin-top: 1.25vw; // 24px
     }
   }
-
 }

@@ -46,11 +46,9 @@ const SoftwareDevelopmentHeroSection = () => {
         imageStyle={{
           position: 'relative',
           zIndex: 10, // Person in the middle
-          maxWidth: isMobile ? '350px' : '37.5vw',
-          marginLeft: isMobile ? '0' : '-1vw',
-          transform: isMobile
-            ? 'scale(1.2) translateY(5%)'
-            : 'scale(2) translateY(10%)',
+          scale:isMobile ? 1.2 :1.4,
+          marginLeft:isMobile ? '-5%' : '-5%',
+          marginTop:isMobile ? '-10%' : '0'
         }}
       >
         <div className="doodle-container">

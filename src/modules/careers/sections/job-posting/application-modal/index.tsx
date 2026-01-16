@@ -85,8 +85,18 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     '& .MuiOutlinedInput-root': {
       borderRadius: isMobile ? '8px' : '0.42vw',
       fontFamily: 'Poppins',
-      backgroundColor: '#F9FAFB',
+      backgroundColor: '#fbf9f9ff',
       fontSize: isMobile ? '14px' : '0.73vw',
+      padding: 0,
+      '& .MuiOutlinedInput-input': {
+        padding: isMobile ? '8px 12px' : '0.44vw 0.63vw !important',
+      },
+      '&.MuiInputBase-multiline': {
+        padding: isMobile ? '8px 12px' : '0.44vw 0.63vw !important',
+        '& .MuiOutlinedInput-input': {
+          padding: '0 !important',
+        },
+      },
       '& fieldset': {
         borderColor: '#E5E7EB'
       },
@@ -107,10 +117,11 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       open={open}
       onClose={onClose}
       fullScreen={isMobile}
-      maxWidth="sm"
+      maxWidth={false}
       fullWidth
       PaperProps={{
         sx: {
+          maxWidth: isMobile ? '100%' : '28.65vw',
           borderRadius: isMobile ? 0 : '0.83vw',
           padding: isMobile ? '16px' : '1.25vw',
           background: '#fff'
@@ -210,7 +221,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   size="small"
                   sx={getTextFieldStyles()}
                 />
-                {errors.fullName && <FormHelperText error>{errors.fullName.message}</FormHelperText>}
+                {errors.fullName && <FormHelperText className={styles.errorText} error>{errors.fullName.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.email} fullWidth>
@@ -230,7 +241,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   size="small"
                   sx={getTextFieldStyles()}
                 />
-                {errors.email && <FormHelperText error>{errors.email.message}</FormHelperText>}
+                {errors.email && <FormHelperText className={styles.errorText} error>{errors.email.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.phone} fullWidth>
@@ -244,7 +255,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   size="small"
                   sx={getTextFieldStyles()}
                 />
-                {errors.phone && <FormHelperText error>{errors.phone.message}</FormHelperText>}
+                {errors.phone && <FormHelperText className={styles.errorText} error>{errors.phone.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.portfolioLink} fullWidth>
@@ -269,7 +280,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   {...register('resume', { required: 'Resume is required' })}
                   className={`${styles.fileInput} ${errors.resume ? styles.errorBorder : ''}`}
                 />
-                {errors.resume && <FormHelperText error>{errors.resume.message}</FormHelperText>}
+                {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.message} fullWidth>

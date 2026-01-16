@@ -1,10 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import parse from 'html-react-parser'
 import Grid from '@mui/material/Grid2'
 import BaseButton from '../button'
 import styles from './hero-section.module.scss'
 import Image from 'next/image'
+import { Skeleton } from '@mui/material'
 
 interface HeroSectionProps {
   title: string
@@ -29,6 +31,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   children,
   showImage = true,
 }) => {
+  const [loading, setLoading] = useState(true)
+
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
 
@@ -65,23 +69,38 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         className={styles.imageContainer}
         display="flex"
         justifyContent="center"
+        flexDirection="column"
+        alignItems="center"
       >
         {showImage && url && (
-          <Image
-            className={styles.image}
-            src={url}
-            alt="Hero Image"
-            width={400}
-            height={500}
-            priority
-            style={{
-              width: '100%',
-              height: 'auto',
-              objectFit: 'contain',
-              borderRadius: 2,
-              ...imageStyle,
-            }}
-          />
+          <>
+            {loading && (
+              <Skeleton
+                variant="rectangular"
+                width="100%"
+                height={400}
+                sx={{ borderRadius: 2, bgcolor: 'rgba(255,255,255,0.1)' }}
+              />
+            )}
+            <Image
+              className={styles.image}
+              src={url}
+              alt="Hero Image"
+              width={400}
+              height={500}
+              priority
+              onLoad={() => setLoading(false)}
+              style={{
+                width: '100%',
+                height: loading ? 0 : 'auto',
+                objectFit: 'contain',
+                borderRadius: 2,
+                opacity: loading ? 0 : 1,
+                transition: 'opacity 0.3s ease-in-out',
+                ...imageStyle,
+              }}
+            />
+          </>
         )}
         {children}
       </Grid>
