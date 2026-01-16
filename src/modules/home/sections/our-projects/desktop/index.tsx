@@ -21,47 +21,74 @@ const OurProjectsDesktop = () => {
     deckRef.current.scrollTo({ left: 0, behavior: 'smooth' })
   }, [deck])
 
-  const handleSelect = (index: number) => {
-    // 1️⃣ Remove clicked card first (CRITICAL)
-    setDeck(prev => prev.filter(i => i !== index))
+  const [isResetting, setIsResetting] = useState(false)
 
-    // 2️⃣ Promote card to background (keep last 2 for overlap)
-    setBgStack(prev => {
-      const newStack = [...prev, index]
-      // Keep only the last 2 items to prevent DOM bloat, 
-      // but ensure the *previous* BG stays while *new* one animates in.
-      return newStack.slice(-2)
-    })
-    historyRef.current.push(index)
+  const handleSelect = (id: number) => {
+    if (isResetting || id !== deck[0]) return
 
-    // 3️⃣ Scroll deck after DOM update
-    // 3️⃣ Scroll deck handled by useEffect
+    if (id === 0 && bgStack.length === projects.length) {
+      setIsResetting(true)
 
-    // 4️⃣ Last card logic → refill deck
-    if (deck.length === 1) {
-      requestAnimationFrame(() => {
-        const refill = projects.map((_, i) => i).filter(i => i !== index)
-        historyRef.current = []
-        setDeck(refill)
-        // Scroll handled by useEffect
-      })
+      // Step A: Project 4 returns
+      setBgStack(prev => prev.filter(v => v !== 3))
+      setDeck([3])
+
+      setTimeout(() => {
+        // Step B: Project 3 returns
+        setBgStack(prev => prev.filter(v => v !== 2))
+        setDeck([2, 3])
+
+        setTimeout(() => {
+          // Step C: Project 2 returns, reset to base state
+          setBgStack([0])
+          setDeck([1, 2, 3])
+          setIsResetting(false)
+        }, 1200)
+      }, 1000)
+      return
     }
+
+    // 3️⃣ Normal Selection
+    const nextDeck = deck.slice(1)
+
+    if (nextDeck.length === 1 && nextDeck[0] === projects.length - 1) {
+      setDeck([projects.length - 1, 0])
+    } else {
+      setDeck(nextDeck)
+    }
+
+    setBgStack(prev => {
+      if (prev.includes(id)) return prev
+      return [...prev, id]
+    })
   }
 
   return (
     <section className="our-projects-section-wrapper">
       <div className="our-work-container">
 
-        {/* ===== FULLSCREEN BACKGROUND STACK ===== */}
         <AnimatePresence mode="popLayout">
           {bgStack.map((index, i) => (
             <motion.div
               key={index}
               className="shared-bg"
               layoutId={`project-${index}`}
+              animate={{
+                opacity: 1,
+                scale: 1 - (bgStack.length - 1 - i) * 0.05,
+                filter: `brightness(${1 - (bgStack.length - 1 - i) * 0.1})`
+              }}
+              exit={{
+                x: isResetting ? 0 : '-100%',
+                y: 0,
+                opacity: 0,
+                scale: isResetting ? 0 : 1,
+                zIndex: isResetting ? 100 : i,
+                transition: { duration: 2.0, ease: [0.16, 1, 0.3, 1] }
+              }}
               style={{ zIndex: i }}
               transition={{
-                duration: 0.8,
+                duration: 1.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
@@ -103,37 +130,36 @@ const OurProjectsDesktop = () => {
 
         {/* ===== DECK ===== */}
         <div ref={deckRef} className="deck">
-          {deck.map((id, index) => (
-            <motion.div
-              key={id}
-              layout
-              layoutId={`project-${id}`}
-              className="card"
-              onClick={() => handleSelect(id)}
-              initial={{ opacity: 0, x: '100%' }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                transition: {
-                  delay: (deck.length - 1 - index) * 0.1,
-                  duration: 0.8,
-                  ease: 'backOut',
-                },
-              }}
-              transition={{
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-            >
-              <Image
-                src={projects[id].imageUrl}
-                alt=""
-                fill
-                sizes="25vw"
-                style={{ objectFit: 'cover' }}
-              />
-            </motion.div>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {deck.map((id, index) => (
+              <motion.div
+                key={id}
+                layoutId={`project-${id}`}
+                className="card"
+                onClick={() => handleSelect(id)}
+                initial={{ opacity: 0, x: -200 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                exit={{ opacity: 0, transition: { duration: 0.3 } }}
+                transition={{
+                  duration: 2.0,
+                  ease: [0.16, 1, 0.3, 1],
+                  // Stagger only used for initial appearance
+                  delay: isResetting ? 0 : index * 0.1
+                }}
+              >
+                <Image
+                  src={projects[id].imageUrl}
+                  alt=""
+                  fill
+                  sizes="25vw"
+                  style={{ objectFit: 'cover' }}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
       </div>

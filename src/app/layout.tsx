@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import StoreProvider from '@/store/storeProvider'
 import CustomLoader from '@/modules/loader'
+import FullScreenLoading from '@/shared/lazy-section-wrapper/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
@@ -53,7 +54,17 @@ export default function FlashScreenLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [showFlashScreen, setShowFlashScreen] = useState(true)
-  const page = usePathname()
+  const [isPageLoading, setIsPageLoading] = useState(true)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setIsPageLoading(true)
+    const timeout = setTimeout(() => {
+      setIsPageLoading(false)
+      window.scrollTo(0, 0)
+    }, 1500)
+    return () => clearTimeout(timeout)
+  }, [pathname])
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('zenmonk_visited')
@@ -78,6 +89,7 @@ export default function FlashScreenLayout({
               <ScrollProvider>
                 <Header />
                 <CustomLoader />
+                {isPageLoading && <FullScreenLoading />}
                 <SmoothScroller>
                   <Suspense fallback={null}>
                     {children}
