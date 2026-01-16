@@ -21,12 +21,12 @@
       .textHeading {
         color: #132427;
         font-family: 'Poppins', sans-serif;
-        font-size: 3.125vw;
+        font-size: max(40px, 3.125vw);
         font-style: normal;
         font-weight: 600 !important;
-        line-height: 3.6vw;
+        line-height: max(44.53px, 3.6vw);
         text-transform: capitalize;
-        margin-bottom: 0.83vw;
+        margin-bottom: max(16px, 0.83vw);
         br {
           @media (max-width: 1195px) {
             display: none;
@@ -48,7 +48,7 @@
         font-size: max(16px, 1.25vw);
         font-style: normal;
         font-weight: 400;
-        line-height: 1.97vw;
+        line-height: max(25px, 1.97vw);
         letter-spacing: 3%;
       }
     }
@@ -57,7 +57,7 @@
   .topHorizontalDottedImage {
     position: absolute;
     top: -3%;
-    right: 18%;
+    right: 22%;
     z-index: -10;
     transform: rotate(90deg);
     height: 14.96vw;
@@ -81,13 +81,15 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .howWeWorkHeroSectionWrapper {
     padding: 0;
     gap: 46px;
     margin: 0;
     flex-direction: column-reverse;
     margin-top: 80px;
+    aspect-ratio: unset;
+    height: auto;
 
     .heroSection {
       padding: 0 16px;
@@ -107,7 +109,7 @@
           font-size: 16px;
           margin-bottom: 40px;
           text-align: center;
-          margin-top: 16px;
+          margin-top: 10px;
         }
       }
     }
@@ -119,12 +121,12 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1152px) {
+@media (min-width: 901px) and (max-width: 1152px) {
   .howWeWorkHeroSectionWrapper {
     gap: 16px;
-    padding-left: 3%;
-    padding-right: 3%;
-
+    height: auto;
+    width: 1;
+    aspect-ratio: 1.83;
     .heroSection {
       padding: 0px;
 
@@ -139,10 +141,26 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 1000px) {
+@media (min-width: 768px) and (max-width: 900px) {
   .howWeWorkHeroSectionWrapper {
+    gap: 40px;
     height: auto;
     width: 1;
-    aspect-ratio: 2;
+    aspect-ratio: 1.83;
+    .heroSection {
+      flex: 1;
+      .heroSectionTextWrapper {
+        max-width: 100%;
+
+        .textHeading {
+          font-size: 32px;
+          line-height: 40px;
+        }
+        .textDescription {
+          font-size: 14px;
+          line-height: 21px;
+        }
+      }
+    }
   }
 }
