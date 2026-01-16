@@ -1,10 +1,10 @@
 .howWeWorkHeroSectionWrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 8.125vw 7.8% 6.25vw;
-  gap: 8.3vw;
-  height: 100vh;
+  justify-content: space-between;
+  padding: 8.125vw 10% 6.25vw 7.8%;
+  gap: 6vw;
+  height: 95vh;
 
   .heroSection {
     display: flex;
@@ -27,8 +27,8 @@
         line-height: 3.6vw;
         text-transform: capitalize;
         margin-bottom: 0.83vw;
-        br{
-          @media (max-width:1195px) {
+        br {
+          @media (max-width: 1195px) {
             display: none;
           }
         }
@@ -44,12 +44,12 @@
 
       .textDescription {
         color: #757575;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: max(16px, 1.25vw);
         font-style: normal;
         font-weight: 400;
-        line-height: normal;
-        letter-spacing: 0.0375vw;
+        line-height: 1.97vw;
+        letter-spacing: 3%;
       }
     }
   }
@@ -65,8 +65,8 @@
 
   .bottomHorizontalDottedImage {
     position: absolute;
-    left: 12%;
-    top: 12.5%;
+    left: 10.5%;
+    top: 13.55%;
     transform: rotate(90deg);
     height: 14.96vw;
   }
@@ -136,5 +136,13 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .howWeWorkHeroSectionWrapper {
+    height: auto;
+    width: 1;
+    aspect-ratio: 2;
   }
 }
