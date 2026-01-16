@@ -104,10 +104,10 @@ async function seed() {
     console.log('Seeding Job Postings...');
     const createdJobs = await JobPosting.insertMany(jobsData);
     console.log(`Created ${createdJobs.length} job postings`);
-
+    
     // Link Skills to Jobs
     console.log('Linking Skills to Jobs...');
-    const jobSkillLinks = [];
+    const jobSkillLinks:any = [];
 
     // Map skills by name for easy lookup
     const skillMap = createdSkills.reduce((acc, skill) => {

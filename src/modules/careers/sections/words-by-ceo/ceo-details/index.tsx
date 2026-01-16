@@ -1,7 +1,7 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import styles from "./styles.module.scss"
 
-const Details = ({ name, designation, image }: { name: string, designation: string, image: string }) => {
+const Details = ({ name, designation, image }: { name: string, designation: string, image: StaticImageData }) => {
   return (
     <div className={styles.ceoDetailsWrapper}>
       <Image src={image} alt="ceo-image" width={50} height={85} priority/>

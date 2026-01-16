@@ -243,7 +243,6 @@ export default function TrackApplicationPage() {
               <Box sx={{ display: 'flex', gap: isMobile ? '24px' : '1.56vw', flexWrap: 'wrap' }}>
                 <Box>
                   <Typography sx={{
-                    fontSize: isMobile ? '12px' : '0.63vw',
                     fontSize: 'max(12px, 0.63vw)',
                     color: '#9CA3AF',
                     mb: isMobile ? '4px' : '0.21vw'

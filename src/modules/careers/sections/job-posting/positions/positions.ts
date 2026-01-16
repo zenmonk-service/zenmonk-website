@@ -6,6 +6,7 @@ export const positionsList: Department[] = [
     id: 1,
     positions: [
       {
+        id: '1',
         title: 'Frontend Developer',
         heading: 'React.js Frontend Developer',
         isOpening: true,
@@ -36,6 +37,8 @@ export const positionsList: Department[] = [
     id: 2,
     positions: [
       {
+        id: '2',
+
         title: 'UI-UX Designer',
         heading: 'Experienced UI-UX Designer',
         isOpening: true,
@@ -66,6 +69,8 @@ export const positionsList: Department[] = [
     department: 'Management',
     positions: [
       {
+        id: '3',
+
         title: 'Project Manager',
         heading: 'Agile Project Manager',
         isOpening: true,
@@ -95,6 +100,8 @@ export const positionsList: Department[] = [
     department: 'Sales',
     positions: [
       {
+        id: '4',
+
         title: 'Sales Executive',
         heading: 'B2B Sales Executive',
         isOpening: true,
@@ -125,6 +132,8 @@ export const positionsList: Department[] = [
     department: 'Admin',
     positions: [
       {
+        id: '5',
+
         title: 'Administrative Assistant',
         heading: 'Office Administrative Assistant',
         isOpening: true,
@@ -154,6 +163,8 @@ export const positionsList: Department[] = [
     department: 'Marketing',
     positions: [
       {
+        id: '6',
+
         title: 'Digital Marketing Specialist',
         heading: 'SEO & Social Media Marketing Specialist',
         isOpening: true,
