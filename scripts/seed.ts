@@ -107,7 +107,7 @@ async function seed() {
 
     // Link Skills to Jobs
     console.log('Linking Skills to Jobs...');
-    const jobSkillLinks = [];
+    const jobSkillLinks: Array<{ job_posting: any; skill: any }> = [];
 
     // Map skills by name for easy lookup
     const skillMap = createdSkills.reduce((acc, skill) => {

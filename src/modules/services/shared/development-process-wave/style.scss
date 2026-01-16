@@ -71,7 +71,7 @@
 
         span {
           font-family: var(--font-primary, 'Outfit', sans-serif);
-          font-size: 3rem;
+          font-size: max(71px, 3.2vw);
           font-weight: 700;
         }
       }

@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import './style.scss'
 import { SectionTitle } from '@/shared/typography'
 import SearchIcon from './assets/search.svg'
 import BulbIcon from './assets/bulb.svg'
@@ -9,6 +8,7 @@ import GearBig from './assets/gears/big.svg'
 import GearSmall from './assets/gears/small.svg'
 import DesktopIcon from './assets/desktop.svg'
 import FolderIcon from './assets/folder.svg'
+import './style.scss'
 
 interface ProcessStep {
   title: string;

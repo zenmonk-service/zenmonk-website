@@ -12,7 +12,8 @@ interface DevelopmentProcessITProps {
   showTitle?: boolean
 }
 
-const DevelopmentProcessIT: React.FC<DevelopmentProcessITProps> = () => {
+const 
+DevelopmentProcessIT: React.FC<DevelopmentProcessITProps> = () => {
   const isMobile = useMediaQuery('(max-width: 768px)')
 
   const steps = [

@@ -1,0 +1,405 @@
+.circular-process-section {
+  background: #fff;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .process-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 90vw;
+    height: 40vw; // Give it a height so absolutely positioned children are visible
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .svg-container {
+      display: none;
+    }
+
+    .overlay-step {
+      position: absolute;
+      width: 16vw;
+      height: 16vw;
+      max-width: 11.46vw; // 220px
+      max-height: 11.46vw; // 220px
+      min-width: 9.38vw; // 180px
+      min-height: 9.38vw; // 180px
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      pointer-events: auto;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+
+      // Position classes for each step
+      &.step-1 {
+        left: 16%;
+        top: 25%;
+      }
+
+      &.step-2 {
+        left: 30.5%;
+        top: 45.5%;
+      }
+
+      &.step-3 {
+        left: 45%;
+        top: 25%;
+      }
+
+      &.step-4 {
+        left: 60%;
+        top: 45.5%;
+      }
+
+      &.step-5 {
+        left: 75%;
+        top: 25%;
+      }
+
+      .icon-badge {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 0.16vw solid; // 3px
+        background: white;
+        position: relative;
+        box-shadow: 0 0.42vw 1.25vw rgba(0, 0, 0, 0.12); // 0 8px 24px
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: calc(100% + 6.25vw); // 172px
+          height: calc(100% + 6.25vw); // 172px
+          border-radius: 50%;
+          border: 0.16vw solid; // 3px
+          border-color: inherit;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        svg {
+          width: 45%;
+          height: auto;
+          color: white;
+          fill: currentColor;
+          position: relative;
+          z-index: 2;
+        }
+
+        .gears-wrapper {
+          width: 50%;
+          height: 50%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 2;
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      // Color classes for each step
+      &.step-1 {
+        .icon-badge {
+          border-color: #E91E8C;
+          background: #E91E8C;
+        }
+
+        h3 {
+          color: #E91E8C;
+        }
+      }
+
+      &.step-2 {
+        .icon-badge {
+          border-color: #175BDD;
+          background: #175BDD;
+        }
+
+        h3 {
+          color: #175BDD;
+        }
+      }
+
+      &.step-3 {
+        .icon-badge {
+          border-color: #FF9021;
+          background: #FF9021;
+        }
+
+        h3 {
+          color: #FF9021;
+        }
+      }
+
+      &.step-4 {
+        .icon-badge {
+          border-color: #00A86B;
+          background: #00A86B;
+        }
+
+        h3 {
+          color: #00A86B;
+        }
+      }
+
+      &.step-5 {
+        .icon-badge {
+          border-color: #FF6206;
+          background: #FF6206;
+        }
+
+        h3 {
+          color: #FF6206;
+        }
+      }
+
+      .content-box {
+        position: absolute;
+        width: 16vw;
+        max-width: 11.46vw; // 220px
+        min-width: 9.38vw; // 180px
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        pointer-events: auto;
+        opacity: 0.95;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+        h3 {
+          font-family: var(--font-primary, 'Outfit', sans-serif);
+          font-size: clamp(0.73vw, 1.2vw, 0.94vw) !important; // clamp(14px, 1.2vw, 18px)
+          font-weight: 700;
+          margin-bottom: 0.5vw;
+        }
+
+        p {
+          font-family: var(--font-secondary, 'Inter', sans-serif);
+          font-size: clamp(0.57vw, 0.9vw, 0.73vw); // clamp(11px, 0.9vw, 14px)
+          line-height: 1.5;
+          color: #666;
+        }
+
+        &.box-up {
+          bottom: calc(100% + 8.9vw);
+        }
+
+        &.box-down {
+          top: calc(100% + 8.9vw);
+        }
+      }
+    }
+
+    // Connector lines between steps
+    .step-connector {
+      position: absolute;
+      z-index: 5;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      svg {
+        width: 1.15vw; // 22px
+        height: auto;
+      }
+
+      &.connector-1 {
+        left: 22%;
+        top: 61.5%;
+        color: #E91E8C;
+      }
+
+      &.connector-2 {
+        left: 36%;
+        top: 24%;
+        color: #175BDD;
+        transform: rotate(180deg);
+      }
+
+      &.connector-3 {
+        left: 50.5%;
+        top: 61.5%;
+        color: #FF9021;
+      }
+
+      &.connector-4 {
+        left: 65.5%;
+        top: 24%;
+        color: #00A86B;
+        transform: rotate(180deg);
+      }
+
+      &.connector-5 {
+        left: 80.5%;
+        top: 61.5%;
+        color: #FF6206;
+      }
+    }
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 1100px) {
+  .circular-process-section {
+    padding: 0;
+    background: transparent;
+
+    .process-wrapper {
+      display: none;
+    }
+
+    .custom-mobile-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      max-width: 100%;
+      margin-top: 40px; // 40px
+
+      .mobile-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 16px 24px;
+        text-align: center;
+        position: relative;
+
+        &.step-1 {
+          background: #FFF0F8;
+          color: #E91E8C;
+        }
+
+        &.step-2 {
+          background: #EFF5FF;
+          color: #175BDD;
+        }
+
+        &.step-3 {
+          background: #FFF4E6;
+          color: #FF9021;
+        }
+
+        &.step-4 {
+          background: #E8F5F0;
+          color: #00A86B;
+        }
+
+        &.step-5 {
+          background: #FFF4E6;
+          color: #FF6206;
+        }
+
+        .mobile-icon-wrapper {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          aspect-ratio: 1/1;
+          flex-shrink: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 8px;
+          border-radius: 50%;
+          background: currentColor;
+
+          .mobile-hex-bg {
+            display: none;
+          }
+
+          .mobile-icon-content {
+            position: relative;
+            z-index: 1;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              width: 100%;
+              height: auto;
+              color: white;
+
+              path {
+                fill: white;
+                stroke: none;
+              }
+            }
+
+            .gears-wrapper {
+              position: relative;
+              width: 100%;
+              height: 100%;
+
+              .gear-big {
+                position: absolute;
+                width: 75%;
+                height: auto;
+                left: 0;
+                bottom: 10%;
+                color: white;
+
+                path {
+                  fill: white;
+                }
+              }
+
+              .gear-small {
+                position: absolute;
+                width: 45%;
+                height: auto;
+                right: 0;
+                bottom: 0;
+                color: white;
+
+                path {
+                  fill: white;
+                }
+              }
+            }
+          }
+        }
+
+        .mobile-content {
+          flex: 1;
+
+          h3 {
+            font-size: 18px; // 18px
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            color: currentColor;
+          }
+
+          p {
+            font-size: 12px; // 13px
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1101px) {
+  .custom-mobile-flow {
+    display: none;
+  }
+}

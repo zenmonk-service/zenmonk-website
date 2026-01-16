@@ -9,6 +9,8 @@ import DevelopmentProcessWave from '../shared/development-process-wave'
 import DevelopmentProcessRoad from '../shared/development-process-road'
 import DevelopmentProcessIT from '../shared/development-process-it'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import CircularDevelopmentProcess from '../shared/circular-development-process'
+import DesigningProcess from '../shared/designing-process'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
@@ -28,14 +30,15 @@ const DevelopmentProcess = () => {
       case 'product-development':
         return <DevelopmentProcessRoad />
       case 'industry-specific-solutions':
-      case 'ai-based-softwares':
         return <DevelopmentProcessHexagon />
+      case 'ai-based-softwares':
+        return <CircularDevelopmentProcess />
       case 'it-&-business-consultation':
         return <DevelopmentProcessIT />
       case 'cloud-development':
         return <DevelopmentProcessIT />
       case 'ui-ux-design':
-        return <DevelopmentProcessHexagon />
+        return <DesigningProcess />
       default:
         return <DevelopmentProcessIT />
     }

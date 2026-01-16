@@ -1,0 +1,255 @@
+@function vw($px) {
+  @return ($px / 1920) * 100vw;
+}
+
+.designing-process-container {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 7.8%;
+  position: relative;
+  overflow: hidden;
+
+  // Background decorative elements
+  .bg-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    .bg-icon {
+      position: absolute;
+      opacity: 0.5;
+    }
+  }
+
+  .designing-process-title {
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: vw(40);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: relative;
+    z-index: 1;
+
+    .gradient-text {
+      text-align: center;
+      font-family: "Potta One";
+      font-size: vw(80);
+      font-style: normal;
+      line-height: normal;
+      margin-top: vw(-10);
+      margin-bottom: vw(-20);
+    }
+  }
+
+  .designing-process-map {
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: vw(16) 0;
+    padding-bottom: vw(450); // Account for the staggered positioning of steps
+    position: relative;
+    z-index: 1;
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: vw(16);
+      flex: 0 0 auto;
+      position: relative;
+
+      // Staggered positioning - each step lower than previous
+      &:nth-child(1) {
+        top: 0;
+      }
+
+      &:nth-child(4) {
+        top: vw(50);
+      }
+
+      &:nth-child(7) {
+        top: vw(150);
+      }
+
+      &:nth-child(10) {
+        top: vw(250);
+      }
+
+      &:nth-child(13) {
+        top: vw(400);
+      }
+
+      .step-illustration {
+        width: vw(301.569);
+        height: vw(313.168);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .illustration-placeholder {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: vw(3) solid rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          svg {
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+          }
+        }
+
+        .step-image {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .step-label {
+        padding: vw(12) vw(32);
+        border-radius: vw(8);
+        color: white;
+        font-family: var(--font-primary, 'Outfit', sans-serif);
+        font-size: vw(16);
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 vw(4) vw(12) rgba(0, 0, 0, 0.15);
+        min-width: vw(120);
+      }
+    }
+
+    .arrow-connector {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      position: relative;
+
+      // Desktop horizontal arrow
+      &-desktop {
+        width: vw(80);
+        height: vw(50);
+        margin: 0 vw(-56);
+
+        // Staggered positioning for arrows to match steps
+        &:nth-child(2) {
+          top: vw(25); // Between step 1 (0) and step 2 (50px)
+        }
+
+        &:nth-child(5) {
+          top: vw(100); // Between step 2 (50px) and step 3 (150px)
+        }
+
+        &:nth-child(8) {
+          top: vw(200); // Between step 3 (150px) and step 4 (250px)
+        }
+
+        &:nth-child(11) {
+          top: vw(325); // Between step 4 (250px) and step 5 (400px)
+        }
+
+        svg {
+          width: vw(80);
+          height: auto;
+          opacity: 0.5;
+        }
+      }
+
+      // Mobile vertical arrow - hidden on desktop
+      &-mobile {
+        display: none;
+      }
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    padding: 3rem 1rem;
+
+    .designing-process-title {
+      font-size: 20px;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+
+      .gradient-text {
+        font-size: 54px;
+        margin: 5px 0;
+        display: block;
+      }
+    }
+
+    .designing-process-map {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding-bottom: 50px;
+
+      .process-step {
+        top: 0 !important;
+        margin-bottom: 0;
+        width: 100%;
+
+        .step-illustration {
+          width: 250px;
+          height: 250px;
+          margin-bottom: -20px; // Pull label closer to illustration
+
+          .step-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .step-label {
+          padding: 10px 30px;
+          border-radius: 4px;
+          font-size: 18px;
+          font-weight: 700;
+          text-transform: capitalize;
+          min-width: 160px;
+          box-shadow: none;
+          z-index: 2;
+        }
+      }
+
+      .arrow-connector {
+        &-desktop {
+          display: none;
+        }
+
+        &-mobile {
+          display: flex;
+          height: 60px;
+          margin: 10px 0;
+          z-index: 1;
+
+          svg {
+            height: 100%;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

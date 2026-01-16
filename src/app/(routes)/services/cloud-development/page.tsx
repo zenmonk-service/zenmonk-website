@@ -9,15 +9,15 @@ import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
 
 const CloudDevelopmentPage = () => {
-  return (
+return (
     <div>
       <HeroSection />
       <Rating />
       <ItSolutions id="cloud-development" />
       <TechnologyTree isTechTree noRandomIcons/>
-      <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />
+      <DevelopmentProcess />
       <ReadyToTalkShared />
       <FAQ />
     </div>

@@ -12,10 +12,10 @@ const AiBasedSoftwaresPage = () => {
     <div>
       <HeroSection />
       <ItSolutions id='ai-solutions' />
-      <TechnologyTree />
-      <DevelopmentProcess />
+      <TechnologyTree isTechTree noRandomIcons/>
       <YourIdealChoice />
       <BusinessSectors />
+      <DevelopmentProcess />
       <ReadyToTalkShared />
       <FAQ />
     </div>

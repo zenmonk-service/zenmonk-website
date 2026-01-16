@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import './style.scss'
 
-interface SpotlightCardProps extends React.PropsWithChildren {
+interface SpotlightCardProps {
   className?: string
   spotlightColor?: `rgba(${number}, ${number}, ${number}, ${number})`
+  children?: React.ReactNode
 }
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({

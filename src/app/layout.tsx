@@ -1,6 +1,6 @@
 'use client'
 
-import { Poppins, Montserrat, Inter, Satisfy } from 'next/font/google'
+import { Poppins, Montserrat, Inter, Satisfy, Potta_One } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import { useEffect, useState, Suspense } from 'react'
 import { usePathname } from 'next/navigation'
@@ -25,6 +25,13 @@ const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
+  display: 'swap',
+})
+
+const pottaOne = Potta_One({
+  variable: '--font-potta-one',
+  subsets: ['latin'],
+  weight: ['400'],
   display: 'swap',
 })
 
@@ -62,7 +69,7 @@ export default function FlashScreenLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} ${satisfy.variable}`}>
+      <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} ${satisfy.variable} ${pottaOne.variable}`}>
         {showFlashScreen ? (
           <FlashScreen closeScreen={handleCloseScreen} />
         ) : (

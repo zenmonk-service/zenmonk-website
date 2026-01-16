@@ -17,9 +17,9 @@ const AiSolutionsHeroSection = () => {
         highlightedText="Cloud Solutions"
         description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
         imageStyle={{
-          maxWidth: isMobile ? '293px' : '500px',
           margin: '0 auto',
           display: 'block',
+          scale: isMobile ? 1 : 1.2,
         }}
       />
       <Rating />

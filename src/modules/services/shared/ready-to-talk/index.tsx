@@ -1,8 +1,9 @@
 'use client'
 
-import { Box, Button, Stack } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { RTTGirlImg } from './assets'
+import BaseButton from '@/shared/button'
 import './style.scss'
 
 const ReadyToTalkShared = () => {
@@ -27,7 +28,7 @@ const ReadyToTalkShared = () => {
             text="Let’s get help from zenmonk’s software development experts"
           />
 
-          <Button className="rtt-button">READ MORE</Button>
+          <BaseButton className="rtt-button">READ MORE</BaseButton>
         </Box>
       </Box>
     </Stack>

@@ -7,12 +7,12 @@ import { transporter } from '@/config/mailer'
 import Contact from '@/models/contact'
 import Application from '@/models/job-application'
 import Subscriber from '@/models/subscriber'
-import CareerTemplate from '@/shared/email-templates/CareerTemplate'
-import ContactTemplate from '@/shared/email-templates/ContactTemplate'
-import NewApplicant from '@/shared/email-templates/NewApplicant'
-import NewContact from '@/shared/email-templates/NewContact'
-import NewSubscriber from '@/shared/email-templates/NewSubscriber'
-import SubscriberTemplate from '@/shared/email-templates/SubcriberTemplate'
+import CareerTemplate from '@/shared/email-templates/career-template'
+import ContactTemplate from '@/shared/email-templates/contact-template'
+import NewApplicant from '@/shared/email-templates/new-applicant'
+import NewContact from '@/shared/email-templates/new-contact'
+import NewSubscriber from '@/shared/email-templates/new-subscriber'
+import SubscriberTemplate from '@/shared/email-templates/subscriber-template'
 
 const UPLOAD_DIR = path.resolve('public/uploads')
 
