@@ -10,7 +10,7 @@ import DevelopmentProcessRoad from '../shared/development-process-road'
 import DevelopmentProcessIT from '../shared/development-process-it'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import CircularDevelopmentProcess from '../shared/circular-development-process'
-import DesigningProcess from '../shared/designing-process'
+import DesigningProcess from '../shared/designing-process/DesigningProcess'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()

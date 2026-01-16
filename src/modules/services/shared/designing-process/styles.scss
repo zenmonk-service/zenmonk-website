@@ -24,7 +24,23 @@
 
     .bg-icon {
       position: absolute;
-      opacity: 0.5;
+      opacity: 0.2;
+      width: var(--size);
+      height: var(--size);
+      top: var(--top);
+      bottom: var(--bottom);
+      left: var(--left);
+      right: var(--right);
+
+      @media (max-width: 768px) {
+        width: var(--m-size, var(--size));
+        height: var(--m-size, var(--size));
+        top: var(--m-top, var(--top));
+        bottom: var(--m-bottom, var(--bottom));
+        left: var(--m-left, var(--left));
+        right: var(--m-right, var(--right));
+        scale: 1.2;
+      }
     }
   }
 
@@ -32,7 +48,7 @@
     color: #000;
     text-align: center;
     font-family: Poppins;
-    font-size: vw(40);
+    font-size: max(30px, vw(40));
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -188,8 +204,9 @@
 
     .designing-process-title {
       font-size: 20px;
-      margin-bottom: 2rem;
+      margin-bottom: 40px;
       text-transform: uppercase;
+      line-height: 30%;
 
       .gradient-text {
         font-size: 54px;
@@ -201,13 +218,14 @@
     .designing-process-map {
       flex-direction: column;
       align-items: center;
-      gap: 0;
       padding-bottom: 50px;
 
       .process-step {
         top: 0 !important;
         margin-bottom: 0;
         width: 100%;
+        margin-left: -5%;
+        scale: 1.09;
 
         .step-illustration {
           width: 250px;
@@ -241,7 +259,7 @@
         &-mobile {
           display: flex;
           height: 60px;
-          margin: 10px 0;
+          margin: 40px 0;
           z-index: 1;
 
           svg {

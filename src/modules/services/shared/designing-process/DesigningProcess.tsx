@@ -45,7 +45,6 @@ const designingSteps: ProcessStep[] = [
   }
 ]
 
-// Define the colored title characters
 const designingTitle: TitleCharacter[] = [
   { char: 'D', color: '#2EC2CC' },
   { char: 'E', color: '#A263F5' },
