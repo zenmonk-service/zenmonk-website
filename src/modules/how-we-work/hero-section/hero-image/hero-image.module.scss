@@ -8,7 +8,7 @@
     width: 52%;
     height: 59%;
     position: absolute;
-    border-radius: max(20px, 1.04vw);
+    border-radius: max(16px, 1.04vw);
     background: url('../assets/top-card.png') center center no-repeat;
     background-size: cover;
   }
@@ -18,7 +18,7 @@
     width: 40.66%;
     height: 35.1%;
     position: absolute;
-    border-radius: max(20px, 1.04vw);
+    border-radius: max(16px, 1.04vw);
     background: url('../assets/right-card.png') center center no-repeat;
     background-size: cover;
   }
@@ -28,7 +28,7 @@
     width: 52%;
     height: 51%;
     position: absolute;
-    border-radius: max(20px, 1.04vw);
+    border-radius: max(16px, 1.04vw);
     background: url('../assets/bottom-card.png') center center no-repeat;
     background-size: cover;
   }
@@ -38,7 +38,7 @@
     height: 35.27%;
     background: var(--global-color-gradient);
     position: absolute;
-    border-radius: max(20px, 1.04vw);
+    border-radius: max(16px, 1.04vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,5 +79,30 @@
   .container {
     height: 355px;
     width: 95%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .container {
+    .bottomCard {
+      border-radius: 14px;
+    }
+    .leftCard {
+      border-radius: 14px;
+
+      .title {
+        font-size: 24px;
+      }
+
+      .description {
+        font-size: 10px;
+      }
+    }
+    .topCard {
+      border-radius: 14px;
+    }
+    .rightCard {
+      border-radius: 14px;
+    }
   }
 }

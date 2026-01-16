@@ -8,7 +8,7 @@ const InnovationMobile = () => {
   return (
     <div className={styles.container}>
       <SectionTitle
-        text="We Deliver the Best with Innovation, Precision, and Excellence"
+        text="We Deliver the Best with Innovation, Precision and Excellence"
         markText="Excellence"
         align="left"
         className={styles.title}

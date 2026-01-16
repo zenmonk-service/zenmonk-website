@@ -22,7 +22,7 @@ const InnovationDesktop = () => {
           <SectionTitle
             className="innovation-title"
             text={
-              'We Deliver the Best with Innovation, Precision, and Excellence.'
+              'We Deliver the Best with Innovation, Precision and Excellence.'
             }
             markText="Excellence"
             markTextProps={{

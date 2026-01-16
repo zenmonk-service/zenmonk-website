@@ -5,19 +5,19 @@
   font-style: normal;
   font-weight: 400;
   font-family: 'Poppins', sans-serif !important;
-  padding: max(0.68vw, 0.67vw) max(0.73vw, 0.83vw);
-  border-radius: 2.24vw;
+  padding: max(12px, 0.67vw) max(16px, 0.83vw);
+  border-radius: max(43px, 2.24vw);
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.05vw solid white;
+  border: max(1px, 0.05vw) solid white;
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover,
   &.active {
     background-color: #ffd5ac38;
-    border: 0.05vw solid #ffa750;
+    border: max(1px, 0.05vw) solid #ffa750;
     color: #ffa750;
   }
 }
