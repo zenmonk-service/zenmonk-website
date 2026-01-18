@@ -2,43 +2,43 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 6.25vw auto 0;
+  margin: 0;
   position: relative;
-  background-color: white;
-  padding: 0 7.8%;
+  padding: 0 9.5%;
+  margin-top: -3.5vw;
+  height: 49.4vw;
   gap: max(5.21vw, 10.9375vw);
-  /* 100px, 210px */
+
+  .quality-background {
+    z-index: -1;
+    position: absolute;
+  }
 
   .first-section {
-    max-width: 34.2708333333vw;
+    max-width: 35vw;
     z-index: 2;
     align-items: flex-start;
 
     .first-section-content {
       width: 100%;
-
-
       .quality-title {
         font-size: 2.08vw !important;
-        /* 40px */
       }
 
       .subheading {
         color: #757575;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-style: normal;
         line-height: normal;
         margin-top: max(16px, 0.9375vw);
         margin-bottom: max(60px, 3.55vw);
-        font-size: var(--font-size-16);
-        /* 16px */
       }
     }
-
 
     .stats-img-container {
       display: flex;
       flex-direction: row;
+      gap: 2vw;
       flex-wrap: nowrap;
       width: max-content;
     }
@@ -53,6 +53,56 @@
     flex: 1;
     height: 31.25vw;
 
+    .quality-img-dashed-arrow {
+      width: 6.9vw;
+      height: 5.4vw;
+      position: absolute;
+      top: 7%;
+      left: 18%;
+    }
+    .quality-img-1-container {
+      background: transparent;
+      position: relative;
+      bottom: -4%;
+      left: 10%;
+      position: absolute;
+      padding-top: 2vw;
+      padding-left: 2vw;
+      transform: rotateZ(-16deg);
+      z-index: 1;
+      .quality-img-quotes {
+        position: absolute;
+        left: 0;
+        top: 0;
+        svg {
+          height: 1.98vw;
+          width: 1.98vw;
+        }
+      }
+
+      .quality-img-1 {
+        background: url('/how-we-work/quality/image-1.png') lightgray 50% /
+          cover no-repeat;
+        box-shadow: 0.1vw 0.2vw 2.6vw 0 rgba(30, 92, 97, 0.09);
+        width: 16.14vw;
+        height: 21.9vw;
+        border-radius: 1.04vw;
+        z-index: 1;
+      }
+    }
+
+    .quality-img-2 {
+      width: 16.14vw;
+      position: absolute;
+      background: url('/how-we-work/quality/image-2.png') lightgray 50% / cover
+        no-repeat;
+      box-shadow: 0.1vw 0.2vw 2.6vw 0 rgba(30, 92, 97, 0.09);
+      height: 23.64vw;
+      left: 40%;
+      top: 10%;
+      transform: rotateZ(15deg);
+      border-radius: 20px;
+    }
     .quality-img {
       object-fit: contain;
     }
@@ -73,20 +123,15 @@
   .graph-icon {
     position: absolute;
     bottom: -6.25vw;
-    /* 120px */
     left: 7%;
   }
 
   .top-right-dotted-image {
     position: absolute;
     top: -5.73vw;
-    /* 110px */
     right: 0.52vw;
-    /* 10px */
     width: 5.21vw;
-    /* 100px */
     height: 7.81vw;
-    /* 150px */
   }
 }
 

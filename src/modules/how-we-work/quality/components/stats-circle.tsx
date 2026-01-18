@@ -29,9 +29,9 @@ export const StatsCircle = ({
   }
 
   // SVG geometry (KEEP PX)
-  const radius = 70
+  const radius = 94
   const strokeWidth = 14
-  const size = 188
+  const size = 210
   const center = size / 2
   const circumference = 2 * Math.PI * radius
 
@@ -62,7 +62,8 @@ export const StatsCircle = ({
   const strokeDasharray = `${visibleStroke} ${gapStroke}`
   const colorDashArray = `${(currentPercent / 100) * visibleStroke} ${circumference}`
 
-  const angleRad = ((startAngle + (currentPercent / 100) * arcLengthAngle) * Math.PI) / 180
+  const angleRad =
+    ((startAngle + (currentPercent / 100) * arcLengthAngle) * Math.PI) / 180
   const knobX = center + radius * Math.cos(angleRad)
   const knobY = center + radius * Math.sin(angleRad)
 
@@ -84,7 +85,11 @@ export const StatsCircle = ({
         width="100%"
         height="100%"
         viewBox={`0 0 ${size} ${size}`}
-        style={{ position: 'absolute', inset: 0, transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)',
+        }}
       >
         <circle
           cx={center}
@@ -121,24 +126,36 @@ export const StatsCircle = ({
         />
       </svg>
 
-      <div style={{ textAlign: 'center', zIndex: 1, transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)' }}>
-        <div style={{
-          color: '#404040',
-          fontSize: responsiveSize(30),
-          fontWeight: 700,
-          lineHeight: '1',
-        }}>
+      <div
+        style={{
+          textAlign: 'center',
+          zIndex: 1,
+          transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)',
+        }}
+      >
+        <div
+          style={{
+            color: '#404040',
+            fontSize: responsiveSize(30),
+            fontWeight: 700,
+            lineHeight: '1',
+          }}
+        >
           {value}
         </div>
 
-        <div style={{
-          color: '#404040',
-          fontSize: responsiveSize(14),
-          fontWeight: 700,
-          lineHeight: 'normal',
-          marginTop: responsiveSize(4),
-        }}>
-          {label}<br />{subLabel}
+        <div
+          style={{
+            color: '#404040',
+            fontSize: responsiveSize(16),
+            fontWeight: 700,
+            lineHeight: 'normal',
+            marginTop: responsiveSize(8),
+          }}
+        >
+          {label}
+          <br />
+          {subLabel}
         </div>
       </div>
     </div>
