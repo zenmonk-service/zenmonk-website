@@ -10,6 +10,7 @@ interface StatsCircleProps {
   label: string
   subLabel: string
   color: string
+  align: 'left' | 'center' | 'right'
   trackColor?: string
 }
 
@@ -19,6 +20,7 @@ export const StatsCircle = ({
   label,
   subLabel,
   color,
+  align = 'center',
   trackColor = '#E9EDF0',
 }: StatsCircleProps) => {
   const isMobile = useMediaQuery('(max-width:768px)')
@@ -30,7 +32,7 @@ export const StatsCircle = ({
 
   // SVG geometry (KEEP PX)
   const radius = 94
-  const strokeWidth = 14
+  const strokeWidth = 22
   const size = 210
   const center = size / 2
   const circumference = 2 * Math.PI * radius
@@ -39,7 +41,6 @@ export const StatsCircle = ({
   const startAngle = 140
 
   const visibleStroke = (arcLengthAngle / 360) * circumference
-  const gapStroke = circumference - visibleStroke
 
   const [currentPercent, setCurrentPercent] = useState(0)
 
@@ -59,7 +60,6 @@ export const StatsCircle = ({
     requestAnimationFrame(animate)
   }, [inView, percentage])
 
-  const strokeDasharray = `${visibleStroke} ${gapStroke}`
   const colorDashArray = `${(currentPercent / 100) * visibleStroke} ${circumference}`
 
   const angleRad =
@@ -67,28 +67,38 @@ export const StatsCircle = ({
   const knobX = center + radius * Math.cos(angleRad)
   const knobY = center + radius * Math.sin(angleRad)
 
+  const getAlignment = (align: 'left' | 'center' | 'right') => {
+    if (!isMobile) return { alignItems: 'center' }
+    if (align === 'right') {
+      return { alignItems: 'flex-end' }
+    } else if (align === 'left') {
+      return { alignItems: 'flex-start' }
+    } else {
+      return { alignItems: 'center' }
+    }
+  }
+
   return (
     <div
       ref={ref}
       style={{
         position: 'relative',
-        width: responsiveSize(size),
-        height: responsiveSize(size),
+        width: isMobile? "100%": 'max(10.9vw, 124px)',
+        height: 'max(124px, 12vw)',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
+        ...getAlignment(align),
         justifyContent: 'center',
         fontFamily: 'Poppins, sans-serif',
       }}
     >
       <svg
-        width="100%"
-        height="100%"
+        width='max(124px, 10.9vw)'
+        height='max(133px, 100%)'
         viewBox={`0 0 ${size} ${size}`}
         style={{
           position: 'absolute',
-          inset: 0,
-          transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)',
+          ...(isMobile && align === 'right' && { right: 0 }),
         }}
       >
         <circle
@@ -96,10 +106,10 @@ export const StatsCircle = ({
           cy={center}
           r={radius}
           stroke={trackColor}
-          strokeWidth={strokeWidth}
+          strokeWidth={12}
           strokeLinecap="round"
           fill="none"
-          strokeDasharray={strokeDasharray}
+          strokeDasharray={circumference}
           transform={`rotate(${startAngle} ${center} ${center})`}
         />
 
@@ -118,7 +128,7 @@ export const StatsCircle = ({
         <circle
           cx={knobX}
           cy={knobY}
-          r={10}
+          r={12}
           fill="white"
           stroke={color}
           strokeWidth={5}
@@ -130,13 +140,14 @@ export const StatsCircle = ({
         style={{
           textAlign: 'center',
           zIndex: 1,
-          transform: isMobile ? 'rotate(18deg)' : 'rotate(0deg)',
+          paddingLeft: isMobile && align === 'left' ? '35px' : '0px',
+          paddingRight: isMobile && align === 'right' ? '33px' : '0px',
         }}
       >
         <div
           style={{
             color: '#404040',
-            fontSize: responsiveSize(30),
+            fontSize: "max(1.5vw, 24px)",
             fontWeight: 700,
             lineHeight: '1',
           }}
@@ -147,10 +158,10 @@ export const StatsCircle = ({
         <div
           style={{
             color: '#404040',
-            fontSize: responsiveSize(16),
+            fontSize: "max(0.83vw, 10px)",
             fontWeight: 700,
             lineHeight: 'normal',
-            marginTop: responsiveSize(8),
+            marginTop: isMobile ? "4px" : responsiveSize(8),
           }}
         >
           {label}

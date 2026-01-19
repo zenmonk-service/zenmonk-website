@@ -1,16 +1,21 @@
+'use client'
+
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import Image from 'next/image'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import VerticalDottedImage from '../hero-section/assets/dotted-background.svg'
-import { Quotes, GraphIcon, DashedArrow } from './assets'
-import Background from "./assets/background.svg"
+import DashedArrow from './assets/arrow.svg'
+import Quotes from './assets/animated_path.svg'
 import QualityImgMobile from './assets/Image.png'
-import TopRightDottedImage from './assets/top-right-dotted.png'
+import Background from './assets/background.svg'
 import { StatsCircle } from './components/stats-circle'
 import './styles.scss'
 
 const Quality = () => {
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   return (
-    <div className="quality-hero-section-wrapper">
+    <div ref={sectionRef} className="quality-hero-section-wrapper">
       <Background className="quality-background" />
       <div className="first-section">
         <div className="first-section-content">
@@ -28,7 +33,7 @@ const Quality = () => {
           <SectionDescription
             className="subheading"
             text="We deliver Zen-inspired precise, mindful solutions by integrating deep
-            expertise with client collaboration; prioritizing transparency,
+            expertise with client collaboration— prioritizing transparency,
             innovation, and purposeful development to innovate impactful
             technology."
           />
@@ -41,50 +46,63 @@ const Quality = () => {
             label="Daily"
             subLabel="Stand-ups"
             color="#5CD65F"
+            align="left"
           />
           <StatsCircle
-            percentage={75}
+            percentage={78}
             value="350"
             label="Sprint"
             subLabel="Planning"
             color="#6DD4DC"
+            align="center"
           />
           <StatsCircle
-            percentage={65}
+            percentage={50}
             value="350"
             label="Backlog"
             subLabel="Refinement"
             color="#637BFF"
+            align="right"
           />
         </div>
       </div>
       <div className="quality-img-container">
-        {/* <Image
-          src={QualityImg}
-          alt="quality-img"
-          className="quality-img"
-          fill
-        /> */}
         <DashedArrow className="quality-img-dashed-arrow" />
-        <div className="quality-img-1-container">
+        <motion.div
+          initial={{ transform: 'rotateZ(0deg)', opacity: 0 }}
+          animate={
+            isInView
+              ? { transform: 'rotateZ(-16deg)', opacity: 1 }
+              : { transform: 'rotateZ(0deg)', opacity: 0 }
+          }
+          className="quality-img-1-container"
+          transition={{
+            duration: 1.2,
+            ease: 'easeOut',
+          }}
+        >
           <Quotes className="quality-img-quotes" />
           <div className="quality-img-1" />
-        </div>
-        <div className="quality-img-2" />
+        </motion.div>
+        <motion.div
+          initial={{ transform: 'rotateZ(0deg)', opacity: 0 }}
+          animate={
+            isInView
+              ? { transform: 'rotateZ(16deg)', opacity: 1 }
+              : { transform: 'rotateZ(0deg)', opacity: 0 }
+          }
+          className="quality-img-2"
+          transition={{
+            duration: 1.2,
+            ease: 'easeOut',
+          }}
+        />
       </div>
-      <Image
+      {/* <Image
         src={QualityImgMobile}
         alt="quality-img-mobile"
         className="quality-img-mobile"
         style={{ width: '100%', height: 'auto' }}
-      />
-
-      {/* <VerticalDottedImage className="vertical-dotted-image" /> */}
-      {/* <GraphIcon className="graph-icon" /> */}
-      {/* <Image
-        src={TopRightDottedImage}
-        alt=""
-        className="top-right-dotted-image"
       /> */}
     </div>
   )
