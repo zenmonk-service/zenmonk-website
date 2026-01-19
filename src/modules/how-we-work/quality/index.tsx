@@ -2,11 +2,9 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import Image from 'next/image'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import DashedArrow from './assets/arrow.svg'
 import Quotes from './assets/animated_path.svg'
-import QualityImgMobile from './assets/Image.png'
 import Background from './assets/background.svg'
 import { StatsCircle } from './components/stats-circle'
 import './styles.scss'
@@ -78,6 +76,7 @@ const Quality = () => {
           className="quality-img-1-container"
           transition={{
             duration: 1.2,
+            delay: 0.5,
             ease: 'easeOut',
           }}
         >
@@ -94,16 +93,11 @@ const Quality = () => {
           className="quality-img-2"
           transition={{
             duration: 1.2,
+            delay: 0.5,
             ease: 'easeOut',
           }}
         />
       </div>
-      {/* <Image
-        src={QualityImgMobile}
-        alt="quality-img-mobile"
-        className="quality-img-mobile"
-        style={{ width: '100%', height: 'auto' }}
-      /> */}
     </div>
   )
 }
