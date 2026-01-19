@@ -6,7 +6,7 @@
   position: relative;
   padding: 0 9.5%;
   margin-top: -3.5vw;
-  height: 49.4vw;
+  height: 100vh;
   gap: max(5.21vw, 10.9375vw);
 
   .quality-background {
@@ -18,7 +18,7 @@
     max-width: 35vw;
     z-index: 2;
     align-items: flex-start;
-
+    margin-top: 10px;
     .first-section-content {
       width: 100%;
       .quality-title {
@@ -188,10 +188,10 @@
         justify-content: center;
         flex-wrap: wrap;
         width: 100% !important;
-        gap: 16px;
+        gap: 32px;
         position: absolute;
-        scale: 0.7;
-        transform: rotate(-18deg) translate(-10%, -12%);
+        scale: 0.6;
+        transform: rotate(-18deg) translate(-8%, -18%);
       }
     }
   }

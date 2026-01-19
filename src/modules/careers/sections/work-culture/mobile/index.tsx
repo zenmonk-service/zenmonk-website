@@ -105,9 +105,6 @@ const WorkCultureMobile = () => {
         text="Zen Focused Work Environment"
         className={styles.title}
         markText="Environment"
-        markTextProps={{
-          rotate: 2,
-        }}
       />
       <SectionDescription
         className={styles.description}

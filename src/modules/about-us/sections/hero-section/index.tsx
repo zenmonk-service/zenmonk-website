@@ -15,9 +15,7 @@ const AboutUsHeroSection = () => {
             <span className={styles.highlightedText}> ZENMONK</span>
           </h1>
           <p className={styles.description}>
-            We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
+            We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
           </p>
           <BaseButton className={styles.button}> Let&apos;s Connect</BaseButton>
         </div>

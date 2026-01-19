@@ -2,9 +2,9 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 16px;
+  padding: 0 16px;
   .title {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
   .description {
     color: #5c5c5c;
@@ -16,7 +16,7 @@
   }
   .track {
     display: flex;
-    margin-top: 24px;
+    margin-top: 40px;
     .carouselItem {
       position: relative;
       overflow: hidden;

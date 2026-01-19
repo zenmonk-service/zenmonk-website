@@ -6,7 +6,6 @@
   gap: 8.072vw;
 }
 
-/* ---------- Left Section ---------- */
 .leftSection {
   width: 48%;
 }
@@ -42,7 +41,8 @@
 /* ---------- Large Screens ---------- */
 @media screen and (max-width: 1500px) {
   .section {
-    gap: 3.072vw;
+    gap: 0;
+    padding: 16px;
   }
 }
 
@@ -74,6 +74,7 @@
   .description {
     font-size: 14px;
     margin-top: 16px;
+    margin-bottom: 40px;
   }
 
   .excellenceImage {

@@ -1,16 +1,18 @@
 import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import './styles.scss'
 import TechCard from './tech-card'
 import Image from 'next/image'
 import Circle from './assets/circle.svg?url'
 import Expense from './assets/expense.svg?url'
 import { techSolution } from '@/assets/icons/it-solution'
 import TechSolutionMobile from './assets/tech-solution.svg?url'
+import { useMediaQuery } from '@mui/material'
+import './styles.scss'
 
 const TechSolution = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const isMobile = useMediaQuery('(max-width: 768px)');
   return (
     <div className="tech-solution-section-wrapper desktop">
       <div className="tech-solution-section">
@@ -19,7 +21,7 @@ const TechSolution = () => {
             <SectionTitle
               text="Maximizing Your Business Potential With Expert IT Solutions"
               markText="solutions"
-              align="left"
+              align={isMobile ? 'center' : 'left'}
             />
           </div>
           <SectionDescription

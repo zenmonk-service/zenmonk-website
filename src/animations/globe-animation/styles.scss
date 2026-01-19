@@ -123,6 +123,9 @@
   }
 }
 
+.country-info{
+  min-height: 130px;
+}
 .country-info .country-name {
   color: #132427;
   text-align: left;
@@ -154,17 +157,17 @@
       'footer';
     grid-template-columns: 100%;
     padding: 60px 24px;
-    gap: 14px;
+    gap: 24px;
     align-items: start;
   }
 
   .our-office-header .contact-title {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .our-office-header .contact-description {
     font-size: 14px;
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
   .globe-container {

@@ -1,7 +1,7 @@
 .perk-benefits-section {
   width: 100%;
   height: auto;
-  margin-bottom: 6.25vw;
+  margin-bottom: max(80px, 6.25vw);
 
   .container {
     max-width: 100%;
@@ -71,7 +71,7 @@
 @media screen and (max-width: 600px) {
   .perk-benefits-section {
     padding: 0 16px;
-    margin-top: 76px;
+    margin-top: 80px;
     .container {
       padding: 0px;
       .perks-benefits-list {

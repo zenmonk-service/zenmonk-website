@@ -1,12 +1,11 @@
+import { SectionTitle } from '@/shared/typography'
 import { standOutList } from '../stand-out'
 import styles from './mobile.module.scss'
 
 const StandOutSectionMobile = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.header}>
-        Our <span>Mission</span>
-      </h2>
+      <SectionTitle text="Our Mission" markText="Mission" align="left" className={styles.heading} />
       <p className={styles.headerDescription}>
         Providing good quality customer experience and support is as important and pivotal as offering top grade product. Providing good quality customer experience and support is as important and pivotal as offering top grade product.
       </p>

@@ -67,8 +67,8 @@
   }
 
   .container {
+    height: 100vh;
     flex-direction: column-reverse;
-    gap: 24px;
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -79,8 +79,13 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    margin-top: 24px;
   }
-
+  .imageContainer{
+    margin-top: 83px;
+    margin-bottom: 24px;
+    scale: 1.2;
+  }
   .title {
     color: #132427;
     text-align: center;

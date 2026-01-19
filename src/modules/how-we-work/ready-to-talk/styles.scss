@@ -84,6 +84,7 @@
 @media screen and (max-width: 900px) {
   .ready-to-talk-section-wrapper {
     flex-direction: column-reverse;
+    gap: 40px;
 
     .image-container {
       max-width: 500px;
@@ -94,7 +95,7 @@
 @media screen and (max-width: 600px) {
   .ready-to-talk-section-wrapper {
     padding: 0 16px;
-    margin: 64px 0px;
+    margin: 80px 0px;
     flex-direction: column-reverse;
 
     .ready-to-talk-content {

@@ -30,12 +30,13 @@
 @media screen and (max-width: 600px) {
   .businessSectorContainer {
     padding: 0 16px;
-    margin-top: 60px;
+    margin-top: 80px;
 
     .businessSectorDescription {
       max-width: 96%;
       font-size: 14px !important;
       margin-top: 16px !important;
+      margin-bottom: 16px;
     }
   }
 }

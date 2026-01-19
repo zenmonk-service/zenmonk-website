@@ -29,13 +29,13 @@ export const StatsCircle = ({
   }
 
   // SVG geometry (KEEP PX)
-  const radius = 94
+  const radius = 80
   const strokeWidth = 14
-  const size = 210
+  const size = 188
   const center = size / 2
   const circumference = 2 * Math.PI * radius
 
-  const arcLengthAngle = 260
+  const arcLengthAngle = 360
   const startAngle = 140
 
   const visibleStroke = (arcLengthAngle / 360) * circumference
@@ -96,11 +96,8 @@ export const StatsCircle = ({
           cy={center}
           r={radius}
           stroke={trackColor}
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
+          strokeWidth={strokeWidth - 8}
           fill="none"
-          strokeDasharray={strokeDasharray}
-          transform={`rotate(${startAngle} ${center} ${center})`}
         />
 
         <circle
@@ -108,7 +105,7 @@ export const StatsCircle = ({
           cy={center}
           r={radius}
           stroke={color}
-          strokeWidth={strokeWidth}
+          strokeWidth={strokeWidth + 8}
           strokeLinecap="round"
           fill="none"
           strokeDasharray={colorDashArray}
@@ -121,7 +118,7 @@ export const StatsCircle = ({
           r={10}
           fill="white"
           stroke={color}
-          strokeWidth={5}
+          strokeWidth={8}
           style={{ filter: 'drop-shadow(0 0.10vw 0.10vw rgba(0,0,0,0.1))' }}
         />
       </svg>
@@ -136,7 +133,7 @@ export const StatsCircle = ({
         <div
           style={{
             color: '#404040',
-            fontSize: responsiveSize(30),
+            fontSize: responsiveSize(28),
             fontWeight: 700,
             lineHeight: '1',
           }}
@@ -147,10 +144,10 @@ export const StatsCircle = ({
         <div
           style={{
             color: '#404040',
-            fontSize: responsiveSize(16),
+            fontSize: responsiveSize(15),
             fontWeight: 700,
             lineHeight: 'normal',
-            marginTop: responsiveSize(8),
+            marginTop: responsiveSize(7),
           }}
         >
           {label}

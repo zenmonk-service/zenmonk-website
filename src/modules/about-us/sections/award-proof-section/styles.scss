@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 7.8125vw; // 150px
-  margin-top: 6.25vw; // consistent spacing
+  padding-bottom: max(80px, 6.25vw); // 150px
+  margin-top: max(64px, 6.25vw); // consistent spacing
 
   .section-title{
     @media screen and (max-width: 1037px) {
@@ -13,8 +13,7 @@
       width: 100%;
       min-width: unset;
       text-align: left;
-      padding: 24px;
-      padding-bottom: 16px;
+      padding: 16px;
     }
   }
   .section-description {
@@ -36,7 +35,7 @@
       width: 100%;
       min-width: unset;
       text-align: left;
-      padding: 24px;
+      padding: 16px;
       padding-top: 0;
     }
   }
@@ -53,16 +52,15 @@
 
     @media screen and (max-width: 1499px) {
       gap: 12px; // 20px
+      padding: 16px;
       justify-content: center;
     }
 
     @media screen and (max-width: 1037px) {
-      // margin-top: 100px;
-      gap: 40px;
+      gap: 24px;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-bottom: 40px;
     }
   }
 }

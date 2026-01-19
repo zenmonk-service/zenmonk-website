@@ -82,8 +82,7 @@
     border-radius: 1.042vw;
     transition: all 0.3s ease-in-out;
     background: #FFF;
-    box-shadow: 0 0 3.125vw 0 rgba(0, 0, 0, 0.05);
-    /* 60px */
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 1;
 
@@ -96,7 +95,6 @@
       font-style: normal;
       font-weight: 500;
       line-height: max(24px, 1.5625vw);
-
     }
 
     .description {

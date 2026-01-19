@@ -1,6 +1,5 @@
 'use client'
 
-import { LazySection } from '@/shared/lazy-section-wrapper'
 import HeroSection from '@/modules/about-us/sections/hero-section'
 import {
   AwardProofSection,

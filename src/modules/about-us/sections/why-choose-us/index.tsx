@@ -37,12 +37,6 @@ export const WhyChooseUsSection = () => {
           className={styles.sectionTitle}
           text="Here’s How We Are Different From Others"
           markText="Others"
-          markTextProps={{
-            style: {
-              width: '100%',
-              bottom: '-0.4vw',
-            },
-          }}
           align="left"
         />
         <SectionDescription

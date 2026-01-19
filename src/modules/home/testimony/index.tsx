@@ -118,7 +118,7 @@ export default function Testimony() {
             ))}
           </div>
 
-          <div className="review">{ClientReviews[currentIndex].review}</div>
+          <div className="review">"{ClientReviews[currentIndex].review}"</div>
           <div
             style={{
               marginTop: '0.5208vw', // 10px = 0.5208vw
@@ -175,7 +175,7 @@ export default function Testimony() {
               <Image src={ClientReviews[currentIndex].imageUrl} fill alt="" />
             </div>
 
-            <div className="review">{ClientReviews[currentIndex].review}</div>
+            <div className="review">"{ClientReviews[currentIndex].review}"</div>
 
             <div>
               <div className="title">{ClientReviews[currentIndex].by}</div>

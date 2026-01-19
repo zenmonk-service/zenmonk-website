@@ -18,9 +18,9 @@ const SoftwareDevelopmentPage = () => {
       <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree noRandomIcons isTechTree />
-      <DevelopmentProcess />
       <YourIdealChoice />
       <BusinessSectors />
+      <DevelopmentProcess />
       <ReadyToStartSoftwareDev />
       <FAQ />
       <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />

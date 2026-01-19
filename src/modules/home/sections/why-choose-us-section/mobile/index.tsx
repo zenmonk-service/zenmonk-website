@@ -1,11 +1,15 @@
+'use client'
+
 import { SectionTitle } from '@/shared/typography'
-import IdeaSvg from '../assets/craft-collab.svg'
-import TimelineSvg from '../assets/deadline.svg'
-import TechSvg from '../assets/latest-tech.svg'
+import CraftCollabSvg from '../assets/craft-collab.svg'
 import SupportSvg from '../assets/support.svg'
+import AimSvg from '../assets/aim.svg'
+import DeadlineSvg from '../assets/deadline.svg'
 import './mobile.styles.scss'
 
 export default function WhyChooseUSMobile() {
+  const commonDescription = "Designs & develops experiences that help you innovate and grow"
+
   return (
     <div className="why-choose-us-mobile-container">
       <SectionTitle
@@ -14,44 +18,34 @@ export default function WhyChooseUSMobile() {
       />
       <div className="card-container">
         <div className="card">
-          <IdeaSvg />
-          <div>
-            <p className="title">We Comprehend, Customize, and Create</p>
-            <p className="description">
-              Understanding your unique needs to craft tailored software with
-              precision.
-            </p>
+          <CraftCollabSvg />
+          <div className="text-container">
+            <h3 className="title">We Listen, We Learn, Understand, Then Build</h3>
+            <p className="description">{commonDescription}</p>
           </div>
         </div>
+
         <div className="card">
           <SupportSvg />
-          <div>
-            <p className="title">24/7 Support with Quick Response</p>
-            <p className="description">
-              Available round the clock extending guaranteed response within 24
-              hours
-            </p>
+          <div className="text-container">
+            <h3 className="title">Less Than 24 Hours Guaranteed Response</h3>
+            <p className="description">{commonDescription}</p>
           </div>
         </div>
+
         <div className="card">
-          <TimelineSvg />
-          <div style={{ marginLeft: '12px' }}>
-            <p className="title">
-              Latest Tech Solutions for your business goals
-            </p>
-            <p className="description">
-              Real business results for companies with the goal of growing
-              revenue
-            </p>
+          <AimSvg />
+          <div className="text-container">
+            <h3 className="title">Meet Your Revenue Goal</h3>
+            <p className="description">{commonDescription}</p>
           </div>
         </div>
+
         <div className="card">
-          <TechSvg />
-          <div>
-            <p className="title">Handle Tight Deadlines</p>
-            <p className="description">
-              Designs & develops experiences that help you innovate and grow
-            </p>
+          <DeadlineSvg />
+          <div className="text-container">
+            <h3 className="title">Handle Tight Deadlines</h3>
+            <p className="description">{commonDescription}</p>
           </div>
         </div>
       </div>

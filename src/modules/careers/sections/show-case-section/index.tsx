@@ -13,9 +13,6 @@ const Showcases = () => {
           className="show-case-title"
           text="The Ultimate Showcase of Skill, Strategy, and Champions"
           markText="Champions"
-          markTextProps={{
-            rotate: 3,
-          }}
         />
         <div className="show-case-description-wrapper">
           <SectionDescription

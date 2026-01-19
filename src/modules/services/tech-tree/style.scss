@@ -62,7 +62,10 @@
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-
+  .tech-tree-container{
+    padding: 0;
+    padding-top: 64px;
+  }
   .tech-tree-left {
     max-width: 100% !important;
   }

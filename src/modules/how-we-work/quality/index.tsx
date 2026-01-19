@@ -1,10 +1,8 @@
 import Image from 'next/image'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import VerticalDottedImage from '../hero-section/assets/dotted-background.svg'
-import { Quotes, GraphIcon, DashedArrow } from './assets'
+import { Quotes, DashedArrow } from './assets'
 import Background from "./assets/background.svg"
 import QualityImgMobile from './assets/Image.png'
-import TopRightDottedImage from './assets/top-right-dotted.png'
 import { StatsCircle } from './components/stats-circle'
 import './styles.scss'
 
@@ -36,21 +34,21 @@ const Quality = () => {
 
         <div className="stats-img-container">
           <StatsCircle
-            percentage={70}
+            percentage={40}
             value="350"
             label="Daily"
             subLabel="Stand-ups"
             color="#5CD65F"
           />
           <StatsCircle
-            percentage={75}
+            percentage={40}
             value="350"
             label="Sprint"
             subLabel="Planning"
             color="#6DD4DC"
           />
           <StatsCircle
-            percentage={65}
+            percentage={40}
             value="350"
             label="Backlog"
             subLabel="Refinement"

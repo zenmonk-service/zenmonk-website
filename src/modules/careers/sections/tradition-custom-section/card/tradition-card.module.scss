@@ -6,7 +6,7 @@
   gap: 0.99vw;
   border-radius: 1.04vw;
   align-items: center;
-  border: 1px solid var(--global-color-primary, #fff);
+  border: 0.568px solid var(--White, #FFF);
 }
 
 .imageContainer {
@@ -39,6 +39,7 @@
   font-size: max(14px, 0.83vw);
   font-style: normal;
   font-weight: 600;
+  min-width: max-content;
 }
 
 /* ---------- Large Tablet ---------- */

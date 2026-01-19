@@ -405,8 +405,8 @@
 @media screen and (max-width: 900px) {
   .hero-section-home {
     flex-direction: column-reverse;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
     padding-top: 40px;
     justify-content: center;
     align-items: center;
@@ -519,6 +519,7 @@
           white-space: normal;
           color: #3C3C3C;
           min-width: unset;
+          font-weight: 400;
 
           br {
             display: none;
@@ -528,6 +529,7 @@
             color: #eb7c0d;
             background: none;
             -webkit-text-fill-color: unset;
+            font-weight: 600;
           }
         }
 
@@ -552,7 +554,7 @@
         padding: 12px 24px;
         height: auto;
         font-size: 14px;
-        margin-top: 16px;
+        margin-top: 24px;
         background: linear-gradient(90deg, #F89E37 0%, #EA7C0C 100%);
         border-radius: 6px;
       }

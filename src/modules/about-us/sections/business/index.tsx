@@ -22,7 +22,6 @@ export const BusinessSection = () => {
       <SectionTitle
         text="We Are The Complete Solution For Your Business Success"
         markText="Success"
-        markTextProps={{ rotate: 2 }}
         align="center"
         className={styles.heading}
       />

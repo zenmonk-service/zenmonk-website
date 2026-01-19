@@ -5,8 +5,8 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  margin-top: 6.25vw; // 120px
-  margin-bottom: 6.25vw;
+  margin-top: max(80px,6.25vw); // 120px
+  margin-bottom: max(80px,6.25vw);
 
   .section-description {
     margin-top: 0.781vw;

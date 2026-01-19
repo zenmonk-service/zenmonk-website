@@ -1,8 +1,8 @@
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import styles from './innovation.module.scss'
 import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
 import { innovations } from './innovations'
+import styles from './innovation.module.scss'
 
 const InnovationExcellence = () => {
   return (
@@ -13,7 +13,6 @@ const InnovationExcellence = () => {
           text="Our Promise of Innovation and Excellence"
           markText="Excellence"
           className={styles.title}
-          markTextProps={{ rotate: 3 }}
         />
 
         <SectionDescription

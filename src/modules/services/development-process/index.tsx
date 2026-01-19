@@ -8,15 +8,14 @@ import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
 import DevelopmentProcessWave from '../shared/development-process-wave'
 import DevelopmentProcessRoad from '../shared/development-process-road'
 import DevelopmentProcessIT from '../shared/development-process-it'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import CircularDevelopmentProcess from '../shared/circular-development-process'
 import DesigningProcess from '../shared/designing-process/DesigningProcess'
 import DevelopmentProcessExpertIt from '../shared/development-process-expert-it'
 import DevelopmentProductSteps from '../shared/development-product-steps'
+import DevelopmentProcessItBusiness from '../shared/development-process-it-business'
 
 const DevelopmentProcess = () => {
   const pathname = usePathname()
-  const isMobile = useMediaQuery('(max-width: 768px)')
   const serviceRoute = pathname.split('/')[2]
 
   const renderAsset = () => {
@@ -36,7 +35,7 @@ const DevelopmentProcess = () => {
       case 'ai-based-softwares':
         return <CircularDevelopmentProcess />
       case 'it-&-business-consultation':
-        return <DevelopmentProcessIT />
+        return <DevelopmentProcessItBusiness />
       case 'cloud-development':
         return <DevelopmentProcessIT />
       case 'ui-ux-design':
@@ -49,16 +48,13 @@ const DevelopmentProcess = () => {
   return (
     <div
       style={{
-        marginTop: '6.2vw',
+        marginTop: 'max(80px, 6.2vw)',
       }}
     >
       {serviceRoute !== 'ui-ux-design' && (
         <SectionTitle
           text="Our development Process"
           markText="Process"
-          markTextProps={{
-            rotate: 2,
-          }}
         />
       )}
       <div

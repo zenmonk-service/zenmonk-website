@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
-import './styles.scss'
 import StarIcon from './components/star-animation'
+import './styles.scss'
 
 interface AwardProofCardProps {
   title: string

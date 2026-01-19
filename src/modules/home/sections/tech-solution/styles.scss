@@ -31,10 +31,15 @@
         line-height: normal;
         letter-spacing: 0.05vw;
         margin-bottom: 0.8vw;
+        text-align: center;
       }
 
       .text-description {
+        text-align: center;
         margin-bottom: 0px;
+        @media (max-width:728px) {
+          margin-bottom: 24px;
+        }
       }
     }
 
@@ -131,7 +136,7 @@
   .tech-solution-section-wrapper {
     flex-direction: column-reverse;
     height: auto;
-    padding: 40px 20px;
+    padding: 40px 16px;
     padding-bottom: 0;
 
     .tech-solution-section {
@@ -146,14 +151,13 @@
       }
 
       .tech-solution-section-card-wrapper {
-        margin-top: 32px;
+        margin-top: 40px;
         gap: 16px;
         justify-content: center;
       }
 
       .button {
-        margin-top: 32px;
-        width: 100%;
+        margin-top: 40px;
       }
     }
 
@@ -163,6 +167,7 @@
       max-height: unset;
       margin-bottom: 32px;
       position: relative;
+      scale: 1.05;
 
       @media (max-width:728px) {
         width: 100%;

@@ -65,7 +65,7 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: Max(36px, 1.6666vw);
+    gap: max(40px, 1.6666vw);
   }
 
   .questions-wrapper {
@@ -102,7 +102,7 @@
 
     @media (max-width: 900px) {
       color: #132427;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
   }
 
