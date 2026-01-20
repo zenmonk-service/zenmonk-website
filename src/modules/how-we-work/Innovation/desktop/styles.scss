@@ -1,6 +1,6 @@
 .innovation-section-wrapper {
   padding: 3.125vw 4% 3.4375vw;
-  background: #edf3f1;
+  background: #f5f5f5;
   height: fit-content;
   .innovation-section {
     width: 100%;
@@ -14,6 +14,10 @@
       justify-content: center;
       align-items: center;
       gap: 16px;
+
+      .innovation-title{
+        letter-spacing: -2%;
+      }
 
       .innovation-description {
         color: #5c5c5c;

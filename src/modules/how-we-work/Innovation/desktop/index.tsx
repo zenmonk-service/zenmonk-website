@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
@@ -7,12 +8,11 @@ import Earth from '../../assets/innovation/earth.svg'
 import PersonSittingOnDesk from '../../assets/innovation/img.png'
 import { ServiceIcons } from '../service-icons'
 import './styles.scss'
-import { useRouter } from 'next/navigation'
 
 const InnovationDesktop = () => {
-  const router = useRouter();
+  const router = useRouter()
   const handleContactClick = () => {
-    router.push('/contact');
+    router.push('/contact')
   }
 
   return (
@@ -25,9 +25,7 @@ const InnovationDesktop = () => {
               'We Deliver the Best with Innovation, Precision and Excellence.'
             }
             markText="Excellence"
-            markTextProps={{
-              rotate: 4,
-            }}
+            markTextProps={{ rotate: 4 }}
           />
           <SectionDescription
             text="Zenmonk delivers innovative solutions, exceeding expectations in
@@ -53,7 +51,9 @@ const InnovationDesktop = () => {
                   We make robust, responsive, SEO friendly and Secure Websites
                   that will take your business to next level.
                 </p>
-                <Button className="contact-btn" onClick={handleContactClick}>Contact us</Button>
+                <Button className="contact-btn" onClick={handleContactClick}>
+                  Contact us
+                </Button>
               </Stack>
               <div className="paper-plane-img-wrapper">
                 <Image src={PaperPlaneImg} alt="" className="paper-plane-img" />
