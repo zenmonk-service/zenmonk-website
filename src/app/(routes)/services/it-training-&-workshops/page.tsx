@@ -14,13 +14,13 @@ const ItTrainingAndWorkshopsPage = () => {
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions id='it-training-and-workshops'/>
-      <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
-      <TechnologyTree  isTechTree noRandomIcons/>
+      <ItSolutions id='it-training-and-workshops' />
+      <Box sx={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
+      <TechnologyTree isTechTree noRandomIcons />
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />
-      <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
+      <Box sx={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
       <ReadyToTalkShared />
       <FAQ />
     </div>

@@ -3,7 +3,6 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import VerticalDottedImage from '../hero-section/assets/dotted-background.svg'
 import Quotes from './assets/animated_path.svg'
 import DashedArrow from './assets/arrow.svg'
 import Background from "./assets/background.svg"

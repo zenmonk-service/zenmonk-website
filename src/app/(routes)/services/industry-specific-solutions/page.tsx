@@ -19,7 +19,7 @@ const IndustrySpecificSolutions = () => {
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />
-      <Box sx={{ height: "6.25vw", width: "100%", backgroundColor: "#fff" }} />
+      <Box sx={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
       <ReadyToTalkShared />
       <FAQ />
     </div>
