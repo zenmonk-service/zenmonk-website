@@ -32,7 +32,7 @@ const TechnologyTree = ({
   isTechTree = false,
   noRandomIcons
 }: TechnologyTreeProps) => {
-  const isMobile = useMediaQuery('(max-width:770px)')
+  const isMobile = useMediaQuery('(max-width:780px)')
 
   return (
     <Stack className="tech-tree-container">
@@ -55,7 +55,11 @@ const TechnologyTree = ({
             text={title}
             markText={highlightedWord}
             align={isMobile ? 'center' : 'left'}
-            markTextProps={markTextProps}
+            markTextProps={{
+              style: {
+                marginTop: isMobile ? '-4.8vw' : '-0.45vw',
+              },
+              ...markTextProps}}
             className="tech-tree-heading"
           />
 

@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 import { SectionTitle } from '@/shared/typography'
-import It from './assets/it.svg'
 import SoftwareDevelopmentProcess from './software-development-process'
 import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
 import DevelopmentProcessWave from '../shared/development-process-wave'

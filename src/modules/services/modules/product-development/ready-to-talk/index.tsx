@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Box, Button, Stack, Typography } from '@mui/material'
 import { ReadyToTalkPersonImage } from '../assets'
 import './style.scss'
@@ -10,7 +9,7 @@ const ReadyToTalkProductDevelopment = () => {
       className="ready-to-talk-product-dev-container"
       sx={{
         gap: {
-          xs: '0.1563vw',
+          xs: '24px',
           md: '0.5208vw',
           lg: '1.6667vw',
           xl: '2.6042vw',

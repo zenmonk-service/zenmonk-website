@@ -1,98 +1,130 @@
 .ready-to-talk-product-dev-container {
-    width: 100%;
-    height: 28.75vw;
-    background-color: #0A432A;
-    background-image: url('../assets/ready-to-talk-banner.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-top: 6.25vw;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4%;
+  width: 100%;
+  height: 28.75vw;
+  background-color: #0A432A;
+  background-image: url('../assets/ready-to-talk-banner.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: max(80px, 6.25vw);
+  align-items: center;
+  justify-content: center;
+  padding: 0 4%;
 
-    @media (max-width: 899px) {
-        height: fit-content;
-        padding: 16px 4%;
+  @media (max-width: 780px) {
+    height: fit-content;
+    padding: 0 16px;
+
+  }
+
+  @media (max-width: 599px) {
+    background-image: url('../assets/ready-to-talk-mobile-banner.svg');
+  }
+
+  .ready-to-talk-text-container {
+    justify-content: flex-start;
+
+    .ready-to-talk-heading {
+      color: #FFF;
+      font-feature-settings: 'liga' off, 'clig' off;
+      font-family: Poppins;
+      font-size: 2.6042vw;
+      font-style: normal;
+      font-weight: 600;
+
+      @media (max-width: 1536px) {
+        font-size: 43px;
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 36px;
+      }
+
+      @media (max-width: 780px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 599px) {
+        font-size: 24px;
+      }
 
     }
 
-    @media (max-width: 599px) {
-        background-image: url('../assets/ready-to-talk-mobile-banner.svg');
+    .ready-to-talk-description {
+      color: #F5F5F5;
+      font-feature-settings: 'liga' off, 'clig' off;
+      font-family: Poppins;
+      font-size: var(--font-size-18);
+      font-weight: 400;
+      margin-top: 1.0417vw;
+      margin-bottom: 2.0833vw;
     }
 
-    .ready-to-talk-text-container {
-        justify-content: flex-start;
+    .contact-us-btn {
+      display: flex;
+      height: 2.2929vw;
+      padding: 0.5206vw 0.8338vw;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2.2408vw;
+      border: 0.1042vw solid #FFF;
 
-        .ready-to-talk-heading {
-            color: #FFF;
-            font-feature-settings: 'liga' off, 'clig' off;
-            font-family: Poppins;
-            font-size: 2.6042vw;
-            font-style: normal;
-            font-weight: 600;
+      width: fit-content;
+      color: #FFF;
+      font-family: Poppins;
+      font-size: 0.7295vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 0.937vw;
+      text-transform: capitalize;
 
-            @media (max-width: 1536px) {
-                font-size: 43px;
-            }
-
-            @media (max-width: 1199px) {
-                font-size: 36px;
-            }
-
-            @media (max-width: 899px) {
-                font-size: 30px;
-            }
-
-            @media (max-width: 599px) {
-                font-size: 24px;
-            }
-
-        }
-
-        .ready-to-talk-description {
-            color: #F5F5F5;
-            font-feature-settings: 'liga' off, 'clig' off;
-            font-family: Poppins;
-            font-size: var(--font-size-18);
-            font-weight: 400;
-            margin-top: 1.0417vw;
-            margin-bottom: 2.0833vw;
-        }
-
-        .contact-us-btn {
-            display: flex;
-            height: 2.2929vw;
-            padding: 0.5206vw 0.8338vw;
-            justify-content: center;
-            align-items: center;
-            border-radius: 2.2408vw;
-            border: 0.1042vw solid #FFF;
-            
-            width: fit-content;
-            color: #FFF;
-            font-family: Poppins;
-            font-size: 0.7295vw;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 0.937vw;
-            text-transform: capitalize;
-            
-        }
     }
 
-    .ready-to-talk-image-container {
+    @media (max-width: 728px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 40px;
 
+      .ready-to-talk-heading,
+      .ready-to-talk-description {
+        width: 100% !important;
+        max-width: 100%;
+      }
 
-        @media (max-width: 899px) {
-            height: 380px;
-            max-width: 412px;
-
-        }
-
-        .ready-to-talk-image {
-            height: 100%;
-            width: 100%;
-        }
+      .contact-us-btn {
+        margin-top: 14px;
+        display: flex;
+        height: 44.023px;
+        padding: 10.005px 16.008px;
+        justify-content: center;
+        align-items: center;
+        gap: 4.002px;
+        align-self: center;
+        width: max-content;
+        font-size: 14px;
+        border-radius: 43.022px;
+        border: 2px solid #FFF;
+      }
     }
+  }
+
+  .ready-to-talk-image-container {
+    @media (max-width: 780px) {
+      height: 380px;
+      max-width: 412px;
+    }
+
+    .ready-to-talk-image {
+      height: 100%;
+      width: 100%;
+      @media (max-width: 780px) {
+        padding-top: 40px;
+        height: 380px;
+        max-width: 412px;
+      }
+    }
+  }
 
 }

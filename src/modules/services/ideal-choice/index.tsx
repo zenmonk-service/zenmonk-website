@@ -1,12 +1,15 @@
+'use client'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import COST_EFFECTIVE from './assets/cost_effective.svg'
 import EXPERT_KNOWLEDGE from './assets/expert_knowledge.svg'
 import ON_TIME from './assets/on_time.svg'
 import PROVEN_SUCCESS from './assets/proven_sucess.svg'
 import SUPPORT from './assets/support.svg'
+import { useMediaQuery } from '@mui/material'
 import './styles.scss'
 
 const YourIdealChoice = () => {
+  const isMobile = useMediaQuery('(max-width:780px)')
   const ChoicesData = [
     {
       icon: PROVEN_SUCCESS,
@@ -40,10 +43,9 @@ const YourIdealChoice = () => {
       <div className="first-container">
         <SectionTitle
           text="Why Our Expertise is Your Ideal Choice"
-          markText="Expertise"
+          markText={isMobile ? 'Choice' : 'Expertise'}
           align="left"
           className="title"
-          markTextProps={{ rotate: 5 }}
         />
         <SectionDescription
           text="See how our expert insights are prominent fit for your unique

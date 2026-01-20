@@ -37,7 +37,7 @@
 .creative-ideas-content p {
   margin: 0;
   font-family: 'Rubik Doodle Shadow', sans-serif;
-  font-size: 4.5vw;
+  font-size: max(29.215px, 4.5vw);
   line-height: 1.05;
   color: #3c3c3c;
   margin-left: -5.04vw;
@@ -75,27 +75,34 @@
     aspect-ratio: 50 / 50;
   }
 
-  .creative-ideas-content p{
-    font-size: 6vw;
-    width: max-content;
-    margin-left: -7.54vw;
-  } 
+  .creative-ideas-content {
+    width: 60%;
 
-  .left{
-    margin-bottom: 8rem;
+    p {
+      font-size: 30px;
+      width: max-content;
+      margin-left: 0.54vw;
+    }
+  }
+
+  .left {
+    margin-bottom: 3rem;
     margin-left: -1rem;
   }
-  .right{
-    margin-right: -1rem;
+
+  .right {
+    margin-top: 2rem;
+    margin-right: -2rem;
   }
 
   .wow {
-    font-size: 18vw !important;
+    font-size: max(90.642px, 18vw) !important;
     line-height: 1;
   }
 
   .creative-ideas {
-    align-items: center; /* cross-axis */
+    align-items: center;
+    /* cross-axis */
     margin-bottom: 0rem;
   }
 }

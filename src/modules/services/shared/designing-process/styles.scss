@@ -200,7 +200,7 @@
 
 
   @media (max-width: 768px) {
-    padding: 3rem 1rem;
+    padding: 0.5rem;
 
     .designing-process-title {
       font-size: 20px;
@@ -216,6 +216,7 @@
     }
 
     .designing-process-map {
+      margin-top: 12px;
       flex-direction: column;
       align-items: center;
       padding-bottom: 50px;

@@ -80,6 +80,7 @@
     /* ✅ mobile padding instead of margins */
     padding-inline: 16px;
     padding-block: 16px;
+    padding-bottom: 0;
   }
 
   .tech-tree-heading {
@@ -94,7 +95,9 @@
 
   .tech-tree-right svg,
   .tech-tree-right img {
+    margin-top: 16px;
     width: 330px;
     max-width: 100%;
+    scale: 1.1;
   }
 }

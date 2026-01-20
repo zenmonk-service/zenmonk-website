@@ -1,7 +1,10 @@
+'use client'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { HeroSection } from '@/shared/hero-section'
 
-const GrowthMarketingHeroSection = () => (
-  <div
+const GrowthMarketingHeroSection = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)')
+  return <div
     style={{
       backgroundImage: `url('/services/growth-background.png')`,
       backgroundSize: 'contain',
@@ -13,10 +16,10 @@ const GrowthMarketingHeroSection = () => (
       highlightedText="Growth & Marketing"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       imageStyle={{
-        scale: 1.2,
+        scale: isMobile ? 1 : 1.2,
       }}
     />
   </div>
-)
+}
 
 export default GrowthMarketingHeroSection

@@ -6,6 +6,7 @@ import HeroSection from '@/modules/services/modules/ai-based-softwares/hero-sect
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
+import { Box } from '@mui/material'
 
 const AiBasedSoftwaresPage = () => {
   return (
@@ -18,6 +19,7 @@ const AiBasedSoftwaresPage = () => {
       <DevelopmentProcess />
       <ReadyToTalkShared />
       <FAQ />
+      <Box sx={{ height: "max(80px, 6.25vw)", width: "100%", backgroundColor: "#fff" }} />
     </div>
   )
 }

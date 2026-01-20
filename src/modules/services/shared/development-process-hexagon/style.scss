@@ -218,7 +218,7 @@
     .custom-mobile-flow {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 16px;
       width: 100%;
       max-width: 100%;
       margin-top: 40px;
@@ -226,7 +226,7 @@
       .mobile-step {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 12px;
         width: 100%;
         background: none;
         border: none;
@@ -243,8 +243,8 @@
 
         .mobile-icon-wrapper {
           position: relative;
-          width: 81px;
-          height: 81px;
+          width: 75px;
+          height: 78px;
           flex-shrink: 0;
           display: flex;
           justify-content: center;
@@ -324,7 +324,7 @@
 
           h3 {
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 6px;
             line-height: 1.2;
           }

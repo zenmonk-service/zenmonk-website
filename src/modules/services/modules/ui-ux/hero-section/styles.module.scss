@@ -48,9 +48,12 @@
 
 .imageContainer {
   position: relative;
-  margin-top: 4vw;
+  margin-top: max(80px, 4vw);
   flex: 1;
   scale: 0.85;
+  @media (max-width: 780px) {
+    scale: 1.1;
+  }
 }
 
 .heroImage {
@@ -98,7 +101,7 @@
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
-    padding-bottom: 60px;
+    padding-bottom: 0;
   }
 
   .heroSectionTextWrapper {
@@ -108,7 +111,6 @@
   }
 
   .textDescription {
-    margin-top: 12px;
     line-height: normal;
     width: 100%;
     text-align: center;

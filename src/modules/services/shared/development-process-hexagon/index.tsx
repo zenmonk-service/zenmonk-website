@@ -175,36 +175,21 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
           >
             <div className="mobile-icon-wrapper">
               <svg
-                viewBox="0 0 100 100"
+                viewBox="0 0 75 78"
                 className="mobile-hex-bg"
                 preserveAspectRatio="xMidYMid meet"
               >
                 <defs>
-                  <linearGradient id="mobile_grad_0" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop stopColor="#175BDD" />
-                    <stop offset="1" stopColor="#17BDDD" />
-                  </linearGradient>
-                  <linearGradient id="mobile_grad_1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop stopColor="#771FCC" />
-                    <stop offset="1" stopColor="#AC68ED" />
-                  </linearGradient>
-                  <linearGradient id="mobile_grad_2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop stopColor="#CF0063" />
-                    <stop offset="1" stopColor="#F23690" />
-                  </linearGradient>
-                  <linearGradient id="mobile_grad_3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop stopColor="#EA9E24" />
-                    <stop offset="1" stopColor="#EAD124" />
-                  </linearGradient>
-                  <linearGradient id="mobile_grad_4" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop stopColor="#BDCE29" />
-                    <stop offset="1" stopColor="#8AB000" />
-                  </linearGradient>
+                  {steps.map((stepItem, sIdx) => (
+                    <linearGradient key={sIdx} id={`mobile_hex_grad_${sIdx}`} x1="4.97802" y1="66.9435" x2="60.2506" y2="2.81186" gradientUnits="userSpaceOnUse">
+                      <stop stopColor={stepItem.color || '#175BDD'} />
+                      <stop offset="1" stopColor={`${stepItem.color}CC` || '#17BDDD'} />
+                    </linearGradient>
+                  ))}
                 </defs>
                 <path
-                  fill={`url(#mobile_grad_${index % 5})`}
-                  // Using a simpler path for a flat-topped hexagon with rounded corners
-                  d="M22.5 5.5 C 25 1.5 29 1 33 1 L 67 1 C 71 1 75 1.5 77.5 5.5 L 97 43 C 99 47 99 53 97 57 L 77.5 94.5 C 75 98.5 71 99 67 99 L 33 99 C 29 99 25 98.5 22.5 94.5 L 3 57 C 1 53 1 47 3 43 Z"
+                  fill={`url(#mobile_hex_grad_${index})`}
+                  d="M31.9023 1.33278C35.351 -0.444099 39.4459 -0.444096 42.8946 1.33278L56.0984 8.13583L68.4736 15.3911C72.0392 17.4815 74.2781 21.2599 74.3993 25.3913L74.7984 39.001L74.3993 52.6106C74.2781 56.7421 72.0392 60.5204 68.4736 62.6109L56.0984 69.8661L42.8946 76.6692C39.4459 78.4461 35.351 78.4461 31.9023 76.6692L18.6984 69.8661L6.32329 62.6109C2.75763 60.5204 0.518774 56.7421 0.397599 52.6106L-0.00156403 39.001L0.397599 25.3913C0.518774 21.2599 2.75763 17.4815 6.32328 15.3911L18.6984 8.13583L31.9023 1.33278Z"
                 />
               </svg>
               <div className="mobile-icon-content">
@@ -218,7 +203,7 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
           </div>
         ))}
       </div>
-    </section>
+    </section >
   )
 }
 

@@ -7,6 +7,7 @@ import ReadyToTalkProductDevelopment from '@/modules/services/modules/product-de
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
+import { Box } from '@mui/material'
 
 const ProductDevelopmentPage = () => {
   return (
@@ -20,6 +21,7 @@ const ProductDevelopmentPage = () => {
       <DevelopmentProcess />
       <ReadyToTalkProductDevelopment />
       <FAQ />
+      <Box sx={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
     </div>
   )
 }

@@ -3,7 +3,6 @@
 import React from 'react'
 import './style.scss'
 import ProcessPath from './assets/process-path.svg'
-import DevelopmentProcessMobile from './mobile'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import DevelopmentProcessItBusinessMobile from './mobile'
 

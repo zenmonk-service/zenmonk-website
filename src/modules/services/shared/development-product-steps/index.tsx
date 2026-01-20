@@ -6,32 +6,32 @@ import styles from './styles.module.scss';
 
 const steps = [
   {
-    id: '01',
+    id: '1',
     title: 'Identify your Vision',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   },
   {
-    id: '02',
+    id: '2',
     title: 'Design for Success',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   },
   {
-    id: '03',
+    id: '3',
     title: 'Code with Precision',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   },
   {
-    id: '04',
+    id: '4',
     title: 'Rigorous Testing & Validation',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   },
   {
-    id: '05',
+    id: '5',
     title: 'Deliver and Beyond',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   },
   {
-    id: '06',
+    id: '6',
     title: 'Partnership for Success',
     description: 'We collabrate with you to gather and understand your business needs and objective',
   }

@@ -1,8 +1,8 @@
 'use client'
 
 import React from 'react'
-import './style.scss'
 import { SectionTitle } from '@/shared/typography'
+import './style.scss'
 
 interface ProcessStep {
   title: string;
@@ -16,6 +16,7 @@ interface DevelopmentProcessProps {
   steps?: ProcessStep[];
   title?: string;
   highlightedText?: string;
+  description?: string;
   showTitle?: boolean;
 }
 
@@ -61,6 +62,7 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
   steps = defaultSteps,
   title = "Our Development Process",
   highlightedText = "Process",
+  description = "State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier.",
   showTitle = false
 }) => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(0);
@@ -78,14 +80,16 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
 
   return (
     <section className="wave-process-section">
-      <div className="monk-container">
-        {/* <MonkSVG className="monk-graphic" /> */}
-      </div>
-      {showTitle && <SectionTitle text={title} markText={highlightedText} align='center' />}
+      {showTitle && (
+        <div className="section-header">
+          <SectionTitle text={title} markText={highlightedText} align='center' />
+          {description && <p className="section-description">{description}</p>}
+        </div>
+      )}
 
       <div className="process-wrapper">
         {/* Circles and Text Overlays - Moved before SVG to allow sibling selector targeting in CSS */}
-        {steps.map((step, index) => {
+        {steps.map((step: ProcessStep, index: number) => {
           const isTop = index === 1 || index === 3;
           const xCoords = [155, 408, 658, 908, 1160];
           const xPos = xCoords[index];
@@ -212,11 +216,19 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
 
       {/* Mobile Version */}
       <div className="mobile-flow">
-        {steps.map((step, index) => (
+        {steps.map((step: ProcessStep, index: number) => (
           <div key={index} className="mobile-step">
-            <div className="mobile-number">{step.number}</div>
+            <div className="mobile-indicator">
+              <div className="mobile-circle-wrapper" style={{ background: step.gradient } as React.CSSProperties}>
+                <div className="mobile-inner-circle">
+                  <span style={{ background: step.gradient, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    {step.number}
+                  </span>
+                </div>
+              </div>
+            </div>
             <div className="mobile-text">
-              <h3>{step.title}</h3>
+              <h3 style={{ color: step.color }}>{step.title}</h3>
               <p>{step.description}</p>
             </div>
           </div>

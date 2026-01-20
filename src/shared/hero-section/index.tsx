@@ -18,6 +18,7 @@ interface HeroSectionProps {
   imageStyle?: React.CSSProperties
   children?: React.ReactNode
   showImage?: boolean
+  textWrapperStyle?: React.CSSProperties
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -30,6 +31,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   imageStyle = {},
   children,
   showImage = true,
+  textWrapperStyle = {},
 }) => {
   const [loading, setLoading] = useState(true)
 
@@ -55,7 +57,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       height="100%"
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.text}>
-        <div className={styles.textWrapper} style={{ width: textWidth }}>
+        <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>
           <h1 className={styles.heading}>{highlightTitle(title)}</h1>
           <p className={styles.description}>{parse(description)}</p>
         </div>

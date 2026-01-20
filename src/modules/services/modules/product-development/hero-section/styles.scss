@@ -5,13 +5,21 @@
   padding: 1% 7.8%;
   gap: 2.083vw; // 40px
   position: relative;
-  background: url('../assets/background.svg');
-  background-size: cover !important;
-  background-position: right 50%;
+  min-height: 100vh;
+  padding-bottom: 2vw;
+  overflow: visible;
 
-  height: 100vh;
-  overflow: hidden;
-  clip-path: url(#hero-wave);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/background.svg');
+    background-size: cover !important;
+    background-position: right 50%;
+    clip-path: url(#hero-wave);
+    z-index: 0;
+    pointer-events: none;
+  }
 
   .content-side {
     width: 55%;
@@ -44,22 +52,14 @@
     }
   }
 
-  .explore.btn {
-    width: max(180px, 9.375vw);
-  }
 
   .visual-side {
-    width: 50%;
+    width: 42%;
     display: flex;
     z-index: 1;
     position: absolute;
-    right: -8%;
-    bottom: -3%;
-
-    @media (max-width: 1024px) {
-      right: 0;
-      position: unset;
-    }
+    right: -2%;
+    bottom: 5%; // Lifted up to avoid the bottom clip area
 
     .image-container {
       position: relative;
@@ -76,22 +76,23 @@
         width: 100%;
         height: auto;
         object-fit: contain;
+        max-width: 100%;
 
-        @media (max-width: 1024px) {
-          max-width: 400px;
+        @media (min-width: 1153px) {
+          min-width: 400px;
         }
       }
     }
 
     .speech-bubble {
       position: absolute;
-      top: -30%;
-      left: 22%;
+      top: -20%; // Adjusted to be safer
+      left: 15%;
       background: #fff;
       padding: 1.25vw;
       border-radius: 0.42vw;
       border: 0.05vw solid #cde2e6;
-      width: 14.58vw;
+      width: max(220px, 14.58vw);
       z-index: 2;
       box-shadow: 0 0.21vw 1.04vw rgba(0, 0, 0, 0.05);
 
@@ -99,7 +100,7 @@
 
       p {
         font-family: 'Poppins', sans-serif;
-        font-size: 0.73vw;
+        font-size: max(14px, 0.73vw);
         color: #559CA9;
         line-height: 1.5;
         margin: 0;
@@ -143,24 +144,27 @@
     width: max(180px, 9.375vw) !important;
   }
 
-  // Mobile Styles
-  @media (max-width: 1024px) {
+  // Tablet & Mobile Styles
+  @media (max-width: 1152px) {
     flex-direction: column-reverse;
     justify-content: center;
     padding: 0;
     gap: 0;
     height: auto;
     min-height: auto;
-    clip-path: none;
     background: none;
+
+    &::after {
+      display: none; // Handle bg differently on mobile to avoid double stacking
+    }
 
     .content-side {
       width: 100%;
       align-items: center;
       text-align: center;
-      gap: 16px;
-      margin-top: -12.25vw;
-      padding: 0 20px 50px;
+      gap: 14px;
+      margin-top: -40px;
+      padding: 0 16px;
 
       .hero-title {
         font-size: 28px;
@@ -185,9 +189,10 @@
       background-size: cover !important;
       background-position: center -20% !important;
       clip-path: url(#hero-wave);
-      padding: 120px 20px 26px;
+      padding: 80px 20px;
       padding-bottom: 0;
       position: relative;
+      right: 0;
 
       .image-container {
         max-width: 100%;
@@ -199,7 +204,7 @@
       .main-image-wrapper {
         display: flex;
         justify-content: center;
-        width: 90%;
+        width: 100%;
       }
 
       .speech-bubble {
