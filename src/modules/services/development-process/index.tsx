@@ -1,7 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { SectionTitle } from '@/shared/typography'
+import { SectionTitle, SectionDescription } from '@/shared/typography'
+import './styles.scss'
 import SoftwareDevelopmentProcess from './software-development-process'
 import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
 import DevelopmentProcessWave from '../shared/development-process-wave'
@@ -46,15 +47,19 @@ const DevelopmentProcess = () => {
 
   return (
     <div
+      className="development-process-container"
       style={{
         marginTop: 'max(80px, 6.2vw)',
       }}
     >
       {serviceRoute !== 'ui-ux-design' && (
-        <SectionTitle
-          text="Our development Process"
-          markText="Process"
-        />
+        <>
+          <SectionTitle text="Our development Process" markText="Process" />
+          <SectionDescription
+            text="We are a top mobile app development company in India, known for our. We are a top mobile app development company in India, known for oure. We are a top mobile app development company in India, "
+            className="development-process-description"
+          />
+        </>
       )}
       <div
         style={{

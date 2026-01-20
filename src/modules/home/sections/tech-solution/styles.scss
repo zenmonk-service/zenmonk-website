@@ -9,7 +9,6 @@
   z-index: 101;
   position: relative;
 
-
   .tech-solution-section {
     flex: 1;
     display: flex;
@@ -23,7 +22,7 @@
       gap: 0.41vw;
       width: 100%;
 
-      .text-heading {
+      .tech-solution-text-heading {
         color: #3c3c3c !important;
         font-family: Poppins, sans-serif !important;
         font-style: normal;
@@ -34,11 +33,12 @@
         text-align: center;
       }
 
-      .text-description {
-        text-align: center;
+      .tech-solution-text-description {
         margin-bottom: 0px;
+
         @media (max-width:728px) {
           margin-bottom: 24px;
+          text-align: center;
         }
       }
     }
@@ -56,7 +56,7 @@
       }
     }
 
-    .button {
+    .tech-solution-button {
       margin-top: 2.135vw;
       width: max(180px, 9.375vw);
     }
@@ -70,11 +70,11 @@
     position: relative;
     // background-color: red;
 
-    &.mobile {
+    &.tech-solution-mobile {
       display: none;
     }
 
-    &:not(.mobile) {
+    &:not(.tech-solution-mobile) {
       @media (max-width: 1099px) {
         display: none;
       }
@@ -90,7 +90,7 @@
       object-fit: contain;
     }
 
-    .expense-img-laptop {
+    .tech-solution-expense-img {
       width: 6.42vw;
       height: 6.58vw;
       position: absolute !important;
@@ -100,7 +100,7 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    .circle-img-laptop {
+    .tech-solution-circle-img-1 {
       width: 10.42vw;
       height: 10.58vw;
       position: absolute !important;
@@ -110,7 +110,7 @@
       animation: rotate 10s linear infinite;
     }
 
-    .circle-img-laptop-2 {
+    .tech-solution-circle-img-2 {
       width: 10.42vw;
       height: 10.58vw;
       position: absolute !important;
@@ -145,7 +145,7 @@
       .tech-solution-section-text-wrapper {
         gap: 16px;
 
-        .text-heading {
+        .tech-solution-text-heading {
           margin-bottom: 16px;
         }
       }
@@ -156,7 +156,7 @@
         justify-content: center;
       }
 
-      .button {
+      .tech-solution-button {
         margin-top: 40px;
       }
     }
@@ -173,7 +173,7 @@
         width: 100%;
       }
 
-      &.mobile {
+      &.tech-solution-mobile {
         display: flex;
         justify-content: center;
         margin-top: 40px;
@@ -185,7 +185,7 @@
         margin: 0 auto;
       }
 
-      .expense-img-laptop {
+      .tech-solution-expense-img {
         position: absolute !important;
         top: -10%;
         right: -8%;
@@ -194,7 +194,7 @@
         object-fit: contain;
       }
 
-      .circle-img-laptop {
+      .tech-solution-circle-img-1 {
         width: 74.534px;
         height: 75.972px;
         position: absolute !important;
@@ -205,7 +205,7 @@
         animation: rotate 10s linear infinite;
       }
 
-      .circle-img-laptop-2 {
+      .tech-solution-circle-img-2 {
         width: 74.534px;
         height: 75.972px;
         position: absolute !important;

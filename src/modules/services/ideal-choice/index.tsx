@@ -39,27 +39,27 @@ const YourIdealChoice = () => {
   ]
 
   return (
-    <div className="your-ideal-choice">
-      <div className="first-container">
+    <div className="ideal-choice-your-ideal-choice">
+      <div className="ideal-choice-first-container">
         <SectionTitle
           text="Why Our Expertise is Your Ideal Choice"
           markText={isMobile ? 'Choice' : 'Expertise'}
           align="left"
-          className="title"
+          className="ideal-choice-title"
         />
         <SectionDescription
           text="See how our expert insights are prominent fit for your unique
           challenges."
-          className="description"
+          className="ideal-choice-ideal-description"
         />
       </div>
 
       {ChoicesData.map(({ icon: Icon, title, description }: any) => {
         return (
-          <div className="container" key={title}>
-            <Icon className="icon" />
-            <p className="title">{title}</p>
-            <p className="description">{description}</p>
+          <div className="ideal-choice-ideal-choice-container" key={title}>
+            <Icon className="ideal-choice-icon" />
+            <p className="ideal-choice-card-title">{title}</p>
+            <p className="ideal-choice-card-description">{description}</p>
           </div>
         )
       })}

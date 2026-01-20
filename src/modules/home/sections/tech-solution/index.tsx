@@ -14,10 +14,10 @@ const TechSolution = () => {
   const router = useRouter();
   const isMobile = useMediaQuery('(max-width: 768px)');
   return (
-    <div className="tech-solution-section-wrapper desktop">
+    <div className="tech-solution-section-wrapper tech-solution-desktop">
       <div className="tech-solution-section">
         <div className="tech-solution-section-text-wrapper">
-          <div className="text-heading">
+          <div className="tech-solution-text-heading">
             <SectionTitle
               text="Maximizing Your Business Potential With Expert IT Solutions"
               markText="solutions"
@@ -25,17 +25,17 @@ const TechSolution = () => {
             />
           </div>
           <SectionDescription
-            className="text-description"
+            className="tech-solution-text-description"
             text="Welcome to Zenmonk, where Software Innovation meets professionalism
               and solution oriented mindset. We are fluent in your language,
-              proficient in technical terminology, and validate our new-age
+              proficient in technical terminology, and validate our newage
               expertise with custom solutions"
           />
-          <div className="tech-solution-section-image-wrapper mobile">
+          <div className="tech-solution-section-image-wrapper tech-solution-mobile">
             <Image fill src={TechSolutionMobile} alt="tech-solution" />
-            <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
-            <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
-            <Image src={Circle} alt="Circle2" className='circle-img-laptop-2' width={200} height={200} />
+            <Image src={Expense} alt="Expense" className='tech-solution-expense-img' width={200} height={200} />
+            <Image src={Circle} alt="Circle" className='tech-solution-circle-img-1' width={200} height={200} />
+            <Image src={Circle} alt="Circle2" className='tech-solution-circle-img-2' width={200} height={200} />
           </div>
         </div>
         <div className="tech-solution-section-card-wrapper">
@@ -45,16 +45,16 @@ const TechSolution = () => {
         </div>
         <BaseButton
           onClick={() => router.push('/services/software-development')}
-          className="button"
+          className="tech-solution-button"
         >
           EXPLORE SERVICES
         </BaseButton>
       </div>
       <div className="tech-solution-section-image-wrapper">
         <Image fill src={TechSolutionMobile} alt="tech-solution" />
-        <Image src={Expense} alt="Expense" className='expense-img-laptop' width={200} height={200} />
-        <Image src={Circle} alt="Circle" className='circle-img-laptop' width={200} height={200} />
-        <Image src={Circle} alt="Circle2" className='circle-img-laptop-2' width={200} height={200} />
+        <Image src={Expense} alt="Expense" className='tech-solution-expense-img' width={200} height={200} />
+        <Image src={Circle} alt="Circle" className='tech-solution-circle-img-1' width={200} height={200} />
+        <Image src={Circle} alt="Circle2" className='tech-solution-circle-img-2' width={200} height={200} />
       </div>
     </div>
   )
