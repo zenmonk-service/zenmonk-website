@@ -37,6 +37,7 @@
   font-weight: 400;
   margin-top: 3.33vw;
   line-height: normal;
+  margin-bottom: max(14px, 0.8333vw);
 }
 
 .testimony .review-images {
