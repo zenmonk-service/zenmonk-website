@@ -107,3 +107,13 @@
     }
   }
 }
+
+@media screen and (min-width: 767px) and (max-width: 900px) {
+  .vision-section .vision-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding-inline: 6vw;
+  }
+  
+}

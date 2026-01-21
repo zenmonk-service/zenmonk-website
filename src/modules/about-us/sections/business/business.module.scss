@@ -50,3 +50,24 @@
     }
   }
 }
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+  .businessContainer {
+    margin-top: 8vw;
+    .businessCardContainer {
+      gap: 2vw;
+      
+      > * {
+        flex: 0 0 calc(50% - 1vw);
+        max-width: calc(50% - 1vw);
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .businessContainer {
+    margin-bottom:  12vw;
+  }
+  
+}

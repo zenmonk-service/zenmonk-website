@@ -8,7 +8,6 @@
   display: flex;
   width: max-content;
   height: auto;
-  max-width: 67.39vw;
   justify-content: center;
   gap: 1.667vw;
   background-color: var(--global-color-primary);
@@ -20,7 +19,6 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    margin-top: 80px;
     padding: 0 16px;
   }
   .cardContainer {

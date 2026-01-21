@@ -17,6 +17,10 @@ $hover-bg-light-green: #e9f7ec;
     padding: 0 16px;
     height: auto;
   }
+
+  @media screen and (max-width: 1037px) {
+    padding: 0 7.8125%;
+  }
 }
 
 .cardSection {
@@ -193,5 +197,11 @@ $hover-bg-light-green: #e9f7ec;
       width: 32px;
       height: 32px;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aboutUsWhyChooseUsSection{
+    padding: 0 51px;
   }
 }

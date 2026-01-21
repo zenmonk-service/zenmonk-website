@@ -13,8 +13,8 @@ const StandOutSectionMobile = () => {
       {standOutList.map((item, index) => (
         <div key={index} className={styles.card}>
           <div className={styles.content}>
-            <div className={styles.icon}>
-              <item.icon />
+            <div className={styles.icon} style={{ padding: `${item.padding}vw` }}>
+              <item.icon  />
             </div>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.description}>{item.description}</p>

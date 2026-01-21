@@ -17,7 +17,7 @@ const AboutUsHeroSection = () => {
           <p className={styles.description}>
             We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
           </p>
-          <BaseButton className={styles.button}> Let&apos;s Connect</BaseButton>
+          <BaseButton className={styles.button}>Explore More</BaseButton>
         </div>
         <div className={styles.imageContainer}>
           <HeroImage className={styles.heroImage} />

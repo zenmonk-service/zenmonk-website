@@ -28,7 +28,7 @@
   font-weight: 600;
   line-height: 3.6458vw;
   text-transform: capitalize;
-  margin-bottom: 0.8333vw;
+  margin: 0 0 16px 0;
 }
 
 .description {
@@ -41,7 +41,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.025vw;
-  margin-bottom: 3.125vw;
+  margin: 0 0 40px 0;
 }
 
 .highlightedText {
@@ -58,7 +58,8 @@
 }
 
 .button {
-  width: 10vw !important;
+  width: 180px !important;
+  padding: 10px 20px !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -71,6 +72,7 @@
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
+    gap: 81.57px;
   }
 
   .textContainer {
@@ -78,8 +80,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    margin-top: 24px;
   }
   .imageContainer{
     margin-top: 83px;
@@ -94,6 +94,7 @@
     font-weight: 600;
     line-height: 31px;
     text-transform: capitalize;
+    margin: 0 0 16px 0;
   }
 
   .description {
@@ -105,9 +106,96 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.16px;
+    margin: 0 0 40px 0;
   }
 
   .button {
     width: 160px !important;
   }
 }
+
+@media screen and (min-width: 401px) and (max-width: 599px) {
+  .container {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 30vh;
+    padding-bottom: 2vh;
+  }
+  .textContainer {
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+    .description {
+     font-size: 14px;
+     line-height: 21px;
+    }
+    .button {
+      width: 180px !important;
+      margin-top: 2vw;
+      background-color: green;
+      padding: 10px 20px;
+    }
+  }
+  
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.23;
+  }
+
+  .backgroundLine{
+    bottom: 23%;
+  }
+
+  .description{
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.43;
+  }
+  .backgroundLine{
+    bottom: 15%;
+  }
+  .description{
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1024px) {
+
+  .container {
+    height: auto;
+    aspect-ratio: 1.83;
+  }
+
+  .backgroundLine{
+    bottom: 7%;
+  }
+  
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
+  .backgroundLine{
+    bottom: 10%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .backgroundLine{
+    bottom: 15%;
+  }
+}
+
+

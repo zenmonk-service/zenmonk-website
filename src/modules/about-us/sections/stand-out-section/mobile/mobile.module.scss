@@ -54,19 +54,16 @@
 }
 
 .icon {
-  width: 12vw;
-  height: 12vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max(40px, 12vw);
+  height: max(40px, 12vw);
   color: #fff;
   margin-bottom: 0vw;
 
   svg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
     display: block;
-    width: 40px;
-    height: 40px;
-
     path {
       fill: #ffffff !important;
     }
@@ -91,4 +88,23 @@
   font-weight: 500;
   line-height: 25px;
   /* 156.25% */
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 7.8125%;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .card {
+    flex: 0 0 calc(50% - 8px);
+    max-width: calc(50% - 8px);
+  }
 }

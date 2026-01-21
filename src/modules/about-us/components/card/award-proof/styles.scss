@@ -200,4 +200,10 @@
       display: none; // Hiding the stars for now as they are not in the reference image provided
     }
   }
+
+   @media screen and (min-width: 1024px) and (max-width: 1200px) {
+     width: 100%;
+     padding-inline: 0 16%;
+     margin: 60px 40px 40px 40px;
+    }
 }
