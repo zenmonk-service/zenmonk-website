@@ -13,8 +13,10 @@ import DesigningProcess from '../shared/designing-process/DesigningProcess'
 import DevelopmentProcessExpertIt from '../shared/development-process-expert-it'
 import DevelopmentProductSteps from '../shared/development-product-steps'
 import DevelopmentProcessItBusiness from '../shared/development-process-it-business'
+import { useMediaQuery } from '@mui/material'
 
 const DevelopmentProcess = () => {
+  const isMobile = useMediaQuery('(max-width:780px)')
   const pathname = usePathname()
   const serviceRoute = pathname.split('/')[2]
 
@@ -25,7 +27,7 @@ const DevelopmentProcess = () => {
       case 'growth-&-marketing':
         return <DevelopmentProcessWave />
       case 'mobile-app-development':
-        return <DevelopmentProcessRoad />
+        return isMobile ? <SoftwareDevelopmentProcess /> : <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
         return <DevelopmentProcessExpertIt />
       case 'product-development':
@@ -56,7 +58,7 @@ const DevelopmentProcess = () => {
         <>
           <SectionTitle text="Our development Process" markText="Process" />
           <SectionDescription
-            text="We are a top mobile app development company in India, known for our. We are a top mobile app development company in India, known for oure. We are a top mobile app development company in India, "
+            text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
             className="development-process-description"
           />
         </>
@@ -65,7 +67,6 @@ const DevelopmentProcess = () => {
         style={{
           display: 'grid',
           placeItems: 'center',
-          marginTop: '0.83vw',
         }}
       >
         {renderAsset()}

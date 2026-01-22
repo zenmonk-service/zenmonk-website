@@ -32,7 +32,7 @@ const SoftwareDevelopmentHeroSection = () => {
         setIsMobile(false)
         // Fluid scale: 1.0 at 768px, 1.4 at 1920px
         const s = 1.0 + ((width - 768) / (1920 - 768)) * 0.4
-        setScale(Math.min(Math.max(s, 1.0), 1.4))
+        setScale(Math.min(Math.max(s, 1.0), 1))
       }
     }
     handleResize()

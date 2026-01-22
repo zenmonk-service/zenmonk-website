@@ -80,15 +80,7 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
 
   return (
     <section className="wave-process-section">
-      {showTitle && (
-        <div className="section-header">
-          <SectionTitle text={title} markText={highlightedText} align='center' />
-          {description && <p className="section-description">{description}</p>}
-        </div>
-      )}
-
       <div className="process-wrapper">
-        {/* Circles and Text Overlays - Moved before SVG to allow sibling selector targeting in CSS */}
         {steps.map((step: ProcessStep, index: number) => {
           const isTop = index === 1 || index === 3;
           const xCoords = [155, 408, 658, 908, 1160];

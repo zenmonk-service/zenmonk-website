@@ -1,26 +1,32 @@
 .serviceActionLink {
-  text-transform: none;
-  background-color: #fff;
-  font-size: var(--font-size-16);
-  font-style: normal;
-  font-weight: 400;
-  font-family: 'Poppins', sans-serif !important;
-  padding: max(12px, 0.67vw) max(16px, 0.83vw);
-  border-radius: max(43px, 2.24vw);
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
-  border: max(1px, 0.05vw) solid white;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  gap: 6px;
 
-  &:hover,
-  &.active {
-    background-color: #ffd5ac38;
-    border: max(1px, 0.05vw) solid #ffa750;
-    color: #ffa750;
-  }
+  padding: 12px 16px;
+  border-radius: 44px;
+
+  background: #fff;
+  border: 1px solid #fff;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
+
+.serviceActionLink:hover,
+.serviceActionLink.active {
+  background-color: #ffd5ac38;
+  border-color: #ffa750;
+  color: #ffa750;
+}
+
+.serviceActionLink p {
+  margin: 0;
+  line-height: 1;
+}
+
 
 .expandIconContainer {
   display: inline-flex;
@@ -29,27 +35,60 @@
 }
 
 .expandIcon {
-  min-width: 1.04vw;
-  min-height: 1.04vw;
+  width: 1.04vw;
+  height: 1.04vw;
   rotate: 0;
+  min-width: 18px;
+  min-height: 18px;
   color: inherit;
 }
 
 .servicesMenuContainer {
-  border-radius: 0.52vw;
-  width: 50vw;
-  column-count: 2;
-  row-gap: 1.04vw;
-  column-gap: 1.04vw;
-  background-color: var(--global-color-primary);
-  padding: 1.04vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  width: 720px; // FIXED width
+  padding: 16px;
+
+  background-color: #ffffff;
+  border-radius: 12px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .arrowUp {
-  top: -0.52vw;
-  left: 7.8125vw;
   position: absolute;
-  border-left: 1.04vw solid transparent;
-  border-right: 1.04vw solid transparent;
-  border-bottom: 1.04vw solid var(--global-color-primary);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ffffff;
+}
+
+
+@media (max-width: 1024px) {
+  .servicesMenuContainer {
+    grid-template-columns: 1fr;
+    width: min(520px, 92vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesMenuContainer {
+    width: 92vw;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 720px) {
+  .servicesMenuContainer {
+    display: none;
+  }
 }
