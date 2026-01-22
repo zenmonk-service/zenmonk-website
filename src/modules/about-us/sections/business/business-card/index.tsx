@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useMediaQuery } from '@mui/material'
 import EclipseSvg from '../assets/circle.svg'
 import CircleSvg from '../assets/filled.svg'
 import PlusSvg from '../assets/plus.svg'
@@ -27,6 +28,7 @@ const BusinessCard = ({
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0 },
   }
+  const isBelow1200 = useMediaQuery('(max-width:1200px)')
 
   const textMotion = {
     rest: {
@@ -62,7 +64,6 @@ const BusinessCard = ({
       }}
       variants={item}
       whileHover="hover"
-      whileTap="hover"
       animate="rest"
       className={styles.container}
     >
@@ -77,7 +78,8 @@ const BusinessCard = ({
             },
             hover: {
               backgroundColor: '#fff',
-              boxShadow: '0 max(4px, 0.2vw) max(4px, 0.2vw) rgba(0, 0, 0, 0.25)',
+              boxShadow:
+                '0 max(4px, 0.2vw) max(4px, 0.2vw) rgba(0, 0, 0, 0.25)',
               transition: { duration: 0.4, type: 'tween' },
             },
           }}
@@ -103,7 +105,7 @@ const BusinessCard = ({
             hover: {
               stroke: '#fff',
               scale: 1.1,
-              x: '6.25vw',
+              x: isBelow1200 ? '100px' : 'max(100px, 6.25vw)',
               y: 10,
               rotate: -360,
               transition: {
@@ -119,18 +121,18 @@ const BusinessCard = ({
             width: 'max(12px, 0.62vw)',
             transform: 'rotate(45deg)',
             bottom: '12%',
-            left: '29.5%',
+            left: isBelow1200 ? '100px' : 'max(100px, 29%)',
             stroke: fill,
           }}
           variants={{
             rest: {
               bottom: '12%',
-              left: '29.5%',
+              left: isBelow1200 ? '100px' : 'max(100px, 29%)',
               stroke: fill,
             },
             hover: {
               stroke: '#fff',
-              x: "4.16vw",
+              x: isBelow1200 ? '64px' : 'max(64px, 4.16vw)',
               y: -15,
               rotate: -90,
               transition: {
@@ -155,7 +157,7 @@ const BusinessCard = ({
             },
             hover: {
               stroke: '#fff',
-              x: '6.25vw',
+              x: isBelow1200 ? '90px' : 'max(90px, 6.25vw)',
               y: '-0.52vw',
               transition: {
                 duration: 0.8,
@@ -169,18 +171,18 @@ const BusinessCard = ({
             position: 'absolute',
             width: 'max(12px, 0.62vw)',
             top: '16%',
-            left: '29%',
+            left: isBelow1200 ? '100px' : 'max(100px, 29%)',
             stroke: fill,
           }}
           variants={{
             rest: {
               top: '16%',
-              left: '29%',
+              left: isBelow1200 ? '100px' : 'max(100px, 29%)',
               stroke: fill,
             },
             hover: {
               stroke: '#fff',
-              x: "4.16vw",
+              x: 'max(64px, 4.16vw)',
               y: 15,
               transition: {
                 duration: 0.8,
@@ -194,13 +196,13 @@ const BusinessCard = ({
             position: 'absolute',
             width: 'max(8px, 0.36vw)',
             top: '50%',
-            left: '32%',
+            left: isBelow1200 ? '110px' : 'max(110px, 34%)',
             fill,
           }}
           variants={{
             rest: {
               top: '50%',
-              left: '32%',
+              left: isBelow1200 ? '110px' : 'max(110px, 34%)',
               stroke: fill,
             },
             hover: {
@@ -220,13 +222,13 @@ const BusinessCard = ({
             height: '0.36vw',
             top: '50%',
             borderRadius: '50%',
-            left: '32%',
+            left: isBelow1200 ? '110px' : 'max(110px, 34%)',
             background: '#fff',
           }}
           variants={{
             rest: {
               top: '50%',
-              left: '32%',
+              left: isBelow1200 ? '110px' : 'max(110px, 34%)',
               opacity: 0,
             },
             hover: {

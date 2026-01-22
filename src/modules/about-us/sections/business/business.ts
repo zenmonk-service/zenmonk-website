@@ -11,7 +11,7 @@ export const businesses = [
     fill: '#65D6DE',
     title: '24X7 Support',
     description:
-      'We provide top-grade products along with exceptional customer experience and 24/7 supports.',
+      'We provide top-grade products along with exceptional customer experience and 24/7 supports around the clock to meet your needs.',
   },
   {
     icon: ReadyMadeSolution,
@@ -20,7 +20,7 @@ export const businesses = [
     hover: 'linear-gradient(180deg, #3C95DB 0%, #E00094 258.51%)',
     fill: '#3C95DB',
     description:
-      'We transform your vision into a future-ready reality by incorporating cutting-edge innovations.',
+      'We transform your vision into a future-ready reality by incorporating cutting-edge innovations that drive measurable impact.',
   },
 
   {
@@ -30,7 +30,7 @@ export const businesses = [
     title: 'Driving the Digital Future',
     fill: '#B47BFF',
     description:
-      'We empower your business to lead in the digital age with our innovative and tech-driven solutions.',
+      'We empower your business to lead in the digital age with our innovative and tech-driven solutions built for the future.',
   },
   {
     icon: FastDevelopment,
@@ -39,6 +39,6 @@ export const businesses = [
     background: 'rgb(108, 199, 125, 0.15)',
     hover: 'linear-gradient(180deg, #6CC77D 0%, #000902 317.38%)',
     description:
-      'We deliver high-quality and cost effective services allowing you to maximize your return on investment.',
+      'We deliver high-quality and cost-effective services for your business, allowing you to maximize your return on investment.',
   },
 ]
