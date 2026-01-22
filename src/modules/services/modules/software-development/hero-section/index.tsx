@@ -13,6 +13,7 @@ const pxToVw = (px: number, base = 1920) => `${(px / base) * 100}vw`
 
 const SoftwareDevelopmentHeroSection = () => {
   const [isMobile, setIsMobile] = React.useState(false)
+  const [scale, setScale] = React.useState(1.1)
 
   const getValue = (px: number) => {
     if (isMobile) {
@@ -22,10 +23,21 @@ const SoftwareDevelopmentHeroSection = () => {
   }
 
   React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    const handleResize = () => {
+      const width = window.innerWidth
+      if (width < 768) {
+        setScale(1.1)
+        setIsMobile(true)
+      } else {
+        setIsMobile(false)
+        // Fluid scale: 1.0 at 768px, 1.4 at 1920px
+        const s = 1.0 + ((width - 768) / (1920 - 768)) * 0.4
+        setScale(Math.min(Math.max(s, 1.0), 1.4))
+      }
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
@@ -39,19 +51,19 @@ const SoftwareDevelopmentHeroSection = () => {
       }}
     >
       <HeroSection
-        title="Reliable & Scalable Software Development"
+        title="Reliable & Scalable <br /> Software Development"
         highlightedText="Software Development"
         description="Zenmonk delivers scalable and secure enterprise software, providing end-to-end support from legacy modernization to deployment. We ensure optimal performance with solutions tailored to your business needs."
         url="/services/software-development/engineer.png"
         imageStyle={{
           position: 'relative',
           zIndex: 10, // Person in the middle
-          scale:isMobile ? 1.2 :1.4,
-          marginLeft:isMobile ? '-5%' : '-5%',
-          marginTop:isMobile ? '-10%' : '0'
+          scale: scale,
+          marginLeft: isMobile ? '-5%' : '-5%',
+          marginTop: isMobile ? '-10%' : '0'
         }}
       >
-        <div className="doodle-container">
+        <div className="doodle-container" style={{ transform: `scale(${scale})` }}>
           <div className="glow-circle-wrapper" style={{ zIndex: 1 }}>
             <Image
               src="/services/software-development/filled-circle.svg"

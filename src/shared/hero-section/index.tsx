@@ -53,10 +53,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       className={styles.section}
       container
       spacing={4}
-      alignItems="center"
       height="100%"
+      direction={{
+        xl:"row",
+        md:"row",                                                           
+        xs:"column-reverse"
+      }}
     >
-      <Grid size={{ xs: 12, md: 6 }} className={styles.text}>
+      <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
         <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>
           <h1 className={styles.heading}>{highlightTitle(title)}</h1>
           <p className={styles.description}>{parse(description)}</p>

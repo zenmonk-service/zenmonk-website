@@ -1,9 +1,7 @@
 'use client'
 import { HeroSection } from '@/shared/hero-section'
-import { useMediaQuery } from '@mui/material'
 
 const MobileAppDevelopment = () => {
-  const isMobile = useMediaQuery('(max-width: 728px)')
   return <div
     style={{
       backgroundImage: `url('/services/mobile-background.png')`,
@@ -16,7 +14,7 @@ const MobileAppDevelopment = () => {
       highlightedText="App Development"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       imageStyle={{
-        scale: isMobile ? 1 : 1.2,
+        scale: 0.9
       }}
     />
   </div>
