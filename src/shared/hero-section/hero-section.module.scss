@@ -105,6 +105,10 @@
       justify-content: center;
       margin-top: 24px;
     }
+    
+    @media (max-width: 768px) {
+      margin-top: 16%;  
+    }
   }
 
   .textWrapper {
@@ -130,10 +134,16 @@
   .imageContainer {
     width: 100%;
     min-height: 250px;
+
+    @media (max-width:768px) {
+      margin-top: 13%;  
+    }
+
   }
 
   .image {
     max-width: 280px;
+    scale: 5;
   }
 }
 
@@ -166,4 +176,8 @@
   .section {
     padding: 8.125vw 7.8% 6.25vw;
   }
+}
+
+@media (min-width:338px) and (max-width:768px) {
+  
 }

@@ -19,6 +19,15 @@ const ProductDevelopment: React.FC = () => {
               Z
             " />
             </clipPath>
+            <clipPath id="bottom-wave" clipPathUnits="objectBoundingBox">
+              <path d="
+              M0,0.9
+              C0.25,0.75 0.75,0.95 1,0.85
+              L1,1
+              L0,1
+              Z
+            " />
+            </clipPath>
           </defs>
         </svg>
 

@@ -9,6 +9,16 @@
   padding-bottom: 2vw;
   overflow: visible;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #fff;
+    clip-path: url(#bottom-wave);
+    z-index: 10;
+    pointer-events: none;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -16,7 +26,6 @@
     background: url('../assets/background.svg');
     background-size: cover !important;
     background-position: right 50%;
-    clip-path: url(#hero-wave);
     z-index: 0;
     pointer-events: none;
   }
@@ -65,7 +74,7 @@
       width: 100%;
       max-width: 31.25vw;
       margin-bottom: 1.5vw;
-      scale: 0.9;
+      scale: 0.95;
     }
 
     .main-image-wrapper {
@@ -84,7 +93,7 @@
 
     .speech-bubble {
       position: absolute;
-      top: -25%;
+      top: -35%;
       left: 15%;
       background: #fff;
       padding: 1.25vw;
