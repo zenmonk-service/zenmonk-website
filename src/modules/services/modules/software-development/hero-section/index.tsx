@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { HeroSection } from '@/shared/hero-section'
@@ -12,8 +12,8 @@ import './styles.scss'
 const pxToVw = (px: number, base = 1920) => `${(px / base) * 100}vw`
 
 const SoftwareDevelopmentHeroSection = () => {
-  const [isMobile, setIsMobile] = React.useState(false)
-  const [scale, setScale] = React.useState(1.1)
+  const [isMobile, setIsMobile] = useState(false)
+  const [scale, setScale] = useState(1.1)
 
   const getValue = (px: number) => {
     if (isMobile) {
@@ -22,7 +22,7 @@ const SoftwareDevelopmentHeroSection = () => {
     return pxToVw(px)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth
       if (width < 768) {
@@ -30,7 +30,6 @@ const SoftwareDevelopmentHeroSection = () => {
         setIsMobile(true)
       } else {
         setIsMobile(false)
-        // Fluid scale: 1.0 at 768px, 1.4 at 1920px
         const s = 1.0 + ((width - 768) / (1920 - 768)) * 0.4
         setScale(Math.min(Math.max(s, 1.0), 1))
       }
@@ -58,9 +57,9 @@ const SoftwareDevelopmentHeroSection = () => {
         imageStyle={{
           position: 'relative',
           zIndex: 10, // Person in the middle
-          scale: scale,
+          scale: 1.1,
           marginLeft: isMobile ? '-5%' : '-5%',
-          marginTop: isMobile ? '-10%' : '0'
+          marginTop: isMobile ? '-10%' : '-8%'
         }}
       >
         <div className="doodle-container" style={{ transform: `scale(${scale})` }}>
@@ -104,7 +103,7 @@ const SoftwareDevelopmentHeroSection = () => {
                   zIndex: 5,
                   '--x': getValue(x),
                   '--y': getValue(y),
-                } as React.CSSProperties}
+                } as CSSProperties}
               >
                 <div className="icon-bg floating" style={{ animationDelay: `${i * 0.4}s` }}>
                   <Image src={icon.src} alt={icon.name} width={40} height={40} />
