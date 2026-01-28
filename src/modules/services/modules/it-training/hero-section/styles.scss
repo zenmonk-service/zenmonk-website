@@ -3,7 +3,7 @@
 .it-training-hero-section {
   padding: 0 7.8125vw;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +11,7 @@
   position: relative;
   background: #ffffff;
   overflow: hidden;
+  margin-bottom: max(80px, 2.7083vw);
 
   // Decor Squiggles (Background layer)
   .roll-3,
@@ -179,7 +180,7 @@
 
       .ellipse {
         position: absolute;
-        bottom: 0px;
+        bottom: 1.48vw;
         left: 50%;
         transform: translateX(-50%);
         width: 38vw;
@@ -198,8 +199,9 @@
       // Floating doodles (Scattered around center)
       .saturn-1 {
         position: absolute;
-        top: 18%;
-        left: 5%;
+        top: 31%;
+        left: 30%;
+        scale: 0.7;
         width: 5.2vw;
         height: auto;
         opacity: 0.8;
@@ -209,19 +211,18 @@
 
       .saturn-2 {
         position: absolute;
-        top: 20%;
-        right: -5%;
+        top: 50%;
+        right: 0%;
         width: 4.8vw;
         height: auto;
         opacity: 0.8;
-        transform: rotate(15deg);
         z-index: 3;
       }
 
       .star-doodle {
         position: absolute;
         bottom: 15%;
-        left: -8%;
+        left: -2%;
         width: 7.5vw;
         height: auto;
         opacity: 0.65;
@@ -247,7 +248,7 @@
         transform: rotate(-5deg);
         opacity: 0.7;
         z-index: 3;
-        scale: 2;
+        scale: 1.8;
       }
 
       .roll-center-1 {
@@ -299,11 +300,12 @@
 }
 
 @media (max-width: 768px) {
-  .random-roll{
+  .random-roll {
     display: none;
   }
+
   .it-training-hero-section {
-    padding: 60px 20px 0;
+    padding: 60px 0 0;
     height: auto;
     min-height: auto;
     display: flex;
@@ -347,6 +349,7 @@
       .right-section {
         flex: 0 0 45%;
         margin-top: 0;
+        padding: 0 16px;
       }
 
       .left-section {
@@ -388,16 +391,15 @@
       .center-section {
         flex: 0 0 100%;
         order: 3;
-        margin-top: -30px;
-        scale: 1.15;
 
         .ellipse {
-          width: 85%;
+          width: 100%;
         }
 
         .teacher-image {
-          width: 105%;
-          margin-left: -2.5%
+          width: 100%;
+          scale: 1.2;
+          padding-bottom: 20px;
         }
 
         .saturn-2 {
@@ -427,14 +429,15 @@
           width: 42px;
           transform: rotate(-35deg);
         }
+
         .doodle-center {
           bottom: 25%;
-          left: 32%;
+          left: 28%;
           height: 7.5vw;
           transform: rotate(5deg);
           opacity: 0.7;
           z-index: 3;
-          scale: 2;
+          scale: 2.5;
         }
 
         .roll-center-1 {

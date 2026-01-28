@@ -28,7 +28,6 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
         <SectionTitle
           text="Future-Ready IT Solutions for Your Business Growth"
           markText="Growth"
-          markTextProps={{ rotate: 2 }}
         />
         <SectionDescription
           className={styles.subtitle}
