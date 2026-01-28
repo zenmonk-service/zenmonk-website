@@ -1,5 +1,6 @@
 'use client'
 
+import React from "react";
 import Base from "./assets/base.svg"
 import styles from './styles.module.scss';
 
@@ -16,7 +17,7 @@ const steps = [
   },
   {
     id: '03',
-    title: 'Identify your Vision',
+    title: 'Agile Development',
     description: 'Agile development using cutting-edge technologies and best practices.',
   },
   {
