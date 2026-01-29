@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 5vw 7.8%;
+  // padding: 5vw 7.8%;
   height: 100vh;
   width: 100%;
 }
@@ -28,7 +28,7 @@
   font-weight: 600 !important;
   line-height: 116.667%;
   text-transform: capitalize;
-  margin-bottom: 1.5vw !important;
+  margin-bottom: 0.63vw !important;
 }
 
 .heading span {
@@ -105,10 +105,6 @@
       justify-content: center;
       margin-top: 24px;
     }
-    
-    @media (max-width: 768px) {
-      margin-top: 16%;  
-    }
   }
 
   .textWrapper {
@@ -136,14 +132,14 @@
     min-height: 250px;
 
     @media (max-width:768px) {
-      margin-top: 13%;  
+      margin-top: 40px;
     }
 
   }
 
   .image {
-    max-width: 280px;
-    scale: 5;
+    max-width: 100%;
+    scale: 1;
   }
 }
 
@@ -178,6 +174,4 @@
   }
 }
 
-@media (min-width:338px) and (max-width:768px) {
-  
-}
+@media (min-width:338px) and (max-width:768px) {}

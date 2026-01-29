@@ -11,12 +11,14 @@ const ItBusinessConsultationHeroSection = () => {
     }}
   >
     <HeroSection
-      title="Driving Innovation with <br/> IT & Business Expertise"
+      title="Driving Innovation with IT & Business Expertise"
       highlightedText="IT & Business Expertise"
       description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
       url={isMobile ? "/services/it-mobile.png" : "/services/it.png"}
-      imageStyle={{
-        scale: isMobile ? 1 : 1.2,
+      titleProps={{
+        style: {
+          width: "95%",
+        },
       }}
     />
   </div>

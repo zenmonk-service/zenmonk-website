@@ -19,6 +19,7 @@ interface HeroSectionProps {
   children?: React.ReactNode
   showImage?: boolean
   textWrapperStyle?: React.CSSProperties
+  titleProps?: React.HTMLAttributes<HTMLHeadingElement>
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -32,6 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   children,
   showImage = true,
   textWrapperStyle = {},
+  titleProps = {},
 }) => {
   const [loading, setLoading] = useState(true)
 
@@ -55,14 +57,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       spacing={4}
       height="100%"
       direction={{
-        xl:"row",
-        md:"row",                                                           
-        xs:"column-reverse"
+        xl: "row",
+        md: "row",
+        xs: "column-reverse"
       }}
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
         <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>
-          <h1 className={styles.heading}>{highlightTitle(title)}</h1>
+          <h1 className={styles.heading} {...titleProps}>{highlightTitle(title)}</h1>
           <p className={styles.description}>{parse(description)}</p>
         </div>
         <div className={styles.buttonContainer}>
