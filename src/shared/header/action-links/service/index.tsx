@@ -44,6 +44,9 @@ const ServiceLink = (props: Props) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        sx={{
+          minWidth: '600px',
+        }}
         slotProps={{
           paper: {
             elevation: 0,

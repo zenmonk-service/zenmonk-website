@@ -56,11 +56,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       container
       spacing={4}
       height="100%"
-      direction={{
-        xl: "row",
-        md: "row",
-        xs: "column-reverse"
-      }}
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
         <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>

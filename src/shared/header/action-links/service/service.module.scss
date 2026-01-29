@@ -6,7 +6,7 @@
 
   padding: 0.625vw 0.8333vw;
   /* 12px 16px */
-  border-radius: 2.2917vw;
+  border-radius: max(30px,2.2917vw);
   /* 44px */
 
   background: #fff;
@@ -54,10 +54,11 @@
   grid-gap: 0 !important;
   width: 37.5vw;
   /* 720px */
+  min-width: 550px;
   padding: 0.8333vw;
   /* 16px */
 
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 0.625vw;
   /* 12px */
   position: relative;
