@@ -1,0 +1,253 @@
+.container {
+  height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+  gap: 50px;
+}
+
+.backgroundWrapper {
+  position: relative;
+}
+
+.backgroundLine {
+  position: absolute;
+  left: 2%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  color: #132427;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.125vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.6458vw;
+  text-transform: capitalize;
+  margin: 0 0 16px 0;
+}
+
+.description {
+  max-width: 37vw;
+  flex-wrap: wrap;
+  color: #757575;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.025vw;
+  margin: 0 0 40px 0;
+}
+
+.highlightedText {
+  background: var(--global-color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.imageContainer {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+.heroImage {
+  width: 100%;
+  object-fit: contain;
+  scale: 1;
+}
+
+.button {
+  width: 180px !important;
+  padding: 10px 20px !important;
+}
+
+@media screen and (max-width: 600px) {
+
+  .container {
+    height: 100vh;
+    flex-direction: column-reverse;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .imageContainer {
+    margin-top: 83px;
+    margin-bottom: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .title {
+    color: #132427;
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    text-transform: capitalize;
+    margin: 0 0 16px 0;
+  }
+
+  .description {
+    max-width: 100%;
+    color: #757575;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+    margin: 0 0 40px 0;
+  }
+
+  .button {
+    width: 160px !important;
+  }
+}
+@media (max-width: 401px) {
+
+  .container {
+    gap: 0;
+  }
+
+  .heroImage {
+  margin-left: 12%;
+  transform: scale(1.2);
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  .container {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 2vh;
+  }
+  .imageContainer {
+    width: 100%;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .heroImage {
+    width: 80%;
+    margin-left: 13%;
+    margin-top: 20%;
+    transform: scale(1.4);
+  }
+  .textContainer {
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .button {
+      width: 180px !important;
+      margin-top: 2vw;
+      background-color: green;
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.23;
+    display: flex;
+    gap: 9%;
+  }
+  .imageContainer {
+    width: 50%;
+  }
+  .heroImage {
+    width: 90%; 
+    transform: scale(1.5);
+  }
+
+  .backgroundLine {
+    bottom: 23%;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.43;
+    display: flex;
+    gap: 12%;
+  }
+  .imageContainer {
+    width: 45%; 
+  }
+  .heroImage {
+    width: 100%;
+    transform: scale(1.5);
+
+  }
+  .backgroundLine {
+    bottom: 15%;
+  }
+  .description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.83;
+    margin-top: 3%;
+  }
+
+  .heroImage {
+    width: 100%;
+    transform: scale(1.2);
+  }
+  .backgroundLine {
+    bottom: 7%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .container {
+    height: auto;
+    aspect-ratio: 1.68;
+    margin-top: 2%;
+  }
+  .heroImage {
+    transform: scale(1.5);
+    margin-left: 15%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .backgroundLine {
+    bottom: 15%;
+  }
+  .heroImage {
+    transform: scale(1.4);
+    margin-left: 20%;
+    margin-top: 20%;
+  }
+}
