@@ -2,20 +2,17 @@ import { generateCircularPositions, innerBaseIcons, outerBaseIcons } from "./ico
 
 const innerIconsAll = [
   innerBaseIcons[0], // Git
+  innerBaseIcons[1], // Mongo
   innerBaseIcons[2], // Node
+  innerBaseIcons[3], // Docker
   innerBaseIcons[4], // RabbitMQ
   outerBaseIcons[1], // React
-  innerBaseIcons[2], // Node
-  innerBaseIcons[4],
-  outerBaseIcons[1], // React
-  outerBaseIcons[4], // Docker - 150 deg
-  outerBaseIcons[0], // Docker - 150 deg
 ]
 
 const innerPositions = generateCircularPositions(
   innerIconsAll.length,
-  260, // Optimized to touch 500px circle
-  42   // Diamond placement
+  210, // Radius for inner circle (520px diameter)
+  0    // Start angle
 )
 
 const innerIcons = innerIconsAll.map((icon, i) => ({

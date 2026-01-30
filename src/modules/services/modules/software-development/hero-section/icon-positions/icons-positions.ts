@@ -3,19 +3,28 @@ export const degToRad = (deg: number) => (deg * Math.PI) / 180
 export const randomBetween = (min: number, max: number) =>
   min + Math.random() * (max - min)
 
+export const pxToVw = (px: number) => `${px}px`
+
 export const generateCircularPositions = (
   count: number,
-  radius: number,
+  radiusPx: number,
   startAngle: number = 0,
   clockwise: boolean = true
 ) => {
-  const positions: { angle: number; radius: number }[] = []
+  const positions: { angle: number; radius: string; x: string; y: string }[] = []
   const angleStep = 360 / count
 
   for (let i = 0; i < count; i++) {
+    const angle = (startAngle + (clockwise ? -i : i) * angleStep + 360) % 360
+    const angleRad = degToRad(angle)
+    const x = Math.cos(angleRad) * radiusPx
+    const y = -Math.sin(angleRad) * radiusPx
+
     positions.push({
-      angle: (startAngle + (clockwise ? -i : i) * angleStep + 360) % 360,
-      radius: radius,
+      angle: angle,
+      radius: pxToVw(radiusPx),
+      x: pxToVw(x),
+      y: pxToVw(y),
     })
   }
 
