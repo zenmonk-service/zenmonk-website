@@ -16,11 +16,7 @@ const CloudSolutionsHeroSection = () => {
       scale: isMobile ? 1.4 : 1.8,
       margin: '0 auto',
       display: 'block',
-      marginTop:'-10%',
       marginLeft: isMobile ? "-10%" : ''
-    }}
-    textWrapperStyle={{
-      marginTop: isMobile ? "-8%" : ""
     }}
   />
 }

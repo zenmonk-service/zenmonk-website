@@ -9,12 +9,10 @@ interface Card {
 }
 
 const Card = (props: Card) => {
+  const normalizedName = props.name.toLowerCase().replace(/\s+/g, '-')
   return (
-    <div className={styles.cardContainer}>
+    <div className={`${styles.cardContainer} ${styles[normalizedName]}`}>
       <props.background
-        style={{
-          marginLeft: props.marginLeft,
-        }}
         className={styles.background}
       />
       <props.icon className={styles.icon} />

@@ -7,23 +7,24 @@
 }
 
 .title {
-  margin-bottom: 1.04vw;
+  margin-bottom: max(16px, 1.04vw);
 }
 
 .description {
   margin: auto;
   max-width: 70%;
   text-align: center;
-  margin-top: 1.25vw;
+  margin-top: max(16px, 1.25vw);
 }
 
 .listContainer {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  row-gap: 2.08vw;
-  margin-top: 4vw;
-  justify-content: space-between;
+  align-items: stretch;
+  row-gap: 40px;
+  column-gap: 40px;
+  margin-top: max(40px, 4vw);
+  justify-content: center;
   background: transparent;
 }
 
@@ -32,22 +33,35 @@
   left: 0;
 }
 
+@media screen and (max-width: 1100px) {
+  .whyChooseUs {
+    margin-top: 60px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .listContainer {
+    row-gap: 40px;
+    column-gap: 40px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .whyChooseUs {
-    margin-top: 80px;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin-top: 40px;
   }
 
   .description {
     margin-top: 16px;
-    max-width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    font-size: 16px;
   }
 
-  .sectionBachground{
-    width: 100%;
-    z-index: -1;
-    margin-top: 40svh;
+  .sectionBachground {
+    display: none; // Hide absolute bg on mobile if it causes issues
   }
 }

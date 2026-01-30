@@ -50,7 +50,7 @@ export const whyChooseUsList = [
     ml: 'max(8px, 0.5vw)',
   },
   {
-    name: 'More Reach',
+    name: 'Reach Ideas',
     description:
       'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
     icon: MoreReach,
