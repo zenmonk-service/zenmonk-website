@@ -6,7 +6,7 @@ import Customer from './assets/service.svg'
 export const ratings = [
   {
     rating: '200+',
-    description: 'Happy Clients',
+    description: 'Happy Clients ',
     icon: Rating,
     bg: 'rgb(101, 214, 222, 0.15)',
   },
@@ -24,7 +24,7 @@ export const ratings = [
   },
   {
     rating: '15+',
-    description: 'Experience',
+    description: 'Experience ‎ ‎ ',
     icon: Experience,
     bg: 'rgb(180, 123, 255, 0.15)',
   },

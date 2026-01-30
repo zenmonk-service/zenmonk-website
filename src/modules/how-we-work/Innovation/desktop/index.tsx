@@ -1,11 +1,9 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Button from '@mui/material/Button'
-import Stack from '@mui/material/Stack'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import PaperPlaneImg from '../../assets/innovation/best.png'
 import Earth from '../../assets/innovation/earth.svg'
-import PersonSittingOnDesk from '../../assets/innovation/img.png'
 import { ServiceIcons } from '../service-icons'
 import './styles.scss'
 
@@ -16,14 +14,12 @@ const InnovationDesktop = () => {
   }
 
   return (
-    <Stack className="innovation-section-wrapper">
-      <Stack className="innovation-section">
-        <Stack className="text-wrapper">
+    <div className="innovation-section-wrapper">
+      <div className="innovation-section">
+        <div className="text-wrapper">
           <SectionTitle
             className="innovation-title"
-            text={
-              'We Deliver the Best with Innovation, Precision and Excellence.'
-            }
+            text="We Deliver the Best with Innovation, Precision and Excellence."
             markText="Excellence"
             markTextProps={{ rotate: 4 }}
           />
@@ -33,56 +29,53 @@ const InnovationDesktop = () => {
             dedication to achieve successful outcomes."
             className="innovation-description"
           />
-        </Stack>
+        </div>
 
-        <Stack className="content-wrapper">
-          <div className="person-sitting-on-desk">
-            <Image src={PersonSittingOnDesk} alt="person sitting on desk" />
-          </div>
+        <div className="content-wrapper">
+          <div className="person-sitting-on-desk" />
 
-          <Stack className="more-info">
-            <Stack className="deliver-the-best">
-              <Stack className="deliver-the-best-text-wrapper">
+          <div className="more-info">
+            <div className="deliver-the-best">
+              <div className="deliver-the-best-text-wrapper">
                 <div className="earth-icon">
                   <Earth />
                 </div>
                 <p className="deliver-the-best-heading">We deliver the best</p>
                 <p className="deliver-the-best-description">
-                  We make robust, responsive, SEO friendly and Secure Websites
-                  that will take your business to next level.
+                  We build robust, responsive, SEO-optimized, and secure
+                  websites that empower your business to grow, perform, and
+                  stand out in a competitive digital landscape.
                 </p>
                 <Button className="contact-btn" onClick={handleContactClick}>
                   Contact us
                 </Button>
-              </Stack>
+              </div>
               <div className="paper-plane-img-wrapper">
                 <Image src={PaperPlaneImg} alt="" className="paper-plane-img" />
               </div>
-            </Stack>
+            </div>
 
-            <Stack className="services-container">
+            <div className="services-container">
               {ServiceIcons.map((item) => {
                 return (
-                  <Stack className="service-images-wrapper" key={item.title}>
+                  <div className="service-images-wrapper" key={item.title}>
                     <item.icon
                       className={item.size === 1 ? 'img-small' : 'img-large'}
                     />
                     <p
                       className="service-text"
-                      style={{
-                        maxWidth: item.maxWidth + 'vw',
-                      }}
+                      style={{ maxWidth: item.maxWidth + 'vw' }}
                     >
                       {item.title}
                     </p>
-                  </Stack>
+                  </div>
                 )
               })}
-            </Stack>
-          </Stack>
-        </Stack>
-      </Stack>
-    </Stack>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

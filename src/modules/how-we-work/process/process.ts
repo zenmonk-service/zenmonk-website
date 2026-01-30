@@ -11,6 +11,11 @@ export const processes = [
     title: 'Understanding Challenges',
     description:
       'Tell us your vision, big or small. Whether you need a custom solution.',
+    className: 'understanding-challenges',
+    animations: {
+      initial: { x: -40, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
   },
   {
     Icon: PeopleIcon,
@@ -18,6 +23,11 @@ export const processes = [
     title: 'Systematic Planning',
     description:
       'Tell us your vision, big or small. Whether you need a custom solution.',
+    className: 'systematic-planning',
+    animations: {
+      initial: { x: -40, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
   },
   {
     Icon: NotePadIcon,
@@ -25,6 +35,11 @@ export const processes = [
     title: 'Meticulous Designing',
     description:
       'Tell us your vision, big or small. Whether you need a custom solution.',
+    className: 'meticulous-designing',
+    animations: {
+      initial: { y: -40, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+    },
   },
   {
     Icon: RocketIcon,
@@ -32,6 +47,11 @@ export const processes = [
     title: 'Authentic Execution',
     description:
       'Tell us your vision, big or small. Whether you need a custom solution.',
+    className: 'authentic-execution',
+    animations: {
+      initial: { x: 40, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
   },
   {
     Icon: CareIcon,
@@ -39,5 +59,10 @@ export const processes = [
     title: 'Reflect & Refine',
     description:
       'Tell us your vision, big or small. Whether you need a custom solution.',
+    className: 'reflect-refine',
+    animations: {
+      initial: { x: 40, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
   },
 ]

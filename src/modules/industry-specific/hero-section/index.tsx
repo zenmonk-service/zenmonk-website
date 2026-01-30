@@ -17,7 +17,7 @@ const IndustrySpecificHeroSection = () => {
             your partners in technological excellence, we transform values into
             action, simplifying tech to deliver user-centered solutions.
           </p>
-          <BaseButton className={styles.button}>Explore More</BaseButton>
+          <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
         </div>
         <div className={styles.imageContainer}>
           <HeroImage className={styles.heroImage} />

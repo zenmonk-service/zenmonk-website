@@ -3,15 +3,15 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import Quotes from './assets/animated_path.svg'
 import DashedArrow from './assets/arrow.svg'
-import Background from "./assets/background.svg"
+import Quotes from './assets/animated_path.svg'
+import Background from './assets/background.svg'
 import { StatsCircle } from './components/stats-circle'
 import './styles.scss'
 
 const Quality = () => {
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+  const isInView = useInView(sectionRef, { once: true, amount: 0.5 })
   return (
     <div ref={sectionRef} className="quality-hero-section-wrapper">
       <Background className="quality-background" />
@@ -39,7 +39,7 @@ const Quality = () => {
 
         <div className="stats-img-container">
           <StatsCircle
-            percentage={40}
+            percentage={70}
             value="350"
             label="Daily"
             subLabel="Stand-ups"
@@ -47,7 +47,7 @@ const Quality = () => {
             align="left"
           />
           <StatsCircle
-            percentage={75}
+            percentage={78}
             value="350"
             label="Sprint"
             subLabel="Planning"
@@ -55,7 +55,7 @@ const Quality = () => {
             align="center"
           />
           <StatsCircle
-            percentage={65}
+            percentage={50}
             value="350"
             label="Backlog"
             subLabel="Refinement"
@@ -67,11 +67,11 @@ const Quality = () => {
       <div className="quality-img-container">
         <DashedArrow className="quality-img-dashed-arrow" />
         <motion.div
-          initial={{ transform: 'rotateZ(0deg)', opacity: 0 }}
+          initial={{ transform: 'rotateZ(0deg)', opacity: 1 }}
           animate={
             isInView
               ? { transform: 'rotateZ(-16deg)', opacity: 1 }
-              : { transform: 'rotateZ(0deg)', opacity: 0 }
+              : { transform: 'rotateZ(0deg)', opacity: 1 }
           }
           className="quality-img-1-container"
           transition={{

@@ -1,0 +1,10 @@
+.listItemContainer {
+  padding-bottom: max(4px, 0.2vw);
+  .listItem {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size-16);
+    font-style: normal;
+    font-weight: 300;
+  }
+}

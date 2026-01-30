@@ -1,0 +1,150 @@
+.awardProofCard {
+  height: auto;
+  position: relative;
+  overflow: visible;
+  flex: 1;
+  width: 18.23vw;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 4.5vw; // Space for trophy on top
+
+  
+
+  /* ---------------- Award Image ---------------- */
+
+  .awardImageContainer {
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    z-index: 10;
+    top: -4.5vw;
+    left: -0.437vw;
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: visible;
+
+    .awardMainImage {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain;
+      position: relative !important;
+      z-index: 2;
+    }
+  }
+
+  /* ---------------- Card Content ---------------- */
+
+  .awardCardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.521vw;
+    padding: 1.563vw;
+    padding-top: 5vw;
+    flex: 1;
+    border-radius: 1.042vw;
+    background: #fff;
+    box-shadow: 0 0 max(60px, 3.125vw) 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+
+    .title {
+      width: 100%;
+      color: #424242;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(20px, 1.1458vw);
+      font-weight: 500;
+      line-height: max(24px, 1.5625vw);
+    }
+
+    .description {
+      width: 100%;
+      color: #696969;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(16px, 0.8333vw) !important;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  /* ---------------- Hover State ---------------- */
+
+  &:hover {
+        .awardImageContainer {
+      transform: translateY(min(-10px, 0.52vw)) translatex(max(5px, 0.26vw)) scale(1.1);
+    }
+
+    .awardCardContent {
+      background: #fff9f0;
+      box-shadow: 0px 10px 40px rgba(255, 167, 80, 0.1);
+    }
+  }
+
+  /* ---------------- Odd Card Hover Variant ---------------- */
+
+  &:nth-of-type(odd):hover .hoverExpandWrapper {
+    .mainStar {
+      transform: translate(170%, 10%) scale(1.8) rotate(-30deg);
+    }
+
+    .bottomArrow {
+      transform: translate(55%, 35%) scale(1.5) rotate(20deg);
+    }
+
+    .smallStar {
+      transform: translate(100%, 75%) scale(1.2);
+    }
+
+    .circlePart {
+      transform: translate(10%, 70%) scale(1);
+    }
+  }
+
+  /* ---------------- Mobile ---------------- */
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    margin-top: 60px;
+
+    .awardImageContainer {
+      width: 120px;
+      height: 120px;
+      left: 0;
+      margin: 0 auto;
+      top: -60px;
+    }
+
+    .awardCardContent {
+      padding: 24px 20px;
+      padding-top: 75px;
+      border-radius: 12px;
+      align-items: flex-start;
+
+      .title {
+        font-size: 18px !important;
+        text-align: left;
+      }
+
+      .description {
+        font-size: 14px !important;
+        text-align: left;
+      }
+    }
+
+    .hoverExpandWrapper {
+      display: none;
+      opacity: 1;
+    }
+  }
+
+  /* ---------------- Tablet / Small Desktop ---------------- */
+
+  @media screen and (min-width: 1024px) and (max-width: 1200px) {
+    width: 100%;
+    padding-inline: 0 16%;
+    margin: 60px 40px 40px 40px;
+  }
+}

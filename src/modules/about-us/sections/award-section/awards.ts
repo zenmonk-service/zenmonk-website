@@ -1,4 +1,4 @@
-export const awardProof = [
+export const awards = [
   {
     title: 'Innovate Design Award',
     description:

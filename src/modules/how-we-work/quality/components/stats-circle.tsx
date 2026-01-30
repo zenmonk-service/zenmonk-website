@@ -32,8 +32,8 @@ export const StatsCircle = ({
 
   // SVG geometry (KEEP PX)
   const radius = 94
-  const strokeWidth = 22
-  const size = 210
+  const strokeWidth = 18
+  const size = 220
   const center = size / 2
   const circumference = 2 * Math.PI * radius
 

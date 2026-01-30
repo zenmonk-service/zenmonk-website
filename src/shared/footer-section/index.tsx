@@ -1,27 +1,59 @@
 'use client'
 
-import Image from 'next/image'
+import { Grid2 } from '@mui/material'
 import Button from '@mui/material/Button'
 import InputBase from '@mui/material/InputBase'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { socialMedia } from '@/assets/icons/social'
 import { SectionDescription } from '@/shared/typography'
-import MONK_PNG from './assets/monk.png'
+import OfficialLogo from './assets/official-logo.svg'
+import ListHeading from './list-heading/list-heading'
+import ListItem from './list-items/list-items'
 import { consultingCategories } from './list/consulting-categories'
 import { quickLink } from './list/quick-links'
 import { serviceCategory } from './list/service-categories'
 import './styles.scss'
 
+const QuickLinks = () => (
+  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} mt={{ xs: 2, md: 0 }}>
+    <ListHeading title="Quick links" />
+    {quickLink.map((item) => (
+      <ListItem text={item.title} key={item.id} />
+    ))}
+  </Grid2>
+)
+
+const FollowUs = () => (
+  <Grid2 size={{ xs: 5, md: 2.5 }} mt={{ xs: 2, md: 0 }}>
+    <ListHeading title="Follow Us" />
+    <div className="social-media-list">
+      {socialMedia.map((item, index) => (
+        <item.icon key={index} className="icons" />
+      ))}
+    </div>
+  </Grid2>
+)
+
 const Footer = () => {
   const isLaptop = useMediaQuery('(max-width:1423px)')
-  const isSmallScreen = useMediaQuery('(max-width:436px)')
+  const isSmallScreen = useMediaQuery('(max-width:600px)')
+  const chunkArray = <T,>(arr: T[], size: number): T[][] => {
+    const result: T[][] = []
+    for (let i = 0; i < arr.length; i += size) {
+      result.push(arr.slice(i, i + size))
+    }
+    return result
+  }
+
+  const columns = chunkArray(serviceCategory, 5)
+  const consultingColumns = chunkArray(consultingCategories, 5)
 
   return (
     <div className="footer-section">
       <div className="header">
         {isLaptop && (
           <div className="logo-wrapper">
-            <Image quality={100} src={MONK_PNG} alt="logo" className="logo" />
+            <OfficialLogo className="logo" />
           </div>
         )}
 
@@ -34,130 +66,71 @@ const Footer = () => {
       <div className="logo-category-wrapper">
         {!isLaptop && (
           <div className="logo-wrapper">
-            <Image quality={100} src={MONK_PNG} alt="logo" className="logo" />
+            <OfficialLogo className="logo" />
           </div>
         )}
         <div className="category-wrapper">
           <div className="service-category-quick-links-wrapper">
             <div className="service-category">
-              <p className="list-title">Services</p>
-              <div className="list-container">
-                <div className="list">
-                  {serviceCategory.slice(0, 5).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-                <div className="list">
-                  {serviceCategory.slice(5, 10).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-                <div className="list">
-                  {serviceCategory.slice(10, 15).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-                <div className="list">
-                  {serviceCategory.slice(15, 20).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="quick-links">
-              <p className="list-title">Quick links</p>
-              <div className="list">
-                {quickLink.map((link, index) => {
-                  return (
-                    <p key={index} className="base-text">
-                      {link.title}
-                    </p>
-                  )
-                })}
-              </div>
+              <Grid2 columnSpacing={4} container columns={10}>
+                {columns.map((column, colIndex) => (
+                  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} key={colIndex}>
+                    <ListHeading title={!colIndex ? 'Services' : '‎'} />
+                    {column.map((item) => (
+                      <ListItem text={item.title} key={item.id} />
+                    ))}
+                  </Grid2>
+                ))}
+                {!isSmallScreen && <QuickLinks />}
+              </Grid2>
             </div>
           </div>
           <div className="consulting-category-contact-wrapper">
             <div className="consulting-category">
-              <p className="list-title">Consulting</p>
-              <div className="list-container">
-                <div className="list">
-                  {consultingCategories.slice(0, 5).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-                <div className="list">
-                  {consultingCategories.slice(5, 10).map((category, index) => (
-                    <p className="base-text" key={index}>
-                      {category.title}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="contact">
-              <div className="subscribe-section">
-                <p className="list-title">Subscribe US</p>
-                <p className="base-text heading">
-                  Make the right business move.
-                </p>
-                <div className="email">
-                  <InputBase
-                    placeholder="Email Address"
-                    className="input-field"
-                    slotProps={{
-                      input: {
-                        className: 'input',
-                      },
-                    }}
-                  />
-                  <Button variant="contained" className="submit-button">
-                    Submit
-                  </Button>
-                </div>
-              </div>
-              <div className="social-media-link">
-                <div className="quick-links-social-media-wrapper">
-                  {isSmallScreen && (
-                    <div className="quick-links">
-                      <p className="quick-links-title title">Quick links</p>
-                      <div className="quick-link-list">
-                        {quickLink.map((link, index) => {
-                          return (
-                            <p key={index} className="base-text">
-                              {link.title}
-                            </p>
-                          )
-                        })}
-                      </div>
-                    </div>
-                  )}
-                  <div>
-                    <p className="list-title">Follow US</p>
-                    <div className="social-media-list">
-                      {socialMedia.map((item, index) => {
-                        return <item.icon key={index} className="icons" />
-                      })}
-                    </div>
+              <Grid2 columnSpacing={4} columns={10} container>
+                {consultingColumns.map((column, colIndex) => (
+                  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} key={colIndex}>
+                    <ListHeading title={!colIndex ? 'Consulting' : '‎'} />
+                    {column.map((item) => (
+                      <ListItem text={item.title} key={item.id} />
+                    ))}
+                  </Grid2>
+                ))}
+                {isSmallScreen && (
+                  <>
+                    <QuickLinks />
+                    <FollowUs />
+                  </>
+                )}
+                <Grid2 size={{ xs: 10, sm: 7, md: 3 }} mt={{ xs: 2, md: 0 }}>
+                  <ListHeading title="Subscribe Us" />
+                  <ListItem text="Make the right business move" />
+                  <div className="email">
+                    <InputBase
+                      placeholder="Email Address"
+                      className="input-field"
+                      slotProps={{
+                        input: {
+                          className: 'input',
+                        },
+                      }}
+                      endAdornment={
+                        <Button variant="contained" className="submit-button">
+                          Submit
+                        </Button>
+                      }
+                    />
                   </div>
-                </div>
-              </div>
+                </Grid2>
+                <Grid2 size={0.1} />
+                {!isSmallScreen && <FollowUs />}
+              </Grid2>
             </div>
           </div>
         </div>
       </div>
       <div className="copyright">
-        <SectionDescription text="© Zenmonk 2025" />
+        <SectionDescription text="© Zenmonk 2026" />
       </div>
     </div>
   )

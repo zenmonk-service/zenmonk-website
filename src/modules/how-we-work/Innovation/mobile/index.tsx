@@ -29,7 +29,7 @@ const InnovationMobile = () => {
         </p>
 
         <div className={styles.toolbar}>
-          <p className={styles.button}>Explore More</p> <Arrow />
+          <p className={styles.button}>EXPLORE MORE</p> <Arrow />
         </div>
       </div>
       <div className={styles.serviceCardContainer}>

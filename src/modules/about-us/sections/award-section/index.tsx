@@ -1,32 +1,33 @@
-import { Box } from '@mui/material'
-import AwardProofCard from '../../components/card/award-proof'
-import { awardProof } from './award-proof'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import './styles.scss'
+import AwardProofCard from './award-card'
+import { awards } from './awards'
+import styles from './award.module.scss'
 
 export const AwardProofSection = () => {
   return (
-    <Box className="award-proof-section">
+    <div className={styles.awardProofSection}>
       <SectionTitle
-        className='section-title'
-        markText='Services'
+        className={styles.sectionTitle}
+        markText="Services"
         text="Awards Proof Your Business With Our IT Services"
       />
       <SectionDescription
         text="We are thrilled to showcase our esteemed awards that we have received
-        throughout our business journey." className='section-description' />
-      <Box className="award-proof-list">
-        {awardProof.map((award, index) => {
+        throughout our business journey."
+        className={styles.sectionDescription}
+      />
+      <div className={styles.awardProofList}>
+        {awards.map((award, index) => {
           return (
             <AwardProofCard
+              key={index}
               description={award.description}
               image={award.image}
               title={award.title}
-              key={index}
             />
           )
         })}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }

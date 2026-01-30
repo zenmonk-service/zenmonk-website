@@ -5,25 +5,18 @@
   margin-top: 80px;
 }
 
-.header {
-  font-family: var(--font-primary, 'Outfit', sans-serif);
-  font-size: 8vw;
-  font-weight: 700;
-  color: #1a1a1a;
-  margin-bottom: 2vw;
-  text-align: left;
-  line-height: 1.2;
-}
-
 .headerDescription {
   color: #757575;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 40px;
-  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.heading {
+  margin-bottom: 16px !important;
 }
 
 .card {
@@ -38,7 +31,7 @@
   padding: 24px;
   text-align: center;
   color: #fff;
-  background: linear-gradient(180deg, #F7941D 0%, #F47C20 100%);
+  background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
   box-shadow: 0 4px 10px rgba(247, 148, 29, 0.2);
   margin-bottom: 16px;
 }
@@ -57,8 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: max(40px, 12vw);
-  height: max(40px, 12vw);
+  width: max(42px, 9vw);
+  height: max(42px, 9vw);
   color: #fff;
   margin-bottom: 0vw;
 
@@ -71,8 +64,8 @@
 }
 
 .title {
-  color: #FFF;
-  font-family: Poppins;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -80,9 +73,9 @@
 }
 
 .description {
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -97,6 +90,16 @@
     flex-wrap: wrap;
     gap: 16px;
     padding: 0 7.8125%;
+  }
+
+  .heading {
+    text-align: center !important;
+    width: 100%;
+    margin-bottom: 0px !important;
+  }
+
+  .headerDescription {
+    text-align: center !important;
   }
 
   .description {

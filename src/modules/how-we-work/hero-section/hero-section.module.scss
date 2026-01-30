@@ -27,7 +27,6 @@
         line-height: max(44.53px, 3.6vw);
         text-transform: capitalize;
         margin-bottom: max(16px, 0.83vw);
-
         br {
           @media (max-width: 1195px) {
             display: none;
@@ -70,6 +69,7 @@
     top: 13.55%;
     transform: rotate(90deg);
     height: 14.96vw;
+    z-index: -2;
   }
 
   .verticalDottedImage {
@@ -110,11 +110,13 @@
           font-size: 16px;
           margin-bottom: 40px;
           text-align: center;
-          margin-top: 0;
+          margin-top: 10px;
         }
       }
     }
-    .topHorizontalDottedImage,.verticalDottedImage {
+
+    .topHorizontalDottedImage,
+    .verticalDottedImage {
       display: none;
     }
   }
@@ -126,7 +128,6 @@
     height: auto;
     width: 1;
     aspect-ratio: 1.83;
-
     .heroSection {
       padding: 0px;
 
@@ -147,10 +148,8 @@
     height: auto;
     width: 1;
     aspect-ratio: 1.83;
-
     .heroSection {
       flex: 1;
-
       .heroSectionTextWrapper {
         max-width: 100%;
 
@@ -158,7 +157,6 @@
           font-size: 32px;
           line-height: 40px;
         }
-
         .textDescription {
           font-size: 14px;
           line-height: 21px;
