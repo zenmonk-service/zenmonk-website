@@ -9,7 +9,6 @@ const ProcessDesktop = () => {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 1 })
 
-  console.log(isInView)
   return (
     <div className="process-section-wrapper" ref={sectionRef}>
       <div className="process-visual-container">

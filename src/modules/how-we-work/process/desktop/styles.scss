@@ -19,10 +19,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../assets/ecllipse.svg');
-    background-size: contain; /* key line */
-    background-position: top; /* keep it centered */
-    background-repeat: no-repeat;
     .process-visual-track {
       height: max(0, 40.17vw);
       width: max(0px, 40.69vw);
