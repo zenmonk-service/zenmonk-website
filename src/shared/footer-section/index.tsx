@@ -89,7 +89,11 @@ const Footer = () => {
             <div className="consulting-category">
               <Grid2 columnSpacing={4} columns={10} container>
                 {consultingColumns.map((column, colIndex) => (
-                  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} key={colIndex}>
+                  <Grid2
+                    size={{ xs: 5, sm: colIndex ? 4 : 3, md: 2 }}
+                    mt={{ xs: 1, sm: 0 }}
+                    key={colIndex}
+                  >
                     <ListHeading title={!colIndex ? 'Consulting' : '‎'} />
                     {column.map((item) => (
                       <ListItem text={item.title} key={item.id} />

@@ -7,6 +7,10 @@
   background-color: var(--global-color-primary);
   border-radius: max(6px, 0.31vw);
   overflow: hidden;
+  @media screen and (max-width:600px) {
+    margin-bottom: 24px;
+    
+  }
   .input-field {
     flex: 1;
     height: max(42px, 2.19vw); // 42px
@@ -186,8 +190,15 @@
   gap: 0.31vw;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .footer-section {
+    padding: 0 7.8125%;
+    @media screen and (max-width: 600px) {
+      padding: 0;
+    }
+    @media (min-width: 601px) and (max-width: 768px) {
+      padding: 0 24px;
+    }
     .header {
       gap: 24px;
       align-items: center;
@@ -255,5 +266,22 @@
 
   .social-media-list {
     gap: 16px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .footer-section {
+    .header {
+      padding: 0 7.1825%;
+      justify-content: space-between;
+      .branding {
+        flex: 1;
+      }
+    }
+    .logo-category-wrapper {
+      .category-wrapper {
+        padding-left: 0;
+      }
+    }
   }
 }

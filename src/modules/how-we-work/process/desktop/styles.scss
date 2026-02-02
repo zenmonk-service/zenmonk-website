@@ -21,7 +21,7 @@
     align-items: center;
     .process-visual-track {
       height: max(0, 40.17vw);
-      width: max(0px, 40.69vw);
+      width: max(0px, 40.17vw);
       z-index: -1;
       border-radius: 50%;
       top: 20%;
@@ -119,10 +119,13 @@
 
 .reflect-refine {
   bottom: 10%;
-  right: -15%;
+  right: -17%;
   flex-direction: row-reverse;
   .process-node-text {
-    width: 9vw;
+    width: 11vw;
     text-align: left;
+    .title{
+      width: 100%;
+    }
   }
 }

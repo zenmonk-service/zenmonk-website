@@ -11,8 +11,6 @@
   transition: all 0.3s ease-in-out;
   margin-top: 4.5vw; // Space for trophy on top
 
-  
-
   /* ---------------- Award Image ---------------- */
 
   .awardImageContainer {
@@ -73,8 +71,9 @@
   /* ---------------- Hover State ---------------- */
 
   &:hover {
-        .awardImageContainer {
-      transform: translateY(min(-10px, 0.52vw)) translatex(max(5px, 0.26vw)) scale(1.1);
+    .awardImageContainer {
+      transform: translateY(min(-10px, 0.52vw)) translatex(max(5px, 0.26vw))
+        scale(1.1);
     }
 
     .awardCardContent {
@@ -146,5 +145,11 @@
     width: 100%;
     padding-inline: 0 16%;
     margin: 60px 40px 40px 40px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .awardProofCard {
+    min-width: 47%;
   }
 }

@@ -5,15 +5,15 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  margin-top: max(80px,6.25vw); // 120px
-  margin-bottom: max(80px,6.25vw);
+  margin-top: max(80px, 6.25vw); // 120px
+  margin-bottom: max(80px, 6.25vw);
 
   .section-description {
     margin-top: 0.781vw;
     height: auto;
     padding-bottom: 0.26vw;
     color: #555;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: var(--font-size-18);
     font-style: normal;
     font-weight: 400;
@@ -32,7 +32,6 @@
     }
   }
 
-
   .carousel-stack {
     width: 100%;
     display: flex;
@@ -43,5 +42,16 @@
   .infinite-slider {
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about-us-our-client-section {
+    .section-description {
+      padding: 0 16px;
+      @media (min-width: 601px) and (max-width: 900px) {
+        padding: 0 24px;
+      }
+    }
   }
 }

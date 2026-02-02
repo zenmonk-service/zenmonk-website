@@ -79,19 +79,19 @@ $hover-bg-light-green: #e9f7ec;
   transition: background 0.2s ease-in-out;
 }
 
-.leftSection> :nth-child(1):hover {
+.leftSection > :nth-child(1):hover {
   background: $hover-bg-light-aqua !important;
 }
 
-.leftSection> :nth-child(2):hover {
+.leftSection > :nth-child(2):hover {
   background: $hover-bg-light-purple !important;
 }
 
-.centerSection> :nth-child(1):hover {
+.centerSection > :nth-child(1):hover {
   background: $hover-bg-light-blue !important;
 }
 
-.centerSection> :nth-child(2):hover {
+.centerSection > :nth-child(2):hover {
   background: $hover-bg-light-green !important;
 }
 
@@ -164,7 +164,7 @@ $hover-bg-light-green: #e9f7ec;
 .skillTitle {
   margin-bottom: 0.26vw;
   color: #424242;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.2vw;
   font-style: normal;
   font-weight: 600;
@@ -193,7 +193,15 @@ $hover-bg-light-green: #e9f7ec;
 }
 
 @media screen and (max-width: 600px) {
-  .aboutUsWhyChooseUsSection{
+  .aboutUsWhyChooseUsSection {
     padding: 0 16px;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .leftSection,
+  .centerSection {
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 }

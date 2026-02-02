@@ -73,9 +73,13 @@
 
 @media screen and (max-width: 600px) {
   .backgroundWrapper {
-    background-image: url('/about-us/mobile-dotted-bg.png');
+    background: url('/about-us/mobile-dotted-bg.png') no-repeat center / contain;
   }
 
+  .backgroundLine {
+    display: none;
+  }
+  
   .container {
     height: 100vh;
     flex-direction: column-reverse;

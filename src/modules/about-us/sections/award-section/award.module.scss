@@ -71,16 +71,39 @@
   }
 }
 
-/* ---------------- Tablet Text Alignment Override ---------------- */
-
-@media (min-width: 600px) and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   .awardProofSection {
+    padding: 0 16px;
+    padding-bottom: 60px;
     .sectionTitle {
       text-align: left !important;
+      padding: 0;
     }
 
     .sectionDescription {
       text-align: left !important;
+      padding: 0;
+      margin-top: 16px;
     }
+    .awardProofList {
+      padding: 0;
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .awardProofSection {
+    padding-bottom: 80px;
+    .awardProofList {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1208px) {
+  .awardProofSection {
+    padding-bottom: 40px;
   }
 }

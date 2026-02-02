@@ -14,7 +14,7 @@ export const OurClientSection = memo(() => {
       <SectionTitle markText="Clients" text="Our Clients" />
 
       <SectionDescription
-        text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        text="Trusted by institutions and organizations across education, technology, and innovation."
         className="section-description"
       />
 
