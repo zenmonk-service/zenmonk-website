@@ -49,10 +49,7 @@ const ServiceCard = ({
       <LoadingIndicator />
       <Image
         src={imageUrl}
-        style={{
-          width: '1.66vw',
-          height: '1.66vw',
-        }}
+        className={styles.serviceCardIcon}
         alt={`${name}-image`}
       />
       <div className={styles.serviceCardContent}>

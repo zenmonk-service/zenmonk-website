@@ -44,6 +44,7 @@ const ServiceLink = (props: Props) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        className={styles.servicesMenuPopover}
         sx={{
           minWidth: '600px',
         }}
