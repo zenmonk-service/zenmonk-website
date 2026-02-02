@@ -16,13 +16,13 @@ const HeroSection = () => {
           <Geometry />
           <div className="text-container">
             <h4 className="heading">
-              Super Charge Your Business<br />{" "}
-              Growth With <span>Efficient</span>, <span>Intelligent</span>,<br />
+              Super Charge Your Business{" "}
+              Growth With <span>Efficient</span>, <span>Intelligent</span>,{" "}
               <span>Versatile</span> Software Innovations
             </h4>
             <p className="description">
               It is a long established fact that a reader will be distracted by
-              <br /> the readable content of a page when looking at its layout.
+              the readable content of a page when looking at its layout.
             </p>
           </div>
           <BaseButton

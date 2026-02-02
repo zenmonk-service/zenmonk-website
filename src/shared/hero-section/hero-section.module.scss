@@ -28,7 +28,7 @@
 .heading {
   color: #132427;
   font-family: 'Poppins', sans-serif !important;
-  font-size: max(28px, 3.125vw) !important;
+  font-size: max(28px, 2.5vw) !important;
   font-weight: 600 !important;
   line-height: 116.667%;
   text-transform: capitalize;
@@ -118,14 +118,12 @@
   }
 
   .heading {
-    font-size: 32px !important;
     line-height: 110.714%;
     margin-bottom: 16px !important;
   }
 
   .description {
     max-width: 100% !important;
-    font-size: 16px !important;
     text-align: center;
     line-height: normal;
     margin-bottom: 0;
@@ -149,18 +147,6 @@
     height: auto;
     min-height: 70vh;
   }
-
-  .heading {
-    font-size: 4vw !important;
-    line-height: 116.667%;
-  }
-
-  .description {
-    font-size: 1.8vw !important;
-    max-width: 90%;
-    line-height: 158.333%;
-  }
-
   .image {
     max-width: 100%;
   }
@@ -171,20 +157,8 @@
   .section {
     padding: 0;
     height: auto;
-    min-height: 50vh;
+    min-height: 70vh;
   }
-
-  .heading {
-    font-size: 4vw !important;
-    line-height: 116.667%;
-  }
-
-  .description {
-    font-size: 1.8vw !important;
-    max-width: 90%;
-    line-height: 158.333%;
-  }
-
   .image {
     max-width: 100%;
   }
@@ -192,6 +166,6 @@
 
 @media (min-width: 1025px) {
   .section {
-    padding: 8.125vw 7.8% 6.25vw;
+    padding: 6.125vw 7.8% 6.25vw;
   }
 }

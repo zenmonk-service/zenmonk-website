@@ -1,13 +1,18 @@
 .hero-section-home-container {
   display: flex;
-  height: 85vh;
+  height: auto;
   width: 100%;
   flex-direction: column;
-  padding-top: max(128px, 5.0625vw);
+  padding: 7.125vw 0 6.25vw;
+  min-height: 70vh;
+  justify-content: center;
 
-  @media (max-width:728px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding: 0 !important;
+  }
+
+  @media screen and (max-width: 600px) {
     height: 100vh;
-    padding-top: 5.0625vw;
   }
 }
 
@@ -18,6 +23,19 @@
   justify-content: space-between;
   z-index: 0;
   position: relative;
+
+  @media (min-width: 380px) and (max-width: 950px) {
+    transform: scale(0.9);
+    transform-origin: center;
+
+    .container {
+      padding: 0 !important;
+    }
+
+    .hero-visual {
+      transform: scale(1.35);
+    }
+  }
 
   .bg-polyhedron {
     position: absolute;
@@ -47,7 +65,6 @@
 
     @media (max-width: 728px) {
       margin-top: 6.25vw;
-
     }
 
     .laptop-frame {
@@ -75,8 +92,6 @@
       position: absolute;
       width: 4.1vw;
       height: 4.1vw;
-      min-width: 60px;
-      min-height: 40px;
       background: white;
       border-radius: 0.94vw;
       background: #FFF;
@@ -130,15 +145,16 @@
     text-align: left;
     z-index: 5;
     padding: 1% 7.8%;
+    padding-right: 0;
     padding-bottom: 0;
 
     .text-container {
+      width: 80%;
       text-align: left;
       display: flex;
       flex-direction: column;
       gap: 0.73vw;
-      width: 100%;
-      margin-top: -2.75vw;
+      flex: 1;
 
       .heading {
         color: #3c3c3c;
@@ -148,7 +164,6 @@
         letter-spacing: 0.05vw;
         line-height: 1.2;
         opacity: 0;
-        min-width: max-content;
 
         span {
           background: var(--global-color-gradient);
@@ -402,12 +417,12 @@
 }
 
 // Mobile Styles
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   .hero-section-home {
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
-    padding-top: 40px;
+    padding-top: 80px;
     justify-content: center;
     align-items: center;
     gap: 6.25vw;
@@ -415,7 +430,6 @@
 
     .hero-visual {
       flex: unset;
-      width: 100%;
       max-width: 400px;
       margin: 0 auto;
       aspect-ratio: auto;
@@ -424,6 +438,7 @@
       margin-bottom: 24px;
       z-index: 10;
       position: relative; // Ensure stacking context
+      transform: scale(1.1);
 
       .laptop-frame {
         position: relative;
@@ -515,7 +530,6 @@
           text-align: center;
           letter-spacing: -0.5px;
           line-height: 1.3;
-          font-size: 24px !important;
           white-space: normal;
           color: #3C3C3C;
           min-width: unset;
@@ -538,9 +552,8 @@
           line-height: 1.6;
           letter-spacing: 0px;
           text-align: center;
-          font-size: 14px !important;
           color: #666;
-          padding: 0 10px;
+          padding: 0;
 
           br {
             display: none;
