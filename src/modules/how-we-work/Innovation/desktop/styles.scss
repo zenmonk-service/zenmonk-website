@@ -62,7 +62,7 @@
           position: relative;
 
           .deliver-the-best-text-wrapper {
-            padding: 1.875vw 3.4375vw;
+            padding: max(24px, 1.875vw) 3.4375vw;
 
             .earth-icon {
               height: 4.583vw;
@@ -92,7 +92,7 @@
               font-weight: 400;
               line-height: max(30px, 1.5vw);
               max-width: 23.958vw;
-              margin-bottom: 1.25vw;
+              margin-bottom: max(24px, 1.25vw);
             }
 
             .contact-btn {
@@ -102,7 +102,7 @@
               background-color: transparent;
               border: none;
               color: #eb7c0d;
-              font-size: 0.938vw;
+              font-size: max(14px, 0.938vw);
               font-style: normal;
               font-weight: 600;
               text-transform: uppercase;
@@ -166,13 +166,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 0.833vw;
+            gap: max(12px, 0.833vw);
 
             .service-text {
               color: #fff;
               text-align: center;
               font-family: 'Poppins', sans-serif;
-              font-size: 0.938vw;
+              font-size: max(14px, 0.938vw);
               font-style: normal;
               font-weight: 600;
               line-height: normal;
@@ -194,11 +194,73 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1152px) {
-}
-
 @media (min-width: 901px) and (max-width: 1152px) {
+  .innovation-section-wrapper {
+    .innovation-section {
+      .content-wrapper {
+        .more-info {
+          width: 45%;
+          max-width: 100%;
+          flex-direction: row;
+          .services-container {
+            flex-wrap: wrap;
+            gap: 0;
+            .service-images-wrapper {
+              width: 40%;
+            }
+          }
+          .deliver-the-best {
+            .paper-plane-img-wrapper {
+              width: auto;
+              display: none;
+            }
+            .deliver-the-best-text-wrapper {
+              .deliver-the-best-description {
+                max-width: none;
+              }
+            }
+          }
+        }
+        .person-sitting-on-desk {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
-@media screen and (max-width: 767px) {
+@media (min-width: 1153px) and (max-width: 1700px) {
+  .innovation-section-wrapper {
+    .innovation-section {
+      .content-wrapper {
+        .more-info {
+          .services-container {
+            .service-images-wrapper {
+            }
+          }
+          .deliver-the-best {
+            background-color: black; /* fallback if image doesn't fit */
+            background-image: url('../assets/dream.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            .paper-plane-img-wrapper {
+              display: none;
+            }
+            .deliver-the-best-text-wrapper {
+              .deliver-the-best-heading {
+                color: #fff;
+              }
+              .deliver-the-best-description {
+                color: #fff;
+                max-width: 100%;
+              }
+            }
+          }
+        }
+        .person-sitting-on-desk {
+        }
+      }
+    }
+  }
 }
