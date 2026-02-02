@@ -12,7 +12,7 @@ import './styles.scss'
 
 const TechSolution = () => {
   const router = useRouter();
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 700px)');
   return (
     <div className="tech-solution-section-wrapper tech-solution-desktop">
       <div className="tech-solution-section">

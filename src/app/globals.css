@@ -8,16 +8,12 @@
   --global-color-accent: #ffa750;
   --global-color-dark-accent: #f59230;
   --global-color-text: #727272;
-  --global-color-gradient: linear-gradient(
-    99deg,
-    #eb7c0d 3.23%,
-    #ffa750 97.72%
-  );
-  --global-color-dark-gradient: linear-gradient(
-    99deg,
-    #ffa750 3.23%,
-    #eb7c0d 97.72%
-  );
+  --global-color-gradient: linear-gradient(99deg,
+      #eb7c0d 3.23%,
+      #ffa750 97.72%);
+  --global-color-dark-gradient: linear-gradient(99deg,
+      #ffa750 3.23%,
+      #eb7c0d 97.72%);
   --Neutral-Grey-G900: #212529;
   --global-font-family: Poppins;
 
@@ -30,6 +26,10 @@
   --font-size-20: max(18px, 1.041vw);
   --font-size-24: max(16px, 1.25vw);
   --font-size-40: max(24px, 2.083vw);
+}
+
+html {
+  font-size: 16px;
 }
 
 ::selection {
@@ -45,7 +45,7 @@ body {
   overflow-x: hidden;
 }
 
-.no-scroll{
+.no-scroll {
   overflow: hidden;
 }
 
@@ -56,7 +56,7 @@ body {
   scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 

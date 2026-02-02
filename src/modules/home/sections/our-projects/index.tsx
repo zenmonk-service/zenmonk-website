@@ -4,7 +4,7 @@ import OurProjectsMobile from './mobile'
 import OurProjectsDesktop from './desktop'
 
 const OurProjects = () => {
-  const isMobile = useMediaQuery('(max-width:600px)')
+  const isMobile = useMediaQuery('(max-width:700px)')
   return isMobile ? <OurProjectsMobile /> : <OurProjectsDesktop />
 }
 

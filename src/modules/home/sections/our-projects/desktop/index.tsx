@@ -3,12 +3,14 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { projects } from '@/modules/home/sections/our-projects/projects'
 import Image from 'next/image'
+import { useMediaQuery } from '@mui/material'
 import './styles.scss'
 
 const OurProjectsDesktop = () => {
   const [deck, setDeck] = useState<number[]>(projects.map((_, i) => i))
   const [selectedIds, setSelectedIds] = useState<number[]>([0])
   const deckRef = useRef<HTMLDivElement>(null)
+  const isTablet = useMediaQuery('(min-width: 700px) and (max-width: 1024px)')
 
   useEffect(() => {
     if (!deckRef.current) return
@@ -76,7 +78,12 @@ const OurProjectsDesktop = () => {
         <div ref={deckRef} className="deck">
           {deck.map((id, index) => {
             const isActive = index === 0
-            const thumbRight = `calc(4vw + ${(deck.length - 1 - index) * (12 + 1.25)}vw)`
+
+            // Adjust base width and spacing for tablets
+            const baseWidth = isTablet ? 18 : 12 // vw
+            const multiplier = baseWidth + 2 // width + gap
+            const thumbRight = `calc(4vw + ${(deck.length - 1 - index) * multiplier}vw)`
+            const thumbHeight = baseWidth * 1.25 // keep aspect ratio
 
             return (
               <div
@@ -86,8 +93,10 @@ const OurProjectsDesktop = () => {
                   position: 'absolute',
                   right: isActive ? 0 : thumbRight,
                   bottom: isActive ? 0 : '4vw',
-                  width: isActive ? '100vw' : '12vw',
-                  height: isActive ? '100vh' : '14.4vw',
+                  width: isActive ? '100%' : `${baseWidth}vw`,
+                  height: isActive ? '100%' : `${thumbHeight}vw`,
+                  minWidth: isActive ? '100%' : `${baseWidth}vw`,
+                  minHeight: isActive ? '100%' : `${thumbHeight}vw`,
                   zIndex: isActive ? 15 : 100 + index,
                   borderRadius: isActive ? 0 : '12px',
                   cursor: isActive ? 'default' : 'pointer',

@@ -94,7 +94,7 @@ export const services = [
       },
       {
         id: 'product-development-mobile-apps',
-        title: 'Mobile Apps',
+        title: 'Mobile',
         description:
           'Design and develop mobile apps that provide seamless user experiences across all devices.',
         icon: ProductDevelopment.MobileApp,
@@ -136,7 +136,7 @@ export const services = [
     services: [
       {
         id: 'custom-app-development-mobile-app-development',
-        title: 'Mobile Apps',
+        title: 'Mobile',
         description:
           "Create dynamic and user-friendly mobile applications to boost your business's digital presence.",
         icon: CustomAppDevelopment.MobileAppDevelopment,

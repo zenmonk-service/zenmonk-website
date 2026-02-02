@@ -114,7 +114,7 @@ const OurServicesDesktop = () => {
               <h5
                 className={styles.businessCountText}
                 style={{
-                  background: `linear-gradient(180deg, ${service.styles.color} -64.31%, #FFF 99.87%)`,
+                  background: `linear-gradient(180deg, ${service.styles.color} 0%, ${service.styles.color}66 100%)`,
                 }}
               >
                 {(index + 1).toString().padStart(2, '0')}
@@ -131,7 +131,7 @@ const OurServicesDesktop = () => {
               <p className={styles.businessProofDescription}>{selectedService.description}</p>
               <div className={styles.businessProofTechnologies}>
                 {selectedService.services
-                  .slice(0, 5)
+                  .slice(0, 6)
                   .map(({ id, icon: ServiceIcon, title }) => (
                     <div key={id} className={styles.businessProofCard}>
                       <div className={styles.businessProofIcon}>

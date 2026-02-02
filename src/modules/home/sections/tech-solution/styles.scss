@@ -1,10 +1,11 @@
 .tech-solution-section-wrapper {
+  margin-top: max(80px, 6.25vw);
   display: flex;
   align-items: center;
   padding: 0 5%;
   padding-left: 7.8125%;
   background-color: #fff;
-  height: 100vh;
+  height: auto;
   padding-right: 7.8125%;
   z-index: 101;
   position: relative;
@@ -19,7 +20,7 @@
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 0.41vw;
+      gap: max(16px, 0.41vw);
       width: 100%;
 
       .tech-solution-text-heading {
@@ -36,7 +37,7 @@
       .tech-solution-text-description {
         margin-bottom: 0px;
 
-        @media (max-width:728px) {
+        @media (max-width:600px) {
           margin-bottom: 24px;
           text-align: center;
         }
@@ -44,16 +45,13 @@
     }
 
     .tech-solution-section-card-wrapper {
-      margin-top: 1.66vw;
+      margin-top: max(16px, 1.66vw);
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      gap: 1.25vw;
+      gap: max(16px, 1.25vw);
 
-      @media (max-width: 1099px) {
-        gap: 16px;
-      }
     }
 
     .tech-solution-button {
@@ -75,7 +73,7 @@
     }
 
     &:not(.tech-solution-mobile) {
-      @media (max-width: 1099px) {
+      @media (max-width: 700px) {
         display: none;
       }
     }
@@ -132,11 +130,11 @@
   }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 700px) {
   .tech-solution-section-wrapper {
     flex-direction: column-reverse;
     height: auto;
-    padding: 40px 16px;
+    padding: 80px 16px;
     padding-bottom: 0;
 
     .tech-solution-section {
@@ -162,7 +160,7 @@
     }
 
     .tech-solution-section-image-wrapper {
-      width: 90%;
+      width: 100%;
       height: 100%;
       max-height: unset;
       margin-bottom: 32px;
@@ -189,16 +187,16 @@
         position: absolute !important;
         top: -10%;
         right: -8%;
-        width: 81.798px;
-        height: 47.815px;
+        width: 16.12vw;
+        height: 16.28vw;
         object-fit: contain;
       }
 
       .tech-solution-circle-img-1 {
-        width: 74.534px;
-        height: 75.972px;
+        width: 16.12vw;
+        height: 16.28vw;
         position: absolute !important;
-        top: -18%;
+        top: -15%;
         left: -40%;
         z-index: -1;
         scale: 1.2;
@@ -206,8 +204,8 @@
       }
 
       .tech-solution-circle-img-2 {
-        width: 74.534px;
-        height: 75.972px;
+        width: 16.12vw;
+        height: 16.28vw;
         position: absolute !important;
         bottom: -18%;
         right: -10%;
@@ -254,5 +252,11 @@
   100% {
     scale: 0.8;
     opacity: 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tech-solution-section-image-wrapper {
+    scale: 1.2;
   }
 }
