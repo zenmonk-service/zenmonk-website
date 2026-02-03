@@ -13,7 +13,7 @@
     font-family: Poppins;
     text-align: center;
     line-height: 1.2;
-    margin-bottom: 1.3542vw;
+    margin-bottom: max(16px, 1.3542vw);
 
     @media (max-width: 900px) {
       font-size: 16px !important;
@@ -29,7 +29,6 @@
 
 @media screen and (max-width: 390px) {
   .heading-container {
-    padding-bottom: 16px;
     margin-top: 0%;
     .text {
       line-height: normal;

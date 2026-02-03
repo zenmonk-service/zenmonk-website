@@ -1,12 +1,4 @@
 .hoverExpandWrapper {
-  display: inline-block;
-  cursor: pointer;
-  overflow: visible;
-  position: absolute;
-  opacity: 1;
-}
-
-.hoverExpandWrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -16,6 +8,7 @@
   transition: opacity 0.3s ease-in-out;
   z-index: -1;
   pointer-events: none;
+  overflow: visible;
 
   .starIcon {
     overflow: visible;
@@ -24,29 +17,23 @@
   }
 
   .shape {
-    position: absolute;
     transform-origin: center;
+    transform-box: view-box;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  .mainStar,
-  .bottomArrow,
-  .smallStar,
-  .circlePart {
-    transform: translate(50%, 50%) scale(0);
+  /* Target these globally so AwardCard can animate them */
+  :global(.mainStar),
+  :global(.bottomArrow),
+  :global(.smallStar),
+  :global(.circlePart) {
+    transform: translate(0, 0) scale(0);
+    transition: all 0.5s ease;
   }
 }
 
 .starIcon {
-  width: 2.29vw; /* 44px */
-  height: 2.55vw; /* 49px */
+  width: 100%;
+  height: 100%;
   overflow: visible;
-  transition: all 0.3s ease;
-}
-
-.mainStar,
-.smallStar,
-.circlePart,
-.bottomArrow {
-  transition: transform 0.5s ease;
 }

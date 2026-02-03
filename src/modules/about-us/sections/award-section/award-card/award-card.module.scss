@@ -72,8 +72,11 @@
 
   &:hover {
     .awardImageContainer {
-      transform: translateY(min(-10px, 0.52vw)) translatex(max(5px, 0.26vw))
-        scale(1.1);
+      transform: translateY(min(-10px, 0.52vw)) translatex(max(5px, 0.26vw)) scale(1.1);
+
+      .hoverExpandWrapper {
+        opacity: 1;
+      }
     }
 
     .awardCardContent {
@@ -84,21 +87,61 @@
 
   /* ---------------- Odd Card Hover Variant ---------------- */
 
-  &:nth-of-type(odd):hover .hoverExpandWrapper {
-    .mainStar {
-      transform: translate(170%, 10%) scale(1.8) rotate(-30deg);
+  &:nth-child(odd):hover .hoverExpandWrapper {
+    :global(.mainStar) {
+      transform: translate(40%, -30%) scale(1.8) rotate(-25deg);
     }
 
-    .bottomArrow {
-      transform: translate(55%, 35%) scale(1.5) rotate(20deg);
+    :global(.bottomArrow) {
+      transform: translate(30%, 20%) scale(1) rotate(25deg);
     }
 
-    .smallStar {
-      transform: translate(100%, 75%) scale(1.2);
+    :global(.smallStar) {
+      transform: translate(-40%, 20%) scale(1);
     }
 
-    .circlePart {
-      transform: translate(10%, 70%) scale(1);
+    :global(.circlePart) {
+      transform: translate(-30%, -40%) scale(1);
+    }
+  }
+
+  /* ---------------- Even Card Hover Variant ---------------- */
+
+  &:nth-child(even):hover .hoverExpandWrapper {
+    :global(.mainStar) {
+      transform: translate(-45%, -30%) scale(1.8) rotate(25deg);
+    }
+
+    :global(.bottomArrow) {
+      transform: translate(-40%, 10%) scale(0.8) rotate(5deg);
+    }
+
+    :global(.smallStar) {
+      transform: translate(42%, 15%) scale(1);
+    }
+
+    :global(.circlePart) {
+      transform: translate(50%, -30%) scale(1);
+    }
+  }
+
+  &:nth-child(2):hover .hoverExpandWrapper {
+    :global(.bottomArrow) {
+      transform: translate(-30%, 10%) scale(0.8) rotate(5deg);
+    }
+
+    :global(.smallStar) {
+      transform: translate(30%, 5%) scale(1);
+    }
+  }
+
+  &:nth-child(4):hover .hoverExpandWrapper {
+    :global(.bottomArrow) {
+      transform: translate(-50%, 10%) scale(0.8) rotate(5deg);
+    }
+
+    :global(.smallStar) {
+      transform: translate(50%, 5%) scale(1);
     }
   }
 
@@ -134,8 +177,7 @@
     }
 
     .hoverExpandWrapper {
-      display: none;
-      opacity: 1;
+      display: block;
     }
   }
 

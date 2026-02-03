@@ -4,10 +4,10 @@
   width: 100%;
   flex-direction: column;
   padding: 7.125vw 0 6.25vw;
-  min-height: 100vh;
   justify-content: center;
 
   @media (min-width: 768px) and (max-width: 1024px) {
+    aspect-ratio: 1.83;
     padding: 0 !important;
   }
 
@@ -149,7 +149,7 @@
     padding-bottom: 0;
 
     .text-container {
-      width: 80%;
+      width: 90%;
       text-align: left;
       display: flex;
       flex-direction: column;
@@ -438,7 +438,7 @@
       margin-bottom: 24px;
       z-index: 10;
       position: relative; // Ensure stacking context
-      transform: scale(1.1);
+      transform: scale(1);
 
       .laptop-frame {
         position: relative;

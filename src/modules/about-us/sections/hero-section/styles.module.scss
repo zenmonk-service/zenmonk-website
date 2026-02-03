@@ -41,7 +41,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.025vw;
-  margin: 0 0 40px 0;
+  margin-bottom: max(40px, 2.0833vw);
 }
 
 .highlightedText {
@@ -50,15 +50,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .imageContainer {
+  scale: 0.8;
   width: 80%;
+
+  @media (min-width: 700px) and (max-width: 1024px) {
+    scale: 1;
+    width: 100%;
+  }
 }
+
 .heroImage {
   width: 100%;
 }
 
 .button {
   width: max(180px, 9.375vw);
+
   @media screen and (max-width: 900px) {
     width: max-content !important;
     min-width: 160px !important;
@@ -79,13 +88,13 @@
   .backgroundLine {
     display: none;
   }
-  
+
   .container {
     height: 100vh;
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
-    gap: 81.57px;
+    gap: 16px;
   }
 
   .textContainer {
@@ -94,11 +103,13 @@
     align-items: center;
     justify-content: center;
   }
+
   .imageContainer {
     margin-top: 83px;
     margin-bottom: 24px;
     scale: 1.2;
   }
+
   .title {
     color: #132427;
     text-align: center;
@@ -127,9 +138,9 @@
   .container {
     height: auto;
     min-height: 100vh;
-    padding-top: 30vh;
-    padding-bottom: 2vh;
+    padding-bottom: 6.25vw;
   }
+
   .textContainer {
     .title {
       font-size: 32px;
@@ -163,9 +174,11 @@
     height: auto;
     aspect-ratio: 1.43;
   }
+
   .backgroundLine {
     bottom: 15%;
   }
+
   .description {
     font-size: 14px;
   }
@@ -187,6 +200,7 @@
     height: auto;
     aspect-ratio: 1.68;
   }
+
   .backgroundLine {
     bottom: 10%;
   }

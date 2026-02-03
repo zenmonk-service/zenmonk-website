@@ -24,7 +24,7 @@ const AwardProofCard = ({ image, title, description }: AwardProofCardProps) => {
   return (
     <div className={styles.awardProofCard}>
       <div className={styles.awardImageContainer}>
-        <StarIcon />
+        <StarIcon className={styles.hoverExpandWrapper} />
         <Image
           src={image}
           width={113}
