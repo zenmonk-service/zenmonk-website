@@ -55,7 +55,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       className={styles.section}
       container
       spacing={4}
-      height="100%"
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
         <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>

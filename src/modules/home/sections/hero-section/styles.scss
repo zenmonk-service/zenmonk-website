@@ -1,23 +1,27 @@
 .hero-section-home-container {
   display: flex;
-  height: auto;
+  height: 100vh;
   width: 100%;
   flex-direction: column;
-  padding: 7.125vw 0 6.25vw;
   justify-content: center;
 
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 780px) and (max-width: 1024px) {
+    height: auto;
     aspect-ratio: 1.83;
-    padding: 0 !important;
   }
 
-  @media screen and (max-width: 600px) {
-    height: 100vh;
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
+
+  @media (min-width: 600px) and (max-width: 767px) {
+    height: auto;
+    aspect-ratio: 1.23;
   }
 }
 
 .hero-section-home {
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +37,7 @@
     }
 
     .hero-visual {
-      transform: scale(1.35);
+      transform: scale(1.15);
     }
   }
 
@@ -62,6 +66,7 @@
     z-index: 10;
     width: 100%;
     aspect-ratio: 1.5;
+    margin-top: 3%;
 
     @media (max-width: 728px) {
       margin-top: 6.25vw;
@@ -144,7 +149,7 @@
     gap: max(40px, 3.125vw);
     text-align: left;
     z-index: 5;
-    padding: 1% 7.8%;
+    padding: 0% 7.8%;
     padding-right: 0;
     padding-bottom: 0;
 

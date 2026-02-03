@@ -1,5 +1,5 @@
 .container {
-  height: 97vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,20 +19,29 @@
   height: 100%;
 }
 
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+}
+
 .title {
   color: #132427;
   flex-wrap: wrap;
   font-family: 'Poppins', sans-serif;
-  font-size: 3.125vw;
+  font-size: max(28px, 3.125vw);
   font-style: normal;
   font-weight: 600;
-  line-height: 3.6458vw;
+  line-height: max(32px, 3.6458vw);
   text-transform: capitalize;
   margin: 0 0 16px 0;
 }
 
 .description {
-  max-width: 37vw;
   flex-wrap: wrap;
   color: #757575;
   font-family: 'Poppins', sans-serif;
@@ -41,7 +50,7 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.025vw;
-  margin-bottom: max(40px, 2.0833vw);
+  margin-bottom: max(16px, 2.0833vw);
 }
 
 .highlightedText {
@@ -53,10 +62,11 @@
 
 .imageContainer {
   scale: 0.8;
-  width: 80%;
+  width: 50%;
 
-  @media (min-width: 700px) and (max-width: 1024px) {
+  @media (max-width: 600px) {
     scale: 1;
+    padding: 0;
     width: 100%;
   }
 }
@@ -107,7 +117,6 @@
   .imageContainer {
     margin-top: 83px;
     margin-bottom: 24px;
-    scale: 1.2;
   }
 
   .title {
@@ -137,7 +146,6 @@
 @media screen and (min-width: 401px) and (max-width: 599px) {
   .container {
     height: auto;
-    min-height: 100vh;
     padding-bottom: 6.25vw;
   }
 
@@ -172,7 +180,7 @@
 @media (min-width: 768px) and (max-width: 900px) {
   .container {
     height: auto;
-    aspect-ratio: 1.43;
+    aspect-ratio: 1.63;
   }
 
   .backgroundLine {
@@ -184,7 +192,7 @@
   }
 }
 
-@media (min-width: 901px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .container {
     height: auto;
     aspect-ratio: 1.83;
@@ -199,6 +207,7 @@
   .container {
     height: auto;
     aspect-ratio: 1.68;
+    padding-right: 0;
   }
 
   .backgroundLine {

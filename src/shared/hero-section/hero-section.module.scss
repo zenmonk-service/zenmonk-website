@@ -9,12 +9,26 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 100vh;
+  height: auto;
   flex-wrap: nowrap !important;
   width: 100%;
+  padding: 0 7.8%;
+  padding-top: max(80px, 3.25vw);
+  padding-bottom: max(80px, 6.25vw);
 
-  @media (min-width: 380px) and (max-width: 950px) {
-    transform: scale(max(0.9, min(calc(100vw / 1600), 1)));
+  @media (min-width: 780px) and (max-width: 1024px) {
+    height: auto;
+    aspect-ratio: 1.83;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
+
+  @media (min-width: 600px) and (max-width: 767px) {
+    height: auto;
+    aspect-ratio: 1.23;
   }
 }
 
@@ -28,11 +42,11 @@
 .heading {
   color: #132427;
   font-family: 'Poppins', sans-serif !important;
-  font-size: max(28px, 2.5vw) !important;
+  font-size: max(28px, 3.125vw) !important;
   font-weight: 600 !important;
   line-height: 116.667%;
   text-transform: capitalize;
-  margin-bottom: 0.63vw !important;
+  margin-bottom: 0.83vw !important;
 }
 
 .heading span {
@@ -41,7 +55,6 @@
 }
 
 .description {
-  max-width: 38.02vw;
   color: #757575 !important;
   font-family: Poppins, sans-serif !important;
   font-size: max(16px, 1.25vw) !important;
@@ -63,7 +76,6 @@
   width: auto !important;
   height: auto !important;
   max-width: 100%;
-  max-height: 80vh;
   animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
 }
 
@@ -93,9 +105,7 @@
 @media (max-width: 600px) {
   .section {
     flex-direction: column-reverse !important;
-    padding: 60px 24px 40px;
     height: auto;
-    min-height: 80vh;
     gap: 32px !important;
   }
 
@@ -141,31 +151,25 @@
 }
 
 /* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 700px) and (max-width: 1024px) {
   .section {
-    padding: 40px 4%;
     height: auto;
-    min-height: 100vh;
+    aspect-ratio: 1.8;
   }
+
   .image {
     max-width: 100%;
   }
 }
+
 
 /* Desktop */
-@media (min-width: 601px) and (max-width: 767px) {
+@media (min-width: 700px) and (max-width: 767px) {
   .section {
-    padding: 0;
     height: auto;
-    min-height: 100vh;
   }
+
   .image {
     max-width: 100%;
-  }
-}
-
-@media (min-width: 1025px) {
-  .section {
-    padding: 6.125vw 7.8% 6.25vw;
   }
 }
