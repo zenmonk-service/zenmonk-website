@@ -13,9 +13,15 @@ interface Props {
 const MobileMenuLink = ({ isOpen, toggle }: Props) => {
   return (
     <div className={styles.container}>
-      <AnimatePresence>{isOpen && <Navigation toggle={toggle} />}</AnimatePresence>
+      <AnimatePresence>
+        {isOpen && <Navigation toggle={toggle} />}
+      </AnimatePresence>
       <div className={styles.menuToggleContainer} />
-      <MenuToggle className={styles.menuToggleButton} toggle={toggle} isOpen={isOpen} />
+      <MenuToggle
+        className={styles.menuToggleButton}
+        toggle={toggle}
+        isOpen={isOpen}
+      />
     </div>
   )
 }

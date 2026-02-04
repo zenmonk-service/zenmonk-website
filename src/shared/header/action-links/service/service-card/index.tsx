@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import LoadingIndicator from '@/shared/loader/detector'
 import { useAppSelector } from '@/store/hooks'
@@ -8,25 +7,25 @@ import styles from './service.module.scss'
 interface ServiceCardProps {
   name: string
   description: string
-  imageUrl: StaticImageData
+  Icon: any
   route: string
   isActive: boolean
   handleClose: () => void
+  styles?: { [key: string]: string }
 }
 
 const ServiceCard = ({
   name,
   description,
-  imageUrl,
+  Icon,
   route,
   isActive,
   handleClose,
+  styles: serviceStyles,
 }: ServiceCardProps) => {
-
   const isPageLoading = useAppSelector((state) => state.header.isLoading)
-  const [click, setClick] = useState(false);
+  const [click, setClick] = useState(false)
 
-  console.log('isPageLoading: ', isPageLoading);
   useEffect(() => {
     if (!isPageLoading && click) {
       handleClose()
@@ -47,11 +46,12 @@ const ServiceCard = ({
       }}
     >
       <LoadingIndicator />
-      <Image
-        src={imageUrl}
+      <div
+        style={{ background: serviceStyles?.hoverColor }}
         className={styles.serviceCardIcon}
-        alt={`${name}-image`}
-      />
+      >
+        <Icon style={{ fill: serviceStyles?.color }} />
+      </div>
       <div className={styles.serviceCardContent}>
         <h6 className={styles.serviceCardContentTitle}>{name}</h6>
         <p className={styles.serviceCardContentDescription}>{description}</p>

@@ -4,7 +4,7 @@
   align-items: flex-start;
   gap: 0.83vw;
   border-radius: 0.41vw;
-  margin-right:32px;
+  margin-right: 32px;
   cursor: pointer;
 
   .serviceCardContent {
@@ -42,15 +42,18 @@
   cursor: default;
 }
 
-@media (min-width:625px) and (max-width:900px) {
-  
-  .serviceCard{
+@media (min-width: 625px) and (max-width: 900px) {
+  .serviceCard {
     padding: 1vw;
     gap: 2vw;
   }
 }
 
-.serviceCardIcon{
-  width: max(40px, 1.66vw);
-  height: max(40px, 1.66vw);
+.serviceCardIcon {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  width: max(80px, 1.66vw);
 }

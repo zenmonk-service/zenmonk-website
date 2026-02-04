@@ -15,7 +15,7 @@
   .ideal-choice-first-container {
     display: flex;
     flex-direction: column;
-    gap: 0.833vw;
+    gap: max(16px, 0.833vw);
 
     .ideal-choice-title {
       color: #f5f5f5;
@@ -32,16 +32,16 @@
   }
 
   .ideal-choice-ideal-choice-container {
-    padding: 1.3021vw 1.5625vw;
-    border-radius: 1.0417vw;
-    gap: 0.4167vw;
+    padding: max(24px, 1.3021vw) max(30px, 1.5625vw);
+    border-radius: max(20px, 1.0417vw);
+    gap: max(8px, 0.4167vw);
     display: flex;
     flex-direction: column;
     background-color: #fff;
 
     .ideal-choice-icon {
-      height: 2.5vw;
-      width: 2.5vw;
+      height: max(40px, 2.5vw);
+      width: max(2.5vw, 40px);
     }
 
     .ideal-choice-card-title {

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import Expand from '@mui/icons-material/ExpandLess'
 import Popover from '@mui/material/Popover'
+import { services } from '@/static/services'
 import ServiceCard from './service-card'
 import styles from './service.module.scss'
-import { services } from './services.constant'
 
 const ExpandIcon = motion.create(Expand)
 
@@ -67,15 +67,15 @@ const ServiceLink = (props: Props) => {
         }}
       >
         <div className={styles.servicesMenuContainer}>
-          <div className={styles.arrowUp} />
           {services.map((service) => (
             <ServiceCard
               key={service.route}
               isActive={alreadyOpen(service.route)}
-              description={service.description}
-              imageUrl={service.imageUrl}
+              description={service.menuDescription}
+              Icon={service.icon}
               name={service.name}
               route={service.route}
+              styles={service.styles}
               handleClose={handleClose}
             />
           ))}
