@@ -5,11 +5,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -2.125vw;
 
   .process-wrapper {
     position: relative;
     width: 100%;
-    max-width: 90vw;
+    max-width: 90%;
     height: 40vw; // Give it a height so absolutely positioned children are visible
     display: flex;
     justify-content: center;

@@ -203,7 +203,7 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
           </div>
         ))}
       </div>
-    </section >
+    </section>
   )
 }
 
