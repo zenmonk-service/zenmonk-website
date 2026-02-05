@@ -4,64 +4,70 @@ import NotePadIcon from './assets/notepad.svg'
 import PeopleIcon from './assets/people.svg'
 import RocketIcon from './assets/rocket.svg'
 
-export const processes = [
+export interface ProcessItem {
+  Icon: any
+  title: string
+  description: string
+  className: string
+  animations: {
+    initial: { x?: string | number; y?: string | number; opacity: number }
+    animate: { x?: string | number; y?: string | number; opacity: number }
+  }
+}
+
+export const processes: ProcessItem[] = [
   {
     Icon: MessageIcon,
-    color: '#2EC2CC',
     title: 'Understanding Challenges',
     description:
       'We listen carefully to understand your goals, constraints, and real challenges.',
     className: 'understanding-challenges',
     animations: {
-      initial: { x: -40, opacity: 0 },
+      initial: { x: '-100%', opacity: 0 },
       animate: { x: 0, opacity: 1 },
     },
   },
   {
     Icon: PeopleIcon,
-    color: '#A263F5',
     title: 'Systematic Planning',
     description:
       'Create a clear, structured roadmap aligned with your vision.',
     className: 'systematic-planning',
     animations: {
-      initial: { x: -40, opacity: 0 },
+      initial: { x: '-100%', opacity: 0 },
       animate: { x: 0, opacity: 1 },
     },
   },
   {
     Icon: NotePadIcon,
-    color: '#6CC77D',
     title: 'Meticulous Designing',
     description:
       'We design thoughtful, user-focused solutions with attention to every detail.',
     className: 'meticulous-designing',
     animations: {
-      initial: { y: -40, opacity: 0 },
+      initial: { y: '-100%', opacity: 0 },
       animate: { y: 0, opacity: 1 },
     },
   },
   {
     Icon: RocketIcon,
-    color: '#3C95DB',
     title: 'Authentic Execution',
     description:
       'We execute plans transparently, ensuring quality, consistency, and timely delivery.',
     className: 'authentic-execution',
     animations: {
-      initial: { x: 40, opacity: 0 },
+      initial: { x: '100%', opacity: 0 },
       animate: { x: 0, opacity: 1 },
     },
   },
   {
     Icon: CareIcon,
-    color: '#FA579A',
     title: 'Reflect & Refine',
     description:
       'We review outcomes, gather feedback, and continuously improve the solution.',
     className: 'reflect-refine',
     animations: {
-      initial: { x: 40, opacity: 0 },
+      initial: { x: '100%', opacity: 0 },
       animate: { x: 0, opacity: 1 },
     },
   },

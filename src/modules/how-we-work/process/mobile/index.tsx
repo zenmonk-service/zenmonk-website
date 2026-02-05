@@ -13,20 +13,12 @@ const ProcessMobile = () => {
           return (
             <div key={process.title} className={styles.processItem}>
               <div className={styles.processItemIcon}>
-                <div
-                  className={styles.circle}
-                  style={{ backgroundColor: process.color }}
-                >
+                <div className={styles.circle}>
                   <process.Icon />
                 </div>
               </div>
               <div className={styles.processItemContent}>
-                <div
-                  style={{ color: process.color }}
-                  className={styles.processItemTitle}
-                >
-                  {process.title}
-                </div>
+                <div className={styles.processItemTitle}>{process.title}</div>
                 <div className={styles.processItemDescription}>
                   {process.description}
                 </div>
