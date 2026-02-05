@@ -9,3 +9,9 @@
   background: #fff;
   padding: max(0.57vw, 11px) max(1.04vw, 20px) !important;
 }
+
+@media screen and (max-width: 768px) {
+  .textfieldBase {
+    padding: 8.5px 12px !important;
+  }
+}

@@ -49,7 +49,6 @@
     gap: max(1.56vw, 16px);
 
     .form-control {
-
       .first-name-input,
       .last-name-input {
         border: 0.052vw solid #d5d5d5;
@@ -65,7 +64,6 @@
   }
 
   .form-control {
-
     .phone-number-input,
     .email-input {
       border: 0.052vw solid #d5d5d5;
@@ -103,7 +101,7 @@
       justify-content: center !important;
       align-items: center !important;
       gap: max(0.52vw, 10px) !important;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: max(0.93vw, 16px);
       font-weight: 600;
       text-transform: none;
@@ -129,7 +127,6 @@
       gap: 16px;
 
       .form-control {
-
         .first-name-input,
         .last-name-input {
           height: 50px;
@@ -140,7 +137,6 @@
     }
 
     .form-control {
-
       .phone-number-input,
       .email-input {
         border: 1px solid #d5d5d5;
@@ -189,8 +185,8 @@
   .contact-form {
     width: 100%;
     max-width: 100%;
-    padding: 20px 16px;
-    padding-top: 16px;
+    padding: 16px;
+    padding-top: 8px;
     margin-bottom: 0;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
     border-radius: 12px;
@@ -203,7 +199,6 @@
       gap: 12px;
 
       .form-control {
-
         .first-name-input,
         .last-name-input {
           border: 1px solid #d5d5d5;
@@ -214,7 +209,6 @@
     }
 
     .form-control {
-
       .phone-number-input,
       .email-input {
         border: 1px solid #d5d5d5;
@@ -228,9 +222,9 @@
         min-height: 120px;
 
         .end-adornment {
-          margin-top: 12px;
+          margin-top: 8.5px;
           margin-right: 12px;
-          font-size: 18px !important;
+          font-size: 20px !important;
         }
       }
     }

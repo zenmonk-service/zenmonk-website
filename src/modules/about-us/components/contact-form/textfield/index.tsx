@@ -21,6 +21,9 @@ const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
         className={`${className} ${styles.textfieldBase}`}
         placeholder={placeHolder}
         endAdornment={endAdornment}
+        inputProps={{
+          ...(rest.rows && rest.rows > 1 && { sx: { height: "100% !important" } }),
+        }}
         inputRef={ref}
         {...rest}
       />

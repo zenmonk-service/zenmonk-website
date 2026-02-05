@@ -1,0 +1,17 @@
+.sectionImageContainer {
+  position: relative;
+}
+
+.baseTreeContainer {
+  width: 28.59vw;
+}
+
+.iconContainer {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  cursor: pointer;
+  aspect-ratio: 1;
+}

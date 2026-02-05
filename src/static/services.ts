@@ -21,6 +21,8 @@ export const services = [
     },
     description:
       'Zenmonk excels in custom enterprise software development, delivering scalable and secure solutions. We provide end-to-end support from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs.',
+    menuDescription:
+      'We build scalable and secure software tailored to your business needs.',
     services: [
       {
         id: 'software-development-enterprise-solutions',
@@ -76,7 +78,9 @@ export const services = [
       hoverColor: '#ecf4fb',
     },
     description:
-      'Need a standout product design? From conceptualization to prototyping, we ensure your product not only meets market demands but excels in user experience. Let us transform your vision into an exceptional product experience.',
+      'From idea to launch, we help you craft powerful digital products.',
+    menuDescription:
+      'We build scalable and secure software tailored to your business needs.',
     services: [
       {
         id: 'product-development-saas-products',
@@ -133,6 +137,8 @@ export const services = [
     },
     description:
       'Need a game-changing mobile and web app? We create transformative mobile & web applications for businesses using agile methodologies. Let us redefine your app experience together.',
+    menuDescription:
+      'Creating intuitive and engaging mobile apps for iOS and Android users.',
     services: [
       {
         id: 'custom-app-development-mobile-app-development',
@@ -189,6 +195,8 @@ export const services = [
     },
     description:
       'Want to transform user interactions? We design intuitive and engaging experiences that make every touch point seamless and enjoyable. Let us enhance your interface with precision and creativity.',
+    menuDescription:
+      'Designing seamless user experiences with clean and modern interfaces.',
     services: [
       {
         id: 'ui-ux-design-user-research',
@@ -245,6 +253,8 @@ export const services = [
     },
     description:
       'Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities.',
+    menuDescription:
+      'Deploy, scale, and manage apps efficiently with cloud-first solutions.',
     services: [
       {
         id: 'cloud-development-cloud-computing',
@@ -301,6 +311,8 @@ export const services = [
     },
     description:
       'Looking to revolutionize your digital landscape? Together, let us navigate your digital route and equip your company with advanced analytics, seamless integration, and automation for sustained growth and agility.',
+    menuDescription:
+      'Upskill your team with practical, hands-on training and workshops.',
     services: [
       {
         id: 'digital-transformation-digital-strategy-development',
@@ -357,6 +369,9 @@ export const services = [
     },
     description:
       'Need expert guidance? We partner with you to improve your software architecture and craft a tech-focused roadmap. From strategy to execution, our consultants ensure seamless digital transformation.',
+
+    menuDescription:
+      'Expert guidance to align technology with your business objectives.',
     services: [
       {
         id: 'it-business-consultation-it-consulting',
@@ -413,6 +428,8 @@ export const services = [
     },
     description:
       "Need to boost your online presence? We craft strategies to enhance your visibility and reputation, from SEO to Social Media Optimization. Let us amplify your business's digital footprint.",
+    menuDescription:
+      'Strategies that boost visibility, engagement, and customer retention.',
     services: [
       {
         id: 'growth-and-marketing-digital-marketing-strategy',
@@ -469,6 +486,9 @@ export const services = [
     },
     description:
       'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
+
+    menuDescription:
+      'Tailored solutions designed to meet your industry’s unique needs.',
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
@@ -525,6 +545,8 @@ export const services = [
     },
     description:
       'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
+    menuDescription:
+      'Intelligent solutions powered by AI to drive smarter decisions.',
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',

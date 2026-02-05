@@ -11,7 +11,7 @@ import styles from './menu.module.scss'
 import Link from 'next/link'
 import LoadingIndicator from '@/shared/loader/detector'
 import { usePathname } from 'next/navigation'
-import { services } from '@/shared/header/action-links/service/services.constant'
+import { services } from '@/static/services'
 
 const items = [
   {

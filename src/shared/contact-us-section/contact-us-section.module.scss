@@ -1,0 +1,265 @@
+/* =========================
+   Section Wrapper
+========================= */
+.aboutUsContactUsSection {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
+  overflow: hidden;
+  padding: 0 max(2vw, 20px);
+}
+
+.contactUsBg {
+  z-index: 0;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* =========================
+   Layout
+========================= */
+.contactUs {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   Left Container
+========================= */
+.leftContainer {
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+}
+
+.countriesList {
+  margin-top: max(1.042vw, 22px);
+  gap: max(1.042vw, 13px);
+  width: 100%;
+  display: flex;
+}
+
+.selectedCountryTitle {
+  margin-top: max(24px, 2.083vw) !important;
+  font-size: max(24px, 1.25vw) !important;
+}
+
+.selectedCountryDescription {
+  margin-top: max(12px, 0.62vw);
+  width: 80%;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  color: #696969 !important;
+  font-size: var(--font-size-18);
+}
+
+.countryFlag {
+  width: 3vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0.3vw;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.labelContainer {
+  display: flex;
+  align-items: center;
+  gap: max(0.729vw, 10px);
+  margin-top: max(1.042vw, 16px);
+}
+
+.labelContainerOffset {
+  margin-left: 0.15vw;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max(1.5vw, 20px);
+  height: auto;
+}
+
+/* =========================
+   Contact Card
+========================= */
+.contactCard {
+  margin-top: max(0.729vw, 24px) !important;
+  margin-bottom: 0 !important;
+  z-index: 10;
+}
+
+.contactCardContent {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactCardDescription {
+  color: #696969 !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 600;
+  line-height: max(22px, 1.563vw);
+  letter-spacing: max(0.017vw, 0.28px);
+}
+
+/* =========================
+   Right Container
+========================= */
+.rightContainer {
+  z-index: 10;
+  margin-top: 4.2vw;
+}
+
+/* =========================
+   Decorative Elements
+========================= */
+.polygon {
+  position: absolute;
+  bottom: -18%;
+  right: -10%;
+  width: 25.83vw;
+  transform: rotate(-180deg);
+}
+
+/* =========================
+   Flags Grid
+========================= */
+.countriesFlagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  gap: max(1.25vw, 16px);
+  margin-top: max(1.25vw, 16px);
+}
+
+/* =========================
+   Tablet and Below
+========================= */
+@media screen and (max-width: 1024px) {
+  .aboutUsContactUsSection {
+    min-height: auto;
+    padding: 60px 20px;
+  }
+
+  .contactUs {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .leftContainer {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+/* =========================
+   Mobile
+========================= */
+@media screen and (max-width: 768px) {
+  .aboutUsContactUsSection {
+    padding: 0 7.185%;
+    @media screen and (max-width: 600px) {
+      padding: 0 16px;
+    }
+    margin-top: 80px;
+    min-height: auto;
+  }
+
+  .contactUsBg {
+    display: none;
+  }
+
+  .contactUs {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
+
+  .leftContainer {
+    width: 100%;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+    line-height: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle br {
+    display: none;
+  }
+
+  .selectedCountryDescription:nth-child(1) {
+    max-height: 40px !important;
+    width: 100%;
+  }
+
+  .countriesFlagsContainer {
+    gap: 18px !important;
+    @media screen and (max-width: 500px) {
+      width: 90%;
+    }
+    @media (min-width: 501px) and (max-width: 560px) {
+      width: 80%;
+    }
+  }
+
+  .countryFlag {
+    width: 40px;
+    border-radius: 4px;
+  }
+
+  .countryFlagSelected {
+    box-shadow: 0 0 20px 3px #ffc878;
+  }
+
+  .selectedCountryTitle {
+    margin-top: 24px;
+    font-size: 16px;
+  }
+
+  .selectedCountryDescription {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .labelContainer {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .labelContainerOffset {
+    margin-left: 0;
+  }
+
+  .rightContainer {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+}

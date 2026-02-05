@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
 import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
-import './styles.scss'
+import styles from './faq.module.scss'
+import FaqHeroImage from './hero-image'
 
 const questions = [
   {
@@ -53,29 +54,34 @@ const FAQ = () => {
   }
 
   return (
-    <div className="faq">
-      <div className="images">
+    <div className={styles.faq}>
+      <div className={styles.images}>
         <FAQ_IMAGE />
-        <div className="bg-orange"></div>
+        <div className={styles.bgOrange}></div>
       </div>
 
-      <div className="content">
-        <div className="section-heading">
+      <div className={styles.content}>
+        <div className={styles.sectionHeading}>
           From simple queries to complex ones,{' '}
           <span>we’re here to help you </span> every step of the way!
         </div>
 
-        <p className="section-sub-heading">Top questions</p>
+        <p className={styles.sectionSubHeading}>Top questions</p>
 
-        <div className="questions-wrapper">
+        <div className={styles.questionsWrapper}>
           {questions.map((item, index) => {
             const isOpen = openIndex === index
+
             return (
-              <div key={index} className="question-wrapper">
+              <div key={index} className={styles.questionWrapper}>
                 <div style={{ flex: 1 }}>
-                  <p className="question" onClick={() => toggleAnswer(index)}>
+                  <p
+                    className={styles.question}
+                    onClick={() => toggleAnswer(index)}
+                  >
                     {item.question}
                   </p>
+
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
@@ -85,7 +91,7 @@ const FAQ = () => {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <p className="answer">{item.answer}</p>
+                        <p className={styles.answer}>{item.answer}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -93,12 +99,16 @@ const FAQ = () => {
 
                 <div
                   onClick={() => toggleAnswer(index)}
-                  style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+                  style={{
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
                 >
                   {isOpen ? (
-                    <MINUS className="toggle-icon" />
+                    <MINUS className={styles.toggleIcon} />
                   ) : (
-                    <PLUS className="toggle-icon" />
+                    <PLUS className={styles.toggleIcon} />
                   )}
                 </div>
               </div>
