@@ -75,7 +75,7 @@ export default function GlobeSection() {
         <Box className="our-office-country-flag-container">
           <div className="flags-container">
             {countries.map((countryData) => {
-              const { name, img } = countryData
+              const { name, icon } = countryData
               const active = name === country.name
               
               return (
@@ -87,7 +87,7 @@ export default function GlobeSection() {
                   transition={{ type: 'spring', stiffness: 260 }}
                   onClick={() => onClick(countryData)}
                   style={{
-                    backgroundImage: `url(${img})`,
+                    backgroundImage: `url(${icon})`,
                   }}
                   />
               )
@@ -104,7 +104,7 @@ export default function GlobeSection() {
               transition={{ duration: 0.4 }}
             >
               <p className="country-name">{country.name}</p>
-              <p className="country-address">{country.office.address}</p>
+              <p className="country-address">{country.description}</p>
             </motion.div>
           </AnimatePresence>
         </Box>

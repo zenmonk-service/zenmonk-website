@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 // import { countries, Country } from '../../../public/countries'
-import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
+// import { Email, Phone, Location } from '@/assets/icons/contact-us/contact'
 // import ContactCard from '@/shared/contact-card'
 // import CountriesList from '@/shared/countries-list'
 import Title from '@/shared/title'
