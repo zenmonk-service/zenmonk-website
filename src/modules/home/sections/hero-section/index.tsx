@@ -21,8 +21,8 @@ const HeroSection = () => {
               <span>Versatile</span> Software Innovations
             </h4>
             <p className="description">
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
+              Zenmonk believes in the power of harmony between—
+              Technology and Precision, Innovation and Mindfulness
             </p>
           </div>
           <BaseButton
