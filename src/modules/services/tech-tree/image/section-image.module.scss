@@ -3,7 +3,7 @@
 }
 
 .baseTreeContainer {
-  width: 28.59vw;
+  width: max(300px, 30.88vw);
 }
 
 .iconContainer {
@@ -14,4 +14,10 @@
   position: absolute;
   cursor: pointer;
   aspect-ratio: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .sectionImageContainer{
+    margin-top: 64px;
+  }
 }

@@ -3,98 +3,99 @@ import { Tooltip } from '@mui/material'
 import BaseTree from '../assets/base-tree.svg'
 import styles from './section-image.module.scss'
 
-const getSize = (size: string): CSSProperties => {
+const getSize = (size: string, padding?: string): CSSProperties => {
   switch (size) {
     case 'top':
       return {
-        width: 'max(68px, 3.5vw)',
-        top: 'min(-68px, -3.5vw)',
+        width: '13%',
+        top: '-10%',
         left: '32%',
-        padding: 'max(8px, 0.4vw)',
+        padding: padding || 'max(6px, 0.4vw)',
       }
     case 'top-leaf':
       return {
-        width: 'max(114px, 5.93vw)',
-        top: 'min(-38.4px, -2vw)',
-        right: '30%',
-        padding: 'max(16px, 0.833vw)',
+        width: '17%',
+        top: '-2%',
+        right: '34%',
+        padding: padding || 'max(8px, 0.833vw)',
       }
     case 'top-leaf-right':
       return {
-        width: 'max(96px, 5vw)',
-        top: 'max(96px, 5vw)',
-        right: '20%',
-        padding: 'max(8px, 0.4vw)',
+        width: '12%',
+        top: '15%',
+        right: '30%',
+        padding: padding || 'max(6px, 0.4vw)',
       }
     case 'bottom-right-leaf':
       return {
-        width: 'max(130px, 6.77vw)',
-        top: 'max(250px, 13vw)',
-        right: '0',
-        padding: 'max(32px, 1.66vw)',
+        width: '23%',
+        height: '18.8%',
+        top: '36%',
+        right: '5%',
+        padding: padding || 'max(12px, 1.2vw)',
       }
     case 'bottom-left-leaf':
       return {
-        width: 'max(114px, 5.93vw)',
-        bottom: 'max(211px, 11vw)',
+        width: '18%',
+        bottom: '32%',
         left: '0',
-        padding: 'max(16px, 0.833vw)',
+        padding: padding || 'max(8px, 0.833vw)',
       }
     case 'top-left-leaf':
       return {
-        width: 'max(115.2px, 6vw)',
-        top: 'max(96px, 7.5vw)',
-        left: '13%',
-        padding: 'max(16px, 0.833vw)',
+        width: '18%',
+        top: '24%',
+        left: '15%',
+        padding: padding || 'max(8px, 0.833vw)',
       }
     case 'bottom-filler-leaf':
       return {
-        width: 'max(68px, 3.5vw)',
-        bottom: 'max(100px, 14.7vw)',
+        width: '10%',
+        bottom: '41%',
         left: '28%',
-        padding: 'max(14px, 0.72vw)',
+        padding: padding || 'max(6px, 0.6vw)',
       }
     case 'left-filler-leaf':
       return {
-        width: 'max(76px, 4vw)',
-        top: 'max(100px, 14.2vw)',
+        width: '13%',
+        top: '41%',
         left: '0',
-        padding: 'max(24px, 1.25vw)',
+        padding: padding || 'max(10px, 1.25vw)',
       }
     case 'top-filler-leaf':
       return {
-        width: 'max(68px, 3.5vw)',
-        top: 'max(58px, 3vw)',
+        width: '11%',
+        top: '10%',
         left: '25%',
-        padding: 'max(14px, 0.72vw)',
+        padding: padding || 'max(6px, 0.72vw)',
       }
     case 'top-left-filler-leaf':
       return {
-        width: 'max(68px, 3.5vw)',
-        top: '0vw',
-        left: '6%',
-        padding: 'max(16px, 0.833vw)',
+        width: '12%',
+        top: '0',
+        left: '8%',
+        padding: padding || 'max(10px, 0.833vw)',
       }
     case 'bottom-left-filler-leaf':
       return {
-        width: 'max(68px, 3.5vw)',
-        bottom: 'max(355.2px, 18.5vw)',
-        right: '32%',
-        padding: 'max(8px, 0.4vw)',
+        width: '10%',
+        top: '40.5%',
+        right: '38%',
+        padding: padding || 'max(6px, 0.4vw)',
       }
     case 'bottom-middle-filler-leaf':
       return {
-        width: 'max(68px, 3.5vw)',
-        bottom: 'max(268.8px, 14vw)',
-        right: '20%',
-        padding: 'max(14px, 0.72vw)',
+        width: '10%',
+        bottom: '40%',
+        right: '25%',
+        padding: padding || 'max(6px, 0.72vw)',
       }
     case 'bottom-right-filler-leaf':
       return {
-        width: 'max(48px, 2.5vw)',
-        bottom: 'max(192px, 10vw)',
-        right: '15%',
-        padding: 'max(12px, 0.62vw)',
+        width: '8%',
+        bottom: '32%',
+        right: '20%',
+        padding: padding || 'max(4px, 0.62vw)',
       }
     default:
       return {}
@@ -103,9 +104,10 @@ const getSize = (size: string): CSSProperties => {
 
 interface SectionImageProps {
   data: {
-    icon: any
+    icon?: any
     position: string
     label: string
+    padding?: string
     backgroundColor: string
   }[]
 }
@@ -121,11 +123,11 @@ const SectionImage = ({ data }: SectionImageProps) => {
           <div
             className={styles.iconContainer}
             style={{
-              ...getSize(data.position),
+              ...getSize(data.position, data.padding),
               backgroundColor: data.backgroundColor,
             }}
           >
-            <data.icon />
+            {data.icon ? <data.icon /> : <></>}
           </div>
         </Tooltip>
       ))}

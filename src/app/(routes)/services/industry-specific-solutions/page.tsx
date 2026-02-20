@@ -9,12 +9,13 @@ import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
 
 const IndustrySpecificSolutions = () => {
+  const serviceId = 'industries-specific-solution'
   return (
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions id='industries-specific-solution' />
-      <TechnologyTree isTechTree noRandomIcons/>
+      <ItSolutions id={serviceId} />
+      <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />

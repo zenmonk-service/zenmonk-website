@@ -1,8 +1,6 @@
-import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid2'
 import { OurServices } from '@/app/(routes)/services/our-services'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
-import { ArrowRight } from './assets'
 import styles from './it-solution.module.scss'
 
 const cardStyles = [
@@ -45,7 +43,7 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
           {services.map((service, index) => {
             const { background, fill } = cardStyles[index]
             return (
-              <Grid key={service.id} > {/* item */}
+              <Grid key={service.id} >
                 <div className={styles.card}>
                   <div
                     style={{ backgroundColor: background }}
@@ -57,10 +55,6 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
                   <div className={styles.right}>
                     <p className={styles.title}>{service.title}</p>
                     <p className={styles.description}>{service.description}</p>
-                    <Button className={styles.btn} disableRipple>
-                      Read More
-                      <ArrowRight style={{ width: '1.04vw' }} />
-                    </Button>
                   </div>
                 </div>
               </Grid>

@@ -1,0 +1,159 @@
+.uiTreeBackground {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  --ui-bg-right-offset: 5vw;
+}
+
+.layer {
+  position: absolute;
+  right: var(--ui-bg-right-offset);
+  height: auto;
+  will-change: transform;
+  transform-origin: center;
+}
+
+.fillBrusToolIcon {
+  width: 8.33vw;
+  top: 10%;
+  left: 1%;
+}
+
+.curveToolIcon {
+  width: 4.74vw;
+  left: 43.3%;
+  top: 8%;
+}
+
+.brushToolIcon {
+  width: 5.78vw;
+  bottom: 10%;
+  left: 2%;
+}
+
+.eraserToolIcon {
+  width: 4.17vw;
+  right: 8%;
+  bottom: 25%;
+}
+
+.lasooToolIcon {
+  width: 4.95vw;
+  left: 27.65%;
+  bottom: 10%;
+}
+
+.cropToolIcon {
+  width: 4.58vw;
+  top: 5%;
+  left: 26%;
+}
+
+.moveToolIcon {
+  width: 5.57vw;
+  right: 10%;
+}
+
+.colorPickerToolIcon {
+  width: 4.01vw;
+  right: 5%;
+  top: 32%;
+}
+
+.textToolIcon {
+  width: 4.58vw;
+  left: 43.3%;
+  bottom: 14%;
+}
+
+.floatSlowUp {
+  animation: floatSlowUp 9s ease-in-out infinite;
+}
+
+.floatDriftUpRight {
+  animation: floatDriftUpRight 11s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.floatDriftDownLeft {
+  animation: floatDriftDownLeft 10s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.floatRotateDrift {
+  animation: floatRotateDrift 13s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+.floatPulseUp {
+  animation: floatPulseUp 12s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@keyframes floatSlowUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, calc(-1 * max(10px, 0.52vw)), 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floatDriftUpRight {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(max(8px, 0.42vw), calc(-1 * max(6px, 0.31vw)), 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floatDriftDownLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(calc(-1 * max(7px, 0.365vw)), max(7px, 0.365vw), 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes floatRotateDrift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(max(4px, 0.21vw), calc(-1 * max(4px, 0.21vw)), 0)
+      rotate(0.4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
+@keyframes floatPulseUp {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, calc(-1 * max(6px, 0.31vw)), 0) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .uiTreeBackground {
+    --ui-bg-right-offset: 2.5vw;
+  }
+}

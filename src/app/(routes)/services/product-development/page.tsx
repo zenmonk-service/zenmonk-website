@@ -7,21 +7,21 @@ import ReadyToTalkProductDevelopment from '@/modules/services/modules/product-de
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
 import Rating from '@/shared/rating'
-import { Box } from '@mui/material'
 
 const ProductDevelopmentPage = () => {
+  const serviceId = 'product-development'
   return (
     <div>
       <HeroSection />
       <Rating />
-      <ItSolutions id='product-development' />
-      <TechnologyTree isTechTree noRandomIcons/>
+      <ItSolutions id={serviceId} />
+      <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToTalkProductDevelopment />
       <FAQ />
-      <Box sx={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
+      <div style={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
     </div>
   )
 }

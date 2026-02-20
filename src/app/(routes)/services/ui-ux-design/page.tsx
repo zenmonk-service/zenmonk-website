@@ -9,13 +9,14 @@ import { ContactUsSection } from '@/shared/contact-us-section'
 import FAQ from '@/shared/faq'
 
 const UiUxDesignPage = () => {
+  const serviceId = 'ui-ux-design'
   return (
     <div>
       <UiUx />
       <Rating />
       <UiUxWhyChooseUs />
       <CreativeIdeas />
-      <TechnologyTree />
+      <TechnologyTree serviceId={serviceId} />
       <BusinessSectors />
       <DevelopmentProcess />
       <FAQ />

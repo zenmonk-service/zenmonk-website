@@ -4,6 +4,8 @@
   gap: 0.3125vw;
   padding: max(0.625vw, 12px) max(14px, 0.8333vw);
   border-radius: max(30px, 2.2917vw);
+  padding: max(0.625vw, 12px) max(14px, 0.8333vw);
+  border-radius: max(30px, 2.2917vw);
   background: #fff;
   border: max(1px, 0.052vw) solid #fff;
   font-family: 'Poppins', sans-serif;
@@ -33,6 +35,8 @@
 .expandIcon {
   width: max(20px, 1.04vw);
   height: max(20px, 1.04vw);
+  width: max(20px, 1.04vw);
+  height: max(20px, 1.04vw);
   rotate: 0;
   color: inherit;
 }
@@ -41,6 +45,8 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 !important;
+  width: max(796px, 37.5vw);
+  padding: max(40px, 2.0833vw);
   width: max(796px, 37.5vw);
   padding: max(40px, 2.0833vw);
   background-color: #fff;
@@ -66,7 +72,7 @@
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 720px) {
   .servicesMenuContainer {
     display: none;
   }
@@ -76,12 +82,6 @@
   .servicesMenuContainer {
     padding: 40px;
     min-width: 780px;
-  }
-}
-
-@media (max-height:550px) {
-  .servicesMenuPopover {
-    margin-top: 32px;
   }
 }
 

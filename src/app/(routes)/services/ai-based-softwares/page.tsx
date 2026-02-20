@@ -6,20 +6,26 @@ import HeroSection from '@/modules/services/modules/ai-based-softwares/hero-sect
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import { Box } from '@mui/material'
 
 const AiBasedSoftwaresPage = () => {
+  const serviceId = 'ai-solutions'
   return (
     <div>
       <HeroSection />
-      <ItSolutions id='ai-solutions' />
-      <TechnologyTree isTechTree noRandomIcons/>
+      <ItSolutions id={serviceId} />
+      <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice />
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToTalkShared />
       <FAQ />
-      <Box sx={{ height: "max(80px, 6.25vw)", width: "100%", backgroundColor: "#fff" }} />
+      <div
+        style={{
+          height: 'max(80px, 6.25vw)',
+          width: '100%',
+          backgroundColor: '#fff',
+        }}
+      />
     </div>
   )
 }
