@@ -58,7 +58,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: space-between;
 
         .title,
         .description {
@@ -76,26 +75,6 @@
           font-weight: 400;
           line-height: normal;
         }
-
-        .btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-transform: capitalize;
-          gap: 0.521vw;
-          padding: 0;
-          width: fit-content;
-          flex-direction: row;
-          font-family: Poppins;
-          font-size: var(--font-size-16);
-          font-style: normal;
-          font-weight: 600;
-          line-height: 1.563vw;
-          background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
       }
     }
   }
@@ -106,7 +85,6 @@
     .container {
       .containerGrid {
         grid-template-columns: 1fr 1fr;
-
 
         .card {
           .left {
@@ -123,9 +101,6 @@
             }
           }
         }
-
-
-
       }
     }
   }
@@ -155,7 +130,6 @@
 
       .containerGrid {
         grid-template-columns: 1fr;
-
 
         .card {
           width: 100%;
@@ -188,16 +162,6 @@
             .description {
               font-size: var(--font-size-14);
               line-height: normal;
-            }
-
-            .btn {
-              font-size: var(--font-size-14);
-              line-height: normal;
-
-              svg {
-                width: 16px !important;
-                height: 16px !important;
-              }
             }
           }
         }

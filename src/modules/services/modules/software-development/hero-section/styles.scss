@@ -25,7 +25,6 @@
   transform: translateY(0.6vw) scale(var(--doodle-scale, 1));
   perspective: 1500px;
   z-index: 9999;
-  /* already vw */
 
   .dashed-circle-inner,
   .dashed-circle-outer {
