@@ -1,7 +1,7 @@
 import Ceinde from './logo-ceinde.svg?url'
 import Citealimenta from './logo-cite.svg?url'
-import Citican from './logo-citican.svg?url'
-import Cittecam from './logo-citican.svg?url'
+
+import Cittecam from './logo-cittecam.svg?url'
 import Ct from './logo-ct.svg?url'
 import Cuanza from './logo-cuanza.svg?url'
 import Funiber from './logo-funiber.svg?url'
@@ -18,11 +18,6 @@ export const OurPartnersList = [
     label: 'Citealimenta',
     icon: Citealimenta,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
-  },
-  {
-    label: 'Citican',
-    icon: Citican,
-    background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
   },
   {
     label: 'Cittecam',

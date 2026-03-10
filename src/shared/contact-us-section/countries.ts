@@ -1,12 +1,12 @@
-import India from "./assets/countries/india.svg";
-import Spain from "./assets/countries/spain.svg";
-import Equador from "./assets/countries/ecuador.svg";
-import Brazil from "./assets/countries/brazil.svg";
-import Mexico from "./assets/countries/mexico.svg";
-import Peru from "./assets/countries/peru.svg";
-import Colombia from "./assets/countries/colombia.svg";
-import USA from "./assets/countries/usa.svg";
-import Argentina from "./assets/countries/argentina.svg";
+import India from "./assets/countries/india.svg?url";
+import Spain from "./assets/countries/spain.svg?url";
+import Equador from "./assets/countries/ecuador.svg?url";
+import Brazil from "./assets/countries/brazil.svg?url";
+import Mexico from "./assets/countries/mexico.svg?url";
+import Peru from "./assets/countries/peru.svg?url";
+import Colombia from "./assets/countries/colombia.svg?url";
+import USA from "./assets/countries/usa.svg?url";
+import Argentina from "./assets/countries/argentina.svg?url";
 
 export const countries = [
   {

@@ -6,7 +6,6 @@ import { countries } from '@/shared/contact-us-section/countries'
 import { SectionTitle } from '@/shared/typography'
 import Globe from './globe'
 import './styles.scss'
-import { Box } from '@mui/material'
 
 export default function GlobeSection() {
   const clickRef = useRef<boolean>(false)
@@ -72,7 +71,7 @@ export default function GlobeSection() {
           />
         </div>
 
-        <Box className="our-office-country-flag-container">
+        <div className="our-office-country-flag-container">
           <div className="flags-container">
             {countries.map((countryData) => {
               const { name, icon } = countryData
@@ -87,7 +86,7 @@ export default function GlobeSection() {
                   transition={{ type: 'spring', stiffness: 260 }}
                   onClick={() => onClick(countryData)}
                   style={{
-                    backgroundImage: `url(${icon})`,
+                    backgroundImage: `url(${icon.src})`,
                   }}
                   />
               )
@@ -107,7 +106,7 @@ export default function GlobeSection() {
               <p className="country-address">{country.description}</p>
             </motion.div>
           </AnimatePresence>
-        </Box>
+        </div>
       </div>
     </section>
   )
