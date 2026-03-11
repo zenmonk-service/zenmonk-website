@@ -51,7 +51,6 @@
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: max(16px, 1.25vw);
-
     }
 
     .tech-solution-button {
@@ -72,7 +71,7 @@
     }
 
     &:not(.tech-solution-mobile) {
-      @media (max-width: 700px) {
+      @media (max-width: 780px) {
         display: none;
       }
     }
@@ -129,7 +128,7 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   .tech-solution-section-wrapper {
     flex-direction: column-reverse;
     height: auto;
@@ -177,7 +176,7 @@
       }
 
       img {
-        width: 100% !important;
+        width: 80% !important;
         margin-right: 0;
         margin: 0 auto;
       }

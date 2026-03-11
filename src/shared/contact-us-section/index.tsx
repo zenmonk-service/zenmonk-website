@@ -59,7 +59,7 @@ export const ContactUsSection = () => {
           <SectionTitle text="Message Away" highlightedText="Message" />
 
           <div className={styles.countriesFlagsContainer}>
-            {countries.map(({ name, icon: Icon }, index) => {
+            {countries.map(({ name, icon }, index) => {
               const isSelected = name === country.name
 
               return (
@@ -76,7 +76,13 @@ export const ContactUsSection = () => {
                     isSelected ? styles.countryFlagSelected : ''
                   }`}
                 >
-                  <Icon />
+                  <Image
+                    src={icon}
+                    alt={`${name} flag`}
+                    width={48}
+                    height={32}
+                    className={styles.countryFlagIcon}
+                  />
                 </motion.div>
               )
             })}

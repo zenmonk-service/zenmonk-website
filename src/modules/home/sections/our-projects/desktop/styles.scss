@@ -3,12 +3,27 @@
   width: 100%;
   height: 100vh;
   position: relative;
+
+  @media (min-width: 760px) and (max-width: 1024px) {
+    height: auto;
+    aspect-ratio: 1.23;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
+
+  @media (min-width: 600px) and (max-width: 768px) {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
 }
 
 .our-work-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 

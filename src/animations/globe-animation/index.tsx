@@ -86,9 +86,9 @@ export default function GlobeSection() {
                   transition={{ type: 'spring', stiffness: 260 }}
                   onClick={() => onClick(countryData)}
                   style={{
-                    backgroundImage: `url(${icon.src})`,
+                    backgroundImage: `url(${icon})`,
                   }}
-                  />
+                />
               )
             })}
           </div>

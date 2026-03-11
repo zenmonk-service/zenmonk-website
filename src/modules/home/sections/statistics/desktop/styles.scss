@@ -5,7 +5,7 @@
   background-size: cover;
   background-position: 0 0%;
   padding: 0% 10%;
-  height: max(540px, 26vw);
+  height: max(240px, 26vw);
   color: var(--global-color-primary);
   position: relative;
   display: grid;
@@ -35,10 +35,6 @@
     gap: 0.781vw;
 
     justify-content: center;
-    @media screen and (max-width: 1499px) {
-      padding: 0.625vw;
-      padding-bottom: 2.604vw;
-    }
     .desc {
       display: grid;
       place-items: center;

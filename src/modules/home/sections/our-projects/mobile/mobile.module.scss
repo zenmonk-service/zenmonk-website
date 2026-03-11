@@ -13,7 +13,7 @@
     .card {
       .imageContainer {
         width: 100%;
-        height: 216.89px;
+        height: max(216.89px, 50vw);
         background-size: cover;
         position: relative;
         .overlay {

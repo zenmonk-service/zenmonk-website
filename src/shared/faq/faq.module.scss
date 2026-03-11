@@ -35,7 +35,7 @@
     font-size: max(24px, 2.08vw);
     font-weight: 600;
     letter-spacing: -0.0417vw;
-    min-height: 100px;
+    // min-height: 100px;
 
     span {
       color: #eb7c0d;
@@ -47,14 +47,13 @@
     font-family: 'Poppins', sans-serif;
     font-size: max(18px, 1.25vw);
     font-weight: 600;
-    line-height: 2.3958vw;
     letter-spacing: -0.025vw;
   }
 
   .content {
     display: flex;
     flex-direction: column;
-    gap: max(40px, 1.6666vw);
+    gap: max(16px, 1.6666vw);
   }
 
   .questionsWrapper {
@@ -90,7 +89,7 @@
   }
 
   /* 🔽 Combined media query */
-  @media (max-width: 600px) {
+  @media (max-width: 780px) {
     padding-left: 16px;
     padding-right: 16px;
 
