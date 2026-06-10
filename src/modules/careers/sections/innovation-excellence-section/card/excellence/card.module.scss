@@ -73,3 +73,16 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .card {
+    padding-left: 49px;
+  }
+
+  .image {
+    width: 40px;
+    height: 40px;
+    left: -20px;
+    top: 15%;
+  }
+}

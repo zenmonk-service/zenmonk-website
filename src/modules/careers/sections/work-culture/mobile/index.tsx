@@ -26,6 +26,7 @@ const WorkCultureMobile = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const itemRef = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState<number>(0)
+  const [containerWidth, setContainerWidth] = useState<number>(0)
 
   const playNext = () => {
     return setTimeout(() => {
@@ -50,10 +51,21 @@ const WorkCultureMobile = () => {
   }
 
   useEffect(() => {
-    if (itemRef.current && width !== itemRef.current.clientWidth) {
-      setWidth(itemRef.current.clientWidth)
+    const handleResize = () => {
+      if (itemRef.current) {
+        setWidth(itemRef.current.clientWidth)
+      }
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth)
+      }
     }
 
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
     timeoutRef.current = playNext()
 
     return () => {
@@ -98,37 +110,37 @@ const WorkCultureMobile = () => {
     setCurrentIndex(index)
   }
 
+  const maxTranslate = Math.max(0, (totalLength * width + (totalLength - 1) * 16) - containerWidth)
+  const currentTranslate = Math.min(currentIndex * (width + 16), maxTranslate)
+
   return (
     <div ref={containerRef} className={styles.container}>
       <SectionTitle
         align="left"
-        text="Zen Focused Work Environment"
+        text="Healthy Work Culture"
         className={styles.title}
-        markText="Environment"
+        markText="Culture"
       />
       <SectionDescription
         className={styles.description}
-        text="At Zenmonk, we cultivate serenity and growth, balancing
-          professional success with personal well-being. Blending
-          mindfulness with innovation, we nurture a supportive community
-          where continuous learning and creative fulfillment prosper."
+        text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier. state burst think end are its."
       />
       <motion.div
         className={styles.track}
         drag="x"
         dragConstraints={{
-          left: -(width + 16) * (totalLength - 1),
+          left: -maxTranslate,
           right: 0,
         }}
         style={{
           gap: `${GAP}px`,
           perspective: 1000,
-          perspectiveOrigin: `${currentIndex * (width + 16) + width / 2}px 50%`,
+          perspectiveOrigin: `${currentTranslate + width / 2}px 50%`,
         }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         onDragEnd={handleDragEnd}
-        animate={{ x: -(currentIndex * (width + 16)) }}
+        animate={{ x: -currentTranslate }}
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}
       >

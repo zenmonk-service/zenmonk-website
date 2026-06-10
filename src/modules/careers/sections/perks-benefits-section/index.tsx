@@ -23,9 +23,9 @@ const PerkBenefits = () => {
           }}
         />
         <p className="description">
-          At Zenmonk, we celebrate individuality and creativity. We place our
-          people at the heart of everything we do — giving them the freedom,
-          trust, and support to evolve both personally and professionally.
+          Remote does not mean &quot;distant&quot;. At Zenmonk, you get a
+          competitive benefits package and be part of an award-winning team.
+          Plus, by working remotely, you save more and enjoy a work/life balance.
         </p>
         <div className="perks-benefits-list">
           {perkBenefitsList.map((item, index) => (

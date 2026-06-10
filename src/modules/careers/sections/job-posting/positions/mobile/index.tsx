@@ -44,40 +44,56 @@ const PositionsMobile = ({ positionsList, onApply }: PositionsMobileProps) => {
             </div>
             <Collapse in={isSelected}>
               <div className={styles.collapseContainer}>
-                {dept.positions.map((role: Position) => (
-                  <div key={role.id} className={styles.roleContainer}>
-                    <h3 className={styles.roleTitle}>{role.heading}</h3>
-                    <div className={styles.collapseDescription}>
-                      {role.description}
-                    </div>
-                    <div className={styles.skillList}>
-                      {role.skills.map((skill) => {
-                        return (
-                          <div className={styles.skillListItem} key={skill.title}>
-                            <div className={styles.skillListItemContent}>
-                              <Check className="check-icon" />
-                              <p className={styles.skillListItemTitle}>
-                                {skill.title}
+                {dept.positions.length > 0 ? (
+                  dept.positions.map((role: Position) => (
+                    <div key={role.id} className={styles.roleContainer}>
+                      <div className={styles.roleHeader}>
+                        <h3 className={styles.roleTitle}>
+                          {role.heading}
+                          <span className={`${styles.statusBadge} ${role.isOpening ? styles.open : styles.closed}`}>
+                            {role.isOpening ? 'Open' : 'Closed'}
+                          </span>
+                        </h3>
+                      </div>
+                      <div className={styles.collapseDescription}>
+                        {role.description}
+                      </div>
+                      <div className={styles.skillList}>
+                        {role.skills.map((skill) => {
+                          return (
+                            <div className={styles.skillListItem} key={skill.title}>
+                              <div className={styles.skillListItemContent}>
+                                <Check className="check-icon" />
+                                <p className={styles.skillListItemTitle}>
+                                  {skill.title}
+                                </p>
+                              </div>
+                              <p className={styles.skillListItemDescription}>
+                                {skill.description}
                               </p>
                             </div>
-                            <p className={styles.skillListItemDescription}>
-                              {skill.description}
-                            </p>
-                          </div>
-                        )
-                      })}
+                          )
+                        })}
+                      </div>
+                      <div className={styles.actionFooter}>
+                        <BaseButton
+                          className={styles.applyBtn}
+                          onClick={() => onApply(role.id, role.heading)}
+                        >
+                          Apply Now
+                        </BaseButton>
+                      </div>
+                      <div className={styles.roleSeparator} />
                     </div>
-                    <div className={styles.actionFooter}>
-                      <BaseButton
-                        className={styles.applyBtn}
-                        onClick={() => onApply(role.id, role.heading)}
-                      >
-                        APPLY
-                      </BaseButton>
-                    </div>
-                    <div className={styles.roleSeparator} />
+                  ))
+                ) : (
+                  <div className={styles.noPositions}>
+                    <h3 className={styles.noPositionsTitle}>No Open Positions</h3>
+                    <p className={styles.noPositionsText}>
+                      Currently, there are no available positions in this department. Please check back later.
+                    </p>
                   </div>
-                ))}
+                )}
               </div>
             </Collapse>
             {deptIndex !== positionsList.length - 1 && (

@@ -16,6 +16,12 @@
       width: 90%;
     }
 
+    @media screen and (max-width: 1020px) {
+      .show-case-title {
+        font-size: min(24px, 2.8vw) !important;
+      }
+    }
+
     .show-case-description {
       width: 72%;
       margin: auto;
@@ -24,12 +30,17 @@
       text-align: center;
       font-family: Poppins;
       line-height: normal;
-      @media screen and (max-width: 1371px) {
-        width: 100%;
-      }
 
       @media (max-width: 1499px) {
         font-size: 18px !important;
+      }
+
+      @media screen and (max-width: 1020px) {
+        font-size: min(16px, 1.8vw) !important;
+      }
+
+      @media screen and (max-width: 600px) {
+        width: 100%;
       }
     }
   }
@@ -48,19 +59,33 @@
     gap: 1.56vw;
     justify-content: center;
     display: flex;
-    @media screen and (max-width: 1371px) {
+    @media screen and (max-width: 1020px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @media screen and (max-width: 600px) {
       justify-content: center;
       align-items: center;
       flex-direction: column;
     }
     .left-section {
       height: 100%;
+      @media screen and (max-width: 1020px) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
     }
     .right-section {
       height: 100%;
       display: flex;
       flex-direction: column;
       gap: 1.56vw;
+      @media screen and (min-width: 601px) and (max-width: 1020px) {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+      }
     }
   }
   .bottom-section {
@@ -71,10 +96,15 @@
     gap: 1.56vw;
     justify-content: center;
     display: flex;
-    @media screen and (max-width: 1371px) {
-      // width: 100%;
+    @media screen and (max-width: 1378px) {
       margin-left: 0px;
       margin-right: 0px;
+    }
+    @media screen and (min-width: 601px) and (max-width: 1020px) {
+      width: 100%;
+      justify-content: center;
+    }
+    @media screen and (max-width: 600px) {
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -92,11 +122,12 @@
       .show-case-title {
         text-align: left;
         width: 100%;
+        font-size: min(24px, 5.5vw) !important;
       }
       .show-case-description {
         text-align: left;
         margin: 16px 0px;
-        font-size: 14px !important;
+        font-size: min(16px, 4.2vw) !important;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
@@ -117,3 +148,29 @@
     }
   }
 }
+
+
+ @media (min-width: 1281px) and (max-width: 1371px) {
+    }
+  
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+   
+    }
+
+    @media (min-width: 801px) and (max-width: 1024px) {
+
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+
+    }
+
+    @media (min-width: 401px) and (max-width: 600px) {
+
+    }
+
+    @media (max-width: 400px) {
+
+    }
+

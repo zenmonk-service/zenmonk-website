@@ -32,13 +32,13 @@ const WorkCultureDesktop = () => {
           <div className="title-description-wrapper">
             <SectionTitle
               align="left"
-              text="Zen Focused Work Environment"
+              text="Healthy Work Culture"
               className="work-culture-title"
-              markText="Environment"
+              markText="Culture"
             />
             <SectionDescription
               className="work-culture-description"
-              text="At Zenmonk, we cultivate serenity and growth, balancing professional success with personal well-being. Blending mindfulness with innovation, we nurture a supportive community where continuous learning and creative fulfillment prosper."
+              text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier. state burst think end are its."
             ></SectionDescription>
           </div>
           <div className="action-button-wrapper">

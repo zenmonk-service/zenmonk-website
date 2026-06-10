@@ -3,6 +3,13 @@
   overflow: hidden;
   width: 100%;
   padding: 0 16px;
+  margin-bottom: 70px;
+
+  @media screen and (min-width: 601px) {
+    padding-left: 7.8%;
+    padding-right: 7.8%;
+  }
+
   .title {
     margin-bottom: 16px;
   }
@@ -76,6 +83,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-bottom: 10px;
   .indicators {
     margin-top: 16px;
     display: flex;

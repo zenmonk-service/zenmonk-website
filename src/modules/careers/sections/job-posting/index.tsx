@@ -8,11 +8,12 @@ import PositionsMobile from './positions/mobile'
 import ApplicationModal from './application-modal'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchJobs } from '@/store/features/jobs/jobs-actions'
+import { positionsList } from './positions/positions'
 import './styles.scss'
 
 const OpenPosition = () => {
   const pxToVw = (px: number) => `${(px / 1920) * 100}vw`
-  const isMobile = useMediaQuery('(max-width:600px)')
+  const isMobile = useMediaQuery('(max-width:1000px)')
   const dispatch = useAppDispatch()
   const { departments, loading: isLoading } = useAppSelector((state) => state.jobs)
 
@@ -28,6 +29,8 @@ const OpenPosition = () => {
     dispatch(fetchJobs())
   }, [dispatch])
 
+  const displayList = departments.length > 0 ? departments : positionsList
+
   return (
     <section className="open-position-container">
       <Box
@@ -41,7 +44,7 @@ const OpenPosition = () => {
       >
         <SectionTitle
           className="open-position-title"
-          text="Explore Open Positions and Join Our Team"
+          text={"Explore Open Positions and Join\nOur Team"}
           markText="Our Team"
         />
         <SectionDescription
@@ -78,22 +81,18 @@ const OpenPosition = () => {
               </Box>
             </Box>
           </Box>
-        ) : departments.length > 0 ? (
+        ) : (
           isMobile ? (
             <PositionsMobile
-              positionsList={departments}
+              positionsList={displayList}
               onApply={handleApplyClick}
             />
           ) : (
             <PositionsDesktop
-              positionsList={departments}
+              positionsList={displayList}
               onApply={handleApplyClick}
             />
           )
-        ) : (
-          <Box sx={{ textAlign: 'center', py: isMobile ? '40px' : pxToVw(40) }}>
-            <SectionDescription text="No open positions currently available. Please check back later." />
-          </Box>
         )}
       </Box>
 

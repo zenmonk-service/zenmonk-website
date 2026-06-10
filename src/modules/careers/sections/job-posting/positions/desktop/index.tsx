@@ -61,8 +61,21 @@ const PositionsDesktop = ({ positionsList, onApply }: PositionsDesktopProps) => 
           <Box component="div" className="roles-list">
             {selectedDepartment.positions.map((role: Position) => (
               <Box component="div" key={role.id} className="role-content">
-                <Box component="h2" className="role-title">
-                  {role.heading}
+                <Box component="div" className="role-header">
+                  <Box component="div" className="title-container">
+                    <Box component="h2" className="role-title">
+                      {role.heading}
+                      <Box component="span" className={`status-badge ${role.isOpening ? 'open' : 'closed'}`}>
+                        {role.isOpening ? 'Open' : 'Closed'}
+                      </Box>
+                    </Box>
+                  </Box>
+                  <BaseButton
+                    className="apply-btn"
+                    onClick={() => onApply(role.id, role.heading)}
+                  >
+                    Apply Now
+                  </BaseButton>
                 </Box>
                 <Box component="div" className="role-descriptions">
                   <Box component="p" className="role-description">
@@ -78,15 +91,6 @@ const PositionsDesktop = ({ positionsList, onApply }: PositionsDesktopProps) => 
                       description={skill.description}
                     />
                   ))}
-                </Box>
-
-                <Box component="div" className="action-footer">
-                  <BaseButton
-                    className="apply-btn"
-                    onClick={() => onApply(role.id, role.heading)}
-                  >
-                    APPLY
-                  </BaseButton>
                 </Box>
 
                 {selectedDepartment.positions.length > 1 && (

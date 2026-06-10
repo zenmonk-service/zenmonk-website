@@ -19,6 +19,7 @@
   width: 114.7vw;
   height: 60.71vw;
   z-index: -1;
+  pointer-events: none;
 }
 
 .decorator2 {
@@ -29,6 +30,7 @@
   height: 49.71vw;
   rotate: -23deg;
   z-index: -1;
+  pointer-events: none;
 }
 
 .title {
