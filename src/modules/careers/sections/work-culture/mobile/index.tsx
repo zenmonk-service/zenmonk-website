@@ -25,8 +25,10 @@ const WorkCultureMobile = () => {
   const totalLength = workCultures.length
   const containerRef = useRef<HTMLDivElement>(null)
   const itemRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState<number>(0)
   const [containerWidth, setContainerWidth] = useState<number>(0)
+  const [trackScrollWidth, setTrackScrollWidth] = useState<number>(0)
 
   const playNext = () => {
     return setTimeout(() => {
@@ -57,6 +59,9 @@ const WorkCultureMobile = () => {
       }
       if (containerRef.current) {
         setContainerWidth(containerRef.current.clientWidth)
+      }
+      if (trackRef.current) {
+        setTrackScrollWidth(trackRef.current.scrollWidth)
       }
     }
 
@@ -110,7 +115,7 @@ const WorkCultureMobile = () => {
     setCurrentIndex(index)
   }
 
-  const maxTranslate = Math.max(0, (totalLength * width + (totalLength - 1) * 16) - containerWidth)
+  const maxTranslate = Math.max(0, trackScrollWidth - containerWidth)
   const currentTranslate = Math.min(currentIndex * (width + 16), maxTranslate)
 
   return (
@@ -126,6 +131,7 @@ const WorkCultureMobile = () => {
         text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier. state burst think end are its."
       />
       <motion.div
+        ref={trackRef}
         className={styles.track}
         drag="x"
         dragConstraints={{

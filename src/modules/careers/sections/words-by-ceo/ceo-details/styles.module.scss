@@ -6,8 +6,8 @@
   padding-right: 12%;
 
   img {
-    width: 2.604vw;   // 50px
-    height: 4.427vw;  // 85px
+    width: max(32px, 2.604vw);
+    height: max(54px, 4.427vw);
 
     @media (max-width: 728px) {
       width: 40px;  // 40px
@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1.2vw;
+    margin-top: max(8px, 1.2vw);
 
     .name {
       color: #000;

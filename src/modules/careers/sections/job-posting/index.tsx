@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useMediaQuery, Box, Skeleton } from '@mui/material'
+import { useMediaQuery, Box } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import PositionsDesktop from './positions/desktop'
 import PositionsMobile from './positions/mobile'
@@ -54,45 +54,18 @@ const OpenPosition = () => {
 
       </Box>
       <Box className="position-container">
-        {isLoading ? (
-          <Box sx={{ width: '100%', display: 'flex', gap: isMobile ? 2 : pxToVw(16) }}>
-            {/* Sidebar Skeleton */}
-            {!isMobile && (
-              <Box sx={{ width: pxToVw(380), bgcolor: '#F5F5F5', p: pxToVw(32), borderRadius: pxToVw(20) + ' 0 0 ' + pxToVw(20) }}>
-                {[1, 2, 3, 4].map((i) => (
-                  <Skeleton key={i} variant="text" sx={{ fontSize: '1.5rem', mb: pxToVw(16), width: '80%', height: pxToVw(40) }} />
-                ))}
-              </Box>
-            )}
-
-            {/* Content Area Skeleton */}
-            <Box sx={{
-              flex: 1,
-              p: isMobile ? '16px' : pxToVw(32),
-              bgcolor: '#fff',
-              borderRadius: isMobile ? '12px' : '0 ' + pxToVw(20) + ' ' + pxToVw(20) + ' 0'
-            }}>
-              <Skeleton variant="rectangular" width="40%" height={isMobile ? 32 : pxToVw(40)} sx={{ mb: pxToVw(24) }} />
-              <Skeleton variant="rectangular" width="100%" height={isMobile ? 80 : pxToVw(100)} sx={{ mb: pxToVw(32) }} />
-              <Box sx={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '16px' : pxToVw(24) }}>
-                {[1, 2, 3, 4].map((i) => (
-                  <Skeleton key={i} variant="rectangular" width="100%" height={isMobile ? 100 : pxToVw(120)} sx={{ borderRadius: isMobile ? '8px' : pxToVw(8) }} />
-                ))}
-              </Box>
-            </Box>
-          </Box>
+        {isMobile ? (
+          <PositionsMobile
+            positionsList={displayList}
+            onApply={handleApplyClick}
+            isLoading={isLoading}
+          />
         ) : (
-          isMobile ? (
-            <PositionsMobile
-              positionsList={displayList}
-              onApply={handleApplyClick}
-            />
-          ) : (
-            <PositionsDesktop
-              positionsList={displayList}
-              onApply={handleApplyClick}
-            />
-          )
+          <PositionsDesktop
+            positionsList={displayList}
+            onApply={handleApplyClick}
+            isLoading={isLoading}
+          />
         )}
       </Box>
 

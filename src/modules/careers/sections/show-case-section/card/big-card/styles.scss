@@ -36,6 +36,8 @@
       img {
         width: 0.73vw;
         height: 0.83vw;
+        min-width: 20px;
+        min-height: 20px;
         flex-shrink: 0;
       }
 
@@ -150,12 +152,14 @@
         gap: 4px;
 
         img {
-          width: 12px;
-          height: 12px;
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
         }
 
         .date-text {
-          font-size: 12px;
+          font-size: 14px;
         }
       }
 

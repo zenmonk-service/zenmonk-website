@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
   margin-top: 24px;
   @media (max-width:728px) {
@@ -28,7 +27,7 @@
       .cardTitle {
         color: #111827;
         font-family: 'Poppins', sans-serif;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
         margin: 0;
       }
@@ -147,9 +146,11 @@
               align-items: center;
               gap: 12px;
 
-              svg {
+              .checkIcon {
                 width: 20px;
                 height: 20px;
+                min-width: 20px;
+                min-height: 20px;
                 flex-shrink: 0;
               }
 
@@ -159,6 +160,7 @@
                 font-size: 18px;
                 font-weight: 600;
                 margin: 0;
+                line-height: 1;
               }
             }
 

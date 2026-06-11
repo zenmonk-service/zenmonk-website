@@ -83,16 +83,16 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
   const getTextFieldStyles = () => ({
     '& .MuiOutlinedInput-root': {
-      borderRadius: isMobile ? '8px' : '0.42vw',
+      borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
       fontFamily: 'Poppins',
       backgroundColor: '#fbf9f9ff',
-      fontSize: isMobile ? '14px' : '0.73vw',
+      fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
       padding: 0,
       '& .MuiOutlinedInput-input': {
-        padding: isMobile ? '8px 12px' : '0.44vw 0.63vw !important',
+        padding: isMobile ? '8px 12px' : 'max(8px, 0.44vw) max(12px, 0.63vw) !important',
       },
       '&.MuiInputBase-multiline': {
-        padding: isMobile ? '8px 12px' : '0.44vw 0.63vw !important',
+        padding: isMobile ? '8px 12px' : 'max(8px, 0.44vw) max(12px, 0.63vw) !important',
         '& .MuiOutlinedInput-input': {
           padding: '0 !important',
         },
@@ -121,9 +121,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       fullWidth
       PaperProps={{
         sx: {
-          maxWidth: isMobile ? '100%' : '28.65vw',
-          borderRadius: isMobile ? 0 : '0.83vw',
-          padding: isMobile ? '16px' : '1.25vw',
+          maxWidth: isMobile ? '100%' : 'max(550px, 28.65vw)',
+          borderRadius: isMobile ? 0 : 'max(16px, 0.83vw)',
+          padding: isMobile ? '16px' : 'max(24px, 1.25vw)',
           background: '#fff'
         }
       }}
@@ -131,7 +131,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       <DialogTitle
         sx={{
           p: 0,
-          mb: isMobile ? '20px' : '1.56vw',
+          mb: isMobile ? '20px' : 'max(24px, 1.56vw)',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center'
@@ -144,7 +144,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
               fontWeight: 700,
               color: '#111827',
               fontFamily: 'Poppins',
-              fontSize: isMobile ? '20px' : '1.25vw'
+              fontSize: isMobile ? '20px' : 'max(24px, 1.25vw)'
             }}
           >
             Apply for Position
@@ -154,14 +154,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             sx={{
               color: '#F69333',
               fontWeight: 600,
-              fontSize: isMobile ? '14px' : '0.83vw'
+              fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
             }}
           >
             {jobTitle}
           </Typography>
         </Box>
         <IconButton onClick={handleCancel} sx={{ color: '#6B7280' }}>
-          <CloseIcon sx={{ fontSize: isMobile ? '24px' : '1.25vw' }} />
+          <CloseIcon sx={{ fontSize: isMobile ? '24px' : 'max(24px, 1.25vw)' }} />
         </IconButton>
       </DialogTitle>
 

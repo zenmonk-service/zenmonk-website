@@ -2,16 +2,16 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 0 16px;
   margin-bottom: 70px;
-
-  @media screen and (min-width: 601px) {
-    padding-left: 7.8%;
-    padding-right: 7.8%;
-  }
 
   .title {
     margin-bottom: 16px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 7.8%;
+    }
   }
   .description {
     color: #5c5c5c;
@@ -20,10 +20,22 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.28px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 7.8%;
+    }
   }
   .track {
     display: flex;
     margin-top: 40px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 100%;
+    }
     .carouselItem {
       position: relative;
       overflow: hidden;

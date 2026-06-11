@@ -19,7 +19,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      width: 66.0417vw;
+      width: 70%;
     }
 
     .perks-benefits-list {
@@ -77,7 +77,7 @@
         gap: 20px;
       }
       .description {
-        width: 70%;
+        width: 100%;
       }
     }
   }
@@ -147,5 +147,11 @@
 @media screen and (max-width: 350px) {
   .perk-card {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .perk-benefits-section {
+    padding: 0 7.8% !important;
   }
 }

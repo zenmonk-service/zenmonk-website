@@ -25,7 +25,9 @@
     .show-case-description {
       width: 72%;
       margin: auto;
-      margin-top: 0.83vw;
+      margin-top: max(0.83vw,24px);
+      margin-bottom: max(0.83vw,34px);
+
       color: #5c5c5c;
       text-align: center;
       font-family: Poppins;
@@ -174,3 +176,16 @@
 
     }
 
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .show-case-section {
+    .show-case-title-description-wrapper {
+      .show-case-title {
+        font-size: 24px !important;
+      }
+      .show-case-description {
+        font-size: 14px !important;
+        width: 100% !important;
+      }
+    }
+  }
+}
