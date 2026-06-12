@@ -73,15 +73,158 @@
   overflow: visible;
 }
 
+.heroWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 907 / 651;
+  display: inline-block;
+  overflow: visible;
+}
+
 .heroImage {
   width: 100%;
-  object-fit: contain;
-  scale: 1;
+  height: auto;
+  display: block;
+}
+
+// Floating & Shine Animations
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-150%);
+  }
+  30%, 100% {
+    transform: translateX(150%);
+  }
+}
+
+@keyframes floatExperience {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatSalary {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatCulture {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+.cardWrapper {
+  position: absolute;
+  pointer-events: auto;
+  
+  .cardSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .shineContainer {
+    position: absolute;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .shineLine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(105deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 80%);
+    animation: shineSweep 6s infinite linear;
+  }
+}
+
+.cardExperience {
+  left: 43.0524%;
+  top: 7.4475%;
+  width: 16.2818%;
+  height: 26.7507%;
+  animation: floatExperience 4s ease-in-out alternate infinite;
+  
+  .shineContainer {
+    left: 7.12%;
+    top: 6.04%;
+    width: 85.76%;
+    height: 85.35%;
+    border-radius: 13.28% / 11.3%;
+  }
+  
+  .shineLine {
+    animation-delay: 0s;
+  }
+}
+
+.cardSalary {
+  left: 48.2343%;
+  top: 52.7630%;
+  width: 18.0459%;
+  height: 27.9341%;
+  animation: floatSalary 4.5s ease-in-out alternate infinite;
+  animation-delay: 0.5s;
+  
+  .shineContainer {
+    left: 6.42%;
+    top: 5.78%;
+    width: 87.15%;
+    height: 85.97%;
+    border-radius: 11.79% / 10.76%;
+  }
+  
+  .shineLine {
+    animation-delay: 1.5s;
+  }
+}
+
+.cardCulture {
+  left: -0.0567%;
+  top: 54.7600%;
+  width: 17.3843%;
+  height: 21.3111%;
+  animation: floatCulture 5s ease-in-out alternate infinite;
+  animation-delay: 1s;
+  
+  .shineContainer {
+    left: 6.67%;
+    top: 7.58%;
+    width: 86.66%;
+    height: 81.61%;
+    border-radius: 12.31% / 14.86%;
+  }
+  
+  .shineLine {
+    animation-delay: 3s;
+  }
 }
 
 .button {
-  width: 180px !important;
-  padding: 10px 20px !important;
+  width: max(180px, 9.375vw) !important;
+  height: max(44px, 2.29vw) !important;
+  padding: max(10px, 0.52vw) max(16px, 0.83vw) !important;
+  border-radius: max(6px, 0.31vw) !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: max(18px, 0.9375vw) !important;
+  line-height: max(18px, 0.9375vw) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #ffffff !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -160,7 +303,7 @@
     margin-top: 8%;
   }
 
-  .heroImage {
+  .heroWrapper {
     margin-left: 52%;
     transform: scale(2.6);
   }
@@ -185,7 +328,7 @@
     justify-content: center;
   }
 
-  .heroImage {
+  .heroWrapper {
     width: 80%;
     margin-left: 43%;
     margin-top: 10%;
@@ -224,7 +367,7 @@
     width: 50%;
   }
 
-  .heroImage {
+  .heroWrapper {
     width: 90%;
     margin-left: 30%;
     transform: scale(3.5);
@@ -247,7 +390,7 @@
     width: 45%;
   }
 
-  .heroImage {
+  .heroWrapper {
     width: 100%;
     transform: scale(2.5);
   }
@@ -264,7 +407,7 @@
     margin-top: 3%;
   }
 
-  .heroImage {
+  .heroWrapper {
     width: 100%;
     transform: scale(3);
     margin-left: 30%;
@@ -278,14 +421,14 @@
     margin-top: 2%;
   }
 
-  .heroImage {
+  .heroWrapper {
     transform: scale(4);
     margin-left: 45%;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .heroImage {
+  .heroWrapper {
     transform: scale(2.4);
     margin-left: 30%;
     margin-top: 5%;
@@ -299,7 +442,7 @@
     margin-top: 2%;
   }
 
-  .heroImage {
+  .heroWrapper {
     transform: scale(3.5);
     margin-left: 40%;
   }
@@ -312,7 +455,7 @@
     margin-top: 2%;
   }
 
-  .heroImage {
+  .heroWrapper {
     transform: scale(3.5);
     margin-left: 40%;
   }
