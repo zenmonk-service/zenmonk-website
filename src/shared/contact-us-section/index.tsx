@@ -104,12 +104,9 @@ export const ContactUsSection = () => {
             >
               <SectionDescription
                 text={country.description}
-                style={{
-                  minHeight: 'max(3.125vw, 60px)',
-                  maxHeight: 'max(3.125vw, 60px)',
-                }}
-                className={styles.selectedCountryDescription}
+                className={`${styles.selectedCountryDescription} ${styles.countryDescriptionText}`}
               />
+
 
               <div className={styles.labelContainer}>
                 <div className={styles.iconContainer}>

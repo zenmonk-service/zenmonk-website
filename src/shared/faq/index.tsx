@@ -6,7 +6,6 @@ import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
 import styles from './faq.module.scss'
-import FaqHeroImage from './hero-image'
 
 const questions = [
   {
