@@ -75,14 +75,45 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 599px) {
   .container {
     height: 355px;
     width: 95%;
   }
 }
 
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 600px) and (max-width: 768px) {
+  .container {
+    width: 70vw;
+    height: 60vw;
+
+    .bottomCard {
+      border-radius: 14px;
+    }
+    .leftCard {
+      border-radius: 14px;
+
+      .title {
+        font-size: clamp(28px, 5.2vw, 36px);
+        line-height: normal;
+      }
+
+      .description {
+        font-size: clamp(11px, 1.8vw, 14px);
+        line-height: normal;
+        margin-top: clamp(8px, 1.2vw, 12px);
+      }
+    }
+    .topCard {
+      border-radius: 14px;
+    }
+    .rightCard {
+      border-radius: 14px;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
   .container {
     .bottomCard {
       border-radius: 14px;

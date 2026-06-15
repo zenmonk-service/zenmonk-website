@@ -150,6 +150,11 @@ $desktop-padding: 8.125vw 10% 6.25vw 7.8%;
     padding: 0px 16px;
     padding-bottom: 110px;
 
+    @media (min-width: 600px) {
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+
     @media (min-width: 400px) and (max-width: 472px) {
       padding-bottom: 120px;
     }
