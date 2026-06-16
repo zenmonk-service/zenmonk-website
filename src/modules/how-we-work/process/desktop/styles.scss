@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 200px 20px 0px 20px;
+  padding: max(200px, 15vw) 20px 0px 20px;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
 }
@@ -102,7 +102,7 @@
 
 .text-content.align-top {
   bottom: calc(100% + max(15px, 2vw));
-  left: -60%;
+  left: 50%;
   transform: translateX(-50%);
   text-align: center;
   align-items: center;
@@ -195,7 +195,7 @@
   }
 
   .text-content.align-top {
-    left: -100%;
+    left: 50%;
   }
 }
 

@@ -28,10 +28,16 @@ const ProcessDesktop = () => {
             const topPos = `calc(50% - 50% * ${Math.cos(radians)})`
             const leftPos = `calc(50% + 50% * ${Math.sin(radians)})`
 
-            const textInitial = { opacity: 0, y: 0, x: 0 }
+            const textInitial: any = { opacity: 0, y: 0, x: 0 }
+            const textAnimate: any = { opacity: 1, x: 0, y: 0 }
+            
             if (align === 'left') textInitial.x = 20
             if (align === 'right') textInitial.x = -20
-            if (align === 'top') textInitial.y = 20
+            if (align === 'top') {
+              textInitial.y = 20
+              textInitial.x = '-50%'
+              textAnimate.x = '-50%'
+            }
 
             return (
               <div
@@ -42,7 +48,7 @@ const ProcessDesktop = () => {
                 <motion.div
                   className={`text-content align-${align}`}
                   initial={textInitial}
-                  animate={isInView ? { opacity: 1, x: 0, y: 0 } : textInitial}
+                  animate={isInView ? textAnimate : textInitial}
                   transition={{ duration: 1.4, delay: 0.4 + index * 0.4 }}
                 >
                   <h3 className="node-title" style={{ color }}>
