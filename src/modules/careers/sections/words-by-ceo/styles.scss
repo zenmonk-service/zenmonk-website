@@ -33,6 +33,45 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.0208vw;
+
+    .words-container {
+      position: relative;
+    }
+
+    .word-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .word-placeholder {
+      opacity: 0;
+      padding-right: 2px;
+    }
+
+    .word-wipe-mask {
+      position: absolute;
+      left: -20px;
+      top: -30px;
+      bottom: -30px;
+      padding-top: 30px;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .word-visible-text {
+      padding-left: 20px;
+      padding-right: 2px;
+    }
+
+    .pen-tracker {
+      position: absolute;
+      bottom: -6px;
+      margin-left: -4px;
+      pointer-events: none;
+      z-index: 20;
+    }
   }
 
   .ceo-details {

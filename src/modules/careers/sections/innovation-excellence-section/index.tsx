@@ -1,3 +1,6 @@
+'use client'
+
+import { useInView } from 'react-intersection-observer'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { Excellence } from './assets'
 import ExcellenceCard from './card/excellence'
@@ -5,8 +8,13 @@ import { innovations } from './innovations'
 import styles from './innovation.module.scss'
 
 const InnovationExcellence = () => {
+  const { ref: sectionRef, inView } = useInView({ 
+    triggerOnce: true, 
+    threshold: 0.2 
+  });
+
   return (
-    <section className={styles.section}>
+    <section ref={sectionRef} className={`${styles.section} ${inView ? styles.inView : ''}`}>
       <div className={styles.leftSection}>
         <SectionTitle
           align="left"
@@ -27,7 +35,13 @@ const InnovationExcellence = () => {
 
       <div className={styles.rightSection}>
         {innovations.map((innovation, index) => (
-          <ExcellenceCard key={index} details={innovation} />
+          <div 
+            key={index} 
+            className={styles.cardWrapper} 
+            style={{ transitionDelay: `${0.3 + index * 0.15}s` }}
+          >
+            <ExcellenceCard details={innovation} />
+          </div>
         ))}
       </div>
     </section>
