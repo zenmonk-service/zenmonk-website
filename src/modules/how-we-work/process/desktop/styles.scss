@@ -11,7 +11,6 @@
 
 .process-container {
   width: 100%;
-  max-width: 1400px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,9 +18,9 @@
 
 .process-track {
   position: relative;
-  width: clamp(550px, 45vw, 850px);
+  width: max(550px, 45vw);
   aspect-ratio: 1;
-  border: clamp(4px, 0.5vw, 8px) solid #666666;
+  border: max(4px, 0.5vw) solid #666666;
   border-radius: 50%;
   margin-bottom: -10%;
 }
@@ -49,12 +48,12 @@
 }
 
 .icon-container {
-  width: clamp(70px, 8vw, 140px);
-  height: clamp(70px, 8vw, 140px);
+  width: max(70px, 8vw);
+  height: max(70px, 8vw);
   background-color: white;
   border-radius: 50%;
-  box-shadow: 0 clamp(8px, 1.5vw, 20px) rgba(0, 0, 0, 0.08);
-  padding: clamp(8px, 1.2vw, 22px);
+  box-shadow: 0 max(8px, 1.5vw) rgba(0, 0, 0, 0.08);
+  padding: max(8px, 1.2vw);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,14 +78,14 @@
 
 .text-content {
   position: absolute;
-  width: clamp(180px, 18vw, 260px);
+  width: max(180px, 18vw);
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
 .text-content.align-left {
-  right: calc(100% + clamp(15px, 2vw, 30px));
+  right: calc(100% + max(15px, 2vw));
   top: 25%;
   transform: none;
   text-align: right;
@@ -94,7 +93,7 @@
 }
 
 .text-content.align-right {
-  left: calc(100% + clamp(15px, 2vw, 30px));
+  left: calc(100% + max(15px, 2vw));
   top: 25%;
   transform: none;
   text-align: left;
@@ -102,17 +101,17 @@
 }
 
 .text-content.align-top {
-  bottom: calc(100% + clamp(15px, 2vw, 30px));
+  bottom: calc(100% + max(15px, 2vw));
   left: -60%;
   transform: translateX(-50%);
   text-align: center;
   align-items: center;
-  width: clamp(220px, 24vw, 320px);
+  width: max(220px, 24vw);
 }
 
 .node-title {
   font-weight: 700;
-  font-size: clamp(20px, 1.5vw, 24px);
+  font-size: max(20px, 1.5vw);
   line-height: 1.2;
   margin: 0;
 }
@@ -120,7 +119,7 @@
 .node-desc {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: clamp(14px, 1vw, 16px);
+  font-size: max(14px, 1vw);
   line-height: 1.5;
   color: #757575;
   margin: 0;
@@ -137,14 +136,14 @@
 
 .center-text-block .heres {
   font-weight: 800;
-  font-size: clamp(20px, 2vw, 30px);
+  font-size: max(20px, 2vw);
   color: #000;
   margin-bottom: -5px;
 }
 
 .center-text-block .how-we-work {
   font-weight: 800;
-  font-size: clamp(38px, 4.5vw, 65px);
+  font-size: max(38px, 4.5vw);
   background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -155,7 +154,7 @@
 
 .center-text-block .process {
   font-weight: 800;
-  font-size: clamp(20px, 2vw, 30px);
+  font-size: max(20px, 2vw);
   letter-spacing: 1px;
   color: #000;
   text-transform: uppercase;

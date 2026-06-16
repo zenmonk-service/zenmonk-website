@@ -43,7 +43,7 @@ const ProcessDesktop = () => {
                   className={`text-content align-${align}`}
                   initial={textInitial}
                   animate={isInView ? { opacity: 1, x: 0, y: 0 } : textInitial}
-                  transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                  transition={{ duration: 1.4, delay: 0.4 + index * 0.4 }}
                 >
                   <h3 className="node-title" style={{ color }}>
                     {process.title}
@@ -60,8 +60,8 @@ const ProcessDesktop = () => {
                       : { scale: 0, opacity: 0 }
                   }
                   transition={{
-                    duration: 0.6,
-                    delay: index * 0.1,
+                    duration: 1.2,
+                    delay: index * 0.4,
                     type: 'spring',
                     bounce: 0.4,
                   }}
