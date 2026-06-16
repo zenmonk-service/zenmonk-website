@@ -7,14 +7,14 @@ import SectorsListDesktop from './desktop'
 import SectorsMobile from './mobile'
 
 const BusinessSectors = () => {
-  const isMobile = useMediaQuery('(max-width:600px)')
+  const isMobile = useMediaQuery('(max-width:1020px)')
 
   return (
     <div className={styles.businessSectorContainer}>
       <div className={styles.businessSectorTitleWrapper}>
         <SectionTitle
           className={styles.businessSectorTitle}
-          text="Empowering Businesses Across Multiple Sectors"
+          text="Empowering Businesses Across Multiple Sectors"  
           markText="Sectors"
         />
       </div>
