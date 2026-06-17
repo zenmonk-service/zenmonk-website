@@ -16,7 +16,6 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
 
     .bg-image {
       object-fit: contain !important;
@@ -43,6 +42,7 @@
       right: -8% !important;
       left: auto !important;
       bottom: 0 !important;
+      mix-blend-mode: darken;
     }
   }
 
@@ -81,14 +81,14 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .ready-to-start {
     flex-direction: column;
     align-items: center;
     text-align: center;
     min-height: auto;
     margin-top: 80px !important;
-    padding-top: 0;
+    padding-top: 40px;
     min-height: 389px;
 
     .images-container {
@@ -102,14 +102,12 @@
         width: 100% !important;
         height: 100% !important;
         object-position: center !important;
-        z-index: -1;
       }
 
       .bg-map {
         width: 100% !important;
         height: 100% !important;
         top: 100%;
-        z-index: -1;
         scale: 3;
       }
 
