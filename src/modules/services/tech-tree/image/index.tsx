@@ -1,4 +1,7 @@
-import { CSSProperties } from 'react'
+'use client'
+
+import { CSSProperties, useState, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { Tooltip } from '@mui/material'
 import BaseTree from '../assets/base-tree.svg'
 import styles from './section-image.module.scss'
@@ -113,24 +116,69 @@ interface SectionImageProps {
 }
 
 const SectionImage = ({ data }: SectionImageProps) => {
+  const { ref, inView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      const mountTimer = setTimeout(() => {
+        setMounted(true);
+      }, 100);
+      return () => clearTimeout(mountTimer);
+    }
+  }, [inView]);
+
   return (
-    <div className={styles.sectionImageContainer}>
+    <div className={styles.sectionImageContainer} ref={ref}>
       <div className={styles.baseTreeContainer}>
         <BaseTree />
       </div>
-      {data.map((data, index) => (
-        <Tooltip key={index} title={data.label}>
-          <div
-            className={styles.iconContainer}
-            style={{
-              ...getSize(data.position, data.padding),
-              backgroundColor: data.backgroundColor,
-            }}
-          >
-            {data.icon ? <data.icon /> : <></>}
-          </div>
-        </Tooltip>
-      ))}
+      {data.map((item, index) => {
+        const delay = index * 0.15;
+        const { padding, ...positionStyles } = getSize(item.position, item.padding);
+
+        const currentOpacity = mounted ? 1 : 0;
+        const currentTranslateY = mounted ? '0px' : '-100vh';
+        const currentScale = mounted ? 'scale(1)' : 'scale(0.5)';
+
+        return (
+          <Tooltip key={index} title={item.label}>
+            <div
+              className={styles.nodeWrapper}
+              style={{
+                ...positionStyles,
+                opacity: currentOpacity,
+                transform: `translateY(${currentTranslateY})`,
+                transitionDelay: `${delay}s`,
+                zIndex: item.icon ? 20 : 10,
+              }}
+            >
+              <div
+                className={styles.nodeInner}
+                style={{
+                  backgroundColor: item.backgroundColor,
+                  transitionDelay: `${delay}s`,
+                  transform: currentScale,
+                  padding: padding,
+                }}
+              >
+                <div
+                  className={styles.floatWrapper}
+                  style={{
+                    animationDelay: `${delay}s`
+                  }}
+                >
+                  {item.icon ? <item.icon /> : <></>}
+                </div>
+              </div>
+            </div>
+          </Tooltip>
+        );
+      })}
     </div>
   )
 }
