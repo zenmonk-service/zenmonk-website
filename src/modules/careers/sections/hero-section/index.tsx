@@ -2,7 +2,10 @@
 
 import BaseButton from '@/shared/button'
 import Decorator from './assets/decorator.svg'
-import HeroImage from './assets/hero.svg'
+import HeroImageUrl from './assets/hero.svg?url'
+import ExperienceCard from './assets/card_experience.svg'
+import SalaryCard from './assets/card_salary.svg'
+import CultureCard from './assets/card_culture.svg'
 import styles from './styles.module.scss'
 
 const CareerHeroSection = () => {
@@ -21,10 +24,34 @@ const CareerHeroSection = () => {
             your partners in technological excellence, we transform values into
             action, simplifying tech to deliver user-centered solutions.
           </p>
-          <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+          <BaseButton className={styles.button}>Join Now</BaseButton>
         </div>
         <div className={styles.imageContainer}>
-          <HeroImage className={styles.heroImage} />
+          <div className={styles.heroWrapper}>
+            <img 
+              src={typeof HeroImageUrl === 'string' ? HeroImageUrl : (HeroImageUrl as any).src} 
+              className={styles.heroImage} 
+              alt="Hero background" 
+            />
+            <div className={`${styles.cardWrapper} ${styles.cardExperience}`}>
+              <ExperienceCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+            <div className={`${styles.cardWrapper} ${styles.cardSalary}`}>
+              <SalaryCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+            <div className={`${styles.cardWrapper} ${styles.cardCulture}`}>
+              <CultureCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,3 +59,4 @@ const CareerHeroSection = () => {
 }
 
 export default CareerHeroSection
+

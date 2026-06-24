@@ -29,7 +29,7 @@ export const fetchJobs = createAsyncThunk(
           id: job._id,
           title: job.role,
           heading: job.role,
-          isOpening: job.status === 'open',
+          isOpening: true,
           description: job.description,
           skills: job.required_skills.map((rs: any) => ({
             title: rs.skill.name,

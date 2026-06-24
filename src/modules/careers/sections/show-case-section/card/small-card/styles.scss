@@ -31,6 +31,8 @@
       img {
         width: 0.73vw;
         height: 0.83vw;
+        min-width: 20px;
+        min-height: 20px;
         flex-shrink: 0;
       }
       .date-text {
@@ -98,18 +100,48 @@
   }
 }
 
+@media screen and (min-width: 601px) and (max-width: 1378px) {
+  .small-show-case-event-card {
+    width: 44vw;
+    height: 20.25vw;
+
+    .show-case-image-container {
+      width: 23.05vw;
+      height: 20.25vw;
+    }
+    .event-details {
+      height: 20.25vw;
+    }
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 1020px) {
+  .small-show-case-event-card {
+    flex-direction: column;
+    height: auto;
+
+    .show-case-image-container {
+      width: 100%;
+      height: 25vw;
+    }
+    .event-details {
+      height: auto;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .small-show-case-event-card {
     width: 100%;
     height: auto;
+    flex-direction: column;
     border-radius: 11.38px;
     background-color: #f6f6f6;
     .show-case-image-container {
-      width: 60%;
-      height: auto;
+      width: 100%;
+      height: 45vw;
     }
     .event-details {
-      padding: 12px !important;
+      padding: 16px !important;
       width: 100%;
       height: auto;
       .event-date {
@@ -117,12 +149,14 @@
         height: auto;
         gap: 4px;
         img {
-          width: 12px;
-          height: 12px;
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
         }
         .date-text {
           color: #757575;
-          font-size: 12px !important;
+          font-size: 14px !important;
         }
       }
       .event-content-details {
@@ -132,11 +166,11 @@
         .title-text {
           margin-top: 8px;
           color: #132427;
-          font-size: 12px !important;
+          font-size: max(14px, 3.8vw) !important;
         }
         .description-text {
           color: #757575;
-          font-size: 12px;
+          font-size: 14px !important;
         }
       }
     }

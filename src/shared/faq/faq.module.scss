@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   height: auto;
+  margin-bottom: 8px;
 
   .images {
     position: relative;
@@ -114,4 +115,16 @@
   width: max(34px, 1.823vw);
   height: max(34px, 1.823vw);
   cursor: pointer;
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+
+  .images {
+    display: none;
+  }
+
+  .faq {
+    padding-inline: 10%;
+
+  }
 }

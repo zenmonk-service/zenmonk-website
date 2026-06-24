@@ -1,9 +1,9 @@
 .positions {
   margin-top: 3.125vw;
   width: 100%;
-  height: 35vw;
-  min-height: 500px;
-  border-radius: 1.5vw;
+  height: auto;
+  max-height: clamp(500px, 35vw, 680px);
+  border-radius: clamp(12px, 1.5vw, 24px);
   border: 1px solid #E5E7EB;
   background: #ffffff;
   display: flex;
@@ -11,29 +11,27 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
   .left-section {
-    padding-top: 1.56vw;
-    width: 19.79vw;
-    height: 100%;
+    width: clamp(200px, 19.79vw, 380px);
     flex-shrink: 0;
     background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 2.125vw 0vw 2.125vw 2.08333vw;
-    border-radius: 1.04167vw 0vw 0vw 1.04167vw;
+    padding: clamp(20px, 2.125vw, 40px) 0vw clamp(20px, 2.125vw, 40px) clamp(20px, 2.083vw, 40px);
+    border-radius: clamp(10px, 1.04vw, 20px) 0vw 0vw clamp(10px, 1.04vw, 20px);
 
     .position {
       cursor: pointer;
-      padding: 1.04vw;
+      padding: clamp(10px, 1.04vw, 20px);
       font-feature-settings: "liga" off, "clig" off;
       font-family: Poppins;
-      font-size: 1.146vw;
-      line-height: 1.5625vw;
+      font-size: clamp(14px, 1.146vw, 22px);
+      line-height: clamp(18px, 1.5625vw, 30px);
       font-style: normal;
       font-weight: 600;
       width: 100%;
-      border-top-left-radius: 1.04vw;
-      border-bottom-left-radius: 1.04vw;
+      border-top-left-radius: clamp(10px, 1.04vw, 20px);
+      border-bottom-left-radius: clamp(10px, 1.04vw, 20px);
       color: #B2B7B8;
 
       &:hover {
@@ -49,10 +47,10 @@
       &::before {
         content: "";
         position: absolute;
-        width: 0.78vw;
-        height: 0.78vw;
+        width: clamp(10px, 0.78vw, 15px);
+        height: clamp(10px, 0.78vw, 15px);
         background-color: #fff;
-        top: -0.78vw;
+        top: calc(-1 * clamp(10px, 0.78vw, 15px));
         right: 0;
         clip-path: polygon(47% 74%, 63% 61%, 76% 46%, 85% 33%, 92% 20%, 100% 0, 100% 40%, 100% 78%, 100% 100%, 0 100%, 18% 92%, 33% 84%);
       }
@@ -60,10 +58,10 @@
       &::after {
         content: "";
         position: absolute;
-        width: 1.04vw;
-        height: 0.78vw;
+        width: clamp(12px, 1.04vw, 20px);
+        height: clamp(10px, 0.78vw, 15px);
         background-color: #fff;
-        bottom: -0.63vw;
+        bottom: calc(-1 * clamp(8px, 0.63vw, 12px));
         right: 0;
         clip-path: polygon(26% 17%, 16% 10%, 0 0, 100% 0, 100% 100%, 91% 82%, 84% 71%, 76% 60%, 65% 50%, 56% 41%, 46% 32%, 35% 23%);
       }
@@ -75,7 +73,7 @@
   }
 
   .right-section {
-    padding: 3.5vw;
+    padding: clamp(24px, 3.5vw, 67px);
     flex: 1;
     overflow-y: auto;
     background-color: #ffffff;
@@ -98,13 +96,13 @@
     .roles-list {
       display: flex;
       flex-direction: column;
-      gap: 4vw;
+      gap: clamp(32px, 4vw, 76px);
     }
 
     .role-content {
       display: flex;
       flex-direction: column;
-      gap: 1.5vw;
+      gap: clamp(16px, 1.5vw, 28px);
     }
 
     .role-separator {
@@ -118,49 +116,116 @@
       }
     }
 
-    .role-title {
-      color: #111827;
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.2vw;
-      font-weight: 700;
-      margin: 0 0 1vw 0;
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: clamp(8px, 1vw, 20px);
+
+      .title-container {
+        flex: 1;
+        margin-right: clamp(16px, 1.5vw, 32px);
+      }
+
+      .role-title {
+        color: #111827;
+        font-family: 'Poppins', sans-serif;
+        font-size: min(2.2vw, 30px);
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.3;
+
+        .status-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: max(64px, 4.22vw);
+          height: max(36px, 2.24vw);
+          padding: max(6px, 0.417vw) max(12px, 0.833vw);
+          font-family: 'Poppins', sans-serif;
+          font-size: max(12px, 0.729vw);
+          font-weight: 600;
+          border-radius: max(12px, 0.625vw);
+          text-transform: capitalize;
+          box-sizing: border-box;
+          vertical-align: middle;
+          margin-left: max(16px, 0.833vw);
+
+          &.open {
+            border: 2px solid #539E43 !important;
+            background: transparent;
+            color: #539E43;
+          }
+
+          &.closed {
+            border: 2px solid #EF4444 !important;
+            background: transparent;
+            color: #EF4444;
+          }
+        }
+      }
+
+      .apply-btn {
+        background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
+        color: white;
+        width: max(112px, 6.56vw);
+        height: max(36px, 2.24vw);
+        padding: max(6px, 0.417vw) max(12px, 0.833vw);
+        font-size: max(14px, 0.729vw);
+        font-weight: 600;
+        border-radius: max(12px, 0.625vw);
+        text-transform: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        white-space: nowrap;
+
+        &:hover {
+          opacity: 0.95;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(235, 124, 13, 0.3);
+        }
+      }
     }
 
     .role-descriptions {
       display: flex;
       flex-direction: column;
-      gap: 1vw;
-      margin-bottom: 2vw;
+      gap: clamp(8px, 1vw, 20px);
     }
 
     .role-description {
       color: #4B5563;
       font-family: 'Poppins', sans-serif;
-      font-size: 1.05vw;
-      line-height: 1.7;
+      font-size: clamp(14px, 1.05vw, 20px);
+      line-height: 1.6;
       margin: 0;
     }
 
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      column-gap: 3vw;
-      row-gap: 2vw;
-      margin-top: 1vw;
+      column-gap: clamp(20px, 3vw, 57px);
+      row-gap: clamp(16px, 2vw, 38px);
 
       .skills-container {
         display: flex;
         flex-direction: column;
-        gap: 0.5vw;
+        gap: clamp(4px, 0.5vw, 10px);
 
         .skills-header {
           display: flex;
           align-items: center;
-          gap: 0.6vw;
+          gap: clamp(6px, 0.6vw, 12px);
 
           .check-icon {
-            width: 1.3vw;
-            height: 1.3vw;
+            width: clamp(16px, 1.3vw, 24px);
+            height: clamp(16px, 1.3vw, 24px);
             color: #10B981; // Green
             flex-shrink: 0;
           }
@@ -169,41 +234,17 @@
         .skills-title {
           color: #111827;
           font-family: 'Poppins', sans-serif;
-          font-size: 1.15vw;
+          font-size: clamp(14px, 1.15vw, 22px);
           font-weight: 600;
         }
 
         .skills-description {
           color: #6B7280;
           font-family: 'Poppins', sans-serif;
-          font-size: 0.95vw;
+          font-size: clamp(12px, 0.95vw, 18px);
           line-height: 1.6;
-          padding-left: 2vw;
+          padding-left: clamp(20px, 2vw, 38px);
           margin: 0;
-        }
-      }
-    }
-
-    .action-footer {
-      margin-top: 3vw;
-      margin-bottom: 2vw;
-
-      .apply-btn {
-        background-color: #F69333;
-        color: white;
-        padding: 1vw 3vw;
-        font-size: 1vw;
-        font-weight: 600;
-        border-radius: 0.5vw;
-        text-transform: uppercase;
-        border: none;
-        cursor: pointer;
-        transition: all 0.2s ease;
-
-        &:hover {
-          background-color: #E67E22;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
         }
       }
     }

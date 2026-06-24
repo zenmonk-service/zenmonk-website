@@ -19,18 +19,21 @@
 }
 
 .appBarContactButton {
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  font-size: var(--font-size-16);
+  color: #fff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: max(18px, 0.9375vw) !important;
   font-style: normal;
-  font-weight: 600;
-  padding: max(13px, 0.67vw) max(16px, 0.83vw);
-  border-radius: max(43px, 2.23vw);
-  background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
+  font-weight: 600 !important;
+  line-height: max(18px, 0.9375vw) !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  height: max(44px, 2.29vw) !important;
+  padding: max(10px, 0.52vw) max(16px, 0.83vw) !important;
+  border-radius: max(6px, 0.31vw) !important;
+  background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%) !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: capitalize;
   transition: all 0.3s ease;
   border: 1px solid transparent;
 

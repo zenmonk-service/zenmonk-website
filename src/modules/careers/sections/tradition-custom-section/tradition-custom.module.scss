@@ -76,12 +76,23 @@
   }
 
   .list {
+    width: 70%;
     max-width: 100%;
     grid-template-columns: repeat(4, 1fr);
   }
 
   .description {
     line-height: max(24px, 1.25vw);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    max-width: 92vw;
+  }
+  .list {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 }
 
@@ -127,6 +138,7 @@
   }
 
   .list {
+    width: 100%;
     gap: 14px;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;

@@ -4,51 +4,49 @@
 
   .label {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.73vw; // 14px
+    font-size: max(14px, 0.73vw);
     font-weight: 600;
     color: #374151;
-    margin-bottom: 0.42vw; // 8px
+    margin-bottom: max(8px, 0.42vw);
   }
 
   .errorText {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.63vw; // 14px
+    font-size: max(12px, 0.63vw);
     font-weight: 500;
     color: #d32f2f !important;
-    margin: 0.21vw 0 0 !important; // 4px
+    margin: max(4px, 0.21vw) 0 0 !important;
   }
 
   .formGrid {
     display: flex;
     flex-direction: column;
-    gap: 0.83vw; // 16px
-    max-height: 36.46vw; // 70vh approx desktop
+    gap: max(16px, 0.83vw);
+    max-height: max(450px, 36.46vw);
     overflow-y: auto;
-    padding-right: 0.42vw; // 8px
+    padding-right: max(8px, 0.42vw);
 
     &::-webkit-scrollbar {
-      width: 0.21vw; // 4px
+      width: max(4px, 0.21vw);
     }
 
     &::-webkit-scrollbar-thumb {
       background: #E5E7EB;
-      border-radius: 0.52vw; // 10px
+      border-radius: max(10px, 0.52vw);
     }
   }
 
   .cancelBtn {
-    :global(.base-button) {
-      color: #6B7280 !important;
-      padding: 0.52vw 0.83vw !important; // 10px 16px
-      font-size: 0.73vw !important; // 14px
-      width: auto !important;
-      min-width: 4.17vw !important; // 80px
-      border: none !important;
-      background: transparent !important;
+    color: #6B7280 !important;
+    padding: max(10px, 0.52vw) max(16px, 0.83vw) !important;
+    font-size: max(14px, 0.73vw) !important;
+    width: auto !important;
+    min-width: max(80px, 4.17vw) !important;
+    border: none !important;
+    background: transparent !important;
 
-      &:hover {
-        background: rgba(0, 0, 0, 0.05) !important;
-      }
+    &:hover {
+      background: rgba(0, 0, 0, 0.05) !important;
     }
   }
 
@@ -57,11 +55,11 @@
   }
 
   .fileInput {
-    padding: 0.52vw; // 10px
-    border: 0.05vw solid #E5E7EB; // 1px
-    border-radius: 0.42vw; // 8px
+    padding: max(10px, 0.52vw);
+    border: max(1px, 0.05vw) solid #E5E7EB;
+    border-radius: max(8px, 0.42vw);
     font-family: 'Poppins', sans-serif;
-    font-size: 0.73vw; // 14px
+    font-size: max(14px, 0.73vw);
     background-color: #F9FAFB;
     cursor: pointer;
 
@@ -70,10 +68,10 @@
     }
 
     &::file-selector-button {
-      margin-right: 0.83vw; // 16px
-      padding: 0.31vw 0.63vw; // 6px 12px
+      margin-right: max(16px, 0.83vw);
+      padding: max(6px, 0.31vw) max(12px, 0.63vw);
       border: none;
-      border-radius: 0.21vw; // 4px
+      border-radius: max(4px, 0.21vw);
       background-color: #F69333;
       color: white;
       cursor: pointer;
@@ -115,11 +113,9 @@
     }
 
     .cancelBtn {
-      :global(.base-button) {
-        padding: 10px 16px !important;
-        font-size: 14px !important;
-        min-width: 80px !important;
-      }
+      padding: 10px 16px !important;
+      font-size: 14px !important;
+      min-width: 80px !important;
     }
 
     .fileInput {

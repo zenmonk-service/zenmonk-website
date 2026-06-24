@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   width: 100%;
   margin-top: 24px;
   @media (max-width:728px) {
@@ -12,6 +11,11 @@
     background: #ffffff;
     border-radius: 12px;
     overflow: hidden;
+    padding: 0 64px;
+
+    @media (max-width: 600px) {
+      padding: 0 16px;
+    }
 
     .content {
       display: flex;
@@ -23,7 +27,7 @@
       .cardTitle {
         color: #111827;
         font-family: 'Poppins', sans-serif;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
         margin: 0;
       }
@@ -48,18 +52,74 @@
     .collapseContainer {
       padding: 0 0 24px 0;
 
-      .roleContainer {
+      .noPositions {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 8px;
+        padding: 8px 0;
 
-        .roleTitle {
-          display: none; // Hide role title if it matches category, or keep if needed
+        .noPositionsTitle {
           color: #111827;
           font-family: 'Poppins', sans-serif;
           font-size: 18px;
           font-weight: 600;
           margin: 0;
+        }
+
+        .noPositionsText {
+          color: #4B5563;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+
+      .roleContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .roleHeader {
+          margin-bottom: 8px;
+
+          .roleTitle {
+            color: #111827;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+
+            .statusBadge {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 81px;
+              height: 43px;
+              padding: 8px 16px;
+              font-family: 'Poppins', sans-serif;
+              font-size: 14px;
+              font-weight: 600;
+              border-radius: 12px;
+              text-transform: capitalize;
+              box-sizing: border-box;
+              vertical-align: middle;
+              margin-left: 12px;
+
+              &.open {
+                border: 2px solid #539E43;
+                background: transparent;
+                color: #539E43;
+              }
+
+              &.closed {
+                border: 2px solid #EF4444;
+                background: transparent;
+                color: #EF4444;
+              }
+            }
+          }
         }
 
         .collapseDescription {
@@ -86,19 +146,12 @@
               align-items: center;
               gap: 12px;
 
-              svg {
+              .checkIcon {
                 width: 20px;
                 height: 20px;
-                color: #B5E48C; // Light green as in image
-                background-color: #10B981;
-                border-radius: 4px;
-                padding: 2px;
+                min-width: 20px;
+                min-height: 20px;
                 flex-shrink: 0;
-
-                // If it's a simple path checkmark, maybe it's styled differently
-                &.check-icon {
-                  color: white;
-                }
               }
 
               .skillListItemTitle {
@@ -107,6 +160,7 @@
                 font-size: 18px;
                 font-weight: 600;
                 margin: 0;
+                line-height: 1;
               }
             }
 
@@ -124,17 +178,21 @@
           margin-top: 10px;
 
           .applyBtn {
-            background-color: #F69333;
+            background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
             color: white !important;
-            padding: 12px 40px;
-            font-size: 16px;
+            width: 126px;
+            height: 43px;
+            padding: 8px 16px;
+            font-size: 14px;
             font-weight: 600;
-            border-radius: 8px;
-            text-transform: uppercase;
-            width: fit-content;
+            border-radius: 12px;
+            text-transform: none;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(246, 147, 51, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(235, 124, 13, 0.2);
 
             &:active {
               transform: scale(0.98);

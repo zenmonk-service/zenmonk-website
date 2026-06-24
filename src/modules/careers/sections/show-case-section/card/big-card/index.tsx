@@ -35,9 +35,6 @@ const BigShowCaseCard = ({ cardProps }: BigShowCaseCardProps) => {
         <div className="event-content-details">
           <h1 className="title-text">{cardDetails?.title}</h1>
           <p className="description-text">{cardDetails?.description}</p>
-          <Button className="button" variant="text">
-            Show More <SmallArrow className="icon" />
-          </Button>
         </div>
       </div>
     </div>

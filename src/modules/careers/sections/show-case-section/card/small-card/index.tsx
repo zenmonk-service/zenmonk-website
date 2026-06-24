@@ -41,9 +41,6 @@ const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
           <Typography component="p" className="description-text">
             {cardDetails?.description}
           </Typography>
-          <Button className="button" variant="text">
-            Show More <SmallArrow className="icon" />
-          </Button>
         </Box>
       </Box>
     </Box>
