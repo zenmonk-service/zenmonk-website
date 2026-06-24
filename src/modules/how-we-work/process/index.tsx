@@ -5,7 +5,7 @@ import ProcessDesktop from './desktop'
 import ProcessMobile from './mobile'
 
 const Process = () => {
-  const isMobile = useMediaQuery('(max-width:768px)')
+  const isMobile = useMediaQuery('(max-width:1000px)')
   return isMobile ? <ProcessMobile /> : <ProcessDesktop />
 }
 

@@ -82,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .howWeWorkHeroSectionWrapper {
     padding: 0;
     gap: 46px;
@@ -95,6 +95,10 @@
     .heroSection {
       padding: 0 16px;
       width: 100%;
+
+      @media (min-width: 600px) and (max-width: 768px) {
+        padding: 0 8%;
+      }
 
       .heroSectionTextWrapper {
         max-width: 100%;
@@ -111,6 +115,11 @@
           margin-bottom: 40px;
           text-align: center;
           margin-top: 10px;
+
+          @media (min-width: 600px) {
+            font-size: 14px;
+            line-height: 21px;
+          }
         }
       }
     }
@@ -126,7 +135,7 @@
   .howWeWorkHeroSectionWrapper {
     gap: 16px;
     height: auto;
-    width: 1;
+    width: 100%;
     aspect-ratio: 1.83;
     .heroSection {
       padding: 0px;
@@ -142,11 +151,11 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 900px) {
   .howWeWorkHeroSectionWrapper {
     gap: 40px;
     height: auto;
-    width: 1;
+    width: 100%;
     aspect-ratio: 1.83;
     .heroSection {
       flex: 1;
@@ -163,5 +172,11 @@
         }
       }
     }
+  }
+}
+
+@media (min-width: 1150px) and (max-width: 1500px) {
+  .howWeWorkHeroSectionWrapper {
+    height: 81vh;
   }
 }
