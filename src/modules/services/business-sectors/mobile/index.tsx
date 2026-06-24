@@ -28,20 +28,26 @@ const SectorsMobile = () => {
           return (
             <div
               key={id}
-              className={styles.card}
-              onClick={() => {
-                handleOpen(index)
-              }}
+              className={`${styles.card} ${isSelected ? styles.expanded : ''}`}
             >
-              <div className={styles.iconContainer}>
-                <Icon className={styles.icon} />
+              <div
+                className={styles.cardHeader}
+                onClick={() => {
+                  handleOpen(index)
+                }}
+              >
+                <div className={styles.headerLeft}>
+                  <div className={styles.iconContainer}>
+                    <Icon className={styles.icon} />
+                  </div>
+                  <p className={styles.cardTitle}>{sector}</p>
+                </div>
+                <ArrowDown
+                  animate={{ rotate: isSelected ? 180 : 0 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className={styles.arrow}
+                />
               </div>
-              <p className={styles.cardTitle}>{sector}</p>
-              <ArrowDown
-                animate={{ rotate: isSelected ? 180 : 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className={styles.arrow}
-              />
               <Collapse
                 className={styles.expandedSectionContainer}
                 in={isSelected}

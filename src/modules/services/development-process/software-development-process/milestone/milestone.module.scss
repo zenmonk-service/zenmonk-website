@@ -1,321 +1,258 @@
-.milestoneBackground {
-  height: 7.9vw;
-  width: 10.5vw;
-  position: absolute;
-}
-
 .milestoneContainer {
-  width: 100%;
   position: relative;
+  width: 100%;
+  min-height: max(600px, 35vw);
+  overflow: hidden;
+  padding: 2.5rem 0;
+  font-family: var(--font-secondary, 'Inter', sans-serif);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
 }
 
-.milestoneBaseLine {
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 20;
   width: 100%;
-  height: 0.73vw;
-  /* 14px */
-  background: #000000;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 768px) {
+    margin-bottom: 6rem;
+  }
+}
+
+.title {
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.025em;
+}
+
+.highlightText {
+  position: relative;
+  display: inline-block;
+}
+
+.squigglyLine {
+  position: absolute;
+  width: 100%;
+  height: clamp(6px, 0.8vw, 12px);
+  bottom: calc(-1 * clamp(4px, 0.5vw, 8px));
+  left: 0;
+  color: #F6782A;
+}
+
+.subtitle {
+  font-size: clamp(12px, 1vw, 16px);
+  color: #6b7280;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.625;
+  max-width: 80%;
+}
+
+.timelineContainer {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: max(350px, 40vw);
+  margin-top: 1rem;
+}
+
+.baseline {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
-  z-index: 4;
-}
-
-.stepsWrapper {
-  width: 100%;
-  max-width: 75vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  /* Fix: stretch to full 38vw height so padding aligns with baseline */
-  position: relative;
-  z-index: 2;
-  height: 38vw;
-}
-
-.stepItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 16%;
-  height: 100%;
-  /* Ensure full height */
-  position: relative;
-  transition: all 0.4s ease;
-
-  &:hover {
-    .iconBox {
-      filter: drop-shadow(0 0.52vw 1.04vw rgba(0, 0, 0, 0.12));
-    }
-  }
-}
-
-.topStep {
-  justify-content: flex-end;
-  padding-bottom: 19vw;
-
-  .iconBox {
-    margin-top: 1vw;
-  }
-}
-
-.bottomStep {
-  justify-content: flex-start;
-  padding-top: 19vw;
-
-  .iconBox {
-    margin-bottom: 1vw;
-    order: -1;
-  }
-}
-
-.iconBox {
-  width: 8.8vw;
-  height: auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: filter 0.3s ease;
-
-  svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    position: relative;
-    z-index: 2;
-  }
-}
-
-.stepNumber {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  font-family: Montserrat;
-  font-size: 2.2vw;
-  font-weight: 700;
-  color: #fff;
+  right: 0;
+  background-color: #0a0a0a;
   z-index: 10;
-  pointer-events: none;
-
-  -webkit-text-stroke: 0.052vw rgba(0, 0, 0, 0.1);
-  /* 1px */
-  text-shadow: 0 0.104vw 0.208vw rgba(0, 0, 0, 0.1);
-  /* 2px 4px */
-
-  &.bottomNumber {
-    transform: translate(-50%, 0%);
-  }
-}
-
-.topStep .stepNumber {
-  transform: translate(-50%, -95%);
-  color: transparent;
-  -webkit-text-stroke: 0.052vw #ccc;
-}
-
-.bottomStep .stepNumber {
-  transform: translate(-50%, 0%);
-  color: transparent;
-  -webkit-text-stroke: 0.052vw #ccc;
-}
-
-.contentBox {
-  text-align: center;
-  width: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  width: 17.5vw;
-  min-width: 200px;
-
-  h3 {
-    font-family: var(--font-primary, 'Outfit', sans-serif);
-    font-size: max(18px, 1.04vw) !important;
-    font-weight: 700;
-    margin-bottom: 0.63vw;
-    text-transform: uppercase;
-    width: 100%;
-    line-height: 1.2;
-    display: block;
-  }
-
-  p {
-    font-family: var(--font-secondary, 'Inter', sans-serif);
-    font-size: max(12px, 0.93vw) !important;
-    line-height: 1.6;
-    color: #666;
-    width: 100%;
-    margin: 0 auto;
-    font-weight: 400;
-  }
-}
-
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
-  .milestoneContainer {
-    height: auto;
-    padding: 0;
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .decorativeBall,
-  .milestoneBaseLine {
-    display: none !important;
-  }
-
-  .stepsWrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    gap: 0;
-    padding: 0;
-  }
-
-  .stepItem {
-    width: 100%;
-    padding: 2vw 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4vw;
-    position: relative;
-    height: auto;
-    margin-bottom: 14px;
-    transform: none !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-
-  /* Odd Steps (1, 3, 5): Icon Left, Content Right */
-  .stepItem:nth-child(odd) {
-    flex-direction: row-reverse;
-
-    .iconBox {
-      transform: rotate(90deg) !important;
-      scale: 1.2;
-    }
-
-    .contentBox {
-      text-align: left;
-      align-items: flex-start;
-    }
-
-    .stepNumber {
-      top: 37% !important;
-    }
-  }
-
-  .stepItem:nth-child(even) {
-    flex-direction: row-reverse;
-
-    .iconBox {
-      transform: rotate(90deg) !important;
-      scale: 1.2;
-    }
-
-    .contentBox {
-      padding-left: 16px !important;
-    }
-
-    .stepNumber {
-      top: 63% !important;
-    }
-  }
-
-  .contentBox {
-    text-align: left;
-    align-items: flex-start;
-  }
-
-  /* Reset Top/Bottom specific styling */
-  .topStep,
-  .bottomStep {
-    justify-content: center;
-    padding: 2vw 5vw;
-  }
-
-  .iconBox {
-    width: 100.961px;
-    height: 85px;
-    flex-shrink: 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 !important;
-    transform: none !important;
-    z-index: 10;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-
-    svg {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-  }
-
-  .stepNumber {
-    font-size: 22.574px;
-    transform: translate(-50%, -50%) rotate(-90deg) !important;
-    left: 50%;
-    top: 50%;
-    font-family: Montserrat;
-    color: #fff;
-    font-weight: 700;
-    z-index: 10;
-    pointer-events: none;
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
-    text-shadow: 0 0.104vw 0.208vw rgba(0, 0, 0, 0.1);
-  }
-
-  .topStep .stepNumber,
-  .bottomStep .stepNumber {
-    transform: translate(-50%, -50%) rotate(-90deg) !important;
-    color: transparent;
-    -webkit-text-stroke: 1px #ccc;
-  }
-
-  .contentBox {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-
-    h3 {
-      font-size: 18px !important;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      width: 100%;
-    }
-
-    p {
-      font-size: 12px !important;
-      line-height: 1.5;
-      color: #666;
-      width: 100%;
-      max-width: 100%;
-    }
-  }
 }
 
 .decorativeBall {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.8;
   z-index: 0;
+}
+
+.nodeWrapper {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topNode {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottomNode {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textContentTop {
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: clamp(12px, 1.5vw, 24px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textContentBottom {
+  position: absolute;
+  top: 100%;
+  margin-top: clamp(12px, 1.5vw, 24px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepTitle {
+  font-family: var(--font-primary, 'Outfit', sans-serif);
+  font-weight: 700;
+  margin-bottom: clamp(4px, 0.5vw, 8px);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.stepDesc {
+  color: #6b7280;
+  line-height: 1.375;
+  width: 100%;
+}
+
+.nodeOuterCircle {
+  position: relative;
+  z-index: 10;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nodeInnerCircle {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stepNumber {
+  font-weight: 700;
+  color: transparent;
+  font-family: var(--font-primary, 'Montserrat', sans-serif);
+}
+
+.stem {
+  z-index: 0;
+}
+
+.stemTop {
+  transform-origin: bottom;
+}
+
+.stemBottom {
+  transform-origin: top;
+}
+
+@media (max-width: 1000px) {
+  .timelineContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    gap: 3.5rem;
+    padding: 0;
+    margin-top: 3rem;
+  }
+
+  .baseline, .decorativeBall {
+    display: none !important;
+  }
+
+  .nodeWrapper {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topNode, .bottomNode {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    display: flex;
+    align-items: center !important;
+    flex-direction: row-reverse !important; 
+  }
+
+  .textContentTop, .textContentBottom {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    text-align: left !important;
+    align-items: flex-start !important;
+    flex: 1;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .nodeOuterCircle {
+    flex-shrink: 0;
+    width: clamp(80px, 22vw, 110px) !important;
+    height: clamp(80px, 22vw, 110px) !important;
+    padding: clamp(6px, 1.5vw, 10px) !important;
+  }
+  
+  .stem {
+    display: block !important;
+    height: 8px !important;
+    width: 15vw !important;
+    transform: none !important; 
+    margin: 0 !important;
+  }
+  
+  .stepTitle {
+    font-size: clamp(18px, 4.5vw, 24px) !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .stepDesc {
+    font-size: clamp(14px, 3.5vw, 16px) !important;
+  }
 }
