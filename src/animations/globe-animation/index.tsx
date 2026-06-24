@@ -2,10 +2,24 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { countries } from '@/shared/contact-us-section/countries'
 import { SectionTitle } from '@/shared/typography'
-import Globe from './globe'
+import GlobeShadowImg from "./globe-shadow.svg?url"
 import './styles.scss'
+
+const ThreeGlobe = dynamic(() => import('@/shared/contact-us-section/three-globe'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
+      <p className="text-gray-500 text-sm font-medium">
+        Initializing realistic globe...
+      </p>
+    </div>
+  ),
+})
 
 export default function GlobeSection() {
   const clickRef = useRef<boolean>(false)
@@ -64,11 +78,13 @@ export default function GlobeSection() {
 
         <div className="globe-container">
           <div className="glow-background" />
-          <Globe
-            clickRef={clickRef}
-            coordinates={country.coordinates as [number, number]}
-            activeCountryName={country.name}
+          <ThreeGlobe
+            lat={country.coordinates[0]}
+            lng={country.coordinates[1]}
           />
+          <div className="globe-shadow-wrapper" style={{ position: 'absolute', bottom: '-20px', width: '60%', height: '40px', zIndex: -1 }}>
+            <Image src={GlobeShadowImg} alt="globe shadow" fill style={{ objectFit: 'contain' }} />
+          </div>
         </div>
 
         <div className="our-office-country-flag-container">
@@ -86,9 +102,17 @@ export default function GlobeSection() {
                   transition={{ type: 'spring', stiffness: 260 }}
                   onClick={() => onClick(countryData)}
                   style={{
-                    backgroundImage: `url(${icon})`,
+                    position: 'relative',
+                    overflow: 'hidden',
                   }}
-                />
+                >
+                  <Image
+                    src={icon}
+                    alt={`${name} flag`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </motion.div>
               )
             })}
           </div>

@@ -21,7 +21,7 @@ const page = () => {
       <TraditionsCustoms />
       <WordsByCEO />
       <FAQ />
-      <ContactUsSection />
+      <ContactUsSection isCareerPage />
     </div>
   )
 }

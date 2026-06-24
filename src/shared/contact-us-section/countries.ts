@@ -2,11 +2,7 @@ import India from "./assets/countries/india.svg?url";
 import Spain from "./assets/countries/spain.svg?url";
 import Equador from "./assets/countries/ecuador.svg?url";
 import Brazil from "./assets/countries/brazil.svg?url";
-import Mexico from "./assets/countries/mexico.svg?url";
 import Peru from "./assets/countries/peru.svg?url";
-import Colombia from "./assets/countries/colombia.svg?url";
-import USA from "./assets/countries/usa.svg?url";
-import Argentina from "./assets/countries/argentina.svg?url";
 
 export const countries = [
   {
@@ -80,64 +76,6 @@ export const countries = [
     isActive: false,
     icon: Peru,
     idx: 5,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
-    },
-  },
-
-  {
-    markerOffset: -15,
-    name: 'Colombia',
-    coordinates: [4.711, -74.0721],
-    title: 'Colombia',
-    description: 'Cl. 40 #26a8, Bogotá, Colombia',
-    isActive: false,
-    icon: Colombia,
-    idx: 6,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
-    },
-  },
-  {
-    markerOffset: -15,
-    name: 'USA',
-    coordinates: [4.711, -74.0721],
-    title: 'USA',
-    description: 'Cl. 40 #26a8, Bogotá, Colombia',
-    isActive: false,
-    icon: USA,
-    idx: 6,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
-    },
-  },
-  {
-    markerOffset: -15,
-    name: 'Argentina',
-    coordinates: [4.711, -74.0721],
-    title: 'Argentina',
-    description: 'Cl. 40 #26a8, Bogotá, Colombia',
-    isActive: false,
-    icon: Argentina,
-    idx: 7,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
-    },
-  },
-
-  {
-    markerOffset: -15,
-    name: 'Mexico',
-    coordinates: [4.711, -74.0721],
-    title: 'Mexico',
-    description: 'Cl. 40 #26a8, Bogotá, Colombia',
-    isActive: false,
-    icon: Mexico,
-    idx: 8,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',

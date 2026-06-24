@@ -1,7 +1,8 @@
 .our-office-section {
-  margin-top:max(80px,6.25vw);
+  margin-top: max(60px, 4vw);
+  margin-bottom: max(20px, 1.5vw); /* Reduced bottom margin to pull below section closer */
   width: 100%;
-  min-height: 100vh;
+  min-height: auto; /* Removed 100vh to eliminate the huge blank vertical gap */
   height: auto;
 }
 
@@ -59,7 +60,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none !important;
 
   .globe-marker-svg {
     width: 32px;
@@ -91,7 +91,7 @@
   display: flex;
   flex-direction: column;
   min-height: 300px; // Maintain space for info
-  margin-top: -16.5vw;
+  margin-top: max(-164px, -8.75vw);
 }
 
 .flags-container {

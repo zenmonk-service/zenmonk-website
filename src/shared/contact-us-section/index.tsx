@@ -23,15 +23,21 @@ const ThreeGlobe = dynamic(() => import('./three-globe'), {
   ),
 })
 
-export const ContactUsSection = () => {
+interface ContactUsSectionProps {
+  isCareerPage?: boolean
+}
+
+export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps) => {
   const [formCountry, setFormCountry] = useState(countries[0])
   const formIndexRef = useRef(1)
   const formTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const isFormInteractedRef = useRef<boolean>(false)
 
   const startFormTimer = () => {
     if (formTimerRef.current) clearInterval(formTimerRef.current)
 
     formTimerRef.current = setInterval(() => {
+      if (isFormInteractedRef.current) return
       setFormCountry(countries[formIndexRef.current])
       formIndexRef.current = (formIndexRef.current + 1) % countries.length
     }, 4000)
@@ -43,6 +49,16 @@ export const ContactUsSection = () => {
       if (formTimerRef.current) clearInterval(formTimerRef.current)
     }
   }, [])
+
+  const handleFormCountrySelect = (
+    selected: (typeof countries)[0],
+    index: number
+  ) => {
+    isFormInteractedRef.current = true
+    if (formTimerRef.current) clearInterval(formTimerRef.current)
+    setFormCountry(selected)
+    formIndexRef.current = (index + 1) % countries.length
+  }
 
   const globeCountries = countries.slice(0, 6)
   const [globeCountry, setGlobeCountry] = useState(globeCountries[0])
@@ -94,6 +110,35 @@ export const ContactUsSection = () => {
           <div className={styles.leftContainer}>
             <SectionTitle text="We're Just a" align="left" />
             <SectionTitle text="Message Away" highlightedText="Message" />
+
+            {isCareerPage && (
+              <div className={styles.globeFlagsContainer} style={{ marginTop: '20px', marginBottom: '20px' }}>
+                {countries.map((c, index) => {
+                  const isActive = c.name === formCountry.name
+
+                  return (
+                    <motion.button
+                      key={c.name}
+                      className={`${styles.globeFlag} ${
+                        isActive ? styles.globeFlagActive : ''
+                      }`}
+                      whileHover={{ scale: 1.08 }}
+                      animate={{ scale: isActive ? 1.08 : 1 }}
+                      onClick={() => handleFormCountrySelect(c, index)}
+                      title={c.name}
+                    >
+                      <Image
+                        src={c.icon}
+                        alt={`${c.name} flag`}
+                        width={72}
+                        height={48}
+                        className={styles.globeFlagImage}
+                      />
+                    </motion.button>
+                  )
+                })}
+              </div>
+            )}
 
             <SectionTitle
               text={formCountry.name}
@@ -153,70 +198,72 @@ export const ContactUsSection = () => {
         <Polygon className={styles.polygon} />
       </div>
 
-      <section className={styles.globeSection}>
-        <div className={styles.globeSectionContainer}>
-          <div className={styles.globeLeftContainer}>
-            <p className={styles.globeLabel}>Contact Us</p>
-            <h2 className={styles.globeTitle}>Lets fire up your business!</h2>
-            <p className={styles.globeSubtitle}>
-              Team up with us today for an unforgettable experience
-            </p>
+      {!isCareerPage && (
+        <section className={styles.globeSection}>
+          <div className={styles.globeSectionContainer}>
+            <div className={styles.globeLeftContainer}>
+              <p className={styles.globeLabel}>Contact Us</p>
+              <h2 className={styles.globeTitle}>Lets fire up your business!</h2>
+              <p className={styles.globeSubtitle}>
+                Team up with us today for an unforgettable experience
+              </p>
 
-            <div className={styles.globeFlagsContainer}>
-              {globeCountries.map((c, index) => {
-                const isActive = c.name === globeCountry.name
+              <div className={styles.globeFlagsContainer}>
+                {globeCountries.map((c, index) => {
+                  const isActive = c.name === globeCountry.name
 
-                return (
-                  <motion.button
-                    key={c.name}
-                    className={`${styles.globeFlag} ${
-                      isActive ? styles.globeFlagActive : ''
-                    }`}
-                    whileHover={{ scale: 1.08 }}
-                    animate={{ scale: isActive ? 1.08 : 1 }}
-                    onClick={() => handleGlobeCountrySelect(c, index)}
-                    title={c.name}
+                  return (
+                    <motion.button
+                      key={c.name}
+                      className={`${styles.globeFlag} ${
+                        isActive ? styles.globeFlagActive : ''
+                      }`}
+                      whileHover={{ scale: 1.08 }}
+                      animate={{ scale: isActive ? 1.08 : 1 }}
+                      onClick={() => handleGlobeCountrySelect(c, index)}
+                      title={c.name}
+                    >
+                      <Image
+                        src={c.icon}
+                        alt={`${c.name} flag`}
+                        width={72}
+                        height={48}
+                        className={styles.globeFlagImage}
+                      />
+                    </motion.button>
+                  )
+                })}
+              </div>
+
+              <div className={styles.globeActiveCountryDetails}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={globeCountry.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    <Image
-                      src={c.icon}
-                      alt={`${c.name} flag`}
-                      width={72}
-                      height={48}
-                      className={styles.globeFlagImage}
-                    />
-                  </motion.button>
-                )
-              })}
+                    <p className={styles.globeActiveCountryName}>
+                      {globeCountry.name}
+                    </p>
+                    <p className={styles.globeActiveCountryAddress}>
+                      {globeCountry.description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
 
-            <div className={styles.globeActiveCountryDetails}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={globeCountry.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className={styles.globeActiveCountryName}>
-                    {globeCountry.name}
-                  </p>
-                  <p className={styles.globeActiveCountryAddress}>
-                    {globeCountry.description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+            <div className={styles.globeRightContainer}>
+              <ThreeGlobe
+                lat={globeCountry.coordinates[0]}
+                lng={globeCountry.coordinates[1]}
+              />
             </div>
           </div>
-
-          <div className={styles.globeRightContainer}>
-            <ThreeGlobe
-              lat={globeCountry.coordinates[0]}
-              lng={globeCountry.coordinates[1]}
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   )
 }
