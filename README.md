@@ -1,2 +1,2 @@
 # zenmonk-website
-This is the official website for Zenmonk Solution Pvt. LImited
+This is the official website for Zenmonk Solution Pvt. Limited
