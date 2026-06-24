@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { Email, Phone } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
@@ -10,140 +11,212 @@ import Polygon from './assets/polygon.svg'
 import styles from './contact-us-section.module.scss'
 import { countries } from './countries'
 
+const ThreeGlobe = dynamic(() => import('./three-globe'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
+      <p className="text-gray-500 text-sm font-medium">
+        Initializing realistic globe...
+      </p>
+    </div>
+  ),
+})
+
 export const ContactUsSection = () => {
-  const [country, setCountry] = useState(countries[0])
-  const indexRef = useRef(1)
-  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const [formCountry, setFormCountry] = useState(countries[0])
+  const formIndexRef = useRef(1)
+  const formTimerRef = useRef<NodeJS.Timeout | null>(null)
 
-  const startTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current)
+  const startFormTimer = () => {
+    if (formTimerRef.current) clearInterval(formTimerRef.current)
 
-    timerRef.current = setInterval(() => {
-      setCountry(countries[indexRef.current])
-      indexRef.current = (indexRef.current + 1) % countries.length
+    formTimerRef.current = setInterval(() => {
+      setFormCountry(countries[formIndexRef.current])
+      formIndexRef.current = (formIndexRef.current + 1) % countries.length
     }, 4000)
   }
 
   useEffect(() => {
-    startTimer()
+    startFormTimer()
     return () => {
-      if (timerRef.current) clearInterval(timerRef.current)
+      if (formTimerRef.current) clearInterval(formTimerRef.current)
     }
   }, [])
 
-  const handleMouseEnter = (
-    hoveredCountry: (typeof countries)[number],
-    idx: number
-  ) => {
-    if (timerRef.current) clearInterval(timerRef.current)
-    setCountry(hoveredCountry)
-    indexRef.current = (idx + 1) % countries.length
+  const globeCountries = countries.slice(0, 6)
+  const [globeCountry, setGlobeCountry] = useState(globeCountries[0])
+  const globeIndexRef = useRef(1)
+  const globeTimerRef = useRef<NodeJS.Timeout | null>(null)
+  const isInteractedRef = useRef<boolean>(false)
+
+  const startGlobeTimer = () => {
+    if (globeTimerRef.current) clearInterval(globeTimerRef.current)
+
+    globeTimerRef.current = setInterval(() => {
+      if (isInteractedRef.current) return
+      const nextCountry = globeCountries[globeIndexRef.current]
+      setGlobeCountry(nextCountry)
+      globeIndexRef.current =
+        (globeIndexRef.current + 1) % globeCountries.length
+    }, 5000)
   }
 
-  const handleMouseLeave = () => {
-    startTimer()
+  useEffect(() => {
+    startGlobeTimer()
+    return () => {
+      if (globeTimerRef.current) clearInterval(globeTimerRef.current)
+    }
+  }, [])
+
+  const handleGlobeCountrySelect = (
+    selected: (typeof countries)[0],
+    index: number
+  ) => {
+    isInteractedRef.current = true 
+    if (globeTimerRef.current) clearInterval(globeTimerRef.current)
+
+    setGlobeCountry(selected)
+    globeIndexRef.current = (index + 1) % globeCountries.length
   }
 
   return (
-    <div className={styles.aboutUsContactUsSection}>
-      <Image
-        src="/contact-us-bg.svg"
-        className={styles.contactUsBg}
-        alt="contact-us-bg"
-        fill
-      />
+    <div className="w-full flex flex-col">
+      <div className={styles.aboutUsContactUsSection}>
+        <Image
+          src="/contact-us-bg.svg"
+          className={styles.contactUsBg}
+          alt="contact-us-bg"
+          fill
+        />
 
-      <div className={styles.contactUs}>
-        <div className={styles.leftContainer}>
-          <SectionTitle text="We're Just a" align="left" />
-          <SectionTitle text="Message Away" highlightedText="Message" />
+        <div className={styles.contactUs}>
+          <div className={styles.leftContainer}>
+            <SectionTitle text="We're Just a" align="left" />
+            <SectionTitle text="Message Away" highlightedText="Message" />
 
-          <div className={styles.countriesFlagsContainer}>
-            {countries.map(({ name, icon }, index) => {
-              const isSelected = name === country.name
+            <SectionTitle
+              text={formCountry.name}
+              align="left"
+              className={styles.selectedCountryTitle}
+            />
 
-              return (
-                <motion.div
-                  key={name}
-                  animate={{ scale: isSelected ? 1.2 : 1 }}
-                  transition={{ duration: 0.1, ease: 'easeInOut' }}
-                  onMouseEnter={() => handleMouseEnter(countries[index], index)}
-                  onMouseLeave={() => handleMouseLeave()}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={formCountry.name}
+                initial={{ opacity: 0, y: 5 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -5 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                <SectionDescription
+                  text={formCountry.description}
                   style={{
-                    boxShadow: isSelected ? "0 0 max(14px, 0.72vw) max(2px, 0.1vw) rgba(255, 220, 150, 0.9)" : "none"
+                    minHeight: 'max(3.125vw, 60px)',
+                    maxHeight: 'max(3.125vw, 60px)',
                   }}
-                  className={`${styles.countryFlag} ${
-                    isSelected ? styles.countryFlagSelected : ''
-                  }`}
-                >
-                  <Image
-                    src={icon}
-                    alt={`${name} flag`}
-                    width={48}
-                    height={32}
-                    className={styles.countryFlagIcon}
-                  />
-                </motion.div>
-              )
-            })}
+                  className={styles.selectedCountryDescription}
+                />
+
+                <div className={styles.labelContainer}>
+                  <div className={styles.iconContainer}>
+                    <Email />
+                  </div>
+                  <p
+                    className={styles.selectedCountryDescription}
+                    style={{ marginTop: 0 }}
+                  >
+                    {formCountry.office.email}
+                  </p>
+                </div>
+
+                <div className={styles.labelContainer}>
+                  <div className={styles.iconContainer}>
+                    <Phone />
+                  </div>
+                  <p
+                    className={styles.selectedCountryDescription}
+                    style={{ marginTop: 0 }}
+                  >
+                    {formCountry.office.phone}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
-          <SectionTitle
-            text={country.name}
-            align="left"
-            className={styles.selectedCountryTitle}
-          />
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={country.name}
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-            >
-              <SectionDescription
-                text={country.description}
-                style={{
-                  minHeight: 'max(3.125vw, 60px)',
-                  maxHeight: 'max(3.125vw, 60px)',
-                }}
-                className={styles.selectedCountryDescription}
-              />
-
-              <div className={styles.labelContainer}>
-                <div className={styles.iconContainer}>
-                  <Email />
-                </div>
-                <p
-                  className={styles.selectedCountryDescription}
-                  style={{ marginTop: 0 }}
-                >
-                  {country.office.email}
-                </p>
-              </div>
-
-              <div className={styles.labelContainer}>
-                <div className={styles.iconContainer}>
-                  <Phone />
-                </div>
-                <p
-                  className={styles.selectedCountryDescription}
-                  style={{ marginTop: 0 }}
-                >
-                  {country.office.phone}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <div className={styles.rightContainer}>
+            <ContactForm />
+          </div>
         </div>
 
-        <div className={styles.rightContainer}>
-          <ContactForm />
-        </div>
+        <Polygon className={styles.polygon} />
       </div>
 
-      <Polygon className={styles.polygon} />
+      <section className={styles.globeSection}>
+        <div className={styles.globeSectionContainer}>
+          <div className={styles.globeLeftContainer}>
+            <p className={styles.globeLabel}>Contact Us</p>
+            <h2 className={styles.globeTitle}>Lets fire up your business!</h2>
+            <p className={styles.globeSubtitle}>
+              Team up with us today for an unforgettable experience
+            </p>
+
+            <div className={styles.globeFlagsContainer}>
+              {globeCountries.map((c, index) => {
+                const isActive = c.name === globeCountry.name
+
+                return (
+                  <motion.button
+                    key={c.name}
+                    className={`${styles.globeFlag} ${
+                      isActive ? styles.globeFlagActive : ''
+                    }`}
+                    whileHover={{ scale: 1.08 }}
+                    animate={{ scale: isActive ? 1.08 : 1 }}
+                    onClick={() => handleGlobeCountrySelect(c, index)}
+                    title={c.name}
+                  >
+                    <Image
+                      src={c.icon}
+                      alt={`${c.name} flag`}
+                      width={72}
+                      height={48}
+                      className={styles.globeFlagImage}
+                    />
+                  </motion.button>
+                )
+              })}
+            </div>
+
+            <div className={styles.globeActiveCountryDetails}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={globeCountry.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <p className={styles.globeActiveCountryName}>
+                    {globeCountry.name}
+                  </p>
+                  <p className={styles.globeActiveCountryAddress}>
+                    {globeCountry.description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          <div className={styles.globeRightContainer}>
+            <ThreeGlobe
+              lat={globeCountry.coordinates[0]}
+              lng={globeCountry.coordinates[1]}
+            />
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -43,7 +43,7 @@ export const countries = [
   {
     markerOffset: 40,
     name: 'Brazil',
-    coordinates: [-27.5954, -48.548],
+    coordinates: [-15.7939, -47.8828],
     title: 'Brazil',
     description: 'R. Vento Sul, 126 - Campeche Leste, Florianópolis, Brazil',
     isActive: false,
@@ -74,7 +74,7 @@ export const countries = [
   {
     markerOffset: 35,
     name: 'Peru',
-    coordinates: [-12.1211, -76.9914],
+    coordinates: [-12.0464, -77.0428],
     title: 'Peru',
     description: 'Jr. Chimucápac 163, Santiago de Surco 15038, Peru',
     isActive: false,
