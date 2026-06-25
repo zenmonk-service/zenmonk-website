@@ -1,16 +1,13 @@
 import * as THREE from 'three'
-import React, { useEffect, useRef, useState } from 'react'
-import dynamic from 'next/dynamic'
+import React, { useEffect, useRef, useState, useMemo } from 'react'
+import Globe from 'react-globe.gl'
 import GlobeTexture from '../contact-us/globe/texture.jpg'
 import styles from './contact-us-section.module.scss'
-
-const Globe = dynamic(() => import('react-globe.gl'), {
-  ssr: false,
-})
 
 interface ThreeGlobeProps {
   lat: number
   lng: number
+  trigger?: number
 }
 
 const TOPOLOGY_IMAGE_URL =
@@ -42,7 +39,7 @@ const createPinElement = () => {
   return pin
 }
 
-export default function ThreeGlobe({ lat, lng }: ThreeGlobeProps) {
+export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
   const globeRef = useRef<any>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const cloudSphereRef = useRef<THREE.Mesh | null>(null)
@@ -81,7 +78,7 @@ export default function ThreeGlobe({ lat, lng }: ThreeGlobeProps) {
     }
 
     globeRef.current.pointOfView({ lat, lng, altitude: GLOBE_ALTITUDE }, 800)
-  }, [lat, lng])
+  }, [lat, lng, trigger])
 
   useEffect(() => {
     return () => {
@@ -148,7 +145,6 @@ export default function ThreeGlobe({ lat, lng }: ThreeGlobeProps) {
         material.userData.shader = shader
       }
 
-      // Load specular map with CORS support enabled
       const specLoader = new THREE.TextureLoader()
       specLoader.setCrossOrigin('anonymous')
       specLoader.load(
@@ -261,6 +257,8 @@ export default function ThreeGlobe({ lat, lng }: ThreeGlobeProps) {
     setIsLoading(false)
   }
 
+  const pinData = useMemo(() => [{ lat, lng }], [lat, lng])
+
   return (
     <div ref={containerRef} className={styles.globeCanvasContainer}>
       <div
@@ -306,7 +304,7 @@ export default function ThreeGlobe({ lat, lng }: ThreeGlobeProps) {
           atmosphereColor="#bfdfff"
           atmosphereAltitude={0.09}
           animateIn={false}
-          htmlElementsData={[{ lat, lng }]}
+          htmlElementsData={pinData}
           htmlElement={createPinElement}
           onGlobeReady={handleGlobeReady}
         />

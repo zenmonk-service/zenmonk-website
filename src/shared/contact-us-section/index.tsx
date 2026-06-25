@@ -32,6 +32,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
   const formIndexRef = useRef(1)
   const formTimerRef = useRef<NodeJS.Timeout | null>(null)
   const isFormInteractedRef = useRef<boolean>(false)
+  const formInactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const startFormTimer = () => {
     if (formTimerRef.current) clearInterval(formTimerRef.current)
@@ -47,6 +48,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
     startFormTimer()
     return () => {
       if (formTimerRef.current) clearInterval(formTimerRef.current)
+      if (formInactivityTimeoutRef.current) clearTimeout(formInactivityTimeoutRef.current)
     }
   }, [])
 
@@ -55,16 +57,28 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
     index: number
   ) => {
     isFormInteractedRef.current = true
+    if (formInactivityTimeoutRef.current) clearTimeout(formInactivityTimeoutRef.current)
     if (formTimerRef.current) clearInterval(formTimerRef.current)
+    
     setFormCountry(selected)
     formIndexRef.current = (index + 1) % countries.length
+
+    formInactivityTimeoutRef.current = setTimeout(() => {
+      isFormInteractedRef.current = false
+      const nextCountry = countries[formIndexRef.current]
+      setFormCountry(nextCountry)
+      formIndexRef.current = (formIndexRef.current + 1) % countries.length
+      startFormTimer()
+    }, 5000)
   }
 
   const globeCountries = countries.slice(0, 6)
   const [globeCountry, setGlobeCountry] = useState(globeCountries[0])
+  const [globeTrigger, setGlobeTrigger] = useState(0)
   const globeIndexRef = useRef(1)
   const globeTimerRef = useRef<NodeJS.Timeout | null>(null)
   const isInteractedRef = useRef<boolean>(false)
+  const globeInactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const startGlobeTimer = () => {
     if (globeTimerRef.current) clearInterval(globeTimerRef.current)
@@ -82,6 +96,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
     startGlobeTimer()
     return () => {
       if (globeTimerRef.current) clearInterval(globeTimerRef.current)
+      if (globeInactivityTimeoutRef.current) clearTimeout(globeInactivityTimeoutRef.current)
     }
   }, [])
 
@@ -90,10 +105,20 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
     index: number
   ) => {
     isInteractedRef.current = true 
+    if (globeInactivityTimeoutRef.current) clearTimeout(globeInactivityTimeoutRef.current)
     if (globeTimerRef.current) clearInterval(globeTimerRef.current)
 
     setGlobeCountry(selected)
     globeIndexRef.current = (index + 1) % globeCountries.length
+    setGlobeTrigger(prev => prev + 1)
+
+    globeInactivityTimeoutRef.current = setTimeout(() => {
+      isInteractedRef.current = false
+      const nextCountry = globeCountries[globeIndexRef.current]
+      setGlobeCountry(nextCountry)
+      globeIndexRef.current = (globeIndexRef.current + 1) % globeCountries.length
+      startGlobeTimer()
+    }, 5000)
   }
 
   return (
@@ -163,28 +188,30 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
                   className={styles.selectedCountryDescription}
                 />
 
-                <div className={styles.labelContainer}>
-                  <div className={styles.iconContainer}>
-                    <Email />
+                <div className={styles.contactDetailsRow}>
+                  <div className={styles.labelContainer}>
+                    <div className={styles.iconContainer}>
+                      <Email />
+                    </div>
+                    <p
+                      className={styles.selectedCountryDescription}
+                      style={{ marginTop: 0 }}
+                    >
+                      {formCountry.office.email}
+                    </p>
                   </div>
-                  <p
-                    className={styles.selectedCountryDescription}
-                    style={{ marginTop: 0 }}
-                  >
-                    {formCountry.office.email}
-                  </p>
-                </div>
 
-                <div className={styles.labelContainer}>
-                  <div className={styles.iconContainer}>
-                    <Phone />
+                  <div className={styles.labelContainer}>
+                    <div className={styles.iconContainer}>
+                      <Phone />
+                    </div>
+                    <p
+                      className={styles.selectedCountryDescription}
+                      style={{ marginTop: 0 }}
+                    >
+                      {formCountry.office.phone}
+                    </p>
                   </div>
-                  <p
-                    className={styles.selectedCountryDescription}
-                    style={{ marginTop: 0 }}
-                  >
-                    {formCountry.office.phone}
-                  </p>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -259,6 +286,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
               <ThreeGlobe
                 lat={globeCountry.coordinates[0]}
                 lng={globeCountry.coordinates[1]}
+                trigger={globeTrigger}
               />
             </div>
           </div>

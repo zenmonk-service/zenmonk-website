@@ -24,35 +24,49 @@ const ThreeGlobe = dynamic(() => import('@/shared/contact-us-section/three-globe
 export default function GlobeSection() {
   const clickRef = useRef<boolean>(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const [country, setCountry] = useState(countries[0])
+  const [trigger, setTrigger] = useState(0)
 
   const indexRef = useRef(1)
+
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current)
+
+    timerRef.current = setInterval(() => {
+      if (clickRef.current) return
+      const nextCountry = countries[indexRef.current]
+      setCountry(nextCountry)
+      indexRef.current = (indexRef.current + 1) % countries.length
+    }, 3000)
+  }
 
   const onClick = (countryData: typeof countries[0]) => {
     clickRef.current = true
 
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    if (timerRef.current) clearInterval(timerRef.current)
+
+    setCountry(countryData)
+    indexRef.current = (countries.indexOf(countryData) + 1) % countries.length
+    setTrigger(prev => prev + 1)
 
     timeoutRef.current = setTimeout(() => {
       clickRef.current = false
-    }, 2000)
-
-    setCountry(countryData)
-    // Update indexRef so auto-rotation continues from here
-    indexRef.current = (countries.indexOf(countryData) + 1) % countries.length
-  }
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (clickRef.current) return // Don't auto-rotate if user just clicked
-
       const nextCountry = countries[indexRef.current]
       setCountry(nextCountry)
       indexRef.current = (indexRef.current + 1) % countries.length
-    }, 3000)
+      startTimer()
+    }, 5000)
+  }
 
-    return () => clearInterval(interval)
+  useEffect(() => {
+    startTimer()
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    }
   }, [])
 
   return (
@@ -81,6 +95,7 @@ export default function GlobeSection() {
           <ThreeGlobe
             lat={country.coordinates[0]}
             lng={country.coordinates[1]}
+            trigger={trigger}
           />
           <div className="globe-shadow-wrapper" style={{ position: 'absolute', bottom: '-20px', width: '60%', height: '40px', zIndex: -1 }}>
             <Image src={GlobeShadowImg} alt="globe shadow" fill style={{ objectFit: 'contain' }} />

@@ -70,7 +70,7 @@ export const countries = [
   {
     markerOffset: 35,
     name: 'Peru',
-    coordinates: [-12.0464, -77.0428],
+    coordinates: [-12.0464, -74.0428],
     title: 'Peru',
     description: 'Jr. Chimucápac 163, Santiago de Surco 15038, Peru',
     isActive: false,

@@ -1,15 +1,19 @@
-/* =========================
-   Section Wrapper
-========================= */
 .aboutUsContactUsSection {
   width: 100%;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
+  height: auto;
+  overflow: hidden;
   position: relative;
   background: linear-gradient(180deg, #fff -34.42%, #f6f6f6 100%);
-  overflow: hidden;
-  padding: max(60px, 4.5vw) max(2vw, 20px);
+  display: flex;
+  align-items: center;
+
+  padding: 80px 5vw 60px;
+
+  @media screen and (min-width: 800px) {
+    height: 100vh;
+    min-height: 700px;
+    padding: 0;
+  }
 }
 
 .contactUsBg {
@@ -18,60 +22,109 @@
   pointer-events: none;
 }
 
-/* =========================
-   Layout
-========================= */
 .contactUs {
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
   position: relative;
   z-index: 1;
+
+  flex-direction: column;
+  gap: 32px;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    padding: 0 7.8vw;
+  }
+
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    padding-left: 0;
+    padding-right: 60px;
+    gap: 0;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
-/* =========================
-   Left Container
-========================= */
 .leftContainer {
   display: flex;
-  width: 40%;
   flex-direction: column;
+  width: 100%;
+
+  @media screen and (min-width: 800px) {
+    flex: 0 0 36vw;
+    max-width: 36vw;
+    min-width: 0;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    align-items: center;
+    text-align: center;
+
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center !important;
+    }
+  }
 }
 
-.countriesList {
-  margin-top: max(1.042vw, 22px);
-  gap: max(1.042vw, 13px);
+.rightContainer {
+  z-index: 10;
   width: 100%;
-  display: flex;
+
+  @media screen and (min-width: 800px) {
+    flex: 0 0 34vw;
+    max-width: 34vw;
+    min-width: 0;
+  }
 }
 
 .selectedCountryTitle {
-  margin-top: max(24px, 2.083vw) !important;
-  font-size: max(24px, 1.25vw) !important;
+  margin-top: max(20px, 1.5vw) !important;
+  font-size: max(18px, 1.5vw) !important;
 }
 
 .selectedCountryDescription {
-  margin-top: max(12px, 0.62vw);
-  width: 80%;
+  margin-top: max(8px, 0.5vw);
+  width: 90%;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
   color: #696969 !important;
-  font-size: var(--font-size-18);
+  font-size: max(13px, 0.85vw);
+  line-height: 1.6;
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .countryDescriptionText {
-  min-height: max(3.125vw, 60px);
-  max-height: max(3.125vw, 60px);
+  min-height: max(60px, 3.125vw);
+  max-height: max(60px, 3.125vw);
 }
 
+.countriesList {
+  margin-top: max(22px, 1.042vw);
+  gap: max(13px, 1.042vw);
+  width: 100%;
+  display: flex;
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    justify-content: center;
+  }
+}
 
 .countryFlag {
-  width: 3vw;
+  width: max(40px, 3vw);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 0.3vw;
+  border-radius: max(4px, 0.3vw);
   z-index: 1;
   overflow: hidden;
   cursor: pointer;
@@ -86,30 +139,50 @@
   display: block;
 }
 
+.contactDetailsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 16px;
+  }
+}
+
 .labelContainer {
   display: flex;
   align-items: center;
-  gap: max(0.729vw, 10px);
-  margin-top: max(1.042vw, 16px);
+  gap: max(10px, 0.729vw);
+  margin-top: max(16px, 1.042vw);
+
+  p {
+    width: auto !important;
+    margin: 0 !important;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 799px) {
+    justify-content: center;
+    margin-top: 0;
+  }
 }
 
 .labelContainerOffset {
-  margin-left: 0.15vw;
+  margin-left: max(0px, 0.15vw);
 }
 
 .iconContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: max(1.5vw, 20px);
+  width: max(20px, 1.5vw);
   height: auto;
 }
 
-/* =========================
-   Contact Card
-========================= */
 .contactCard {
-  margin-top: max(0.729vw, 24px) !important;
+  margin-top: max(24px, 0.729vw) !important;
   margin-bottom: 0 !important;
   z-index: 10;
 }
@@ -123,24 +196,13 @@
 .contactCardDescription {
   color: #696969 !important;
   font-family: 'Poppins', sans-serif;
-  font-size: var(--font-size-16);
+  font-size: max(12px, 0.833vw);
   font-style: normal;
   font-weight: 600;
   line-height: max(22px, 1.563vw);
-  letter-spacing: max(0.017vw, 0.28px);
+  letter-spacing: max(0.28px, 0.017vw);
 }
 
-/* =========================
-   Right Container
-========================= */
-.rightContainer {
-  z-index: 10;
-  margin-top: 1.5vw;
-}
-
-/* =========================
-   Decorative Elements
-========================= */
 .polygon {
   position: absolute;
   bottom: -18%;
@@ -149,71 +211,17 @@
   transform: rotate(-180deg);
 }
 
-/* =========================
-   Flags Grid
-========================= */
 .countriesFlagsContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
-  gap: max(1.25vw, 16px);
-  margin-top: max(1.25vw, 16px);
+  gap: max(16px, 1.1vw);
+  margin-top: max(16px, 1.25vw);
 }
 
-/* =========================
-   Tablet and Below
-========================= */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 799px) {
   .aboutUsContactUsSection {
-    min-height: auto;
-    padding: 60px 20px;
-  }
-
-  .contactUs {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .leftContainer {
-    width: 100%;
-    max-width: 600px;
-  }
-
-  .rightContainer {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 0;
-  }
-
-  .countriesFlagsContainer {
-    width: 100%;
-    gap: 16px;
-    margin-top: 20px;
-  }
-
-  .countryFlag {
-    width: 40px;
-    border-radius: 4px;
-  }
-
-  .countryDescriptionText {
-    min-height: auto;
-    max-height: none;
-  }
-}
-
-
-/* =========================
-   Mobile
-========================= */
-@media screen and (max-width: 768px) {
-  .aboutUsContactUsSection {
-    padding: 0 7.185%;
-    @media screen and (max-width: 600px) {
-      padding: 0 16px;
-    }
-    margin-top: 80px;
-    min-height: auto;
+    padding: 80px 16px 60px;
+    height: auto;
   }
 
   .contactUsBg {
@@ -224,59 +232,33 @@
     flex-direction: column;
     gap: 32px;
     align-items: stretch;
+    padding: 0;
   }
 
   .leftContainer {
     width: 100%;
   }
 
-  .sectionTitle {
-    font-size: 24px;
-    line-height: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
+  .rightContainer {
+    width: 100%;
     margin-bottom: 40px;
   }
 
-  .sectionTitle br {
-    display: none;
-  }
-
-  .selectedCountryDescription:nth-child(1) {
-    max-height: 40px !important;
-    width: 100%;
-  }
-
-  .countriesFlagsContainer {
-    gap: 18px !important;
-    @media screen and (max-width: 500px) {
-      width: 90%;
-    }
-    @media (min-width: 501px) and (max-width: 560px) {
-      width: 80%;
-    }
-  }
-
-  .countryFlag {
-    width: 40px;
-    border-radius: 4px;
-  }
-
-  .countryFlagSelected {
-    box-shadow: 0 0 20px 3px #ffc878;
-  }
-
   .selectedCountryTitle {
-    margin-top: 24px;
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 18px !important;
   }
 
   .selectedCountryDescription {
     margin-top: 8px;
     font-size: 14px;
     line-height: 20px;
+    width: 100%;
+  }
+
+  .countryDescriptionText {
+    min-height: auto;
+    max-height: none;
   }
 
   .labelContainer {
@@ -284,145 +266,168 @@
     margin-top: 12px;
   }
 
-  .icon {
-    width: 24px;
-    height: 24px;
+  .iconContainer {
+    width: 20px;
   }
 
   .labelContainerOffset {
     margin-left: 0;
   }
 
-  .rightContainer {
-    width: 100%;
-    margin-bottom: 60px;
+  .countryFlag {
+    width: 40px;
+    border-radius: 4px;
+  }
+
+  .countriesFlagsContainer {
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .polygon {
+    display: none;
+  }
+}
+
+@media  (min-width:600px) and (max-width: 799px) {
+  .aboutUsContactUsSection {
+    padding: 80px 80px 60px;
   }
 }
 
 .globeSection {
   width: 100%;
-  min-height: max(650px, 80vh);
-  display: flex;
-  align-items: center;
+  height: auto;
+  overflow: hidden;
   position: relative;
   background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
-  overflow: hidden;
-  padding: max(48px, 4vw) max(28px, 3vw);
+  display: flex;
+  align-items: center;
 
-  @media screen and (max-width: 1024px) {
-    min-height: auto;
-    padding: 60px 20px;
+  padding: 60px 5vw 60px;
+
+  @media screen and (min-width: 800px) {
+    height: 100vh;
+    min-height: 700px;
+    padding: 0;
   }
 }
 
 .globeSectionContainer {
   display: flex;
   width: 100%;
-  max-width: max(1440px, 80vw);
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  gap: max(40px, 4vw);
   position: relative;
   z-index: 1;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    gap: 16px;
-    align-items: stretch;
+  flex-direction: column;
+  gap: 24px;
+
+  @media screen and (min-width: 800px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    padding: 0 7.8vw;
+  }
+
+  @media screen and (min-width: 800px) and (max-width: 1200px) {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 .globeLeftContainer {
   display: flex;
-  flex: 1 1 max(400px, 32vw);
-  max-width: max(600px, 38vw);
-  min-width: 300px;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  align-items: center;
+  text-align: center;
 
-  @media screen and (max-width: 1024px) {
-    width: 100%;
-    max-width: none;
-    align-items: center;
-    text-align: center;
-    padding: 0 24px;
+  @media screen and (min-width: 800px) {
+    flex: 0 0 34vw;
+    max-width: 34vw;
+    min-width: 0;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 
 .globeRightContainer {
   display: flex;
-  flex: 1 1 max(450px, 38vw);
-  width: 100%;
   justify-content: center;
   align-items: center;
   position: relative;
   aspect-ratio: 1;
-  max-width: max(760px, 42vw);
 
-  @media screen and (max-width: 1024px) {
-    flex: none;
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+  /* Mobile */
+  flex: none;
+  width: 80vw;
+  max-width: 400px;
+  margin: 0 auto;
 
   @media screen and (max-width: 500px) {
-    flex: none;
     width: 90vw;
-    max-width: 500px;
+    max-width: 380px;
   }
 
   @media screen and (max-width: 400px) {
-    flex: none;
-    width: 75vw;
-    max-width: 270px;
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  /* Desktop */
+  @media screen and (min-width: 800px) {
+    flex: 0 0 36vw;
+    width: 36vw;
+    max-width: 36vw;
+    margin: 0;
   }
 }
 
 .globeLabel {
   font-family: 'Poppins', sans-serif;
-  font-size: max(16px, 1.2vw);
+  font-size: max(14px, 1vw);
   font-weight: 700;
   color: #ec6738;
   line-height: 1;
   letter-spacing: 0;
-  margin-bottom: max(12px, 0.8vw);
+  margin-bottom: max(10px, 0.8vw);
   text-transform: uppercase;
 }
 
 .globeTitle {
   font-family: 'Poppins', sans-serif;
-  font-size: max(32px, 2.8vw);
+  font-size: max(24px, 2.2vw);
   font-weight: 700;
   color: #1a202c;
   line-height: 1.2;
-  margin-bottom: max(16px, 1vw);
+  margin-bottom: max(12px, 0.8vw);
 }
 
 .globeSubtitle {
   font-family: 'Poppins', sans-serif;
-  font-size: max(16px, 1.1vw);
+  font-size: max(14px, 0.95vw);
   color: #666;
-  margin-bottom: max(32px, 2vw);
-  max-width: max(420px, 28vw);
+  margin-bottom: max(24px, 1.8vw);
+  line-height: 1.6;
 }
 
 .globeFlagsContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: max(16px, 1.1vw);
-  margin-bottom: max(32px, 2vw);
+  gap: max(12px, 0.9vw);
+  margin-bottom: max(24px, 1.8vw);
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 799px) {
     justify-content: center;
   }
 }
 
 .globeFlag {
-  width: max(72px, 4.8vw);
-  height: max(48px, 3.2vw);
-  border-radius: max(6px, 0.4vw);
+  width: max(56px, 3.8vw);
+  height: max(38px, 2.5vw);
+  border-radius: max(4px, 0.3vw);
   overflow: hidden;
   cursor: pointer;
   border: 1px solid #e2e8f0;
@@ -437,7 +442,7 @@
 
   &.globeFlagActive {
     transform: scale(1.08);
-    box-shadow: 0 0 16px 4px rgba(255, 59, 48, 0.5);
+    box-shadow: 0 0 max(12px, 1vw) max(3px, 0.2vw) rgba(255, 59, 48, 0.5);
     border-color: #ff3b30;
   }
 }
@@ -451,27 +456,27 @@
 
 .globeActiveCountryName {
   font-family: 'Poppins', sans-serif;
-  font-size: max(20px, 1.4vw);
+  font-size: max(16px, 1.2vw);
   font-weight: 700;
   color: #1a202c;
   text-transform: uppercase;
-  margin-bottom: max(8px, 0.5vw);
+  margin-bottom: max(6px, 0.4vw);
 }
 
 .globeActiveCountryAddress {
   font-family: 'Poppins', sans-serif;
-  font-size: max(15px, 1vw);
+  font-size: max(13px, 0.85vw);
   color: #666;
   line-height: 1.6;
-  max-width: max(460px, 30vw);
 }
 
 .globeActiveCountryDetails {
-  min-height: 120px;
+  min-height: max(100px, 7vw);
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 799px) {
     min-height: auto;
     margin-bottom: 8px;
+    text-align: center;
   }
 }
 
