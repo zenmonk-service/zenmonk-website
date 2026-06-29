@@ -25,9 +25,14 @@ const ThreeGlobe = dynamic(() => import('./three-globe'), {
 
 interface ContactUsSectionProps {
   isCareerPage?: boolean
+  showFlagsOnly?: boolean
 }
 
-export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps) => {
+export const ContactUsSection = ({
+  isCareerPage = false,
+  showFlagsOnly = false,
+}: ContactUsSectionProps) => {
+  const showFlags = isCareerPage || showFlagsOnly
   const [formCountry, setFormCountry] = useState(countries[0])
   const formIndexRef = useRef(1)
   const formTimerRef = useRef<NodeJS.Timeout | null>(null)
@@ -136,7 +141,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
             <SectionTitle text="We're Just a" align="left" />
             <SectionTitle text="Message Away" highlightedText="Message" />
 
-            {isCareerPage && (
+            {showFlags && (
               <div className={styles.globeFlagsContainer} style={{ marginTop: '20px', marginBottom: '20px' }}>
                 {countries.map((c, index) => {
                   const isActive = c.name === formCountry.name
@@ -225,7 +230,7 @@ export const ContactUsSection = ({ isCareerPage = false }: ContactUsSectionProps
         <Polygon className={styles.polygon} />
       </div>
 
-      {!isCareerPage && (
+      {!showFlags && (
         <section className={styles.globeSection}>
           <div className={styles.globeSectionContainer}>
             <div className={styles.globeLeftContainer}>

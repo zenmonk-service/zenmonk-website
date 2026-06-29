@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import styles from './desktop.module.scss'
 import { standOutList } from '../stand-out'
 
+
 const StandOutSectionDesktop = () => {
   const textMotion = {
     rest: {
@@ -94,8 +95,6 @@ const StandOutSectionDesktop = () => {
                     },
                     hover: {
                       fill: '#FFF',
-                      scale: option.scale,
-                      x: '-6vw',
                       filter:
                         'drop-shadow(0 0.208vw 2.13vw rgba(0, 0, 0, 0.25))',
                       transition: { duration: 0.5, ease: 'easeInOut' },

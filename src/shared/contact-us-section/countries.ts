@@ -3,6 +3,10 @@ import Spain from "./assets/countries/spain.svg?url";
 import Equador from "./assets/countries/ecuador.svg?url";
 import Brazil from "./assets/countries/brazil.svg?url";
 import Peru from "./assets/countries/peru.svg?url";
+import USA from "./assets/countries/usa.svg?url";
+import Mexico from "./assets/countries/mexico.svg?url";
+import Argentina from "./assets/countries/argentina.svg?url";
+import Colombia from "./assets/countries/colombia.svg?url";
 
 export const countries = [
   {
@@ -29,7 +33,7 @@ export const countries = [
     description: 'C. Isabel Torres, 21, 39011. Santander, Cantabria, Spain',
     isActive: false,
     icon: Spain,
-    idx: 2,
+    idx: 1,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
@@ -44,7 +48,7 @@ export const countries = [
     description: 'R. Vento Sul, 126 - Campeche Leste, Florianópolis, Brazil',
     isActive: false,
     icon: Brazil,
-    idx: 3,
+    idx: 2,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
@@ -60,7 +64,7 @@ export const countries = [
     description: 'Geronimo y Miguel H. Alcivar, 090512. Guayaquil, Ecuador',
     isActive: false,
     icon: Equador,
-    idx: 4,
+    idx: 3,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
@@ -75,7 +79,67 @@ export const countries = [
     description: 'Jr. Chimucápac 163, Santiago de Surco 15038, Peru',
     isActive: false,
     icon: Peru,
+    idx: 4,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+    },
+  },
+
+  {
+    markerOffset: -15,
+    name: 'USA',
+    coordinates: [37.0902, -95.7129],
+    title: 'USA',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    icon: USA,
     idx: 5,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+    },
+  },
+
+  {
+    markerOffset: -15,
+    name: 'Mexico',
+    coordinates: [23.6345, -102.5528],
+    title: 'Mexico',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    icon: Mexico,
+    idx: 6,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+    },
+  },
+
+  {
+    markerOffset: -15,
+    name: 'Argentina',
+    coordinates: [-38.4161, -63.6167],
+    title: 'Argentina',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    icon: Argentina,
+    idx: 7,
+    office: {
+      email: 'admin@zenmonk.tech',
+      phone: '+91 9012345678',
+    },
+  },
+
+  {
+    markerOffset: -15,
+    name: 'Colombia',
+    coordinates: [4.711, -74.0721],
+    title: 'Colombia',
+    description: 'Cl. 40 #26a8, Bogotá, Colombia',
+    isActive: false,
+    icon: Colombia,
+    idx: 8,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
