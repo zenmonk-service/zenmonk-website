@@ -20,7 +20,7 @@ const UiUxDesignPage = () => {
       <BusinessSectors />
       <DevelopmentProcess />
       <FAQ />
-      <ContactUsSection />
+      <ContactUsSection showFlagsOnly />
     </div>
   )
 }

@@ -98,11 +98,7 @@ const FAQ = () => {
 
                 <div
                   onClick={() => toggleAnswer(index)}
-                  style={{
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
+                  className={styles.toggleIconContainer}
                 >
                   {isOpen ? (
                     <MINUS className={styles.toggleIcon} />

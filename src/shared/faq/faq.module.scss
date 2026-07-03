@@ -80,6 +80,8 @@
     font-weight: 400;
     margin-bottom: 0.41666666666vw;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Remove default browser blue tap highlight */
+    outline: none;
   }
 
   .answer {
@@ -93,7 +95,7 @@
   @media (max-width: 780px) {
     padding-left: 16px;
     padding-right: 16px;
-
+ 
     .images {
       display: none;
     }
@@ -111,10 +113,25 @@
   }
 }
 
+.toggleIconContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.3vw; // Align vertically with the first line of the question text
+  -webkit-tap-highlight-color: transparent; /* Remove default browser blue tap highlight */
+  outline: none;
+  
+  @media (max-width: 780px) {
+    padding-top: 4px; // Adjust alignment for mobile padding/fonts
+  }
+}
+
 .toggleIcon {
   width: max(34px, 1.823vw);
   height: max(34px, 1.823vw);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Remove default browser blue tap highlight */
+  outline: none;
 }
 
 @media (min-width: 600px) and (max-width: 1000px) {

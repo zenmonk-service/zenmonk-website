@@ -186,10 +186,6 @@ export const ContactUsSection = ({
               >
                 <SectionDescription
                   text={formCountry.description}
-                  style={{
-                    minHeight: 'max(3.125vw, 60px)',
-                    maxHeight: 'max(3.125vw, 60px)',
-                  }}
                   className={styles.selectedCountryDescription}
                 />
 
