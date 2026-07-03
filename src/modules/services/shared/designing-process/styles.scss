@@ -2,6 +2,16 @@
   @return ($px / 1920) * 100vw;
 }
 
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float-gentle {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(12px, -12px); }
+}
+
 .designing-process-container {
   width: 100%;
   background: #fff;
@@ -24,13 +34,28 @@
 
     .bg-icon {
       position: absolute;
-      opacity: 0.2;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
       width: var(--size);
       height: var(--size);
       top: var(--top);
       bottom: var(--bottom);
       left: var(--left);
       right: var(--right);
+
+      &.bg-icon-gear {
+        svg {
+          animation: spin-slow 40s linear infinite;
+        }
+      }
+
+      &.bg-icon-arrow {
+        svg {
+          animation: float-gentle 6s ease-in-out infinite alternate;
+        }
+      }
 
       @media (max-width: 768px) {
         width: var(--m-size, var(--size));
@@ -39,7 +64,44 @@
         bottom: var(--m-bottom, var(--bottom));
         left: var(--m-left, var(--left));
         right: var(--m-right, var(--right));
-        scale: 1.2;
+      }
+    }
+  }
+
+  // Animation active styles
+  &.is-visible {
+    .designing-process-title {
+      opacity: 1;
+      transform: translateY(0);
+
+      .gradient-text {
+        span {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+    }
+
+    .bg-decorations {
+      .bg-icon {
+        opacity: 0.2;
+        transform: scale(1);
+
+        @media (max-width: 768px) {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .designing-process-map {
+      .process-step {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .arrow-connector {
+        opacity: 1;
+        transform: scale(1);
       }
     }
   }
@@ -54,6 +116,10 @@
     line-height: normal;
     position: relative;
     z-index: 1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 
     .gradient-text {
       text-align: center;
@@ -63,6 +129,14 @@
       line-height: normal;
       margin-top: vw(-10);
       margin-bottom: vw(-20);
+
+      span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px) scale(0.6);
+        transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
     }
   }
 
@@ -73,7 +147,7 @@
     flex-wrap: wrap;
     width: 100%;
     padding: vw(16) 0;
-    padding-bottom: vw(450); // Account for the staggered positioning of steps
+    padding-bottom: vw(220); // Account for the standardized staggered positioning of steps
     position: relative;
     z-index: 1;
 
@@ -84,8 +158,12 @@
       gap: vw(16);
       flex: 0 0 auto;
       position: relative;
+      opacity: 0;
+      transform: translateY(50px) scale(0.92);
+      transition: opacity 1.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-      // Staggered positioning - each step lower than previous
+      // Staggered positioning - each step lower than previous by equal 50px (vw) increments
       &:nth-child(1) {
         top: 0;
       }
@@ -95,15 +173,15 @@
       }
 
       &:nth-child(7) {
-        top: vw(150);
+        top: vw(100);
       }
 
       &:nth-child(10) {
-        top: vw(250);
+        top: vw(150);
       }
 
       &:nth-child(13) {
-        top: vw(400);
+        top: vw(200);
       }
 
       .step-illustration {
@@ -113,6 +191,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 
         .illustration-placeholder {
           width: 100%;
@@ -140,6 +219,12 @@
         }
       }
 
+      &:hover {
+        .step-illustration {
+          transform: translateY(-8px) scale(1.04);
+        }
+      }
+
       .step-label {
         padding: vw(12) vw(32);
         border-radius: vw(8);
@@ -160,6 +245,10 @@
       justify-content: center;
       overflow: visible;
       position: relative;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 1.0s cubic-bezier(0.25, 1, 0.5, 1),
+                  transform 1.0s cubic-bezier(0.25, 1, 0.5, 1);
 
       // Desktop horizontal arrow
       &-desktop {
@@ -173,15 +262,15 @@
         }
 
         &:nth-child(5) {
-          top: vw(100); // Between step 2 (50px) and step 3 (150px)
+          top: vw(75); // Between step 2 (50px) and step 3 (100px)
         }
 
         &:nth-child(8) {
-          top: vw(200); // Between step 3 (150px) and step 4 (250px)
+          top: vw(125); // Between step 3 (100px) and step 4 (150px)
         }
 
         &:nth-child(11) {
-          top: vw(325); // Between step 4 (250px) and step 5 (400px)
+          top: vw(175); // Between step 4 (150px) and step 5 (200px)
         }
 
         svg {

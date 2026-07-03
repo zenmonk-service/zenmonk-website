@@ -8,40 +8,65 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  justify-content: space-between;
+  justify-content: center; /* Center the text content */
+  position: relative; /* Context for absolute hands */
   overflow: hidden;
   margin-top: 5rem;
   margin-bottom: 5rem;
+  min-height: 50vw; /* Increased from 46vw to accommodate shifted hands */
 }
 
 /* ================= HANDS ================= */
 
 .hand-fixed {
-  width: 26.85vw;
-  height: 42.58vw;
+  width: 24vw; /* Increased from 22vw */
+  height: 39.3vw; /* Maintained 0.61 aspect ratio */
   flex-shrink: 0;
+  position: absolute;
+  bottom: 6vw; /* Shifted higher up to show more wrist */
 
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 
-  position: relative;
+  .hand-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &.left {
+    left: 3vw; /* Move inward from left screen border to show wrist */
+    margin-left: 0;
+  }
+
+  &.right {
+    right: 3vw; /* Move inward from right screen border to show wrist */
+    margin-right: 0;
+    .hand-svg {
+      transform: scaleX(-1);
+    }
+  }
 }
 
 /* ================= CONTENT ================= */
 
 .creative-ideas-content {
-  width: 29.25vw;
+  width: 48vw; /* Increased from 42vw to expand text layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
 }
 
 .creative-ideas-content p {
   margin: 0;
   font-family: 'Rubik Doodle Shadow', sans-serif;
-  font-size: max(29.215px, 4.5vw);
-  line-height: 1.05;
+  font-size: max(24px, 3.6vw); /* Increased from 2.8vw */
+  line-height: 1.15;
   color: #3c3c3c;
-  margin-left: -5.04vw;
-
+  text-align: center;
 }
 
 .orange {
@@ -49,8 +74,9 @@
 }
 
 .wow {
-  font-size: 15vw !important;
+  font-size: max(70px, 11vw) !important; /* Increased from 8.5vw to look prominent and bold */
   color: #f9a91a !important;
+  text-align: center;
 }
 
 /* ================= SUBTITLE ================= */
@@ -76,6 +102,7 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     gap: 24px;
+    min-height: unset;
   }
 
   .creative-ideas-content {
@@ -98,8 +125,10 @@
   }
 
   .hand-fixed {
+    position: relative; /* Restore flow positioning for mobile */
     width: 200px;
     height: 300px;
+    align-self: center;
   }
 
   .hand-fixed.left {

@@ -1,3 +1,5 @@
+'use client'
+
 import { StaticImageData } from 'next/image'
 import Research from './assets/research.png'
 import Sketch from './assets/sketch.png'
@@ -5,6 +7,7 @@ import Create from './assets/create.png'
 import Test from './assets/test.png'
 import Develop from './assets/develop.png'
 import { Fragment } from 'react'
+import { useInView } from 'react-intersection-observer'
 import "./styles.scss"
 
 // Types
@@ -190,6 +193,11 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
   showConnectors = true,
   className = "",
 }) => {
+  const { ref: containerRef, inView: isAnimated } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  });
+
   const renderHighlightedText = () => {
     if (typeof titleHighlightedText === 'string') {
       return <span className="gradient-text">{titleHighlightedText}</span>;
@@ -197,7 +205,13 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
       return (
         <span className="gradient-text">
           {titleHighlightedText?.map((item, index) => (
-            <span key={index} style={{ color: item.color }}>
+            <span
+              key={index}
+              style={{
+                color: item.color,
+                transitionDelay: `${0.2 + index * 0.05}s`,
+              } as React.CSSProperties}
+            >
               {item.char}
             </span>
           ))}
@@ -209,13 +223,16 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
   const pxToVw = (px: number) => `${(px / 1920) * 100}vw`;
 
   return (
-    <div className={`designing-process-container ${className}`}>
+    <div
+      ref={containerRef}
+      className={`designing-process-container ${isAnimated ? 'is-visible' : ''} ${className}`}
+    >
       {backgroundDecorations.length > 0 && (
         <div className="bg-decorations">
           {backgroundDecorations.map((decoration, index) => (
             <div
               key={index}
-              className="bg-icon"
+              className={`bg-icon bg-icon-${decoration.type}`}
               style={{
                 "--size": pxToVw(decoration.size),
                 "--top": decoration.top,
@@ -257,7 +274,12 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
       <div className="designing-process-map">
         {steps?.map((step, index) => (
           <Fragment key={step.id}>
-            <div className="process-step">
+            <div
+              className="process-step"
+              style={{
+                transitionDelay: `${0.2 + index * 0.5}s`,
+              } as React.CSSProperties}
+            >
               <div className="step-illustration">
                 <img src={step.image.src} alt={step.title} className="step-image" />
               </div>
@@ -265,10 +287,20 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
 
             {showConnectors && index < steps.length - 1 && (
               <>
-                <div className="arrow-connector arrow-connector-desktop">
+                <div
+                  className="arrow-connector arrow-connector-desktop"
+                  style={{
+                    transitionDelay: `${0.2 + (index + 0.5) * 0.5}s`,
+                  } as React.CSSProperties}
+                >
                   <HorizontalArrowConnector index={index} />
                 </div>
-                <div className="arrow-connector arrow-connector-mobile">
+                <div
+                  className="arrow-connector arrow-connector-mobile"
+                  style={{
+                    transitionDelay: `${0.2 + (index + 0.5) * 0.5}s`,
+                  } as React.CSSProperties}
+                >
                   <VerticalArrowConnector
                     startColor={step.color}
                     endColor={steps[index + 1].color}

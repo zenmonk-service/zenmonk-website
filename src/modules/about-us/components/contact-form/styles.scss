@@ -49,26 +49,23 @@
     gap: max(12px, 1vw);
 
     .form-control {
-      .first-name-input,
-      .last-name-input {
-        border: max(1px, 0.052vw) solid #d5d5d5;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: max(6px, 0.4vw);
-        flex-shrink: 0;
-        height: max(44px, 2.8vw);
-      }
+      flex: 1;
     }
   }
 
   .form-control {
+    .first-name-input,
+    .last-name-input,
     .phone-number-input,
     .email-input {
       border: max(1px, 0.052vw) solid #d5d5d5;
       width: 100%;
-      height: max(44px, 2.8vw);
+      height: max(44px, 2.8vw) !important;
+
+      input {
+        height: 100% !important;
+        padding: 0 !important;
+      }
     }
 
     .message {
@@ -141,20 +138,22 @@
       gap: 12px;
 
       .form-control {
-        .first-name-input,
-        .last-name-input {
-          border: 1px solid #d5d5d5;
-          height: 46px;
-          gap: 8px;
-        }
+        flex: 1;
       }
     }
 
     .form-control {
+      .first-name-input,
+      .last-name-input,
       .phone-number-input,
       .email-input {
         border: 1px solid #d5d5d5;
-        height: 46px;
+        height: 46px !important;
+
+        input {
+          height: 100% !important;
+          padding: 0 !important;
+        }
       }
 
       .message {

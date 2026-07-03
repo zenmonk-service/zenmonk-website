@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
-import LeftImage from '@/modules/services/modules/ui-ux/creative-ideas/assets/left.png'
-import RightImage from '@/modules/services/modules/ui-ux/creative-ideas/assets/right.png'
+import LeftImage from '@/modules/services/modules/ui-ux/creative-ideas/assets/left-side.svg'
+import RightImage from '@/modules/services/modules/ui-ux/creative-ideas/assets/right-side.svg'
 import './styles.scss'
 
 const CreativeIdeas = () => {
@@ -9,12 +8,7 @@ const CreativeIdeas = () => {
     <Box className="creative-ideas">
       {/* LEFT HAND */}
       <Box className="hand-fixed left">
-        <Image
-          src={LeftImage}
-          alt="Left hand"
-          fill
-          priority
-        />
+        <LeftImage className="hand-svg" />
       </Box>
 
       {/* CONTENT */}
@@ -33,12 +27,7 @@ const CreativeIdeas = () => {
 
       {/* RIGHT HAND */}
       <Box className="hand-fixed right">
-        <Image
-          src={RightImage}
-          alt="Right hand"
-          fill
-          priority
-        />
+        <RightImage className="hand-svg" />
       </Box>
     </Box>
   )
