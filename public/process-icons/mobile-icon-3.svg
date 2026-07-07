@@ -1,0 +1,27 @@
+<svg width="100%" height="100%" viewBox="0 0 118 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M70.4609 2.21411C48.4999 2.21413 30.4308 18.8713 28.1953 40.2405L-3.32437e-06 40.2405L-4.00881e-06 48.0696L28.0928 48.0696C29.8036 69.9731 48.1182 87.2141 70.4609 87.2141C93.933 87.2141 112.961 68.1862 112.961 44.7141C112.961 21.242 93.933 2.21411 70.4609 2.21411Z" fill="url(#paint0_linear_144_4608)"/>
+<g filter="url(#filter0_d_144_4608)">
+<ellipse cx="35.2302" cy="35.2303" rx="35.2302" ry="35.2303" transform="matrix(-1 -8.74228e-08 -8.74228e-08 1 105.41 9.76343)" fill="white"/>
+</g>
+<path d="M93.2859 61.3571L83.7799 52.3208C83.7799 52.3208 83.5382 52.5651 83.216 52.9721L76.9324 47.0293C78.2213 45.157 79.1075 42.959 79.3491 40.5167C80.1547 32.9458 74.6767 26.1076 67.1041 25.2935C59.6121 24.4795 52.8451 30.0152 52.0395 37.6675C51.2339 45.2384 56.712 52.0766 64.2845 52.8907C68.4736 53.2977 72.5016 51.751 75.3212 48.9831L81.4437 54.8445C81.0409 55.3329 80.7186 55.6585 80.7186 55.5771L90.2246 64.6134C91.1108 65.4274 92.5609 65.4274 93.3665 64.532C94.172 63.6365 94.172 62.1711 93.2859 61.3571ZM64.6068 49.3902C59.0482 48.8203 54.9397 43.6916 55.5036 38.0745C56.0675 32.4574 61.1427 28.3056 66.7013 28.8755C72.2599 29.4453 76.3685 34.574 75.8045 40.1911C75.2406 45.8082 70.1654 49.96 64.6068 49.3902Z" fill="url(#paint1_linear_144_4608)"/>
+<defs>
+<filter id="filter0_d_144_4608" x="22.9289" y="5.53131e-05" width="94.502" height="94.5022" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2.25743"/>
+<feGaussianBlur stdDeviation="6.0104"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.62 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_144_4608"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_144_4608" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_144_4608" x1="62.7513" y1="2.16911" x2="56.3768" y2="87.0415" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8031"/>
+<stop offset="1" stop-color="#FF5D34"/>
+</linearGradient>
+<linearGradient id="paint1_linear_144_4608" x1="51.1765" y1="42.8335" x2="95.3315" y2="47.426" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF8031"/>
+<stop offset="1" stop-color="#FF5D34"/>
+</linearGradient>
+</defs>
+</svg>
