@@ -13,7 +13,8 @@ $offset: calc(#{$r} + #{$gap});
 
   &__desktop {
     position: relative;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
   }
 
   &__bg {
@@ -34,7 +35,7 @@ $offset: calc(#{$r} + #{$gap});
 
   &__text {
     position: absolute;
-    width: clamp(180px, 20vw, 300px);
+    width: max(220px, 24vw);
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -52,14 +53,14 @@ $offset: calc(#{$r} + #{$gap});
   &__title {
     font-family: var(--font-primary, 'Outfit', sans-serif);
     font-weight: 700;
-    font-size: clamp(20px, 1.5vw, 26px);
-    margin: 0 0 clamp(3px, 0.35vw, 6px) 0;
+    font-size: max(20px, 1.5vw);
+    margin: 0 0 max(3px, 0.35vw) 0;
     line-height: 1.35;
   }
 
   &__desc {
     color: #6b7280;
-    font-size: clamp(14px, 1.05vw, 18px);
+    font-size: max(14px, 1.05vw);
     line-height: 1.55;
     margin: 0;
   }
@@ -77,7 +78,7 @@ $offset: calc(#{$r} + #{$gap});
 
 @media (max-width: 1000px) {
   .dev-process-it {
-    padding: 0 1.25rem;
+    padding: 0;
     margin-top: 2rem;
     margin-bottom: 2rem;
 
@@ -124,6 +125,14 @@ $offset: calc(#{$r} + #{$gap});
 
     &__desc {
       font-size: clamp(12px, 3.5vw, 15px) !important;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .dev-process-it {
+    &__mobile-icon {
+      width: clamp(140px, 18vw, 180px);
     }
   }
 }
