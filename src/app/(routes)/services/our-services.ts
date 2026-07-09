@@ -318,7 +318,7 @@ export const OurServices = [
   },
   {
     id: 'it-and-business-consultation',
-    route: '/it-business-consultation',
+    route: '/it-&-business-consultation',
     name: 'IT & Business Consultations',
     description:
       'Need expert guidance? We partner with you to improve your software architecture and craft a tech-focused roadmap. From strategy to execution, our consultants ensure seamless digital transformation.',
@@ -369,7 +369,7 @@ export const OurServices = [
   },
   {
     id: 'growth-and-marketing',
-    route: '/growth-and-marketing',
+    route: '/growth-&-marketing',
     name: 'Growth & Marketing',
     description:
       "Need to boost your online presence? We craft strategies to enhance your visibility and reputation, from SEO to Social Media Optimization. Let us amplify your business's digital footprint.",
@@ -420,7 +420,7 @@ export const OurServices = [
   },
   {
     id: 'industries-specific-solution',
-    route: '/industries-specific-solution',
+    route: '/industry-specific-solutions',
     name: 'Industry-Specific Solutions',
     description:
       'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',

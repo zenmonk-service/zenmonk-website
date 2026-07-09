@@ -10,6 +10,11 @@
 
 .backgroundWrapper {
   position: relative;
+  padding-top: 6vw;
+
+  @media screen and (max-width: 600px) {
+    padding-top: 80px;
+  }
 }
 
 .backgroundLine{

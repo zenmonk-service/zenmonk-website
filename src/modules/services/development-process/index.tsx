@@ -26,7 +26,7 @@ const DevelopmentProcess = () => {
         return <SoftwareDevelopmentProcess />
       case 'growth-&-marketing':
         return <DevelopmentProcessWave />
-      case 'mobile-app-development':
+      case 'custom-app-development':
         return isMobile ? <SoftwareDevelopmentProcess /> : <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
         return <DevelopmentProcessExpertIt />

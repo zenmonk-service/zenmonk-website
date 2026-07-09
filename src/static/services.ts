@@ -360,7 +360,7 @@ export const services = [
   },
   {
     id: 'it-and-business-consultation',
-    route: '/it-business-consultation',
+    route: '/it-&-business-consultation',
     name: 'IT & Business Consultations',
     icon: DisplayIcons.ConsultingServices,
     styles: {
@@ -419,7 +419,7 @@ export const services = [
   },
   {
     id: 'growth-and-marketing',
-    route: '/growth-and-marketing',
+    route: '/growth-&-marketing',
     name: 'Growth & Marketing',
     icon: DisplayIcons.GrowthAndMarketing,
     styles: {
@@ -477,7 +477,7 @@ export const services = [
   },
   {
     id: 'industries-specific-solution',
-    route: '/industries-specific-solution',
+    route: '/industry-specific-solutions',
     name: 'Industry-Specific Solutions',
     icon: DisplayIcons.IndustrySpecific,
     styles: {

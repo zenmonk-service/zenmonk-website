@@ -1,3 +1,7 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Grid from '@mui/material/Grid2'
 import { OurServices } from '@/app/(routes)/services/our-services'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
@@ -12,27 +16,91 @@ const cardStyles = [
   { background: '#F8F2FF', fill: '#B47BFF' },
 ]
 
+// Custom variant that dynamically positions each card at the center of the grid.
+// Percentage transforms are relative to each card's own size, making this responsive.
+const cardVariants = {
+  hidden: (i: number) => {
+    // Determine row and column offsets to place the cards at the center of the grid.
+    // Row 0 is indices 0, 1, 2; Row 1 is indices 3, 4, 5.
+    let xOffset = '0%'
+    let yOffset = '0%'
+
+    // X Offset (horizontal center)
+    if (i % 3 === 0) {
+      xOffset = '110%' // Left card moves right to center
+    } else if (i % 3 === 2) {
+      xOffset = '-110%' // Right card moves left to center
+    }
+
+    // Y Offset (vertical center)
+    if (i < 3) {
+      yOffset = '60%' // Top row moves down to center
+    } else {
+      yOffset = '-60%' // Bottom row moves up to center
+    }
+
+    return {
+      opacity: 0,
+      scale: 0.2,
+      x: xOffset,
+      y: yOffset,
+    }
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    x: '0%',
+    y: '0%',
+    transition: {
+      delay: i * 0.15, // Smooth staggered start
+      duration: 1.1,  // Slow and elegant unfolding speed
+      ease: [0.16, 1, 0.3, 1], // Custom smooth ease-out curve
+    },
+  }),
+}
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+}
+
 const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
   const serviceData = OurServices.find((service) => service.id === id)
+
+  const ref = useRef<HTMLDivElement>(null)
+  // Animation starts immediately when the section enters 10% of the viewport.
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   if (!serviceData) {
     return null
   }
 
   const { services } = serviceData
+
   return (
-    <div className={styles.wrapper} id={id}>
+    <div className={styles.wrapper} id={id} ref={ref}>
       <div className={styles.container}>
-        <SectionTitle
-          text="Future-Ready IT Solutions for Your Business Growth"
-          markText="Growth"
-        />
-        <SectionDescription
-          className={styles.subtitle}
-          text="Empower your business with cutting-edge IT solutions that drive
-          innovation, efficiency, and scalability. Our team delivers tailored
-          strategies and state-of-the-art technology to enhance your operations."
-        />
+        <motion.div
+          variants={headerVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
+          <SectionTitle
+            text="Future-Ready IT Solutions for Your Business Growth"
+            markText="Growth"
+          />
+          <SectionDescription
+            className={styles.subtitle}
+            text="Empower your business with cutting-edge IT solutions that drive
+            innovation, efficiency, and scalability. Our team delivers tailored
+            strategies and state-of-the-art technology to enhance your operations."
+          />
+        </motion.div>
+
         <Grid
           container
           rowSpacing={{ xs: '14px', sm: '28px', md: '2vw' }}
@@ -41,10 +109,21 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
           sx={{ justifyContent: 'center' }}
         >
           {services.map((service, index) => {
-            const { background, fill } = cardStyles[index]
+            const { background, fill } = cardStyles[index % cardStyles.length]
             return (
-              <Grid key={service.id} >
-                <div className={styles.card}>
+              <Grid key={service.id}>
+                <motion.div
+                  className={styles.card}
+                  custom={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  style={{
+                    height: '100%',
+                    transformOrigin: 'center center',
+                    willChange: 'transform, opacity',
+                  }}
+                >
                   <div
                     style={{ backgroundColor: background }}
                     className={styles.left}
@@ -56,7 +135,7 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
                     <p className={styles.title}>{service.title}</p>
                     <p className={styles.description}>{service.description}</p>
                   </div>
-                </div>
+                </motion.div>
               </Grid>
             )
           })}

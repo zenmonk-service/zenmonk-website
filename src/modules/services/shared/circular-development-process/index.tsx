@@ -1,6 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Email from './assets/email.svg'
 import BulbIcon from './assets/bulb.svg'
 import GearBig from './assets/gears.svg'
@@ -56,6 +57,62 @@ const defaultSteps: ProcessStep[] = [
   },
 ]
 
+// Smooth book-opening/unfolding from left-to-right variants.
+// Started from scale: 0 so no thin vertical lines render before unfolding.
+const stepVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0, // Completely collapsed to avoid any glitchy line rendering
+    rotateY: -80,
+    x: -25,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    rotateY: 0,
+    x: 0,
+    transition: {
+      delay: i * 0.45, // Faster, snappy stagger
+      duration: 0.65,  // Fast yet smooth unfolding transition
+      ease: [0.25, 1, 0.5, 1], // Clean easeOutQuart curve
+    },
+  }),
+}
+
+// Connector line variant - scales in direction of flow
+const connectorVariants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    scaleY: 0,
+    rotate: (i === 1 || i === 3) ? 180 : 0,
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    scaleY: 1,
+    rotate: (i === 1 || i === 3) ? 180 : 0,
+    transition: {
+      delay: i * 0.45 + 0.25, // Starts growing mid-way through card unfold
+      duration: 0.35,
+      ease: 'easeOut',
+    },
+  }),
+}
+
+// Mobile list entrance
+const mobileStepVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.55,
+      ease: 'easeOut',
+    },
+  }),
+}
+
 const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
   steps = defaultSteps,
   title = "Our Development Process",
@@ -64,6 +121,9 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
 }) => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(0);
   const [isManualHover, setIsManualHover] = React.useState(false);
+
+  const containerRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(containerRef, { once: true, amount: 0.15 })
 
   React.useEffect(() => {
     if (isManualHover) return;
@@ -76,7 +136,7 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
   }, [isManualHover, steps.length]);
 
   return (
-    <section className="circular-process-section">
+    <section className="circular-process-section" ref={containerRef}>
       <div className="process-wrapper">
         <div className="svg-container">
           <svg width="100%" height="100%" viewBox="0 0 1488 614" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +173,6 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
             <path d="M1316.16 423.463H1312.09V515.523H1316.16V423.463Z" fill="#FF6206" />
             <path d="M1314.13 525.705C1320.05 525.705 1324.85 520.906 1324.85 514.985C1324.85 509.065 1320.05 504.265 1314.13 504.265C1308.21 504.265 1303.41 509.065 1303.41 514.985C1303.41 520.906 1308.21 525.705 1314.13 525.705Z" fill="#FF6206" />
           </svg>
-
         </div>
 
         {/* Content Overlays */}
@@ -121,16 +180,29 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
           const isDown = index === 1 || index === 3;
           const isActive = hoveredIndex === index;
 
+          // Determine transformOrigin for connector:
+          // Even indexes connect top->bottom (origin top), odd connect bottom->top (origin bottom)
+          const connectorOrigin = index % 2 === 0 ? 'top center' : 'bottom center'
+
           return (
             <React.Fragment key={index}>
-              <div
+              <motion.div
                 className={`overlay-step step-${index + 1} ${isActive ? 'active' : ''} ${step.className || ''}`}
+                custom={index}
+                variants={stepVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
                 onMouseEnter={() => {
                   setHoveredIndex(index)
                   setIsManualHover(true)
                 }}
                 onMouseLeave={() => {
                   setIsManualHover(false)
+                }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  // Ensure unfold hinge is at the left edge
+                  transformOrigin: 'left center',
                 }}
               >
                 <div className="icon-badge">
@@ -141,16 +213,23 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Connector lines - show for all steps */}
               {index < 5 && (
-                <div className={`step-connector connector-${index + 1} ${isActive || hoveredIndex === index + 1 ? 'active' : ''}`}>
+                <motion.div
+                  className={`step-connector connector-${index + 1} ${isActive || hoveredIndex === index + 1 ? 'active' : ''}`}
+                  custom={index}
+                  variants={connectorVariants}
+                  initial="hidden"
+                  animate={isInView ? 'visible' : 'hidden'}
+                  style={{ transformOrigin: connectorOrigin }}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="103" viewBox="0 0 22 103" fill="none">
                     <path d="M12.7525 0H8.67969V92.06H12.7525V0Z" fill="currentColor" />
                     <path d="M0 91.5221C0 97.4391 4.8028 102.242 10.7199 102.242C16.6369 102.242 21.4397 97.4391 21.4397 91.5221C21.4397 85.605 16.6369 80.8022 10.7199 80.8022C4.8028 80.8022 0 85.605 0 91.5221Z" fill="currentColor" />
                   </svg>
-                </div>
+                </motion.div>
               )}
             </React.Fragment>
           )
@@ -160,9 +239,13 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
       {/* Mobile Version */}
       <div className="custom-mobile-flow">
         {steps.map((step, index) => (
-          <div
+          <motion.div
             key={index}
             className={`mobile-step step-${index + 1} ${step.className || ''}`}
+            custom={index}
+            variants={mobileStepVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
           >
             <div className="mobile-icon-wrapper">
               <svg
@@ -194,7 +277,6 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
                 </defs>
                 <path
                   fill={`url(#mobile_grad_${index % 5})`}
-                  // Using a simpler path for a flat-topped hexagon with rounded corners
                   d="M22.5 5.5 C 25 1.5 29 1 33 1 L 67 1 C 71 1 75 1.5 77.5 5.5 L 97 43 C 99 47 99 53 97 57 L 77.5 94.5 C 75 98.5 71 99 67 99 L 33 99 C 29 99 25 98.5 22.5 94.5 L 3 57 C 1 53 1 47 3 43 Z"
                 />
               </svg>
@@ -206,7 +288,7 @@ const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
               <h3 style={{ color: step.color }}>{step.title}</h3>
               <p>{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
