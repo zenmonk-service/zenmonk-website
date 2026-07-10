@@ -10,16 +10,17 @@
 
 .backgroundWrapper {
   position: relative;
-  padding-top: 6vw;
+  padding-top: 2vw;
 
   @media screen and (max-width: 600px) {
-    padding-top: 80px;
+    padding-top: 40px;
   }
 }
 
 .backgroundLine{
   position: absolute;
-  left: 1.825%;
+  left: -1.825%;
+  top: 0.2vw;
   z-index: -1;
 }
 
@@ -69,6 +70,10 @@
 @media screen and (max-width: 600px) {
   .backgroundWrapper {
     background-image: url('/about-us/mobile-dotted-bg.png');
+  }
+
+  .backgroundLine {
+    top: -120px;
   }
 
   .container {
