@@ -19,7 +19,8 @@ const AiSolutionsHeroSection = () => {
         imageStyle={{
           margin: '0 auto',
           display: 'block',
-          scale: isMobile ? 1 : 1,
+          maxWidth: isMobile ? '100%' : '72%',
+          width: isMobile ? '100%' : '72%',
         }}
       />
       <Rating />

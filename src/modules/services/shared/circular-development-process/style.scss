@@ -189,11 +189,11 @@
         }
 
         &.box-up {
-          bottom: calc(100% + max(160px, 12vw));
+          bottom: calc(100% + max(120px, 9vw));
         }
 
         &.box-down {
-          top: calc(100% + max(175px, 13.5vw));
+          top: calc(100% + max(120px, 9vw));
         }
       }
     }
