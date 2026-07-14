@@ -49,7 +49,7 @@ const DevelopmentProcess = () => {
 
   return (
     <div
-      className="development-process-container"
+      className={`development-process-container ${serviceRoute === 'software-development' ? 'software-dev-process' : ''}`}
       style={{
         marginTop: 'max(80px, 6.2vw)',
       }}
@@ -59,7 +59,7 @@ const DevelopmentProcess = () => {
           <SectionTitle text="Our development Process" markText="Process" />
           <SectionDescription
             text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
-            className="development-process-description"
+            className={`development-process-description ${serviceRoute === 'software-development' ? 'software-dev-desc' : ''}`}
           />
         </>
       )}
@@ -67,7 +67,7 @@ const DevelopmentProcess = () => {
         style={{
           display: 'grid',
           placeItems: 'center',
-          marginTop:"max(24px, 2.125vw)",
+          marginTop: serviceRoute === 'software-development' ? '0px' : 'max(24px, 2.125vw)',
         }}
       >
         {renderAsset()}

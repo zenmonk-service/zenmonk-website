@@ -1,12 +1,18 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormControl, FormHelperText } from '@mui/material'
+import {
+  Message,
+  Mobile,
+  PaperPlane,
+  Send,
+} from '@/assets/icons/contact-us/contact'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 import TextField from './textfield'
 import { Title } from './title'
-import { Message, Mobile, PaperPlane, Send } from '@/assets/icons/contact-us/contact'
 
 type ContactFormData = {
   firstName: string
@@ -22,6 +28,32 @@ export const ContactForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ContactFormData>()
+
+  const [phoneTypeError, setPhoneTypeError] = useState(false)
+  const phoneErrorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowDown',
+      'Home',
+      'End',
+    ]
+    if (!allowedKeys.includes(e.key) && !/^[0-9]$/.test(e.key)) {
+      e.preventDefault()
+      setPhoneTypeError(true)
+      if (phoneErrorTimerRef.current) clearTimeout(phoneErrorTimerRef.current)
+      phoneErrorTimerRef.current = setTimeout(
+        () => setPhoneTypeError(false),
+        2000
+      )
+    }
+  }
 
   const onSubmit = (data: ContactFormData) => {
     console.log('Form Data Submitted:', data)
@@ -89,12 +121,19 @@ export const ContactForm = () => {
           className={`phone-number-input ${errors.phone ? 'error-border' : ''}`}
           placeHolder="Phone"
           endAdornment={<Mobile className="end-adornment" />}
+          inputMode="numeric"
+          onKeyDown={handlePhoneKeyDown}
           {...register('phone', {
             required: 'Phone number is required',
             pattern: { value: /^[0-9]+$/, message: 'Invalid phone number' },
           })}
         />
-        {errors.phone && (
+        {phoneTypeError && (
+          <FormHelperText className="error-text" style={{ color: '#d32f2f' }}>
+            Only numbers are allowed.
+          </FormHelperText>
+        )}
+        {!phoneTypeError && errors.phone && (
           <FormHelperText className="error-text">
             {errors.phone.message}
           </FormHelperText>

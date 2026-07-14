@@ -5,6 +5,11 @@
   @media (max-width: 768px) {
     perspective: none;
   }
+
+  // Reduce the bottom gap of the hero section to 40px
+  div[class*="hero-section_section"] {
+    padding-bottom: 40px !important;
+  }
 }
 
 .software-development-hero-container {

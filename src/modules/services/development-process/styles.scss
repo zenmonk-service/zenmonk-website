@@ -6,3 +6,15 @@
   text-align: center;
   font-family: Poppins !important;
 }
+
+.development-process-description.software-dev-desc {
+  padding-bottom: 40px !important;
+}
+
+.software-dev-process + .ready-to-start {
+  margin-top: 40px !important;
+
+  @media (max-width: 1000px) {
+    margin-top: 40px !important;
+  }
+}

@@ -40,6 +40,7 @@ export const ContactUsSection = ({
   const formInactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const startFormTimer = () => {
+    if (!showFlags) return
     if (formTimerRef.current) clearInterval(formTimerRef.current)
 
     formTimerRef.current = setInterval(() => {
@@ -77,7 +78,7 @@ export const ContactUsSection = ({
     }, 5000)
   }
 
-  const globeCountries = countries.slice(0, 6)
+  const globeCountries = countries
   const [globeCountry, setGlobeCountry] = useState(globeCountries[0])
   const [globeTrigger, setGlobeTrigger] = useState(0)
   const globeIndexRef = useRef(1)
