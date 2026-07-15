@@ -11,7 +11,7 @@
     position: relative;
     width: 100%;
     max-width: 90%;
-    height: max(580px, 42vw);
+    height: 42vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,8 +22,8 @@
 
     .overlay-step {
       position: absolute;
-      width: clamp(120px, 11.5vw, 220px);
-      height: clamp(120px, 11.5vw, 220px);
+      width: 11.5vw;
+      height: 11.5vw;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -166,7 +166,7 @@
 
       .content-box {
         position: absolute;
-        width: clamp(160px, 13vw, 250px);
+        width: 13vw;
         left: 50%;
         transform: translate(-50%, 0);
         text-align: center;
@@ -189,11 +189,11 @@
         }
 
         &.box-up {
-          bottom: calc(100% + max(120px, 9vw));
+          bottom: calc(100% + 9vw);
         }
 
         &.box-down {
-          top: calc(100% + max(120px, 9vw));
+          top: calc(100% + 9vw);
         }
       }
     }
@@ -211,34 +211,34 @@
       }
 
       &.connector-1 {
-        left: calc(16% + (Clamp(120px, 11.5vw, 220px) / 2) - 0.575vw);
-        top: calc(25% + Clamp(120px, 11.5vw, 220px) + 3.125vw);
+        left: calc(16% + (11.5vw / 2) - 0.575vw);
+        top: calc(25% + 11.5vw + 3.125vw);
         color: #E91E8C;
       }
 
       &.connector-2 {
-        left: calc(30.5% + (Clamp(120px, 11.5vw, 220px) / 2) - 0.575vw);
+        left: calc(30.5% + (11.5vw / 2) - 0.575vw);
         top: calc(31% - 8.509vw);
         color: #175BDD;
         transform: rotate(180deg);
       }
 
       &.connector-3 {
-        left: calc(45% + (Clamp(120px, 11.5vw, 220px) / 2) - 0.575vw);
-        top: calc(25% + Clamp(120px, 11.5vw, 220px) + 3.125vw);
+        left: calc(45% + (11.5vw / 2) - 0.575vw);
+        top: calc(25% + 11.5vw + 3.125vw);
         color: #FF9021;
       }
 
       &.connector-4 {
-        left: calc(60% + (Clamp(120px, 11.5vw, 220px) / 2) - 0.575vw);
+        left: calc(60% + (11.5vw / 2) - 0.575vw);
         top: calc(31% - 8.509vw);
         color: #00A86B;
         transform: rotate(180deg);
       }
 
       &.connector-5 {
-        left: calc(75% + (Clamp(120px, 11.5vw, 220px) / 2) - 0.575vw);
-        top: calc(25% + Clamp(120px, 11.5vw, 220px) + 3.125vw);
+        left: calc(75% + (11.5vw / 2) - 0.575vw);
+        top: calc(25% + 11.5vw + 3.125vw);
         color: #FF6206;
       }
     }

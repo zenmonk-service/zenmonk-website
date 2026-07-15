@@ -2,7 +2,7 @@
 
 import BaseButton from '@/shared/button'
 import Decorator from './assets/decorator.svg'
-import HeroImageUrl from './assets/hero.svg?url'
+import Image from 'next/image'
 import ExperienceCard from './assets/card_experience.svg'
 import SalaryCard from './assets/card_salary.svg'
 import CultureCard from './assets/card_culture.svg'
@@ -28,10 +28,14 @@ const CareerHeroSection = () => {
         </div>
         <div className={styles.imageContainer}>
           <div className={styles.heroWrapper}>
-            <img 
-              src={typeof HeroImageUrl === 'string' ? HeroImageUrl : (HeroImageUrl as any).src} 
+            <Image 
+              src="/careers/hero.svg" 
               className={styles.heroImage} 
               alt="Hero background" 
+              width={907}
+              height={651}
+              priority
+              unoptimized
             />
             <div className={`${styles.cardWrapper} ${styles.cardExperience}`}>
               <ExperienceCard className={styles.cardSvg} />
