@@ -121,7 +121,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             initial="hidden"
             animate="visible"
             style={{ opacity: 0 }}
-            {...safeTitleProps}
+            {...(safeTitleProps as any)}
           >
             {highlightTitle(title)}
           </motion.h1>
