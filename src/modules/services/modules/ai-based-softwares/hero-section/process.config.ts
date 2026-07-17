@@ -1,10 +1,8 @@
-import {
-  ClockCheck,
-  Lightbulb,
-  Mail,
-  Settings,
-  TrendingUp,
-} from 'lucide-react';
+import BulbIcon from '@/modules/services/shared/circular-development-process/assets/bulb.svg';
+import EmailIcon from '@/modules/services/shared/circular-development-process/assets/email.svg';
+import StocksIcon from '@/modules/services/shared/circular-development-process/assets/stocks.svg';
+import TimeIcon from '@/modules/services/shared/circular-development-process/assets/time.svg';
+import GearsIcon from '@/modules/services/shared/circular-development-process/assets/gears.svg';
 
 import type { DevelopmentProcessConfig } from './types';
 
@@ -18,7 +16,7 @@ export const processSteps: DevelopmentProcessConfig['steps'] = [
     title: 'Customer Requirement',
     description:
       'We will collaborate with you to gather and understand your business needs and objective.',
-    icon: Lightbulb,
+    icon: BulbIcon,
     position: 'bottom',
     theme: {
       color: '#ff1765',
@@ -30,7 +28,7 @@ export const processSteps: DevelopmentProcessConfig['steps'] = [
     title: 'Planning',
     description:
       'We will collaborate with you to gather and understand your business needs and objective.',
-    icon: Mail,
+    icon: EmailIcon,
     position: 'top',
     theme: {
       color: '#0a3996',
@@ -42,7 +40,7 @@ export const processSteps: DevelopmentProcessConfig['steps'] = [
     title: 'Development',
     description:
       'We will collaborate with you to gather and understand your business needs and objective.',
-    icon: TrendingUp,
+    icon: StocksIcon,
     position: 'bottom',
     theme: {
       color: '#ff8b1a',
@@ -54,7 +52,7 @@ export const processSteps: DevelopmentProcessConfig['steps'] = [
     title: 'System Testing',
     description:
       'We will collaborate with you to gather and understand your business needs and objective.',
-    icon: ClockCheck,
+    icon: TimeIcon,
     position: 'top',
     theme: {
       color: '#00855d',
@@ -66,7 +64,7 @@ export const processSteps: DevelopmentProcessConfig['steps'] = [
     title: 'Deliver',
     description:
       'We will collaborate with you to gather and understand your business needs and objective.',
-    icon: Settings,
+    icon: GearsIcon,
     position: 'bottom',
     theme: {
       color: '#ff5908',

@@ -1,12 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import parse from 'html-react-parser'
 import Grid from '@mui/material/Grid2'
+import { motion } from 'framer-motion'
 import BaseButton from '../button'
 import styles from './hero-section.module.scss'
 import Image from 'next/image'
-import { Skeleton } from '@mui/material'
 
 interface HeroSectionProps {
   title: string
@@ -35,7 +34,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   textWrapperStyle = {},
   titleProps = {},
 }) => {
-  const [loading, setLoading] = useState(true)
+
 
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
@@ -50,6 +49,61 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     )
   }
 
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 1.0, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 1.0, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 1.0
+      },
+    },
+  }
+
+  const buttonVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 1.0, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 2.0
+      },
+    },
+  }
+
+  const { onAnimationStart, ...safeTitleProps } = titleProps
+
   return (
     <Grid
       className={styles.section}
@@ -57,12 +111,38 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       spacing={4}
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
-        <div className={styles.textWrapper} style={{ width: textWidth, ...textWrapperStyle }}>
-          <h1 className={styles.heading} {...titleProps}>{highlightTitle(title)}</h1>
-          <p className={styles.description}>{parse(description)}</p>
-        </div>
-        <div className={styles.buttonContainer}>
-          <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+        <div 
+          className={styles.textWrapper} 
+          style={{ width: textWidth, ...textWrapperStyle }}
+        >
+          <motion.h1 
+            className={styles.heading} 
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+            {...safeTitleProps}
+          >
+            {highlightTitle(title)}
+          </motion.h1>
+          <motion.p 
+            className={styles.description}
+            variants={descriptionVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+          >
+            {parse(description)}
+          </motion.p>
+          <motion.div 
+            className={styles.buttonContainer}
+            variants={buttonVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+          >
+            <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+          </motion.div>
         </div>
       </Grid>
 
@@ -75,34 +155,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         alignItems="center"
       >
         {showImage && url && (
-          <>
-            {loading && (
-              <Skeleton
-                variant="rectangular"
-                width="100%"
-                height={400}
-                sx={{ borderRadius: 2, bgcolor: 'rgba(255,255,255,0.1)' }}
-              />
-            )}
-            <Image
-              className={styles.image}
-              src={url}
-              alt="Hero Image"
-              width={400}
-              height={500}
-              priority
-              onLoad={() => setLoading(false)}
-              style={{
-                width: '100%',
-                height: loading ? 0 : 'auto',
-                objectFit: 'contain',
-                borderRadius: 2,
-                opacity: loading ? 0 : 1,
-                transition: 'opacity 0.3s ease-in-out',
-                ...imageStyle,
-              }}
-            />
-          </>
+          <Image
+            className={styles.image}
+            src={url}
+            alt="Hero Image"
+            width={400}
+            height={500}
+            priority
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: 2,
+              ...imageStyle,
+            }}
+          />
         )}
         {children}
       </Grid>

@@ -62,7 +62,7 @@
   .work-cultures-mask {
     margin-top: 4.0625vw;
     margin-bottom: 6.25vw;
-    width: 100%;
+    width: calc(100% - 7.8%);
     overflow: hidden;
     margin-left: 7.8%;
     padding: 8px;
@@ -71,5 +71,17 @@
   .work-cultures-track {
     display: flex;
     gap: 1.5vw;
+    width: max-content;
+    padding-right: 7.8vw;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 }

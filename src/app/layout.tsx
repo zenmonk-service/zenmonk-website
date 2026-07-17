@@ -54,16 +54,16 @@ export default function FlashScreenLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [showFlashScreen, setShowFlashScreen] = useState(true)
-  const [isPageLoading, setIsPageLoading] = useState(true)
   const pathname = usePathname()
 
   useEffect(() => {
-    setIsPageLoading(true)
-    const timeout = setTimeout(() => {
-      setIsPageLoading(false)
-      window.scrollTo(0, 0)
-    }, 1500)
-    return () => clearTimeout(timeout)
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+  }, [])
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
   }, [pathname])
 
   useEffect(() => {
@@ -89,7 +89,6 @@ export default function FlashScreenLayout({
               <ScrollProvider>
                 <Header />
                 <CustomLoader />
-                {isPageLoading && <FullScreenLoading />}
                 <SmoothScroller>
                   <Suspense fallback={null}>
                     {children}

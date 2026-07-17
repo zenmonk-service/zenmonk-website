@@ -36,7 +36,6 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
 }
 
 .heading {
@@ -76,7 +75,6 @@
   width: auto !important;
   height: auto !important;
   max-width: 100%;
-  animation: fadeInBlurScaleRotate 0.9s ease-out forwards;
 }
 
 .button {
@@ -87,13 +85,8 @@
 
 @keyframes fadeInBlurScaleRotate {
   0% {
-    opacity: 0.8;
+    opacity: 0;
     transform: translateY(2.6vw) scale(0.95);
-  }
-
-  60% {
-    opacity: 0.9;
-    transform: translateY(-0.52vw) scale(1.02);
   }
 
   100% {

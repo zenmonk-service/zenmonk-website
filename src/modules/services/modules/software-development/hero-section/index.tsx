@@ -21,9 +21,9 @@ const SoftwareDevelopmentHeroSection = () => {
         newScale = 0.4 + ((width - 600) / (1024 - 600)) * 0.13
       } else if (width >= 380) {
         // Range between 380px and 600px
-        newScale = 0.7
-      } else {
         newScale = 0.55
+      } else {
+        newScale = 0.5
       }
 
       setScale(newScale)
@@ -49,7 +49,7 @@ const SoftwareDevelopmentHeroSection = () => {
         title="Reliable & Scalable Software Development"
         highlightedText="Software Development"
         description="Zenmonk delivers scalable and secure enterprise software, providing end-to-end support from legacy modernization to deployment. We ensure optimal performance with solutions tailored to your business needs."
-        url="/services/software-development/engineer.png"
+        url="/services/software-development/hero-graphic.svg"
         imageStyle={{
           position: 'relative',
           zIndex: 10,
@@ -59,6 +59,8 @@ const SoftwareDevelopmentHeroSection = () => {
       >
         <div className="doodle-container">
           <div className="glow-circle" />
+          <div className="dashed-circle-inner" />
+          <div className="dashed-circle-outer" />
           {innerIcons.map((icon, i) => (
             <motion.div
               key={icon.id}
@@ -69,7 +71,7 @@ const SoftwareDevelopmentHeroSection = () => {
               style={{
                 left: icon.x,
                 top: icon.y,
-                zIndex: 5,
+                zIndex: parseFloat(icon.y) > 0 ? 15 : 5,
                 '--x': icon.x,
                 '--y': icon.y,
               } as CSSProperties}
@@ -90,7 +92,7 @@ const SoftwareDevelopmentHeroSection = () => {
               style={{
                 left: icon.x,
                 top: icon.y,
-                zIndex: 5,
+                zIndex: parseFloat(icon.y) > 0 ? 15 : 5,
                 '--x': icon.x,
                 '--y': icon.y,
               } as React.CSSProperties}

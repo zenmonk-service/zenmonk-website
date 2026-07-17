@@ -6,14 +6,16 @@ interface WhyChooseUsCardProps {
   title: string
   description: string
   icon: StaticImageData
+  className?: string
 }
 const WhyChooseUsCard = ({
   title,
   description,
   icon,
+  className,
 }: WhyChooseUsCardProps) => {
   return (
-    <Box className="why-choose-us-card">
+    <Box className={`why-choose-us-card ${className || ''}`}>
       <Box className="card-image-container">
         <Image loading="lazy" unoptimized src={icon.src} fill alt={`${title}-icon`} />
       </Box>

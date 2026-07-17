@@ -59,12 +59,38 @@ const cardVariants = {
   }),
 }
 
-const headerVariants = {
-  hidden: { opacity: 0, y: 20 },
+const titleVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: '2.6vw',
+    scale: 0.95
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: 'easeOut' },
+    scale: 1,
+    transition: { 
+      duration: 1.0, 
+      ease: [0.25, 0.1, 0.25, 1.0] 
+    },
+  },
+}
+
+const descriptionVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: '2.6vw',
+    scale: 0.95
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { 
+      duration: 1.0, 
+      ease: [0.25, 0.1, 0.25, 1.0],
+      delay: 1.0
+    },
   },
 }
 
@@ -72,8 +98,8 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
   const serviceData = OurServices.find((service) => service.id === id)
 
   const ref = useRef<HTMLDivElement>(null)
-  // Animation starts immediately when the section enters 10% of the viewport.
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  // Animation starts when the section enters 30% of the viewport.
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   if (!serviceData) {
     return null
@@ -85,14 +111,22 @@ const ItSolutions = ({ id = 'software-development' }: { id?: string }) => {
     <div className={styles.wrapper} id={id} ref={ref}>
       <div className={styles.container}>
         <motion.div
-          variants={headerVariants}
+          variants={titleVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
+          style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <SectionTitle
             text="Future-Ready IT Solutions for Your Business Growth"
             markText="Growth"
           />
+        </motion.div>
+        <motion.div
+          variants={descriptionVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+        >
           <SectionDescription
             className={styles.subtitle}
             text="Empower your business with cutting-edge IT solutions that drive

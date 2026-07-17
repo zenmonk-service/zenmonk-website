@@ -22,19 +22,19 @@ export const OurClientSection = memo(() => {
         <AutoScrollCarousel
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
-          itemWidth={350}
-          space={200}
+          itemWidth={300}
+          space={100}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={420}
-              height={160}
+              fill
+              sizes="(max-width: 768px) 100vw, 20vw"
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+              style={{ objectFit: 'contain' }}
             />
           )}
         />
@@ -43,19 +43,19 @@ export const OurClientSection = memo(() => {
           data={OurPartnersList}
           sliderProps={{ className: 'infinite-slider' }}
           reverse
-          itemWidth={350}
-          space={200}
+          itemWidth={300}
+          space={100}
           duration={50}
           showBackground
           renderItem={(item) => (
             <Image
               src={item.icon as string}
               alt={item.label}
-              width={420}
-              height={160}
+              fill
+              sizes="(max-width: 768px) 100vw, 20vw"
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain', width: '100%', height: 'auto' }}
+              style={{ objectFit: 'contain' }}
             />
           )}
         />

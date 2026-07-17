@@ -11,8 +11,8 @@ const innerIconsAll = [
 
 const innerPositions = generateCircularPositions(
   innerIconsAll.length,
-  210, // Radius for inner circle (520px diameter)
-  0    // Start angle
+  243.6, // Radius for inner circle
+  22.5 // Stagger angle
 )
 
 const innerIcons = innerIconsAll.map((icon, i) => ({

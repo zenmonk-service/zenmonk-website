@@ -1,7 +1,7 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { AnimatePresence, motion, useInView } from 'framer-motion'
+import { useState, useRef } from 'react'
 import FAQ_IMAGE from './assets/faq.svg'
 import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
@@ -47,32 +47,110 @@ const questions = [
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 1.0, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 1.0, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 1.0
+      },
+    },
+  }
 
   const toggleAnswer = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index))
   }
 
   return (
-    <div className={styles.faq}>
+    <div className={styles.faq} ref={ref}>
       <div className={styles.images}>
         <FAQ_IMAGE />
         <div className={styles.bgOrange}></div>
       </div>
 
       <div className={styles.content}>
-        <div className={styles.sectionHeading}>
-          From simple queries to complex ones,{' '}
-          <span>we’re here to help you </span> every step of the way!
+        <div>
+          <motion.div
+            variants={titleVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+          >
+            <div className={styles.sectionHeading}>
+              From simple queries to complex ones,{' '}
+              <span>we’re here to help you </span> every step of the way!
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+          >
+            <p className={styles.sectionSubHeading}>Top questions</p>
+          </motion.div>
         </div>
 
-        <p className={styles.sectionSubHeading}>Top questions</p>
-
-        <div className={styles.questionsWrapper}>
+        <motion.div
+          className={styles.questionsWrapper}
+          initial="hidden"
+          animate={isInView ? 'show' : 'hidden'}
+          variants={{
+            hidden: {},
+            show: {
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 1.2, // wait for title + subtitle to finish first
+              },
+            },
+          }}
+        >
           {questions.map((item, index) => {
             const isOpen = openIndex === index
 
             return (
-              <div key={index} className={styles.questionWrapper}>
+              <motion.div
+                key={index}
+                className={styles.questionWrapper}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  show: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.6,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    },
+                  },
+                }}
+              >
                 <div style={{ flex: 1 }}>
                   <p
                     className={styles.question}
@@ -106,10 +184,10 @@ const FAQ = () => {
                     <PLUS className={styles.toggleIcon} />
                   )}
                 </div>
-              </div>
+              </motion.div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
     </div>
   )

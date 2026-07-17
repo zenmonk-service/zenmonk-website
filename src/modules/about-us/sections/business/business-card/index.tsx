@@ -25,8 +25,15 @@ const BusinessCard = ({
   background,
 }: BusinessCardProps) => {
   const item = {
-    hidden: { opacity: 0, y: 50 },
-    show: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 80 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.0,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   }
   const isBelow1200 = useMediaQuery('(max-width:1200px)')
 
@@ -55,18 +62,14 @@ const BusinessCard = ({
   }
 
   return (
-    <motion.div
-      transition={{
-        ease: 'easeInOut',
-        type: 'spring',
-        stiffness: 100,
-        duration: 1,
-      }}
-      variants={item}
-      whileHover="hover"
-      animate="rest"
-      className={styles.container}
-    >
+    // Outer div: receives staggered scroll-entrance from parent whileInView
+    <motion.div variants={item} className={styles.container}>
+      {/* Inner div: manages hover state independently */}
+      <motion.div
+        whileHover="hover"
+        animate="rest"
+        style={{ display: 'contents' }}
+      >
       <div className={styles.iconContainer}>
         <motion.div
           className={styles.icon}
@@ -86,7 +89,7 @@ const BusinessCard = ({
         >
           <Icon style={{ fill }} />
         </motion.div>
-
+ 
         <Plus
           style={{
             position: 'absolute',
@@ -243,7 +246,7 @@ const BusinessCard = ({
           }}
         />
       </div>
-
+ 
       <div className={styles.content}>
         <motion.h3 variants={textMotion} className={styles.title}>
           {title}
@@ -252,6 +255,7 @@ const BusinessCard = ({
           {description}
         </motion.p>
       </div>
+      </motion.div>
     </motion.div>
   )
 }

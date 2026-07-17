@@ -129,6 +129,19 @@
   border-radius: 50%;
   background: transparent;
   place-items: center;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+
+  &:hover,
+  .item:focus-visible & {
+    .circleCenter {
+      transform: scale(1.05);
+    }
+
+    .icon {
+      transform: scale(1.25);
+    }
+  }
 }
 
 .item:focus-visible .circle {
@@ -144,12 +157,16 @@
   border-radius: 50%;
   background: var(--step-color);
   color: var(--icon-color);
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
 .icon {
   width: var(--icon-size);
   height: var(--icon-size);
   stroke-width: var(--icon-stroke);
+  transition: transform 0.35s ease;
 }
 
 .copy {

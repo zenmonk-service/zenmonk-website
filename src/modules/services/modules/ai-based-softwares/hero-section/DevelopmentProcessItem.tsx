@@ -33,7 +33,7 @@ export function DevelopmentProcessItem({
       }
       transition={{
         duration: animation.duration,
-        delay: index * animation.delayBetweenItems,
+        delay: 0.6 + index * animation.delayBetweenItems,
         ease: 'easeOut',
       }}
       viewport={{ amount: animation.viewportAmount, once: true }}

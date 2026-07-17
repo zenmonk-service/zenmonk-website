@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
 
 export type ProcessItemPosition = 'top' | 'bottom';
 
@@ -11,7 +11,7 @@ export type ProcessStep = {
   id: string;
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   position: ProcessItemPosition;
   /** Raw colours are exposed to the SCSS module through typed data attributes. */
   theme: ProcessStepTheme;

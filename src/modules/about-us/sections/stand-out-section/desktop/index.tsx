@@ -9,51 +9,37 @@ const StandOutSectionDesktop = () => {
   const textMotion = {
     rest: {
       color: '#383838',
-      transition: { duration: 0.2, ease: 'easeIn' },
+      transition: { duration: 0.3, ease: 'easeIn' },
     },
     hover: {
       color: '#FFF',
-      transition: { duration: 0.2, ease: 'easeOut' },
+      transition: { duration: 0.3, ease: 'easeOut' },
     },
   }
 
   const descriptionMotion = {
     rest: {
       color: '#565656',
-      transition: { duration: 0.2, ease: 'easeIn' },
+      transition: { duration: 0.3, ease: 'easeIn' },
     },
     hover: {
       color: '#FFF',
-      transition: { duration: 0.2, ease: 'easeOut' },
+      transition: { duration: 0.3, ease: 'easeOut' },
     },
   }
 
-  // Parent (list) animation
-  const listVariants = {
-    closed: {},
-    open: {
-      transition: {
-        staggerChildren: 0.2, // gap between items
-        delayChildren: 0.3,   // wait before starting children
-      },
-    },
-  }
-
-  // Each option
+  // Scroll-entrance: each list item slides up & fades in
   const itemVariants = {
-    closed: { opacity: 0, y: 30 }, // start hidden & pushed down
-    open: {
+    hidden: { opacity: 0, y: 80 },
+    show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   }
 
   return (
     <motion.div
-      initial="closed"
-      whileInView="open"
-      viewport={{ once: true, amount: 0.5 }}
       className={styles.container}
     >
       <div className={styles.imageContainer}>
@@ -72,51 +58,73 @@ const StandOutSectionDesktop = () => {
         </div>
       </div>
 
-      {/* List with stagger animation */}
-      <motion.div className={styles.list} variants={listVariants}>
+      {/* List with stagger scroll-entrance animation */}
+      <motion.div
+        className={styles.list}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.3,
+              delayChildren: 0.2,
+            },
+          },
+        }}
+      >
         {standOutList.map((option, idx) => {
           const MotionMyIcon = motion.create(option.icon)
           return (
+            // Outer: scroll entrance
             <motion.div
               key={idx}
               className={styles.option}
               variants={itemVariants}
-              whileHover="hover"
             >
-              <div className={styles.optionIconContainer}>
-                <MotionMyIcon
-                  variants={{
-                    rest: {
-                      fill: 'black',
-                      x: 0,
-                      scale: 1,
-                      filter: 'none',
-                      transition: { duration: 0.5, ease: 'easeInOut' },
-                    },
-                    hover: {
-                      fill: '#FFF',
-                      filter:
-                        'drop-shadow(0 0.208vw 2.13vw rgba(0, 0, 0, 0.25))',
-                      transition: { duration: 0.5, ease: 'easeInOut' },
-                    },
-                  }}
-                  className={styles.optionIcon}
-                />
-              </div>
-              <div className={styles.optionContent}>
-                <motion.div
-                  variants={textMotion}
-                  className={styles.optionTitle}
-                >
-                  {option.title}
-                </motion.div>
-                <motion.div
-                  variants={descriptionMotion}
-                  className={styles.optionDescription}
-                >
-                  {option.description}
-                </motion.div>
-              </div>
+              {/* Inner: hover state (isolated from scroll variants) */}
+              <motion.div
+                whileHover="hover"
+                animate="rest"
+                style={{ display: 'contents' }}
+              >
+                <div className={styles.optionIconContainer}>
+                  <MotionMyIcon
+                    variants={{
+                      rest: {
+                        fill: 'black',
+                        x: 0,
+                        scale: 1,
+                        filter: 'none',
+                        transition: { duration: 0.3, ease: 'easeInOut' },
+                      },
+                      hover: {
+                        fill: '#FFF',
+                        filter:
+                          'drop-shadow(0 0.208vw 2.13vw rgba(0, 0, 0, 0.25))',
+                        transition: { duration: 0.3, ease: 'easeInOut' },
+                      },
+                    }}
+                    className={styles.optionIcon}
+                  />
+                </div>
+                <div className={styles.optionContent}>
+                  <motion.div
+                    variants={textMotion}
+                    className={styles.optionTitle}
+                  >
+                    {option.title}
+                  </motion.div>
+                  <motion.div
+                    variants={descriptionMotion}
+                    className={styles.optionDescription}
+                  >
+                    {option.description}
+                  </motion.div>
+                </div>
+              </motion.div>
             </motion.div>
           )
         })}

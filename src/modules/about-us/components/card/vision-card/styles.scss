@@ -29,7 +29,7 @@
     inset: 0;
     background-color: var(--global-color-dark-accent);
     opacity: 0;
-    transition: opacity 0.2s ease-out;
+    transition: opacity 0.5s ease-in-out;
     z-index: 1;
   }
 
@@ -38,7 +38,7 @@
   }
 
   .vision-card-image {
-    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1);
+    transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
   }
 
   .vision-card-bg-image {
@@ -79,8 +79,8 @@
     transform: translate(-50%, 20%);
     opacity: 0;
     transition:
-      opacity 0.25s ease-out,
-      transform 0.25s cubic-bezier(0.2, 0, 0, 1);
+      opacity 0.5s ease-in-out,
+      transform 0.5s cubic-bezier(0.2, 0, 0, 1);
     color: var(--global-color-primary);
     font-family: Poppins;
     font-size: var(--font-size-18) !important; // 20px
@@ -90,7 +90,7 @@
   }
 
   .vision-card-title {
-    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1);
+    transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
     color: var(--global-color-primary);
     font-family: Poppins;
     font-size: var(--font-size-24) !important; // 24px

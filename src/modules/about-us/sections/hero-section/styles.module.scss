@@ -1,10 +1,12 @@
 .container {
-  height: 100vh;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
+  padding-top: max(140px, 8vw);
+  padding-bottom: max(40px, 2.5vw);
 }
 
 .backgroundWrapper {
@@ -100,11 +102,13 @@
   }
 
   .container {
-    height: 100vh;
+    height: auto;
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
     gap: 16px;
+    padding-top: 100px;
+    padding-bottom: 24px;
   }
 
   .textContainer {
@@ -165,7 +169,6 @@
 @media (min-width: 600px) and (max-width: 767px) {
   .container {
     height: auto;
-    aspect-ratio: 1.23;
   }
 
   .backgroundLine {
@@ -180,7 +183,6 @@
 @media (min-width: 768px) and (max-width: 900px) {
   .container {
     height: auto;
-    aspect-ratio: 1.63;
   }
 
   .backgroundLine {
@@ -195,7 +197,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .container {
     height: auto;
-    aspect-ratio: 1.83;
   }
 
   .backgroundLine {
@@ -206,7 +207,6 @@
 @media (min-width: 1025px) and (max-width: 1200px) {
   .container {
     height: auto;
-    aspect-ratio: 1.68;
     padding-right: 0;
   }
 

@@ -1,5 +1,7 @@
 'use client'
 
+import { useRef, useState, useEffect } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { SectionTitle, SectionDescription } from '@/shared/typography'
 import './styles.scss'
@@ -19,6 +21,54 @@ const DevelopmentProcess = () => {
   const isMobile = useMediaQuery('(max-width:768px)')
   const pathname = usePathname()
   const serviceRoute = pathname.split('/')[2]
+
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const [showAsset, setShowAsset] = useState(false)
+
+  useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => {
+        setShowAsset(true)
+      }, 600)
+      return () => clearTimeout(timer)
+    }
+  }, [isInView])
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.3
+      },
+    },
+  }
 
   const renderAsset = () => {
     switch (serviceRoute) {
@@ -49,19 +99,34 @@ const DevelopmentProcess = () => {
 
   return (
     <div
+      ref={ref}
       className={`development-process-container ${serviceRoute === 'software-development' ? 'software-dev-process' : ''}`}
       style={{
         marginTop: 'max(80px, 6.2vw)',
       }}
     >
       {serviceRoute !== 'ui-ux-design' && (
-        <>
-          <SectionTitle text="Our development Process" markText="Process" />
-          <SectionDescription
-            text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
-            className={`development-process-description ${serviceRoute === 'software-development' ? 'software-dev-desc' : ''}`}
-          />
-        </>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <motion.div
+            variants={titleVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <SectionTitle text="Our development Process" markText="Process" />
+          </motion.div>
+          <motion.div
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <SectionDescription
+              text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
+              className={`development-process-description ${serviceRoute === 'software-development' ? 'software-dev-desc' : ''}`}
+            />
+          </motion.div>
+        </div>
       )}
       <div
         style={{
@@ -70,7 +135,7 @@ const DevelopmentProcess = () => {
           marginTop: serviceRoute === 'software-development' ? '0px' : 'max(24px, 2.125vw)',
         }}
       >
-        {renderAsset()}
+        {showAsset && renderAsset()}
       </div>
     </div>
   )

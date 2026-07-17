@@ -50,18 +50,47 @@ const SectorsListDesktop = () => {
           &nbsp;
         </motion.div>
       </div>
-      <div className={styles.rightSection}>
+      <motion.div
+        className={styles.rightSection}
+        key={selectedIndex}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={{
+          hidden: {},
+          show: {
+            transition: {
+              staggerChildren: 0.25,
+              delayChildren: 0.15,
+            },
+          },
+        }}
+      >
         {sectorsList[selectedIndex]?.services.map(
           ({ image: Icon, title, background }, index) => (
-            <div key={index} className={styles.services}>
+            <motion.div
+              key={index}
+              className={styles.services}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 1.1,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  },
+                },
+              }}
+            >
               <div className={styles.iconContainer} style={{ background }}>
                 <Icon className={styles.icon} />
               </div>
               <p className={styles.serviceTitle}>{title}</p>
-            </div>
+            </motion.div>
           )
         )}
-      </div>
+      </motion.div>
     </div>
   )
 }

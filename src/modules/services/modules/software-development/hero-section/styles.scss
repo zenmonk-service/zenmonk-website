@@ -10,31 +10,39 @@
   div[class*="hero-section_section"] {
     padding-bottom: 40px !important;
   }
+
+  @media (max-width: 768px) {
+    div[class*="hero-section_imageContainer"] {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+  }
 }
 
 .software-development-hero-container {
   width: 100%;
   overflow-x: hidden;
+  padding-bottom: 120px;
 }
 
 .doodle-container {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50.72%;
+  left: 52.39%;
   width: 0;
   height: 0;
   pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(0.6vw) scale(var(--doodle-scale, 1));
+  transform: scale(var(--doodle-scale, 1));
   perspective: 1500px;
-  z-index: 9999;
+  z-index: 5;
 
   .dashed-circle-inner,
   .dashed-circle-outer {
     position: absolute;
-    border: 1px dashed rgba(235, 124, 13, 0.15);
+    border: 2px dashed #FFEBDE;
     border-radius: 50%;
     pointer-events: none;
     z-index: 1;
@@ -44,20 +52,20 @@
   }
 
   .dashed-circle-inner {
-    width: 520px;
-    height: 520px;
+    width: 487.2px;
+    height: 487.2px;
   }
 
   .dashed-circle-outer {
-    width: 680px;
-    height: 680px;
+    width: 617.16px;
+    height: 617.16px;
   }
 
   .glow-circle {
     position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(235, 124, 13, 0.1) 0%, rgba(235, 124, 13, 0) 70%);
+    width: 450px;
+    height: 450px;
+    background: #FFF1E8;
     border-radius: 50%;
     z-index: 0;
     left: 50%;

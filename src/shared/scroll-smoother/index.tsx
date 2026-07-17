@@ -1,14 +1,17 @@
 'use client'
-
+ 
+import { useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { usePathname } from 'next/navigation'
 import { useScrollSmoother } from './scroll-context'
-
+import { useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
+ 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-
+ 
 export default function SmoothScroller({
   children,
 }: {
@@ -16,7 +19,9 @@ export default function SmoothScroller({
 }) {
   const pathname = usePathname()
   const smootherRef = useScrollSmoother()
-
+  const dispatch = useAppDispatch()
+  const [isReady, setIsReady] = useState(false)
+ 
   useGSAP(
     () => {
       // Delay initialization slightly to ensure DOM is ready
@@ -27,10 +32,14 @@ export default function SmoothScroller({
             effects: true,
             smoothTouch: 0.1,
           })
+          smootherRef.current.scrollTop(0)
           ScrollTrigger.refresh()
+        } else if (smootherRef && smootherRef.current) {
+          smootherRef.current.scrollTop(0)
         }
+        setIsReady(true)
       }, 100)
-
+ 
       return () => clearTimeout(timer)
     },
     {
@@ -38,7 +47,30 @@ export default function SmoothScroller({
       revertOnUpdate: true,
     }
   )
-
+ 
+  // Reset scroll to top on route change with a clean loading overlay transition
+  useEffect(() => {
+    // Show full-screen loader immediately and hide content
+    dispatch(toggleLoader(true))
+    setIsReady(false)
+ 
+    if (smootherRef && smootherRef.current) {
+      smootherRef.current.scrollTop(0)
+    }
+ 
+    const timer = setTimeout(() => {
+      if (smootherRef && smootherRef.current) {
+        smootherRef.current.scrollTop(0)
+        ScrollTrigger.refresh()
+      }
+      setIsReady(true)
+      // Hide loader only after scroll position has been locked at the top
+      dispatch(toggleLoader(false))
+    }, 250)
+ 
+    return () => clearTimeout(timer)
+  }, [pathname, smootherRef, dispatch])
+ 
   // Refresh ScrollTrigger when content height changes (e.g., images loading)
   useGSAP(() => {
     const content = document.getElementById('smooth-content')
@@ -50,9 +82,15 @@ export default function SmoothScroller({
       return () => resizeObserver.disconnect()
     }
   }, [pathname])
-
+ 
   return (
-    <div id="smooth-wrapper">
+    <div
+      id="smooth-wrapper"
+      style={{
+        opacity: isReady ? 1 : 0,
+        transition: 'opacity 0.3s ease-in-out',
+      }}
+    >
       <div id="smooth-content">{children}</div>
     </div>
   )

@@ -76,23 +76,31 @@ $hover-bg-light-green: #e9f7ec;
 }
 
 .whyChooseUsCard {
-  transition: background 0.2s ease-in-out;
+  transition: background 0.15s ease-out;
 }
 
 .leftSection > :nth-child(1):hover {
-  background: $hover-bg-light-aqua !important;
+  .whyChooseUsCard {
+    background: $hover-bg-light-aqua !important;
+  }
 }
 
 .leftSection > :nth-child(2):hover {
-  background: $hover-bg-light-purple !important;
+  .whyChooseUsCard {
+    background: $hover-bg-light-purple !important;
+  }
 }
 
 .centerSection > :nth-child(1):hover {
-  background: $hover-bg-light-blue !important;
+  .whyChooseUsCard {
+    background: $hover-bg-light-blue !important;
+  }
 }
 
 .centerSection > :nth-child(2):hover {
-  background: $hover-bg-light-green !important;
+  .whyChooseUsCard {
+    background: $hover-bg-light-green !important;
+  }
 }
 
 .rightSection {

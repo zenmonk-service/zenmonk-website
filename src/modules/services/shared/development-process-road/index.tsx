@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
 
-import MonkWatermark from '../development-process-wave/assets/monk.svg'
+import MonkWatermark from '../development-process-wave/assets/monk.svg?url'
 
 import Step1 from './assets/1.png'
 import Step2 from './assets/2.png'

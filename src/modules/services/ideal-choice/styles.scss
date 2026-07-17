@@ -38,6 +38,13 @@
     display: flex;
     flex-direction: column;
     background-color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-0.3vw);
+      box-shadow: 0 0.8vw 2vw rgba(0, 0, 0, 0.12);
+    }
 
     .ideal-choice-icon {
       height: max(40px, 2.5vw);

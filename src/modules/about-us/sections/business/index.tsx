@@ -36,8 +36,17 @@ export const BusinessSection = () => {
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ amount: 0.2, once: true }}
-        variants={container}
+        viewport={{ amount: 0.4, once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.3,
+              delayChildren: 0.2,
+            },
+          },
+        }}
         className={styles.businessCardContainer}
       >
         {businesses.map((business) => (

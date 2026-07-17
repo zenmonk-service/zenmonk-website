@@ -11,43 +11,65 @@ import SUPPORT from './assets/support.svg'
 import { useMediaQuery } from '@mui/material'
 import './styles.scss'
 
-// Each card unfolds from the previous — like a deck of cards being spread open.
-// scaleX starts at 0 (collapsed), animates to 1 (fully open).
-// transformOrigin 'left center' makes each card appear to hinge open from its left edge.
+// Each card fades, scales, and slides up with a snug stagger.
 const cardVariants = {
   hidden: {
     opacity: 0,
-    scaleX: 0,
-    x: -20,
+    y: 50,
+    scale: 0.95,
   },
   visible: (i: number) => ({
     opacity: 1,
-    scaleX: 1,
-    x: 0,
+    y: 0,
+    scale: 1,
     transition: {
-      // Base delay: 0.15s for the first card, then 0.25s apart for each subsequent card
-      // This gives a much faster, snappier "unfolding from previous card" feel
-      delay: 0.15 + i * 0.25,
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1], // custom ease-out curve
+      delay: 0.2 + i * 0.1,
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
     },
   }),
 }
 
 const titleVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { 
+    opacity: 0, 
+    y: '2.6vw',
+    scale: 0.95
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    scale: 1,
+    transition: { 
+      duration: 0.5, 
+      ease: [0.25, 0.1, 0.25, 1.0] 
+    },
+  },
+}
+
+const descriptionVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: '2.6vw',
+    scale: 0.95
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { 
+      duration: 0.5, 
+      ease: [0.25, 0.1, 0.25, 1.0],
+      delay: 0.3
+    },
   },
 }
 
 const YourIdealChoice = () => {
   const isMobile = useMediaQuery('(max-width:780px)')
   const ref = useRef(null)
-  // Fires once when 20% of the section enters the viewport
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  // Fires once when 30% of the section enters the viewport
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   const ChoicesData = [
     {
@@ -80,26 +102,33 @@ const YourIdealChoice = () => {
   return (
     <div className="ideal-choice-your-ideal-choice" ref={ref}>
       {/* Title block animates in first */}
-      <motion.div
-        className="ideal-choice-first-container"
-        variants={titleVariants}
-        initial="hidden"
-        animate={isInView ? 'visible' : 'hidden'}
-      >
-        <SectionTitle
-          text="Why Our Expertise is Your Ideal Choice"
-          markText={isMobile ? 'Choice' : 'Expertise'}
-          align="left"
-          className="ideal-choice-title"
-        />
-        <SectionDescription
-          text="See how our expert insights are prominent fit for your unique
-          challenges."
-          className="ideal-choice-ideal-description"
-        />
-      </motion.div>
+      <div className="ideal-choice-first-container">
+        <motion.div
+          variants={titleVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
+          <SectionTitle
+            text="Why Our Expertise is Your Ideal Choice"
+            markText={isMobile ? 'Choice' : 'Expertise'}
+            align="left"
+            className="ideal-choice-title"
+          />
+        </motion.div>
+        <motion.div
+          variants={descriptionVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
+          <SectionDescription
+            text="See how our expert insights are prominent fit for your unique
+            challenges."
+            className="ideal-choice-ideal-description"
+          />
+        </motion.div>
+      </div>
 
-      {/* Each card unfolds from the previous one with a chained stagger */}
+      {/* Each card fades and slides up with a snug stagger */}
       {ChoicesData.map(({ icon: Icon, title, description }: any, index) => {
         return (
           <motion.div
@@ -110,8 +139,6 @@ const YourIdealChoice = () => {
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             style={{
-              // Each card unfolds from its left edge — the "hinge" of the unfold chain
-              transformOrigin: 'left center',
               willChange: 'transform, opacity',
             }}
           >
