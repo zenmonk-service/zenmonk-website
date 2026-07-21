@@ -1,6 +1,7 @@
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { SectionTitle } from '@/shared/typography'
 import SearchIcon from './assets/search.svg'
 import BulbIcon from './assets/bulb.svg'
@@ -62,6 +63,38 @@ const defaultSteps: ProcessStep[] = [
   },
 ]
 
+const desktopStepVariants = {
+  hidden: { opacity: 0, scale: 0.85, y: 15 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.35,
+      duration: 0.95,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+}
+
+const mobileStepVariants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    y: 25,
+    x: i % 2 === 0 ? -25 : 25,
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    x: 0,
+    transition: {
+      delay: i * 0.35,
+      duration: 1.0,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+}
+
 const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
   steps = defaultSteps,
   title = "Our Development Process",
@@ -70,6 +103,9 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
 }) => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(0);
   const [isManualHover, setIsManualHover] = React.useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   React.useEffect(() => {
     if (isManualHover) return;
@@ -82,7 +118,7 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
   }, [isManualHover, steps.length]);
 
   return (
-    <section className="hexagon-process-section">
+    <section className="hexagon-process-section" ref={sectionRef}>
       {showTitle && <SectionTitle text={title} markText={highlightedText} align='center' />}
 
       {/* Desktop Version */}
@@ -153,14 +189,22 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
                 setIsManualHover(false)
               }}
             >
-              <div className="icon-badge">
-                {step.icon}
-              </div>
+              <motion.div
+                custom={index}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+                variants={desktopStepVariants}
+                style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}
+              >
+                <div className="icon-badge">
+                  {step.icon}
+                </div>
 
-              <div className={`content-box ${isDown ? 'box-up' : 'box-down'}`}>
-                <h3 style={{ color: step.color }}>{step.title}</h3>
-                <p>{step.description}</p>
-              </div>
+                <div className={`content-box ${isDown ? 'box-up' : 'box-down'}`}>
+                  <h3 style={{ color: step.color }}>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </motion.div>
             </div>
           )
         })}
@@ -169,8 +213,13 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
       {/* Mobile Version */}
       <div className="custom-mobile-flow">
         {steps.map((step, index) => (
-          <div
+          <motion.div
             key={index}
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={mobileStepVariants}
             className={`mobile-step ${index % 2 === 0 ? 'left-align' : 'right-align'}`}
           >
             <div className="mobile-icon-wrapper">
@@ -200,7 +249,7 @@ const DevelopmentProcessHexagon: React.FC<DevelopmentProcessProps> = ({
               <h3 style={{ color: step.color }}>{step.title}</h3>
               <p>{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

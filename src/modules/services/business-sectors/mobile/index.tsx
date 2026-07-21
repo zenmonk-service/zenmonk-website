@@ -9,6 +9,19 @@ import styles from './mobile.module.scss'
 
 const ArrowDown = motion.create(ArrowDownward)
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.18,
+      duration: 0.95,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+}
+
 const SectorsMobile = () => {
   const [indices, setIndices] = useState<number[]>([])
 
@@ -26,8 +39,13 @@ const SectorsMobile = () => {
         {sectorsList.map(({ id, image: Icon, sector, services }, index) => {
           const isSelected = indices.includes(index)
           return (
-            <div
+            <motion.div
               key={id}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
               className={`${styles.card} ${isSelected ? styles.expanded : ''}`}
             >
               <div
@@ -71,7 +89,7 @@ const SectorsMobile = () => {
                   )
                 })}
               </Collapse>
-            </div>
+            </motion.div>
           )
         })}
       </div>

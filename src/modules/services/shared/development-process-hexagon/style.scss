@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 
   .custom-mobile-flow {
     display: none;
@@ -193,47 +194,51 @@
         }
 
         &.box-up {
-          bottom: 250%;
+          bottom: 205%;
         }
 
         &.box-down {
-          top: 250%;
+          top: 205%;
         }
       }
     }
   }
 
-  // Add some space between the parent title and the hexagon component
-  margin-top: 40px;
-  padding: 0 7.8%;
+  // Add ample space between the parent title and the hexagon component
+  margin-top: 60px;
+  padding: 40px 7.8%;
 }
 
-/* ================= MOBILE ================= */
-@media (min-width: 769px) and (max-width: 1200px) {
+/* ================= TABLET / MID DESKTOP ================= */
+@media (min-width: 1001px) and (max-width: 1200px) {
   .hexagon-process-section {
     transform: scale(0.85);
     transform-origin: top center;
-    margin-top: 0;
-    padding: 0;
+    margin-top: 20px;
+    padding: 20px 0;
 
     .process-wrapper .overlay-step .content-box {
       &.box-up {
-        bottom: 280%;
+        bottom: 205%;
       }
 
       &.box-down {
-        top: 280%;
+        top: 205%;
       }
     }
   }
 }
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
+/* ================= MOBILE (<= 1000px) ================= */
+@media (max-width: 1000px) {
   .hexagon-process-section {
     padding: 0 16px;
     background: transparent;
     margin-top: 0 !important;
+
+    @media (min-width: 600px) {
+      padding: 0 60px;
+    }
 
     .process-wrapper {
       display: none;
@@ -351,6 +356,10 @@
             font-weight: 600;
             margin-bottom: 6px;
             line-height: 1.2;
+
+            @media (min-width: 600px) {
+              font-size: max(18px, min(22px, calc(12px + 1vw)));
+            }
           }
 
           p {
@@ -358,6 +367,10 @@
             color: #666;
             line-height: 1.5;
             margin: 0;
+
+            @media (min-width: 600px) {
+              font-size: max(12px, min(14px, calc(9px + 0.5vw)));
+            }
           }
         }
       }
