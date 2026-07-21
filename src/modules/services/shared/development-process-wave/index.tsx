@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { motion } from 'framer-motion'
 import { SectionTitle } from '@/shared/typography'
 import './style.scss'
 
@@ -57,6 +58,19 @@ const defaultSteps: ProcessStep[] = [
     gradient: "linear-gradient(135deg, #FA579A 0%, #421CB4 100%)"
   }
 ]
+
+const mobileStepVariants = {
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 1.0,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+}
 
 const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
   steps = defaultSteps,
@@ -209,7 +223,15 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
       {/* Mobile Version */}
       <div className="mobile-flow">
         {steps.map((step: ProcessStep, index: number) => (
-          <div key={index} className="mobile-step">
+          <motion.div
+            key={index}
+            className="mobile-step"
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={mobileStepVariants}
+          >
             <div className="mobile-indicator">
               <div className="mobile-circle-wrapper" style={{ background: step.gradient } as React.CSSProperties}>
                 <div className="mobile-inner-circle">
@@ -223,7 +245,7 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
               <h3 style={{ color: step.color }}>{step.title}</h3>
               <p>{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

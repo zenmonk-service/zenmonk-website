@@ -13,7 +13,7 @@ interface DevelopmentProcessItBusinessProps {
 }
 
 const DevelopmentProcessItBusiness: React.FC<DevelopmentProcessItBusinessProps> = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const isMobile = useMediaQuery('(max-width: 1000px)')
 
   const steps = [
     {

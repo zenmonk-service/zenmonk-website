@@ -301,64 +301,6 @@ export const services = [
     ],
   },
   {
-    id: 'digital-transformation-and-automation',
-    route: '/digital-transformation',
-    name: 'Digital Transformation & Automation',
-    icon: DisplayIcons.DigitalTransformation,
-    styles: {
-      color: '#3C95DB',
-      hoverColor: '#ecf4fb',
-    },
-    description:
-      'Looking to revolutionize your digital landscape? Together, let us navigate your digital route and equip your company with advanced analytics, seamless integration, and automation for sustained growth and agility.',
-    menuDescription:
-      'Upskill your team with practical, hands-on training and workshops.',
-    services: [
-      {
-        id: 'digital-transformation-digital-strategy-development',
-        title: 'Strategy',
-        description:
-          'Develop a comprehensive digital strategy to enhance your business operations and growth.',
-        icon: DigitalTransformation.DigitalStrategy,
-      },
-      {
-        id: 'digital-transformation-digital-workflow-automation',
-        title: 'Workflow',
-        description:
-          'Automate workflows to improve efficiency and reduce manual tasks.',
-        icon: DigitalTransformation.InteractionDesign,
-      },
-      {
-        id: 'digital-transformation-process-automation',
-        title: 'Automation',
-        description:
-          'Streamline your processes with advanced automation solutions.',
-        icon: DigitalTransformation.ProcessAutomation,
-      },
-      {
-        id: 'digital-transformation-data-analytics-insights',
-        title: 'Analytics',
-        description:
-          'Leverage data analytics to gain insights and make informed decisions.',
-        icon: DigitalTransformation.DataAnalytics,
-      },
-      {
-        id: 'digital-transformation-technology-integration',
-        title: 'Integration',
-        description:
-          'Seamlessly integrate new technologies to enhance your business operations.',
-        icon: DigitalTransformation.TechnologyIntegration,
-      },
-      {
-        id: 'digital-transformation-machine-learning-solutions',
-        title: 'ML Solutions',
-        description:
-          'Implement AI and machine learning solutions to drive innovation and efficiency.',
-        icon: DigitalTransformation.Ai,
-      },
-    ],
-  },
-  {
     id: 'it-and-business-consultation',
     route: '/it-&-business-consultation',
     name: 'IT & Business Consultations',

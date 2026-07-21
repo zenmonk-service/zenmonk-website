@@ -136,3 +136,11 @@ $offset: calc(#{$r} + #{$gap});
     }
   }
 }
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .dev-process-it {
+    &__mobile {
+      gap: 0rem;
+    }
+  }
+}

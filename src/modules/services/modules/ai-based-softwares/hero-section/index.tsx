@@ -13,9 +13,9 @@ const AiSolutionsHeroSection = () => {
       <Background className={styles.backgroundLine} />
       <HeroSection
         url={HeroImage}
-        title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
-        highlightedText="Cloud Solutions"
-        description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
+        title="<span>Digital Transformation<br/>&amp; Automation</span> to<br/>Accelerate Growth"
+        highlightedText="Digital Transformation & Automation"
+        description="Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services."
         imageStyle={{
           margin: '0 auto',
           display: 'block',

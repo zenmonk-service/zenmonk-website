@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { SectionTitle, SectionDescription } from '@/shared/typography'
@@ -24,16 +24,6 @@ const DevelopmentProcess = () => {
 
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const [showAsset, setShowAsset] = useState(false)
-
-  useEffect(() => {
-    if (isInView) {
-      const timer = setTimeout(() => {
-        setShowAsset(true)
-      }, 600)
-      return () => clearTimeout(timer)
-    }
-  }, [isInView])
 
   const titleVariants = {
     hidden: { 
@@ -135,7 +125,7 @@ const DevelopmentProcess = () => {
           marginTop: serviceRoute === 'software-development' ? '0px' : 'max(24px, 2.125vw)',
         }}
       >
-        {showAsset && renderAsset()}
+        {renderAsset()}
       </div>
     </div>
   )
