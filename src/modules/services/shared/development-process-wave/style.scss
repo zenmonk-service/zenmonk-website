@@ -172,12 +172,19 @@
         }
 
         &.box-top {
-          top: -22.5vw;
-          /* Refined offset to avoid overlapping stick */
+          top: -21vw;
+         
+          @media (min-width: 1200px) {
+            top: auto;
+            bottom: 18vw;
+          }
         }
 
         &.box-bottom {
           top: 14.5vw;
+          @media (min-width: 1200px) {
+            top: 14.5vw;
+          }
         }
       }
     }

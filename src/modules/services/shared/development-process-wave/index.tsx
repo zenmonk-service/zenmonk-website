@@ -139,11 +139,11 @@ const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
             <path className="connector-dot step-4" d="M914.844 5.19777C914.844 2.86765 916.815 0.895996 919.146 0.895996C921.476 0.895996 923.447 2.86765 923.447 5.19777C923.447 7.52788 921.476 9.49951 919.146 9.49951C916.815 9.49951 914.844 7.52788 914.844 5.19777Z" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
             <path className="connector-line step-2" d="M411.891 155.765V9.6792" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
             <path className="connector-dot step-2" d="M411.888 9.49951C414.263 9.49951 416.189 7.57356 416.189 5.19777C416.189 2.82197 414.263 0.895996 411.888 0.895996C409.512 0.895996 407.586 2.82197 407.586 5.19777C407.586 7.57356 409.512 9.49951 411.888 9.49951Z" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
-            <path className="connector-line step-1" d="M158.445 328.379V474.465" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
+            <path className="connector-line step-1" d="M158.445 370.235V474.465" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
             <path className="connector-dot step-1" d="M162.744 478.767C162.744 481.097 160.772 483.068 158.442 483.068C156.112 483.068 154.141 481.097 154.141 478.767C154.141 476.436 156.112 474.465 158.442 474.465C160.772 474.465 162.744 476.436 162.744 478.767Z" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
-            <path className="connector-line step-3" d="M665.516 335.549V481.635" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
+            <path className="connector-line step-3" d="M665.516 370.235V481.635" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
             <path className="connector-dot step-3" d="M665.513 490.238C667.888 490.238 669.814 488.312 669.814 485.937C669.814 483.561 667.888 481.635 665.513 481.635C663.137 481.635 661.211 483.561 661.211 485.937C661.211 488.312 663.137 490.238 665.513 490.238Z" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
-            <path className="connector-line step-5" d="M1161.11 335.549V481.635" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
+            <path className="connector-line step-5" d="M1161.11 370.235V481.635" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
             <path className="connector-dot step-5" d="M1161.11 490.238C1163.48 490.238 1165.41 488.312 1165.41 485.937C1165.41 483.561 1163.48 481.635 1161.11 481.635C1158.73 481.635 1156.8 483.561 1156.8 485.937C1156.8 488.312 1158.73 490.238 1161.11 490.238Z" stroke="#7E7F83" strokeWidth="1.7924" strokeMiterlimit="10" />
 
             <g opacity="0.1">
