@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useAppDispatch } from '@/store/hooks'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './loading.module.css'
 
 export default function FullScreenLoading() {
@@ -12,23 +13,25 @@ export default function FullScreenLoading() {
   useEffect(() => {
     if (typeof document === 'undefined') return
 
-    // 1. Local Scroll Lock (Fallback)
-    const originalStyle = window.getComputedStyle(document.body).overflow
+    const originalOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    // 2. GSAP Smoother Pause
     if (smootherRef?.current) {
       smootherRef.current.paused(true)
     }
 
     return () => {
-      // Restore scroll
-      document.body.style.overflow = originalStyle
+      document.body.style.overflow = originalOverflow === 'hidden' ? '' : originalOverflow
 
-      // Resume GSAP Smoother
       if (smootherRef?.current) {
         smootherRef.current.paused(false)
       }
+      
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          ScrollTrigger.refresh()
+        }, 50)
+      })
     }
   }, [smootherRef, dispatch])
 

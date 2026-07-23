@@ -18,7 +18,7 @@ import DevelopmentProcessItBusiness from '../shared/development-process-it-busin
 import { useMediaQuery } from '@mui/material'
 
 const DevelopmentProcess = () => {
-  const isMobile = useMediaQuery('(max-width:768px)')
+  const isMobile = useMediaQuery('(max-width:1000px)')
   const pathname = usePathname()
   const serviceRoute = pathname.split('/')[2]
 
@@ -122,7 +122,7 @@ const DevelopmentProcess = () => {
         style={{
           display: 'grid',
           placeItems: 'center',
-          marginTop: serviceRoute === 'software-development' ? '0px' : 'max(24px, 2.125vw)',
+          marginTop: serviceRoute === 'software-development' ? '0px' : serviceRoute === 'industry-specific-solutions' ? 'max(48px, 3.5vw)' : 'max(24px, 2.125vw)',
         }}
       >
         {renderAsset()}

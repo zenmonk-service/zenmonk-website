@@ -61,11 +61,16 @@ export default function SmoothScroller({
     const timer = setTimeout(() => {
       if (smootherRef && smootherRef.current) {
         smootherRef.current.scrollTop(0)
-        ScrollTrigger.refresh()
       }
       setIsReady(true)
       // Hide loader only after scroll position has been locked at the top
       dispatch(toggleLoader(false))
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          ScrollTrigger.refresh()
+        }, 150)
+      })
     }, 250)
  
     return () => clearTimeout(timer)

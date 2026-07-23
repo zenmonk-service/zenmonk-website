@@ -47,11 +47,94 @@
     width: 64.2708vw; // Approx 1234px scaled
     height: 31.5625vw; // Approx 606px scaled
 
+    .baseSvgWrapper {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
     .baseSvg {
       width: 100%;
       height: 100%;
       display: block;
       scale: 1;
+
+      :global {
+        .center-bulb-glow {
+          transform-origin: 629px 305px;
+          animation: bulbGlowPulse 2.8s ease-in-out infinite;
+        }
+
+        .center-bulb {
+          transform-origin: 630px 335px;
+          animation: bulbFloat 3.2s ease-in-out infinite;
+        }
+
+        .center-bulb-shadow {
+          transform-origin: 630px 442px;
+          animation: bulbShadowScale 3.2s ease-in-out infinite;
+        }
+
+        .step-group {
+          opacity: 0;
+          transform: scale(0.82) rotate(-8deg);
+          transform-origin: 629px 305px;
+          transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .arrow-flow {
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+      }
+
+      &.animated {
+        :global {
+          .step-group-1 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.25s;
+          }
+          .step-group-2 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.41s;
+          }
+          .step-group-3 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.57s;
+          }
+          .step-group-4 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.73s;
+          }
+          .step-group-5 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.89s;
+          }
+          .step-group-6 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 1.05s;
+          }
+
+          .arrow-flow {
+            opacity: 1;
+            animation: arrowPulse 2s ease-in-out infinite alternate;
+          }
+
+          .arrow-1 { animation-delay: 0.35s; }
+          .arrow-2 { animation-delay: 0.51s; }
+          .arrow-3 { animation-delay: 0.67s; }
+          .arrow-4 { animation-delay: 0.83s; }
+          .arrow-5 { animation-delay: 0.99s; }
+          .arrow-6 { animation-delay: 1.15s; }
+        }
+      }
     }
 
     .stepOverlay {
@@ -60,10 +143,10 @@
       display: flex;
       flex-direction: column;
       gap: 0.5208vw;
-      transition: transform 0.3s ease;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
       &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-6px) scale(1.02);
       }
 
       // Step 1: Top Left (Green)
@@ -348,5 +431,47 @@
         }
       }
     }
+  }
+}
+
+@keyframes bulbGlowPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes bulbFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bulbShadowScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.2;
+  }
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
   }
 }
