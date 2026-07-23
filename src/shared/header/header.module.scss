@@ -35,7 +35,10 @@
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  border: 1px solid transparent;
+  border: none !important;
+  outline: none !important;
+  overflow: hidden !important;
+  background-clip: padding-box !important;
 
   &.active {
     box-shadow: 0 0 0.52vw rgba(235, 124, 13, 0.4);

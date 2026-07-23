@@ -285,3 +285,19 @@
     }
   }
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1424px) {
+  .footer-section {
+    .header {
+      .logo-wrapper {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+
+        .logo {
+          width: max(7.5vw, 96px) !important;
+          height: auto !important;
+        }
+      }
+    }
+  }
+}

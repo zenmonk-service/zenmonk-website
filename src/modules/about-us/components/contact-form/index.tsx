@@ -33,6 +33,9 @@ export const ContactForm = () => {
   const phoneErrorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow keyboard shortcuts (Ctrl+A, Ctrl+C, Ctrl+V, etc.)
+    if (e.ctrlKey || e.metaKey) return
+
     const allowedKeys = [
       'Backspace',
       'Delete',

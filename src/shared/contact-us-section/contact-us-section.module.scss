@@ -438,17 +438,19 @@
 .globeFlagsContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: max(12px, 0.9vw);
+  gap: max(32px, 2.1vw);
   margin-bottom: max(24px, 1.8vw);
+  max-width: calc(5 * max(50px, 3.3vw) + 4 * max(32px, 2.1vw) + 4px);
 
   @media screen and (max-width: 799px) {
     justify-content: center;
+    max-width: 100%;
   }
 }
 
 .globeFlag {
-  width: max(56px, 3.8vw);
-  height: max(38px, 2.5vw);
+  width: max(50px, 3.3vw);
+  height: max(32px, 2.1vw);
   border-radius: max(4px, 0.3vw);
   overflow: hidden;
   cursor: pointer;
@@ -457,15 +459,17 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   display: flex;
   position: relative;
+  flex-shrink: 0;
 
   &:hover {
     transform: scale(1.08);
+    box-shadow: 0 0 max(12px, 0.9vw) rgba(235, 124, 13, 0.45);
   }
 
   &.globeFlagActive {
     transform: scale(1.08);
-    box-shadow: 0 0 max(12px, 1vw) max(3px, 0.2vw) rgba(255, 59, 48, 0.5);
-    border-color: #ff3b30;
+    box-shadow: 0 0 max(16px, 1.2vw) max(3px, 0.2vw) rgba(235, 124, 13, 0.65);
+    border-color: #eb7c0d;
   }
 }
 

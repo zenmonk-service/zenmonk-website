@@ -6,9 +6,9 @@
     perspective: none;
   }
 
-  // Reduce the bottom gap of the hero section to 40px
   div[class*="hero-section_section"] {
-    padding-bottom: 40px !important;
+    aspect-ratio: auto !important;
+    padding-bottom: 10px !important;
   }
 
   @media (max-width: 768px) {
@@ -22,7 +22,7 @@
 .software-development-hero-container {
   width: 100%;
   overflow-x: hidden;
-  padding-bottom: 120px;
+  padding-bottom: 16px;
 }
 
 .doodle-container {
