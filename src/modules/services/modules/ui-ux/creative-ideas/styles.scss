@@ -1,58 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+/* ================= ROOT LAYOUT ================= */
 
 .creative-ideas {
-  height: 100vh;
   width: 100%;
-  max-height: 56.25vw; /* 1080px → (1080/1920) * 100 */
-  background-image: url('/ui-ux/creative-ideas.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 6.25vw; /* 120px → (120/1920) * 100 */
+  box-sizing: border-box;
+  justify-content: center; /* Center the text content */
+  position: relative; /* Context for absolute hands */
+  overflow: hidden;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  min-height: 50vw; /* Increased from 46vw to accommodate shifted hands */
+}
 
-  p {
-    color: #3c3c3c;
+/* ================= HANDS ================= */
+
+.hand-fixed {
+  width: 24vw; /* Increased from 22vw */
+  height: 39.3vw; /* Maintained 0.61 aspect ratio */
+  flex-shrink: 0;
+  position: absolute;
+  bottom: 6vw; /* Shifted higher up to show more wrist */
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  .hand-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &.left {
+    left: 3vw; /* Move inward from left screen border to show wrist */
+    margin-left: 0;
+  }
+
+  &.right {
+    right: 3vw; /* Move inward from right screen border to show wrist */
+    margin-right: 0;
+    .hand-svg {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+/* ================= CONTENT ================= */
+
+.creative-ideas-content {
+  width: 48vw; /* Increased from 42vw to expand text layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.creative-ideas-content p {
+  margin: 0;
+  font-family: 'Rubik Doodle Shadow', sans-serif;
+  font-size: max(24px, 3.6vw); /* Increased from 2.8vw */
+  line-height: 1.15;
+  color: #3c3c3c;
+  text-align: center;
+}
+
+.orange {
+  color: #f9a91a;
+}
+
+.wow {
+  font-size: max(70px, 11vw) !important; /* Increased from 8.5vw to look prominent and bold */
+  color: #f9a91a !important;
+  text-align: center;
+}
+
+/* ================= SUBTITLE ================= */
+
+.creative-ideas-subtitle {
+  display: flex;
+  margin-top: 12px;
+}
+
+.creative-ideas-subtitle p {
+  font-size: 5vw;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* ================= MOBILE ================= */
+
+
+@media (max-width: 900px) {
+  .creative-ideas {
+    padding: 4vw 4vw 0 4vw;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    min-height: 48vw;
+  }
+
+  .creative-ideas-content {
+    width: 52vw;
+  }
+
+  .creative-ideas-content p {
+    margin-left: 0 !important;
+    font-size: max(32px, 5vw);
     text-align: center;
-    font-family: 'Rubik Doodle Shadow';
-    font-size: 4.7vw; /* 90.249px → (90.249/1920) * 100 */
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    max-width: 37.5vw; /* 720px → (720/1920) * 100 */
-    text-align: left;
+  }
 
-    @media screen and (max-width: 1499px) {
-      font-size: 3.13vw !important; /* 60px → (60/1920) * 100 */
-      max-width: 27.08vw; /* 520px → (520/1920) * 100 */
-    }
+  .wow {
+    font-size: max(100px, 16vw) !important;
+  }
 
-    .wow {
-      color: #f9a91a;
-      text-align: center;
-      font-family: 'Rubik Doodle Shadow';
-      font-size: 14.58vw;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+  .hand-fixed {
+    position: absolute;
+    width: 24vw;
+    height: 39.3vw;
+    bottom: 6.5vw;
+  }
 
-      @media screen and (max-width: 1499px) {
-        font-size: 9.38vw !important;
-      }
-    }
+  .hand-fixed.left {
+    left: 2vw;
+    margin-left: 0;
+  }
 
-    span:first-child {
-      .orange {
-        color: red;
-      }
-    }
+  .hand-fixed.right {
+    right: 2vw;
+    margin-right: 0;
+  }
+}
 
-    span:last-child {
-      .orange {
-        color: red;
-      }
-    }
+@media (max-width: 600px) {
+  .creative-ideas {
+    padding: 6vw 4vw 0 4vw;
+    min-height: 50vw;
+  }
+
+  .creative-ideas-content {
+    width: 48vw;
+  }
+
+  .creative-ideas-content p {
+    font-size: max(26px, 5.5vw);
+  }
+
+  .wow {
+    font-size: max(80px, 17vw) !important;
+  }
+
+  .hand-fixed {
+    width: 26vw;
+    height: 42.6vw;
+    bottom: 4.5vw;
+  }
+
+  .hand-fixed.left {
+    left: 1vw;
+  }
+
+  .hand-fixed.right {
+    right: 1vw;
   }
 }

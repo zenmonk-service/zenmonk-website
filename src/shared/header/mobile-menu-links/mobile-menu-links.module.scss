@@ -1,0 +1,32 @@
+.menuToggleContainer {
+  display: none;
+}
+
+.menuToggleButton {
+  position: absolute;
+  right: 27px;
+  top: 10px;
+  outline: none;
+  border: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: #fff;
+  cursor: pointer;
+  width: 30px;
+  height: 28px;
+  border-radius: 4px;
+  background: var(--global-color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1002; /* Ensure button remains above navigation overlays */
+}
+
+@media (min-width: 1000px) {
+  .container {
+    display: none;
+  }
+}

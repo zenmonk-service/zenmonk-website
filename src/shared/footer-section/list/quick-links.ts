@@ -2,7 +2,7 @@ export const quickLink = [
   {
     id: 1,
     title: 'About Us',
-    link: '/about',
+    link: '/about-us',
   },
   {
     id: 2,
@@ -12,7 +12,7 @@ export const quickLink = [
   {
     id: 3,
     title: 'Why choose us',
-    link: '/why-choose-us',
+    link: '/about-us#why-choose-us',
   },
   {
     id: 4,

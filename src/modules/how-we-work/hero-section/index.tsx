@@ -1,53 +1,57 @@
-import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
-import { Hero } from '@/modules/how-we-work/assets'
-import BaseButton from '@/shared/button'
+'use client'
+
+import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { SectionDescription } from '@/shared/typography'
-import HorizontalDottedImage from '../assets/hero/horizontal-dotted-image.png'
-import VerticalDottedImage from '../assets/hero/vert-dotted-image.png'
-import './styles.scss'
+import BaseButton from '@/shared/button'
+import DottedBackground from './assets/dotted-background.svg'
+import HeroImage from './hero-image'
+import styles from './hero-section.module.scss'
 
 const HeroSection = () => {
+  const router = useRouter()
+
   return (
-    <Box className="how-we-work-hero-section-wrapper">
-      <Box className="hero-section">
-        <Box className="hero-section-text-wrapper">
-          <Typography className="text-heading">
-            <Typography variant="inherit" component="span">
-              How We Work
-            </Typography>{' '}
-            for <br />
-            Seamless Solutions
-          </Typography>
+    <div className={styles.howWeWorkHeroSectionWrapper}>
+      <div className={styles.heroSection}>
+        <div className={styles.heroSectionTextWrapper}>
+          <motion.p
+            initial={{ opacity: 0, y: '2.6vw' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className={styles.textHeading}
+          >
+            <span>How We Work</span> for <br />
+            Seamless End-to-End Solutions
+          </motion.p>
           <SectionDescription
+            initial={{ opacity: 0, y: '2.6vw' }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.6,
+              ease: 'easeOut',
+            }}
             text="We deliver Zen-inspired precise, 
             mindful solutions by integrating deep expertise with client collaboration,
             prioritizing transparency, innovation, and purposeful development to 
             innovate impactful technology."
-            className="text-description"
-          ></SectionDescription>
-        </Box>
-      </Box>
-      <Box className="hero-section-image-wrapper">
-        <Image className="hero-section-image" src={Hero} alt="innovator" fill />
-      </Box>
-      <Image
-        alt=""
-        src={HorizontalDottedImage}
-        className="bottom-horizontal-dotted-image"
-      />
-      <Image
-        alt=""
-        src={HorizontalDottedImage}
-        className="top-horizontal-dotted-image"
-      />
-      <Image
-        alt=""
-        src={VerticalDottedImage}
-        className="vertical-dotted-image"
-      />
-    </Box>
+            className={styles.textDescription}
+          />
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className={styles.button}
+          >
+            EXPLORE MORE
+          </BaseButton>
+        </div>
+      </div>
+      <HeroImage />
+      <DottedBackground className={styles.topHorizontalDottedImage} />
+      <DottedBackground className={styles.bottomHorizontalDottedImage} />
+      <DottedBackground className={styles.verticalDottedImage} />
+    </div>
   )
 }
 
-export { HeroSection }
+export default HeroSection

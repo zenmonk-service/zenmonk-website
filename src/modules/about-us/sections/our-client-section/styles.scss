@@ -1,25 +1,71 @@
 .about-us-our-client-section {
   width: 100%;
-  height: 100vh;
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: hidden;
+  margin-top: max(40px, 3.125vw);
+  margin-bottom: max(40px, 3.125vw);
 
   .section-description {
+    margin-top: 0.781vw;
+    height: auto;
+    padding-bottom: 0.26vw;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--font-size-18);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 90%;
+    min-width: 19.8vw;
     text-align: center;
-    margin-top: 0.521vw;    // 10px
-    width: 70%;
-    margin-bottom: 5.208vw; // 100px
+    margin-bottom: 1.56vw;
+
+    @media screen and (max-width: 1037px) {
+      font-size: 14px;
+      width: 100%;
+      min-width: unset;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .carousel-stack {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+
+    &:hover {
+      .auto-scroll-slide-track {
+        animation-play-state: paused !important;
+      }
+    }
   }
 
   .infinite-slider {
-    margin-bottom: 4.167vw; // 80px
+    width: 100%;
+    height: auto;
 
-    .slide-track {
-      gap: 5.208vw;         // 100px
+    .auto-scroll-slide-content-wrapper {
+      height: 5.2vw; // 100px on 1920px width
+
+      @media screen and (max-width: 768px) {
+        height: 60px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about-us-our-client-section {
+    .section-description {
+      padding: 0 16px;
+      @media (min-width: 601px) and (max-width: 900px) {
+        padding: 0 24px;
+      }
     }
   }
 }

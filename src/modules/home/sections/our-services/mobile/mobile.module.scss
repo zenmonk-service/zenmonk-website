@@ -1,0 +1,120 @@
+.container {
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+
+  .heading {
+    margin-bottom: 46px;
+
+    span {
+      color: #EB7C0D;
+    }
+  }
+
+  .icon {
+    width: 40px;
+    transform: scale(0.9);
+    transform-origin: left;
+  }
+
+  .card {
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 2px 2px 13px 0px rgba(12, 98, 98, 0.13);
+    padding: 16px 24px;
+    gap: 10px;
+    width: 100%;
+
+    .cardContentContainer {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      .count {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        width: 80px;
+
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .cardContent {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  }
+
+  .title {
+    color: #132427;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.16px;
+  }
+
+  .expandedTitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  .description {
+    color: #777;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.28px;
+    margin-bottom: 16px;
+  }
+
+  .arrowIcon {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  .techLogosContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+
+    .techLogos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 11.72vw;
+      min-height: 94px;
+      width: 28%; // approx 3 columns with gap
+
+      p {
+        color: #132427;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,29 +1,41 @@
 'use client'
 
 import parse from 'html-react-parser'
-import React from 'react'
-import { usePathname } from 'next/navigation'
-import { Box, Typography, Toolbar, Grid2 } from '@mui/material'
-import BaseButton from '@/shared/button'
-import './styles.scss'
+import Grid from '@mui/material/Grid2'
+import { motion } from 'framer-motion'
+import BaseButton from '../button'
+import styles from './hero-section.module.scss'
+import Image from 'next/image'
 
 interface HeroSectionProps {
   title: string
   description: string
   textWidth?: number
-  image: any
   highlightedText?: string
-  imgWidth?: number
+  url?: string
+  imageStyle?: React.CSSProperties
+  children?: React.ReactNode
+  showImage?: boolean
+  textWrapperStyle?: React.CSSProperties
+  titleProps?: React.HTMLAttributes<HTMLHeadingElement>
+  style?: React.CSSProperties
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   description,
   textWidth,
-  image: Image,
   highlightedText = '',
-  imgWidth,
+  url,
+  imageStyle = {},
+  children,
+  showImage = true,
+  textWrapperStyle = {},
+  titleProps = {},
+  style = {},
 }) => {
+
+
   const highlightTitle = (text: string) => {
     if (!highlightedText || !text.includes(highlightedText)) return parse(text)
 
@@ -31,56 +43,138 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return (
       <>
         {parse(parts[0])}
-        <Typography component="span">{parse(highlightedText)}</Typography>
+        <span>{parse(highlightedText)}</span>
         {parse(parts[1])}
       </>
     )
   }
 
-  const pathname = usePathname()
-  const serviceRoute = pathname.split('/')[2]
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.15
+      },
+    },
+  }
+
+  const buttonVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.3
+      },
+    },
+  }
+
+  const safeTitleProps = { ...titleProps, onAnimationStart: undefined }
 
   return (
-    <Box className="service-hero-section" sx={{ width: '100%' }}>
-      <Grid2 container spacing={4} alignItems="center">
-        <Grid2 size={{ xs: 12, md: 6 }} className="global-hero-section-text">
-          <Box
-            className="global-hero-section-text-wrapper"
-            style={{ width: textWidth }}
+    <Grid
+      className={styles.section}
+      container
+      spacing={4}
+      style={style}
+    >
+      <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
+        <div 
+          className={styles.textWrapper} 
+          style={{ width: textWidth, ...textWrapperStyle }}
+        >
+          <motion.h1 
+            className={styles.heading} 
+            variants={titleVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+            {...(safeTitleProps as any)}
           >
-            <Typography
-              variant="h3"
-              component="h1"
-              className="global-text-heading"
-            >
-              {highlightTitle(title)}
-            </Typography>
-            <Typography variant="body1" className="global-text-description">
-              {parse(description)}
-            </Typography>
-          </Box>
-          <BaseButton>EXPLORE MORE</BaseButton>
-        </Grid2>
+            {highlightTitle(title)}
+          </motion.h1>
+          <motion.p 
+            className={styles.description}
+            variants={descriptionVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+          >
+            {parse(description)}
+          </motion.p>
+          <motion.div 
+            className={styles.buttonContainer}
+            variants={buttonVariants}
+            initial="hidden"
+            animate="visible"
+            style={{ opacity: 0 }}
+          >
+            <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+          </motion.div>
+        </div>
+      </Grid>
 
-        <Grid2 size={{ xs: 12, md: 6 }} display="flex" justifyContent="center">
-          <Box>{serviceRoute === 'product-development' && <Image />}</Box>
-          {serviceRoute !== 'product-development' && (
-            <Box
-              className="global-hero-section-image-wrapper"
-              component="img"
-              src={Image}
-              alt="Hero Image"
-              sx={{
-                width: imgWidth ?? '100%',
-                height: 'auto',
-                objectFit: 'contain',
-                borderRadius: 2,
-              }}
-            />
-          )}
-        </Grid2>
-      </Grid2>
-    </Box>
+      <Grid
+        size={{ xs: 12, md: 6 }}
+        className={styles.imageContainer}
+        display="flex"
+        justifyContent="center"
+        flexDirection="column"
+        alignItems="center"
+      >
+        {showImage && url && (
+          <Image
+            className={styles.image}
+            src={url}
+            alt="Hero Image"
+            width={400}
+            height={500}
+            priority
+            style={{
+              width: '100%',
+              height: 'auto',
+              objectFit: 'contain',
+              borderRadius: 2,
+              ...imageStyle,
+            }}
+          />
+        )}
+        {children}
+      </Grid>
+    </Grid>
   )
 }
 

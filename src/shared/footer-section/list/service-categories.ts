@@ -1,82 +1,52 @@
 export const serviceCategory = [
   {
     id: 1,
-    title: 'Artificial Intelligence',
+    title: 'Software Development',
+    link: '/services/software-development',
   },
   {
     id: 2,
-    title: 'Business Process Services',
+    title: 'Product Development',
+    link: '/services/product-development',
   },
   {
     id: 3,
-    title: 'Cloud Solutions',
+    title: 'Custom App Development',
+    link: '/services/custom-app-development',
   },
   {
     id: 4,
-    title: 'Manufacturing',
+    title: 'UI/UX Design',
+    link: '/services/ui-ux-design',
   },
   {
     id: 5,
-    title: 'Education',
+    title: 'Cloud Development',
+    link: '/services/cloud-development',
   },
   {
     id: 6,
-    title: 'Healthcare',
+    title: 'IT & Business Consultation',
+    link: '/services/it-&-business-consultation',
   },
   {
     id: 7,
-    title: 'Media & Entertainment',
+    title: 'Growth & Marketing',
+    link: '/services/growth-&-marketing',
   },
   {
     id: 8,
-    title: 'Real Estate',
+    title: 'Industry-Specific Solutions',
+    link: '/services/industry-specific-solutions',
   },
   {
     id: 9,
-    title: 'Transportation',
+    title: 'IT Training & Workshops',
+    link: '/services/it-training-&-workshops',
   },
   {
     id: 10,
-    title: 'Utilities',
-  },
-  {
-    id: 11,
-    title: 'Retail & E-commerce',
-  },
-  {
-    id: 12,
-    title: 'Financial Services',
-  },
-  {
-    id: 13,
-    title: 'Cybersecurity',
-  },
-  {
-    id: 14,
-    title: 'Telecommunications',
-  },
-  {
-    id: 15,
-    title: 'Marketing',
-  },
-  {
-    id: 16,
-    title: 'Government Services',
-  },
-  {
-    id: 17,
-    title: 'Hospitality & Tourism',
-  },
-  {
-    id: 18,
-    title: 'Legal & Compliance',
-  },
-  {
-    id: 19,
-    title: 'Agriculture',
-  },
-  {
-    id: 20,
-    title: 'Energy & Environment',
+    title: 'AI Solutions',
+    link: '/services/ai-based-softwares',
   },
 ]

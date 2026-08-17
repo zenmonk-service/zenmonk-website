@@ -1,45 +1,80 @@
 .why-choose-us-card {
   display: flex;
-  width: max(18.646vw, 21.988vw); // 358px, 422.174px
-  height: auto;
+  width: 21.88vw;
+  min-height: 250px;
   flex-direction: column;
   flex-shrink: 0;
 
-  padding: 1.667vw 2.083vw; // 32px 40px
+  padding: 1.667vw 2.083vw;
   cursor: default;
-  border-radius: 0.313vw; // 6px
-  background: var(--global-color-primary);
-  box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.12); // 84.5px
-  gap: 0.938vw; // 18px
+  border-radius: 0.313vw;
+  background: #fff;
+  box-shadow: 0 0 4.401vw 0 rgba(43, 48, 86, 0.08);
+  gap: 0.26vw;
+  position: relative;
+  transition:
+    background 0.15s ease-out,
+    transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+    box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    bottom: -20px;
+    pointer-events: none;
+    background: transparent;
+  }
+
+  &:hover {
+    transform: translateY(-0.52vw);
+    box-shadow: 0 1.04vw 2.6vw 0 rgba(43, 48, 86, 0.12);
+
+    &::after {
+      pointer-events: auto;
+    }
+  }
+
+  @media screen and (min-width: 767px) and (max-width: 900px) {
+    width: 100%;
+    height: 266px;
+  }
+
+  @media screen and (max-width: 1037px) {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
 
   .card-image-container {
     position: relative;
-    width: 3.75vw;   /* ~72px */
-    height: 3.229vw; /* ~62px */
-    overflow: hidden; // optional: clips image overflow
-    border-radius: 8px;
-  
+    width: 3.75vw;
+    height: 3.23vw;
+    flex-shrink: 0;
+    scale: 1.8;
+    overflow: hidden;
+
+    @media screen and (max-width: 1037px) {
+      width: 60px;
+      height: 60px;
+    }
+
     img {
-    transition: transform 0.5s ease-in-out;
-      object-fit: cover; /* or 'contain' if you don't want crop */
+      transition: transform 0.5s ease-in-out;
       width: 100%;
       height: 100%;
-      transform: scale(9);
-    }
-  }
-  
-  
-
-  &:hover {
-    .card-image-container img {
-      transform: scale(10);
+      object-fit: contain;
+      display: block;
+      transform: scale(8.5);
     }
   }
 
   @media screen and (max-width: 1499px) {
-    min-width: 14.583vw; // 280px
+    min-width: 14.58vw;
     width: 100%;
-    padding: 0.885vw 0.885vw; // 17px 17px
+    padding: 24px;
+    gap: 16px;
   }
 
   .content {
@@ -47,7 +82,11 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 0.521vw; // 10px
+    gap: 0.521vw;
+
+    @media screen and (max-width: 1037px) {
+      gap: 10px;
+    }
 
     .title {
       color: #4e4e4e;
@@ -56,6 +95,10 @@
       font-style: normal;
       font-weight: 600;
       line-height: normal;
+
+      @media screen and (max-width: 1037px) {
+        font-size: 18px !important;
+      }
     }
 
     .description {
@@ -67,7 +110,18 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin-bottom: 0.521vw; // 10px
+      margin-bottom: 0.521vw;
+
+      @media screen and (max-width: 1037px) {
+        font-size: 14px !important;
+        margin-bottom: 0;
+      }
     }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 768px) {
+  .why-choose-us-card {
+    width: 100%;
   }
 }

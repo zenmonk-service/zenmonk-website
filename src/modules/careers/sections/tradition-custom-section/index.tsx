@@ -1,38 +1,41 @@
-import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
-import { bgImage as BGIMAGE } from './assets'
+'use client'
+
+import {
+  bgImage as BackgroundImage,
+  bgMobileImage as BackgroundImageMobile,
+} from './assets'
 import TraditionCustomCard from './card/tradition-card'
-import './styles.scss'
+import styles from './tradition-custom.module.scss'
 import { traditionsCustoms } from './tradition-customs'
 
 const TraditionsCustoms = () => {
   return (
-    <Box className="traditions-customs-section">
-      <BGIMAGE className="bg-image" />
-      <Box className="container">
-        <Box className="traditions-customs-title-description-wrapper">
-          <Typography component="h1" className="traditions-customs-title">
-            Experiencing Traditions and Customs
-          </Typography>
-          <Typography className="traditions-customs-description" component="p">
-            Discover rich cultural heritage passed down through generations—timeless
-            rituals that shape identity and community.
-          </Typography>
-        </Box>
-        <Box className="traditions-customs-list">
-          {traditionsCustoms.map((tradition, index) => {
-            return (
-              <TraditionCustomCard
-                key={index}
-                image={tradition.image}
-                title={tradition.title}
-                description={tradition.description}
-              />
-            )
-          })}
-        </Box>
-      </Box>
-    </Box>
+    <div className={styles.traditionsCustomsSection}>
+      <BackgroundImage className={styles.bgImage} />
+      <BackgroundImageMobile className={styles.bgImageMobile} />
+
+      <div className={styles.container}>
+        <div className={styles.titleDescriptionWrapper}>
+          <h1 className={styles.title}>Experiencing Traditions and Customs</h1>
+          <p className={styles.description}>
+            Discover rich cultural heritage passed down through
+            generations—timeless rituals that shape identity and community.
+          </p>
+        </div>
+
+        <div className={styles.list}>
+          {traditionsCustoms.map((tradition, index) => (
+            <TraditionCustomCard
+              key={index}
+              index={index}
+              Icon={tradition.image}
+              title={tradition.title}
+              description={tradition.description}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   )
 }
 

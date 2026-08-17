@@ -1,0 +1,267 @@
+.tech-solution-section-wrapper {
+  margin-top: max(80px, 6.25vw);
+  display: flex;
+  align-items: center;
+  padding: 0 5%;
+  padding-left: 7.8125%;
+  background-color: #fff;
+  height: auto;
+  padding-right: 7.8125%;
+  z-index: 101;
+  position: relative;
+
+  .tech-solution-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    .tech-solution-section-text-wrapper {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: max(16px, 0.41vw);
+      width: 100%;
+
+      .tech-solution-text-heading {
+        color: #3c3c3c !important;
+        font-family: Poppins, sans-serif !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 0.05vw;
+        margin-bottom: 0.8vw;
+        text-align: center;
+      }
+
+      .tech-solution-text-description {
+        margin-bottom: 0px;
+
+        @media (max-width:600px) {
+          margin-bottom: 24px;
+          text-align: center;
+        }
+      }
+    }
+
+    .tech-solution-section-card-wrapper {
+      margin-top: max(16px, 1.66vw);
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: max(16px, 1.25vw);
+    }
+
+    .tech-solution-button {
+      margin-top: 2.135vw;
+      width: max(180px, 9.375vw);
+    }
+  }
+
+  .tech-solution-section-image-wrapper {
+    flex: 1;
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    position: relative;
+
+    &.tech-solution-mobile {
+      display: none;
+    }
+
+    &:not(.tech-solution-mobile) {
+      @media (max-width: 780px) {
+        display: none;
+      }
+    }
+
+    /* Target only the main hero image which is a direct child or specific class */
+    >img {
+      right: 0;
+      position: relative !important;
+      height: auto;
+      width: 34.38vw !important;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .tech-solution-expense-img {
+      width: 6.42vw;
+      height: 6.58vw;
+      position: absolute !important;
+      top: -18%;
+      right: -8%;
+      object-fit: contain;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0px max(3px, 0.2vw) max(16px, 1.2vw) rgba(0, 0, 0, 0.12)) drop-shadow(0px max(8px, 0.6vw) max(12px, 0.9vw) rgba(0, 0, 0, 0.14));
+    }
+
+    .tech-solution-circle-img-1 {
+      width: 10.42vw;
+      height: 10.58vw;
+      position: absolute !important;
+      top: -25%;
+      left: 2.5%;
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
+
+    .tech-solution-circle-img-2 {
+      width: 10.42vw;
+      height: 10.58vw;
+      position: absolute !important;
+      bottom: -20%;
+      right: -10%;
+      z-index: -1;
+      animation: rotate 10s linear infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 780px) {
+  .tech-solution-section-wrapper {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 0 16px;
+    padding-bottom: 0;
+
+    .tech-solution-section {
+      width: 100%;
+
+      .tech-solution-section-text-wrapper {
+        gap: 16px;
+
+        .tech-solution-text-heading {
+          margin-bottom: 16px;
+        }
+      }
+
+      .tech-solution-section-card-wrapper {
+        margin-top: 40px;
+        gap: 16px;
+        justify-content: center;
+      }
+
+      .tech-solution-button {
+        margin-top: 40px;
+      }
+    }
+
+    .tech-solution-section-image-wrapper {
+      width: 100%;
+      height: 100%;
+      max-height: unset;
+      margin-bottom: 32px;
+      position: relative;
+      scale: 1.05;
+
+      @media (max-width:728px) {
+        width: 100%;
+      }
+
+      &.tech-solution-mobile {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+      }
+
+      img {
+        width: 80% !important;
+        margin-right: 0;
+        margin: 0 auto;
+      }
+
+      .tech-solution-expense-img {
+        position: absolute !important;
+        top: -10%;
+        right: -8%;
+        width: 16.12vw;
+        height: 16.28vw;
+        object-fit: contain;
+      }
+
+      .tech-solution-circle-img-1 {
+        width: 16.12vw;
+        height: 16.28vw;
+        position: absolute !important;
+        top: -15%;
+        left: -40%;
+        z-index: -1;
+        scale: 1.2;
+        animation: rotate 10s linear infinite;
+      }
+
+      .tech-solution-circle-img-2 {
+        width: 16.12vw;
+        height: 16.28vw;
+        position: absolute !important;
+        bottom: -18%;
+        right: -10%;
+        z-index: -1;
+        scale: 1.2;
+        animation: rotate 10s linear infinite;
+      }
+    }
+  }
+}
+
+.animate_scale {
+  animation: scale 1.5s forwards;
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+
+  55% {
+    scale: 1.1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes scaleSM {
+  0% {
+    scale: 0.2;
+    opacity: 0;
+  }
+
+  55% {
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 0.8;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tech-solution-section-image-wrapper {
+    scale: 1.2;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1150px) {
+  .tech-solution-section-wrapper .tech-solution-section .tech-solution-section-card-wrapper {
+    gap: 12px !important;
+  }
+}

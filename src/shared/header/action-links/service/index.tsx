@@ -1,59 +1,99 @@
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import Expand from '@mui/icons-material/ExpandLess'
-import { Box } from '@mui/material'
-import LoadingIndicator from '@/shared/loading-indicator'
-import { ActionLink } from '../links'
-import { navItemStyles } from '../nav-item-style'
-import ServiceCard from './service-card'
-import { services } from './services.constant'
+'use client'
 
-const ServiceLink = ({ name, href }: ActionLink) => {
+import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import Popover from '@mui/material/Popover'
+import { services } from '@/static/services'
+import ServiceCard from './service-card'
+import styles from './service.module.scss'
+
+const ExpandIcon = (props: any) => (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <polyline points="18 15 12 9 6 15" />
+  </motion.svg>
+)
+
+interface Props {
+  anchorEl: HTMLElement | null
+  handleClick: () => void
+  handleClose: () => void
+}
+
+const ServiceLink = (props: Props) => {
+  const { anchorEl, handleClick, handleClose } = props
   const pathname = usePathname()
-  const [isExpanded, setIsExpanded] = useState(false)
-  const toggleExpand = () => setIsExpanded((prev) => !prev)
+
   const alreadyOpen = (path: string) => pathname.includes(path)
+  const open = Boolean(anchorEl)
 
   return (
     <>
-      <Box
-        sx={navItemStyles(pathname, href)}
-        className="action-link-button"
-        onClick={() => toggleExpand()}
+      <button
+        className={`${styles.serviceActionLink} ${
+          pathname.includes('/services') ? styles.active : ''
+        }`}
+        onClick={handleClick}
       >
-        {name}
-        <LoadingIndicator />
-        <Box className="expand-option-icon">
-          <Expand
-            color="inherit"
-            className="icon"
-            style={{
-              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-            }}
+        <span>Services</span>
+        <div className={styles.expandIconContainer}>
+          <ExpandIcon
+            className={styles.expandIcon}
+            animate={{ rotate: open ? 0 : 180 }}
           />
-        </Box>
-      </Box>
+        </div>
+      </button>
 
-      {isExpanded && (
-        <>
-          <Box className="overlay" onClick={() => setIsExpanded(false)} />
-          <Box className="service-menu-container">
-            <Box className="arrow-up" />
-            {services.map((service) => {
-              return (
-                <ServiceCard
-                  isAlreadyOpen={alreadyOpen(service.route)}
-                  key={service.route}
-                  description={service.description}
-                  imageUrl={service.imageUrl}
-                  title={service.label}
-                  route={service.route}
-                />
-              )
-            })}
-          </Box>
-        </>
-      )}
+      <Popover
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        disableScrollLock
+        className={styles.servicesMenuPopover}
+        sx={{
+          minWidth: '600px',
+        }}
+        slotProps={{
+          paper: {
+            elevation: 0,
+            style: {
+              borderRadius: '0.53vw',
+              boxShadow: '0.10vw 0.21vw 2.20vw rgba(19, 103, 109, 0.14)',
+            },
+          },
+        }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <div className={styles.servicesMenuContainer}>
+          {services.map((service) => (
+            <ServiceCard
+              key={service.route}
+              isActive={alreadyOpen(service.route)}
+              description={service.menuDescription}
+              Icon={service.icon}
+              name={service.name}
+              route={service.route}
+              styles={service.styles}
+              handleClose={handleClose}
+            />
+          ))}
+        </div>
+      </Popover>
     </>
   )
 }

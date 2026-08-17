@@ -1,0 +1,50 @@
+.actionLinksContainer {
+  display: flex;
+  align-items: center;
+  font-size: max(16px, 0.83vw);
+  gap: 0.5em;
+}
+
+.actionLink {
+  text-transform: none;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: max(20px, 1.04vw);
+  font-family: 'Poppins', sans-serif !important;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  height: 2.25em;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #393939;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #F5F5F5;
+    color: #393939;
+  }
+
+  &.active {
+    background-color: #FFF5EB;
+    color: #eb7c0d;
+  }
+}
+
+.action-link-menu-icon {
+  color: #fff;
+  padding: 6px 3px !important;
+  font-weight: 800;
+  border-radius: 4px !important;
+  background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%) !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .actionLinksContainer {
+    display: none;
+  }
+}

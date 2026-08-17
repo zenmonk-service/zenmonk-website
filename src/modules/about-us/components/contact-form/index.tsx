@@ -1,11 +1,17 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
-import { Message, Phone, Send, Telegram } from '@mui/icons-material'
-import { Box, FormControl, FormHelperText } from '@mui/material'
+import { FormControl, FormHelperText } from '@mui/material'
+import {
+  Message,
+  Mobile,
+  PaperPlane,
+  Send,
+} from '@/assets/icons/contact-us/contact'
 import BaseButton from '@/shared/button'
-import { BaseInput } from './input'
 import './styles.scss'
+import TextField from './textfield'
 import { Title } from './title'
 
 type ContactFormData = {
@@ -23,20 +29,45 @@ export const ContactForm = () => {
     formState: { errors },
   } = useForm<ContactFormData>()
 
+  const [phoneTypeError, setPhoneTypeError] = useState(false)
+  const phoneErrorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Allow keyboard shortcuts (Ctrl+A, Ctrl+C, Ctrl+V, etc.)
+    if (e.ctrlKey || e.metaKey) return
+
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowUp',
+      'ArrowDown',
+      'Home',
+      'End',
+    ]
+    if (!allowedKeys.includes(e.key) && !/^[0-9]$/.test(e.key)) {
+      e.preventDefault()
+      setPhoneTypeError(true)
+      if (phoneErrorTimerRef.current) clearTimeout(phoneErrorTimerRef.current)
+      phoneErrorTimerRef.current = setTimeout(
+        () => setPhoneTypeError(false),
+        2000
+      )
+    }
+  }
+
   const onSubmit = (data: ContactFormData) => {
     console.log('Form Data Submitted:', data)
   }
 
   return (
-    <Box
-      className="contact-form"
-      component="form"
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <Title text="Full Name" />
-      <Box className="fullname">
+      <div className="fullname">
         <FormControl error={!!errors.firstName} className="form-control">
-          <BaseInput
+          <TextField
             className={`first-name-input ${
               errors.firstName ? 'error-border' : ''
             }`}
@@ -51,7 +82,7 @@ export const ContactForm = () => {
         </FormControl>
 
         <FormControl error={!!errors.lastName} className="form-control">
-          <BaseInput
+          <TextField
             className={`last-name-input ${
               errors.lastName ? 'error-border' : ''
             }`}
@@ -64,14 +95,14 @@ export const ContactForm = () => {
             </FormHelperText>
           )}
         </FormControl>
-      </Box>
+      </div>
 
       <Title text="Email" />
       <FormControl error={!!errors.email} className="form-control">
-        <BaseInput
+        <TextField
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
-          endAdornment={<Telegram className="end-adornment" />}
+          endAdornment={<PaperPlane className="end-adornment" />}
           {...register('email', {
             required: 'Email is required',
             pattern: {
@@ -89,16 +120,23 @@ export const ContactForm = () => {
 
       <Title text="Your Phone" />
       <FormControl error={!!errors.phone} className="form-control">
-        <BaseInput
+        <TextField
           className={`phone-number-input ${errors.phone ? 'error-border' : ''}`}
           placeHolder="Phone"
-          endAdornment={<Phone className="end-adornment" />}
+          endAdornment={<Mobile className="end-adornment" />}
+          inputMode="numeric"
+          onKeyDown={handlePhoneKeyDown}
           {...register('phone', {
             required: 'Phone number is required',
             pattern: { value: /^[0-9]+$/, message: 'Invalid phone number' },
           })}
         />
-        {errors.phone && (
+        {phoneTypeError && (
+          <FormHelperText className="error-text" style={{ color: '#d32f2f' }}>
+            Only numbers are allowed.
+          </FormHelperText>
+        )}
+        {!phoneTypeError && errors.phone && (
           <FormHelperText className="error-text">
             {errors.phone.message}
           </FormHelperText>
@@ -107,16 +145,16 @@ export const ContactForm = () => {
 
       <Title text="Message" />
       <FormControl error={!!errors.message} className="form-control">
-        <Box className={`message ${errors.message ? 'error-border' : ''}`}>
-          <BaseInput
+        <div className={`message ${errors.message ? 'error-border' : ''}`}>
+          <TextField
             multiline
             className={`message-input`}
-            placeHolder="Write message ..."
+            placeHolder="Write Message.."
             rows={3}
             {...register('message', { required: 'Message cannot be empty' })}
           />
           <Message className="end-adornment" />
-        </Box>
+        </div>
         {errors.message && (
           <FormHelperText className="error-text">
             {errors.message.message}
@@ -124,11 +162,11 @@ export const ContactForm = () => {
         )}
       </FormControl>
 
-      <Box className="button-wrapper">
-        <BaseButton fullWidth type="submit">
+      <div className="button-wrapper">
+        <BaseButton className="send-button">
           Send Message <Send className="send-button-icon" />
         </BaseButton>
-      </Box>
-    </Box>
+      </div>
+    </form>
   )
 }

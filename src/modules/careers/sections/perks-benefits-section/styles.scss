@@ -1,7 +1,7 @@
 .perk-benefits-section {
   width: 100%;
   height: auto;
-  margin-bottom: 5.208vw;
+  margin-bottom: max(80px, 6.25vw);
 
   .container {
     max-width: 100%;
@@ -10,12 +10,12 @@
     align-items: center;
 
     .description {
-      margin-top: 0.729vw;
+      margin-top: 0.9329vw;
       margin-bottom: 3.125vw;
       color: #757575;
       text-align: center;
       font-family: Poppins;
-      font-size: 0.9375vw;
+      font-size: max(0.9375vw, 14px);
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -25,7 +25,7 @@
     .perks-benefits-list {
       display: flex;
       flex-wrap: wrap;
-      max-width: 66.0417vw;
+      max-width: 70.0417vw;
       gap: 2.083vw;
       justify-content: space-between;
       align-items: center;
@@ -35,7 +35,6 @@
 
 .perk-card {
   border-radius: 1.0417vw;
-  box-shadow: 0vw 0vw 3.125vw 0vw rgba(0, 0, 0, 0.05);
   display: flex;
   width: 14.9479vw;
   padding: 1.25vw;
@@ -50,8 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 3.125vw;
-    height: 3.125vw;
+    width: max(3.125vw, 26px);
+    height: max(3.125vw, 26px);
     border-radius: 1.0417vw;
     flex-shrink: 0;
     padding: 0.5208vw;
@@ -60,14 +59,100 @@
   .perk-card-title {
     min-width: 12.4479vw;
     color: #132427;
-    font-feature-settings:
-      'liga' off,
-      'clig' off;
-    font-family: Poppins;
-    font-size: 1.1458vw !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: max(1.1458vw, 14px);
     font-style: normal;
     font-weight: 500;
     line-height: 1.5625vw;
     letter-spacing: -0.0229vw;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1050px) {
+  .perk-benefits-section {
+    padding: 0 24px;
+    .container {
+      .perks-benefits-list {
+        max-width: 100%;
+        gap: 20px;
+      }
+      .description {
+        width: 100%;
+      }
+    }
+  }
+  .perk-card {
+    width: calc((100% - 40px) / 3);
+    padding: 18px;
+    border-radius: 12px;
+    .perk-card-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      padding: 10px;
+    }
+    .perk-card-title {
+      min-width: auto;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: -0.28px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .perk-benefits-section {
+    padding: 0 16px;
+    margin-top: 80px;
+    .container {
+      padding: 0px;
+      .perks-benefits-list {
+        max-width: 100%;
+        flex-wrap: wrap;
+        flex: 1 1;
+        gap: 16px;
+      }
+      .title {
+        width: 100%;
+        text-align: left !important;
+      }
+      .description {
+        font-size: 14px;
+        letter-spacing: 0.28px;
+        width: 100%;
+        text-align: left;
+        margin-top: 16px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+  .perk-card {
+    width: calc(50% - 8px);
+    padding: 14px;
+    border-radius: 11.6px;
+    .perk-card-image {
+      width: 35px;
+      height: 35px;
+      border-radius: 11.6px;
+      padding: 8px;
+    }
+    .perk-card-title {
+      line-height: 20px;
+      letter-spacing: 0.24px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .perk-card {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .perk-benefits-section {
+    padding: 0 7.8% !important;
+    margin-top: 40px !important;
   }
 }

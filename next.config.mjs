@@ -1,14 +1,17 @@
 const nextConfig = {
+  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ['three'],
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg'),
     )
+
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
+      // Reapply the existing rule, but only for svg imports that end in ?url
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
@@ -22,17 +25,27 @@ const nextConfig = {
         use: ['@svgr/webpack'],
       },
     )
+
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i
     return config
   },
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.ts',
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media2.giphy.com',
       },
-    },
+      {
+         protocol: 'https',
+         hostname: 'cdn.jsdelivr.net',
+      },
+      {
+         protocol: 'https',
+         hostname: 'i.imgur.com',
+      }
+    ],
   },
 }
 export default nextConfig

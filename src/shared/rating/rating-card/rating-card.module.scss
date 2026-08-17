@@ -1,0 +1,98 @@
+.ratingCard {
+  flex-shrink: 0;
+  display: flex;
+  height: max-content;
+  min-height: 100%;
+  padding: max(24px, 1.5625vw);
+  gap: max(18px, 0.98vw);
+  border-radius: max(24px, 2.778vw) 0vw;
+
+  .ratingCardIcon {
+    width: max(54px, 4.42vw);
+    height: max(54px, 4.42vw);
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: max(10px, 0.8vw);
+    box-shadow: 0 0.15vw 0.52vw 0.03vw rgba(184, 184, 184, 0.15);
+  }
+
+  .ratingCardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+
+    .rating {
+      color: #132427;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(18px, 1.6vw);
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    .ratingCardDescription {
+      color: #132427;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(12px, 0.83vw) !important;
+      font-weight: 500;
+      line-height: normal;
+      min-width: max-content;
+    }
+  }
+}
+
+@media screen and (max-width: 984px) {
+  .ratingCard {
+    padding: 20px;
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 941px) {
+  .ratingCard {
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .ratingCardContent {
+    width: 18vw;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .ratingCard {
+    gap: 8px;
+    padding: 14px;
+    .ratingCardIcon {
+      width: 48px;
+      height: 48px;
+      padding: 8px;
+    }
+    @media screen and (max-width: 400px) {
+      padding: 12px;
+    }
+    .ratingCardContent {
+      width: auto;
+      .ratingCardDescription {
+        font-size: 11px !important;
+        @media screen and (max-width: 400px) {
+          font-size: 10px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 436px) and (max-width: 480px) {
+  .ratingCard {
+    padding: 16px;
+    gap: 12px;
+    .ratingCardDescription {
+      font-size: 12px !important;
+    }
+  }
+}

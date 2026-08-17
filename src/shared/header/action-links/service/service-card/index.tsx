@@ -1,63 +1,62 @@
-import { useState } from 'react'
-import Image, { StaticImageData } from 'next/image'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
-import { Box, Button, Stack, Typography } from '@mui/material'
-import './styles.scss'
+import LoadingIndicator from '@/shared/loader/detector'
+import { useAppSelector } from '@/store/hooks'
+import styles from './service.module.scss'
 
 interface ServiceCardProps {
-  title: string
+  name: string
   description: string
-  imageUrl: StaticImageData
+  Icon: any
   route: string
-  isAlreadyOpen: boolean
+  isActive: boolean
+  handleClose: () => void
+  styles?: { [key: string]: string }
 }
 
 const ServiceCard = ({
-  title,
+  name,
   description,
-  imageUrl,
+  Icon,
   route,
-  isAlreadyOpen,
+  isActive,
+  handleClose,
+  styles: serviceStyles,
 }: ServiceCardProps) => {
-  const [isVisible, setIsVisible] = useState(false)
+  const isPageLoading = useAppSelector((state) => state.header.isLoading)
+  const [click, setClick] = useState(false)
+
+  useEffect(() => {
+    if (!isPageLoading && click) {
+      handleClose()
+    }
+  }, [isPageLoading, click, handleClose])
+
   return (
-    <>
-      <Link
-        href={`/services/${route}`}
-        className={`service-card  ${isAlreadyOpen ? 'selected' : ''}`}
-        prefetch={false}
-        onMouseOver={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
+    <Link
+      href={`/services${route}`}
+      className={`${styles.serviceCard}  ${isActive ? styles.selected : ''}`}
+      prefetch={false}
+      onClick={(e) => {
+        if (isActive) {
+          e.preventDefault()
+          return
+        }
+        setClick(true)
+      }}
+    >
+      <LoadingIndicator />
+      <div
+        style={{ background: serviceStyles?.hoverColor }}
+        className={styles.serviceCardIcon}
       >
-        <Image
-          src={imageUrl}
-          style={{
-            width: '1.66vw',
-            height: '1.66vw',
-          }}
-          alt={`${title}-image`}
-        />
-        <Box className="service-card-content">
-          <Typography variant="h6" className="title">
-            {title}
-          </Typography>
-          <Typography variant="body2" className="description">
-            {description}
-          </Typography>
-          {(isVisible || isAlreadyOpen) && (
-            <Stack direction="row" alignItems="center" justifyContent="center" className="link-button" color="inherit">
-              Explore &nbsp;
-              <ArrowRightAltIcon
-                style={{
-                  fontSize: '0.9375vw',
-                }}
-              />
-            </Stack>
-          )}
-        </Box>
-      </Link>
-    </>
+        <Icon style={{ fill: serviceStyles?.color }} />
+      </div>
+      <div className={styles.serviceCardContent}>
+        <h6 className={styles.serviceCardContentTitle}>{name}</h6>
+        <p className={styles.serviceCardContentDescription}>{description}</p>
+      </div>
+    </Link>
   )
 }
 

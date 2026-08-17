@@ -1,0 +1,220 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 24px;
+  @media (max-width:728px) {
+    margin-top: 0;
+  }
+  .card {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 0 64px;
+
+    @media (max-width: 600px) {
+      padding: 0 16px;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      cursor: pointer;
+
+      .cardTitle {
+        color: #111827;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .iconContainer {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #FFF2E6; // Light orange background for icon
+        color: #F69333;
+
+        svg {
+          width: 20px;
+          // height: 20px;
+        }
+      }
+    }
+
+    .collapseContainer {
+      padding: 0 0 24px 0;
+
+      .noPositions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 0;
+
+        .noPositionsTitle {
+          color: #111827;
+          font-family: 'Poppins', sans-serif;
+          font-size: 18px;
+          font-weight: 600;
+          margin: 0;
+        }
+
+        .noPositionsText {
+          color: #4B5563;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+
+      .roleContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .roleHeader {
+          margin-bottom: 8px;
+
+          .roleTitle {
+            color: #111827;
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+
+            .statusBadge {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: auto;
+              min-width: 85px;
+              height: 43px;
+              padding: 8px 16px;
+              font-family: 'Poppins', sans-serif;
+              font-size: max(18px, 14px);
+              font-weight: 600;
+              border-radius: 12px;
+              text-transform: capitalize;
+              box-sizing: border-box;
+              vertical-align: middle;
+              margin-left: 12px;
+
+              &.open {
+                border: 2px solid #539E43;
+                background: transparent;
+                color: #539E43;
+              }
+
+              &.closed {
+                border: 2px solid #EF4444;
+                background: transparent;
+                color: #EF4444;
+              }
+            }
+          }
+        }
+
+        .collapseDescription {
+          color: #4B5563;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+          margin-bottom: 8px;
+        }
+
+        .skillList {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          margin-top: 10px;
+
+          .skillListItem {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .skillListItemContent {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+
+              .checkIcon {
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+                min-height: 20px;
+                flex-shrink: 0;
+              }
+
+              .skillListItemTitle {
+                color: #111827;
+                font-family: 'Poppins', sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                margin: 0;
+                line-height: 1;
+              }
+            }
+
+            .skillListItemDescription {
+              color: #6B7280;
+              font-family: 'Poppins', sans-serif;
+              font-size: 14px;
+              line-height: 1.5;
+              padding-left: 32px;
+            }
+          }
+        }
+
+        .actionFooter {
+          margin-top: 10px;
+
+          .applyBtn {
+            background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
+            color: white !important;
+            width: auto;
+            min-width: 130px;
+            height: 43px;
+            padding: 8px 18px;
+            font-size: max(18px, 14px);
+            font-weight: 600;
+            border-radius: 12px;
+            text-transform: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(235, 124, 13, 0.2);
+
+            &:active {
+              transform: scale(0.98);
+            }
+          }
+        }
+
+        .roleSeparator {
+          height: 1px;
+          background-color: #E5E7EB;
+          width: 100%;
+          margin: 24px 0;
+        }
+      }
+    }
+
+    .divider {
+      width: 100%;
+      border-color: #F3F4F6;
+      border-width: 1px;
+    }
+  }
+}

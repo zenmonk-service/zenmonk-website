@@ -1,0 +1,289 @@
+.development-process-road {
+  position: relative;
+  overflow: visible;
+  padding: 40px 16px;
+  padding-bottom: 0;
+  background-color: #fff;
+  height: auto;
+  width: 100%;
+
+  /* Show/Hide for Desktop and Mobile - Mobile First */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  @media (min-width: 780px) {
+    height: auto;
+    padding: 1.5vw 0 0 0;
+
+    .desktop-only {
+      display: block !important;
+    }
+
+    .mobile-only {
+      display: none !important;
+      /* Hide list on desktop */
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .road-svg-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .road-svg-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1920 / 703;
+    margin: 0 auto;
+  }
+
+  .road-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Step Cards */
+  .step-text {
+    position: absolute;
+    min-width: 18%;
+    max-width: 32%;
+    width: max-content;
+    pointer-events: auto;
+    z-index: 10;
+    transform: translate(-50%, 0);
+    opacity: 0;
+
+    .step-title-plate {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.8vw;
+      z-index: 7;
+      margin-bottom: 0.6vw;
+
+      .plate-icon-wrapper {
+        position: relative;
+        // width: clamp(80px, 6.25vw, 120px);
+        flex-shrink: 0;
+
+        .plate-image {
+          display: block;
+        }
+      }
+
+      .plate-text-container {
+        margin-left: -2.5vw;
+        z-index: 8;
+
+        .plate-text {
+          min-width: max-content;
+          font-family: 'Poppins', sans-serif;
+          font-size: var(--font-size-18) !important;
+          font-weight: 700;
+          line-height: 1.2;
+          color: inherit;
+          text-align: left;
+        }
+      }
+
+    }
+
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--font-size-16) !important;
+      color: #606060;
+      line-height: 1.5;
+      font-weight: 400;
+      margin: 0;
+      text-align: left;
+    }
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translate(-50%, -5px);
+    }
+  }
+
+  .monk-watermark {
+    position: absolute;
+    top: clamp(-210px, -14.5vw, -150px);
+    right: 6%;
+    width: clamp(160px, 18vw, 300px);
+    opacity: 0.12;
+    z-index: 1;
+    pointer-events: none;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 12px) scale(0.96);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
+    }
+  }
+
+  @keyframes drawRoad {
+    from {
+      stroke-dashoffset: 1;
+    }
+
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .road-svg path[mask] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  /* Marker Positions */
+  .marker-1 {
+    left: 30.33%; // 256/1920
+    top: -5%; // 5/749
+  }
+
+  .marker-2 {
+    left: 66%; // 960/1920
+    top: 11%; // 125/749
+  }
+
+  .marker-3 {
+    left: 37%;
+    top: 31%;
+  }
+
+  .marker-4 {
+    left: 84%; // 1300/1920
+    top: 42%; // 347/749
+  }
+
+  .marker-5 {
+    left: 42.5%; // 498/1920
+    top: 66%; // 516/749
+  }
+
+  .marker-6 {
+    left: 78.5%; // 1208/1920
+    top: 82.31%; // 624/749
+  }
+
+  &.animate {
+    .step-text {
+      animation: fadeInScale 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .road-svg path[mask] {
+      animation: drawRoad 3s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+
+    .marker-1 {
+      animation-delay: 0.3s;
+    }
+
+    .marker-2 {
+      animation-delay: 0.75s;
+    }
+
+    .marker-3 {
+      animation-delay: 1.2s;
+    }
+
+    .marker-4 {
+      animation-delay: 1.65s;
+    }
+
+    .marker-5 {
+      animation-delay: 2.1s;
+    }
+
+    .marker-6 {
+      animation-delay: 2.55s;
+    }
+  }
+
+  /* Mobile Steps List */
+  .mobile-steps-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .mobile-step-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+
+      .mobile-step-number {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        flex-shrink: 0;
+        padding: 2px;
+      }
+
+      .mobile-step-content {
+        width: 100%;
+
+        .mobile-step-title {
+          font-family: 'Poppins', sans-serif;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 1.3;
+          margin: 0 0 12px 0;
+          position: relative;
+          display: inline-block;
+          padding-bottom: 8px;
+
+          .title-underline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 2px;
+          }
+        }
+
+        .mobile-step-description {
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.6;
+          color: #606060;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

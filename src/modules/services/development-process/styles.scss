@@ -1,0 +1,38 @@
+.development-process-description {
+  margin-top: 1.1979vw !important;
+  max-width: 130.2083vw;
+  margin: auto;
+  padding: 0 10% 0px;
+  text-align: center;
+  font-family: Poppins !important;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 0 !important;
+  }
+}
+
+.development-process-description.software-dev-desc {
+  padding-bottom: 40px !important;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 0 !important;
+  }
+}
+
+.development-process-asset-wrapper {
+  display: grid;
+  place-items: center;
+  margin-top: max(20px, 1.5vw);
+
+  @media (max-width: 1000px) {
+    margin-top: 40px;
+  }
+}
+
+.software-dev-process + .ready-to-start {
+  margin-top: 40px !important;
+
+  @media (max-width: 1000px) {
+    margin-top: 40px !important;
+  }
+}

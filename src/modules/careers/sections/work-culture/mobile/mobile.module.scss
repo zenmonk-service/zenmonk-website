@@ -1,0 +1,113 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 70px;
+
+  .title {
+    margin-bottom: 16px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 7.8%;
+    }
+  }
+  .description {
+    color: #5c5c5c;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.28px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 7.8%;
+    }
+  }
+  .track {
+    display: flex;
+    margin-top: 40px;
+    padding: 0 16px;
+
+    @media screen and (min-width: 601px) {
+      padding-left: 7.8%;
+      padding-right: 100%;
+    }
+    .carouselItem {
+      position: relative;
+      overflow: hidden;
+      cursor: grab;
+      height: 100%;
+      width: 90%;
+      min-width: 320px;
+      height: 264px;
+      border-radius: 10px;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .card {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 24px;
+        width: 100%;
+        .cardTitle {
+          color: #fff;
+          text-align: center;
+          font-family: 'Poppins', sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          letter-spacing: -0.48px;
+        }
+        .cardDescription {
+          color: #fff;
+          text-align: center;
+          font-family: 'Poppins', sans-serif;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: 0.28px;
+        }
+      }
+    }
+  }
+}
+
+.indicatorsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 10px;
+  .indicators {
+    margin-top: 16px;
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    padding: 0 32px;
+    .indicator {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 150ms;
+    }
+  }
+}

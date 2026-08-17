@@ -1,17 +1,164 @@
+name: zenmonk-website
+
+x-database-environment: &database-environment
+  DB_USER: ${DB_USER:-zenmonk_app}
+  DB_PASSWORD: ${DB_PASSWORD:-zenmonk-local-password}
+  DB_HOST: mongodb
+  DB_PORT: 27017
+  DB_NAME: ${DB_NAME:-zenmonk-website}
+  DB_AUTH_SOURCE: ${DB_AUTH_SOURCE:-zenmonk-website}
+  MONGODB_URI: ${MONGODB_URI:-}
+
 services:
   app:
-    container_name: zenmonk-website
+    image: zenmonk-website:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    restart: unless-stopped
+    environment:
+      <<: *database-environment
+      NODE_ENV: production
+      PORT: 3000
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      MAIL_HOST: ${MAIL_HOST:-mailhog}
+      MAIL_PORT: ${MAIL_PORT:-1025}
+      MAIL_SECURE: ${MAIL_SECURE:-false}
+      MAIL_USER: ${MAIL_USER:-}
+      MAIL_PASSWORD: ${MAIL_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-ZenMonk Careers <careers@zenmonk.com>}
+    ports:
+      - "${APP_BIND_ADDRESS:-0.0.0.0}:${APP_FORWARD_PORT:-3000}:3000"
+    depends_on:
+      mongo-bootstrap:
+        condition: service_completed_successfully
+      mailhog:
+        condition: service_started
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:3000/api/health').then((response) => { if (!response.ok) process.exit(1) }).catch(() => process.exit(1))"
+      interval: 15s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - backend
+
+  mongodb:
+    image: mongo:8.0.28-noble
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-zenmonk_root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-zenmonk-root-local-password}
+      MONGO_INITDB_DATABASE: ${DB_NAME:-zenmonk-website}
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          mongosh --quiet --host 127.0.0.1 --port 27017
+          --username "$${MONGO_INITDB_ROOT_USERNAME}"
+          --password "$${MONGO_INITDB_ROOT_PASSWORD}"
+          --authenticationDatabase admin
+          --eval "quit(db.adminCommand({ ping: 1 }).ok ? 0 : 2)"
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 10
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - backend
+
+  mongo-bootstrap:
+    image: mongo:8.0.28-noble
+    restart: "no"
+    environment:
+      MONGO_ROOT_USER: ${MONGO_ROOT_USER:-zenmonk_root}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-zenmonk-root-local-password}
+      DB_USER: ${DB_USER:-zenmonk_app}
+      DB_PASSWORD: ${DB_PASSWORD:-zenmonk-local-password}
+      DB_NAME: ${DB_NAME:-zenmonk-website}
+    command:
+      - sh
+      - -ec
+      - >-
+        mongosh --quiet --host mongodb --port 27017
+        --username "$${MONGO_ROOT_USER}"
+        --password "$${MONGO_ROOT_PASSWORD}"
+        --authenticationDatabase admin
+        /bootstrap/mongo-bootstrap.js
+    volumes:
+      - ./docker/mongo-bootstrap.js:/bootstrap/mongo-bootstrap.js:ro
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - backend
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    restart: unless-stopped
+    networks:
+      - backend
+
+  mongo-express:
+    image: mongo-express:1.0.2-20-alpine3.19
+    profiles:
+      - tools
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USER:-zenmonk_root}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD:-zenmonk-root-local-password}
+      ME_CONFIG_MONGODB_AUTH_DATABASE: admin
+      ME_CONFIG_BASICAUTH_ENABLED: "true"
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USER:-admin}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD:-change-me-local}
+    ports:
+      - "127.0.0.1:${MONGO_EXPRESS_FORWARD_PORT:-8081}:8081"
+    depends_on:
+      mongo-bootstrap:
+        condition: service_completed_successfully
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - backend
+
+  seed:
+    profiles:
+      - seed
     build:
       context: .
       dockerfile: Dockerfile.dev
-    env_file:
-      - .env
-    restart: always
-    ports:
-      - ${APP_FORWARD_PORT:-80}:${PORT:-3000}
-    expose:
-      - ${PORT:-3000}
-    tty: true
-    stdin_open: true
-    volumes:
-      - .:/app
+    command:
+      - npm
+      - run
+      - db:seed
+    environment:
+      <<: *database-environment
+      ALLOW_DESTRUCTIVE_SEED: "true"
+    depends_on:
+      mongo-bootstrap:
+        condition: service_completed_successfully
+    restart: "no"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mongodb_data:

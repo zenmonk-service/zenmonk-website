@@ -1,4 +1,5 @@
-import CeoTextImage from './ceo-text.svg'
 import ZenmonkLogo from './zenmonk-logo.svg';
+import Board from "./board.png"
+import Ceo from "./ceo.png"
 
-export { CeoTextImage, ZenmonkLogo }
+export { ZenmonkLogo, Board, Ceo }

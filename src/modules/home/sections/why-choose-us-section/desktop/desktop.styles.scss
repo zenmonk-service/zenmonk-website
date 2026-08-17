@@ -1,0 +1,191 @@
+.why-choose-us-home-section {
+  width: 100%;
+  height: auto;
+  margin-top: 5.99vw;
+  position: relative;
+
+  @media (max-width: 1000px) {
+    display: none !important;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .right-logo {
+    bottom: -11.458vw;
+    right: -7.813vw;
+    width: 19.81vw;
+    height: 17.8vw;
+    position: absolute;
+  }
+
+  .left-logo {
+    top: 0;
+    left: -11.458vw;
+    width: 19.81vw;
+    height: 17.8vw;
+    position: absolute;
+  }
+}
+
+.why-choose-us-home {
+  width: 100%;
+}
+
+.why-choose-us-home .content {
+  display: grid;
+  place-content: center;
+  position: relative;
+  max-width: 67.708vw;
+  margin: auto;
+  margin-top: 5.5vw;
+  margin-bottom: 3.125vw;
+}
+
+.why-choose-us-home .thumbsUp {
+  width: 41.82vw;
+  height: 40.81vw;
+  margin-top: 3vw;
+}
+
+.why-choose-us-home-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.26vw;
+  background-color: transparent !important;
+
+  .why-choose-us-home-card-title {
+    color: #132427;
+    text-align: right;
+    width: 60%;
+    align-self: flex-end;
+    font-family: Poppins;
+    font-size: max(14px, 1.25vw);
+    font-weight: 500;
+    line-height: 120.862%;
+    letter-spacing: 0.025vw;
+  }
+
+  .why-choose-us-home-card-description {
+    width: 70%;
+    align-self: flex-end;
+    color: #777;
+    text-align: right;
+    font-family: Poppins;
+    font-size: max(11px, 0.9375vw);
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.028125vw;
+  }
+}
+
+.why-choose-us-home .children .first {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  top: 1.5vw;
+  left: 3vw;
+  width: 28.02vw;
+  height: 22.86vw;
+
+  svg {
+    width: 16.5vw;
+    height: auto !important;
+  }
+}
+
+.why-choose-us-home .children .second {
+  position: absolute;
+  top: -2vw;
+  display: flex;
+  flex-direction: column;
+  right: -1.5vw;
+  width: 30.02vw;
+  height: 24.86vw;
+  gap: 1.5vw;
+
+  svg {
+    width: 16.5vw;
+    height: auto !important;
+  }
+
+  .why-choose-us-home-card {
+    width: 70%;
+    align-self: flex-end;
+
+    .why-choose-us-home-card-title {
+      text-align: left;
+      width: 100%;
+    }
+
+    .why-choose-us-home-card-description {
+      text-align: left;
+      width: 100%;
+    }
+  }
+}
+
+.why-choose-us-home .children .third {
+  position: absolute;
+  bottom: -5.5vw;
+  gap: 1.5vw;
+  left: -1.5vw;
+  width: 28.02vw;
+  height: 22.86vw;
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    width: 16.5vw;
+    height: auto !important;
+    align-self: flex-end;
+  }
+
+  .why-choose-us-home-card {
+    width: 75%;
+
+    .why-choose-us-home-card-title {
+      width: 100%;
+    }
+
+    .why-choose-us-home-card-description {
+      width: 100%;
+    }
+  }
+}
+
+.why-choose-us-home .children .fourth {
+  position: absolute;
+  bottom: -4.8vw;
+  right: -0.5vw;
+  width: 26.02vw;
+  height: 22.86vw;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2vw;
+
+  svg {
+    width: 16.5vw;
+    height: auto !important;
+    align-self: flex-end;
+  }
+
+  .why-choose-us-home-card {
+    width: 70%;
+
+    .why-choose-us-home-card-title {
+      text-align: left;
+      width: 100%;
+    }
+
+    .why-choose-us-home-card-description {
+      text-align: left;
+      width: 97%;
+      align-self: flex-start;
+    }
+  }
+}

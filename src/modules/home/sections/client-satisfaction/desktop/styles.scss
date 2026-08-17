@@ -1,0 +1,273 @@
+.client-satisfaction-section {
+  padding-top: clamp(60px, 6.25vw, 120px);
+  width: 100%;
+  min-height: auto;
+  height: auto;
+  padding-bottom: clamp(140px, 11vw, 400px);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  .logo-left {
+    position: absolute;
+    top: -10%;
+    left: -5%;
+    width: 14.8vw;
+    height: 14.8vw;
+  }
+
+  .logo-right {
+    position: absolute;
+    bottom: 0%;
+    right: 3%;
+    width: 10.8vw;
+    height: 10.8vw;
+  }
+
+  .title {
+    color: #132427;
+    font-family: Poppins !important;
+    /* 24px / 1920 * 100 */
+    font-size: 2.0833vw !important;
+    /* 40px / 1920 * 100 */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.1666vw;
+    /* -3.2px / 1920 * 100 */
+  }
+
+  .description {
+    margin-top: 1.1979vw !important;
+    max-width: 130.2083vw;
+    margin: auto;
+    padding: 0 15%;
+    text-align: center;
+    font-family: Poppins !important;
+
+    @media (min-width: 2000px) {
+      margin-top: 1.875vw;
+      /* 36px / 1920 * 100 */
+    }
+  }
+
+  .svg-container {
+    z-index: 180;
+    max-width: 75%;
+    margin: auto 9%;
+    text-align: center;
+
+    h3 {
+      text-align: center;
+      width: 100%;
+      min-width: max-content;
+      white-space: nowrap;
+      font-family: Poppins;
+      font-size: 1.451vw;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.029vw;
+      text-transform: capitalize;
+    }
+
+    p {
+      color: #505050;
+      text-align: center;
+      font-family: Poppins;
+      font-size: 0.967vw;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.330vw;
+      letter-spacing: -0.010vw;
+
+    }
+
+    .satisfaction-step {
+      opacity: 0;
+    }
+
+    .text-overlay {
+      position: absolute;
+      width: 22%;
+      text-align: center;
+      opacity: 0;
+
+      /* 1. Previous Work Frustration (Sad) */
+      &.text-1 {
+        bottom: 40%;
+        left: 5%;
+      }
+
+      /* 2. Engagement And Resolution (Think) */
+      &.text-2 {
+        bottom: -24%;
+        left: 32%;
+      }
+
+      /* 3. Exceeding Expectations (Smile) */
+      &.text-3 {
+        top: 30%;
+        left: 50%;
+      }
+
+      /* 4. Celebrating Success (Happy) */
+      &.text-4 {
+        top: 45%;
+        right: -10%;
+      }
+    }
+
+    &.animate {
+      .arrow-mask {
+        animation: revealArrow 3.5s linear forwards;
+      }
+
+      .satisfaction-step,
+      .text-overlay {
+        animation: rotateIn 0.6s ease-out forwards;
+      }
+
+      /* Delays based on arrow progress (approx positions: 14%, 39%, 63%, 87%) */
+      .step-1,
+      .text-1 {
+        animation-delay: 0.5s;
+      }
+
+      .step-2,
+      .text-2 {
+        animation-delay: 1.4s;
+      }
+
+      .step-3,
+      .text-3 {
+        animation-delay: 2.2s;
+      }
+
+      .step-4,
+      .text-4 {
+        animation-delay: 3.0s;
+      }
+
+      /* Different start rotations for "random" effect */
+      .step-1 {
+        --start-rot: -45deg;
+      }
+
+      .step-2 {
+        --start-rot: 30deg;
+      }
+
+      .step-3 {
+        --start-rot: -90deg;
+      }
+
+      .step-4 {
+        --start-rot: 60deg;
+      }
+
+      .text-overlay {
+        animation-name: fadeInUp;
+        /* Override for text to just fade up, not rotate */
+      }
+    }
+  }
+}
+
+@keyframes revealArrow {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: scale(0) rotate(var(--start-rot));
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1499px) {
+  .client-satisfaction-section {
+    .description {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .client-satisfaction-section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    min-height: 750px;
+
+    .title {
+      font-size: 28px !important;
+    }
+
+    .description {
+      margin-top: 16px !important;
+      font-size: 15px !important;
+    }
+
+    .svg-container {
+      max-width: 82%;
+      margin: auto 9%;
+
+      h3 {
+        font-size: 18px !important;
+      }
+
+      p {
+        font-size: 13px !important;
+        line-height: 18px !important;
+      }
+
+      .text-overlay {
+        width: 25%;
+
+        &.text-4 {
+          right: -8%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .client-satisfaction-section {
+    .svg-container {
+      .text-overlay {
+        &.text-2 {
+          bottom: -28% !important;
+          left: 28% !important;
+        }
+
+        &.text-3 {
+          top: 20% !important;
+          left: 50% !important;
+        }
+      }
+    }
+  }
+}

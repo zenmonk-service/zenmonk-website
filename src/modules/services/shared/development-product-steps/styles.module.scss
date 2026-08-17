@@ -1,0 +1,477 @@
+.developmentProductSteps {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  margin-top: 2.25vw;
+  margin-bottom: 6.25vw;
+
+  .processHeader {
+    text-align: center;
+    margin-bottom: 4.1667vw;
+
+    h2 {
+      font-size: 2.6042vw;
+      font-weight: 700;
+      color: #000;
+
+      span {
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: #F38E25;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  .svgWrapper {
+    width: 100%;
+    max-width: 90vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .svgContainer {
+    position: relative;
+    width: 64.2708vw; // Approx 1234px scaled
+    height: 31.5625vw; // Approx 606px scaled
+
+    .baseSvgWrapper {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .baseSvg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      scale: 1;
+
+      :global {
+        .center-bulb-glow {
+          transform-origin: 629px 305px;
+          animation: bulbGlowPulse 2.8s ease-in-out infinite;
+        }
+
+        .center-bulb {
+          transform-origin: 630px 335px;
+          animation: bulbFloat 3.2s ease-in-out infinite;
+        }
+
+        .center-bulb-shadow {
+          transform-origin: 630px 442px;
+          animation: bulbShadowScale 3.2s ease-in-out infinite;
+        }
+
+        .step-group {
+          opacity: 0;
+          transform: scale(0.82) rotate(-8deg);
+          transform-origin: 629px 305px;
+          transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .arrow-flow {
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+      }
+
+      &.animated {
+        :global {
+          .step-group-1 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.25s;
+          }
+          .step-group-2 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.41s;
+          }
+          .step-group-3 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.57s;
+          }
+          .step-group-4 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.73s;
+          }
+          .step-group-5 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 0.89s;
+          }
+          .step-group-6 {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            transition-delay: 1.05s;
+          }
+
+          .arrow-flow {
+            opacity: 1;
+            animation: arrowPulse 2s ease-in-out infinite alternate;
+          }
+
+          .arrow-1 { animation-delay: 0.35s; }
+          .arrow-2 { animation-delay: 0.51s; }
+          .arrow-3 { animation-delay: 0.67s; }
+          .arrow-4 { animation-delay: 0.83s; }
+          .arrow-5 { animation-delay: 0.99s; }
+          .arrow-6 { animation-delay: 1.15s; }
+        }
+      }
+    }
+
+    .stepOverlay {
+      position: absolute;
+      width: 18.2292vw; // Approx 350px
+      display: flex;
+      flex-direction: column;
+      gap: 0.5208vw;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        transform: translateY(-6px) scale(1.02);
+      }
+
+      // Step 1: Top Left (Green)
+      &:nth-child(2) {
+        top: 6%;
+        left: 8%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #6CC77D;
+        }
+      }
+
+      // Step 2: Top Right (Cyan)
+      &:nth-child(3) {
+        top: 3.5%;
+        right: 1.5%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #65D6DE;
+        }
+      }
+
+      // Step 3: Mid Right (Blue)
+      &:nth-child(4) {
+        top: 46%;
+        right: -4%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #3C95DB;
+        }
+      }
+
+      // Step 4: Bottom Right (Yellow)
+      &:nth-child(5) {
+        bottom: -6%;
+        right: 3.5%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #F0CC41;
+        }
+      }
+
+      // Step 5: Bottom Left (Orange)
+      &:nth-child(6) {
+        bottom: -9%;
+        left: 12%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #F38E25;
+        }
+      }
+
+      // Step 6: Mid Left (Purple)
+      &:nth-child(7) {
+        top: 51%;
+        left: 1%;
+        text-align: left;
+        align-items: flex-start;
+
+        .stepTitle {
+          color: #B47BFF;
+        }
+      }
+
+      .stepTitle {
+        font-size: 1.0417vw;
+        font-weight: 700;
+      }
+
+      .stepDivider {
+        width: 100%;
+        height: 2px;
+      }
+
+      .stepDesc {
+        font-size: 0.8333vw;
+        color: #606060;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .mobileProcessList {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .developmentProductSteps {
+    .processHeader {
+      display: none;
+    }
+
+    .svgContainer {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      display: none;
+
+
+      .baseSvg {
+        display: none;
+      }
+
+      .stepOverlay {
+        display: none;
+      }
+    }
+
+    .mobileProcessList {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      margin-top: 24px;
+
+      .mobileHeader {
+        text-align: center;
+        margin-bottom: 24px;
+
+        h2 {
+          font-size: 28px;
+          font-weight: 700;
+          color: #000;
+          margin-bottom: 12px;
+
+          span {
+            position: relative;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              width: 100%;
+              height: 3px;
+              background: #F38E25;
+            }
+          }
+        }
+
+        p {
+          font-size: 14px;
+          color: #606060;
+          line-height: 1.5;
+        }
+      }
+
+      .mobileStep {
+        background: #fff;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .stepNumber {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 8px;
+        }
+
+        .mobileStepTitle {
+          font-size: 18px;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        .mobileStepDivider {
+          width: 100%;
+          height: 3px;
+          margin: 4px 0;
+        }
+
+        .mobileStepDesc {
+          font-size: 14px;
+          color: #606060;
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        // Color coding for each step
+        &:nth-child(1) {
+          .stepNumber {
+            background-color: #6CC77D;
+          }
+
+          .mobileStepTitle {
+            color: #6CC77D;
+          }
+
+          .mobileStepDivider {
+            background-color: #6CC77D;
+          }
+        }
+
+        &:nth-child(2) {
+          .stepNumber {
+            background-color: #65D6DE;
+          }
+
+          .mobileStepTitle {
+            color: #65D6DE;
+          }
+
+          .mobileStepDivider {
+            background-color: #65D6DE;
+          }
+        }
+
+        &:nth-child(3) {
+          .stepNumber {
+            background-color: #3C95DB;
+          }
+
+          .mobileStepTitle {
+            color: #3C95DB;
+          }
+
+          .mobileStepDivider {
+            background-color: #3C95DB;
+          }
+        }
+
+        &:nth-child(4) {
+          .stepNumber {
+            background-color: #F0CC41;
+          }
+
+          .mobileStepTitle {
+            color: #F0CC41;
+          }
+
+          .mobileStepDivider {
+            background-color: #F0CC41;
+          }
+        }
+
+        &:nth-child(5) {
+          .stepNumber {
+            background-color: #F38E25;
+          }
+
+          .mobileStepTitle {
+            color: #F38E25;
+          }
+
+          .mobileStepDivider {
+            background-color: #F38E25;
+          }
+        }
+
+        &:nth-child(6) {
+          .stepNumber {
+            background-color: #B47BFF;
+          }
+
+          .mobileStepTitle {
+            color: #B47BFF;
+          }
+
+          .mobileStepDivider {
+            background-color: #B47BFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes bulbGlowPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.22);
+  }
+}
+
+@keyframes bulbFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bulbShadowScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(0.82);
+    opacity: 0.2;
+  }
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}

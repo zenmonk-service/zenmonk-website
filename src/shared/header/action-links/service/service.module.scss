@@ -1,0 +1,94 @@
+.serviceActionLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  height: 2.25em;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: max(16px, 0.83vw);
+  font-weight: 400;
+  line-height: max(20px, 1.04vw);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #393939;
+  white-space: nowrap;
+}
+
+.serviceActionLink:hover {
+  background-color: #F5F5F5;
+  color: #393939;
+}
+
+.serviceActionLink.active {
+  background-color: #FFF5EB;
+  color: #eb7c0d;
+}
+
+.expandIconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.expandIcon {
+  width: 1.2em;
+  height: 1.2em;
+  rotate: 0;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.servicesMenuContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 !important;
+  width: max(796px, 37.5vw);
+  padding: max(40px, 2.0833vw);
+  width: max(796px, 37.5vw);
+  padding: max(40px, 2.0833vw);
+  background-color: #fff;
+  border-radius: max(0.625vw, 12px);
+  position: relative;
+  box-sizing: border-box;
+  z-index: 1001;
+}
+
+@media (max-width: 901px) {
+  .servicesMenuContainer {
+    width: min(27.0833vw, 92vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesMenuContainer {
+    width: 92vw;
+    max-height: 100vh;
+    overflow-y: auto;
+    padding: 0.625vw;
+    /* 12px */
+  }
+}
+
+@media (max-width: 720px) {
+  .servicesMenuContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 625px) and (max-width: 900px) {
+  .servicesMenuContainer {
+    padding: 40px;
+    min-width: 780px;
+  }
+}
+
+.servicesMenuPopover {
+  margin-top: 12px;
+}

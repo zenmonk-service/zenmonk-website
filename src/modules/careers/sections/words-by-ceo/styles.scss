@@ -1,33 +1,108 @@
 .ceo-section-wrapper {
-    flex-direction: row !important;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2.6vw;
+  margin-top: 6.25vw;
+
+  .ceo-section {
+    position: relative;
+    display: flex;
+    width: max(400px, 37.9266vw);
+    height: max(342px, 32.4212vw);
+    justify-content: center;
     align-items: center;
-    gap: 2.60416666667vw;
-    margin-top: 6.25vw;
+    flex-direction: column;
 
-    .ceo-section-text-image {
+    img {
+      z-index: -1;
+    }
+  }
 
-        width: max-content;
-        height: 100%;
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
+  .words-by-ceo {
+    width: 80%;
+    margin-top: max(24px, 2.6vw);
+    padding: 0 24px;
+    z-index: 1;
+    color: #232323;
+    text-align: center;
+    font-family: Satisfy;
+    font-size: max(22px, 2.0833vw);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.0208vw;
+
+    .words-container {
+      position: relative;
     }
 
-    .ceo-section-logo {
-        width: max-content;
-        height: 100%;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-
-        @media (max-width: 899px) {
-            display: none;
-        }
+    .word-wrapper {
+      position: relative;
+      display: inline-block;
     }
 
+    .word-placeholder {
+      opacity: 0;
+      padding-right: 2px;
+    }
+
+    .word-wipe-mask {
+      position: absolute;
+      left: -20px;
+      top: -30px;
+      bottom: -30px;
+      padding-top: 30px;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .word-visible-text {
+      padding-left: 20px;
+      padding-right: 2px;
+    }
+
+    .pen-tracker {
+      position: absolute;
+      bottom: -6px;
+      margin-left: -4px;
+      pointer-events: none;
+      z-index: 20;
+    }
+  }
+
+  .ceo-details {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+}
+
+@media screen and (min-width: 729px) and (max-width: 1024px) {
+  .ceo-section-wrapper {
+    gap: 20px;
+
+    .ceo-section {
+      width: max(380px, 45vw) !important;
+      height: max(325px, 38.5vw) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 728px) {
+  .ceo-section-wrapper {
+    padding: 0 16px;
+    flex-direction: column;
+
+    .ceo-section {
+      width: 407.641px;
+      height: 363.484px;
+    }
+    .ceo-section-logo{
+      display: none;
+    }
+  }
 }

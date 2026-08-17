@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
-import { Box, Button, Container, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { Calender } from '../../assets'
 import './styles.scss'
 
@@ -42,9 +41,6 @@ const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
           <Typography component="p" className="description-text">
             {cardDetails?.description}
           </Typography>
-          <Button className="button" variant="text">
-            Show More <ArrowRightAltIcon className="icon" />
-          </Button>
         </Box>
       </Box>
     </Box>

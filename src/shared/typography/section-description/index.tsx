@@ -1,18 +1,28 @@
+'use client'
+
+import { motion, type MotionProps } from 'framer-motion'
 import './styles.scss'
 
-const SectionDescription = ({
-  text,
-  className,
-}: {
+interface SectionDescriptionProps extends MotionProps {
   text: string
   className?: string
-}) => {
+  maxWidth?: string | number
+}
+
+const SectionDescription = (props: SectionDescriptionProps) => {
+  const { text, className, maxWidth, style, ...others } = props
+
   return (
-    <p
+    <motion.p
+      {...others}
+      style={{
+        maxWidth,
+        ...style, // allow override if needed
+      }}
       className={`custom-section-description ${className ?? ''}`}
     >
       {text}
-    </p>
+    </motion.p>
   )
 }
 

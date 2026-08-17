@@ -1,6 +1,4 @@
-import Image, { StaticImageData } from 'next/image'
-import { Box, Typography } from '@mui/material'
-import './styles.scss'
+import styles from './card.module.scss'
 
 interface ExcellenceCardProps {
   details: {
@@ -12,15 +10,14 @@ interface ExcellenceCardProps {
 }
 
 const ExcellenceCard = ({ details }: ExcellenceCardProps) => {
+  const { title, description, image: CardIcon, color } = details
+
   return (
-    <Box
-      className="excellence-card"
-      sx={{ border: `1px solid ${details.color}` }}
-    >
-      <details.image className="excellence-card-image" ></details.image>
-      <Typography className="title">{details.title}</Typography>
-      <Typography className="description">{details.description}</Typography>
-    </Box>
+    <div className={styles.card} style={{ border: `1px solid ${color}` }}>
+      <CardIcon className={styles.image} />
+      <p className={styles.title}>{title}</p>
+      <p className={styles.description}>{description}</p>
+    </div>
   )
 }
 

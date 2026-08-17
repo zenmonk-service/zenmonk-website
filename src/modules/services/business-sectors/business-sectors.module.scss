@@ -1,0 +1,42 @@
+.businessSectorContainer {
+  height: auto;
+  display: flex;
+  margin-bottom: 6.25vw;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6.25vw;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+
+  .businessSectorTitleWrapper {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .businessSectorTitle {
+      text-align: center;
+    }
+  }
+
+  .businessSectorDescription {
+    margin-top: 0.833vw !important;
+    text-align: center;
+    max-width: 61.14vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .businessSectorContainer {
+    padding: 0 16px;
+    margin-top: 80px;
+
+    .businessSectorDescription {
+      max-width: 96%;
+      font-size: 14px !important;
+      margin-top: 14px !important;
+      margin-bottom: 16px;
+    }
+  }
+}

@@ -1,71 +1,124 @@
 'use client'
 
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { SectionTitle } from '@/shared/typography'
-import Cloud from './assets/cloud.svg'
-import Digital from './assets/digital.svg'
-import Growth from './assets/growth.svg'
-import AI from './assets/growthtwo.svg'
-import It from './assets/it.svg'
-import Product from './assets/product.svg'
-import Mobile from './assets/product.svg'
-import Consult from './assets/product.svg'
-import Software from './assets/software.svg'
-import Ui from './assets/ui.svg'
+import { SectionTitle, SectionDescription } from '@/shared/typography'
+import './styles.scss'
+import SoftwareDevelopmentProcess from './software-development-process'
+import DevelopmentProcessHexagon from '../shared/development-process-hexagon'
+import DevelopmentProcessWave from '../shared/development-process-wave'
+import DevelopmentProcessRoad from '../shared/development-process-road'
+import DevelopmentProcessIT from '../shared/development-process-it'
+import CircularDevelopmentProcess from '../shared/circular-development-process'
+import DesigningProcess from '../shared/designing-process/DesigningProcess'
+import DevelopmentProcessExpertIt from '../shared/development-process-expert-it'
+import DevelopmentProductSteps from '../shared/development-product-steps'
+import DevelopmentProcessItBusiness from '../shared/development-process-it-business'
+import { useMediaQuery } from '@mui/material'
 
 const DevelopmentProcess = () => {
+  const isMobile = useMediaQuery('(max-width:1000px)')
   const pathname = usePathname()
   const serviceRoute = pathname.split('/')[2]
+
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.15
+      },
+    },
+  }
 
   const renderAsset = () => {
     switch (serviceRoute) {
       case 'software-development':
-        return <Software />
+        return <SoftwareDevelopmentProcess />
       case 'growth-&-marketing':
-        return <Growth />
-      case 'mobile-app-development':
-        return <Mobile />
+        return <DevelopmentProcessWave />
+      case 'custom-app-development':
+        return isMobile ? <SoftwareDevelopmentProcess /> : <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
-        return <It />
+        return <DevelopmentProcessExpertIt />
       case 'product-development':
-        return <Product />
+        return <DevelopmentProductSteps />
       case 'industry-specific-solutions':
-        return <Digital />
-      case 'it-&-business-consultation':
-        return <Consult />
-      case 'cloud-development':
-        return <Cloud />
-      case 'ui-ux-design':
-        return <Ui />
+        return <DevelopmentProcessHexagon />
       case 'ai-based-softwares':
-        return <AI />
+        return <CircularDevelopmentProcess />
+      case 'it-&-business-consultation':
+        return <DevelopmentProcessItBusiness />
+      case 'cloud-development':
+        return <DevelopmentProcessIT />
+      case 'ui-ux-design':
+        return <DesigningProcess />
       default:
-        return <Cloud /> // Default to Cloud if no match
+        return <DevelopmentProcessIT />
     }
   }
 
   return (
     <div
+      ref={ref}
+      className={`development-process-container ${serviceRoute === 'software-development' ? 'software-dev-process' : ''}`}
       style={{
-        marginTop: '1.125vw',
+        marginTop: 'max(80px, 6.2vw)',
       }}
     >
       {serviceRoute !== 'ui-ux-design' && (
-        <SectionTitle
-          text="Our development Process"
-          markText="Process"
-          markTextProps={{
-            rotate: 2,
-          }}
-        />
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <motion.div
+            variants={titleVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <SectionTitle text="Our development Process" markText="Process" />
+          </motion.div>
+          <motion.div
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <SectionDescription
+              text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
+              className={`development-process-description ${serviceRoute === 'software-development' ? 'software-dev-desc' : ''}`}
+            />
+          </motion.div>
+        </div>
       )}
-      <div
-        style={{
-          display: 'grid',
-          placeItems: 'center',
-          marginTop: '3.125vw',
-        }}
-      >
+      <div className="development-process-asset-wrapper">
         {renderAsset()}
       </div>
     </div>

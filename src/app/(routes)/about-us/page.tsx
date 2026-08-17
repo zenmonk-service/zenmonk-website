@@ -1,49 +1,28 @@
-import Image from 'next/image'
-import { Box } from '@mui/material'
-import { dottedBg } from '@/assets/icons'
+'use client'
+
+import HeroSection from '@/modules/about-us/sections/hero-section'
 import {
-  BusinessSection,
-  HeroSection,
-  WhyChooseUsSection,
   AwardProofSection,
-  StandOutSection,
-  VisionSection,
+  BusinessSection,
   ContactUsSection,
   OurClientSection,
+  VisionSection,
+  WhyChooseUsSection,
 } from '@/modules/about-us/sections'
-import AnimatedDiv from '@/shared/animated-div'
-import Rating from '@/shared/rating'
+import StandOutSection from '@/modules/about-us/sections/stand-out-section'
 
 const About = () => {
   return (
-    <Box>
-      <Image src={dottedBg} alt="Dotted Line" fill className="absolute-image" />
-      <AnimatedDiv>
-        <HeroSection />
-        <Rating />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <BusinessSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <StandOutSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <WhyChooseUsSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <AwardProofSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <VisionSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <OurClientSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <ContactUsSection />
-      </AnimatedDiv>
-    </Box>
+    <div>
+      <HeroSection />
+      <BusinessSection />
+      <StandOutSection />
+      <WhyChooseUsSection />
+      <AwardProofSection />
+      <VisionSection/>
+      <OurClientSection />
+      <ContactUsSection showFlagsOnly />
+    </div>
   )
 }
 

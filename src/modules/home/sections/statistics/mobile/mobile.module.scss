@@ -1,0 +1,90 @@
+.container {
+  margin-top: 16px;
+  width: 100%;
+  background-image: url('/earth.webp');
+  background-size: cover;
+  background-position: 0 60%;
+  height: 200px;
+  color: var(--global-color-primary);
+  position: relative;
+  display: grid;
+  place-items: center;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.618);
+    z-index: 1;
+  }
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  .card {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1;
+    padding: 16px;
+    .left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+      .title {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .count {
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .description {
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+      .projectCard {
+        border-left: 1px solid #fff;
+        padding-left: 11px;
+        .projectCardCount {
+          color: #fff;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          margin-bottom: 8px;
+        }
+        .projectCardDescription {
+          color: #fff;
+          font-family: 'Poppins', sans-serif;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}

@@ -1,52 +1,36 @@
-import { Box } from '@mui/material'
-import { Odometer } from '@/modules/home/odometer'
-import {
-  ServiceSection,
-  HeroSection,
-  TechSolutionSection,
-  OurWorkSection,
-  WhyChooseUsSection,
-  ClientSatisfaction,
-} from '@/modules/home/sections'
-import OurPartners from '@/modules/home/sections/our-partners'
-import Testimony from '@/modules/home/testimony'
-import AnimatedDiv from '@/shared/animated-div'
-import FAQ from '@/shared/faq'
-import SectionWrapper from '@/shared/wrapper'
+'use client'
 
-const page = () => {
+import { useRef } from 'react'
+import { HeroSection } from '@/modules/home/sections'
+import OurProjects from '@/modules/home/sections/our-projects'
+import ClientSatisfaction from '@/modules/home/sections/client-satisfaction'
+import OurServices from '@/modules/home/sections/our-services'
+import Statistics from '@/modules/home/sections/statistics'
+import WhyChooseUs from '@/modules/home/sections/why-choose-us-section'
+import Testimony from '@/modules/home/testimony'
+import FAQ from '@/shared/faq'
+import GlobeSection from '@/animations/globe-animation'
+import TechSolution from '@/modules/home/sections/tech-solution'
+import OurPartners from '@/modules/home/sections/our-partners'
+
+const HomePage = () => {
+  const container = useRef(null)
+
   return (
-    <Box>
+    <div ref={container} style={{ position: 'relative' }}>
       <HeroSection />
       <OurPartners />
-      <ServiceSection />
-      <AnimatedDiv>
-        <TechSolutionSection />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <OurWorkSection />
-      </AnimatedDiv>
-      <Box sx={{ overflow: 'hidden' }}>
-        <SectionWrapper>
-          <AnimatedDiv>
-            <WhyChooseUsSection />
-          </AnimatedDiv>
-        </SectionWrapper>
-        <AnimatedDiv>
-          <Odometer />
-        </AnimatedDiv>
-      </Box>
-      <AnimatedDiv>
-        <ClientSatisfaction />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <FAQ />
-      </AnimatedDiv>
-      <AnimatedDiv>
-        <Testimony />
-      </AnimatedDiv>
-    </Box>
+      <OurServices />
+      <TechSolution />
+      <OurProjects />
+      <WhyChooseUs />
+      <Statistics />
+      <ClientSatisfaction />
+      <FAQ />
+      <GlobeSection/>
+      <Testimony />
+    </div>
   )
 }
 
-export default page
+export default HomePage

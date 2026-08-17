@@ -1,41 +1,42 @@
-import { Box, Typography } from '@mui/material'
+
+'use client'
+
+import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
-import BallDecorator from './assets/ball-decorator.svg'
-import HomeHeroImage from './assets/hero.svg'
+import HeroImage from './hero-image'
+import Geometry from '@/shared/geometry'
 import './styles.scss'
 
-const ColorTypography = ({ text }: { text: string }) => {
-  return (
-    <Typography variant="inherit" component="span">
-      &nbsp;{text}
-    </Typography>
-  )
-}
 const HeroSection = () => {
+  const router = useRouter()
   return (
-    <Box className="hero-section-d">
-      <BallDecorator className="ball-decorator" />
-      <Box className="container">
-        <Box className="text-container">
-          <Typography variant="h4" className="heading">
-            Super Charge Your Business <br />
-            Growth With <ColorTypography text="Efficient" />,{' '}
-            <ColorTypography text="Intelligent" />,
-            <ColorTypography text=" Versatile" /> &nbsp;Software Innovations
-          </Typography>
-          <Typography className="description">
-            Zenmonk believes in the power of harmony between- Technology and
-            Precision, Innovation and Mindfulness.
-          </Typography>
-        </Box>
-        <BaseButton sx={{ bgcolor: 'red', width: '100%' }}>
-          EXPLORE MORE
-        </BaseButton>
-      </Box>
-      <Box className="image-container">
-        <HomeHeroImage />
-      </Box>
-    </Box>
+    <div className="hero-section-home-container">
+      <div className="hero-section-home">
+        <div className="container">
+          <Geometry />
+          <div className="text-container">
+            <h4 className="heading">
+              Super Charge Your Business{" "}
+              Growth With <span>Efficient</span>, <span>Intelligent</span>,{" "}
+              <span>Versatile</span> Software Innovations
+            </h4>
+            <p className="description">
+              Zenmonk believes in the power of harmony between—
+              Technology and Precision, Innovation and Mindfulness
+            </p>
+          </div>
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className="button"
+          >
+            EXPLORE MORE
+          </BaseButton>
+        </div>
+        <div className="hero-visual">
+          <HeroImage />
+        </div>
+      </div>
+    </div>
   )
 }
 

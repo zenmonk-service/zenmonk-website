@@ -5,79 +5,86 @@
   background-color: var(--global-color-primary);
   border-radius: 1.04vw;
 
-  @media screen and (max-width: 1371px) {
-    // width: 100%;
-  }
-
   .show-case-image-container {
     border-top-right-radius: 1.04vw;
     border-top-left-radius: 1.04vw;
     position: relative;
     width: 32.81vw;
+    aspect-ratio: 630 / 354;
     overflow: hidden;
-    
+
     .show-case-image {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
     }
   }
+
   .event-details {
     padding: 1.56vw;
     width: 100%;
     height: auto;
+
+    @media screen and (max-width: 1000px) {
+      padding: 16px;
+    }
+
     .event-date {
       width: 100%;
       height: auto;
       display: flex;
       gap: 0.52vw;
       align-items: center;
+
       img {
         width: 0.73vw;
         height: 0.83vw;
+        min-width: 20px;
+        min-height: 20px;
         flex-shrink: 0;
       }
+
       .date-text {
         color: #757575;
-        font-feature-settings: "liga" off, "clig" off;
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: var(--font-size-16);
         font-style: normal;
         font-weight: 400;
       }
     }
+
     .event-content-details {
       width: 100%;
       height: auto;
       display: flex;
       flex-direction: column;
-
       gap: 1.56vw;
+
       .title-text {
         margin-top: 0.99vw;
         color: #132427;
-        font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
-        font-size: max(16px , 1.15vw) !important;
+        font-size: max(16px, 1.15vw) !important;
         font-style: normal;
         font-weight: 600;
+        
       }
+
       .description-text {
         color: #757575;
-        font-feature-settings: "liga" off, "clig" off;
         font-family: Poppins;
         font-size: var(--font-size-16) !important;
         font-style: normal;
         font-weight: 400 !important;
       }
+
       .button {
+        text-transform: none;
         padding: 0;
         display: flex;
         gap: 0.52vw;
         font-family: Poppins;
-        font-size: var(--font-size-14) !important;
+        font-size: max(14px, 0.72916666666vw);
         font-style: normal;
         font-weight: 600 !important;
         align-items: center;
@@ -86,9 +93,90 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
         .icon {
-          color: #eb7c0d;
-          font-size: inherit;
+          background: linear-gradient(99deg, #EB7C0D 3.23%, #FFA750 97.72%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-size: max(14px, 0.72916666666vw);
+        }
+
+        .MuiTouchRipple-root span {
+          background-color: rgba(255, 128, 0, 0.3);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1378px) {
+  .big-show-case-event-card {
+    width: 44vw;
+    height: 42.6vw;
+    border-radius: 1.5vw;
+
+    .show-case-image-container {
+      width: 44vw;
+      border-top-right-radius: 1.5vw;
+      border-top-left-radius: 1.5vw;
+    }
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1020px) {
+  .big-show-case-event-card {
+    width: 89.56vw;
+    height: auto;
+
+    .show-case-image-container {
+      width: 89.56vw;
+      height: 40vw;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .big-show-case-event-card {
+    width: 100%;
+    height: auto;
+    border-radius: 11.36px;
+    background: #f6f6f6;
+
+    .show-case-image-container {
+      border-radius: 11.36px;
+      width: 100%;
+    }
+
+    .event-details {
+      padding: 16px;
+
+      .event-date {
+        gap: 4px;
+
+        img {
+          width: 20px;
+          height: 20px;
+          min-width: 20px;
+          min-height: 20px;
+        }
+
+        .date-text {
+          font-size: 14px;
+        }
+      }
+
+      .event-content-details {
+        gap: 8px;
+
+        .title-text {
+          margin-top: 16px;
+          font-size: max(14px, 3.8vw) !important;
+        }
+
+        .description-text {
+          font-size: 14px !important;
+          margin-bottom: 8px;
         }
       }
     }

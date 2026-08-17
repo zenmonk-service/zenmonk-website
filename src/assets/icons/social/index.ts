@@ -1,39 +1,31 @@
 import FaceBook from './facebook.svg'
 import Instagram from './instagram.svg'
 import LinkedIn from './linkedin.svg'
-import Skype from './skype.svg'
 import X from './twitter.svg'
-import Youtube from './youtube.svg'
 
 export const socialMedia = [
   {
     id: 1,
     name: 'Facebook',
     icon: FaceBook,
+    href: 'https://facebook.com',
   },
   {
     id: 2,
     name: 'Instagram',
     icon: Instagram,
+    href: 'https://instagram.com',
   },
   {
     id: 3,
     name: 'Twitter',
     icon: X,
-  },
-  {
-    id: 5,
-    name: 'YouTube',
-    icon: Youtube,
+    href: 'https://twitter.com',
   },
   {
     id: 4,
-    name: 'Skype',
-    icon: Skype,
-  },
-  {
-    id: 6,
     name: 'LinkedIn',
     icon: LinkedIn,
+    href: 'https://www.linkedin.com/company/zenmonk',
   },
 ]

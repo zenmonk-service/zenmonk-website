@@ -1,71 +1,86 @@
-import Image from 'next/image'
-import { Box, Container, Toolbar, Typography } from '@mui/material'
-import {
-  BigEllipse,
-  Circle,
-  Ellipse,
-  Experience,
-  Freelancer,
-  HappyCulture,
-  SalaryHike,
-} from '@/modules/careers/assets'
-import BaseButton from '@/shared/button'
-import './styles.scss'
+'use client'
 
-const HeroSection = () => {
+import BaseButton from '@/shared/button'
+import Decorator from './assets/decorator.svg'
+import Image from 'next/image'
+import ExperienceCard from './assets/card_experience.svg'
+import SalaryCard from './assets/card_salary.svg'
+import CultureCard from './assets/card_culture.svg'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import styles from './styles.module.scss'
+
+const CareerHeroSection = () => {
   return (
-    <Box className="career-hero-section-wrapper">
-      {/* <Toolbar /> */}
-      <Box className="hero-section">
-        <Image className="ellipse" src={Ellipse} alt="ellipse big" />
-        <Box className="hero-section-text-wrapper">
-          <Typography variant="h4" className="text-heading">
-            <Typography variant="inherit" component="span">
-              Join Our Team{' '}
-            </Typography>
-            and Make <br />
-            an Impact in Tech
-          </Typography>
-          <Typography component="p" className="text-description">
-          Find your Zen in your career at Zenmonk. A monastery-like workplace for growth, new ideas, and making a difference, where our team is encouraged to discover balance and purpose in work.
-          </Typography>
-        </Box>
-        <BaseButton>JOIN NOW</BaseButton>
-      </Box>
-      <Box className="hero-section-image-wrapper">
-        <Box className="image-container">
-          <Image className="big-ellipse" src={BigEllipse} alt="ellipse" />
-          <Image
-            className="hero-section-image freelancer"
-            src={Freelancer}
-            alt="freelancer"
-            fill
-          />
-          <Image
-            className="hero-section-circle-image"
-            src={Circle}
-            alt="circle"
-            fill
-          />
-          <Image
-            alt="experience"
-            src={Experience}
-            className="hero-section-experience-image"
-          />
-          <Image
-            alt="hike"
-            src={SalaryHike}
-            className="hero-section-hike-image"
-          />
-          <Image
-            alt="happy-culture"
-            src={HappyCulture}
-            className="hero-section-happy-culture-image"
-          />
-        </Box>
-      </Box>
-    </Box>
+    <div className={styles.backgroundWrapper}>
+      <Decorator className={styles.decorator2} />
+      <Decorator className={styles.decorator} />
+      <div className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>
+            <span className={styles.highlightedText}>Join Our Team </span>
+            And
+            <br />
+            Make a Meaningful
+            <br />
+            Impact in Tech
+          </h1>
+          <p className={styles.description}>
+            We believe in ZenFusion, merging technology with mindfulness. As
+            your partners in technological excellence, we transform values into
+            action, simplifying tech to deliver user-centered solutions.
+          </p>
+          <BaseButton 
+            className={styles.button}
+            onClick={() => {
+              const el = document.getElementById('open-positions')
+              if (el) {
+                const smoother = ScrollSmoother.get()
+                if (smoother) {
+                  smoother.scrollTo(el, true)
+                } else {
+                  el.scrollIntoView({ behavior: 'smooth' })
+                }
+              }
+            }}
+          >
+            Join Now
+          </BaseButton>
+        </div>
+        <div className={styles.imageContainer}>
+          <div className={styles.heroWrapper}>
+            <Image 
+              src="/careers/hero.svg" 
+              className={styles.heroImage} 
+              alt="Hero background" 
+              width={907}
+              height={651}
+              priority
+              unoptimized
+            />
+            <div className={`${styles.cardWrapper} ${styles.cardExperience}`}>
+              <ExperienceCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+            <div className={`${styles.cardWrapper} ${styles.cardSalary}`}>
+              <SalaryCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+            <div className={`${styles.cardWrapper} ${styles.cardCulture}`}>
+              <CultureCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export { HeroSection }
+export default CareerHeroSection
+

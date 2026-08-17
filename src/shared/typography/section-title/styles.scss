@@ -3,15 +3,12 @@ $base-line-height: 1.5;
 .highlighted-text-heading {
   color: #132427;
   flex-wrap: wrap;
-  font-feature-settings:
-    'liga' off,
-    'clig' off;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 600 !important;
   text-transform: capitalize;
   margin-bottom: 16px;
-  font-size:var(--font-size-40) !important;
+  font-size: var(--font-size-40) !important;
   line-height: $base-line-height;
 
   span {
@@ -37,21 +34,24 @@ $base-line-height: 1.5;
   font-family: Poppins !important;
   font-weight: 600 !important;
   letter-spacing: -0.64px !important;
-  font-size:var(--font-size-40) !important;
+  font-size: var(--font-size-40) !important;
 
   .mark-wrapper {
     position: relative;
     display: inline-block;
-    line-height: 110%;
+    line-height: 115%;
+
     .word-container {
       display: inline-block;
+      position: relative;
+      z-index: 1;
     }
 
     .mark-container {
       position: absolute;
       left: 0;
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       overflow: hidden;
       pointer-events: none;
     }

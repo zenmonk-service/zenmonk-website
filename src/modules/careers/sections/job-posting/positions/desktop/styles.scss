@@ -1,0 +1,265 @@
+.positions {
+  margin-top: 3.125vw;
+  width: 100%;
+  height: max(500px, 35vw);
+  border-radius: max(12px, 1.5vw);
+  border: 1px solid #E5E7EB;
+  background: #ffffff;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  .left-section {
+    width: max(200px, 19.79vw);
+    flex-shrink: 0;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: max(20px, 2.125vw) 0vw max(20px, 2.125vw) max(20px, 2.083vw);
+    border-radius: max(10px, 1.04vw) 0vw 0vw max(10px, 1.04vw);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .position {
+      cursor: pointer;
+      padding: max(10px, 1.04vw);
+      font-feature-settings: "liga" off, "clig" off;
+      font-family: Poppins;
+      font-size: max(14px, 1.146vw);
+      line-height: max(18px, 1.5625vw);
+      font-style: normal;
+      font-weight: 600;
+      width: 100%;
+      border-top-left-radius: max(10px, 1.04vw);
+      border-bottom-left-radius: max(10px, 1.04vw);
+      color: #B2B7B8;
+
+      &:hover {
+        color: #132427;
+      }
+    }
+
+    .selected {
+      background: #ffffff;
+      color: #eb7c0d;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: max(10px, 0.78vw);
+        height: max(10px, 0.78vw);
+        background-color: #fff;
+        top: calc(-1 * max(10px, 0.78vw));
+        right: 0;
+        clip-path: polygon(47% 74%, 63% 61%, 76% 46%, 85% 33%, 92% 20%, 100% 0, 100% 40%, 100% 78%, 100% 100%, 0 100%, 18% 92%, 33% 84%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: max(12px, 1.04vw);
+        height: max(10px, 0.78vw);
+        background-color: #fff;
+        bottom: calc(-1 * max(8px, 0.63vw));
+        right: 0;
+        clip-path: polygon(26% 17%, 16% 10%, 0 0, 100% 0, 100% 100%, 91% 82%, 84% 71%, 76% 60%, 65% 50%, 56% 41%, 46% 32%, 35% 23%);
+      }
+
+      &:hover {
+        color: #eb7c0d;
+      }
+    }
+  }
+
+  .right-section {
+    padding: max(24px, 3.5vw);
+    flex: 1;
+    overflow-y: auto;
+    background-color: #ffffff;
+
+    /* Custom scrollbar */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #F1F1F1;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #D1D5DB;
+      border-radius: 10px;
+    }
+
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: max(32px, 4vw);
+    }
+
+    .role-content {
+      display: flex;
+      flex-direction: column;
+      gap: max(16px, 1.5vw);
+    }
+
+    .role-separator {
+      height: 1px;
+      background: #E5E7EB;
+      width: 100%;
+      margin: 2vw 0;
+
+      &:last-child {
+        display: none;
+      }
+    }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: max(8px, 1vw);
+
+      .title-container {
+        flex: 1;
+        margin-right: max(16px, 1.5vw);
+      }
+
+      .role-title {
+        color: #111827;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.2vw;
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.3;
+
+        .status-badge {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: auto;
+          min-width: max(80px, 4.22vw);
+          height: max(40px, 2.24vw);
+          padding: max(6px, 0.417vw) max(14px, 0.833vw);
+          font-family: 'Poppins', sans-serif;
+          font-size: max(18px, 0.729vw);
+          font-weight: 600;
+          border-radius: max(12px, 0.625vw);
+          text-transform: capitalize;
+          box-sizing: border-box;
+          vertical-align: middle;
+          margin-left: max(16px, 0.833vw);
+
+          &.open {
+            border: 2px solid #539E43 !important;
+            background: transparent;
+            color: #539E43;
+          }
+
+          &.closed {
+            border: 2px solid #EF4444 !important;
+            background: transparent;
+            color: #EF4444;
+          }
+        }
+      }
+
+      .apply-btn {
+        background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
+        color: white;
+        width: auto;
+        min-width: max(130px, 7.5vw);
+        height: max(44px, 2.5vw);
+        padding: max(8px, 0.5vw) max(20px, 1.2vw);
+        font-size: max(18px, 0.729vw);
+        font-weight: 600;
+        border-radius: max(12px, 0.625vw);
+        text-transform: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+        white-space: nowrap;
+
+        &:hover {
+          opacity: 0.95;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(235, 124, 13, 0.3);
+        }
+      }
+    }
+
+    .role-descriptions {
+      display: flex;
+      flex-direction: column;
+      gap: max(8px, 1vw);
+    }
+
+    .role-description {
+      color: #4B5563;
+      font-family: 'Poppins', sans-serif;
+      font-size: max(14px, 1.05vw);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: max(20px, 3vw);
+      row-gap: max(16px, 2vw);
+
+      .skills-container {
+        display: flex;
+        flex-direction: column;
+        gap: max(4px, 0.5vw);
+
+        .skills-header {
+          display: flex;
+          align-items: center;
+          gap: max(6px, 0.6vw);
+
+          .check-icon {
+            width: max(16px, 1.3vw);
+            height: max(16px, 1.3vw);
+            color: #10B981; // Green
+            flex-shrink: 0;
+          }
+        }
+
+        .skills-title {
+          color: #111827;
+          font-family: 'Poppins', sans-serif;
+          font-size: max(14px, 1.15vw);
+          font-weight: 600;
+        }
+
+        .skills-description {
+          color: #6B7280;
+          font-family: 'Poppins', sans-serif;
+          font-size: max(12px, 0.95vw);
+          line-height: 1.6;
+          padding-left: max(20px, 2vw);
+          margin: 0;
+        }
+      }
+    }
+
+    .no-positions {
+      text-align: center;
+      margin-top: 5vw;
+    }
+  }
+}

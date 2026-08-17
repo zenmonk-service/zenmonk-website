@@ -2,7 +2,7 @@
 
 import parse from 'html-react-parser'
 import { useEffect, useRef, useState } from 'react'
-import { Box, Typography, TypographyProps } from '@mui/material'
+import { Typography, TypographyProps } from '@mui/material'
 import { Mark } from './assets'
 import './styles.scss'
 
@@ -15,6 +15,7 @@ interface TitleProps extends TypographyProps {
   markTextProps?: {
     rotate?: number
     className?: string
+    style?: React.CSSProperties
   }
 }
 
@@ -69,13 +70,12 @@ const SectionTitle = ({
     <Typography
       variant="h3"
       component="h1"
-      className="highlighted-text-heading"
+      className="highlighted-text-heading animate pop"
     >
       {highlightTitle(text)}
     </Typography>
   ) : (
     <Typography
-      component="h5"
       variant="h5"
       className={`section-title-text ${className}`}
       textAlign={align}
@@ -92,7 +92,9 @@ const SectionTitle = ({
               className={`mark-container ${markTextProps?.className}`}
               style={{
                 width: markWidth ? `${markWidth}px` : 'auto',
-                rotate: `${markTextProps?.rotate}deg`,
+                rotate: `${markTextProps?.rotate ?? 4}deg`,
+                marginTop:`${markTextProps?.style?.marginTop ?? "-0.45vw"}`,
+                ...markTextProps?.style,
               }}
             >
               <Mark className="mark-icon" />

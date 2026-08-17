@@ -1,0 +1,129 @@
+.tech-card-container {
+  display: flex;
+  align-items: center;
+  padding: 0.57vw 0.83vw;
+  width: clamp(230px, 19.79vw, 380px);
+  height: clamp(60px, 4.27vw, 82px);
+  border-radius: 8px;
+  flex-shrink: 0;
+  gap: max(18px, 1.5625vw);
+  background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
+  box-shadow: 0.1vw 0.1vw 1.04vw 0px rgba(0, 0, 0, 0.13);
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 82px;
+    border-radius: 8px;
+    padding: 10px 16px;
+  }
+
+  svg, .tech-card-icon {
+    width: clamp(32px, 3.125vw, 60px);
+    height: clamp(32px, 3.125vw, 60px);
+    flex-shrink: 0;
+  }
+
+  .tech-card-title {
+    display: flex;
+    align-items: center;
+    color: #424242;
+    font-family: Poppins;
+    font-size: clamp(14px, 0.84vw, 18px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+
+.tech-card-container:first-child {
+  &:hover {
+    box-shadow: 0.013vw 0.2vw 1.04vw 0px rgba(101, 214, 222, 0.3);
+  }
+}
+
+.tech-card-container:nth-child(2) {
+  &:hover {
+    box-shadow: 0.013vw 0.2vw 1.04vw 0px rgba(179, 122, 255, 0.3);
+  }
+}
+
+.tech-card-container:nth-child(3) {
+  &:hover {
+    box-shadow: 0.013vw 0.2vw 1.04vw 0px rgba(106, 199, 123, 0.3);
+  }
+}
+
+.tech-card-container:nth-child(4) {
+  &:hover {
+    box-shadow: 0.013vw 0.2vw 1.04vw 0px rgba(60, 149, 219, 0.3);
+  }
+}
+
+#income {
+  animation: floatAnimation2 3s ease-in-out infinite !important;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 0.41vw 1.25vw;
+}
+
+#circular {
+  transform: rotate(-54.2986 365.821 150.821);
+}
+
+@keyframes floatAnimation2 {
+  0% {
+    transform: translateY(-10);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10);
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1024px) {
+  .tech-card-container{
+    flex: 1;
+    height: 50px;
+  }
+  .tech-card-title{
+    font-size: 12px !important;
+  }
+}
+@media (max-width: 700px) {
+  .tech-card-container{
+    flex: 1;
+    height: 50px;
+    min-width: 100%;
+    min-height: 82px;
+    padding: 14px;
+  }
+  .tech-card-title{
+    font-size: 16px !important;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+  .tech-card-container {
+    width: 220px !important;
+    height: 64px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+
+    @media (max-width: 1150px) {
+      width: 200px !important;
+      gap: 12px !important;
+    }
+  }
+  .tech-card-title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+  .tech-card-container svg, 
+  .tech-card-container .tech-card-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}

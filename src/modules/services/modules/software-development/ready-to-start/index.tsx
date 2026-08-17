@@ -1,16 +1,23 @@
+'use client'
+
 import Image from 'next/image'
-import { Box, Typography } from '@mui/material'
+import Link from 'next/link'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BG from './assets/bg.png'
+import BgMap from "./assets/bg-map.svg"
+import DesktopLamp from './assets/desktop-lamp.png'
 import './styles.scss'
+import BaseButton from '@/shared/button'
 
 const ReadyToStartSoftwareDev = () => {
   return (
-    <Box className="ready-to-start">
-      <Box sx={{ width: '100%' }}>
-        <Image src={BG} alt="map" style={{ width: '100%' }} />
-      </Box>
-      <Box className="text-box">
+    <div className="ready-to-start">
+      <div className="images-container">
+        <Image src={BG} alt="map" className="bg-image" fill priority />
+        <BgMap className="bg-map"/>
+        <Image src={DesktopLamp} alt="laptop-lamp" className="laptop-lamp" fill priority />
+      </div>
+      <div className="text-box">
         <SectionTitle
           className="title"
           text="Are you ready to start ?"
@@ -18,13 +25,13 @@ const ReadyToStartSoftwareDev = () => {
         />
         <SectionDescription
           className="description"
-          text="
-          Custom Software Development Tailored Solutions for Your Business
-          Custom Software Development Tailored Solutions"
+          text="Custom Software Development Tailored Solutions for Your Business Custom Software Development Tailored Solutions"
         />
-        <button>Contact us</button>
-      </Box>
-    </Box>
+        <Link href="/contact" style={{ textDecoration: 'none' }}>
+          <BaseButton className="contact-us">Contact us</BaseButton>
+        </Link>
+      </div>
+    </div>
   )
 }
 

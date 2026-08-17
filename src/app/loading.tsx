@@ -1,24 +1,9 @@
-import { Box } from '@mui/material'
+'use client'
 
-const loading = () => {
-  return (
-    <Box
-      sx={{
-        height: '100vh',
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      {/* <Box
-        component="img"
-        src="/logo.svg"
-        alt="logo"
-        className="flicker-logo"
-      /> */}
-    </Box>
-  )
+import FullScreenLoading from '@/shared/lazy-section-wrapper/loader'
+
+const Loader = () => {
+  return <FullScreenLoading />
 }
 
-export default loading
+export default Loader

@@ -1,8 +1,0 @@
-import First from './first.svg'
-import GraphIcon from './graph-icon.svg'
-import QualityImgMobile from './quality-mobile.svg'
-import Quality from './quality.svg'
-import Second from './second.svg'
-import Third from './third.svg'
-
-export { First, Second, Third, Quality, GraphIcon, QualityImgMobile }

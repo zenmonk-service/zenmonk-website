@@ -1,0 +1,64 @@
+.container {
+  margin-top: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @media (min-width: 600px) and (max-width: 1000px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .description {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .emoji {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .gifContainer {
+      position: relative;
+      .animatedGif {
+        background-color: transparent;
+        width: 48%;
+        position: absolute;
+        top: 36px;
+        left: 40px;
+      }
+    }
+    .cardTitle {
+      color: #a567cf;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.2px;
+      text-transform: capitalize;
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cardDescription {
+      color: #505050;
+      margin-top: 9.29px;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.28px;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.card {
+  width: 19.27083vw;
+  height: 13.125vw;
+  flex-shrink: 0;
+  box-shadow: 0.1vw 0.2vw 2.6vw rgba(12, 12, 12, 0.09);
+  border-radius: 1.0417vw;
+  position: relative;
+  background: var(--global-color-primary, #fff);
+  padding: 2.083vw 2.083vw 2.083vw 3.645vw;
+}
+
+/* ---------- Image ---------- */
+.image {
+  position: absolute;
+  top: 2.083vw;
+  left: -2.083vw;
+}
+
+/* ---------- Content ---------- */
+.title {
+  width: 100%;
+  color: #132427;
+  font-family: 'Poppins', sans-serif;
+  font-size: max(16px, 1.15vw);
+  font-style: normal;
+  font-weight: 400;
+  line-height: max(20px, 1.5625vw);
+}
+
+.description {
+  margin-top: 0.833vw;
+  width: 100%;
+  color: #757575;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-16);
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* ---------- Large Screens ---------- */
+@media screen and (max-width: 1500px) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media screen and (max-width: 600px) {
+  .card {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    padding: 22px 16px 29px 49px;
+  }
+
+  .image {
+    position: absolute;
+    top: 20%;
+    left: -32px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .title {
+    padding: 0;
+  }
+
+  .description {
+    font-size: 12px;
+    padding: 0;
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .card {
+    padding-left: 49px;
+  }
+
+  .image {
+    width: 40px;
+    height: 40px;
+    left: -20px;
+    top: 15%;
+  }
+}

@@ -1,9 +1,10 @@
-export interface Skill {
+interface Skill {
   title: string
   description: string
 }
 
 export interface Position {
+  id: string
   title: string
   heading: string
   isOpening: boolean

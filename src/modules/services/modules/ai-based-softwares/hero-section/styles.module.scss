@@ -1,0 +1,132 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+  padding-top: 7.1vw;
+}
+
+.backgroundWrapper {
+  position: relative;
+  padding-top: 50px;
+
+  @media screen and (max-width: 800px) {
+    padding-top: 0px;
+  }
+
+  img {
+    @media screen and (min-width: 650px) and (max-width: 800px) {
+      max-width: 60% !important;
+      width: 60% !important;
+      margin: 0 auto !important;
+    }
+
+    @media screen and (min-width: 1201px) {
+      max-width: 80% !important;
+      width: 80% !important;
+      margin: 0 auto !important;
+    }
+  }
+}
+
+.backgroundLine{
+  position: absolute;
+  left: -1.825%;
+  top: 0.2vw;
+  z-index: -1;
+}
+
+.title {
+  color: #132427;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.125vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 3.64vw;
+  text-transform: capitalize;
+  margin-bottom: 0.83vw;
+}
+
+.description {
+  max-width: 37vw;
+  flex-wrap: wrap;
+  color: #757575;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.025vw;
+  margin-bottom: 3.125vw;
+}
+
+.highlightedText {
+  background: var(--global-color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.imageContainer {
+  width: 45%;
+}
+.heroImage {
+  width: 34.58vw;
+  height: 37.5vw;
+}
+
+.button {
+  width: 10vw !important;
+}
+
+@media screen and (max-width: 600px) {
+  .backgroundWrapper {
+    background-image: url('/about-us/mobile-dotted-bg.png');
+  }
+
+  .backgroundLine {
+    top: -120px;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+    gap: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .title {
+    color: #132427;
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    text-transform: capitalize;
+  }
+
+  .description {
+    max-width: 100%;
+    color: #757575;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+  }
+
+  .button {
+    width: 160px !important;
+  }
+}

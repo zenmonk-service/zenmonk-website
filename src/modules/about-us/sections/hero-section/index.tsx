@@ -1,20 +1,43 @@
-import About from '@/assets/images/about/about.png'
-import { HeroSection as HeroComponent } from '@/shared/hero-section'
-import './styles.scss'
+'use client'
 
-const HeroSection: React.FC = () => (
-  <div className="about-hero-section-wrapper">
-    <HeroComponent
-      title="Meet the Innovators<br/> Behind ZENMONK"
-      highlightedText="ZENMONK"
-      description="We believe in ZenFusion, 
-      merging technology with mindfulness. 
-      As your partners in technological excellence,
-      we transform values into action, 
-      simplifying tech to deliver user-centered solutions."
-      image={About.src}
-    />
-  </div>
-)
+import { useRouter } from 'next/navigation'
+import BaseButton from '@/shared/button'
+import Rating from '@/shared/rating'
+import HeroImage from './assets/about.svg'
+import Background from './assets/dotted-bg.svg'
+import styles from './styles.module.scss'
 
-export { HeroSection }
+const AboutUsHeroSection = () => {
+  const router = useRouter()
+  return (
+    <div className={styles.backgroundWrapper}>
+      <Background className={styles.backgroundLine} />
+      <div className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>
+            Meet the Brilliant Innovators Behind
+            <span className={styles.highlightedText}> ZENMONK</span>
+          </h1>
+          <p className={styles.description}>
+            We believe in ZenFusion, merging technology with mindfulness. As
+            your partners in technological excellence, we transform values into
+            action, simplifying tech to deliver user-centered solutions.
+          </p>
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className={styles.button}
+          >
+            EXPLORE MORE
+          </BaseButton>
+        </div>
+        <div className={styles.imageContainer}>
+          <HeroImage className={styles.heroImage} />
+        </div>
+      </div>
+      <div className={styles.ratingWrapper}>
+        <Rating />
+      </div>
+    </div>
+  )
+}
+export default AboutUsHeroSection

@@ -1,34 +1,87 @@
-import Image from 'next/image'
-import { Box, Button, Stack, Typography } from '@mui/material'
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+import { Box, Stack } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { RTTGirlImg } from './assets'
+import BaseButton from '@/shared/button'
 import './style.scss'
 
 const ReadyToTalkShared = () => {
-  return (
-    <Stack className="ready-to-talk-shared-section">
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        className="ready-to-talk-shared-container"
-        gap={{ lg: '3.0208vw' }}
-      >
-        <Box className="image-container">
-          <RTTGirlImg className="rtt-img" />
-        </Box>
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
 
-        <Stack className="ready-to-talk-shared-content">
-          <SectionTitle
-            className="heading"
-            text="NOT KNOW WHERE TO START ?"
-            align="left"
-          />
-          <SectionDescription
-            className="subheading"
-            text="Let’s get help from zenmonk’s software development experts"
-          />
-          <Button className="rtt-button">Read More</Button>
-        </Stack>
-      </Stack>
+  const titleVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0] 
+      },
+    },
+  }
+
+  const descriptionVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: '2.6vw',
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.5, 
+        ease: [0.25, 0.1, 0.25, 1.0],
+        delay: 0.15
+      },
+    },
+  }
+
+  return (
+    <Stack className="ready-to-talk-wrapper" ref={ref}>
+      <Box className="ready-to-talk-container">
+        {/* IMAGE */}
+        <Box className="rtt-image">
+          <RTTGirlImg />
+        </Box>
+ 
+        {/* CONTENT */}
+        <Box className="rtt-content">
+          <motion.div
+            variants={titleVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+          >
+            <SectionTitle
+              className="rtt-heading"
+              text="NOT KNOW WHERE TO START?"
+              align="left"
+            />
+          </motion.div>
+          <motion.div
+            variants={descriptionVariants}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+          >
+            <SectionDescription
+              className="rtt-subheading"
+              text="Let’s get help from zenmonk’s software development experts"
+            />
+          </motion.div>
+
+          <BaseButton className="rtt-button">READ MORE</BaseButton>
+        </Box>
+      </Box>
     </Stack>
   )
 }

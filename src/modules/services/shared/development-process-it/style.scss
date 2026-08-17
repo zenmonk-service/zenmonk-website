@@ -1,0 +1,146 @@
+$r: 7.1vw;
+$gap: 1.8vw;
+$offset: calc(#{$r} + #{$gap});
+
+.dev-process-it {
+  width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+  font-family: var(--font-secondary, 'Inter', sans-serif);
+
+  margin-top: 8vw;
+  margin-bottom: 8vw;
+
+  &__desktop {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__bg {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  &__label {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: visible;
+  }
+
+  &__text {
+    position: absolute;
+    width: max(220px, 24vw);
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__label.is-top &__text {
+    bottom: $offset;
+    left: calc(50% + 2.2vw);
+  }
+
+  &__label.is-bottom &__text {
+    top: $offset;
+  }
+
+  &__title {
+    font-family: var(--font-primary, 'Outfit', sans-serif);
+    font-weight: 700;
+    font-size: max(20px, 1.5vw);
+    margin: 0 0 max(3px, 0.35vw) 0;
+    line-height: 1.35;
+  }
+
+  &__desc {
+    color: #6b7280;
+    font-size: max(14px, 1.05vw);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  &__mobile { display: none; }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .dev-process-it {
+    &__label.is-top &__text {
+      left: calc(50% + 5vw);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .dev-process-it {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+    &__desktop { display: none; }
+
+    &__mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    &__mobile-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      width: 100%;
+
+      &.icon-right { flex-direction: row-reverse; }
+    }
+
+    &__mobile-icon {
+      flex-shrink: 0;
+      width: clamp(80px, 22vw, 120px);
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+    }
+
+    &__mobile-text {
+      flex: 1;
+      &.align-left  { text-align: left; }
+      &.align-right { text-align: right; }
+    }
+
+    &__title {
+      font-size: clamp(15px, 4.5vw, 20px) !important;
+      margin-bottom: 0.4rem !important;
+    }
+
+    &__desc {
+      font-size: clamp(12px, 3.5vw, 15px) !important;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .dev-process-it {
+    &__mobile-icon {
+      width: clamp(140px, 18vw, 180px);
+    }
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1000px) {
+  .dev-process-it {
+    &__mobile {
+      gap: 0rem;
+    }
+  }
+}

@@ -1,0 +1,129 @@
+.cardContainer {
+  position: relative;
+  width: 30%; // 3 columns on desktop
+  min-height: 24vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2.5vw 2vw; /* Ensure safe margin from octagon boundaries */
+  gap: 0.8vw; /* Control spacing cleanly without margin creep */
+  box-sizing: border-box;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon {
+  width: 3vw; /* Dynamically scales with screen width */
+}
+
+.title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35vw; /* Dynamically scales with screen width */
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.02vw;
+  margin: 0; /* Reset default browser paragraph margins */
+}
+
+.description {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.02vw; /* Dynamically scales with screen width */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4;
+  width: 72%; // Strictly contain within the hexagon core
+  letter-spacing: 0.01vw;
+  margin: 0; /* Reset default browser paragraph margins */
+}
+
+@media screen and (max-width: 1100px) {
+  .cardContainer {
+    width: 48%;
+    min-height: clamp(340px, 38vw, 440px);
+    padding: 30px 20px;
+    gap: 8px;
+  }
+
+  .icon {
+    width: clamp(36px, 4vw, 48px);
+  }
+
+  .title {
+    font-size: clamp(18px, 2.2vw, 22px);
+  }
+
+  .description {
+    width: 72%; /* Strictly contain text inside the hexagon/octagon graphic core */
+    font-size: clamp(12px, 1.4vw, 15px);
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cardContainer {
+    width: 100%;
+    max-width: 420px; /* Match parent grid boundaries */
+    margin: 0 auto;
+    min-height: clamp(340px, 92vw, 380px);
+    padding: 24px 16px;
+    gap: 8px;
+  }
+
+  .icon {
+    width: 36px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .description {
+    width: 82%; /* Keep text inside the octagon shape */
+    font-size: 12.5px;
+    line-height: 1.45;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
+  .description {
+    width: 70%;
+  }
+}
+
+// Align background SVGs by compensating for their off-center outline drawing coordinates
+.client-support,
+.more-growth,
+.our-strategy,
+.reach-ideas {
+  .background {
+    transform: translate(calc(-50% + 2.3%), -50%);
+  }
+}
+
+.expert-team,
+.creative-ideas {
+  .background {
+    transform: translate(calc(-50% + 3%), -50%);
+  }
+}
+

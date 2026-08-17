@@ -1,33 +1,84 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { AppBar, Toolbar, Box, useMediaQuery, createTheme } from '@mui/material'
-import { Monk } from '@/assets/icons'
-import BaseButton from '@/shared/button'
+import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import Monk from '@/assets/icons/monk.svg'
+import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
+import { useAppSelector } from '@/store/hooks'
+import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
-import { actionsLink } from './action-links/links'
-import './styles.scss'
+import styles from './header.module.scss'
 
 const Navbar = () => {
-  const theme = createTheme()
-  const { push } = useRouter()
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
-  const navigateToHome = () => push('/')
-  const navigateToContact = () => push('/contact')
+  const pathname = usePathname()
+  const [isOpen, toggleOpen] = useCycle(false, true)
+  const smootherRef = useScrollSmoother()
+  const current = smootherRef?.current
+
+  const [hidden, setHidden] = useState(false)
+  const [isAtTop, setIsAtTop] = useState(true)
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    setIsAtTop(latest <= 5)
+    if (latest > previous && latest > 150) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+  })
+
+  useEffect(() => {
+    if (current) {
+      current.paused(isOpen)
+    }
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
+  }, [current, isOpen])
+
+  const isHeaderHidden = useAppSelector((state) => state.header.hide)
+
   return (
-    <AppBar className="app-bar-container" elevation={0}>
-      <Toolbar className="toolbar">
-        <Box display="flex" alignItems="center">
-          <Monk className="logo" onClick={navigateToHome} />
-        </Box>
-        <ActionLinks />
-        {!isSmallScreen && (
-          <BaseButton onClick={navigateToContact} className="contact-button">
-            {actionsLink[actionsLink.length - 1].name}
-          </BaseButton>
-        )}
-      </Toolbar>
-    </AppBar>
+    <motion.nav
+      initial={false}
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: '-100%' },
+      }}
+      animate={(hidden && !isOpen) || isHeaderHidden ? "hidden" : "visible"}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className={`${styles.appBarContainer} ${isOpen ? styles.open : ''} ${isAtTop && !isOpen ? styles.transparent : ''}`}
+    >
+      <Link href="/" className={styles.appBarIconContainer} prefetch={false}>
+        <LoadingIndicator />
+        <Monk />
+      </Link>
+      {!pathname?.includes('/track-application/') && (
+        <>
+          <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
+          <Link
+            href="/contact"
+            prefetch={false}
+            className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
+          >
+            <LoadingIndicator />
+            Contact Us
+          </Link>
+        </>
+      )}
+    </motion.nav>
   )
 }
 

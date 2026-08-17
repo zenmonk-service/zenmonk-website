@@ -1,58 +1,52 @@
-import Ceinde from './logo-ceinde.svg'
-import Citealimenta from './Cite.svg'
-import Citican from './logo-citican.svg'
-import Cittecam from './citicam.svg'
-import Ct from './logo-ct.svg'
-import Cuanza from './cuanza.svg'
-import Funiber from './funiber.svg'
-import Unib from './logo-unib.svg'
-import Unicol from './unicol.svg'
+import Ceinde from './logo-ceinde.svg?url'
+import Citealimenta from './logo-cite.svg?url'
+
+import Cittecam from './logo-cittecam.svg?url'
+import Ct from './logo-ct.svg?url'
+import Cuanza from './logo-cuanza.svg?url'
+import Funiber from './logo-funiber.svg?url'
+import Unib from './logo-unib.svg?url'
+import Unicol from './logo-unicol.svg?url'
 
 export const OurPartnersList = [
   {
     label: 'Ceinde',
-    Src: Ceinde,
+    icon: Ceinde,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Citealimenta',
-    Src: Citealimenta,
+    icon: Citealimenta,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
   {
-    label: 'Citican',
-    Src: Citican,
-    background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
-  },
-  {
     label: 'Cittecam',
-    Src: Cittecam,
+    icon: Cittecam,
     background: 'linear-gradient(90deg, #FFF 0%, #F7FFE7 49%, #FFF 100%)',
   },
   {
     label: 'Cuanza',
-    Src: Cuanza,
+    icon: Cuanza,
     background: 'linear-gradient(90deg, #FFF 0%, #FFBCBD 51%, #FFF 100%)',
   },
   {
     label: 'Funiber',
-    Src: Funiber,
+    icon: Funiber,
     background: 'linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Unib',
-    Src: Unib,
+    icon: Unib,
     background: 'linear-gradient(90deg, #FFF 0%, #E9FFFE 47%, #FFF 100%)',
   },
   {
     label: 'Unicol',
-    Src: Unicol,
-    background:
-      'background: linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
+    icon: Unicol,
+    background: 'linear-gradient(90deg, #FFF 0%, #D7F1FF 50.5%, #FFF 100%)',
   },
   {
     label: 'Ct',
-    Src: Ct,
+    icon: Ct,
     background: 'linear-gradient(90deg, #FFF 0%, #CCF1FF 49%, #FFF 100%)',
   },
 ]

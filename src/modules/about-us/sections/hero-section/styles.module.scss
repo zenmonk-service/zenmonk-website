@@ -1,0 +1,218 @@
+.container {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 7.8125%;
+  padding-right: 7.8125%;
+  padding-top: max(180px, 10vw);
+  padding-bottom: max(40px, 2.5vw);
+}
+
+.backgroundWrapper {
+  position: relative;
+}
+
+.backgroundLine {
+  position: absolute;
+  left: calc(-2% + 40px);
+  top: -4%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.title {
+  color: #132427;
+  flex-wrap: wrap;
+  font-family: 'Poppins', sans-serif;
+  font-size: max(28px, 3.125vw);
+  font-style: normal;
+  font-weight: 600;
+  line-height: max(32px, 3.6458vw);
+  text-transform: capitalize;
+  margin: 0 0 16px 0;
+}
+
+.description {
+  flex-wrap: wrap;
+  color: #757575;
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--font-size-24);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.025vw;
+  margin-bottom: max(16px, 2.0833vw);
+  max-width: 32vw;
+}
+
+.highlightedText {
+  background: var(--global-color-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imageContainer {
+  width: 46%;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+    width: 100%;
+  }
+}
+
+.heroImage {
+  width: 100%;
+}
+
+.button {
+  width: max(180px, 9.375vw);
+
+  @media screen and (max-width: 900px) {
+    width: max-content !important;
+    min-width: 160px !important;
+    padding: 12px 24px !important;
+    height: auto;
+    font-size: 14px !important;
+    margin-top: 24px !important;
+    background: linear-gradient(90deg, #f89e37 0%, #ea7c0c 100%);
+    border-radius: 6px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .backgroundWrapper {
+    background: url('/about-us/mobile-dotted-bg.png') no-repeat center / contain;
+  }
+
+  .backgroundLine {
+    display: none;
+  }
+
+  .container {
+    height: auto;
+    flex-direction: column-reverse;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 16px;
+    padding-top: 100px;
+    padding-bottom: 24px;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+
+  .title {
+    color: #132427;
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31px;
+    text-transform: capitalize;
+    margin: 0 0 16px 0;
+  }
+
+  .description {
+    max-width: 100%;
+    color: #757575;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+    margin: 0 0 40px 0;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 768px) {
+  .container {
+    height: auto;
+    padding-bottom: max(80px, 6.25vw);
+  }
+
+  .textContainer {
+    .title {
+      font-size: 32px;
+      line-height: 40px;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .container {
+    height: auto;
+  }
+
+  .backgroundLine {
+    bottom: 15%;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    height: auto;
+  }
+
+  .backgroundLine {
+    bottom: 7%;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .container {
+    height: auto;
+    padding-right: 0;
+  }
+
+  .backgroundLine {
+    bottom: 10%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .backgroundLine {
+    bottom: 15%;
+  }
+}
+
+.ratingWrapper {
+  margin-top: max(80px, 5vw);
+  margin-bottom: max(20px, 1.5vw);
+
+  @media screen and (max-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}

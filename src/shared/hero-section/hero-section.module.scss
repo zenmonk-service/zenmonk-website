@@ -1,0 +1,152 @@
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.1354vw;
+  width: 50%;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: auto;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  padding: 0 7.8%;
+  padding-top: max(80px, 3.25vw);
+  padding-bottom: max(80px, 6.25vw);
+
+  @media (min-width: 801px) and (max-width: 1024px) {
+    height: auto;
+    aspect-ratio: 1.83;
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    height: auto;
+    aspect-ratio: 1.68;
+  }
+}
+
+.textWrapper {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  color: #132427;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: max(28px, 3.125vw) !important;
+  font-weight: 600 !important;
+  line-height: 116.667%;
+  text-transform: capitalize;
+  margin-bottom: 0.83vw !important;
+}
+
+.heading span {
+  color: #eb7c0d;
+  font-weight: 600 !important;
+}
+
+.description {
+  color: #757575 !important;
+  font-family: Poppins, sans-serif !important;
+  font-size: max(16px, 1.25vw) !important;
+  font-weight: 400 !important;
+  line-height: 158.333%;
+  margin-bottom: 2.5vw;
+}
+
+.imageContainer {
+  position: relative;
+  width: 50%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 5;
+}
+
+.image {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+}
+
+.button {
+  width: max(180px, 9.375vw) !important;
+  font-weight: 600 !important;
+}
+
+
+@keyframes fadeInBlurScaleRotate {
+  0% {
+    opacity: 0;
+    transform: translateY(2.6vw) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .section {
+    flex-direction: column-reverse !important;
+    height: auto;
+    gap: 32px !important;
+  }
+
+  .textContainer {
+    width: 100%;
+    align-items: center;
+
+    .buttonContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+    }
+  }
+
+  .textWrapper {
+    width: 100% !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .heading {
+    line-height: 110.714%;
+    margin-bottom: 16px !important;
+  }
+
+  .description {
+    max-width: 100% !important;
+    text-align: center;
+    line-height: normal;
+    margin-bottom: 0;
+  }
+
+  .imageContainer {
+    width: 100%;
+    min-height: 250px;
+  }
+
+  .image {
+    max-width: 100%;
+    scale: 1;
+  }
+}
+
+/* Tablet */
+@media (min-width: 801px) and (max-width: 1024px) {
+  .section {
+    height: auto;
+    aspect-ratio: 1.8;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}

@@ -1,24 +1,48 @@
-import { Box, Toolbar } from '@mui/material'
+'use client'
 import { HeroSection } from '@/shared/hero-section'
-import SectionWrapper from '@/shared/wrapper'
-import { CloudComputing as HeroImg } from '../assets'
-import BackgroundImage from '../assets/cloud-background.png'
+import MainHeroImage from './assets/cloud.svg?url'
+import CloudGroupImage from './assets/cloud-group.svg?url'
+import Image from 'next/image'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-const CloudComputing: React.FC = () => (
-  <Box
-    sx={{
-      backgroundImage: `url(${BackgroundImage.src})`,
-      backgroundSize: 'cover',
-    }}
-  >
-    <Toolbar />
-    <HeroSection
-      title="Building Secure,<br/> Scalable, and Reliable Cloud Solutions"
-      highlightedText="Cloud Solutions"
-      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
-      image={HeroImg.src}
-    />
-  </Box>
-)
+const CloudSolutionsHeroSection = () => {
+  const isMobile = useMediaQuery('(max-width: 728px)')
 
-export { CloudComputing }
+  return (
+    <div style={{ paddingTop: isMobile ? '0px' : 'max(80px, 6vw)', position: 'relative' }}>
+      <HeroSection
+        url={MainHeroImage}
+        title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
+        highlightedText="Cloud Solutions"
+        description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
+        style={isMobile ? { paddingTop: '105px' } : {}}
+        imageStyle={{
+          scale: isMobile ? 1.6 : 1.7,
+          margin: '0 auto',
+          display: 'block',
+          marginLeft: isMobile ? "-14%" : '-15%',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        <Image
+          src={CloudGroupImage}
+          alt="Cloud Accents Overlay"
+          width={100}
+          height={200}
+          style={{
+            position: 'absolute',
+            top: isMobile ? '-15%' : '5%',
+            right: isMobile ? '-1%' : '-8%',
+            pointerEvents: 'none',
+            zIndex: 2,
+            width: isMobile ? '20vw' : '7.5vw',
+            height: 'auto',
+          }}
+        />
+      </HeroSection>
+    </div>
+  )
+}
+
+export default CloudSolutionsHeroSection

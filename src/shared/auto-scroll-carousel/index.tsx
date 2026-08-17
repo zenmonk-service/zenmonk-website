@@ -1,47 +1,120 @@
-import Image from 'next/image'
-import Box from '@mui/material/Box'
+'use client'
+
+import { CSSProperties, ReactNode, useMemo } from 'react'
 import './styles.scss'
 
-interface SliderData {
-  label: string
-  Src: any
+export interface SliderData {
   background?: string
 }
 
-interface AutoScrollCarouselProps {
-  data: SliderData[]
+export interface AutoScrollCarouselProps<T> {
+  data: T[]
+  renderItem: (item: T, index: number) => ReactNode
+
+  showBackground?: boolean
   isBgShadow?: boolean
   reverse?: boolean
+
+  /** Space between items in DESIGN px (based on 1920) */
+  space?: number
+
   sliderProps?: {
     className?: string
+    style?: CSSProperties
   }
-  imageProps?: {
-    size?: {
-      height?: number
-      width?: number
-    }
-  }
+
+  /** DESIGN px width of a single slide item (based on 1920) */
+  itemWidth?: number
+
+  /** DESIGN px height of a single slide item (based on 1920) */
+  itemHeight?: number
+
+  /** animation duration in seconds */
+  duration?: number
+
+  bgColor?: string
 }
 
-const AutoScrollCarousel = (props: AutoScrollCarouselProps) => {
-  const { data, imageProps, reverse, sliderProps, isBgShadow = false } = props
-  const carouselItems = [...data, ...data]
+/** px → vw based on 1920 */
+const pxToVw = (px: number) => `${(px / 1920) * 100}vw`
+
+export default function AutoScrollCarousel<T extends SliderData>({
+  data,
+  renderItem,
+  showBackground = false,
+  isBgShadow = false,
+  reverse = false,
+  space = 40,
+  sliderProps,
+  itemWidth = 320,
+  itemHeight,
+  duration = 40,
+  bgColor,
+}: AutoScrollCarouselProps<T>) {
+  const items = useMemo(() => {
+    if (!data || data.length === 0) return []
+    return [...data, ...data]
+  }, [data])
+
+  if (items.length === 0) return null
+
+  const trackStyle: CSSProperties = {
+    animationDuration: `${duration}s`,
+    animationDirection: reverse ? 'reverse' : 'normal',
+    width: 'max-content',
+    height: 'max-content',
+    ['--item-width' as any]: pxToVw(itemWidth),
+  }
 
   return (
-    <Box className={`slider ${sliderProps?.className}`}>
-      <Box className={`slide-track ${reverse ? 'reverse' : ''}`}>
-        {carouselItems.map(({ label, Src, background }, index) => (
-          <Box
-            className="slide"
-            key={label + index}
-            sx={{ background: isBgShadow ? background : null }}
+    <div
+      {...({
+        className: `auto-scroll-slider ${showBackground ? 'auto-scroll-slider-bg' : ''
+          } ${isBgShadow ? 'auto-scroll-slider-shadow' : ''} ${sliderProps?.className || ''
+          }`,
+        style: sliderProps?.style,
+      } as any)}
+    >
+      <div
+        {...({
+          className: 'auto-scroll-slide-track',
+          style: { ...trackStyle, gap: pxToVw(space) },
+        } as any)}
+      >
+        {items.map((item, index) => (
+          <div
+            key={index}
+            {...({
+              className: 'auto-scroll-slide-item',
+              style: {
+                background: showBackground
+                  ? bgColor || (item as SliderData).background
+                  : undefined,
+              },
+            } as any)}
           >
-            <Src/>
-          </Box>
+            {(() => {
+              const contentStyle: CSSProperties = {
+                background: showBackground
+                  ? bgColor || item.background
+                  : undefined,
+                height: itemHeight ? pxToVw(itemHeight) : undefined,
+                position: 'relative',
+              }
+              return (
+                <div
+                  {...({
+                    style: contentStyle,
+                    className: 'auto-scroll-slide-content-wrapper',
+                  } as any)}
+                >
+                  {renderItem(item, index)}
+                </div>
+              )
+            })()}
+          </div>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </div>
   )
 }
-
-export default AutoScrollCarousel
