@@ -94,6 +94,7 @@
       right: -8%;
       object-fit: contain;
       animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0px max(3px, 0.2vw) max(16px, 1.2vw) rgba(0, 0, 0, 0.12)) drop-shadow(0px max(8px, 0.6vw) max(12px, 0.9vw) rgba(0, 0, 0, 0.14));
     }
 
     .tech-solution-circle-img-1 {
@@ -256,5 +257,11 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .tech-solution-section-image-wrapper {
     scale: 1.2;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1150px) {
+  .tech-solution-section-wrapper .tech-solution-section .tech-solution-section-card-wrapper {
+    gap: 12px !important;
   }
 }

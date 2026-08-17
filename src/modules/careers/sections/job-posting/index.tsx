@@ -12,7 +12,6 @@ import { positionsList } from './positions/positions'
 import './styles.scss'
 
 const OpenPosition = () => {
-  const pxToVw = (px: number) => `${(px / 1920) * 100}vw`
   const isMobile = useMediaQuery('(max-width:1000px)')
   const dispatch = useAppDispatch()
   const { departments, loading: isLoading } = useAppSelector((state) => state.jobs)
@@ -32,7 +31,7 @@ const OpenPosition = () => {
   const displayList = departments.length > 0 ? departments : positionsList
 
   return (
-    <section className="open-position-container">
+    <section className="open-position-container" id="open-positions">
       <Box
         className="open-position-header"
         sx={{

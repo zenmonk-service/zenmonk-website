@@ -1,8 +1,10 @@
 .tech-card-container {
   display: flex;
+  align-items: center;
   padding: 0.57vw 0.83vw;
-  width: 19.79vw;
-  height: 4.27vw;
+  width: clamp(230px, 19.79vw, 380px);
+  height: clamp(60px, 4.27vw, 82px);
+  border-radius: 8px;
   flex-shrink: 0;
   gap: max(18px, 1.5625vw);
   background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
@@ -16,9 +18,9 @@
     padding: 10px 16px;
   }
 
-  .tech-card-icon {
-    width: 3.125vw;
-    height: 3.125vw;
+  svg, .tech-card-icon {
+    width: clamp(32px, 3.125vw, 60px);
+    height: clamp(32px, 3.125vw, 60px);
     flex-shrink: 0;
   }
 
@@ -27,9 +29,9 @@
     align-items: center;
     color: #424242;
     font-family: Poppins;
-    font-size: max(18px, 0.84vw);
+    font-size: clamp(14px, 0.84vw, 18px);
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
   }
 }
@@ -100,5 +102,28 @@
   }
   .tech-card-title{
     font-size: 16px !important;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+  .tech-card-container {
+    width: 220px !important;
+    height: 64px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+
+    @media (max-width: 1150px) {
+      width: 200px !important;
+      gap: 12px !important;
+    }
+  }
+  .tech-card-title {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+  .tech-card-container svg, 
+  .tech-card-container .tech-card-icon {
+    width: 36px !important;
+    height: 36px !important;
   }
 }

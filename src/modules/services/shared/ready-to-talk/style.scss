@@ -63,6 +63,10 @@
   /* 16px */
 }
 
+.rtt-heading {
+  font-size: max(20px, 1.35vw) !important;
+}
+
 .rtt-subheading {
   max-width: 90%;
 }
@@ -101,9 +105,7 @@
     padding-bottom: 0px !important;
   }
 
-  .rtt-heading {
-    font-size: 30px !important;
-  }
+
 }
 
 /* ================= MOBILE ================= */

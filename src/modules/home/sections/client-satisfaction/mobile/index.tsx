@@ -70,6 +70,7 @@ const ClientSatisfactionMobile = () => {
             <div className={styles.emoji} key={title}>
               <div className={styles.gifContainer}>
                 <Icon />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   className={styles.animatedGif}
                   src={emoji.src}

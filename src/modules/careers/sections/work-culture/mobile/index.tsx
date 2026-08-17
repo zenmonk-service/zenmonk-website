@@ -4,13 +4,6 @@ import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { workCultures } from '../work-cultures'
 import styles from './mobile.module.scss'
 
-export interface CarouselItem {
-  title: string
-  description: string
-  id: number
-  icon: React.ReactElement
-}
-
 const DRAG_BUFFER = 0
 const VELOCITY_THRESHOLD = 500
 const GAP = 16
@@ -76,6 +69,7 @@ const WorkCultureMobile = () => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex])
 
   const effectiveTransition = isResetting ? { duration: 1 } : SPRING_OPTIONS

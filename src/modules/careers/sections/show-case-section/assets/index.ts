@@ -4,6 +4,5 @@ import Chess from './chess.png'
 import Cricket from './cricket.png'
 import Football from './football.png'
 import Volleyball from './volleyball.png'
-import SmallArrow from './arrow.svg'
 
-export { Carrom, Chess, Cricket, Football, Volleyball, Calender, SmallArrow }
+export { Carrom, Chess, Cricket, Football, Volleyball, Calender }

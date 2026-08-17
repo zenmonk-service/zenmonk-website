@@ -9,6 +9,9 @@ import Image from 'next/image'
 import './styles.scss'
 
 export const OurClientSection = memo(() => {
+  const firstRowPartners = OurPartnersList.slice(0, 4)
+  const secondRowPartners = OurPartnersList.slice(4)
+
   return (
     <Box className="about-us-our-client-section">
       <SectionTitle markText="Clients" text="Our Clients" />
@@ -20,7 +23,7 @@ export const OurClientSection = memo(() => {
 
       <Stack direction="column" className="carousel-stack">
         <AutoScrollCarousel
-          data={OurPartnersList}
+          data={firstRowPartners}
           sliderProps={{ className: 'infinite-slider' }}
           itemWidth={300}
           space={100}
@@ -34,13 +37,16 @@ export const OurClientSection = memo(() => {
               sizes="(max-width: 768px) 100vw, 20vw"
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain' }}
+              style={{
+                objectFit: 'contain',
+                padding: (item.label === 'Unib' || item.label === 'Citealimenta') ? '4px 0' : undefined,
+              }}
             />
           )}
         />
 
         <AutoScrollCarousel
-          data={OurPartnersList}
+          data={secondRowPartners}
           sliderProps={{ className: 'infinite-slider' }}
           reverse
           itemWidth={300}
@@ -55,7 +61,10 @@ export const OurClientSection = memo(() => {
               sizes="(max-width: 768px) 100vw, 20vw"
               loading="lazy"
               decoding="async"
-              style={{ objectFit: 'contain' }}
+              style={{
+                objectFit: 'contain',
+                padding: (item.label === 'Unib' || item.label === 'Citealimenta') ? '4px 0' : undefined,
+              }}
             />
           )}
         />
@@ -63,3 +72,4 @@ export const OurClientSection = memo(() => {
     </Box>
   )
 })
+OurClientSection.displayName = 'OurClientSection'

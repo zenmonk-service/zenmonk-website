@@ -49,34 +49,125 @@ const OurServicesDesktop = () => {
     // 2. Pinning logic - Unpin exactly when the LAST item's center hits the viewport center (middle of the orange box)
     const rightContainer = containerRef.current?.querySelector(`.${styles.servicesRightContainer}`)
     const lastItem = items[items.length - 1]
+    const titleElement = containerRef.current?.querySelector(`.${styles.serviceSectionHomeTitle}`)
 
-    if (rightContainer && lastItem) {
-      const pinTrigger = ScrollTrigger.create({
+    const getOrangeBoxPinTop = () => {
+      if (!titleElement) return 0
+      const titleHeight = (titleElement as HTMLElement).offsetHeight
+      return 80 + titleHeight + 30
+    }
+
+    let pinTriggerRef: ScrollTrigger | null = null
+
+    if (rightContainer && lastItem && titleElement) {
+      pinTriggerRef = ScrollTrigger.create({
         trigger: rightContainer as HTMLElement,
         pin: true,
-        start: 'center center',
+        start: () => 'top ' + getOrangeBoxPinTop() + 'px',
         endTrigger: lastItem,
-        end: 'center center', // Midpoint: unpin when the last card is perfectly centered in the orange box
+        end: () => 'center ' + (getOrangeBoxPinTop() + (rightContainer as HTMLElement).offsetHeight / 2) + 'px',
         pinSpacing: true,
         anticipatePin: 1,
       })
-      triggersRef.current.push(pinTrigger)
+      triggersRef.current.push(pinTriggerRef)
+
+      const titlePinTrigger = ScrollTrigger.create({
+        trigger: titleElement as HTMLElement,
+        pin: true,
+        start: 'top 80px',
+        endTrigger: lastItem,
+        end: () => 'center ' + (getOrangeBoxPinTop() + (rightContainer as HTMLElement).offsetHeight / 2) + 'px',
+        pinSpacing: false,
+      })
+      triggersRef.current.push(titlePinTrigger)
     }
 
-    // 3. Selection logic - Change content exactly when item center hits viewport center
-    items.forEach((item, index) => {
-      const trigger = ScrollTrigger.create({
-        trigger: item,
-        start: 'center center',
-        onEnter: () => setSelectedService(services[index]),
-        onEnterBack: () => setSelectedService(services[index]),
-      })
-      triggersRef.current.push(trigger)
-    })
+    const updateItemFades = () => {
+      const orangeBox = orangeBoxRef.current
+      if (!orangeBox) return
 
+      const orangeRect = orangeBox.getBoundingClientRect()
+
+      items.forEach((item) => {
+        const itemRect = item.getBoundingClientRect()
+        const offset = orangeRect.top - itemRect.top
+
+        if (offset <= 0) {
+          item.style.opacity = '1'
+          item.style.maskImage = 'none'
+          item.style.webkitMaskImage = 'none'
+        } else if (offset >= itemRect.height + 40) {
+          item.style.opacity = '0'
+          item.style.maskImage = 'none'
+          item.style.webkitMaskImage = 'none'
+        } else {
+          item.style.opacity = '1'
+          const fadeZone = 35
+          const transparentEnd = Math.max(0, offset - 10)
+          const solidStart = offset + fadeZone
+          const maskStr = `linear-gradient(to bottom, transparent 0px, transparent ${transparentEnd}px, #000 ${solidStart}px, #000 100%)`
+          item.style.maskImage = maskStr
+          item.style.webkitMaskImage = maskStr
+        }
+      })
+    }
+
+    // 3. Selection logic - Dynamically select the card closest to the viewport center
+    if (items.length > 0) {
+      const scrollTrigger = ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top bottom',
+        end: 'bottom top',
+        onUpdate: () => {
+          const orangeBox = orangeBoxRef.current
+          let closestIndex = 0
+          let minDistance = Infinity
+
+          // If pin hasn't engaged yet (section above pin start), show first card
+          if (pinTriggerRef && !pinTriggerRef.isActive && pinTriggerRef.progress === 0) {
+            closestIndex = 0
+          } else if (orangeBox) {
+            const orangeRect = orangeBox.getBoundingClientRect()
+            const targetY = orangeRect.top + orangeRect.height / 2
+
+            items.forEach((item, index) => {
+              const rect = item.getBoundingClientRect()
+              const itemCenter = rect.top + rect.height / 2
+              const distance = Math.abs(itemCenter - targetY)
+              if (distance < minDistance) {
+                minDistance = distance
+                closestIndex = index
+              }
+            })
+          }
+
+          setSelectedService((prev) => {
+            if (prev.id !== services[closestIndex].id) {
+              return services[closestIndex]
+            }
+            return prev
+          })
+
+          updateItemFades()
+        },
+        onRefresh: () => {
+          updateItemFades()
+        }
+      })
+      triggersRef.current.push(scrollTrigger)
+      updateItemFades()
+    }
+
+    const handleResize = () => {
+      updateItemFades()
+      ScrollTrigger.refresh()
+    }
+
+    window.addEventListener('resize', handleResize)
     ScrollTrigger.refresh()
 
     return () => {
+      window.removeEventListener('resize', handleResize)
       triggersRef.current.forEach((t) => t.kill())
     }
   }, { scope: containerRef, dependencies: [] })
@@ -88,7 +179,7 @@ const OurServicesDesktop = () => {
       <SectionTitle
         text={text}
         markText="Services"
-        className="service-section-home-title"
+        className={styles.serviceSectionHomeTitle}
         markTextProps={{
           style: {
             marginTop: '-0.45vw',
@@ -97,30 +188,37 @@ const OurServicesDesktop = () => {
       />
       <div className={`${styles.servicesSection} desktop`}>
         <div ref={leftContainerRef} className={styles.servicesLeftContainer}>
-          {services.map((service, index) => (
-            <div
-              className={`${styles.businessItem} ${selectedService.id === service.id ? styles.active : ''
-                }`}
-              onClick={() => setSelectedService(service)}
-              key={service.id}
-            >
-              <div className={styles.businessItemContent}>
-                <service.icon
-                  style={{ fill: service.styles.color }}
-                  className={styles.businessIcon}
-                />
-                <h4 className={styles.businessTitle}>{service.name}</h4>
-              </div>
-              <h5
-                className={styles.businessCountText}
+          {services.map((service, index) => {
+            const isActive = selectedService.id === service.id
+            return (
+              <div
+                className={`${styles.businessItem} ${isActive ? styles.active : ''}`}
                 style={{
-                  background: `linear-gradient(180deg, ${service.styles.color} 0%, ${service.styles.color}66 100%)`,
+                  backgroundColor: isActive ? service.styles.hoverColor : '#fff',
+                  outline: isActive ? `2.5px solid ${service.styles.color}` : '0px solid transparent',
+                  transition: 'background-color 0.3s ease, outline 0.3s ease, transform 0.3s ease',
                 }}
+                onClick={() => setSelectedService(service)}
+                key={service.id}
               >
-                {(index + 1).toString().padStart(2, '0')}
-              </h5>
-            </div>
-          ))}
+                <div className={styles.businessItemContent}>
+                  <service.icon
+                    style={{ fill: service.styles.color }}
+                    className={styles.businessIcon}
+                  />
+                  <h4 className={styles.businessTitle}>{service.name}</h4>
+                </div>
+                <h5
+                  className={styles.businessCountText}
+                  style={{
+                    background: `linear-gradient(180deg, ${service.styles.color} 0%, ${service.styles.color}66 100%)`,
+                  }}
+                >
+                  {(index + 1).toString().padStart(2, '0')}
+                </h5>
+              </div>
+            )
+          })}
         </div>
 
         <div className={styles.servicesRightContainer}>

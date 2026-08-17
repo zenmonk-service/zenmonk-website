@@ -9,14 +9,14 @@ export const PUT = async (
 }
 
 export const GET = async (
-  req: NextRequest,
+  _request: NextRequest,
   context: any
 ) => {
   return await findSkill(context.params)
 }
 
 export const DELETE = async (
-  req: NextRequest,
+  _request: NextRequest,
   context: any
 ) => {
   return await deleteSkill(context.params);

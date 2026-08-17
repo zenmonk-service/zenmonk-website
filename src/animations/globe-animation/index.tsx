@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { useMediaQuery } from '@mui/material'
 import { countries } from '@/shared/contact-us-section/countries'
 import { SectionTitle } from '@/shared/typography'
 import GlobeShadowImg from "./globe-shadow.svg?url"
@@ -22,6 +23,7 @@ const ThreeGlobe = dynamic(() => import('@/shared/contact-us-section/three-globe
 })
 
 export default function GlobeSection() {
+  const isMobile = useMediaQuery('(max-width:1024px)')
   const clickRef = useRef<boolean>(false)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -97,7 +99,7 @@ export default function GlobeSection() {
             lng={country.coordinates[1]}
             trigger={trigger}
           />
-          <div className="globe-shadow-wrapper" style={{ position: 'absolute', bottom: '-20px', width: '60%', height: '40px', zIndex: -1 }}>
+          <div className="globe-shadow-wrapper" style={{ position: 'absolute', bottom: isMobile ? '1%' : '3%', width: '60%', height: '40px', zIndex: -1 }}>
             <Image src={GlobeShadowImg} alt="globe shadow" fill style={{ objectFit: 'contain' }} />
           </div>
         </div>

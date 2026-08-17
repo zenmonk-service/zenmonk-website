@@ -3,7 +3,8 @@
 .it-training-hero-section {
   padding: 0 7.8125vw;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  aspect-ratio: 1.85;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -128,23 +129,28 @@
       margin-top: -8vw;
       position: relative;
 
+      & > div {
+        width: 100%;
+      }
+
       .quote-text {
         display: flex;
         flex-direction: column;
         gap: 1.2vw;
-        max-width: 16.5vw;
+        width: 100%;
+        max-width: 24vw;
         position: relative;
         z-index: 5;
 
         .quote-img {
           width: 2.2vw;
-          height: auto;
+          height: 2.2vw;
         }
 
         .quote {
           color: #5c5c5c;
           font-family: 'Poppins', sans-serif;
-          font-size: 1vw;
+          font-size: max(14px, 1.2vw);
           line-height: 1.6;
           text-align: left;
         }
@@ -308,6 +314,7 @@
     padding: 60px 0 0;
     height: auto;
     min-height: auto;
+    aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -364,6 +371,7 @@
 
           .quote-img {
             width: 20px;
+            height: 20px;
           }
         }
 
@@ -468,5 +476,11 @@
         height: 32px !important;
       }
     }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .it-training-hero-section {
+    padding-top: 100px;
   }
 }

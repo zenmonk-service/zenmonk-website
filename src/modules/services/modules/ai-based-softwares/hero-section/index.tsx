@@ -7,20 +7,26 @@ import { HeroSection } from '@/shared/hero-section'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const AiSolutionsHeroSection = () => {
-  const isMobile = useMediaQuery('(max-width: 728px)')
+  const isLessThan800 = useMediaQuery('(max-width: 800px)')
   return (
     <div className={styles.backgroundWrapper}>
       <Background className={styles.backgroundLine} />
       <HeroSection
         url={HeroImage}
-        title="<span>Digital Transformation<br/>&amp; Automation</span> to<br/>Accelerate Growth"
+        title="<span>Digital Transformation &amp; Automation</span> to Accelerate Growth"
         highlightedText="Digital Transformation & Automation"
         description="Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services."
         imageStyle={{
           margin: '0 auto',
           display: 'block',
-          maxWidth: isMobile ? '100%' : '72%',
-          width: isMobile ? '100%' : '72%',
+          maxWidth: '100%',
+          width: '100%',
+        }}
+        style={{
+          height: 'auto',
+          aspectRatio: 'initial',
+          paddingBottom: '70px',
+          paddingTop: isLessThan800 ? '70px' : undefined,
         }}
       />
       <Rating />

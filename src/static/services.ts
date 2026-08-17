@@ -1,11 +1,11 @@
 import CloudDevelopment from '@/assets/services/cloud-service'
 import ItAndBusinessConsultation from '@/assets/services/consulting-service'
 import CustomAppDevelopment from '@/assets/services/custom-app-development'
-import DigitalTransformation from '@/assets/services/digital-transformation'
 import DisplayIcons from '@/assets/services/display-icons'
 import GrowthAndMarketingSolution from '@/assets/services/growth'
 import IndustrySpecificSolution from '@/assets/services/industry'
 import ProductDevelopment from '@/assets/services/product-development'
+import ItTraining from '@/assets/services/it-training'
 import SoftwareDevelopment from '@/assets/services/software-development'
 import UiUxDesign from '@/assets/services/ui-ux-design'
 
@@ -477,13 +477,71 @@ export const services = [
     ],
   },
   {
+    id: 'it-training-and-workshops',
+    route: '/it-training-&-workshops',
+    name: 'IT Training & Workshops',
+    icon: DisplayIcons.ItTraining,
+    styles: {
+      color: '#3C95DB',
+      hoverColor: '#ecf4fb',
+    },
+    description:
+      'Upskill your team with practical, hands-on training and workshops. We provide expert-led programs covering agile methodologies, cloud computing, devops, and full-stack development.',
+    menuDescription:
+      'Upskill your team with practical, hands-on training and workshops.',
+    services: [
+      {
+        id: 'it-training-agile',
+        title: 'Agile',
+        description:
+          'Master agile methodologies to improve team collaboration and project delivery.',
+        icon: ItTraining.AgileTraining,
+      },
+      {
+        id: 'it-training-cloud',
+        title: 'Cloud',
+        description:
+          'Learn to build and manage scalable cloud infrastructure with our expert-led sessions.',
+        icon: ItTraining.CloudTraining,
+      },
+      {
+        id: 'it-training-devops',
+        title: 'DevOps',
+        description:
+          'Adopt DevOps practices to streamline your development and operations workflows.',
+        icon: ItTraining.DevopsTraining,
+      },
+      {
+        id: 'it-training-mern',
+        title: 'MERN',
+        description:
+          'Master full-stack web development with the MERN stack.',
+        icon: ItTraining.MernTraining,
+      },
+      {
+        id: 'it-training-ui',
+        title: 'UI/UX',
+        description:
+          'Develop the skills to create intuitive and engaging user experiences.',
+        icon: ItTraining.UiTraining,
+      },
+      {
+        id: 'it-training-technical',
+        title: 'Technical',
+        description:
+          'Enhance your technical expertise with specialized training in the latest technologies.',
+        icon: ItTraining.TechnicalSkill,
+      },
+    ],
+  },
+  {
     id: 'ai-solutions',
     route: '/ai-based-softwares',
     name: 'AI Solutions',
     icon: DisplayIcons.IndustrySpecific,
     styles: {
-      color: '#3C95DB',
-      hoverColor: '#ecf4fb',
+      color: '#A15AFF',
+      hoverColor: '#f6efff',
     },
     description:
       'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',

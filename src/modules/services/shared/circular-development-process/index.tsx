@@ -19,9 +19,6 @@ interface ProcessStep {
 
 interface CircularDevelopmentProcessProps {
   steps?: ProcessStep[];
-  title?: string;
-  highlightedText?: string;
-  showTitle?: boolean;
 }
 
 const defaultSteps: ProcessStep[] = [
@@ -114,10 +111,7 @@ const mobileStepVariants = {
 }
 
 const CircularDevelopmentProcess: React.FC<CircularDevelopmentProcessProps> = ({
-  steps = defaultSteps,
-  title = "Our Development Process",
-  highlightedText = "Process",
-  showTitle = false
+  steps = defaultSteps
 }) => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(0);
   const [isManualHover, setIsManualHover] = React.useState(false);

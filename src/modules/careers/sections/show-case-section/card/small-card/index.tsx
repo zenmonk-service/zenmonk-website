@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { Box, Button, Typography } from '@mui/material'
-import { Calender, SmallArrow } from '../../assets'
+import { Box, Typography } from '@mui/material'
+import { Calender } from '../../assets'
 import './styles.scss'
 
 interface SmallShowCardProps {

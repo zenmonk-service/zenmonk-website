@@ -3,34 +3,20 @@
   position: fixed;
   top: 46px;
   z-index: 9999;
-  background-color: #fff;
+  background-color: #FFFBF6;
   display: flex;
   width: 100vw;
   left: 0;
-  height: calc(100svh - 46px);
-  max-height: calc(100svh - 46px);
+  height: calc(100dvh - 46px);
+  max-height: calc(100dvh - 46px);
   flex-direction: column;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .sideBarMenuItemLink {
   text-decoration: none;
   width: 100%;
-
-  &.active {
-    .menuItemTitle {
-      color: #eb7c0d;
-      font-weight: 600;
-    }
-
-    .iconPlaceholder {
-      svg {
-        path {
-          fill: #eb7c0d;
-        }
-      }
-    }
-  }
 }
 
 .sideBarMenuItem {
@@ -42,6 +28,18 @@
   width: 100%;
   align-items: center;
   cursor: pointer;
+  border-top: 1px solid #EAEAEA;
+
+  .iconPlaceholder svg path,
+  svg path {
+    fill: #132427;
+    fill-opacity: 1;
+  }
+}
+
+/* Remove border-top from the first menu item (Services) */
+.sideBarMenu > li.sideBarMenuItem {
+  border-top: none;
 }
 
 .iconPlaceholder {
@@ -63,21 +61,42 @@
   line-height: normal;
 }
 
+/* Active style for expanded menu header & active link pages */
+.sideBarMenuItemLink.active,
+.sideBarMenuItem.active {
+  .menuItemTitle {
+    color: #eb7c0d !important;
+    font-weight: 600;
+  }
+
+  .iconPlaceholder svg path {
+    fill: #eb7c0d !important;
+    fill-opacity: 1 !important;
+  }
+}
+
 .collapsable {
   width: 100%;
-  padding-left: 82px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-bottom: 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-in-out;
+  flex-shrink: 0;
+}
+
+.collapsableOpen {
+  max-height: 2000px; /* large enough to fit all service items */
+  padding-bottom: 8px;
 }
 
 .collapsableService {
-  padding: 0;
+  display: block;
+  width: 100%;
+  padding: 12px 24px 12px 72px; /* Indented to align with the MenuItem text (24px padding + 40px icon + 8px gap) */
   text-decoration: none;
   transition: all 0.2s ease;
 
   &.active {
+    background-color: #FFF5EB;
     .collapsableTitle {
       color: #eb7c0d;
       font-weight: 600;
@@ -85,6 +104,7 @@
   }
 
   &:hover {
+    background-color: #FFF5EB;
     .collapsableTitle {
       color: #eb7c0d;
     }

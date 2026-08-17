@@ -55,7 +55,7 @@ const DevelopmentProcess = () => {
       transition: { 
         duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        delay: 0.3
+        delay: 0.15
       },
     },
   }
@@ -118,13 +118,7 @@ const DevelopmentProcess = () => {
           </motion.div>
         </div>
       )}
-      <div
-        style={{
-          display: 'grid',
-          placeItems: 'center',
-          marginTop: serviceRoute === 'software-development' ? '0px' : serviceRoute === 'industry-specific-solutions' ? 'max(48px, 3.5vw)' : 'max(24px, 2.125vw)',
-        }}
-      >
+      <div className="development-process-asset-wrapper">
         {renderAsset()}
       </div>
     </div>

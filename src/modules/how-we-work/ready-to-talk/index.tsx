@@ -51,7 +51,7 @@ const ReadyToTalk = () => {
               <p className="step-heading">Workshop Kickoff</p>
             </div>
             <Typography className="step-description">
-              We’ll schedule a workshop to clarify details and ensure we're all
+              We’ll schedule a workshop to clarify details and ensure we&apos;re all
               aligned before we start building your project.
             </Typography>
           </div>

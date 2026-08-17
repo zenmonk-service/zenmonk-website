@@ -2,9 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8.125vw 10% 6.25vw 7.8%;
+  padding: max(120px, 7vw) 10% 6.25vw 7.8%;
   gap: 6vw;
-  height: 95vh;
+  height: auto;
+
+  @media (min-width: 1001px) {
+    padding-top: max(160px, 9.5vw);
+  }
 
   .heroSection {
     display: flex;
@@ -51,6 +55,29 @@
         line-height: max(25px, 1.97vw);
         letter-spacing: 3%;
       }
+
+      .button {
+        width: max(180px, 9.375vw);
+        margin-top: max(24px, 2vw);
+        
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600 !important;
+        font-size: max(14px, 0.729vw) !important;
+        line-height: max(18px, 0.9375vw) !important;
+        letter-spacing: 0px !important;
+        text-transform: uppercase !important;
+
+        @media screen and (max-width: 767px) {
+          align-self: center;
+          width: max-content !important;
+          min-width: 160px !important;
+          padding: 12px 24px !important;
+          height: auto;
+          margin-top: 24px !important;
+          background: linear-gradient(90deg, #f89e37 0%, #ea7c0c 100%);
+          border-radius: 6px !important;
+        }
+      }
     }
   }
 
@@ -82,27 +109,29 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .howWeWorkHeroSectionWrapper {
     padding: 0;
-    gap: 46px;
+    gap: 40px;
     margin: 0;
     flex-direction: column-reverse;
     margin-top: 80px;
     aspect-ratio: unset;
     height: auto;
+    min-height: unset;
 
     .heroSection {
       padding: 0 16px;
       width: 100%;
 
-      @media (min-width: 600px) and (max-width: 768px) {
+      @media (min-width: 600px) and (max-width: 767px) {
         padding: 0 8%;
       }
 
       .heroSectionTextWrapper {
         max-width: 100%;
         width: 100%;
+        align-items: center;
 
         .textHeading {
           font-size: 28px;
@@ -112,7 +141,7 @@
 
         .textDescription {
           font-size: 16px;
-          margin-bottom: 40px;
+          margin-bottom: 0px;
           text-align: center;
           margin-top: 10px;
 
@@ -120,6 +149,12 @@
             font-size: 14px;
             line-height: 21px;
           }
+        }
+
+        :global(.base-button-container) {
+          display: flex;
+          justify-content: center;
+          width: 100%;
         }
       }
     }
@@ -136,7 +171,15 @@
     gap: 16px;
     height: auto;
     width: 100%;
-    aspect-ratio: 1.83;
+    aspect-ratio: 2.0;
+    min-height: unset;
+    padding-top: max(110px, 7vw);
+    padding-bottom: max(50px, 4vw);
+
+    @media (min-width: 1001px) {
+      padding-top: max(150px, 9vw);
+    }
+
     .heroSection {
       padding: 0px;
 
@@ -151,12 +194,15 @@
   }
 }
 
-@media (min-width: 769px) and (max-width: 900px) {
+@media (min-width: 768px) and (max-width: 900px) {
   .howWeWorkHeroSectionWrapper {
     gap: 40px;
     height: auto;
     width: 100%;
-    aspect-ratio: 1.83;
+    aspect-ratio: 2.0;
+    min-height: unset;
+    padding-top: max(100px, 7vw);
+    padding-bottom: max(40px, 4vw);
     .heroSection {
       flex: 1;
       .heroSectionTextWrapper {
@@ -175,8 +221,17 @@
   }
 }
 
-@media (min-width: 1150px) and (max-width: 1500px) {
+/* Short Viewport / Landscape Height Optimization */
+@media screen and (max-height: 750px) and (min-width: 601px) {
   .howWeWorkHeroSectionWrapper {
-    height: 81vh;
+    height: auto !important;
+    min-height: 480px !important;
+    aspect-ratio: auto !important;
+    padding-top: max(120px, 8vw) !important;
+    padding-bottom: 50px !important;
+
+    @media (min-width: 1001px) {
+      padding-top: max(150px, 9vw) !important;
+    }
   }
 }

@@ -75,7 +75,7 @@ export default function TrackApplicationPage() {
 
       const data = await response.json()
       setApplication(data)
-    } catch (err) {
+    } catch {
       setError('Application not found. Please check your tracking ID.')
       setApplication(null)
     } finally {

@@ -1,13 +1,13 @@
 import type { ComponentType, SVGProps } from 'react';
 
-export type ProcessItemPosition = 'top' | 'bottom';
+type ProcessItemPosition = 'top' | 'bottom';
 
-export type ProcessStepTheme = {
+type ProcessStepTheme = {
   color: string;
   labelColor: string;
 };
 
-export type ProcessStep = {
+type ProcessStep = {
   id: string;
   title: string;
   description: string;
@@ -17,7 +17,7 @@ export type ProcessStep = {
   theme: ProcessStepTheme;
 };
 
-export type ProcessAnimationConfig = {
+type ProcessAnimationConfig = {
   duration: number;
   delayBetweenItems: number;
   viewportAmount: number;

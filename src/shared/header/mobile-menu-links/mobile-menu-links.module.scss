@@ -1,17 +1,11 @@
 .menuToggleContainer {
-  clip-path: inset(calc(100% - 38px) 27px 10px calc(100% - 54px) round 4px);
-  background: var(--global-color-gradient);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  display: none;
 }
 
 .menuToggleButton {
   position: absolute;
-  right: 15px;
-  top: 0px;
+  right: 27px;
+  top: 10px;
   outline: none;
   border: none;
   user-select: none;
@@ -20,13 +14,18 @@
   -ms-user-select: none;
   color: #fff;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: transparent;
+  width: 30px;
+  height: 28px;
+  border-radius: 4px;
+  background: var(--global-color-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 1002; /* Ensure button remains above navigation overlays */
 }
 
-@media (min-width: 780px) {
+@media (min-width: 1000px) {
   .container {
     display: none;
   }

@@ -32,7 +32,7 @@ const ProductDevelopment: React.FC = () => {
         </svg>
 
         <h1 className="hero-title">
-          Reliable & Growth-Oriented
+          Reliable & Continuously Growth-Oriented
           <span className="highlight">Product Development</span>
         </h1>
         <p className="hero-desc">

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { createApplication, fetchApplications } from './applications-actions'
 
-export interface Application {
+interface Application {
   _id: string
   name: string
   email: string
@@ -37,13 +37,10 @@ const initialState: ApplicationsState = {
   submittedApplication: null,
 }
 
-export const applicationsSlice = createSlice({
+const applicationsSlice = createSlice({
   name: 'applications',
   initialState,
   reducers: {
-    clearError: (state) => {
-      state.error = null
-    },
     resetSubmitSuccess: (state) => {
       state.submitSuccess = false
     },
@@ -83,5 +80,5 @@ export const applicationsSlice = createSlice({
   },
 })
 
-export const { clearError, resetSubmitSuccess } = applicationsSlice.actions
+export const { resetSubmitSuccess } = applicationsSlice.actions
 export default applicationsSlice.reducer

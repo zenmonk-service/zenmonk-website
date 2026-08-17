@@ -87,13 +87,13 @@
 
   /* ---------------- Odd Card Hover Variant ---------------- */
 
-  &:nth-child(odd):hover .hoverExpandWrapper {
+  &.oddCard:hover .hoverExpandWrapper {
     :global(.mainStar) {
-      transform: translate(40%, -30%) scale(1.8) rotate(-25deg);
+      transform: translate(40%, -35%) scale(1.8) rotate(-25deg);
     }
 
     :global(.bottomArrow) {
-      transform: translate(30%, 20%) scale(1) rotate(25deg);
+      transform: translate(45%, 20%) scale(1) rotate(25deg);
     }
 
     :global(.smallStar) {
@@ -101,47 +101,63 @@
     }
 
     :global(.circlePart) {
-      transform: translate(-30%, -40%) scale(1);
+      transform: translate(-45%, -45%) scale(1);
     }
   }
 
   /* ---------------- Even Card Hover Variant ---------------- */
 
-  &:nth-child(even):hover .hoverExpandWrapper {
+  &.evenCard:hover .hoverExpandWrapper {
     :global(.mainStar) {
-      transform: translate(-45%, -30%) scale(1.8) rotate(25deg);
+      transform: translate(-55%, -35%) scale(1.8) rotate(25deg);
     }
 
     :global(.bottomArrow) {
-      transform: translate(-40%, 10%) scale(0.8) rotate(5deg);
+      transform: translate(-50%, 15%) scale(0.8) rotate(5deg);
     }
 
     :global(.smallStar) {
-      transform: translate(42%, 15%) scale(1);
+      transform: translate(52%, 20%) scale(1);
     }
 
     :global(.circlePart) {
-      transform: translate(50%, -30%) scale(1);
+      transform: translate(60%, -35%) scale(1);
     }
   }
 
-  &:nth-child(2):hover .hoverExpandWrapper {
+  &.card-2:hover .hoverExpandWrapper {
+    :global(.mainStar) {
+      transform: translate(-55%, -45%) scale(1.8) rotate(25deg);
+    }
+
     :global(.bottomArrow) {
-      transform: translate(-30%, 10%) scale(0.8) rotate(5deg);
+      transform: translate(-35%, 15%) scale(0.8) rotate(5deg);
     }
 
     :global(.smallStar) {
-      transform: translate(30%, 5%) scale(1);
+      transform: translate(35%, 20%) scale(1);
+    }
+
+    :global(.circlePart) {
+      transform: translate(56%, -45%) scale(1);
     }
   }
 
-  &:nth-child(4):hover .hoverExpandWrapper {
+  &.card-4:hover .hoverExpandWrapper {
+    :global(.mainStar) {
+      transform: translate(-45%, -45%) scale(1.8) rotate(25deg);
+    }
+
     :global(.bottomArrow) {
-      transform: translate(-50%, 10%) scale(0.8) rotate(5deg);
+      transform: translate(-55%, 15%) scale(0.8) rotate(5deg);
     }
 
     :global(.smallStar) {
-      transform: translate(50%, 5%) scale(1);
+      transform: translate(55%, 20%) scale(1);
+    }
+
+    :global(.circlePart) {
+      transform: translate(45%, -45%) scale(1);
     }
   }
 

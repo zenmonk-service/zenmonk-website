@@ -169,3 +169,10 @@
     }
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 768px) {
+  .wrapper .container .containerGrid .card .left .icon {
+    width: max(40px, 6.5vw) !important;
+    height: max(40px, 6.5vw) !important;
+  }
+}

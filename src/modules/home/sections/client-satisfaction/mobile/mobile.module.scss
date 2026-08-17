@@ -3,6 +3,11 @@
   padding-left: 16px;
   padding-right: 16px;
 
+  @media (min-width: 600px) and (max-width: 1000px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
   .description {
     text-align: center;
     margin-top: 16px;
@@ -11,11 +16,8 @@
 
   .card {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 24px;
-    @media (max-width: 600px) {
-      grid-template-columns: 1fr;
-    }
   }
 
   .emoji {

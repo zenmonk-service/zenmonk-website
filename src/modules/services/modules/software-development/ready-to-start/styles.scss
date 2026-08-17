@@ -75,7 +75,7 @@
 
     .contact-us {
       padding: 0.5211vw 0.8338vw; // 10.005px 16.008px
-      border-radius: 2.2418vw; // 43.022px
+      border-radius: max(8px, 0.416vw);
       background: linear-gradient(75deg, #EB7C0D 4.02%, #FFA750 83.84%);
       font-weight: 600 !important;
     }
@@ -148,7 +148,7 @@
         align-items: center;
         gap: 4.002px;
         align-self: stretch;
-        border-radius: 43.022px;
+        border-radius: 8px;
       }
     }
   }

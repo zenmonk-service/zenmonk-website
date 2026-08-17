@@ -41,12 +41,6 @@ import { FindSkillHandler } from "../../features/skills/find-skill/find-skill.ha
 import { FindJobSkillController } from "../../features/job-skills/find-job-skill/find-job-skill.controller";
 import { FindJobSkillHandler } from "../../features/job-skills/find-job-skill/find-job-skill.handler";
 import { MailService } from "../services/mail.service";
-import { connectToMongoDB } from "@/config/db";
-
-// Trigger MongoDB connection
-connectToMongoDB();
-
-
 const containerRegistrations = {
   addJobPostingHandler: asClass(AddJobPostingHandler),
   addJobPostingController: asClass(AddJobPostingController),
@@ -94,4 +88,3 @@ const containerRegistrations = {
 export const container = createTypedContainer(containerRegistrations, {
   injectionMode: InjectionMode.PROXY,
 });
-

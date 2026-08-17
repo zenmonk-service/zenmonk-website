@@ -24,7 +24,7 @@ export interface TitleCharacter {
   color: string;
 }
 
-export interface BackgroundDecoration {
+interface BackgroundDecoration {
   type: 'gear' | 'arrow';
   size: number;
   color: string;
@@ -40,7 +40,7 @@ export interface BackgroundDecoration {
   mRight?: string;
 }
 
-export interface ProcessWorkflowProps {
+interface ProcessWorkflowProps {
   titlePrefix?: string; // e.g., "OUR"
   titleHighlightedText?: string | TitleCharacter[];
   titleSuffix?: string;
@@ -281,6 +281,7 @@ const ProcessWorkflow: React.FC<ProcessWorkflowProps> = ({
               } as React.CSSProperties}
             >
               <div className="step-illustration">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={step.image.src} alt={step.title} className="step-image" />
               </div>
             </div>

@@ -7,16 +7,6 @@ import BusinessCard from './business-card'
 import styles from './business.module.scss'
 
 export const BusinessSection = () => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.25,
-      },
-    },
-  }
-
   return (
     <div className={styles.businessContainer}>
       <SectionTitle

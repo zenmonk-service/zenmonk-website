@@ -93,13 +93,7 @@
     transform: translateZ(0);
   }
 
-  &:hover {
-    transform: scale(1.05) translateZ(0);
 
-    img {
-      transform: scale(1.1) translateZ(0);
-    }
-  }
 }
 
 /* ================= MOBILE ================= */

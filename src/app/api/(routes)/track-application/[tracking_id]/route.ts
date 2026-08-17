@@ -3,7 +3,7 @@ import Application from '@/models/job-application'
 import { connectToMongoDB } from '@/config/db'
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: Promise<{ tracking_id: string }> }
 ) {
   try {

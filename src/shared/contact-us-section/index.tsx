@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { Email, Phone } from '@/assets/icons/contact-us/contact'
+import { Email, Location, Phone } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import { SectionDescription, SectionTitle } from '../typography'
 import Polygon from './assets/polygon.svg'
@@ -56,6 +56,7 @@ export const ContactUsSection = ({
       if (formTimerRef.current) clearInterval(formTimerRef.current)
       if (formInactivityTimeoutRef.current) clearTimeout(formInactivityTimeoutRef.current)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleFormCountrySelect = (
@@ -104,6 +105,7 @@ export const ContactUsSection = ({
       if (globeTimerRef.current) clearInterval(globeTimerRef.current)
       if (globeInactivityTimeoutRef.current) clearTimeout(globeInactivityTimeoutRef.current)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleGlobeCountrySelect = (
@@ -139,11 +141,10 @@ export const ContactUsSection = ({
 
         <div className={styles.contactUs}>
           <div className={styles.leftContainer}>
-            <SectionTitle text="We're Just a" align="left" />
-            <SectionTitle text="Message Away" highlightedText="Message" />
+            <SectionTitle text="We're Just a Message Away" highlightedText="Message" align="left" />
 
             {showFlags && (
-              <div className={styles.globeFlagsContainer} style={{ marginTop: '20px', marginBottom: '20px' }}>
+              <div className={`${styles.globeFlagsContainer} ${showFlagsOnly ? styles.aboutUsFlags : ''}`} style={{ marginTop: '20px', marginBottom: '20px' }}>
                 {countries.map((c, index) => {
                   const isActive = c.name === formCountry.name
 
@@ -171,12 +172,6 @@ export const ContactUsSection = ({
               </div>
             )}
 
-            <SectionTitle
-              text={formCountry.name}
-              align="left"
-              className={styles.selectedCountryTitle}
-            />
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={formCountry.name}
@@ -185,21 +180,36 @@ export const ContactUsSection = ({
                 exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               >
-                <SectionDescription
-                  text={formCountry.description}
-                  className={styles.selectedCountryDescription}
-                />
+                {/* Container 1: Country Title + Address Line */}
+                <div className={styles.addressContainer}>
+                  <SectionTitle
+                    text={formCountry.name.toUpperCase()}
+                    align="left"
+                    className={styles.selectedCountryTitle}
+                  />
+                  <SectionDescription
+                    text={formCountry.description}
+                    className={styles.selectedCountryDescription}
+                  />
+                </div>
 
+                {/* Container 2: Below 3 Contact Points */}
                 <div className={styles.contactDetailsRow}>
                   <div className={styles.labelContainer}>
                     <div className={styles.iconContainer}>
                       <Email />
                     </div>
-                    <p
-                      className={styles.selectedCountryDescription}
-                      style={{ marginTop: 0 }}
-                    >
+                    <p className={styles.contactDetailText}>
                       {formCountry.office.email}
+                    </p>
+                  </div>
+
+                  <div className={styles.labelContainer}>
+                    <div className={styles.iconContainer}>
+                      <Location />
+                    </div>
+                    <p className={styles.contactDetailText}>
+                      {(formCountry.office as any).location || '123,street road, near tower,1453755'}
                     </p>
                   </div>
 
@@ -207,10 +217,7 @@ export const ContactUsSection = ({
                     <div className={styles.iconContainer}>
                       <Phone />
                     </div>
-                    <p
-                      className={styles.selectedCountryDescription}
-                      style={{ marginTop: 0 }}
-                    >
+                    <p className={styles.contactDetailText}>
                       {formCountry.office.phone}
                     </p>
                   </div>

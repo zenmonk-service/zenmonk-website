@@ -10,14 +10,14 @@ export const PUT = async (
 
 
 export const GET = async (
-  request: NextRequest,
+  _request: NextRequest,
   context: any
 ) => {
   return await findJobPosting(context.params);
 }
 
 export const DELETE = async (
-  request: NextRequest,
+  _request: NextRequest,
   context: any
 ) => {
   return await removeJobPosting(context.params);

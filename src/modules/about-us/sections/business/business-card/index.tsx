@@ -62,14 +62,13 @@ const BusinessCard = ({
   }
 
   return (
-    // Outer div: receives staggered scroll-entrance from parent whileInView
-    <motion.div variants={item} className={styles.container}>
-      {/* Inner div: manages hover state independently */}
-      <motion.div
-        whileHover="hover"
-        animate="rest"
-        style={{ display: 'contents' }}
-      >
+    // Outer div: receives staggered scroll-entrance from parent whileInView and manages hover state
+    <motion.div
+      variants={item}
+      className={styles.container}
+      whileHover="hover"
+      animate="rest"
+    >
       <div className={styles.iconContainer}>
         <motion.div
           className={styles.icon}
@@ -255,7 +254,6 @@ const BusinessCard = ({
           {description}
         </motion.p>
       </div>
-      </motion.div>
     </motion.div>
   )
 }

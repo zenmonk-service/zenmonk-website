@@ -95,11 +95,12 @@
               display: inline-flex;
               align-items: center;
               justify-content: center;
-              width: 81px;
+              width: auto;
+              min-width: 85px;
               height: 43px;
               padding: 8px 16px;
               font-family: 'Poppins', sans-serif;
-              font-size: 14px;
+              font-size: max(18px, 14px);
               font-weight: 600;
               border-radius: 12px;
               text-transform: capitalize;
@@ -180,10 +181,11 @@
           .applyBtn {
             background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%);
             color: white !important;
-            width: 126px;
+            width: auto;
+            min-width: 130px;
             height: 43px;
-            padding: 8px 16px;
-            font-size: 14px;
+            padding: 8px 18px;
+            font-size: max(18px, 14px);
             font-weight: 600;
             border-radius: 12px;
             text-transform: none;

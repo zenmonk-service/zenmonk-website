@@ -1,9 +1,6 @@
-export const degToRad = (deg: number) => (deg * Math.PI) / 180
+const degToRad = (deg: number) => (deg * Math.PI) / 180
 
-export const randomBetween = (min: number, max: number) =>
-  min + Math.random() * (max - min)
-
-export const pxToVw = (px: number) => `${px}px`
+const pxToVw = (px: number) => `${px}px`
 
 export const generateCircularPositions = (
   count: number,

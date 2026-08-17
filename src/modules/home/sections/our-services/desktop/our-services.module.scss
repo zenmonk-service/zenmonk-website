@@ -1,44 +1,56 @@
 .serviceSectionWrapper {
-  margin-top: max(80px, 6.25vw);
+  margin-top: 6.25vw;
   overflow: visible; // Safety first
+}
+
+.serviceSectionHomeTitle {
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  padding-top: 0.52vw;
+  padding-bottom: 0.52vw;
 }
 
 .servicesSection {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: max(46px, 3.18vw);
+  margin-top: 3.18vw;
   overflow: visible; // Ensure no clipping
 }
 
 .servicesLeftContainer {
-  margin-top: 3.125vw;
+  margin-top: 1.125vw;
+  padding-top: 2vw;
   display: flex;
   flex-direction: column;
   gap: 1.66vw;
   padding-bottom: 5vw;
   margin-right: -5.73vw;
-  z-index: 1;
+  z-index: 15;
 }
 
 .businessItem {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  width: max(276px, 19.32vw);
-  min-height: 100px;
+  width: 19.32vw;
+  min-height: 5.2vw;
   padding: 1.25vw;
-  border-radius: max(10px, 0.52vw);
+  border-radius: 0.52vw;
   background: var(--global-color-primary);
   outline: 0px solid var(--global-color-accent);
-  box-shadow: 0.26vw 0.2vw 2.7vw 0px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease, outline 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
   align-items: center;
+  box-shadow: 0px 0.2vw 1vw rgba(0, 0, 0, 0.08);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
 
   &.active {
-    box-shadow: 0.26vw 0.2vw 3.5vw 0px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
+    transform: scale(1.04) !important;
     z-index: 2;
+    box-shadow: 0px 0.5vw 1.8vw rgba(0, 0, 0, 0.12);
   }
 }
 
@@ -55,15 +67,15 @@
   align-items: center;
   justify-content: center;
   width: 2.6vw;
-  fill: #fff;
   height: 2.6vw;
+  fill: #fff;
 }
 
 .businessTitle {
   color: #0b4357;
   text-align: left;
   font-family: 'Poppins', sans-serif;
-  font-size: max(16px, 20px);
+  font-size: 1.04vw;
   font-weight: 600;
 }
 
@@ -95,46 +107,62 @@
 }
 
 .businessProof {
-  width: max(450px, 49.375vw);
-  border-radius: 0.41vw;
-  height: auto;
-  background: #f77d03;
+  width: 54.5vw;
+  height: 29.5vw;
+  border-radius: 0.6vw;
+  background: #FFF7F4;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 0px 0.4vw 1.5vw rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(235, 124, 13, 0.08);
 
-  @media (max-width: 1400px) {
-    height: auto;
+  @media (max-width: 1500px) {
+    height: 34vw;
+    min-height: 460px;
   }
 }
 
 .businessProofContent {
   width: 100%;
   height: 100%;
-  padding: 2.5vw 2.08vw 2.5vw 8.69vw;
+  padding: 2.0vw 2.5vw 2.0vw 8.69vw;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
-  color: var(--global-color-primary);
+  color: #4A4A4A;
 }
 
 .businessProofHeading {
   font-size: 1.875vw;
   font-weight: 600;
-  line-height: normal;
+  line-height: 1.25;
   font-family: inherit;
-  margin-bottom: max(16px, 0.83vw);
+  margin-bottom: 0.5vw;
+  min-height: 2.3vw;
+  display: flex;
+  align-items: center;
+  color: #EB7C0D;
 }
 
 .businessProofDescription {
-  font-size: var(--font-size-18);
-  min-height: 5.5vw;
-  max-height: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: max(14px, 0.9375vw);
+  line-height: max(22px, 1.458vw);
+  letter-spacing: 0.02em;
+  color: #424242;
+  min-height: 6.8vw;
+  height: auto;
+  max-height: 8.8vw;
+  width: 100%;
   overflow-y: auto;
-  font-weight: 400;
-  font-family: inherit;
-  margin-bottom: max(16px, 0.83vw);
+  margin-bottom: 1.0vw;
+  padding-bottom: 0.5vw;
+  box-sizing: border-box;
 
   /* Custom scrollbar */
   &::-webkit-scrollbar {
@@ -142,11 +170,11 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.04);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(235, 124, 13, 0.35);
     border-radius: 0.1vw;
   }
 }
@@ -155,15 +183,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: max(16px, 0.83vw);
-  margin-bottom: max(24px, 1.25vw);
+  align-content: flex-start;
+  gap: 0.8vw 2.6vw;
+  min-height: 7.6vw;
+  margin-bottom: 0.4vw;
 }
 
 .businessProofCard {
   display: flex;
   flex-direction: column;
-  min-width: max-content;
-  width: 6vw;
+  align-items: flex-start;
+  width: max-content;
 }
 
 .businessProofIcon {
@@ -175,29 +205,46 @@
     object-fit: contain;
 
     path {
-      fill: rgba(255, 255, 255, 0.811);
-      stroke: rgba(255, 255, 255, 0.819);
-      stroke-width: 1.5px;
+      fill: #EB7C0D;
+      stroke: #EB7C0D;
+      stroke-width: 0.5px;
     }
   }
 }
 
 .businessProofCardTitle {
   font-family: 'Poppins', sans-serif;
-  font-size: max(16px, 0.9375vw);
+  font-size: 0.9375vw;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 1.25;
+  white-space: nowrap;
+  color: #4A4A4A;
 }
 
 .button {
-  align-self: flex-end;
-  color: #21305a !important;
-  background: linear-gradient(0deg, #fff 0%, #fff 100%) !important;
-  font-family: var(--font-inter), sans-serif;
-  font-size: var(--font-size-16) !important;
-  width: max(158px, 8.22vw);
-  box-shadow: 0px max(4px, 0.2vw) max(4px, 0.2vw) 0px rgba(0, 0, 0, 0.25) !important;
+  align-self: flex-start;
+  margin-top: 0.8vw !important;
+  color: #333333 !important;
+  background: #ffffff !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.833vw !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  width: auto !important;
+  min-width: 9.2vw !important;
+  padding: 0 1.2vw !important;
+  height: 2.5vw !important;
+  border-radius: 0.35vw !important;
+  box-shadow: 0px 0.25vw 0.6vw 0px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+  transition: all 0.2s ease-in-out !important;
+
+  &:hover {
+    box-shadow: 0px 0.3vw 0.8vw 0px rgba(235, 124, 13, 0.15) !important;
+    border-color: rgba(235, 124, 13, 0.3) !important;
+  }
 }
 
 .loadingOverlay {
@@ -231,22 +278,5 @@
 
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@media (min-width: 700px) and (max-width: 1024px) {
-  .businessItem {
-    .businessTitle {
-      font-size: 16px;
-    }
-  }
-  .businessProofHeading{
-    font-size: 24px;
-  }
-  .businessProofCardTitle{
-    font-size: 16px;
-  }
-  .businessProofCard{
-    width: 80px;
   }
 }

@@ -142,6 +142,7 @@ $desktop-padding: 8.125vw 10% 6.25vw 7.8%;
   }
 }
 
+
 @media screen and (max-width: 767px) {
   .quality-hero-section-wrapper {
     height: auto;
@@ -154,13 +155,22 @@ $desktop-padding: 8.125vw 10% 6.25vw 7.8%;
       padding-left: 8%;
       padding-right: 8%;
     }
+    
 
     @media (min-width: 400px) and (max-width: 472px) {
-      padding-bottom: 120px;
+      padding-bottom: 10px;
     }
 
-    @media (min-width: 473px) and (max-width: 767px) {
-      padding-bottom: 150px;
+    @media (min-width: 200px) and (max-width: 400px) {
+      padding-bottom: 0px;
+    }
+ 
+    @media (min-width: 473px) and (max-width: 599px) {
+      padding-bottom: 50px;
+    }
+
+    @media (min-width: 600px) and (max-width: 767px) {
+      padding-bottom: 90px;
     }
 
     .quality-background {

@@ -31,6 +31,7 @@ export default function SmoothScroller({
             smooth: 1.35,
             effects: true,
             smoothTouch: 0.1,
+            normalizeScroll: { allowNestedScroll: true },
           })
           smootherRef.current.scrollTop(0)
           ScrollTrigger.refresh()

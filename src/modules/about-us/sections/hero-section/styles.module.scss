@@ -5,7 +5,7 @@
   justify-content: center;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
-  padding-top: max(140px, 8vw);
+  padding-top: max(180px, 10vw);
   padding-bottom: max(40px, 2.5vw);
 }
 
@@ -15,7 +15,7 @@
 
 .backgroundLine {
   position: absolute;
-  left: -2%;
+  left: calc(-2% + 40px);
   top: -4%;
   z-index: -1;
   width: 100%;
@@ -27,7 +27,7 @@
   flex-direction: column;
   width: 50%;
   justify-content: center;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
   }
 }
@@ -54,6 +54,7 @@
   line-height: normal;
   letter-spacing: 0.025vw;
   margin-bottom: max(16px, 2.0833vw);
+  max-width: 32vw;
 }
 
 .highlightedText {
@@ -64,12 +65,10 @@
 }
 
 .imageContainer {
-  scale: 0.8;
-  width: 50%;
+  width: 46%;
 
-  @media (max-width: 600px) {
-    scale: 1;
-    padding: 0;
+  @media (max-width: 768px) {
+    padding: 0 16px;
     width: 100%;
   }
 }
@@ -93,7 +92,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .backgroundWrapper {
     background: url('/about-us/mobile-dotted-bg.png') no-repeat center / contain;
   }
@@ -120,7 +119,7 @@
   }
 
   .imageContainer {
-    margin-top: 83px;
+    margin-top: 16px;
     margin-bottom: 24px;
   }
 
@@ -148,10 +147,10 @@
   }
 }
 
-@media screen and (min-width: 401px) and (max-width: 599px) {
+@media screen and (min-width: 401px) and (max-width: 768px) {
   .container {
     height: auto;
-    padding-bottom: 6.25vw;
+    padding-bottom: max(80px, 6.25vw);
   }
 
   .textContainer {
@@ -161,27 +160,13 @@
     }
 
     .description {
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }
 
-@media (min-width: 600px) and (max-width: 767px) {
-  .container {
-    height: auto;
-  }
-
-  .backgroundLine {
-    bottom: 23%;
-  }
-
-  .description {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 900px) {
   .container {
     height: auto;
   }
@@ -195,7 +180,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .container {
     height: auto;
   }
@@ -219,5 +204,15 @@
 @media screen and (min-width: 1200px) {
   .backgroundLine {
     bottom: 15%;
+  }
+}
+
+.ratingWrapper {
+  margin-top: max(80px, 5vw);
+  margin-bottom: max(20px, 1.5vw);
+
+  @media screen and (max-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
 }

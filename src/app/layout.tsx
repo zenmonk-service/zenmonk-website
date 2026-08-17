@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import StoreProvider from '@/store/storeProvider'
 import CustomLoader from '@/modules/loader'
-import FullScreenLoading from '@/shared/lazy-section-wrapper/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
 import SmoothScroller from '@/shared/scroll-smoother'
@@ -78,6 +77,16 @@ export default function FlashScreenLayout({
     setShowFlashScreen(false)
   }
 
+  const [showFooter, setShowFooter] = useState(false)
+
+  useEffect(() => {
+    setShowFooter(false)
+    const timer = setTimeout(() => {
+      setShowFooter(true)
+    }, 150)
+    return () => clearTimeout(timer)
+  }, [pathname])
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${poppins.variable} ${montserrat.variable} ${satisfy.variable} ${pottaOne.variable}`}>
@@ -92,8 +101,11 @@ export default function FlashScreenLayout({
                 <SmoothScroller>
                   <Suspense fallback={null}>
                     {children}
+                    {showFooter && <Footer />}
                   </Suspense>
-                  <Footer />
+                  {pathname === '/how-we-work' && (
+                    <div className="how-we-work-scroll-spacer" />
+                  )}
                 </SmoothScroller>
               </ScrollProvider>
             </AppRouterCacheProvider>

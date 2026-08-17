@@ -13,7 +13,7 @@
   .process-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    max-width: 84.375vw;
     margin: 0 auto;
     aspect-ratio: 1530 / 444;
     /* Match SVG coordinate system */
@@ -44,8 +44,8 @@
     .overlay-step {
       position: absolute;
       transform: translate(-50%, -50%);
-      width: clamp(60px, 6.25vw, 120px);
-      height: clamp(40px, 4.25vw, 80px);
+      width: max(60px, 6.25vw);
+      height: max(40px, 4.25vw);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -67,9 +67,9 @@
         transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
         svg {
-          width: clamp(30px, 3vw, 60px);
+          width: max(30px, 3vw);
           height: auto;
-          max-height: clamp(30px, 3vw, 60px);
+          max-height: max(30px, 3vw);
           display: block;
           filter: drop-shadow(0 0.21vw 0.42vw rgba(0, 0, 0, 0.1));
           transition: filter 0.3s ease;
@@ -170,8 +170,7 @@
 
       .content-box {
         position: absolute;
-        width: 15vw;
-        min-width: 220px;
+        width: max(220px, 15vw);
         left: 50%;
         transform: translate(-50%, 0);
         text-align: center;
@@ -181,14 +180,14 @@
 
         h3 {
           font-family: var(--font-primary, 'Outfit', sans-serif);
-          font-size: clamp(18px, 1.2vw, 24px) !important;
+          font-size: max(16px, 1.2vw) !important;
           font-weight: 700;
           margin-bottom: 8px;
         }
 
         p {
           font-family: var(--font-secondary, 'Inter', sans-serif);
-          font-size: clamp(12px, 0.8vw, 16px);
+          font-size: max(12px, 0.8vw);
           line-height: 1.4;
           color: #333;
         }
@@ -204,9 +203,9 @@
     }
   }
 
-  margin-top: 20px;
-  padding: max(110px, 7.5vw) 7.8% max(90px, 6vw);
-  min-height: max(580px, 42vw);
+  margin-top: 0;
+  padding: max(56px, 3.8vw) 7.8% max(60px, 4vw);
+  min-height: max(500px, 36vw);
 }
 
 /* ================= TABLET / MID DESKTOP ================= */
@@ -215,8 +214,8 @@
     transform: scale(0.92);
     transform-origin: top center;
     margin-top: 0;
-    padding: max(110px, 7.5vw) 2% max(90px, 6vw);
-    min-height: max(580px, 42vw);
+    padding: max(56px, 3.8vw) 2% max(60px, 4vw);
+    min-height: max(500px, 36vw);
 
     .process-wrapper .overlay-step .content-box {
       min-width: 150px;
@@ -265,7 +264,7 @@
       gap: 16px;
       width: 100%;
       max-width: 100%;
-      margin-top: 40px;
+      margin-top: 0;
 
       .mobile-step {
         display: flex;

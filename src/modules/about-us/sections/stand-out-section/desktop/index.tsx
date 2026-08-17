@@ -83,48 +83,43 @@ const StandOutSectionDesktop = () => {
               key={idx}
               className={styles.option}
               variants={itemVariants}
+              whileHover="hover"
+              animate="rest"
             >
-              {/* Inner: hover state (isolated from scroll variants) */}
-              <motion.div
-                whileHover="hover"
-                animate="rest"
-                style={{ display: 'contents' }}
-              >
-                <div className={styles.optionIconContainer}>
-                  <MotionMyIcon
-                    variants={{
-                      rest: {
-                        fill: 'black',
-                        x: 0,
-                        scale: 1,
-                        filter: 'none',
-                        transition: { duration: 0.3, ease: 'easeInOut' },
-                      },
-                      hover: {
-                        fill: '#FFF',
-                        filter:
-                          'drop-shadow(0 0.208vw 2.13vw rgba(0, 0, 0, 0.25))',
-                        transition: { duration: 0.3, ease: 'easeInOut' },
-                      },
-                    }}
-                    className={styles.optionIcon}
-                  />
-                </div>
-                <div className={styles.optionContent}>
-                  <motion.div
-                    variants={textMotion}
-                    className={styles.optionTitle}
-                  >
-                    {option.title}
-                  </motion.div>
-                  <motion.div
-                    variants={descriptionMotion}
-                    className={styles.optionDescription}
-                  >
-                    {option.description}
-                  </motion.div>
-                </div>
-              </motion.div>
+              <div className={styles.optionIconContainer}>
+                <MotionMyIcon
+                  variants={{
+                    rest: {
+                      fill: 'black',
+                      x: 0,
+                      scale: 1,
+                      filter: 'none',
+                      transition: { duration: 0.3, ease: 'easeInOut' },
+                    },
+                    hover: {
+                      fill: '#FFF',
+                      filter:
+                        'drop-shadow(0 0.208vw 2.13vw rgba(0, 0, 0, 0.25))',
+                      transition: { duration: 0.3, ease: 'easeInOut' },
+                    },
+                  }}
+                  className={styles.optionIcon}
+                />
+              </div>
+              <div className={styles.optionContent}>
+                <motion.div
+                  variants={textMotion}
+                  className={styles.optionTitle}
+                >
+                  {option.title}
+                </motion.div>
+                <motion.div
+                  variants={descriptionMotion}
+                  className={styles.optionDescription}
+                >
+                  {option.description}
+                </motion.div>
+              </div>
             </motion.div>
           )
         })}

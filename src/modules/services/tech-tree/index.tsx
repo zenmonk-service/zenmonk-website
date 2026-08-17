@@ -30,7 +30,7 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0] 
       },
     },
@@ -47,9 +47,9 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        delay: 1.0
+        delay: 0.15
       },
     },
   }
@@ -67,8 +67,8 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
             animate={isInView ? 'visible' : 'hidden'}
           >
             <SectionTitle
-              text="Zen Tech Wonders We Excel In"
-              markText="Excel In"
+              text={`Zen Tech Wonders We\nExcel In Innovation &\nExcellence`}
+              markText="Excellence"
               align={isMobile ? 'center' : 'left'}
               className={styles.techTreeHeading}
             />
@@ -81,11 +81,7 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
           >
             <SectionDescription
               className={styles.techTreeDescription}
-              text="We lead the way in technological 
-              innovation, consistently delivering solutions 
-              that transform industries. Our commitment to 
-              excellence helps businesses and individuals achieve 
-              more."
+              text="We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more by streamlining processes, enhancing security, and fostering sustainable growth. Through our expertise and dedication, we empower teams to navigate complex digital landscapes and unlock their full potential in an ever-evolving market."
             />
           </motion.div>
         </div>

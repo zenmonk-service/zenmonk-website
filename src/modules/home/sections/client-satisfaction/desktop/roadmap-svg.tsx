@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import EmojiSad from '../assets/emoji-sad.gif'
 import EmojiThink from '../assets/emoji-think.gif'
 import EmojiSmile from '../assets/emoji-smile.gif'

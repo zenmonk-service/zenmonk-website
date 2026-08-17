@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Collapse, Divider, Box, Skeleton } from '@mui/material'
+import { Collapse, Divider, Skeleton } from '@mui/material'
 import Check from '../assets/check.svg'
 import Minus from '../assets/minus.svg'
 import Plus from '../assets/plus.svg'

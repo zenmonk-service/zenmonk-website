@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { SectionTitle } from '@/shared/typography'
 import './style.scss'
 
 interface ProcessStep {
@@ -15,10 +14,6 @@ interface ProcessStep {
 
 interface DevelopmentProcessProps {
   steps?: ProcessStep[];
-  title?: string;
-  highlightedText?: string;
-  description?: string;
-  showTitle?: boolean;
 }
 
 const defaultSteps: ProcessStep[] = [
@@ -73,11 +68,7 @@ const mobileStepVariants = {
 }
 
 const DevelopmentProcessWave: React.FC<DevelopmentProcessProps> = ({
-  steps = defaultSteps,
-  title = "Our Development Process",
-  highlightedText = "Process",
-  description = "State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier.",
-  showTitle = false
+  steps = defaultSteps
 }) => {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(0);
   const [isManualHover, setIsManualHover] = React.useState(false);

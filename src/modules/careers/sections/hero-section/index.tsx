@@ -6,6 +6,7 @@ import Image from 'next/image'
 import ExperienceCard from './assets/card_experience.svg'
 import SalaryCard from './assets/card_salary.svg'
 import CultureCard from './assets/card_culture.svg'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import styles from './styles.module.scss'
 
 const CareerHeroSection = () => {
@@ -17,14 +18,33 @@ const CareerHeroSection = () => {
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
             <span className={styles.highlightedText}>Join Our Team </span>
-            And Make an Impact in Tech
+            And
+            <br />
+            Make a Meaningful
+            <br />
+            Impact in Tech
           </h1>
           <p className={styles.description}>
             We believe in ZenFusion, merging technology with mindfulness. As
             your partners in technological excellence, we transform values into
             action, simplifying tech to deliver user-centered solutions.
           </p>
-          <BaseButton className={styles.button}>Join Now</BaseButton>
+          <BaseButton 
+            className={styles.button}
+            onClick={() => {
+              const el = document.getElementById('open-positions')
+              if (el) {
+                const smoother = ScrollSmoother.get()
+                if (smoother) {
+                  smoother.scrollTo(el, true)
+                } else {
+                  el.scrollIntoView({ behavior: 'smooth' })
+                }
+              }
+            }}
+          >
+            Join Now
+          </BaseButton>
         </div>
         <div className={styles.imageContainer}>
           <div className={styles.heroWrapper}>

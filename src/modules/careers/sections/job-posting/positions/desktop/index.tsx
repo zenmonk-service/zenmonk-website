@@ -46,6 +46,7 @@ const PositionsDesktop = ({ positionsList, onApply, isLoading }: PositionsDeskto
     } else {
       setSelectedDepartment(positionsList[0])
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positionsList])
 
   const handleSelectPosition = (department: Department) =>

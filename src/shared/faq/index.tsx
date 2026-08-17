@@ -61,7 +61,7 @@ const FAQ = () => {
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0] 
       },
     },
@@ -78,9 +78,9 @@ const FAQ = () => {
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        delay: 1.0
+        delay: 0.15
       },
     },
   }
@@ -126,8 +126,8 @@ const FAQ = () => {
             hidden: {},
             show: {
               transition: {
-                staggerChildren: 0.12,
-                delayChildren: 1.2, // wait for title + subtitle to finish first
+                staggerChildren: 0.08,
+                delayChildren: 0.3,
               },
             },
           }}

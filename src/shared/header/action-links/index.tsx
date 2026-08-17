@@ -32,6 +32,14 @@ const ActionLinks = (props: ActionLinksProp) => {
   return (
     <div>
       <div className={styles.actionLinksContainer} ref={containerRef}>
+        <Link
+          href="/"
+          className={`${styles.actionLink} ${pathname === '/' ? styles.active : ''}`}
+          prefetch={false}
+        >
+          <LoadingIndicator />
+          Home
+        </Link>
         <ServiceLink
           anchorEl={anchorEl}
           handleClick={handleClick}

@@ -17,8 +17,8 @@ const OurPartners = () => {
       <AutoScrollCarousel
         data={OurPartnersList}
         sliderProps={{ className: 'infinite-slider' }}
-        itemWidth={350}
-        space={40}
+        itemWidth={240}
+        space={24}
         duration={50}
         renderItem={(item) => (
           <div className="partner-logo-wrapper">

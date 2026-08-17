@@ -18,10 +18,12 @@ const Navbar = () => {
   const current = smootherRef?.current
 
   const [hidden, setHidden] = useState(false)
+  const [isAtTop, setIsAtTop] = useState(true)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
+    setIsAtTop(latest <= 5)
     if (latest > previous && latest > 150) {
       setHidden(true)
     } else {
@@ -32,6 +34,17 @@ const Navbar = () => {
   useEffect(() => {
     if (current) {
       current.paused(isOpen)
+    }
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
     }
   }, [current, isOpen])
 
@@ -44,9 +57,9 @@ const Navbar = () => {
         visible: { y: 0 },
         hidden: { y: '-100%' },
       }}
-      animate={hidden || isHeaderHidden ? "hidden" : "visible"}
+      animate={(hidden && !isOpen) || isHeaderHidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={styles.appBarContainer}
+      className={`${styles.appBarContainer} ${isOpen ? styles.open : ''} ${isAtTop && !isOpen ? styles.transparent : ''}`}
     >
       <Link href="/" className={styles.appBarIconContainer} prefetch={false}>
         <LoadingIndicator />

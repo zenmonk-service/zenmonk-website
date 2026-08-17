@@ -1,18 +1,18 @@
 .sectors {
   margin-top: 3.125vw;
-  height: 27.604vw;
+  height: auto;
   border-radius: 1.041vw;
   border: 0.104vw solid #f5f5f5;
   box-sizing: border-box;
   background: var(--global-color-primary);
   display: flex;
+  align-items: stretch;
   .leftSection {
     width: 19.791vw;
-    height: 27.5vw;
     background-color: #f5f5f5;
     display: flex;
     flex-direction: column;
-    padding: 2.81vw 0 2.81vw 2.08vw;
+    padding: 3.5vw 0 3.5vw 2.08vw;
     border-top-left-radius: 1.041vw;
     border-bottom-left-radius: 1.041vw;
     box-sizing: border-box;
@@ -91,6 +91,7 @@
   box-sizing: border-box;
   overflow: auto;
   column-gap: 1.56vw;
+  row-gap: 1.25vw;
   .services {
     display: flex;
     align-items: center;
@@ -100,8 +101,8 @@
     border: 0.052vw solid #e3dbd8;
     background: #fff;
     box-sizing: border-box;
-    padding: 1.041vw 0.5vw 1.041vw 1.5625vw;
-    gap: 1.56vw;
+    padding: 1vw 1.25vw;
+    gap: 0.9vw;
     cursor: pointer;
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 
@@ -121,10 +122,11 @@
       color: #132427;
       flex: 1;
       font-family: 'Poppins', sans-serif;
-      font-size: 1.146vw;
+      font-size: max(14px, 1.05vw);
       font-style: normal;
       font-weight: 500;
-      line-height: 1.56vw;
+      line-height: 1.4;
+      padding-right: 0.2vw;
     }
     .iconContainer {
       height: 4.16vw;

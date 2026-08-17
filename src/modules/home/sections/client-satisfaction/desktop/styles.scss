@@ -1,13 +1,13 @@
 .client-satisfaction-section {
-  padding-top: 6.25vw;
+  padding-top: clamp(60px, 6.25vw, 120px);
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   height: auto;
-  padding-bottom: 10vw;
+  padding-bottom: clamp(140px, 11vw, 400px);
   position: relative;
   overflow: hidden;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     display: none;
   }
 
@@ -64,6 +64,7 @@
       text-align: center;
       width: 100%;
       min-width: max-content;
+      white-space: nowrap;
       font-family: Poppins;
       font-size: 1.451vw;
       font-style: normal;
@@ -210,6 +211,63 @@
   .client-satisfaction-section {
     .description {
       padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .client-satisfaction-section {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    min-height: 750px;
+
+    .title {
+      font-size: 28px !important;
+    }
+
+    .description {
+      margin-top: 16px !important;
+      font-size: 15px !important;
+    }
+
+    .svg-container {
+      max-width: 82%;
+      margin: auto 9%;
+
+      h3 {
+        font-size: 18px !important;
+      }
+
+      p {
+        font-size: 13px !important;
+        line-height: 18px !important;
+      }
+
+      .text-overlay {
+        width: 25%;
+
+        &.text-4 {
+          right: -8%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .client-satisfaction-section {
+    .svg-container {
+      .text-overlay {
+        &.text-2 {
+          bottom: -28% !important;
+          left: 28% !important;
+        }
+
+        &.text-3 {
+          top: 20% !important;
+          left: 50% !important;
+        }
+      }
     }
   }
 }

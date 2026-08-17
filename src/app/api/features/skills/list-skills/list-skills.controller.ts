@@ -11,7 +11,7 @@ export class ListSkillsController {
         this.handler = listSkillHandler;
     }
 
-    async handle(request: Request) {
+    async handle() {
       try{
         const response = await this.handler.handle();
         return NextResponse.json(response, { status: HttpStatusCode.Ok });

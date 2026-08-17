@@ -1,6 +1,8 @@
 .ready-to-talk-product-dev-container {
   width: 100%;
-  height: 28.75vw;
+  min-height: max(420px, 28.75vw);
+  height: auto;
+  padding: 20px 4%;
   background-color: #0A432A;
   background-image: url('../assets/ready-to-talk-banner.svg');
   background-size: cover;
@@ -8,12 +10,11 @@
   margin-top: max(80px, 6.25vw);
   align-items: center;
   justify-content: center;
-  padding: 0 4%;
 
-  @media (max-width: 780px) {
+  @media (max-width: 899px) {
     height: fit-content;
-    padding: 0 16px;
-
+    min-height: auto;
+    padding: 40px 16px;
   }
 
   @media (max-width: 599px) {
@@ -39,7 +40,7 @@
         font-size: 36px;
       }
 
-      @media (max-width: 780px) {
+      @media (max-width: 899px) {
         font-size: 30px;
       }
 
@@ -65,7 +66,7 @@
       padding: 0.5206vw 0.8338vw;
       justify-content: center;
       align-items: center;
-      border-radius: 2.2408vw;
+      border-radius: max(8px, 0.416vw);
       border: 0.1042vw solid #FFF;
 
       width: fit-content;
@@ -79,7 +80,7 @@
 
     }
 
-    @media (max-width: 728px) {
+    @media (max-width: 899px) {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -104,14 +105,14 @@
         align-self: center;
         width: max-content;
         font-size: 14px;
-        border-radius: 43.022px;
+        border-radius: 8.022px;
         border: 2px solid #FFF;
       }
     }
   }
 
   .ready-to-talk-image-container {
-    @media (max-width: 780px) {
+    @media (max-width: 899px) {
       height: 380px;
       max-width: 412px;
     }
@@ -119,7 +120,7 @@
     .ready-to-talk-image {
       height: 100%;
       width: 100%;
-      @media (max-width: 780px) {
+      @media (max-width: 899px) {
         padding-top: 40px;
         height: 380px;
         max-width: 412px;

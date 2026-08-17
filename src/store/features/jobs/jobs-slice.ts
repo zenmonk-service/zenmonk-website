@@ -1,9 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 import { fetchJobs, fetchJobById } from './jobs-actions'
 import { Department } from '@/modules/careers/sections/types'
 
 // Define the Job interface based on your model
-export interface Job {
+interface Job {
   _id: string
   type: 'full-time' | 'part-time' | 'contract' | 'internship'
   category: string
@@ -34,17 +34,10 @@ const initialState: JobsState = {
   currentJob: null,
 }
 
-export const jobsSlice = createSlice({
+const jobsSlice = createSlice({
   name: 'jobs',
   initialState,
-  reducers: {
-    clearError: (state) => {
-      state.error = null
-    },
-    setCurrentJob: (state, action: PayloadAction<Job | null>) => {
-      state.currentJob = action.payload
-    }
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       // fetchJobs
@@ -76,5 +69,4 @@ export const jobsSlice = createSlice({
   },
 })
 
-export const { clearError, setCurrentJob } = jobsSlice.actions
 export default jobsSlice.reducer

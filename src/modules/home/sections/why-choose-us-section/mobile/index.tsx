@@ -3,8 +3,8 @@
 import { SectionTitle } from '@/shared/typography'
 import CraftCollabSvg from '../assets/craft-collab.svg'
 import SupportSvg from '../assets/support.svg'
-import AimSvg from '../assets/aim.svg'
 import DeadlineSvg from '../assets/deadline.svg'
+import LatestTechSvg from '../assets/latest-tech.svg'
 import './mobile.styles.scss'
 
 export default function WhyChooseUSMobile() {
@@ -18,7 +18,9 @@ export default function WhyChooseUSMobile() {
       />
       <div className="card-container">
         <div className="card">
-          <CraftCollabSvg />
+          <div className="icon-wrapper">
+            <CraftCollabSvg />
+          </div>
           <div className="text-container">
             <h3 className="title">We Listen, We Learn, Understand, Then Build</h3>
             <p className="description">{commonDescription}</p>
@@ -26,7 +28,9 @@ export default function WhyChooseUSMobile() {
         </div>
 
         <div className="card">
-          <SupportSvg />
+          <div className="icon-wrapper">
+            <SupportSvg />
+          </div>
           <div className="text-container">
             <h3 className="title">Less Than 24 Hours Guaranteed Response</h3>
             <p className="description">{commonDescription}</p>
@@ -34,7 +38,9 @@ export default function WhyChooseUSMobile() {
         </div>
 
         <div className="card">
-          <AimSvg />
+          <div className="icon-wrapper">
+            <DeadlineSvg />
+          </div>
           <div className="text-container">
             <h3 className="title">Meet Your Revenue Goal</h3>
             <p className="description">{commonDescription}</p>
@@ -42,7 +48,9 @@ export default function WhyChooseUSMobile() {
         </div>
 
         <div className="card">
-          <DeadlineSvg />
+          <div className="icon-wrapper">
+            <LatestTechSvg />
+          </div>
           <div className="text-container">
             <h3 className="title">Handle Tight Deadlines</h3>
             <p className="description">{commonDescription}</p>
@@ -52,3 +60,4 @@ export default function WhyChooseUSMobile() {
     </div>
   )
 }
+

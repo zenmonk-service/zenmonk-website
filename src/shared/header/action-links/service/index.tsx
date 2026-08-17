@@ -2,13 +2,25 @@
 
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import Expand from '@mui/icons-material/ExpandLess'
 import Popover from '@mui/material/Popover'
 import { services } from '@/static/services'
 import ServiceCard from './service-card'
 import styles from './service.module.scss'
 
-const ExpandIcon = motion.create(Expand)
+const ExpandIcon = (props: any) => (
+  <motion.svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <polyline points="18 15 12 9 6 15" />
+  </motion.svg>
+)
 
 interface Props {
   anchorEl: HTMLElement | null
@@ -31,7 +43,7 @@ const ServiceLink = (props: Props) => {
         }`}
         onClick={handleClick}
       >
-        <p>Services</p>
+        <span>Services</span>
         <div className={styles.expandIconContainer}>
           <ExpandIcon
             className={styles.expandIcon}
@@ -44,6 +56,7 @@ const ServiceLink = (props: Props) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        disableScrollLock
         className={styles.servicesMenuPopover}
         sx={{
           minWidth: '600px',

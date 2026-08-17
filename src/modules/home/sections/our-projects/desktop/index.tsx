@@ -1,133 +1,177 @@
 'use client'
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { projects } from '@/modules/home/sections/our-projects/projects'
 import Image from 'next/image'
 import { useMediaQuery } from '@mui/material'
 import './styles.scss'
 
 const OurProjectsDesktop = () => {
-  const [deck, setDeck] = useState<number[]>(projects.map((_, i) => i))
-  const [selectedIds, setSelectedIds] = useState<number[]>([0])
-  const deckRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+  const [prevActiveIndex, setPrevActiveIndex] = useState<number | null>(null)
+  const [morphActiveIndex, setMorphActiveIndex] = useState<number>(0)
+  const [morphState, setMorphState] = useState<'full' | 'thumb'>('full')
+  
   const isTablet = useMediaQuery('(min-width: 700px) and (max-width: 1024px)')
 
   useEffect(() => {
-    if (!deckRef.current) return
-    deckRef.current.scrollTo({ left: 0, behavior: 'smooth' })
-  }, [deck])
+    const timer = setTimeout(() => {
+      const nextIndex = (activeIndex + 1) % projects.length
+      handleSelect(nextIndex)
+    }, 5000)
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (deck.length > 1) {
-        handleSelect(deck[1])
-      }
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [deck, selectedIds])
+    if (morphState === 'thumb') {
+      const raf = requestAnimationFrame(() => {
+        setMorphState('full')
+      })
+      return () => cancelAnimationFrame(raf)
+    }
+  }, [morphState])
 
-  const handleSelect = (id: number) => {
-    const clickedIdx = deck.indexOf(id)
-    if (clickedIdx === -1) return
-
-    // Standard rotation: the clicked item becomes the first (active) item
-    const nextDeck = [...deck.slice(clickedIdx), ...deck.slice(0, clickedIdx)]
-
-    setDeck(nextDeck)
-    setSelectedIds((prev) => [...prev, id].slice(-2))
+  const handleSelect = (index: number) => {
+    if (index === activeIndex) return
+    setPrevActiveIndex(activeIndex)
+    setMorphActiveIndex(index)
+    setMorphState('thumb')
+    setActiveIndex(index)
   }
 
-  const activeId = deck[0]
-  const prevId = selectedIds.length > 1 ? selectedIds[selectedIds.length - 2] : null
+  const baseWidth = isTablet ? 14 : 9
+  const baseHeight = baseWidth * 1.25
+  const gap = 1.25
+
+  const getThumbRight = (index: number) => {
+    return `calc(4vw + ${(3 - index) * (baseWidth + gap)}vw)`
+  }
 
   return (
     <section className="our-projects-section-wrapper">
       <div className="our-work-container">
-        {/* Backdrop: Stays full screen to prevent gaps during 3s transition */}
-        {prevId !== null && prevId !== activeId && (
+        {/* Previous Backdrop (static behind the morphing card to avoid blank space) */}
+        {prevActiveIndex !== null && (
           <div
-            className="card prev-backdrop"
             style={{
               position: 'absolute',
               inset: 0,
-              zIndex: 5,
-              width: '100vw',
-              height: '100vh',
+              zIndex: 4,
             }}
           >
             <Image
-              src={projects[prevId].imageUrl}
+              src={projects[prevActiveIndex].imageUrl}
               alt=""
               fill
               style={{ objectFit: 'cover' }}
             />
-            <div className="shadow" style={{ position: 'absolute', inset: 0, zIndex: 2 }} />
+            <div className="shadow" style={{ position: 'absolute', inset: 0, zIndex: 5 }} />
           </div>
         )}
 
+        {/* Morphing Active Card */}
+        <div
+          key={morphActiveIndex}
+          style={{
+            position: 'absolute',
+            right: morphState === 'thumb' ? getThumbRight(morphActiveIndex) : 0,
+            bottom: morphState === 'thumb' ? '4vw' : 0,
+            width: morphState === 'thumb' ? `${baseWidth}vw` : '100%',
+            height: morphState === 'thumb' ? `${baseHeight}vw` : '100%',
+            minWidth: morphState === 'thumb' ? `${baseWidth}vw` : '100%',
+            minHeight: morphState === 'thumb' ? `${baseHeight}vw` : '100%',
+            borderRadius: morphState === 'thumb' ? '12px' : '0px',
+            zIndex: 10,
+            transition: 'all 2s cubic-bezier(0.16, 1, 0.3, 1)',
+            overflow: 'hidden',
+          }}
+        >
+          <Image
+            src={projects[morphActiveIndex].imageUrl}
+            alt=""
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+          <div
+            className="shadow"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              zIndex: 11,
+              pointerEvents: 'none',
+              opacity: morphState === 'thumb' ? 0 : 1,
+              transition: 'opacity 2s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          />
+        </div>
+
+        {/* Text details */}
         <div className="project-details-container" style={{ zIndex: 500 }}>
-          <div key={`count-${activeId}`} className="our-work-card-count">
-            {projects[activeId].index.toString().padStart(2, '0')}
+          <div key={`count-${activeIndex}`} className="our-work-card-count">
+            {projects[activeIndex].index.toString().padStart(2, '0')}
           </div>
-          <div key={`content-${activeId}`} className="project-detail-content">
-            <h2 className="our-work-card-title">{projects[activeId].title}</h2>
-            <p className="our-work-card-description">{projects[activeId].description}</p>
+          <div key={`content-${activeIndex}`} className="project-detail-content">
+            <h2 className="our-work-card-title">{projects[activeIndex].title}</h2>
+            <p className="our-work-card-description">{projects[activeIndex].description}</p>
           </div>
         </div>
 
-        <div ref={deckRef} className="deck">
-          {deck.map((id, index) => {
-            const isActive = index === 0
+        {/* Thumbnails Deck */}
+        <div className="deck">
+          <div
+            style={{
+              position: 'absolute',
+              right: '4vw',
+              bottom: '4vw',
+              display: 'flex',
+              gap: `${gap}vw`,
+              pointerEvents: 'auto',
+              alignItems: 'flex-end',
+              zIndex: 1000,
+            }}
+          >
+            {projects.map((project, idx) => {
+              const isActive = idx === activeIndex
 
-            // Adjust base width and spacing for tablets
-            const baseWidth = isTablet ? 18 : 12 // vw
-            const multiplier = baseWidth + 2 // width + gap
-            const thumbRight = `calc(4vw + ${(deck.length - 1 - index) * multiplier}vw)`
-            const thumbHeight = baseWidth * 1.25 // keep aspect ratio
-
-            return (
-              <div
-                key={id}
-                className={`card ${isActive ? 'active-card' : ''}`}
-                style={{
-                  position: 'absolute',
-                  right: isActive ? 0 : thumbRight,
-                  bottom: isActive ? 0 : '4vw',
-                  width: isActive ? '100%' : `${baseWidth}vw`,
-                  height: isActive ? '100%' : `${thumbHeight}vw`,
-                  minWidth: isActive ? '100%' : `${baseWidth}vw`,
-                  minHeight: isActive ? '100%' : `${thumbHeight}vw`,
-                  zIndex: isActive ? 15 : 100 + index,
-                  borderRadius: isActive ? 0 : '12px',
-                  cursor: isActive ? 'default' : 'pointer',
-                  transformOrigin: 'bottom right',
-                  transition: 'all 3s cubic-bezier(0.16, 1, 0.3, 1)',
-                  overflow: 'hidden',
-                }}
-                onClick={() => !isActive && handleSelect(id)}
-              >
-                <Image
-                  src={projects[id].imageUrl}
-                  alt=""
-                  fill
-                  priority={isActive}
-                  sizes={isActive ? '100vw' : '25vw'}
-                  style={{ objectFit: 'cover' }}
-                />
+              return (
                 <div
-                  className="shadow"
+                  key={project.title}
+                  className="card"
                   style={{
-                    position: 'absolute',
-                    inset: 0,
-                    zIndex: 2,
-                    pointerEvents: 'none',
-                    opacity: isActive ? 1 : 0,
-                    transition: 'opacity 3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    width: `${baseWidth}vw`,
+                    height: `${baseHeight}vw`,
+                    minWidth: `${baseWidth}vw`,
+                    minHeight: `${baseHeight}vw`,
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                    opacity: 1,
+                    transform: isActive ? 'scale(1.06)' : 'scale(1)',
+                    outline: isActive ? '3px solid #eb7c0d' : '3px solid transparent',
+                    outlineOffset: '2px',
                   }}
-                />
-              </div>
-            )
-          })}
+                  onClick={() => handleSelect(idx)}
+                >
+                  <Image
+                    src={project.imageUrl}
+                    alt={project.title}
+                    fill
+                    sizes="20vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="progress-bar-container">
+          <div className="progress-bar" style={{ width: `${(activeIndex + 1) * 25}%` }} />
         </div>
       </div>
     </section>

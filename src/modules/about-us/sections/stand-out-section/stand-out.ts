@@ -3,7 +3,6 @@ import SearchSvg from './assets/search.svg'
 import DownloadSvg from './assets/download.svg'
 import ThunderSvg from './assets/thunder.svg'
 import NoteSvg from './assets/note.svg'
-import { vw } from 'framer-motion'
 
 export const standOutList = [
   {

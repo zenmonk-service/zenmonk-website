@@ -1,12 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { SectionDescription } from '@/shared/typography'
+import BaseButton from '@/shared/button'
 import DottedBackground from './assets/dotted-background.svg'
 import HeroImage from './hero-image'
 import styles from './hero-section.module.scss'
 
 const HeroSection = () => {
+  const router = useRouter()
+
   return (
     <div className={styles.howWeWorkHeroSectionWrapper}>
       <div className={styles.heroSection}>
@@ -18,7 +22,7 @@ const HeroSection = () => {
             className={styles.textHeading}
           >
             <span>How We Work</span> for <br />
-            Seamless Solutions
+            Seamless End-to-End Solutions
           </motion.p>
           <SectionDescription
             initial={{ opacity: 0, y: '2.6vw' }}
@@ -34,6 +38,12 @@ const HeroSection = () => {
             innovate impactful technology."
             className={styles.textDescription}
           />
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className={styles.button}
+          >
+            EXPLORE MORE
+          </BaseButton>
         </div>
       </div>
       <HeroImage />

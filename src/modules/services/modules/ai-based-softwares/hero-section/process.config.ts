@@ -10,7 +10,7 @@ import type { DevelopmentProcessConfig } from './types';
  * Edit this array to add, remove, reorder, recolour, or replace process steps.
  * All geometry and responsive styling lives in DevelopmentProcess.module.scss.
  */
-export const processSteps: DevelopmentProcessConfig['steps'] = [
+const processSteps: DevelopmentProcessConfig['steps'] = [
   {
     id: 'customer-requirement',
     title: 'Customer Requirement',

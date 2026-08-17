@@ -1,0 +1,28 @@
+services:
+  app:
+    image: zenmonk-website:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: "no"
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/app
+      - dev_node_modules:/app/node_modules
+      - dev_next_cache:/app/.next
+    healthcheck:
+      start_period: 60s
+
+  mongodb:
+    ports:
+      - "127.0.0.1:${DB_FORWARD_PORT:-27017}:27017"
+
+  mailhog:
+    ports:
+      - "127.0.0.1:${MAIL_FORWARD_PORT:-1025}:1025"
+      - "127.0.0.1:${MAIL_DASHBOARD_FORWARD_PORT:-8025}:8025"
+
+volumes:
+  dev_node_modules:
+  dev_next_cache:

@@ -12,13 +12,13 @@ interface HeroSectionProps {
   description: string
   textWidth?: number
   highlightedText?: string
-  imgWidth?: number
   url?: string
   imageStyle?: React.CSSProperties
   children?: React.ReactNode
   showImage?: boolean
   textWrapperStyle?: React.CSSProperties
   titleProps?: React.HTMLAttributes<HTMLHeadingElement>
+  style?: React.CSSProperties
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -26,13 +26,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description,
   textWidth,
   highlightedText = '',
-  imgWidth,
   url,
   imageStyle = {},
   children,
   showImage = true,
   textWrapperStyle = {},
   titleProps = {},
+  style = {},
 }) => {
 
 
@@ -60,7 +60,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0] 
       },
     },
@@ -77,9 +77,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        delay: 1.0
+        delay: 0.15
       },
     },
   }
@@ -95,20 +95,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       y: 0,
       scale: 1,
       transition: { 
-        duration: 1.0, 
+        duration: 0.5, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        delay: 2.0
+        delay: 0.3
       },
     },
   }
 
-  const { onAnimationStart, ...safeTitleProps } = titleProps
+  const safeTitleProps = { ...titleProps, onAnimationStart: undefined }
 
   return (
     <Grid
       className={styles.section}
       container
       spacing={4}
+      style={style}
     >
       <Grid size={{ xs: 12, md: 6 }} className={styles.textContainer}>
         <div 

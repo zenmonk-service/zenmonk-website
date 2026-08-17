@@ -7,7 +7,8 @@
   display: flex;
   justify-content: center;
   height: auto;
-  margin-bottom: 8px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
 
   .images {
     position: relative;
@@ -67,9 +68,10 @@
   .questionWrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 0.8333vw;
-    padding: 0.5208vw 0.8333vw;
-    border-radius: 0.4166vw;
+    padding: max(14px, 0.75vw) max(16px, 1vw);
+    border-radius: max(8px, 0.4166vw);
     box-shadow: 0.1041vw 0.0521vw 0.5208vw 0vw rgba(19, 114, 124, 0.13);
   }
 
@@ -78,7 +80,8 @@
     font-family: 'Poppins', sans-serif;
     font-size: max(16px, 0.83333333333vw);
     font-weight: 400;
-    margin-bottom: 0.41666666666vw;
+    margin: 0;
+    line-height: 1.4;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent; /* Remove default browser blue tap highlight */
     outline: none;
@@ -89,12 +92,14 @@
     font-family: 'Poppins', sans-serif;
     font-size: max(14px, 0.72916666667vw);
     font-weight: 400;
+    margin-top: max(8px, 0.5vw);
   }
 
   /* 🔽 Combined media query */
   @media (max-width: 780px) {
     padding-left: 16px;
     padding-right: 16px;
+    margin-bottom: 0;
  
     .images {
       display: none;
@@ -108,7 +113,7 @@
 
     .question {
       color: #132427;
-      margin-bottom: 8px;
+      margin: 0;
     }
   }
 }
@@ -116,14 +121,10 @@
 .toggleIconContainer {
   cursor: pointer;
   display: flex;
-  align-items: flex-start;
-  padding-top: 0.3vw; // Align vertically with the first line of the question text
+  align-items: center;
+  justify-content: center;
   -webkit-tap-highlight-color: transparent; /* Remove default browser blue tap highlight */
   outline: none;
-  
-  @media (max-width: 780px) {
-    padding-top: 4px; // Adjust alignment for mobile padding/fonts
-  }
 }
 
 .toggleIcon {

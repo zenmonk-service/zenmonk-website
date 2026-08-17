@@ -1,11 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
-import BigStarSvg from '../assets/big-star.svg'
-import CircleSvg from '../assets/circle.svg'
-import StarSvg from '../assets/star.svg'
-import TriangleSvg from '../assets/triangle.svg'
 import StarIcon from '../star-animation/star-animation'
 import styles from './award-card.module.scss'
 
@@ -13,16 +8,14 @@ interface AwardProofCardProps {
   title: string
   description: string
   image: string
+  index: number
 }
 
-const BigStar = motion(BigStarSvg)
-const Star = motion(StarSvg)
-const CIrcle = motion(CircleSvg)
-const Triangle = motion(TriangleSvg)
-
-const AwardProofCard = ({ image, title, description }: AwardProofCardProps) => {
+const AwardProofCard = ({ image, title, description, index }: AwardProofCardProps) => {
+  const isEven = index % 2 !== 0;
+  const cardIndexClass = styles[`card-${index + 1}`] || '';
   return (
-    <div className={styles.awardProofCard}>
+    <div className={`${styles.awardProofCard} ${isEven ? styles.evenCard : styles.oddCard} ${cardIndexClass}`}>
       <div className={styles.awardImageContainer}>
         <StarIcon className={styles.hoverExpandWrapper} />
         <Image

@@ -30,25 +30,25 @@ const ClientSatisfactionDesktop = () => {
         {/* Step 1: Sad */}
         <div className="text-overlay text-1">
           <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#32C5FF', marginBottom: '0.5vw' }}>Previous Work Frustration</h3>
-          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don't worry! Zenmonk got you all covered with result-driven business strategies.</p>
+          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don&apos;t worry! Zenmonk got you all covered with result-driven business strategies.</p>
         </div>
 
         {/* Step 2: Think */}
         <div className="text-overlay text-2">
-          <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#FF9900', marginBottom: '0.5vw' }}>Engagement And<br />Resolution</h3>
-          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don't worry! Zenmonk got you all covered with result-driven business strategies.</p>
+          <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#FF9900', marginBottom: '0.5vw' }}>Engagement And Resolution</h3>
+          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don&apos;t worry! Zenmonk got you all covered with result-driven business strategies.</p>
         </div>
 
         {/* Step 3: Smile */}
         <div className="text-overlay text-3">
           <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#D500F9', marginBottom: '0.5vw' }}>Exceeding Expectations</h3>
-          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don't worry! Zenmonk got you all covered with result-driven business strategies.</p>
+          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don&apos;t worry! Zenmonk got you all covered with result-driven business strategies.</p>
         </div>
 
         {/* Step 4: Happy */}
         <div className="text-overlay text-4">
           <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#64DD17', marginBottom: '0.5vw' }}>Celebrating Success</h3>
-          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don't worry! Zenmonk got you all covered with result-driven business strategies.</p>
+          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Want business growth? But, not satisfied with the results. Don&apos;t worry! Zenmonk got you all covered with result-driven business strategies.</p>
         </div>
       </div>
       <Image className="logo-left" src={OldLogoDecorator} width={250} height={250} alt="" />

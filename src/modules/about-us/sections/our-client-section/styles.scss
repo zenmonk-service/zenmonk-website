@@ -37,6 +37,12 @@
     display: flex;
     flex-direction: column;
     gap: 2vw;
+
+    &:hover {
+      .auto-scroll-slide-track {
+        animation-play-state: paused !important;
+      }
+    }
   }
 
   .infinite-slider {

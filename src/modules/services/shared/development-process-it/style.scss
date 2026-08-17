@@ -79,7 +79,7 @@ $offset: calc(#{$r} + #{$gap});
 @media (max-width: 1000px) {
   .dev-process-it {
     padding: 0;
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 2rem;
 
     &__desktop { display: none; }

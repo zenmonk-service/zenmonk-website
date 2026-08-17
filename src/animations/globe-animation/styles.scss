@@ -20,6 +20,7 @@
   grid-area: header;
   display: flex;
   flex-direction: column;
+  align-self: end;
 }
 
 .globe-shadow {
@@ -44,7 +45,7 @@
   color: #424242;
   margin-top: 1.25vw;
   font-family: Poppins;
-  font-size: 1.042vw;
+  font-size: max(14px, 1.042vw);
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -90,8 +91,9 @@
   grid-area: footer;
   display: flex;
   flex-direction: column;
-  min-height: 300px; // Maintain space for info
-  margin-top: max(-164px, -8.75vw);
+  align-self: start;
+  min-height: auto;
+  margin-top: max(20px, 1.5vw);
 }
 
 .flags-container {
@@ -140,7 +142,7 @@
 .country-info .country-address {
   color: #424242;
   font-family: Poppins;
-  font-size: 1.04vw;
+  font-size: max(14px, 1.04vw);
   margin-top: 0.8vw;
   font-style: normal;
   font-weight: 400;
@@ -150,16 +152,30 @@
 }
 
 @media (max-width: 1024px) {
+  .our-office-section {
+    margin-top: 80px;
+  }
+
   .our-office-container {
     grid-template-areas:
       'header'
       'globe'
       'footer';
     grid-template-columns: 100%;
-    padding: 60px 24px;
+    padding: 0 24px 60px;
     gap: 24px;
     height: 100%;
-    align-items: start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .our-office-header {
+    align-items: flex-start;
+    text-align: left;
+
+    @media screen and (min-width: 600px) and (max-width: 1024px) {
+      margin-left: 71px;
+    }
   }
 
   .our-office-header .contact-title {
@@ -172,8 +188,24 @@
   }
 
   .globe-container {
-    max-width: 95vw;
+    width: 80vw;
+    max-width: 400px;
     margin: 0 auto;
+
+    @media screen and (min-width: 800px) and (max-width: 1000px) {
+      width: 60vw;
+      max-width: 520px;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 90vw;
+      max-width: 380px;
+    }
+
+    @media screen and (max-width: 400px) {
+      width: 90vw;
+      max-width: 300px;
+    }
 
     .globe-marker-svg {
       width: 24px;
@@ -184,11 +216,20 @@
   .our-office-country-flag-container {
     margin-top: 0;
     min-height: auto;
+    align-items: stretch;
+    width: 100%;
   }
 
   .flags-container {
     width: 100%;
-    gap: 10px;
+    gap: 14px;
+    justify-content: flex-start;
+    max-width: none;
+
+    @media (min-width: 600px) {
+      justify-content: center;
+      gap: 18px;
+    }
   }
 
   .our-office-country-flag {
@@ -201,9 +242,23 @@
     }
   }
 
+  .country-info {
+    text-align: left;
+    width: 100%;
+
+    @media (min-width: 600px) {
+      text-align: center;
+    }
+  }
+
   .country-info .country-name {
     font-size: 18px;
     margin-top: 24px;
+    text-align: left;
+
+    @media (min-width: 600px) {
+      text-align: center;
+    }
   }
 
   .country-info .country-address {
@@ -211,5 +266,12 @@
     margin-top: 12px;
     line-height: 1.5;
     max-width: 100%;
+    text-align: left;
+
+    @media (min-width: 600px) {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }

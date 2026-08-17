@@ -118,9 +118,3 @@ export default function AutoScrollCarousel<T extends SliderData>({
     </div>
   )
 }
-
-export function InfiniteSlider<T extends SliderData>(
-  props: AutoScrollCarouselProps<T>
-) {
-  return <AutoScrollCarousel {...props} />
-}

@@ -5,20 +5,9 @@ import Skill from '../src/models/skills';
 import JobSkill from '../src/models/job-skills';
 import Contact from '../src/models/contact';
 import Subscriber from '../src/models/subscriber';
+import { getMongoUri } from '../src/config/db';
 
 dotenv.config();
-
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_NAME
-} = process.env;
-
-// Since we are running this script from the host, we use localhost and the forward port
-const DB_HOST = 'localhost';
-const DB_PORT = '27018'; // The port we mapped in docker-compose
-
-const MONGODB_URI = `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?authSource=admin`;
 
 const skillsData = [
   { name: 'React', description: 'A JavaScript library for building user interfaces' },
@@ -80,9 +69,15 @@ const jobsData = [
 ];
 
 async function seed() {
+  if (process.env.ALLOW_DESTRUCTIVE_SEED !== 'true') {
+    throw new Error(
+      'Seeding deletes existing data. Set ALLOW_DESTRUCTIVE_SEED=true to continue.',
+    );
+  }
+
   try {
     console.log('Connecting to MongoDB...');
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(getMongoUri());
     console.log('Connected to MongoDB');
 
     // Clear existing data
@@ -107,13 +102,16 @@ async function seed() {
     
     // Link Skills to Jobs
     console.log('Linking Skills to Jobs...');
-    const jobSkillLinks: Array<{ job_posting: any; skill: any }> = [];
+    const jobSkillLinks: Array<{
+      job_posting: mongoose.Types.ObjectId;
+      skill: mongoose.Types.ObjectId;
+    }> = [];
 
     // Map skills by name for easy lookup
     const skillMap = createdSkills.reduce((acc, skill) => {
       acc[skill.name] = skill._id;
       return acc;
-    }, {} as any);
+    }, {} as Record<string, mongoose.Types.ObjectId>);
 
     const linkSkills = (jobIndex: number, skillNames: string[]) => {
       const job = createdJobs[jobIndex];
@@ -153,9 +151,12 @@ async function seed() {
     console.log('Seeding completed successfully!');
   } catch (error) {
     console.error('Error seeding data:', error);
+    process.exitCode = 1;
   } finally {
-    await mongoose.disconnect();
-    console.log('Disconnected from MongoDB');
+    if (mongoose.connection.readyState !== 0) {
+      await mongoose.disconnect();
+      console.log('Disconnected from MongoDB');
+    }
   }
 }
 

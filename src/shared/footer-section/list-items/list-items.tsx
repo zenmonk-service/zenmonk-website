@@ -1,11 +1,18 @@
 'use client'
 
+import Link from 'next/link'
 import styles from './list-item.module.scss'
 
-const ListItem = ({ text }: { text: string }) => {
+const ListItem = ({ text, link }: { text: string; link?: string }) => {
   return (
     <div className={styles.listItemContainer}>
-      <p className={styles.listItem}>{text}</p>
+      {link ? (
+        <Link href={link} className={`${styles.listItem} ${styles.linkItem}`}>
+          {text}
+        </Link>
+      ) : (
+        <p className={`${styles.listItem} ${styles.textItem}`}>{text}</p>
+      )}
     </div>
   )
 }

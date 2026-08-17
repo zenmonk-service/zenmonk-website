@@ -15,7 +15,7 @@ const AboutUsHeroSection = () => {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            Meet the Innovators Behind
+            Meet the Brilliant Innovators Behind
             <span className={styles.highlightedText}> ZENMONK</span>
           </h1>
           <p className={styles.description}>
@@ -34,7 +34,9 @@ const AboutUsHeroSection = () => {
           <HeroImage className={styles.heroImage} />
         </div>
       </div>
-      <Rating />
+      <div className={styles.ratingWrapper}>
+        <Rating />
+      </div>
     </div>
   )
 }

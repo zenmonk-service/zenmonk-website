@@ -17,8 +17,8 @@ const outerIconsAll = [
 
 const outerPositions = generateCircularPositions(
   outerIconsAll.length,
-  290, // Radius for outer circle (680px diameter)
-  30.5 // Stagger angle to not align perfectly with inner icons
+  330, // Radius for outer circle (660px diameter)
+  15 // Slightly rotated clockwise to ensure zero overlap with inner ring icons
 )
 
 const outerIcons = outerIconsAll.map((icon, i) => ({

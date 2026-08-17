@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import Button from '@mui/material/Button'
-import { Calender, SmallArrow } from '../../assets'
+import { Calender } from '../../assets'
 import './styles.scss'
 
 interface BigShowCaseCardProps {

@@ -5,6 +5,6 @@ export const POST = async (request: NextRequest) => {
   return await addSkill(request);
 }
 
-export const GET = async (request: NextRequest) => {
-  return await listSkills(request);
+export const GET = async () => {
+  return await listSkills();
 }

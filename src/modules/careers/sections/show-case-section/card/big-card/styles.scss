@@ -10,14 +10,13 @@
     border-top-left-radius: 1.04vw;
     position: relative;
     width: 32.81vw;
+    aspect-ratio: 630 / 354;
     overflow: hidden;
 
     .show-case-image {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
     }
   }
 
@@ -25,6 +24,10 @@
     padding: 1.56vw;
     width: 100%;
     height: auto;
+
+    @media screen and (max-width: 1000px) {
+      padding: 16px;
+    }
 
     .event-date {
       width: 100%;

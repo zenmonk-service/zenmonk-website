@@ -16,7 +16,7 @@ export interface ContainerDefinition {
 /**
  * Extracts the type that will be resolved from a resolver.
  */
-export type ExtractResolverType<T> = T extends Resolver<infer X> ? X : null;
+type ExtractResolverType<T> = T extends Resolver<infer X> ? X : null;
 
 /**
  * Strongly-typed container.

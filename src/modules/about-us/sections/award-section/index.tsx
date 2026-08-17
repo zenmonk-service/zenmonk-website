@@ -60,9 +60,10 @@ export const AwardProofSection = () => {
           <motion.div
             key={index}
             variants={cardVariant}
-            style={{ flex: 1, width: '18.23vw', minWidth: 0 }}
+            className={styles.cardWrapper}
           >
             <AwardProofCard
+              index={index}
               description={award.description}
               image={award.image}
               title={award.title}

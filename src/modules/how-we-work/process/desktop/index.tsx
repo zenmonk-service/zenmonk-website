@@ -6,11 +6,11 @@ import { processes } from '../process'
 import './styles.scss'
 
 const processMetadata = [
-  { angle: -100, align: 'left', color: '#2EC2CC' },
-  { angle: -55, align: 'left', color: '#A263F5' },
+  { angle: -90, align: 'left', color: '#2EC2CC' },
+  { angle: -50, align: 'left', color: '#A263F5' },
   { angle: 0, align: 'top', color: '#6CC77D' },
-  { angle: 55, align: 'right', color: '#3C95DB' },
-  { angle: 100, align: 'right', color: '#FA579A' },
+  { angle: 50, align: 'right', color: '#3C95DB' },
+  { angle: 90, align: 'right', color: '#FA579A' },
 ]
 
 const ProcessDesktop = () => {

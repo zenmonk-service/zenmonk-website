@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BG from './assets/bg.png'
 import BgMap from "./assets/bg-map.svg"
@@ -24,7 +27,9 @@ const ReadyToStartSoftwareDev = () => {
           className="description"
           text="Custom Software Development Tailored Solutions for Your Business Custom Software Development Tailored Solutions"
         />
-        <BaseButton className="contact-us">Contact us</BaseButton>
+        <Link href="/contact" style={{ textDecoration: 'none' }}>
+          <BaseButton className="contact-us">Contact us</BaseButton>
+        </Link>
       </div>
     </div>
   )

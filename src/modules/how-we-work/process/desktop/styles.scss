@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: max(200px, 15vw) 20px 0px 20px;
+  padding: max(160px, 11vw) max(48px, 4vw) 0px max(48px, 4vw);
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
 }
@@ -22,7 +22,7 @@
   aspect-ratio: 1;
   border: max(4px, 0.5vw) solid #666666;
   border-radius: 50%;
-  margin-bottom: -10%;
+  margin-bottom: -15%;
 }
 
 .process-node {
@@ -78,7 +78,7 @@
 
 .text-content {
   position: absolute;
-  width: max(180px, 18vw);
+  width: max(240px, 18vw);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -86,7 +86,7 @@
 
 .text-content.align-left {
   right: calc(100% + max(15px, 2vw));
-  top: 25%;
+  top: 10%;
   transform: none;
   text-align: right;
   align-items: flex-end;
@@ -94,19 +94,19 @@
 
 .text-content.align-right {
   left: calc(100% + max(15px, 2vw));
-  top: 25%;
+  top: 10%;
   transform: none;
   text-align: left;
   align-items: flex-start;
 }
 
 .text-content.align-top {
-  bottom: calc(100% + max(15px, 2vw));
+  bottom: calc(100% + max(6px, 0.6vw));
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   align-items: center;
-  width: max(220px, 24vw);
+  width: max(260px, 20vw);
 }
 
 .node-title {
@@ -114,6 +114,7 @@
   font-size: max(20px, 1.5vw);
   line-height: 1.2;
   margin: 0;
+  white-space: nowrap;
 }
 
 .node-desc {
@@ -123,6 +124,7 @@
   line-height: 1.5;
   color: #757575;
   margin: 0;
+  min-width: 220px;
 }
 
 .center-text-block {

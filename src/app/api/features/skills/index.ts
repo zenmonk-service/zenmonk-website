@@ -5,8 +5,8 @@ export async function addSkill(request: NextRequest) {
   return await container.resolve('addSkillController').handle(request)
 }
 
-export async function listSkills(request: NextRequest) {
-  return await container.resolve('listSkillController').handle(request)
+export async function listSkills() {
+  return await container.resolve('listSkillController').handle()
 }
 
 export async function updateSkill(

@@ -16,15 +16,16 @@ export default function FullScreenLoading() {
     const originalOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    if (smootherRef?.current) {
-      smootherRef.current.paused(true)
+    const smoother = smootherRef?.current
+    if (smoother) {
+      smoother.paused(true)
     }
 
     return () => {
       document.body.style.overflow = originalOverflow === 'hidden' ? '' : originalOverflow
 
-      if (smootherRef?.current) {
-        smootherRef.current.paused(false)
+      if (smoother) {
+        smoother.paused(false)
       }
       
       requestAnimationFrame(() => {

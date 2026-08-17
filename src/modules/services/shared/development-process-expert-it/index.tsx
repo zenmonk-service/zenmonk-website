@@ -1,6 +1,7 @@
 'use client'
 
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Base from "./assets/base.svg"
 import styles from './styles.module.scss';
 
@@ -37,26 +38,77 @@ const steps = [
   }
 ];
 
+const stepVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+    y: -20, // Slide down from the top
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.25, // Stagger delay of 0.25s per step
+      duration: 0.5,
+      ease: [0.25, 0.1, 0.25, 1.0],
+    },
+  }),
+};
+
+const mobileStepVariants = {
+  hidden: {
+    opacity: 0,
+    y: -20, // Slide down from the top on mobile
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15, // Faster stagger delay on mobile
+      duration: 0.45,
+      ease: 'easeOut',
+    },
+  }),
+};
+
 const DevelopmentProcessExpertIt = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.15 });
+
   return (
-    <section className={styles.developmentProcessExpert}>
+    <section className={styles.developmentProcessExpert} ref={containerRef}>
       <div className={styles.svgContainer}>
         <Base />
-        {steps.map((step) => (
-          <div key={step.id} className={styles.stepOverlay}>
+        {steps.map((step, index) => (
+          <motion.div
+            key={step.id}
+            className={styles.stepOverlay}
+            custom={index}
+            variants={stepVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             <div className={styles.stepTitle}>{step.title}</div>
             <div className={styles.stepDesc}>{step.description}</div>
-          </div>
+          </motion.div>
         ))}
 
         <div className={styles.mobileProcessList}>
-          {steps.map((step) => (
-            <div key={step.id} className={styles.mobileStep}>
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.id}
+              className={styles.mobileStep}
+              custom={index}
+              variants={mobileStepVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
               <div className={styles.stepNumber}>{step.id}</div>
               <h4 className={styles.stepTitle}>{step.title}</h4>
               <div className={styles.stepDivider} />
               <p className={styles.stepDesc}>{step.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

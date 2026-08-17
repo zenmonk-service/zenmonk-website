@@ -2,13 +2,19 @@ import nodemailer from 'nodemailer';
 
 export class MailService {
   private transporter;
+  private readonly from;
 
   constructor() {
+    const user = process.env.MAIL_USER?.trim();
+    const password = process.env.MAIL_PASSWORD?.trim();
+
     this.transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST || 'localhost',
       port: parseInt(process.env.MAIL_PORT || '1025'),
-      secure: false, // MailHog doesn't use SSL by default
+      secure: process.env.MAIL_SECURE === 'true',
+      auth: user && password ? { user, pass: password } : undefined,
     });
+    this.from = process.env.MAIL_FROM || 'ZenMonk Careers <careers@zenmonk.com>';
   }
 
   async sendApplicationConfirmation(
@@ -19,7 +25,7 @@ export class MailService {
     trackingUrl: string
   ) {
     const mailOptions = {
-      from: '"ZenMonk Careers" <careers@zenmonk.com>',
+      from: this.from,
       to,
       subject: 'Application Received - Zenmonk',
       html: `

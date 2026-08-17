@@ -16,6 +16,80 @@ const WATER_COLOR_HEX = '#053693'
 const WATER_COLOR = new THREE.Color(WATER_COLOR_HEX)
 const GLOBE_ALTITUDE = 1.85
 
+class WebGLErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: any) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+
+  componentDidCatch(error: any, errorInfo: any) {
+    console.error("WebGL error caught by boundary:", error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback
+    }
+    return this.props.children
+  }
+}
+
+const WebGLFallback = ({ containerRef }: { containerRef?: React.RefObject<HTMLDivElement | null> }) => {
+  return (
+    <div ref={containerRef} className={styles.globeCanvasContainer} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', position: 'relative' }}>
+      <div
+        style={{
+          position: 'absolute',
+          inset: '12% 10% 10%',
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle at 40% 35%, rgba(255, 246, 228, 0.96) 0%, rgba(251, 220, 181, 0.34) 28%, rgba(255, 166, 77, 0.09) 56%, rgba(255, 255, 255, 0) 76%)',
+          filter: 'blur(42px)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: '50%',
+          bottom: '8%',
+          width: '54%',
+          height: '10%',
+          transform: 'translateX(-50%)',
+          borderRadius: '999px',
+          background:
+            'radial-gradient(circle, rgba(10, 32, 61, 0.28) 0%, rgba(10, 32, 61, 0.16) 36%, rgba(10, 32, 61, 0) 76%)',
+          filter: 'blur(14px)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      <div style={{ position: 'relative', width: '80%', height: '80%', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1 }}>
+        <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ maxWidth: '300px' }}>
+          <circle cx="100" cy="100" r="80" stroke="#ff8f3d" strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+          <ellipse cx="100" cy="100" rx="80" ry="30" stroke="#ff8f3d" strokeWidth="1" strokeDasharray="4 4" opacity="0.2" />
+          <ellipse cx="100" cy="100" rx="30" ry="80" stroke="#ff8f3d" strokeWidth="1" strokeDasharray="4 4" opacity="0.2" />
+          <path d="M20 100 H180" stroke="#ff8f3d" strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+          <path d="M100 20 V180" stroke="#ff8f3d" strokeWidth="1" strokeDasharray="4 4" opacity="0.3" />
+          <circle cx="100" cy="100" r="12" fill="#ff533d" opacity="0.15">
+            <animate attributeName="r" values="8;16;8" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="100" cy="100" r="4" fill="#ff533d" />
+        </svg>
+        <div style={{ position: 'absolute', bottom: '10%', color: '#6b7280', fontSize: '12px', fontWeight: 500 }}>
+          ZenMonk Headquarters
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const createPinElement = () => {
   const pin = document.createElement('div')
   pin.style.transform = 'translate(-50%, -100%)'
@@ -47,6 +121,22 @@ export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
   const lightingRigRef = useRef<THREE.Group | null>(null)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [isLoading, setIsLoading] = useState(true)
+  const [webGLSupported, setWebGLSupported] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    const hasWebGL = () => {
+      try {
+        const canvas = document.createElement('canvas')
+        return !!(
+          window.WebGLRenderingContext &&
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+        )
+      } catch {
+        return false
+      }
+    }
+    setWebGLSupported(hasWebGL())
+  }, [])
 
   useEffect(() => {
     if (!containerRef.current || typeof ResizeObserver === 'undefined') {
@@ -66,7 +156,17 @@ export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
     resizeObserver.observe(containerRef.current)
     updateSize()
 
-    return () => resizeObserver.disconnect()
+   
+    const timer = setTimeout(updateSize, 100)
+    const timer2 = setTimeout(updateSize, 500)
+    window.addEventListener('resize', updateSize)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener('resize', updateSize)
+      clearTimeout(timer)
+      clearTimeout(timer2)
+    }
   }, [])
 
   useEffect(() => {
@@ -81,12 +181,13 @@ export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
   }, [lat, lng, trigger])
 
   useEffect(() => {
+    const currentGlobe = globeRef.current
     return () => {
       if (cloudAnimationRef.current) {
         cancelAnimationFrame(cloudAnimationRef.current)
       }
 
-      const scene = globeRef.current?.scene?.()
+      const scene = currentGlobe?.scene?.()
 
       if (scene && cloudSphereRef.current) {
         scene.remove(cloudSphereRef.current)
@@ -259,6 +360,10 @@ export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
 
   const pinData = useMemo(() => [{ lat, lng }], [lat, lng])
 
+  if (webGLSupported === false) {
+    return <WebGLFallback containerRef={containerRef} />
+  }
+
   return (
     <div ref={containerRef} className={styles.globeCanvasContainer}>
       <div
@@ -292,22 +397,24 @@ export default function ThreeGlobe({ lat, lng, trigger }: ThreeGlobeProps) {
       />
 
       {dimensions.width > 0 && dimensions.height > 0 ? (
-        <Globe
-          ref={globeRef}
-          width={dimensions.width}
-          height={dimensions.height}
-          backgroundColor="rgba(0,0,0,0)"
-          rendererConfig={{ antialias: true, alpha: true }}
-          globeImageUrl={GlobeTexture.src}
-          bumpImageUrl={TOPOLOGY_IMAGE_URL}
-          showAtmosphere
-          atmosphereColor="#bfdfff"
-          atmosphereAltitude={0.09}
-          animateIn={false}
-          htmlElementsData={pinData}
-          htmlElement={createPinElement}
-          onGlobeReady={handleGlobeReady}
-        />
+        <WebGLErrorBoundary fallback={<WebGLFallback />}>
+          <Globe
+            ref={globeRef}
+            width={dimensions.width}
+            height={dimensions.height}
+            backgroundColor="rgba(0,0,0,0)"
+            rendererConfig={{ antialias: true, alpha: true }}
+            globeImageUrl={GlobeTexture.src}
+            bumpImageUrl={TOPOLOGY_IMAGE_URL}
+            showAtmosphere
+            atmosphereColor="#bfdfff"
+            atmosphereAltitude={0.09}
+            animateIn={false}
+            htmlElementsData={pinData}
+            htmlElement={createPinElement}
+            onGlobeReady={handleGlobeReady}
+          />
+        </WebGLErrorBoundary>
       ) : null}
 
       {isLoading && (

@@ -10,13 +10,13 @@ import styles from './mobile.module.scss'
 const ArrowDown = motion.create(ArrowDownward)
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.18,
-      duration: 0.95,
+      delay: i * 0.06,
+      duration: 0.4,
       ease: [0.16, 1, 0.3, 1],
     },
   }),

@@ -8,9 +8,9 @@ const IndustrySpecificHeroSection = () => {
       <div className={styles.container}>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            <span className={styles.highlightedText}> Industry-Specific</span>
+            <span className={styles.highlightedText}>Advanced Industry-Specific</span>
             <br />
-            Solutions
+            Digital Solutions
           </h1>
           <p className={styles.description}>
             We believe in ZenFusion, merging technology with mindfulness. As

@@ -2,10 +2,10 @@
   height: 97vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding-left: 7.8125%;
   padding-right: 7.8125%;
-  gap: 50px;
+  gap: 40px;
 }
 
 .backgroundWrapper {
@@ -33,6 +33,17 @@
   pointer-events: none;
 }
 
+.textContainer {
+  width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 5;
+}
+
 .title {
   color: #132427;
   flex-wrap: wrap;
@@ -40,20 +51,22 @@
   font-size: max(24px, 3.125vw);
   font-style: normal;
   font-weight: 600;
-  line-height: 3.6458vw;
+  line-height: 1.2;
   text-transform: capitalize;
   margin: 0 0 16px 0;
+  width: 100%;
 }
 
 .description {
-  max-width: 37vw;
+  width: 100%;
+  max-width: 90%;
   flex-wrap: wrap;
   color: #757575;
   font-family: 'Poppins', sans-serif;
   font-size: var(--font-size-24);
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.6;
   letter-spacing: 0.025vw;
   margin: 0 0 40px 0;
 }
@@ -67,6 +80,8 @@
 
 .imageContainer {
   width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +94,7 @@
   aspect-ratio: 907 / 651;
   display: inline-block;
   overflow: visible;
+  transform-origin: center center;
 }
 
 .heroImage {
@@ -227,7 +243,7 @@
   color: #ffffff !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .decorator {
     position: absolute;
     top: 18%;
@@ -248,13 +264,17 @@
   }
 
   .container {
-    height: 100vh;
+    height: auto;
+    min-height: unset;
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
   }
 
   .textContainer {
+    width: 100%;
+    max-width: 100%;
+    flex: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,6 +285,8 @@
     margin-top: 83px;
     margin-bottom: 24px;
     width: 100%;
+    max-width: 100%;
+    flex: unset;
     display: flex;
     justify-content: center;
   }
@@ -313,11 +335,11 @@
   }
 }
 
-@media screen and (min-width: 401px) and (max-width: 600px) {
+@media screen and (min-width: 401px) and (max-width: 700px) {
   .container {
     height: auto;
-    min-height: 100vh;
-    padding-bottom: 2vh;
+    min-height: unset;
+    padding-bottom: 0px;
     margin-top: 15%;
   }
 
@@ -355,10 +377,12 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 767px) {
+@media (min-width: 701px) and (max-width: 768px) {
   .container {
     height: auto;
-    aspect-ratio: 1.23;
+    aspect-ratio: unset;
+    padding-top: 120px;
+    padding-bottom: 0px;
     display: flex;
     gap: 9%;
   }
@@ -369,8 +393,8 @@
 
   .heroWrapper {
     width: 90%;
-    margin-left: 30%;
-    transform: scale(3.5);
+    margin-left: 0;
+    transform: scale(1.2);
   }
 
   .description {
@@ -378,7 +402,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 900px) {
   .container {
     height: auto;
     aspect-ratio: 1.43;
@@ -392,7 +416,8 @@
 
   .heroWrapper {
     width: 100%;
-    transform: scale(2.5);
+    margin-left: 0;
+    transform: scale(1.2);
   }
 
   .description {
@@ -409,8 +434,8 @@
 
   .heroWrapper {
     width: 100%;
-    transform: scale(3);
-    margin-left: 30%;
+    transform: scale(1.8);
+    margin-left: 28%;
   }
 }
 
@@ -422,16 +447,16 @@
   }
 
   .heroWrapper {
-    transform: scale(4);
-    margin-left: 45%;
+    transform: scale(1.9);
+    margin-left: 32%;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .heroWrapper {
-    transform: scale(2.4);
-    margin-left: 30%;
-    margin-top: 5%;
+    transform: scale(1.95);
+    margin-left: 35%;
+    margin-top: 0;
   }
 }
 
@@ -443,20 +468,32 @@
   }
 
   .heroWrapper {
-    transform: scale(3.5);
-    margin-left: 40%;
+    transform: scale(1.95);
+    margin-left: 35%;
   }
 }
 
 @media (min-width: 1400px) and (max-width: 1600px) {
   .container {
     height: auto;
-    aspect-ratio: 1.5;
-    margin-top: 2%;
+    aspect-ratio: 1.8;
+    margin-top: 0;
+    padding-top: max(80px, 5vw);
   }
 
   .heroWrapper {
-    transform: scale(3.5);
-    margin-left: 40%;
+    transform: scale(1.95);
+    margin-left: 35%;
+  }
+}
+
+/* Screen Height <= 800px: Keep content & image natural size, make page content scrollable */
+@media screen and (max-height: 800px) {
+  .container {
+    height: auto !important;
+    min-height: 600px;
+    aspect-ratio: auto !important;
+    padding-top: max(140px, 8vw) !important;
+    padding-bottom: 60px !important;
   }
 }

@@ -77,7 +77,7 @@ const OurServicesMobile = () => {
                 <div>
                   <p
                     className={styles.expandedTitle}
-                    style={{ color: "#EB7C0D" }}
+                    style={{ color: service.styles.color }}
                   >
                     {service.name}
                   </p>
@@ -88,7 +88,7 @@ const OurServicesMobile = () => {
                     .slice(0, 5)
                     .map(({ icon: Icon, title, id }) => (
                       <div className={styles.techLogos} key={id}>
-                        <Icon style={{ fill: "#EB7C0D", transform: 'scale(0.7)' }} />
+                        <Icon style={{ fill: service.styles.color, transform: 'scale(0.7)' }} />
                         <p>{title}</p>
                       </div>
                     ))}

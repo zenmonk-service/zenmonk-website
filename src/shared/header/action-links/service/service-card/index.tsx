@@ -34,7 +34,7 @@ const ServiceCard = ({
 
   return (
     <Link
-      href={`/services/${route}`}
+      href={`/services${route}`}
       className={`${styles.serviceCard}  ${isActive ? styles.selected : ''}`}
       prefetch={false}
       onClick={(e) => {

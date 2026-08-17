@@ -109,6 +109,7 @@ const DevelopmentProcessIT: React.FC<DevelopmentProcessITProps> = () => {
               transition={{ duration: 0.5, delay: index * 0.2, ease: smoothEase }}
             >
               <div className="dev-process-it__mobile-icon">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`/process-icons/mobile-icon-${step.id}.svg`} alt={step.title} draggable={false} />
               </div>
               <div className={`dev-process-it__mobile-text ${isEven ? 'align-left' : 'align-right'}`}>

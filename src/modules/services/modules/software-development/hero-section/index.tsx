@@ -17,12 +17,16 @@ const SoftwareDevelopmentHeroSection = () => {
 
       if (width >= 1024) {
         newScale = 0.53 + ((width - 1024) / (1920 - 1024)) * 0.47
-      } else if (width >= 600) {
+      } else if (width > 800) {
         newScale = 0.4 + ((width - 600) / (1024 - 600)) * 0.13
+      } else if (width >= 600) {
+        // Increased scale strictly for 600px to 800px screen width range
+        newScale = 0.65 + ((width - 600) / (800 - 600)) * 0.20
       } else if (width >= 380) {
-        // Range between 380px and 600px
+        // Range between 380px and 600px (Original)
         newScale = 0.55
       } else {
+        // Range below 380px (Original)
         newScale = 0.5
       }
 
@@ -46,7 +50,7 @@ const SoftwareDevelopmentHeroSection = () => {
       } as any}
     >
       <HeroSection
-        title="Reliable & Scalable Software Development"
+        title="Reliable & Future-Ready Scalable Software Development"
         highlightedText="Software Development"
         description="Zenmonk delivers scalable and secure enterprise software, providing end-to-end support from legacy modernization to deployment. We ensure optimal performance with solutions tailored to your business needs."
         url="/services/software-development/hero-graphic.svg"
