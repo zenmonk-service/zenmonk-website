@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --config .prettierrc.json --write \"${npm_config_path:-src}/**/*.{js,ts,tsx,jsx}\"",
     "db:seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
@@ -40,7 +39,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^20",
     "@types/nodemailer": "7.0.5",
     "@types/react": "^19.1.0",
@@ -48,7 +46,6 @@
     "@types/three": "^0.173.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.23",
-    "prettier": "^3.5.3",
     "sass": "^1.84.0",
     "typescript": "^5"
   },
