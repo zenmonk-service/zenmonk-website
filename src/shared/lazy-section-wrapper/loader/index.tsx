@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import { useAppDispatch } from '@/store/hooks'
 import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Monk from '@/assets/icons/monk.svg'
 import styles from './loading.module.css'
 
 export default function FullScreenLoading() {
@@ -40,7 +41,7 @@ export default function FullScreenLoading() {
 
   return createPortal(
     <div className={styles.container}>
-      <div className={styles.loader} />
+      <Monk className={styles.monkLoader} />
     </div>,
     document.body
   )

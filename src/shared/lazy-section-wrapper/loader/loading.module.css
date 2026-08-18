@@ -9,48 +9,20 @@
   z-index: 9999 !important;
 }
 
-/* Loader */
-.loader {
-  --c: no-repeat linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
-  background:
-    var(--c), var(--c), var(--c),
-    var(--c), var(--c), var(--c),
-    var(--c), var(--c), var(--c);
-
-  /* 16px cubes but never below 12px */
-  background-size: max(0.833vw, 12px) max(0.833vw, 12px);
-
-  animation: l32-1 1s infinite, l32-2 1s infinite;
+/* Monk Loader */
+.monkLoader {
+  width: max(60px, 3.5vw);
+  height: auto;
+  animation: slowFade 2.2s ease-in-out infinite;
 }
 
-/* Size animation */
-@keyframes l32-1 {
-  /* 45px → 2.344vw */
+@keyframes slowFade {
   0%, 100% {
-    width: max(2.344vw, 45px);
-    height: max(2.344vw, 45px);
+    opacity: 0.2;
+    transform: scale(0.96);
   }
-
-  /* 65px → 3.385vw */
-  35%, 65% {
-    width: max(3.385vw, 65px);
-    height: max(3.385vw, 65px);
-  }
-}
-
-/* Position animation */
-@keyframes l32-2 {
-  0%, 40% {
-    background-position:
-      0 0, 0 50%, 0 100%,
-      50% 100%, 100% 100%, 100% 50%,
-      100% 0, 50% 0, 50% 50%;
-  }
-
-  60%, 100% {
-    background-position:
-      0 50%, 0 100%, 50% 100%,
-      100% 100%, 100% 50%, 100% 0,
-      50% 0, 0 0, 50% 50%;
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
   }
 }
