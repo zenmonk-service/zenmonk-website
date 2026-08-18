@@ -1,5 +1,5 @@
 'use client'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { useMediaQuery } from '@mui/material'
 import { HeroSection } from '@/shared/hero-section'
 
 const GrowthMarketingHeroSection = () => {

@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
+import { useMediaQuery } from '@mui/material';
 import { motion, useInView } from 'framer-motion';
 import { SectionTitle, SectionDescription } from '@/shared/typography';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
 import OldDevelopmentProcess from '@/modules/services/development-process';
 import { DevelopmentProcessItem } from './DevelopmentProcessItem';
 import styles from './DevelopmentProcess.module.scss';

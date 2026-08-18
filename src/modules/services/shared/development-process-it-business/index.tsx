@@ -1,9 +1,9 @@
 'use client'
 
 import React from 'react'
+import { useMediaQuery } from '@mui/material'
 import './style.scss'
 import ProcessPath from './assets/process-path.svg'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import DevelopmentProcessItBusinessMobile from './mobile'
 
 interface DevelopmentProcessItBusinessProps {

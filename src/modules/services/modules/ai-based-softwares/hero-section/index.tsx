@@ -2,9 +2,9 @@
 import Rating from '@/shared/rating'
 import HeroImage from './assets/hero-image.svg?url'
 import Background from './assets/dotted-bg.svg'
+import { useMediaQuery } from '@mui/material'
 import styles from './styles.module.scss'
 import { HeroSection } from '@/shared/hero-section'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const AiSolutionsHeroSection = () => {
   const isLessThan800 = useMediaQuery('(max-width: 800px)')

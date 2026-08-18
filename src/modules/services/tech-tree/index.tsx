@@ -1,8 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
+import { useMediaQuery } from '@mui/material'
 import { motion, useInView } from 'framer-motion'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import SectionImage from './image'
 import { getTreeIconsByServiceId } from './service-mapper'

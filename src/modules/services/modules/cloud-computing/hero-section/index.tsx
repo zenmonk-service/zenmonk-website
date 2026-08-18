@@ -1,9 +1,9 @@
 'use client'
 import { HeroSection } from '@/shared/hero-section'
 import MainHeroImage from './assets/cloud.svg?url'
+import { useMediaQuery } from '@mui/material'
 import CloudGroupImage from './assets/cloud-group.svg?url'
 import Image from 'next/image'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 const CloudSolutionsHeroSection = () => {
   const isMobile = useMediaQuery('(max-width: 728px)')
