@@ -26,11 +26,13 @@ const ThreeGlobe = dynamic(() => import('./three-globe'), {
 interface ContactUsSectionProps {
   isCareerPage?: boolean
   showFlagsOnly?: boolean
+  isContactPage?: boolean
 }
 
 export const ContactUsSection = ({
   isCareerPage = false,
   showFlagsOnly = false,
+  isContactPage = false,
 }: ContactUsSectionProps) => {
   const showFlags = isCareerPage || showFlagsOnly
   const [formCountry, setFormCountry] = useState(countries[0])
@@ -131,7 +133,7 @@ export const ContactUsSection = ({
 
   return (
     <div className="w-full flex flex-col">
-      <div className={styles.aboutUsContactUsSection}>
+      <div className={`${styles.aboutUsContactUsSection} ${isContactPage ? styles.contactPageSpacing : ''}`}>
         <Image
           src="/contact-us-bg.svg"
           className={styles.contactUsBg}
