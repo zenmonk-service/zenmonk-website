@@ -1,53 +1,22 @@
 'use client'
 
 import { useState } from 'react'
-import { Grid2 } from '@mui/material'
+import Image from 'next/image'
+import Link from 'next/link'
 import Button from '@mui/material/Button'
 import InputBase from '@mui/material/InputBase'
 import Tooltip from '@mui/material/Tooltip'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import CheckIcon from '@mui/icons-material/Check'
 import { motion, AnimatePresence } from 'framer-motion'
 import { socialMedia } from '@/assets/icons/social'
 import { SectionDescription } from '@/shared/typography'
-import OfficialLogo from './assets/official-logo.svg'
 import ListHeading from './list-heading/list-heading'
 import ListItem from './list-items/list-items'
-import { consultingCategories } from './list/consulting-categories'
 import { quickLink } from './list/quick-links'
 import { serviceCategory } from './list/service-categories'
 import './styles.scss'
 
-const QuickLinks = () => (
-  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} mt={{ xs: 2, md: 0 }}>
-    <ListHeading title="Quick links" />
-    {quickLink.map((item) => (
-      <ListItem text={item.title} link={item.link} key={item.id} />
-    ))}
-  </Grid2>
-)
-
-const FollowUs = () => (
-  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} mt={{ xs: 2, md: 0 }}>
-    <ListHeading title="Follow Us" />
-    <div className="social-media-list">
-      {socialMedia.map((item, index) => (
-        <a
-          key={index}
-          href={item.href || '#'}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ display: 'inline-block' }}
-        >
-          <item.icon className="icons" />
-        </a>
-      ))}
-    </div>
-  </Grid2>
-)
-
 const Footer = () => {
-  const isLaptop = useMediaQuery('(max-width:1423px)')
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -69,123 +38,143 @@ const Footer = () => {
     return result
   }
 
-  const columns = chunkArray(serviceCategory, 5)
-  const consultingColumns = chunkArray(consultingCategories, 5)
+  const serviceColumns = chunkArray(serviceCategory, 5)
 
   return (
-    <div className="footer-section">
-      <div className="header">
-        {isLaptop && (
-          <div className="logo-wrapper">
-            <OfficialLogo className="logo" />
-          </div>
-        )}
-
-        <SectionDescription
-          className="branding"
-          text="We deliver transformative digital experiences more than just software that takes your business forward. 
-          Let us craft the beautiful chapter of your success story!"
-        />
+    <footer className="footer-section">
+      <div className="top-banner">
+        <Link href="/" className="logo-wrapper logo-mobile" prefetch={false}>
+          <Image
+            src="/logo.svg"
+            alt="Zenmonk Logo"
+            width={85}
+            height={109}
+            className="logo"
+            priority
+          />
+        </Link>
+        <p className="branding-text">
+          Over the last decade, we have helped our clients ship products for multiple platforms. We can create the software your business needs to grow!
+        </p>
       </div>
-      <div className="logo-category-wrapper">
-        {!isLaptop && (
-          <div className="logo-wrapper">
-            <OfficialLogo className="logo" />
-          </div>
-        )}
-        <div className="category-wrapper">
-          <div className="service-category-quick-links-wrapper">
-            <div className="service-category">
-              <Grid2 columnSpacing={4} container columns={10}>
-                {columns.map((column, colIndex) => (
-                  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} key={colIndex}>
-                    <ListHeading title={!colIndex ? 'Services' : '‎'} />
-                    {column.map((item) => (
-                      <ListItem text={item.title} link={item.link} key={item.id} />
-                    ))}
-                  </Grid2>
+
+      <div className="divider" />
+
+      <div className="main-content">
+        <Link href="/" className="logo-wrapper logo-desktop" prefetch={false}>
+          <Image
+            src="/logo.svg"
+            alt="Zenmonk Logo"
+            width={140}
+            height={179}
+            className="logo"
+            priority
+          />
+        </Link>
+
+        <div className="services-column-group">
+          <ListHeading title="Services" />
+          <div className="services-subcolumns">
+            {serviceColumns.map((col, colIndex) => (
+              <div key={colIndex} className="service-subcolumn">
+                {col.map((item) => (
+                  <ListItem text={item.title} link={item.link} key={item.id} />
                 ))}
-                {consultingColumns.map((column, colIndex) => (
-                  <Grid2 size={{ xs: 5, sm: 3, md: 2 }} key={`consulting-${colIndex}`}>
-                    <ListHeading title={!colIndex ? 'Consulting' : '‎'} />
-                    {column.map((item) => (
-                      <ListItem text={item.title} key={item.id} />
-                    ))}
-                  </Grid2>
-                ))}
-              </Grid2>
-            </div>
+              </div>
+            ))}
           </div>
-          <div className="consulting-category-contact-wrapper">
-            <div className="consulting-category">
-              <Grid2 columnSpacing={4} columns={10} container>
-                <QuickLinks />
-                <Grid2 size={{ xs: 10, sm: 6, md: 4 }} mt={{ xs: 2, md: 0 }}>
-                  <ListHeading title="Subscribe Us" />
-                  <ListItem text="Make the right business move" />
-                  <div className="email">
-                    <Tooltip title={email || ''} disableHoverListener={!email} arrow>
-                      <InputBase
-                        placeholder="Email Address"
-                        className="input-field"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        slotProps={{
-                          input: {
-                            className: 'input',
-                            onBlur: (e) => {
-                              e.target.setSelectionRange(0, 0)
-                              e.target.scrollLeft = 0
-                            },
-                          },
-                        }}
-                        endAdornment={
-                          <Button 
-                            variant="contained" 
-                            className="submit-button"
-                            onClick={handleSubscribe}
-                            style={isSubmitted ? { pointerEvents: 'none' } : {}}
-                          >
-                            <AnimatePresence mode="wait">
-                              {isSubmitted ? (
-                                <motion.div
-                                  key="check"
-                                  initial={{ scale: 0, opacity: 0 }}
-                                  animate={{ scale: 1, opacity: 1 }}
-                                  exit={{ scale: 0, opacity: 0 }}
-                                  transition={{ duration: 0.2 }}
-                                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                                >
-                                  <CheckIcon />
-                                </motion.div>
-                              ) : (
-                                <motion.span
-                                  key="submit"
-                                  initial={{ opacity: 0 }}
-                                  animate={{ opacity: 1 }}
-                                  exit={{ opacity: 0 }}
-                                  transition={{ duration: 0.15 }}
-                                >
-                                  Submit
-                                </motion.span>
-                              )}
-                            </AnimatePresence>
-                          </Button>
-                        }
-                      />
-                    </Tooltip>
-                  </div>
-                </Grid2>
-                <FollowUs />
-              </Grid2>
+        </div>
+
+        <div className="quick-links-follow-group">
+          <div className="quick-links-column">
+            <ListHeading title="Quick Links" />
+            {quickLink.map((item) => (
+              <ListItem text={item.title} link={item.link} key={item.id} />
+            ))}
+          </div>
+
+          <div className="follow-us-column">
+            <ListHeading title="Follow Us" />
+            <div className="social-media-list">
+              {socialMedia.map((item) => (
+                <a
+                  key={item.id}
+                  href={item.href || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                >
+                  <item.icon className="icons" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
+
+        <div className="subscribe-column">
+          <ListHeading title="Subscribe US" />
+          <ListItem text="Make the right business move." />
+          <div className="email">
+            <Tooltip title={email || ''} disableHoverListener={!email} arrow>
+              <InputBase
+                placeholder="Email Address"
+                className="input-field"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                slotProps={{
+                  input: {
+                    className: 'input',
+                    onBlur: (e) => {
+                      e.target.setSelectionRange(0, 0)
+                      e.target.scrollLeft = 0
+                    },
+                  },
+                }}
+                endAdornment={
+                  <Button
+                    variant="contained"
+                    className="submit-button"
+                    onClick={handleSubscribe}
+                    style={isSubmitted ? { pointerEvents: 'none' } : {}}
+                  >
+                    <AnimatePresence mode="wait">
+                      {isSubmitted ? (
+                        <motion.div
+                          key="check"
+                          initial={{ scale: 0, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                        >
+                          <CheckIcon />
+                        </motion.div>
+                      ) : (
+                        <motion.span
+                          key="submit"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.15 }}
+                        >
+                          SUBMIT
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </Button>
+                }
+              />
+            </Tooltip>
+          </div>
+        </div>
       </div>
+
+      <div className="divider" />
+
       <div className="copyright">
-        <SectionDescription text="© Zenmonk 2026" />
+        <SectionDescription text="© Zenmonk 2025" />
       </div>
-    </div>
+    </footer>
   )
 }
 

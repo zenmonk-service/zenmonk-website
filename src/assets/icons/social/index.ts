@@ -1,7 +1,7 @@
 import FaceBook from './facebook.svg'
 import Instagram from './instagram.svg'
-import LinkedIn from './linkedin.svg'
 import X from './twitter.svg'
+import LinkedIn from './linkedin.svg'
 
 export const socialMedia = [
   {
@@ -29,3 +29,6 @@ export const socialMedia = [
     href: 'https://www.linkedin.com/company/zenmonk',
   },
 ]
+
+
+

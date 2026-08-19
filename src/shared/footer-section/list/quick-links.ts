@@ -6,22 +6,23 @@ export const quickLink = [
   },
   {
     id: 2,
-    title: 'Careers',
+    title: 'Career',
     link: '/careers',
   },
   {
     id: 3,
-    title: 'Why choose us',
+    title: 'Why Choose Us',
     link: '/about-us#why-choose-us',
   },
   {
     id: 4,
-    title: 'How we work',
-    link: '/how-we-work',
+    title: 'Services',
+    link: '/services/software-development',
   },
   {
     id: 5,
-    title: 'Contact Us',
+    title: 'Contact',
     link: '/contact',
   },
 ]
+
