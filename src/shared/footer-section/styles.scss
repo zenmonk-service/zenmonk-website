@@ -201,6 +201,52 @@
   }
 }
 
+/* 900px - 1100px Screen Layout Styles */
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+  .footer-section {
+    .main-content {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      grid-template-areas:
+        "logo services"
+        "quicklinks subscribe";
+      column-gap: max(40px, 4vw);
+      row-gap: 32px;
+      align-items: start;
+
+      .logo-desktop {
+        grid-area: logo;
+        margin-right: 0;
+        width: 170px;
+        margin-top: -16px;
+      }
+
+      .services-column-group {
+        grid-area: services;
+        max-width: 520px;
+        width: 100%;
+
+        .services-subcolumns {
+          justify-content: space-between;
+          gap: 24px;
+        }
+      }
+
+      .quick-links-follow-group {
+        grid-area: quicklinks;
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .subscribe-column {
+        grid-area: subscribe;
+        max-width: 520px;
+        width: 100%;
+      }
+    }
+  }
+}
+
 /* Mobile & Tablet Responsive Styles */
 @media screen and (max-width: 900px) {
   .footer-section {
