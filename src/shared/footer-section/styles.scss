@@ -201,25 +201,93 @@
   }
 }
 
-/* 900px - 1100px Screen Layout Styles */
-@media screen and (min-width: 901px) and (max-width: 1100px) {
+/* Less than 1560px Screen Layout Styles (Logo in top bar) */
+@media screen and (max-width: 1560px) {
+  .footer-section {
+    .top-banner {
+      gap: 32px;
+
+      .logo-mobile {
+        display: block;
+        width: 100px;
+        flex-shrink: 0;
+
+        .logo {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+      }
+
+      .branding-text {
+        text-align: left;
+        margin: 0;
+        max-width: 800px;
+      }
+    }
+
+    .main-content {
+      .logo-desktop {
+        display: none !important;
+      }
+    }
+  }
+}
+
+/* 1201px - 1410px Screen Layout Styles (3-column layout, Follow Us below Subscribe) */
+@media screen and (min-width: 1201px) and (max-width: 1410px) {
   .footer-section {
     .main-content {
       display: grid;
-      grid-template-columns: 240px 1fr;
+      grid-template-columns: 1fr max-content 340px;
       grid-template-areas:
-        "logo services"
-        "quicklinks subscribe";
-      column-gap: max(40px, 4vw);
+        "services quicklinks subscribe"
+        "services quicklinks followus";
+      column-gap: clamp(24px, 3.5vw, 52px);
       row-gap: 32px;
       align-items: start;
 
-      .logo-desktop {
-        grid-area: logo;
-        margin-right: 0;
-        width: 170px;
-        margin-top: -16px;
+      .services-column-group {
+        grid-area: services;
+
+        .services-subcolumns {
+          gap: clamp(24px, 3.5vw, 52px);
+        }
       }
+
+      .quick-links-follow-group {
+        display: contents;
+      }
+
+      .quick-links-column {
+        grid-area: quicklinks;
+      }
+
+      .follow-us-column {
+        grid-area: followus;
+      }
+
+      .subscribe-column {
+        grid-area: subscribe;
+        max-width: 340px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* 901px - 1200px Screen Layout Styles (2-column layout, Follow Us below Quick Links) */
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+  .footer-section {
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      grid-template-areas:
+        "services quicklinks"
+        "subscribe followus";
+      column-gap: clamp(24px, 3.5vw, 52px);
+      row-gap: 32px;
+      align-items: start;
 
       .services-column-group {
         grid-area: services;
@@ -228,14 +296,20 @@
 
         .services-subcolumns {
           justify-content: space-between;
-          gap: 24px;
+          gap: clamp(24px, 3.5vw, 52px);
         }
       }
 
       .quick-links-follow-group {
+        display: contents;
+      }
+
+      .quick-links-column {
         grid-area: quicklinks;
-        flex-direction: column;
-        gap: 32px;
+      }
+
+      .follow-us-column {
+        grid-area: followus;
       }
 
       .subscribe-column {
