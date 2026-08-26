@@ -5,7 +5,7 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
-  padding-top: max(140px, 9vw);
+  padding-top: max(90px, 5.5vw);
   margin-bottom: 80px;
 
   @media (max-width: 800px) {
@@ -426,7 +426,7 @@
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
-    padding-top: 80px;
+    padding-top: 40px;
     justify-content: center;
     align-items: center;
     gap: 6.25vw;

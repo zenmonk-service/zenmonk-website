@@ -107,3 +107,14 @@ a {
     display: block;
   }
 }
+
+/* Service pages spacer — hidden on desktop to avoid double margin, visible on mobile */
+.desktop-hidden-spacer {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .desktop-hidden-spacer {
+    display: block;
+  }
+}

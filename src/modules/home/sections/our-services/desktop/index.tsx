@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { ZenmonkLogo } from '@/assets/images'
@@ -12,11 +12,67 @@ import styles from './our-services.module.scss'
 const OurServicesDesktop = () => {
   const [selectedService, setSelectedService] = useState(services[0])
   const router = useRouter()
+  const containerRef = useRef<HTMLDivElement>(null)
+  const rightCardRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const rightCard = rightCardRef.current
+      const container = containerRef.current
+      if (!rightCard || !container) return
+
+      const items = container.querySelectorAll(`.${styles.businessItem}`)
+      if (items.length === 0) return
+
+      const rightRect = rightCard.getBoundingClientRect()
+      const containerRect = container.getBoundingClientRect()
+      const targetY = rightRect.top + rightRect.height / 2
+
+      let closestIndex = 0
+
+      if (rightRect.top > 125) {
+        closestIndex = 0
+      } else if (containerRect.bottom <= rightRect.bottom + 50) {
+        closestIndex = services.length - 1
+      } else {
+        let minDistance = Infinity
+
+        items.forEach((item, index) => {
+          const rect = item.getBoundingClientRect()
+          const itemCenter = rect.top + rect.height / 2
+          const distance = Math.abs(itemCenter - targetY)
+          if (distance < minDistance) {
+            minDistance = distance
+            closestIndex = index
+          }
+        })
+      }
+
+      const matchedService = services[closestIndex]
+      if (matchedService) {
+        setSelectedService((prev) => {
+          if (prev.id !== matchedService.id) {
+            return matchedService
+          }
+          return prev
+        })
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
+    handleScroll()
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
 
   const text = 'Future Proof Your Business With Our IT Services'
 
   return (
-    <section className={styles.serviceSectionWrapper}>
+    <section ref={containerRef} className={styles.serviceSectionWrapper}>
       <SectionTitle
         text={text}
         markText="Services"
@@ -34,6 +90,7 @@ const OurServicesDesktop = () => {
             return (
               <div
                 className={`${styles.businessItem} ${isActive ? styles.active : ''}`}
+                data-service-id={service.id}
                 style={{
                   backgroundColor: isActive ? service.styles.hoverColor : '#fff',
                   outline: isActive ? `2.5px solid ${service.styles.color}` : '0px solid transparent',
@@ -64,7 +121,7 @@ const OurServicesDesktop = () => {
 
         <div className={styles.servicesRightContainer}>
           <Image className={styles.logo} src={ZenmonkLogo} alt="zenmonk-logo" />
-          <div className={styles.businessProof}>
+          <div ref={rightCardRef} className={styles.businessProof}>
             <div className={styles.businessProofContent}>
               <h5 className={styles.businessProofHeading}>{selectedService.name}</h5>
               <p className={styles.businessProofDescription}>{selectedService.description}</p>

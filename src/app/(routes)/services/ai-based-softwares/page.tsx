@@ -20,6 +20,7 @@ const AiBasedSoftwaresPage = () => {
       <ReadyToTalkShared />
       <FAQ />
       <div
+        className="desktop-hidden-spacer"
         style={{
           height: 'max(80px, 6.25vw)',
           width: '100%',

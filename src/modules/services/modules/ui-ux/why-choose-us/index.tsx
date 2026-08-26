@@ -7,24 +7,6 @@ import Card from './card'
 import { whyChooseUsList } from './list'
 import styles from './styles.module.scss'
 
-/**
- * Final grid positions for 6 cards (3 per row, 2 rows).
- * Values are the X/Y offset (in %) from the container center
- * that each card needs to travel TO when the animation fires.
- * Before animation they all sit at translate(0,0) = stacked in center.
- *
- * Row 1: cards 0,1,2  → top-left, top-center, top-right
- * Row 2: cards 3,4,5  → bottom-left, bottom-center, bottom-right
- */
-const CARD_OFFSETS = [
-  { tx: '-105%', ty: '-60%' }, // top-left
-  { tx: '0%',   ty: '-60%' }, // top-center
-  { tx: '105%', ty: '-60%' }, // top-right
-  { tx: '-105%', ty: '60%'  }, // bottom-left
-  { tx: '0%',   ty: '60%'  }, // bottom-center
-  { tx: '105%', ty: '60%'  }, // bottom-right
-]
-
 const UiUxWhyChooseUs = () => {
   const { ref, inView } = useInView({ threshold: 0, triggerOnce: true })
 
@@ -43,13 +25,11 @@ const UiUxWhyChooseUs = () => {
       />
       <Bg className={styles.sectionBachground} />
 
-      {/* Deck container — cards are absolutely stacked here before inView */}
       <div
         ref={ref}
         className={`${styles.listContainer} ${inView ? styles.scattered : ''}`}
       >
         {whyChooseUsList.map((item, index) => {
-          const offset = CARD_OFFSETS[index] ?? { tx: '0%', ty: '0%' }
           return (
             <Card
               icon={item.icon}
@@ -59,9 +39,7 @@ const UiUxWhyChooseUs = () => {
               background={item.backgroud}
               marginLeft={item.ml}
               style={{
-                '--tx': offset.tx,
-                '--ty': offset.ty,
-                '--delay': `${index * 0.18}s`,
+                '--delay': `${index * 0.25}s`,
               } as React.CSSProperties}
             />
           )
