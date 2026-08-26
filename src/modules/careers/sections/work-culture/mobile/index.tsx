@@ -1,4 +1,4 @@
-import { motion, PanInfo } from 'motion/react'
+import { motion, PanInfo } from 'framer-motion'
 import { useEffect, useState, useRef } from 'react'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { workCultures } from '../work-cultures'

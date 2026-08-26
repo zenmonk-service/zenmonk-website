@@ -39,7 +39,7 @@
 .testimony-content .review {
   width: clamp(340px, 26.5625vw, 510px);
   max-width: 90vw;
-  min-height: 80px;
+  min-height: 9.6em;
   height: auto;
   flex-shrink: 0;
   color: #707070;
