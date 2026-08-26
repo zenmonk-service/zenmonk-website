@@ -9,8 +9,6 @@ import StoreProvider from '@/store/store-provider'
 import CustomLoader from '@/modules/loader'
 import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
-import SmoothScroller from '@/shared/scroll-smoother'
-import ScrollProvider from '@/shared/scroll-smoother/scroll-provider'
 import './globals.css'
 
 
@@ -95,19 +93,17 @@ export default function FlashScreenLayout({
         ) : (
           <StoreProvider>
             <AppRouterCacheProvider>
-              <ScrollProvider>
+              <>
                 <Header />
                 <CustomLoader />
-                <SmoothScroller>
-                  <Suspense fallback={null}>
-                    {children}
-                    {showFooter && <Footer />}
-                  </Suspense>
-                  {pathname === '/how-we-work' && (
-                    <div className="how-we-work-scroll-spacer" />
-                  )}
-                </SmoothScroller>
-              </ScrollProvider>
+                <Suspense fallback={null}>
+                  {children}
+                  {showFooter && <Footer />}
+                </Suspense>
+                {pathname === '/how-we-work' && (
+                  <div className="how-we-work-scroll-spacer" />
+                )}
+              </>
             </AppRouterCacheProvider>
           </StoreProvider>
         )}

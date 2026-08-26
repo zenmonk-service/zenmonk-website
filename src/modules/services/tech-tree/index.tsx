@@ -39,7 +39,7 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
   const descriptionVariants = {
     hidden: { 
       opacity: 0, 
-      y: '2.6vw',
+      y: '2.6vw', 
       scale: 0.95
     },
     visible: {

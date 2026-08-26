@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
-import { useScrollSmoother } from '@/shared/scroll-smoother/scroll-context'
 import { useAppSelector } from '@/store/hooks'
 import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
@@ -14,8 +13,6 @@ import styles from './header.module.scss'
 const Navbar = () => {
   const pathname = usePathname()
   const [isOpen, toggleOpen] = useCycle(false, true)
-  const smootherRef = useScrollSmoother()
-  const current = smootherRef?.current
 
   const [hidden, setHidden] = useState(false)
   const [isAtTop, setIsAtTop] = useState(true)
@@ -32,9 +29,6 @@ const Navbar = () => {
   })
 
   useEffect(() => {
-    if (current) {
-      current.paused(isOpen)
-    }
     if (isOpen) {
       document.body.style.overflow = 'hidden'
       document.documentElement.style.overflow = 'hidden'
@@ -46,7 +40,7 @@ const Navbar = () => {
       document.body.style.overflow = ''
       document.documentElement.style.overflow = ''
     }
-  }, [current, isOpen])
+  }, [isOpen])
 
   const isHeaderHidden = useAppSelector((state) => state.header.hide)
 

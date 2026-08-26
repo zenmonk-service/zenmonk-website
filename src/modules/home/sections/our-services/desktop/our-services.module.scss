@@ -94,7 +94,8 @@
   height: fit-content;
   flex-direction: column;
   will-change: transform;
-  position: relative;
+  position: sticky;
+  top: 120px;
 }
 
 .logo {

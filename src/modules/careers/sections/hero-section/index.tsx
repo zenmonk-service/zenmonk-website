@@ -6,7 +6,6 @@ import Image from 'next/image'
 import ExperienceCard from './assets/card_experience.svg'
 import SalaryCard from './assets/card_salary.svg'
 import CultureCard from './assets/card_culture.svg'
-import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import styles from './styles.module.scss'
 
 const CareerHeroSection = () => {
@@ -34,12 +33,7 @@ const CareerHeroSection = () => {
             onClick={() => {
               const el = document.getElementById('open-positions')
               if (el) {
-                const smoother = ScrollSmoother.get()
-                if (smoother) {
-                  smoother.scrollTo(el, true)
-                } else {
-                  el.scrollIntoView({ behavior: 'smooth' })
-                }
+                el.scrollIntoView({ behavior: 'smooth' })
               }
             }}
           >
