@@ -21,16 +21,46 @@ const OurServicesDesktop = () => {
       const container = containerRef.current
       if (!rightCard || !container) return
 
-      const items = container.querySelectorAll(`.${styles.businessItem}`)
+      const items = container.querySelectorAll<HTMLElement>(`.${styles.businessItem}`)
       if (items.length === 0) return
 
       const rightRect = rightCard.getBoundingClientRect()
       const containerRect = container.getBoundingClientRect()
       const targetY = rightRect.top + rightRect.height / 2
 
+      // Top-down gradient mask effect: cards fade out from the top as they move above the top level of the sticky right card
+      const stickyTop = rightRect.top - 15
+      const fadeDistance = 60
+
+      items.forEach((item) => {
+        const rect = item.getBoundingClientRect()
+
+        if (rect.bottom <= stickyTop) {
+          // Entire card is above sticky top boundary -> invisible
+          item.style.opacity = '0'
+          item.style.maskImage = 'none'
+          item.style.webkitMaskImage = 'none'
+        } else if (rect.top >= stickyTop) {
+          // Entire card is below sticky top boundary -> 100% visible
+          item.style.opacity = '1'
+          item.style.maskImage = 'none'
+          item.style.webkitMaskImage = 'none'
+        } else {
+          // Card is crossing the sticky top boundary -> top portion fades via gradient
+          item.style.opacity = '1'
+          const overlap = stickyTop - rect.top
+          const transparentStop = Math.max(0, overlap)
+          const blackStop = Math.min(rect.height, overlap + fadeDistance)
+
+          const maskValue = `linear-gradient(to bottom, transparent 0px, transparent ${transparentStop.toFixed(1)}px, black ${blackStop.toFixed(1)}px, black 100%)`
+          item.style.maskImage = maskValue
+          item.style.webkitMaskImage = maskValue
+        }
+      })
+
       let closestIndex = 0
 
-      if (rightRect.top > 125) {
+      if (containerRect.top > 100) {
         closestIndex = 0
       } else if (containerRect.bottom <= rightRect.bottom + 50) {
         closestIndex = services.length - 1
@@ -73,16 +103,6 @@ const OurServicesDesktop = () => {
 
   return (
     <section ref={containerRef} className={styles.serviceSectionWrapper}>
-      <SectionTitle
-        text={text}
-        markText="Services"
-        className={styles.serviceSectionHomeTitle}
-        markTextProps={{
-          style: {
-            marginTop: '-0.45vw',
-          },
-        }}
-      />
       <div className={`${styles.servicesSection} desktop`}>
         <div className={styles.servicesLeftContainer}>
           {services.map((service, index) => {
@@ -120,6 +140,16 @@ const OurServicesDesktop = () => {
         </div>
 
         <div className={styles.servicesRightContainer}>
+          <SectionTitle
+            text={text}
+            markText="Services"
+            className={styles.serviceSectionHomeTitle}
+            markTextProps={{
+              style: {
+                marginTop: '-0.45vw',
+              },
+            }}
+          />
           <Image className={styles.logo} src={ZenmonkLogo} alt="zenmonk-logo" />
           <div ref={rightCardRef} className={styles.businessProof}>
             <div className={styles.businessProofContent}>

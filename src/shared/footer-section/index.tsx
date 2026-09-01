@@ -172,7 +172,7 @@ const Footer = () => {
       <div className="divider" />
 
       <div className="copyright">
-        <SectionDescription text="© Zenmonk 2025" />
+        <SectionDescription text={`© Zenmonk ${new Date().getFullYear()}`} />
       </div>
     </footer>
   )

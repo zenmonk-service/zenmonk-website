@@ -23,6 +23,8 @@ const BigShowCaseCard = ({ cardProps }: BigShowCaseCardProps) => {
             className="show-case-image"
             src={cardDetails?.image}
             alt="show-case-image"
+            quality={100}
+            unoptimized
           />
         )}
       </div>

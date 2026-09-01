@@ -110,7 +110,8 @@
       }
 
       &.iconReact {
-        animation: enterReact 1s ease-out 1s forwards, float 6s infinite ease-in-out 2s;
+        --icon-scale: 1;
+        animation: enterReact 1s ease-out 1s both, float 6s infinite ease-in-out 2s;
 
         img {
           transform: scale(1.1);
@@ -118,23 +119,28 @@
       }
 
       &.iconPhp {
-        animation: enterPhp 1s ease-out 1.2s forwards, float 7s infinite ease-in-out 2.2s;
+        --icon-scale: 0.8;
+        animation: enterPhp 1s ease-out 1.2s both, float 7s infinite ease-in-out 2.2s;
       }
 
       &.iconXd {
-        animation: enterXd 1s ease-out 1.4s forwards, float 5s infinite ease-in-out 2.4s;
+        --icon-scale: 0.7;
+        animation: enterXd 1s ease-out 1.4s both, float 5s infinite ease-in-out 2.4s;
       }
 
       &.iconFigma {
-        animation: enterFigma 1s ease-out 1.6s forwards, float 8s infinite ease-in-out 2.6s;
+        --icon-scale: 1;
+        animation: enterFigma 1s ease-out 1.6s both, float 8s infinite ease-in-out 2.6s;
       }
 
       &.iconNode {
-        animation: enterNode 1s ease-out 1.8s forwards, float 6.5s infinite ease-in-out 2.8s;
+        --icon-scale: 1;
+        animation: enterNode 1s ease-out 1.8s both, float 6.5s infinite ease-in-out 2.8s;
       }
 
       &.iconMongo {
-        animation: enterMongo 1s ease-out 2.0s forwards, float 7.5s infinite ease-in-out 3.0s;
+        --icon-scale: 0.8;
+        animation: enterMongo 1s ease-out 2.0s both, float 7.5s infinite ease-in-out 3.0s;
       }
     }
   }
@@ -229,11 +235,11 @@
 
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(var(--icon-scale, 1));
   }
 
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-15px) scale(var(--icon-scale, 1));
   }
 }
 
@@ -284,7 +290,7 @@
     top: 5%;
     left: 0%;
     opacity: 1;
-    transform: scale(1);
+    transform: scale(var(--icon-scale, 1));
   }
 }
 
@@ -300,7 +306,7 @@
     top: -5%;
     left: 15%;
     opacity: 1;
-    transform: scale(0.7);
+    transform: scale(var(--icon-scale, 0.8));
   }
 }
 
@@ -316,7 +322,7 @@
     top: -5%;
     right: 30%;
     opacity: 1;
-    transform: scale(0.7);
+    transform: scale(var(--icon-scale, 0.7));
   }
 }
 
@@ -332,7 +338,7 @@
     top: 10%;
     right: 8%;
     opacity: 1;
-    transform: scale(1);
+    transform: scale(var(--icon-scale, 1));
   }
 }
 
@@ -348,7 +354,7 @@
     bottom: 25%;
     left: -5%;
     opacity: 1;
-    transform: scale(1);
+    transform: scale(var(--icon-scale, 1));
   }
 }
 
@@ -364,7 +370,7 @@
     bottom: 25%;
     right: 3%;
     opacity: 1;
-    transform: scale(0.8);
+    transform: scale(var(--icon-scale, 0.8));
   }
 }
 
@@ -461,7 +467,7 @@
         padding: 2.5px;
         border-radius: 8px;
         opacity: 1 !important; // Ensure visible on mobile
-        transform: scale(1) !important; // Ensure scaled up on mobile
+        --icon-scale: 1 !important;
 
         img {
           width: 100%;

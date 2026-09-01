@@ -43,10 +43,10 @@ const HeroImage = () => {
       <div className="floating-icon iconReact">
         <Image src={React} alt="React" width={40} height={40} />
       </div>
-      <div className="floating-icon iconPhp" style={{ scale: 0.8 }}>
+      <div className="floating-icon iconPhp">
         <Image src={Php} alt="PHP" width={40} height={40} />
       </div>
-      <div className="floating-icon iconXd" style={{ scale: 0.7 }}>
+      <div className="floating-icon iconXd">
         <Image src={Xd} alt="Adobe XD" width={20} height={20} />
       </div>
       <div className="floating-icon iconFigma">

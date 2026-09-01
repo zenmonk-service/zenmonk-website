@@ -4,8 +4,8 @@ export const showCaseList = [
   {
     date: 'October 19, 2022',
     title:
-      'Premier Elite Cricket Tournament Series: The Ultimate Battle of Champions.',
-    image: Cricket,
+      'Premier Elite Football Tournament Series: The Ultimate Battle of Champions.',
+    image: Football,
     position: 'top',
     imageSize: {
       width: 630,
@@ -16,7 +16,7 @@ export const showCaseList = [
       width: 630,
     },
     description:
-      'Top-tier teams clash in a high-stakes cricket series, where every match is a test of grit, glory, and game-day brilliance.',
+      'Top-tier teams clash in a high-stakes football series, where every match is a test of grit, glory, and game-day brilliance.',
   },
   {
     date: 'October 19, 2022',
@@ -52,8 +52,8 @@ export const showCaseList = [
   },
   {
     date: 'October 19, 2022',
-    title: 'Premier Elite Football Tourn-ament Series.',
-    image: Football,
+    title: 'Premier Elite Cricket Tourn-ament Series.',
+    image: Cricket,
     position: 'left',
     imageSize: {
       width: 220,
@@ -64,7 +64,7 @@ export const showCaseList = [
       height: 290,
     },
     description:
-      'A pulse-pounding football tournament where tactics, teamwork, and raw talent determine who stands tallest on the field.',
+      'A pulse-pounding cricket tournament where tactics, teamwork, and raw talent determine who stands tallest on the field.',
   },
   {
     date: 'October 19, 2022',

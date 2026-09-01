@@ -16,8 +16,8 @@
 <clipPath id="bgblur_0_103_421_clip_path" transform="translate(-390.485 -48.4834)"><rect x="401" y="58.998" width="126.647" height="148.632" rx="16.8235"/>
 </clipPath>
   </defs>
-  <foreignObject x="390.485" y="48.4834" width="147.676" height="174.147"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5.26px);clip-path:url(#bgblur_0_103_421_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_103_421)" data-figma-bg-blur-radius="10.5147">
-<rect x="401" y="58.998" width="126.647" height="148.632" rx="16.8235" fill="white" fill-opacity="0.6" shape-rendering="crispEdges"/>
+  <g filter="url(#filter0_d_103_421)" data-figma-bg-blur-radius="10.5147">
+<rect x="401" y="58.998" width="126.647" height="148.632" rx="16.8235" fill="white" shape-rendering="crispEdges"/>
 <g clip-path="url(#clip1_103_421)">
 <path d="M457.803 101.663V104.804C457.803 106.115 458.872 107.183 460.183 107.184H468.463C469.778 107.184 470.843 106.119 470.843 104.804V101.663H485.404V113.084C485.404 114.739 483.919 116.224 482.264 116.224H446.383C444.728 116.224 443.243 114.739 443.243 113.084V101.663H457.803ZM457.423 76.8223H471.224C472.88 76.8225 474.364 78.308 474.364 79.9629V85.1025H482.264C483.92 85.1026 485.404 86.5874 485.404 88.2432V96.9033H443.243V88.2432C443.243 86.5875 444.728 85.1025 446.383 85.1025H454.283V79.9629C454.283 78.3078 455.768 76.8223 457.423 76.8223ZM456.423 85.1025H472.224V78.9629H456.423V85.1025Z" fill="#FF8518" stroke="#FF8518" stroke-width="2"/>
 </g>

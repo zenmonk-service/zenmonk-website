@@ -24,6 +24,8 @@ const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
             className="show-case-image"
             src={cardDetails?.image}
             alt="show-case-image"
+            quality={100}
+            unoptimized
           />
         )}
       </Box>
