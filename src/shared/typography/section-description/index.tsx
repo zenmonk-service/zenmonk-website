@@ -4,13 +4,14 @@ import { motion, type MotionProps } from 'framer-motion'
 import './styles.scss'
 
 interface SectionDescriptionProps extends MotionProps {
-  text: string
+  text?: string
+  children?: React.ReactNode
   className?: string
   maxWidth?: string | number
 }
 
 const SectionDescription = (props: SectionDescriptionProps) => {
-  const { text, className, maxWidth, style, ...others } = props
+  const { text, children, className, maxWidth, style, ...others } = props
 
   return (
     <motion.p
@@ -21,7 +22,7 @@ const SectionDescription = (props: SectionDescriptionProps) => {
       }}
       className={`custom-section-description ${className ?? ''}`}
     >
-      {text}
+      {children || text}
     </motion.p>
   )
 }

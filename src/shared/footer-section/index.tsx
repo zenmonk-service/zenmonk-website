@@ -34,9 +34,14 @@ const Footer = () => {
             priority
           />
         </Link>
-        <p className="branding-text">
-          Over the last decade, we have helped our clients ship products for multiple platforms. We can create the software your business needs to grow!
-        </p>
+        <SectionDescription
+          text=""
+          className="branding-text"
+        >
+          <span>Over the last decade, we have helped our clients ship products for multiple platforms.</span>
+          <br />
+          <span>We can create the software your business needs to grow!</span>
+        </SectionDescription>
       </div>
 
       <div className="divider" />
