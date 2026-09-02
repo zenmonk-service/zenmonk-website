@@ -1,13 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from '@mui/material/Button'
-import InputBase from '@mui/material/InputBase'
-import Tooltip from '@mui/material/Tooltip'
-import CheckIcon from '@mui/icons-material/Check'
-import { motion, AnimatePresence } from 'framer-motion'
 import { socialMedia } from '@/assets/icons/social'
 import { SectionDescription } from '@/shared/typography'
 import ListHeading from './list-heading/list-heading'
@@ -17,19 +11,6 @@ import { serviceCategory } from './list/service-categories'
 import './styles.scss'
 
 const Footer = () => {
-  const [email, setEmail] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubscribe = () => {
-    if (!email) return
-    console.log('Subscribed email:', email)
-    setEmail('')
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 2000)
-  }
-
   const chunkArray = <T,>(arr: T[], size: number): T[][] => {
     const result: T[][] = []
     for (let i = 0; i < arr.length; i += size) {
@@ -108,63 +89,6 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="subscribe-column">
-          <ListHeading title="Subscribe US" />
-          <ListItem text="Make the right business move." />
-          <div className="email">
-            <Tooltip title={email || ''} disableHoverListener={!email} arrow>
-              <InputBase
-                placeholder="Email Address"
-                className="input-field"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                slotProps={{
-                  input: {
-                    className: 'input',
-                    onBlur: (e) => {
-                      e.target.setSelectionRange(0, 0)
-                      e.target.scrollLeft = 0
-                    },
-                  },
-                }}
-                endAdornment={
-                  <Button
-                    variant="contained"
-                    className="submit-button"
-                    onClick={handleSubscribe}
-                    style={isSubmitted ? { pointerEvents: 'none' } : {}}
-                  >
-                    <AnimatePresence mode="wait">
-                      {isSubmitted ? (
-                        <motion.div
-                          key="check"
-                          initial={{ scale: 0, opacity: 0 }}
-                          animate={{ scale: 1, opacity: 1 }}
-                          exit={{ scale: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-                        >
-                          <CheckIcon />
-                        </motion.div>
-                      ) : (
-                        <motion.span
-                          key="submit"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.15 }}
-                        >
-                          SUBMIT
-                        </motion.span>
-                      )}
-                    </AnimatePresence>
-                  </Button>
-                }
-              />
-            </Tooltip>
           </div>
         </div>
       </div>

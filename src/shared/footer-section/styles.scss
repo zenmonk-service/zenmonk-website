@@ -234,88 +234,45 @@
   }
 }
 
-/* 1201px - 1410px Screen Layout Styles (3-column layout, Follow Us below Subscribe) */
+/* 1201px - 1410px Screen Layout Styles */
 @media screen and (min-width: 1201px) and (max-width: 1410px) {
   .footer-section {
     .main-content {
-      display: grid;
-      grid-template-columns: 1fr max-content 340px;
-      grid-template-areas:
-        "services quicklinks subscribe"
-        "services quicklinks followus";
-      column-gap: clamp(24px, 3.5vw, 52px);
-      row-gap: 32px;
-      align-items: start;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
 
       .services-column-group {
-        grid-area: services;
-
         .services-subcolumns {
-          gap: clamp(24px, 3.5vw, 52px);
+          gap: clamp(24px, 3vw, 48px);
         }
       }
 
       .quick-links-follow-group {
-        display: contents;
-      }
-
-      .quick-links-column {
-        grid-area: quicklinks;
-      }
-
-      .follow-us-column {
-        grid-area: followus;
-      }
-
-      .subscribe-column {
-        grid-area: subscribe;
-        max-width: 340px;
-        width: 100%;
+        display: flex;
+        gap: clamp(32px, 4vw, 64px);
       }
     }
   }
 }
 
-/* 901px - 1200px Screen Layout Styles (2-column layout, Follow Us below Quick Links) */
+/* 901px - 1200px Screen Layout Styles */
 @media screen and (min-width: 901px) and (max-width: 1200px) {
   .footer-section {
     .main-content {
-      display: grid;
-      grid-template-columns: 1fr 240px;
-      grid-template-areas:
-        "services quicklinks"
-        "subscribe followus";
-      column-gap: clamp(24px, 3.5vw, 52px);
-      row-gap: 32px;
-      align-items: start;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
 
       .services-column-group {
-        grid-area: services;
-        max-width: 520px;
-        width: 100%;
-
         .services-subcolumns {
-          justify-content: space-between;
-          gap: clamp(24px, 3.5vw, 52px);
+          gap: clamp(20px, 2.5vw, 40px);
         }
       }
 
       .quick-links-follow-group {
-        display: contents;
-      }
-
-      .quick-links-column {
-        grid-area: quicklinks;
-      }
-
-      .follow-us-column {
-        grid-area: followus;
-      }
-
-      .subscribe-column {
-        grid-area: subscribe;
-        max-width: 520px;
-        width: 100%;
+        display: flex;
+        gap: clamp(24px, 3vw, 48px);
       }
     }
   }
