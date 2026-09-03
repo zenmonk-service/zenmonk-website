@@ -41,6 +41,10 @@ import { FindSkillHandler } from "../../features/skills/find-skill/find-skill.ha
 import { FindJobSkillController } from "../../features/job-skills/find-job-skill/find-job-skill.controller";
 import { FindJobSkillHandler } from "../../features/job-skills/find-job-skill/find-job-skill.handler";
 import { MailService } from "../services/mail.service";
+import { SendContactInquiryHandler } from "../../features/contact/send-contact-inquiry/send-contact-inquiry.handler";
+import { SendContactInquiryController } from "../../features/contact/send-contact-inquiry/send-contact-inquiry.controller";
+import { ContactRepository } from "../repositories/contact.repository";
+
 const containerRegistrations = {
   addJobPostingHandler: asClass(AddJobPostingHandler),
   addJobPostingController: asClass(AddJobPostingController),
@@ -82,7 +86,10 @@ const containerRegistrations = {
   createApplicationController: asClass(CreateApplicationController),
   createApplicationHandler: asClass(CreateApplicationHandler),
   applicationRepository: asClass(ApplicationRepository),
-  mailService: asClass(MailService)
+  mailService: asClass(MailService),
+  sendContactInquiryHandler: asClass(SendContactInquiryHandler),
+  sendContactInquiryController: asClass(SendContactInquiryController),
+  contactRepository: asClass(ContactRepository)
 }
 
 export const container = createTypedContainer(containerRegistrations, {

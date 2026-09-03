@@ -12,7 +12,18 @@ export class CreateApplicationController {
 
   async handle(request: Request) {
     try {
-      const body = await request.json();
+      const formData = await request.formData();
+      const file = formData.get('resume') as File | null;
+      
+      const body = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        message: formData.get('message') as string,
+        job_posting: formData.get('job_posting') as string,
+        resumeFile: file,
+      };
+
       const response = await this.handler.handle(body);
       return NextResponse.json(response, {
         status: HttpStatusCode.Created,

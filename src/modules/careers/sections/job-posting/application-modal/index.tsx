@@ -69,16 +69,20 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
-    const payload = {
-      name: data.fullName,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
-      document: data.resume?.[0]?.name || '',
-      job_posting: jobId
+    const formData = new FormData()
+    formData.append('name', data.fullName)
+    formData.append('email', data.email)
+    formData.append('phone', data.phone)
+    if (data.message) {
+      formData.append('message', data.message)
+    }
+    formData.append('job_posting', jobId)
+    
+    if (data.resume && data.resume.length > 0) {
+      formData.append('resume', data.resume[0])
     }
 
-    dispatch(createApplication(payload))
+    dispatch(createApplication(formData))
   }
 
   const getTextFieldStyles = () => ({

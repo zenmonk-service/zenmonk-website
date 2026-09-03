@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormControl, FormHelperText } from '@mui/material'
+import axios from 'axios'
 import {
   Message,
   Mobile,
@@ -26,11 +27,15 @@ export const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactFormData>()
 
   const [phoneTypeError, setPhoneTypeError] = useState(false)
   const phoneErrorTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
 
   const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     // Allow keyboard shortcuts (Ctrl+A, Ctrl+C, Ctrl+V, etc.)
@@ -58,8 +63,19 @@ export const ContactForm = () => {
     }
   }
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log('Form Data Submitted:', data)
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    try {
+      await axios.post('/api/contact', data)
+      setSubmitStatus('success')
+      reset()
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -162,11 +178,23 @@ export const ContactForm = () => {
         )}
       </FormControl>
 
+      {submitStatus === 'success' && (
+        <p style={{ color: 'green', fontSize: '14px', marginTop: '10px' }}>
+          Your message has been sent successfully!
+        </p>
+      )}
+      {submitStatus === 'error' && (
+        <p style={{ color: '#d32f2f', fontSize: '14px', marginTop: '10px' }}>
+          Failed to send message. Please try again later.
+        </p>
+      )}
+
       <div className="button-wrapper">
-        <BaseButton className="send-button">
-          Send Message <Send className="send-button-icon" />
+        <BaseButton className="send-button" disabled={isSubmitting} type='submit'>
+          {isSubmitting ? 'Sending...' : 'Send Message'} <Send className="send-button-icon" />
         </BaseButton>
       </div>
     </form>
   )
 }
+

@@ -13,7 +13,7 @@ export interface ApplicationPayload {
 // Create Application
 export const createApplication = createAsyncThunk(
   'applications/createApplication',
-  async (data: ApplicationPayload, { rejectWithValue }) => {
+  async (data: FormData, { rejectWithValue }) => {
     try {
       const response = await axios.post('/api/applications', data)
       return response.data
