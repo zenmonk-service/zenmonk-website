@@ -45,14 +45,24 @@ export const ContactForm = () => {
       'Backspace',
       'Delete',
       'Tab',
+      'Escape',
+      'Enter',
       'ArrowLeft',
       'ArrowRight',
       'ArrowUp',
       'ArrowDown',
       'Home',
       'End',
+      'Unidentified', // Sent by browser autofill events
     ]
-    if (!allowedKeys.includes(e.key) && !/^[0-9]$/.test(e.key)) {
+    
+    // Ignore non-single character key presses (like Process, Dead, etc.)
+    if (e.key.length > 1) {
+      if (!allowedKeys.includes(e.key)) return
+      return
+    }
+
+    if (!/^[0-9+\s-]$/.test(e.key)) {
       e.preventDefault()
       setPhoneTypeError(true)
       if (phoneErrorTimerRef.current) clearTimeout(phoneErrorTimerRef.current)
@@ -144,7 +154,7 @@ export const ContactForm = () => {
           onKeyDown={handlePhoneKeyDown}
           {...register('phone', {
             required: 'Phone number is required',
-            pattern: { value: /^[0-9]+$/, message: 'Invalid phone number' },
+            pattern: { value: /^\+?[0-9\s-]+$/, message: 'Invalid phone number' },
           })}
         />
         {phoneTypeError && (

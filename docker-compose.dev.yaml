@@ -1,28 +1,44 @@
 services:
   app:
+    container_name: zenmonk-website-app
     image: zenmonk-website:dev
     build:
       context: .
       dockerfile: Dockerfile.dev
     restart: "no"
+    ports:
+      - "${APP_FORWARD_PORT:-3000}:${PORT:-3000}"
+    env_file:
+      - .env
     environment:
       NODE_ENV: development
+      WATCHPACK_POLLING: "true"
     volumes:
-      - .:/app
-      - dev_node_modules:/app/node_modules
-      - dev_next_cache:/app/.next
-    healthcheck:
-      start_period: 60s
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./package.json:/app/package.json
+    networks:
+      - zenmonk-website-network
 
-  mongodb:
+  mailpit:
+    container_name: zenmonk-website-mailpit
+    image: axllent/mailpit
+    restart: unless-stopped
     ports:
-      - "127.0.0.1:${DB_FORWARD_PORT:-27017}:27017"
+      - "${MAIL_FORWARD_PORT:-1026}:1025"
+      - "${MAIL_WEB_UI_FORWARD_PORT:-8026}:8025"
+    networks:
+      - zenmonk-website-network
+    volumes:
+      - mailpit_data:/data
+    environment:
+      MP_DATABASE: ${MAIL_STORAGE_PATH:-/data/mailpit.db}
 
-  mailhog:
-    ports:
-      - "127.0.0.1:${MAIL_FORWARD_PORT:-1025}:1025"
-      - "127.0.0.1:${MAIL_DASHBOARD_FORWARD_PORT:-8025}:8025"
+networks:
+  zenmonk-website-network:
+    driver: bridge
 
 volumes:
-  dev_node_modules:
-  dev_next_cache:
+  mailpit_data:
+    driver: local
+

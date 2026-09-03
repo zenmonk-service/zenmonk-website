@@ -56,15 +56,21 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   React.useEffect(() => {
     if (submitSuccess) {
       reset()
-      setTimeout(() => {
-        onClose()
-        dispatch(resetSubmitSuccess())
-      }, 3000)
     }
-  }, [submitSuccess, onClose, reset, dispatch])
+  }, [submitSuccess, reset])
+
+  const handleClose = (event: {}, reason?: "backdropClick" | "escapeKeyDown") => {
+    if (reason === 'backdropClick') {
+      return
+    }
+    reset()
+    dispatch(resetSubmitSuccess())
+    onClose()
+  }
 
   const handleCancel = () => {
     reset()
+    dispatch(resetSubmitSuccess())
     onClose()
   }
 
@@ -119,7 +125,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   return (
     <Dialog
       open={open}
-      onClose={onClose}
+      onClose={handleClose}
       fullScreen={isMobile}
       maxWidth={false}
       fullWidth
@@ -177,7 +183,13 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           overflow: 'hidden',
         }}
       >
-        {submitSuccess ? <SuccessMessage jobTitle={jobTitle} tracking_id={submittedApplication?.tracking_id} /> : (
+        {submitSuccess ? (
+          <SuccessMessage
+            jobTitle={jobTitle}
+            tracking_id={submittedApplication?.tracking_id}
+            onClose={handleCancel}
+          />
+        ) : (
           <Box
             component="form"
             onSubmit={handleSubmit(onSubmit)}

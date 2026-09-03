@@ -30,40 +30,42 @@ export class MailService {
       subject: 'Application Received - Zenmonk',
       html: `
         <div style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <!-- Logo -->
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
+          </div>
+
           <!-- Card -->
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div style="background: #F69333; padding: 24px; text-align: center;">
-              <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600;">Application Received!</h1>
+            <div style="background: #F69333; padding: 28px 88px; text-align: left;">
+              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">Application Received!</h1>
             </div>
             
             <!-- Body -->
-            <div style="padding: 32px;">
-              <p style="font-size: 16px; font-weight: 600; color: #111827; margin-top: 0; margin-bottom: 16px;">Hi ${name},</p>
+            <div style="padding: 40px 88px;">
+              <p style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 20px;">Hi ${name},</p>
               
-              <p style="font-size: 14px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6;">
                 Thank you for applying for the <strong>${jobTitle}</strong> position at Zenmonk!
               </p>
               
-              <p style="font-size: 14px; color: #374151; margin-top: 0; margin-bottom: 24px; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 20px; line-height: 1.6;">
                 We've received your application and our team will review it shortly. If your profile matches our requirements, we'll get in touch for the next steps.
               </p>
 
-              <!-- Tracking Box -->
-              <div style="border: 2px solid #3b82f6; border-radius: 4px; padding: 12px; margin-bottom: 24px;">
-                <p style="font-size: 14px; color: #374151; margin: 0; line-height: 1.5;">
-                  You can track your application status anytime using the link below:
-                </p>
-              </div>
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 24px; line-height: 1.6;">
+                You can track your application status anytime using the link below:
+              </p>
               
-              <div style="margin-bottom: 24px;">
-                <a href="${trackingUrl}" style="display: inline-block; background: #F69333; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+              <div style="margin-bottom: 32px;">
+                <a href="${trackingUrl}" style="display: inline-block; background: #F69333; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px;">
                   Track Application Status
                 </a>
               </div>
               
-              <p style="font-size: 14px; color: #374151; margin: 0; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin: 0; line-height: 1.6;">
                 Best regards,<br>
                 <strong>Team Zenmonk</strong>
               </p>
@@ -99,36 +101,41 @@ export class MailService {
       subject: 'New Contact Inquiry - Zenmonk',
       html: `
         <div style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <!-- Logo -->
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
+          </div>
+
           <!-- Card -->
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div style="background: #F69333; padding: 24px; text-align: center;">
-              <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600;">New Contact Inquiry</h1>
+            <div style="background: #F69333; padding: 28px 88px; text-align: left;">
+              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">New Contact Inquiry</h1>
             </div>
             
             <!-- Body -->
-            <div style="padding: 32px;">
-              <h2 style="font-size: 20px; font-weight: 600; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
+            <div style="padding: 40px 88px;">
+              <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
               
-              <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-                <tr style="border-bottom: 1px solid #f3f4f6;">
-                  <td style="padding: 12px 0; color: #6b7280; width: 100px;">Name:</td>
-                  <td style="padding: 12px 0; color: #111827; font-weight: 500;">${firstName} ${lastName}</td>
+              <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif;">
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                  <td style="padding: 14px 0; color: #6b7280; width: 100px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Name:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${firstName} ${lastName}</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;">
-                  <td style="padding: 12px 0; color: #6b7280;">Email:</td>
-                  <td style="padding: 12px 0; color: #111827; font-weight: 500;">${email}</td>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Email:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${email}</td>
                 </tr>
-                <tr style="border-bottom: 1px solid #f3f4f6;">
-                  <td style="padding: 12px 0; color: #6b7280;">Phone:</td>
-                  <td style="padding: 12px 0; color: #111827; font-weight: 500;">${phone}</td>
-                </tr>
-                <tr>
-                  <td style="padding: 12px 0; color: #6b7280;" colspan="2">Message:</td>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Phone:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${phone}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0 0 12px 0; color: #111827; line-height: 1.6;" colspan="2">
+                  <td style="padding: 16px 0 8px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;" colspan="2">Message:</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0 0 16px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;" colspan="2">
                     ${message.replace(/\n/g, '<br>')}
                   </td>
                 </tr>

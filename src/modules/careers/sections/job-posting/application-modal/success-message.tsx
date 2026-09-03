@@ -3,7 +3,15 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import TrackChangesIcon from '@mui/icons-material/TrackChanges'
 import { useState } from 'react'
 
-const SuccessMessage = ({ jobTitle, tracking_id }: { jobTitle: string, tracking_id?: string }) => {
+const SuccessMessage = ({
+  jobTitle,
+  tracking_id,
+  onClose
+}: {
+  jobTitle: string
+  tracking_id?: string
+  onClose?: () => void
+}) => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [copied, setCopied] = useState(false)
@@ -149,26 +157,50 @@ const SuccessMessage = ({ jobTitle, tracking_id }: { jobTitle: string, tracking_
             )}
           </Box>
 
-          <Button
-            href={trackingUrl}
-            variant="contained"
-            startIcon={<TrackChangesIcon />}
-            sx={{
-              background: 'linear-gradient(135deg, #F69333 0%, #E67E22 100%)',
-              color: 'white',
-              padding: isMobile ? '10px 20px' : 'max(10px, 0.52vw) max(20px, 1.04vw)',
-              fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
-              fontWeight: 600,
-              fontFamily: 'Poppins',
-              borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
-              textTransform: 'none',
-              '&:hover': {
-                background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
-              }
-            }}
-          >
-            Track Application Status
-          </Button>
+          <Box sx={{ display: 'flex', gap: isMobile ? '12px' : 'max(12px, 0.83vw)', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <Button
+              href={trackingUrl}
+              variant="contained"
+              startIcon={<TrackChangesIcon />}
+              sx={{
+                background: 'linear-gradient(135deg, #F69333 0%, #E67E22 100%)',
+                color: 'white',
+                padding: isMobile ? '10px 20px' : 'max(10px, 0.52vw) max(20px, 1.04vw)',
+                fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
+                fontWeight: 600,
+                fontFamily: 'Poppins',
+                borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
+                textTransform: 'none',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+                }
+              }}
+            >
+              Track Application Status
+            </Button>
+            {onClose && (
+              <Button
+                onClick={onClose}
+                variant="outlined"
+                sx={{
+                  borderColor: '#D1D5DB',
+                  color: '#374151',
+                  padding: isMobile ? '10px 20px' : 'max(10px, 0.52vw) max(20px, 1.04vw)',
+                  fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
+                  fontWeight: 600,
+                  fontFamily: 'Poppins',
+                  borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
+                  textTransform: 'none',
+                  '&:hover': {
+                    borderColor: '#9CA3AF',
+                    backgroundColor: '#F3F4F6'
+                  }
+                }}
+              >
+                Close
+              </Button>
+            )}
+          </Box>
         </>
       )}
     </Box>
