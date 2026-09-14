@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import LoadingIndicator from '@/shared/loader/detector'
-import { useAppSelector } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
 import styles from './service.module.scss'
 
 interface ServiceCardProps {
@@ -24,6 +25,7 @@ const ServiceCard = ({
   styles: serviceStyles,
 }: ServiceCardProps) => {
   const isPageLoading = useAppSelector((state) => state.header.isLoading)
+  const dispatch = useAppDispatch()
   const [click, setClick] = useState(false)
 
   useEffect(() => {
@@ -42,7 +44,9 @@ const ServiceCard = ({
           e.preventDefault()
           return
         }
+        dispatch(toggleLoader(true))
         setClick(true)
+        handleClose()
       }}
     >
       <LoadingIndicator />

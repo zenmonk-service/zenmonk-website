@@ -1,10 +1,12 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 
 const ProductDevelopment: React.FC = () => {
+  const router = useRouter()
   return (
     <div className="product-dev-hero-wrapper">
       <div className="content-side">
@@ -38,7 +40,13 @@ const ProductDevelopment: React.FC = () => {
         <p className="hero-desc">
           We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
         </p>
-        <BaseButton className="explore-btn" sx={{ marginTop: 'max(40px, 3.25vw)' }}>EXPLORE MORE</BaseButton>
+        <BaseButton
+          className="explore-btn"
+          onClick={() => router.push('/contact')}
+          sx={{ marginTop: 'max(40px, 3.25vw)' }}
+        >
+          EXPLORE MORE
+        </BaseButton>
       </div>
       <div className="visual-side">
         <div className="image-container">

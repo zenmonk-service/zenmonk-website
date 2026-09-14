@@ -3,6 +3,7 @@
 import parse from 'html-react-parser'
 import Grid from '@mui/material/Grid2'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import BaseButton from '../button'
 import styles from './hero-section.module.scss'
 import Image from 'next/image'
@@ -19,6 +20,9 @@ interface HeroSectionProps {
   textWrapperStyle?: React.CSSProperties
   titleProps?: React.HTMLAttributes<HTMLHeadingElement>
   style?: React.CSSProperties
+  buttonText?: string
+  buttonLink?: string
+  onButtonClick?: () => void
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -33,7 +37,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   textWrapperStyle = {},
   titleProps = {},
   style = {},
+  buttonText = 'EXPLORE MORE',
+  buttonLink = '/contact',
+  onButtonClick,
 }) => {
+  const router = useRouter()
+
+  const handleButtonClick = () => {
+    if (onButtonClick) {
+      onButtonClick()
+    } else {
+      router.push(buttonLink)
+    }
+  }
 
 
   const highlightTitle = (text: string) => {
@@ -142,7 +158,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             animate="visible"
             style={{ opacity: 0 }}
           >
-            <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+            <BaseButton className={styles.button} onClick={handleButtonClick}>
+              {buttonText}
+            </BaseButton>
           </motion.div>
         </div>
       </Grid>

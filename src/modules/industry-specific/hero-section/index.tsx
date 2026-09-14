@@ -1,8 +1,12 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import BaseButton from '@/shared/button'
 import HeroImage from './assets/industry.svg'
 import styles from './styles.module.scss'
 
 const IndustrySpecificHeroSection = () => {
+  const router = useRouter()
   return (
     <div className={styles.backgroundWrapper}>
       <div className={styles.container}>
@@ -17,7 +21,12 @@ const IndustrySpecificHeroSection = () => {
             your partners in technological excellence, we transform values into
             action, simplifying tech to deliver user-centered solutions.
           </p>
-          <BaseButton className={styles.button}>EXPLORE MORE</BaseButton>
+          <BaseButton
+            onClick={() => router.push('/contact')}
+            className={styles.button}
+          >
+            EXPLORE MORE
+          </BaseButton>
         </div>
         <div className={styles.imageContainer}>
           <HeroImage className={styles.heroImage} />

@@ -2,8 +2,10 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { Box, Typography } from '@mui/material'
 import AnimatedDiv from '@/shared/animated-div'
+import BaseButton from '@/shared/button'
 import {
   Doodle,
   Ellipse,
@@ -20,6 +22,7 @@ import {
 import './styles.scss'
 
 const ItTrainingHeroSection = () => {
+  const router = useRouter()
   const [randomRolls, setRandomRolls] = useState<any[]>([])
 
   useEffect(() => {
@@ -80,6 +83,12 @@ const ItTrainingHeroSection = () => {
         <Box className="left-section">
           <AnimatedDiv>
             <QuoteText text="Unlock in-demand tech skills and industry insights with our expert-led training programs." />
+            <BaseButton
+              onClick={() => router.push('/contact')}
+              sx={{ marginTop: '20px' }}
+            >
+              EXPLORE MORE
+            </BaseButton>
           </AnimatedDiv>
         </Box>
 
