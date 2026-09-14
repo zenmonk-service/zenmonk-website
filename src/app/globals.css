@@ -28,6 +28,10 @@
   --font-size-40: max(24px, 2.083vw);
 }
 
+html, body {
+  overflow-x: clip;
+}
+
 html {
   font-size: 16px;
 }
@@ -43,6 +47,7 @@ body {
   color: var(--global-color-secondary);
   background: var(--global-color-primary);
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .no-scroll {
