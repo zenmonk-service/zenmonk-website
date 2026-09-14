@@ -264,7 +264,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 <TextField
                   {...register('fullName', {
                     required: 'Full name is required',
-                    maxLength: { value: 256, message: 'Full name cannot exceed 256 characters' },
+                    maxLength: { value: 50, message: 'Full name cannot exceed 50 characters' },
                     pattern: {
                       value: /^[a-zA-Z\s]+$/,
                       message: 'Only alphabetic characters are allowed'
@@ -272,7 +272,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     validate: (val) => (val && val.trim().length > 0) || 'Full name cannot be empty or whitespace'
                   })}
                   onKeyDown={handleNameKeyDown}
-                  slotProps={{ htmlInput: { maxLength: 256 } }}
+                  slotProps={{ htmlInput: { maxLength: 50 } }}
                   placeholder="Enter your full name"
                   variant="outlined"
                   error={!!errors.fullName}
@@ -288,14 +288,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 <TextField
                   {...register('email', {
                     required: 'Email is required',
-                    maxLength: { value: 256, message: 'Email address cannot exceed 256 characters' },
+                    maxLength: { value: 50, message: 'Email address cannot exceed 50 characters' },
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Invalid email address'
                     },
                     validate: (val) => (val && val.trim().length > 0) || 'Email cannot be empty or whitespace'
                   })}
-                  slotProps={{ htmlInput: { maxLength: 256 } }}
+                  slotProps={{ htmlInput: { maxLength: 50 } }}
                   placeholder="Enter your email"
                   variant="outlined"
                   error={!!errors.email}

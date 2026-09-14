@@ -128,11 +128,11 @@ export const ContactForm = () => {
               errors.firstName ? 'error-border' : ''
             }`}
             placeHolder="First Name"
-            inputProps={{ maxLength: 256 }}
+            inputProps={{ maxLength: 50 }}
             onKeyDown={handleNameKeyDown}
             {...register('firstName', {
               required: 'First name is required',
-              maxLength: { value: 256, message: 'First name cannot exceed 256 characters' },
+              maxLength: { value: 50, message: 'First name cannot exceed 50 characters' },
               pattern: {
                 value: /^[a-zA-Z\s]+$/,
                 message: 'Only alphabetic characters are allowed',
@@ -153,11 +153,11 @@ export const ContactForm = () => {
               errors.lastName ? 'error-border' : ''
             }`}
             placeHolder="Last Name"
-            inputProps={{ maxLength: 256 }}
+            inputProps={{ maxLength: 50 }}
             onKeyDown={handleNameKeyDown}
             {...register('lastName', {
               required: 'Last name is required',
-              maxLength: { value: 256, message: 'Last name cannot exceed 256 characters' },
+              maxLength: { value: 50, message: 'Last name cannot exceed 50 characters' },
               pattern: {
                 value: /^[a-zA-Z\s]+$/,
                 message: 'Only alphabetic characters are allowed',
@@ -179,10 +179,10 @@ export const ContactForm = () => {
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
           endAdornment={<PaperPlane className="end-adornment" />}
-          inputProps={{ maxLength: 256 }}
+          inputProps={{ maxLength: 50 }}
           {...register('email', {
             required: 'Email is required',
-            maxLength: { value: 256, message: 'Email cannot exceed 256 characters' },
+            maxLength: { value: 50, message: 'Email cannot exceed 50 characters' },
             pattern: {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: 'Invalid email format',
