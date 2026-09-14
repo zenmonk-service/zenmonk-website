@@ -1,22 +1,44 @@
+name: zenmonk-website-dev
+
 services:
-  app:
-    container_name: zenmonk-website-app
-    image: zenmonk-website:dev
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    restart: "no"
+  mongodb:
+    container_name: zenmonk-website-mongodb
+    image: mongo:8.0.28-noble
+    restart: unless-stopped
     ports:
-      - "${APP_FORWARD_PORT:-3000}:${PORT:-3000}"
-    env_file:
-      - .env
+      - "${DB_FORWARD_PORT:-27017}:27017"
     environment:
-      NODE_ENV: development
-      WATCHPACK_POLLING: "true"
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-zenmonk_root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-zenmonk-root-local-password}
+      MONGO_INITDB_DATABASE: ${DB_NAME:-zenmonk-website}
     volumes:
-      - ./src:/app/src
-      - ./public:/app/public
-      - ./package.json:/app/package.json
+      - mongodb_data:/data/db
+    networks:
+      - zenmonk-website-network
+
+  mongo-bootstrap:
+    container_name: zenmonk-website-mongo-bootstrap
+    image: mongo:8.0.28-noble
+    restart: "no"
+    environment:
+      MONGO_ROOT_USER: ${MONGO_ROOT_USER:-zenmonk_root}
+      MONGO_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-zenmonk-root-local-password}
+      DB_USER: ${DB_USER:-zenmonk_app}
+      DB_PASSWORD: ${DB_PASSWORD:-zenmonk-local-password}
+      DB_NAME: ${DB_NAME:-zenmonk-website}
+    command:
+      - sh
+      - -ec
+      - >-
+        mongosh --quiet --host mongodb --port 27017
+        --username "$${MONGO_ROOT_USER}"
+        --password "$${MONGO_ROOT_PASSWORD}"
+        --authenticationDatabase admin
+        /bootstrap/mongo-bootstrap.js
+    volumes:
+      - ./docker/mongo-bootstrap.js:/bootstrap/mongo-bootstrap.js:ro
+    depends_on:
+      - mongodb
     networks:
       - zenmonk-website-network
 
@@ -25,20 +47,21 @@ services:
     image: axllent/mailpit
     restart: unless-stopped
     ports:
-      - "${MAIL_FORWARD_PORT:-1026}:1025"
-      - "${MAIL_WEB_UI_FORWARD_PORT:-8026}:8025"
-    networks:
-      - zenmonk-website-network
+      - "${MAIL_FORWARD_PORT:-1025}:1025"
+      - "${MAIL_WEB_UI_FORWARD_PORT:-8025}:8025"
     volumes:
       - mailpit_data:/data
     environment:
-      MP_DATABASE: ${MAIL_STORAGE_PATH:-/data/mailpit.db}
+      MP_DATA_FILE: ${MAIL_STORAGE_PATH:-/data/mailpit.db}
+    networks:
+      - zenmonk-website-network
 
 networks:
   zenmonk-website-network:
     driver: bridge
 
 volumes:
+  mongodb_data:
+    driver: local
   mailpit_data:
     driver: local
-

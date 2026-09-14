@@ -14,6 +14,17 @@ export class CreateApplicationController {
     try {
       const formData = await request.formData();
       const file = formData.get('resume') as File | null;
+      if (file && file.name) {
+        const allowedExtensions = ['.pdf', '.doc', '.docx'];
+        const fileName = file.name.toLowerCase();
+        const isValid = allowedExtensions.some((ext) => fileName.endsWith(ext));
+        if (!isValid) {
+          return NextResponse.json(
+            { message: 'Only PDF and DOC/DOCX files are allowed for resume upload' },
+            { status: HttpStatusCode.BadRequest }
+          );
+        }
+      }
       
       const body = {
         name: formData.get('name') as string,

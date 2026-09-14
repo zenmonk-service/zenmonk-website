@@ -1,7 +1,10 @@
 'use client'
 
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
+import { PhoneInput } from 'react-international-phone'
+import 'react-international-phone/style.css'
+import { isPhoneValid, hasNationalDigits } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -49,6 +52,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     reset
   } = useForm<ApplicationFormData>()
@@ -58,6 +62,30 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       reset()
     }
   }, [submitSuccess, reset])
+
+  const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.ctrlKey || e.metaKey) return
+    const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', ' ', 'Unidentified']
+    if (e.key.length > 1) {
+      if (!allowedKeys.includes(e.key)) return
+      return
+    }
+    if (!/^[a-zA-Z\s]$/.test(e.key)) {
+      e.preventDefault()
+    }
+  }
+
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.ctrlKey || e.metaKey) return
+    const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Unidentified']
+    if (e.key.length > 1) {
+      if (!allowedKeys.includes(e.key)) return
+      return
+    }
+    if (!/^[0-9+\s-]$/.test(e.key)) {
+      e.preventDefault()
+    }
+  }
 
   const handleClose = (event: {}, reason?: "backdropClick" | "escapeKeyDown") => {
     if (reason === 'backdropClick') {
@@ -76,11 +104,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
   const onSubmit = async (data: ApplicationFormData) => {
     const formData = new FormData()
-    formData.append('name', data.fullName)
-    formData.append('email', data.email)
-    formData.append('phone', data.phone)
-    if (data.message) {
-      formData.append('message', data.message)
+    formData.append('name', data.fullName.trim())
+    formData.append('email', data.email.trim())
+    formData.append('phone', data.phone.trim())
+    if (data.portfolioLink && data.portfolioLink.trim()) {
+      formData.append('portfolioLink', data.portfolioLink.trim())
+    }
+    if (data.message && data.message.trim()) {
+      formData.append('message', data.message.trim())
     }
     formData.append('job_posting', jobId)
     
@@ -141,35 +172,37 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       <DialogTitle
         sx={{
           p: 0,
-          mb: isMobile ? '20px' : 'max(24px, 1.56vw)',
+          mb: submitSuccess ? 0 : (isMobile ? '20px' : 'max(24px, 1.56vw)'),
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: submitSuccess ? 'flex-end' : 'space-between',
           alignItems: 'center'
         }}
       >
-        <Box>
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 700,
-              color: '#111827',
-              fontFamily: 'Poppins',
-              fontSize: isMobile ? '20px' : 'max(24px, 1.25vw)'
-            }}
-          >
-            Apply for Position
-          </Typography>
-          <Typography
-            variant="subtitle2"
-            sx={{
-              color: '#F69333',
-              fontWeight: 600,
-              fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
-            }}
-          >
-            {jobTitle}
-          </Typography>
-        </Box>
+        {!submitSuccess && (
+          <Box>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 700,
+                color: '#111827',
+                fontFamily: 'Poppins',
+                fontSize: isMobile ? '20px' : 'max(24px, 1.25vw)'
+              }}
+            >
+              Apply for Position
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{
+                color: '#F69333',
+                fontWeight: 600,
+                fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
+              }}
+            >
+              {jobTitle}
+            </Typography>
+          </Box>
+        )}
         <IconButton onClick={handleCancel} sx={{ color: '#6B7280' }}>
           <CloseIcon sx={{ fontSize: isMobile ? '24px' : 'max(24px, 1.25vw)' }} />
         </IconButton>
@@ -229,7 +262,17 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
               <FormControl error={!!errors.fullName} fullWidth>
                 <Typography className={styles.label}>Full Name</Typography>
                 <TextField
-                  {...register('fullName', { required: 'Full name is required' })}
+                  {...register('fullName', {
+                    required: 'Full name is required',
+                    maxLength: { value: 256, message: 'Full name cannot exceed 256 characters' },
+                    pattern: {
+                      value: /^[a-zA-Z\s]+$/,
+                      message: 'Only alphabetic characters are allowed'
+                    },
+                    validate: (val) => (val && val.trim().length > 0) || 'Full name cannot be empty or whitespace'
+                  })}
+                  onKeyDown={handleNameKeyDown}
+                  slotProps={{ htmlInput: { maxLength: 256 } }}
                   placeholder="Enter your full name"
                   variant="outlined"
                   error={!!errors.fullName}
@@ -245,11 +288,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 <TextField
                   {...register('email', {
                     required: 'Email is required',
+                    maxLength: { value: 256, message: 'Email address cannot exceed 256 characters' },
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Invalid email address'
-                    }
+                    },
+                    validate: (val) => (val && val.trim().length > 0) || 'Email cannot be empty or whitespace'
                   })}
+                  slotProps={{ htmlInput: { maxLength: 256 } }}
                   placeholder="Enter your email"
                   variant="outlined"
                   error={!!errors.email}
@@ -262,22 +308,62 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
               <FormControl error={!!errors.phone} fullWidth>
                 <Typography className={styles.label}>Phone Number</Typography>
-                <TextField
-                  {...register('phone', { required: 'Phone number is required' })}
-                  placeholder="Enter your phone number"
-                  variant="outlined"
-                  error={!!errors.phone}
-                  fullWidth
-                  size="small"
-                  sx={getTextFieldStyles()}
+                <Controller
+                  name="phone"
+                  control={control}
+                  rules={{
+                    required: 'Phone number is required',
+                    validate: {
+                      hasDigits: (value) =>
+                        (value && hasNationalDigits(value)) || 'Phone number is required',
+                      validPhone: (value) =>
+                        !value ||
+                        !hasNationalDigits(value) ||
+                        isPhoneValid(value) ||
+                        'Please enter a valid phone number for the selected country',
+                    },
+                  }}
+                  render={({ field }) => (
+                    <PhoneInput
+                      defaultCountry="in"
+                      value={field.value || ''}
+                      onChange={field.onChange}
+                      style={{
+                        width: '100%',
+                      }}
+                      inputStyle={{
+                        width: '100%',
+                        height: isMobile ? '38px' : 'max(38px, 2.1vw)',
+                        borderRadius: isMobile ? '0 8px 8px 0' : '0 max(8px, 0.42vw) max(8px, 0.42vw) 0',
+                        fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
+                        fontFamily: 'Poppins, sans-serif',
+                        backgroundColor: '#fbf9f9ff',
+                        borderColor: errors.phone ? '#d32f2f' : '#E5E7EB',
+                      }}
+                      countrySelectorStyleProps={{
+                        buttonStyle: {
+                          height: isMobile ? '38px' : 'max(38px, 2.1vw)',
+                          borderRadius: isMobile ? '8px 0 0 8px' : 'max(8px, 0.42vw) 0 0 max(8px, 0.42vw)',
+                          backgroundColor: '#fbf9f9ff',
+                          borderColor: errors.phone ? '#d32f2f' : '#E5E7EB',
+                          paddingLeft: '8px',
+                          paddingRight: '8px',
+                        },
+                      }}
+                    />
+                  )}
                 />
                 {errors.phone && <FormHelperText className={styles.errorText} error>{errors.phone.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.portfolioLink} fullWidth>
-                <Typography className={styles.label}>Portfolio / LinkedIn Link</Typography>
+                <Typography className={styles.label}>Portfolio / LinkedIn Link (Optional)</Typography>
                 <TextField
-                  {...register('portfolioLink')}
+                  {...register('portfolioLink', {
+                    maxLength: { value: 256, message: 'Link cannot exceed 256 characters' },
+                    validate: (val) => !val || val.trim().length > 0 || 'Link cannot contain only whitespace'
+                  })}
+                  slotProps={{ htmlInput: { maxLength: 256 } }}
                   placeholder="https://..."
                   variant="outlined"
                   error={!!errors.portfolioLink}
@@ -285,6 +371,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   size="small"
                   sx={getTextFieldStyles()}
                 />
+                {errors.portfolioLink && <FormHelperText className={styles.errorText} error>{errors.portfolioLink.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.resume} fullWidth>
@@ -292,17 +379,37 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 <Box
                   component="input"
                   type="file"
-                  accept=".pdf,.doc,.docx"
-                  {...register('resume', { required: 'Resume is required' })}
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  {...register('resume', {
+                    required: 'Resume is required',
+                    validate: {
+                      fileType: (files: FileList) => {
+                        if (!files || files.length === 0) return 'Resume is required'
+                        const file = files[0]
+                        const allowedExtensions = ['.pdf', '.doc', '.docx']
+                        const fileName = file.name.toLowerCase()
+                        const hasValidExt = allowedExtensions.some((ext) => fileName.endsWith(ext))
+
+                        if (!hasValidExt) {
+                          return 'Only PDF and DOC/DOCX files are allowed'
+                        }
+                        return true
+                      },
+                    },
+                  })}
                   className={`${styles.fileInput} ${errors.resume ? styles.errorBorder : ''}`}
                 />
                 {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
               </FormControl>
 
               <FormControl error={!!errors.message} fullWidth>
-                <Typography className={styles.label}>Why are you a good fit?</Typography>
+                <Typography className={styles.label}>Why are you a good fit? (Optional)</Typography>
                 <TextField
-                  {...register('message')}
+                  {...register('message', {
+                    maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
+                    validate: (val) => !val || val.trim().length > 0 || 'Message cannot contain only whitespace'
+                  })}
+                  slotProps={{ htmlInput: { maxLength: 800 } }}
                   placeholder="Tell us about yourself and why you're interested in this role..."
                   multiline
                   rows={4}
@@ -311,6 +418,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   fullWidth
                   sx={getTextFieldStyles()}
                 />
+                {errors.message && <FormHelperText className={styles.errorText} error>{errors.message.message}</FormHelperText>}
               </FormControl>
             </Box>
 
