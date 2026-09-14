@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { formatPhoneNumber } from '@/lib/helper';
 
 export class MailService {
   private transporter;
@@ -129,7 +130,7 @@ export class MailService {
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                   <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Phone:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${phone}</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${formatPhoneNumber(phone)}</td>
                 </tr>
                 <tr>
                   <td style="padding: 16px 0 8px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px;" colspan="2">Message:</td>

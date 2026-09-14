@@ -11,17 +11,24 @@ import Polygon from './assets/polygon.svg'
 import styles from './contact-us-section.module.scss'
 import { countries } from './countries'
 
-const ThreeGlobe = dynamic(() => import('./three-globe'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex flex-col justify-center items-center">
-      <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
-      <p className="text-gray-500 text-sm font-medium">
-        Initializing realistic globe...
-      </p>
-    </div>
-  ),
-})
+const ThreeGlobe = dynamic(
+  () =>
+    import('./three-globe').catch((err) => {
+      console.warn('ChunkLoadError caught for ThreeGlobe, retrying load...', err)
+      return import('./three-globe')
+    }),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
+        <p className="text-gray-500 text-sm font-medium">
+          Initializing realistic globe...
+        </p>
+      </div>
+    ),
+  }
+)
 
 interface ContactUsSectionProps {
   isCareerPage?: boolean

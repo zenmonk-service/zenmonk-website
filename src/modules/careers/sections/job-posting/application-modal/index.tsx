@@ -2,8 +2,7 @@
 
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { PhoneInput } from 'react-international-phone'
-import 'react-international-phone/style.css'
+import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
 import { isPhoneValid, hasNationalDigits } from '@/lib/helper'
 import {
   Dialog,
@@ -324,32 +323,13 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     },
                   }}
                   render={({ field }) => (
-                    <PhoneInput
+                    <PhoneInputWithSearch
                       defaultCountry="in"
                       value={field.value || ''}
                       onChange={field.onChange}
-                      style={{
-                        width: '100%',
-                      }}
-                      inputStyle={{
-                        width: '100%',
-                        height: isMobile ? '38px' : 'max(38px, 2.1vw)',
-                        borderRadius: isMobile ? '0 8px 8px 0' : '0 max(8px, 0.42vw) max(8px, 0.42vw) 0',
-                        fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
-                        fontFamily: 'Poppins, sans-serif',
-                        backgroundColor: '#fbf9f9ff',
-                        borderColor: errors.phone ? '#d32f2f' : '#E5E7EB',
-                      }}
-                      countrySelectorStyleProps={{
-                        buttonStyle: {
-                          height: isMobile ? '38px' : 'max(38px, 2.1vw)',
-                          borderRadius: isMobile ? '8px 0 0 8px' : 'max(8px, 0.42vw) 0 0 max(8px, 0.42vw)',
-                          backgroundColor: '#fbf9f9ff',
-                          borderColor: errors.phone ? '#d32f2f' : '#E5E7EB',
-                          paddingLeft: '8px',
-                          paddingRight: '8px',
-                        },
-                      }}
+                      error={!!errors.phone}
+                      height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
+                      backgroundColor="#fbf9f9ff"
                     />
                   )}
                 />

@@ -1,6 +1,10 @@
 import { PhoneNumberUtil } from 'google-libphonenumber'
+import { defaultCountries, parseCountry } from 'react-international-phone'
 
 const phoneUtil = PhoneNumberUtil.getInstance()
+const parsedCountries = defaultCountries
+  .map(parseCountry)
+  .sort((a, b) => b.dialCode.length - a.dialCode.length)
 
 export const validateEmail = function (email: string) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -28,8 +32,53 @@ export const isPhoneValid = (phone: string): boolean => {
   if (!phone) return false
   try {
     const parsed = phoneUtil.parseAndKeepRawInput(phone)
-    return phoneUtil.isValidNumber(parsed)
+    if (!phoneUtil.isPossibleNumber(parsed)) return false
+
+    const digitsOnly = phone.replace(/\D/g, '')
+    const dialCode = String(parsed.getCountryCode())
+    const nationalDigits = digitsOnly.startsWith(dialCode) ? digitsOnly.slice(dialCode.length) : digitsOnly
+
+    if (/^(\d)\1+$/.test(nationalDigits)) {
+      return false
+    }
+
+    return true
   } catch {
     return false
   }
+}
+
+export const formatPhoneNumber = (phone: string): string => {
+  if (!phone) return phone
+  const digits = phone.replace(/\D/g, '')
+  if (!digits) return phone
+
+  const country = parsedCountries.find((c) => digits.startsWith(c.dialCode))
+  if (!country) return phone
+
+  const dialCode = country.dialCode
+  const nationalDigits = digits.slice(dialCode.length)
+  const mask = typeof country.format === 'string' ? country.format : undefined
+
+  if (!mask) {
+    return `+${dialCode} ${nationalDigits}`.trim()
+  }
+
+  let formattedNational = ''
+  let digitIdx = 0
+  for (let i = 0; i < mask.length; i++) {
+    if (digitIdx >= nationalDigits.length) break
+    const char = mask[i]
+    if (char === '.') {
+      formattedNational += nationalDigits[digitIdx++]
+    } else {
+      formattedNational += char
+    }
+  }
+
+  if (digitIdx < nationalDigits.length) {
+    formattedNational += nationalDigits.slice(digitIdx)
+  }
+
+  return `+${dialCode} ${formattedNational}`.trim()
 }

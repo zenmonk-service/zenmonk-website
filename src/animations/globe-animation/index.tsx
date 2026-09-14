@@ -10,17 +10,24 @@ import { SectionTitle } from '@/shared/typography'
 import GlobeShadowImg from "./globe-shadow.svg?url"
 import './styles.scss'
 
-const ThreeGlobe = dynamic(() => import('@/shared/contact-us-section/three-globe'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex flex-col justify-center items-center">
-      <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
-      <p className="text-gray-500 text-sm font-medium">
-        Initializing realistic globe...
-      </p>
-    </div>
-  ),
-})
+const ThreeGlobe = dynamic(
+  () =>
+    import('@/shared/contact-us-section/three-globe').catch((err) => {
+      console.warn('ChunkLoadError caught for ThreeGlobe, retrying load...', err)
+      return import('@/shared/contact-us-section/three-globe')
+    }),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
+        <p className="text-gray-500 text-sm font-medium">
+          Initializing realistic globe...
+        </p>
+      </div>
+    ),
+  }
+)
 
 export default function GlobeSection() {
   const isMobile = useMediaQuery('(max-width:1024px)')

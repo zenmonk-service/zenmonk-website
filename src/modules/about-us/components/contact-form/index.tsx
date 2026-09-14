@@ -2,8 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
-import { PhoneInput } from 'react-international-phone'
-import 'react-international-phone/style.css'
+import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
 import { isPhoneValid, hasNationalDigits } from '@/lib/helper'
 import { FormControl, FormHelperText } from '@mui/material'
 import axios from 'axios'
@@ -215,32 +214,12 @@ export const ContactForm = () => {
             },
           }}
           render={({ field }) => (
-            <PhoneInput
+            <PhoneInputWithSearch
               defaultCountry="in"
               value={field.value || ''}
               onChange={field.onChange}
-              style={{
-                width: '100%',
-              }}
-              inputStyle={{
-                width: '100%',
-                height: '48px',
-                borderRadius: '0 8px 8px 0',
-                fontSize: '14px',
-                fontFamily: 'Poppins, sans-serif',
-                backgroundColor: '#ffffff',
-                borderColor: errors.phone && submitStatus !== 'success' ? '#d32f2f' : '#E5E7EB',
-              }}
-              countrySelectorStyleProps={{
-                buttonStyle: {
-                  height: '48px',
-                  borderRadius: '8px 0 0 8px',
-                  backgroundColor: '#ffffff',
-                  borderColor: errors.phone && submitStatus !== 'success' ? '#d32f2f' : '#E5E7EB',
-                  paddingLeft: '8px',
-                  paddingRight: '8px',
-                },
-              }}
+              error={!!errors.phone && submitStatus !== 'success'}
+              height="48px"
             />
           )}
         />

@@ -35,8 +35,8 @@ const SuccessMessage = ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100%',
-        py: isMobile ? '40px' : 'max(40px, 4.17vw)',
+        pt: isMobile ? '8px' : 'max(8px, 0.52vw)',
+        pb: isMobile ? '24px' : 'max(24px, 1.56vw)',
         textAlign: 'center',
         px: isMobile ? 2 : 0
       }}
@@ -50,7 +50,7 @@ const SuccessMessage = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          mb: isMobile ? '20px' : 'max(20px, 1.56vw)',
+          mb: isMobile ? '14px' : 'max(14px, 0.94vw)',
           animation: 'scaleIn 0.5s ease-out',
           '@keyframes scaleIn': {
             '0%': { transform: 'scale(0)', opacity: 0 },
