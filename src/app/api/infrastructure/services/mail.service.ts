@@ -115,27 +115,27 @@ export class MailService {
             </div>
             
             <!-- Body -->
-            <div style="padding: 40px 88px;">
+            <div style="padding: 32px 40px;">
               <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
               
-              <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif; table-layout: fixed;">
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; width: 100px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Name:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${firstName} ${lastName}</td>
+                  <td style="padding: 14px 0; color: #6b7280; width: 80px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Name:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${firstName} ${lastName}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Email:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${email}</td>
+                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Email:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${email}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">Phone:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;">${phone}</td>
+                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Phone:</td>
+                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${phone}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 16px 0 8px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;" colspan="2">Message:</td>
+                  <td style="padding: 16px 0 8px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px;" colspan="2">Message:</td>
                 </tr>
                 <tr>
-                  <td style="padding: 0 0 16px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 20px; letter-spacing: 0px;" colspan="2">
+                  <td style="padding: 0 0 16px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;" colspan="2">
                     ${message.replace(/\n/g, '<br>')}
                   </td>
                 </tr>
