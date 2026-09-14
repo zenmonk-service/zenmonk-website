@@ -9,12 +9,19 @@ export const validateEmail = function (email: string) {
 
 export const hasNationalDigits = (phone: string): boolean => {
   if (!phone) return false
+  const digitsOnly = phone.replace(/\D/g, '')
+  if (digitsOnly.length === 0) return false
+
   try {
     const parsed = phoneUtil.parseAndKeepRawInput(phone)
-    return parsed.hasNationalNumber() && String(parsed.getNationalNumber()).length > 0
+    if (parsed.hasNationalNumber() && String(parsed.getNationalNumber()).length > 0) {
+      return true
+    }
   } catch {
-    return false
+    // If libphonenumber throws for short inputs like "+910"
   }
+
+  return digitsOnly.length > 2 || (phone.trim().startsWith('+1') && digitsOnly.length > 1)
 }
 
 export const isPhoneValid = (phone: string): boolean => {
