@@ -269,7 +269,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       value: /^[a-zA-Z\s]+$/,
                       message: 'Only alphabetic characters are allowed'
                     },
-                    validate: (val) => (val && val.trim().length > 0) || 'Full name cannot be empty or whitespace'
+                    validate: (val) => !val || val.trim().length > 0 || 'Full name cannot be empty or whitespace'
                   })}
                   onKeyDown={handleNameKeyDown}
                   slotProps={{ htmlInput: { maxLength: 50 } }}
@@ -293,7 +293,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Invalid email address'
                     },
-                    validate: (val) => (val && val.trim().length > 0) || 'Email cannot be empty or whitespace'
+                    validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace'
                   })}
                   slotProps={{ htmlInput: { maxLength: 50 } }}
                   placeholder="Enter your email"

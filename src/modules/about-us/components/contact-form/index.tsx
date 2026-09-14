@@ -137,7 +137,7 @@ export const ContactForm = () => {
                 value: /^[a-zA-Z\s]+$/,
                 message: 'Only alphabetic characters are allowed',
               },
-              validate: (val) => (val && val.trim().length > 0) || 'First name cannot be empty or whitespace',
+              validate: (val) => !val || val.trim().length > 0 || 'First name cannot be empty or whitespace',
             })}
           />
           {errors.firstName && (
@@ -162,7 +162,7 @@ export const ContactForm = () => {
                 value: /^[a-zA-Z\s]+$/,
                 message: 'Only alphabetic characters are allowed',
               },
-              validate: (val) => (val && val.trim().length > 0) || 'Last name cannot be empty or whitespace',
+              validate: (val) => !val || val.trim().length > 0 || 'Last name cannot be empty or whitespace',
             })}
           />
           {errors.lastName && (
@@ -187,7 +187,7 @@ export const ContactForm = () => {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: 'Invalid email format',
             },
-            validate: (val) => (val && val.trim().length > 0) || 'Email cannot be empty or whitespace',
+            validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
           })}
         />
         {errors.email && (
@@ -261,9 +261,12 @@ export const ContactForm = () => {
             rows={3}
             inputProps={{ maxLength: 800 }}
             {...register('message', {
-              required: 'Message cannot be empty',
+              required: 'Message is required',
               maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
-              validate: (val) => (val && val.trim().length > 0) || 'Message cannot be empty or whitespace',
+              validate: {
+                noWhitespace: (val) =>
+                  !val || val.trim().length > 0 || 'Message cannot be empty or whitespace',
+              },
             })}
           />
           <Message className="end-adornment" />
