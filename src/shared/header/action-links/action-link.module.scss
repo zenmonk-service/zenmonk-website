@@ -33,6 +33,13 @@
     background-color: #FFF5EB;
     color: #eb7c0d;
   }
+
+  &:focus-visible {
+    outline: 2px solid #eb7c0d !important;
+    outline-offset: 2px !important;
+    background-color: #FFF5EB !important;
+    color: #eb7c0d !important;
+  }
 }
 
 .action-link-menu-icon {

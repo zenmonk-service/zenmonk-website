@@ -28,6 +28,12 @@
     width: 100%;
     height: 100%;
   }
+
+  &:focus-visible {
+    outline: 2px solid #eb7c0d !important;
+    outline-offset: 4px !important;
+    border-radius: 6px;
+  }
 }
 
 .appBarContactButton {
@@ -49,9 +55,14 @@
   align-items: center;
   transition: all 0.3s ease;
   border: none !important;
-  outline: none !important;
   overflow: hidden !important;
   background-clip: padding-box !important;
+
+  &:focus-visible {
+    outline: 2px solid #eb7c0d !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px rgba(235, 124, 13, 0.4) !important;
+  }
 
   &.active {
     box-shadow: 0 0 0.52vw rgba(235, 124, 13, 0.4);

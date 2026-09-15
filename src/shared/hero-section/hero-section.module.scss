@@ -75,6 +75,12 @@
 .button {
   width: max(180px, 9.375vw) !important;
   font-weight: 600 !important;
+
+  &:focus-visible {
+    outline: 2px solid #eb7c0d !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 3px rgba(235, 124, 13, 0.4) !important;
+  }
 }
 
 
