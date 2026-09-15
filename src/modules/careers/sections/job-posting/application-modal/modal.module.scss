@@ -24,10 +24,12 @@
     gap: max(16px, 0.83vw);
     max-height: max(450px, 36.46vw);
     overflow-y: auto;
+    overflow-x: hidden;
     padding-right: max(8px, 0.42vw);
 
     &::-webkit-scrollbar {
       width: max(4px, 0.21vw);
+      height: 0;
     }
 
     &::-webkit-scrollbar-thumb {
@@ -67,40 +69,57 @@
     }
   }
 
-  .fileInput {
-    padding: max(10px, 0.52vw);
+  .customFileInput {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: max(6px, 0.31vw) max(10px, 0.52vw);
     border: max(1px, 0.05vw) solid #E5E7EB;
     border-radius: max(8px, 0.42vw);
-    font-family: 'Poppins', sans-serif;
-    font-size: max(14px, 0.73vw);
     background-color: #F9FAFB;
-    cursor: pointer;
+    transition: border-color 0.2s;
+    outline: none;
+
+    &:hover {
+      border-color: #F69333;
+    }
+
+    &:focus-visible {
+      border-color: #F69333;
+      box-shadow: 0 0 0 2px rgba(246, 147, 51, 0.2);
+    }
 
     &.errorBorder {
       border-color: #d32f2f !important;
     }
+  }
 
-    &::file-selector-button {
-      margin-right: max(16px, 0.83vw);
-      padding: max(6px, 0.31vw) max(12px, 0.63vw);
-      border: none;
-      border-radius: max(4px, 0.21vw);
-      background-color: #F69333;
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.2s;
+  .fileButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: max(6px, 0.31vw) max(12px, 0.63vw);
+    border: none;
+    border-radius: max(4px, 0.21vw);
+    background-color: #F69333;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: max(13px, 0.68vw);
+    font-weight: 600;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
 
-      &:hover {
-        background-color: #E67E22;
-      }
+    &:hover {
+      background-color: #E67E22;
     }
   }
 }
 
 // Mobile styles
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .form {
+    overflow-x: hidden;
+
     .label {
       font-size: 14px;
       margin-bottom: 8px;
@@ -115,13 +134,14 @@
       gap: 16px;
       max-height: none;
       padding-right: 0;
+      overflow-x: hidden;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
 
       &::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
     }
 
@@ -131,18 +151,16 @@
       min-width: 80px !important;
     }
 
-    .fileInput {
-      padding: 10px;
+    .customFileInput {
+      padding: 6px 10px;
       border: 1px solid #E5E7EB;
       border-radius: 8px;
-      font-size: 14px;
+    }
 
-      &::file-selector-button {
-        margin-right: 12px;
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 13px;
-      }
+    .fileButton {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 13px;
     }
   }
 }

@@ -270,6 +270,8 @@
     flex-direction: column-reverse;
     padding-left: 16px;
     padding-right: 16px;
+    padding-top: 100px;
+    margin-top: 0;
   }
 
   .textContainer {
@@ -283,7 +285,7 @@
   }
 
   .imageContainer {
-    margin-top: 83px;
+    margin-top: 0;
     margin-bottom: 24px;
     width: 100%;
     max-width: 100%;
@@ -323,11 +325,18 @@
 @media (max-width: 401px) {
   .container {
     gap: 0;
-    margin-top: 8%;
+    margin-top: 0;
+    padding-top: 100px;
+  }
+
+  .imageContainer {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
 
   .heroWrapper {
     margin-left: 52%;
+    margin-top: 0;
     transform: scale(2.6);
   }
 
@@ -341,12 +350,14 @@
     height: auto;
     min-height: unset;
     padding-bottom: 0px;
-    margin-top: 15%;
+    margin-top: 0;
+    padding-top: 100px;
   }
 
   .imageContainer {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 0;
+    margin-bottom: 24px;
     align-items: center;
     justify-content: center;
   }
@@ -354,7 +365,7 @@
   .heroWrapper {
     width: 80%;
     margin-left: 43%;
-    margin-top: 10%;
+    margin-top: 0;
     transform: scale(2);
   }
 
@@ -378,11 +389,17 @@
   }
 }
 
+@media screen and (min-width: 550px) and (max-width: 700px) {
+  .container {
+    padding-top: 200px;
+  }
+}
+
 @media (min-width: 701px) and (max-width: 768px) {
   .container {
     height: auto;
     aspect-ratio: unset;
-    padding-top: 120px;
+    padding-top: 90px;
     padding-bottom: 0px;
     display: flex;
     gap: 9%;
@@ -488,8 +505,8 @@
   }
 }
 
-/* Screen Height <= 800px: Keep content & image natural size, make page content scrollable */
-@media screen and (max-height: 800px) {
+/* Screen Height <= 800px: Keep content & image natural size on short desktop viewports */
+@media screen and (max-height: 800px) and (min-width: 769px) {
   .container {
     height: auto !important;
     min-height: 600px;

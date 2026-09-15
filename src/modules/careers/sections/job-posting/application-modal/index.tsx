@@ -43,22 +43,30 @@ type ApplicationFormData = {
 }
 
 const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalProps) => {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery('(max-width:768px)')
   const dispatch = useAppDispatch()
   const { submitting, submitSuccess, error, submittedApplication } = useAppSelector((state) => state.applications)
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null)
 
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-    reset
+    reset,
+    setValue,
+    watch
   } = useForm<ApplicationFormData>()
+
+  const selectedResume = watch('resume')
+  const selectedFile = selectedResume && selectedResume.length > 0 ? selectedResume[0] : null
 
   React.useEffect(() => {
     if (submitSuccess) {
       reset()
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
     }
   }, [submitSuccess, reset])
 
@@ -97,8 +105,19 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     onClose()
   }
 
+  const handleRemoveFile = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+    setValue('resume', undefined as any, { shouldValidate: true })
+  }
+
   const handleExited = () => {
     reset()
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
     dispatch(resetSubmitSuccess())
   }
 
@@ -151,6 +170,24 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         borderColor: '#d32f2f'
       }
     }
+  })
+
+  const { ref: resumeFormRef, ...resumeRest } = register('resume', {
+    required: 'Resume is required',
+    validate: {
+      fileType: (files: FileList) => {
+        if (!files || files.length === 0) return 'Resume is required'
+        const file = files[0]
+        const allowedExtensions = ['.pdf', '.doc', '.docx']
+        const fileName = file.name.toLowerCase()
+        const hasValidExt = allowedExtensions.some((ext) => fileName.endsWith(ext))
+
+        if (!hasValidExt) {
+          return 'Only PDF and DOC/DOCX files are allowed'
+        }
+        return true
+      },
+    },
   })
 
   return (
@@ -217,6 +254,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
+          overflowX: 'hidden',
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
         }}
       >
         {submitSuccess ? (
@@ -230,7 +270,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             component="form"
             onSubmit={handleSubmit(onSubmit)}
             className={styles.form}
-            sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}
+            sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', overflowX: 'hidden' }}
           >
             {error && (
               <Box
@@ -259,7 +299,17 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
               sx={{
                 flex: 1,
                 overflowY: 'auto',
-                pr: isMobile ? '8px' : '0.42vw'
+                overflowX: 'hidden',
+                pr: isMobile ? 0 : '0.42vw',
+                scrollbarWidth: isMobile ? 'none' : 'thin',
+                '&::-webkit-scrollbar': isMobile
+                  ? { display: 'none', width: 0, height: 0 }
+                  : { width: 'max(4px, 0.21vw)' },
+                '&::-webkit-scrollbar-thumb': {
+                  background: '#E5E7EB',
+                  borderRadius: isMobile ? 0 : 'max(10px, 0.52vw)',
+                },
+                msOverflowStyle: isMobile ? 'none' : 'auto',
               }}
             >
               <FormControl error={!!errors.fullName} fullWidth>
@@ -333,6 +383,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       onChange={field.onChange}
                       error={!!errors.phone}
                       height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
+                      borderRadius={isMobile ? '8px' : 'max(8px, 0.42vw)'}
                       backgroundColor="#fbf9f9ff"
                     />
                   )}
@@ -360,29 +411,72 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
               <FormControl error={!!errors.resume} fullWidth>
                 <Typography className={styles.label}>Resume / CV (Upload PDF/DOC)</Typography>
-                <Box
-                  component="input"
+                <input
                   type="file"
                   accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  {...register('resume', {
-                    required: 'Resume is required',
-                    validate: {
-                      fileType: (files: FileList) => {
-                        if (!files || files.length === 0) return 'Resume is required'
-                        const file = files[0]
-                        const allowedExtensions = ['.pdf', '.doc', '.docx']
-                        const fileName = file.name.toLowerCase()
-                        const hasValidExt = allowedExtensions.some((ext) => fileName.endsWith(ext))
-
-                        if (!hasValidExt) {
-                          return 'Only PDF and DOC/DOCX files are allowed'
-                        }
-                        return true
-                      },
-                    },
-                  })}
-                  className={`${styles.fileInput} ${errors.resume ? styles.errorBorder : ''}`}
+                  style={{ display: 'none' }}
+                  {...resumeRest}
+                  ref={(e) => {
+                    resumeFormRef(e)
+                    fileInputRef.current = e
+                  }}
                 />
+                <Box
+                  onClick={() => fileInputRef.current?.click()}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      fileInputRef.current?.click()
+                    }
+                  }}
+                  className={`${styles.customFileInput} ${errors.resume ? styles.errorBorder : ''}`}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    cursor: 'pointer',
+                    minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
+                    <Box component="span" className={styles.fileButton}>
+                      Choose File
+                    </Box>
+                    <Typography
+                      sx={{
+                        fontFamily: 'Poppins',
+                        fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                        color: selectedFile ? '#1F2937' : '#9CA3AF',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                        fontWeight: selectedFile ? 500 : 400
+                      }}
+                    >
+                      {selectedFile ? selectedFile.name : 'No file chosen'}
+                    </Typography>
+                  </Box>
+                  {selectedFile && (
+                    <IconButton
+                      size="small"
+                      onClick={handleRemoveFile}
+                      title="Remove file"
+                      aria-label="Remove selected file"
+                      sx={{
+                        p: '4px',
+                        color: '#6B7280',
+                        '&:hover': {
+                          color: '#DC2626',
+                          backgroundColor: 'rgba(220, 38, 38, 0.08)'
+                        }
+                      }}
+                    >
+                      <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                    </IconButton>
+                  )}
+                </Box>
                 {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
               </FormControl>
 

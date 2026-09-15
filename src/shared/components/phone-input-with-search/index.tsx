@@ -83,7 +83,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   const selectedCountryData = allCountries.find((c) => c.iso2 === country.iso2) || country
 
   return (
-    <Box sx={{ display: 'flex', width: '100%', position: 'relative' }}>
+    <Box sx={{ display: 'flex', width: '100%', maxWidth: '100%', boxSizing: 'border-box', position: 'relative' }}>
       {/* Country Selector Button */}
       <Box
         component="button"
@@ -102,6 +102,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           cursor: 'pointer',
           outline: 'none',
           boxSizing: 'border-box',
+          flexShrink: 0,
           '&:hover': {
             borderColor: error ? '#d32f2f' : '#F69333',
           },
@@ -136,6 +137,8 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         onChange={handlePhoneValueChange}
         style={{
           flex: 1,
+          width: '100%',
+          minWidth: 0,
           height,
           paddingLeft: '14px',
           paddingRight: '14px',
