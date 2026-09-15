@@ -15,15 +15,18 @@ import {
   FormHelperText,
   TextField,
   useMediaQuery,
-  useTheme
+  useTheme,
+  Tooltip
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import BaseButton from '@/shared/button'
 import styles from './modal.module.scss'
 import SuccessMessage from './success-message'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { createApplication } from '@/store/features/applications/applications-actions'
 import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
+import { previewFile } from '@/lib/file-preview'
 
 
 interface ApplicationModalProps {
@@ -422,11 +425,15 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   }}
                 />
                 <Box
-                  onClick={() => fileInputRef.current?.click()}
-                  role="button"
-                  tabIndex={0}
+                  onClick={() => {
+                    if (!selectedFile) {
+                      fileInputRef.current?.click()
+                    }
+                  }}
+                  role={selectedFile ? undefined : 'button'}
+                  tabIndex={selectedFile ? undefined : 0}
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
+                    if (!selectedFile && (e.key === 'Enter' || e.key === ' ')) {
                       e.preventDefault()
                       fileInputRef.current?.click()
                     }
@@ -436,62 +443,143 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    cursor: 'pointer',
+                    cursor: selectedFile ? 'default' : 'pointer',
                     minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
                   }}
                 >
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
-                    <Box component="span" className={styles.fileButton}>
-                      Choose File
-                    </Box>
-                    <Typography
-                      sx={{
-                        fontFamily: 'Poppins',
-                        fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
-                        color: selectedFile ? '#1F2937' : '#9CA3AF',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                        fontWeight: selectedFile ? 500 : 400
+                    <Box
+                      component="span"
+                      className={styles.fileButton}
+                      onClick={(e) => {
+                        if (selectedFile) {
+                          e.stopPropagation()
+                          fileInputRef.current?.click()
+                        }
                       }}
+                      sx={{ cursor: 'pointer' }}
+                      title={selectedFile ? 'Change file' : 'Choose file'}
                     >
-                      {selectedFile ? (
-                        <>
-                          {selectedFile.name}
+                      {selectedFile ? 'Change' : 'Choose File'}
+                    </Box>
+                    {selectedFile ? (
+                      <Tooltip title="Click to preview file in another tab" arrow placement="top">
+                        <Box
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            previewFile(selectedFile)
+                          }}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              previewFile(selectedFile)
+                            }
+                          }}
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            minWidth: 0,
+                            cursor: 'pointer',
+                            borderRadius: '4px',
+                            padding: '2px 4px',
+                            transition: 'all 0.2s',
+                            '&:hover': {
+                              backgroundColor: 'rgba(246, 147, 51, 0.08)',
+                              '& .file-name-text': {
+                                color: '#F69333',
+                                textDecoration: 'underline'
+                              }
+                            }
+                          }}
+                        >
+                          <Typography
+                            className="file-name-text"
+                            sx={{
+                              fontFamily: 'Poppins',
+                              fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                              color: '#1F2937',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              whiteSpace: 'nowrap',
+                              fontWeight: 500,
+                              transition: 'color 0.2s'
+                            }}
+                          >
+                            {selectedFile.name}
+                          </Typography>
                           <Box
                             component="span"
                             sx={{
                               ml: '6px',
                               color: '#6B7280',
                               fontSize: isMobile ? '12px' : 'max(12px, 0.63vw)',
-                              fontWeight: 400
+                              fontWeight: 400,
+                              whiteSpace: 'nowrap'
                             }}
                           >
                             ({formatFileSize(selectedFile.size)})
                           </Box>
-                        </>
-                      ) : (
-                        'No file chosen'
-                      )}
-                    </Typography>
+                        </Box>
+                      </Tooltip>
+                    ) : (
+                      <Typography
+                        sx={{
+                          fontFamily: 'Poppins',
+                          fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                          color: '#9CA3AF',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          whiteSpace: 'nowrap',
+                          fontWeight: 400
+                        }}
+                      >
+                        No file chosen
+                      </Typography>
+                    )}
                   </Box>
                   {selectedFile && (
-                    <IconButton
-                      size="small"
-                      onClick={handleRemoveFile}
-                      title="Remove file"
-                      aria-label="Remove selected file"
-                      sx={{
-                        p: '4px',
-                        color: '#6B7280',
-                        '&:hover': {
-                          color: '#DC2626',
-                          backgroundColor: 'rgba(220, 38, 38, 0.08)'
-                        }
-                      }}
-                    >
-                      <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
-                    </IconButton>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                      <Tooltip title="Preview in another tab" arrow placement="top">
+                        <IconButton
+                          size="small"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            previewFile(selectedFile)
+                          }}
+                          aria-label="Preview in another tab"
+                          sx={{
+                            p: '4px',
+                            color: '#6B7280',
+                            '&:hover': {
+                              color: '#F69333',
+                              backgroundColor: 'rgba(246, 147, 51, 0.1)'
+                            }
+                          }}
+                        >
+                          <OpenInNewIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Remove file" arrow placement="top">
+                        <IconButton
+                          size="small"
+                          onClick={handleRemoveFile}
+                          aria-label="Remove selected file"
+                          sx={{
+                            p: '4px',
+                            color: '#6B7280',
+                            '&:hover': {
+                              color: '#DC2626',
+                              backgroundColor: 'rgba(220, 38, 38, 0.08)'
+                            }
+                          }}
+                        >
+                          <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                        </IconButton>
+                      </Tooltip>
+                    </Box>
                   )}
                 </Box>
                 {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
