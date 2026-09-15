@@ -56,9 +56,20 @@ export default function TrackApplicationPage() {
 
   useEffect(() => {
     if (params?.tracking_id) {
-      const id = Array.isArray(params.tracking_id) ? params.tracking_id[0] : params.tracking_id
-      setTrackingId(id)
-      fetchApplication(id)
+      const rawId = Array.isArray(params.tracking_id) ? params.tracking_id[0] : params.tracking_id
+      try {
+        const decoded = decodeURIComponent(rawId).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+        setTrackingId(decoded)
+        if (decoded) {
+          fetchApplication(decoded)
+        }
+      } catch {
+        const sanitized = rawId.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+        setTrackingId(sanitized)
+        if (sanitized) {
+          fetchApplication(sanitized)
+        }
+      }
     }
   }, [params])
 
@@ -83,10 +94,37 @@ export default function TrackApplicationPage() {
     }
   }
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const sanitized = e.target.value.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+    setTrackingId(sanitized)
+  }
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (
+      e.ctrlKey ||
+      e.metaKey ||
+      e.altKey ||
+      ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter', 'Home', 'End'].includes(e.key)
+    ) {
+      return
+    }
+    if (!/^[a-zA-Z0-9-]$/.test(e.key)) {
+      e.preventDefault()
+    }
+  }
+
+  const handleInputPaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    const pasted = e.clipboardData.getData('text')
+    const sanitized = pasted.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+    setTrackingId((prev) => (prev + sanitized).slice(0, 40))
+  }
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    if (trackingId.trim()) {
-      router.push(`/track-application/${trackingId.trim()}`)
+    const cleaned = trackingId.trim().replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+    if (cleaned) {
+      router.push(`/track-application/${cleaned}`)
     }
   }
 
@@ -149,10 +187,17 @@ export default function TrackApplicationPage() {
         >
           <TextField
             fullWidth
-            placeholder="Enter Tracking ID"
+            placeholder="Enter Tracking ID (e.g. APP-1234567890-ABCDEF)"
             value={trackingId}
-            onChange={(e) => setTrackingId(e.target.value)}
+            onChange={handleInputChange}
+            onKeyDown={handleInputKeyDown}
+            onPaste={handleInputPaste}
             variant="standard"
+            slotProps={{
+              htmlInput: {
+                maxLength: 40,
+              },
+            }}
             InputProps={{
               disableUnderline: true,
               sx: {

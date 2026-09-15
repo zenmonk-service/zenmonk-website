@@ -33,8 +33,15 @@ export class MailService {
         <style>
           @media only screen and (max-width: 768px) {
             .outer-container {
+              padding-top: 12px !important;
               padding-left: 4px !important;
               padding-right: 4px !important;
+            }
+            .email-logo-container {
+              margin-bottom: 12px !important;
+            }
+            .email-logo {
+              height: 80px !important;
             }
             .card-header {
               padding-left: 16px !important;
@@ -46,10 +53,10 @@ export class MailService {
             }
           }
         </style>
-        <div class="outer-container" style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div class="outer-container" style="background-color: #f4f5f7; padding: 24px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
           <!-- Logo -->
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
+          <div class="email-logo-container" style="text-align: center; margin-bottom: 16px;">
+            <img class="email-logo" src="https://zenmonk-website.vercel.app/logo.svg" alt="Zenmonk Logo" style="height: 100px; width: auto; display: inline-block;" />
           </div>
 
           <!-- Card -->
@@ -120,8 +127,15 @@ export class MailService {
         <style>
           @media only screen and (max-width: 768px) {
             .outer-container {
+              padding-top: 12px !important;
               padding-left: 4px !important;
               padding-right: 4px !important;
+            }
+            .email-logo-container {
+              margin-bottom: 12px !important;
+            }
+            .email-logo {
+              height: 80px !important;
             }
             .card-header {
               padding-left: 16px !important;
@@ -133,10 +147,10 @@ export class MailService {
             }
           }
         </style>
-        <div class="outer-container" style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div class="outer-container" style="background-color: #f4f5f7; padding: 24px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
           <!-- Logo -->
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
+          <div class="email-logo-container" style="text-align: center; margin-bottom: 16px;">
+            <img class="email-logo" src="https://zenmonk-website.vercel.app/logo.svg" alt="Zenmonk Logo" style="height: 100px; width: auto; display: inline-block;" />
           </div>
 
           <!-- Card -->

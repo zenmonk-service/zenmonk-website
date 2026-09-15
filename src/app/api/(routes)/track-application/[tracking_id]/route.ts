@@ -10,8 +10,16 @@ export async function GET(
     await connectToMongoDB()
 
     const { tracking_id } = await params
+    const sanitizedId = decodeURIComponent(tracking_id).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
 
-    const application = await Application.findOne({ tracking_id })
+    if (!sanitizedId) {
+      return NextResponse.json(
+        { error: 'Application not found' },
+        { status: 404 }
+      )
+    }
+
+    const application = await Application.findOne({ tracking_id: sanitizedId })
       .populate('job_posting')
       .exec()
 
