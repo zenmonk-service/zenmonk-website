@@ -115,13 +115,6 @@ a {
   text-decoration: none;
 }
 
-/* Landscape / Short Viewport Height Safeguard */
-@media screen and (max-height: 750px) and (min-width: 600px) {
-  html, body {
-    overflow-y: auto !important;
-  }
-}
-
 /* How We Work scroll spacer — only visible on mobile to extend GSAP ScrollSmoother height */
 .how-we-work-scroll-spacer {
   display: none;
