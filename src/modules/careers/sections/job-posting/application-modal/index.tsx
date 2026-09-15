@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -455,7 +455,24 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                         fontWeight: selectedFile ? 500 : 400
                       }}
                     >
-                      {selectedFile ? selectedFile.name : 'No file chosen'}
+                      {selectedFile ? (
+                        <>
+                          {selectedFile.name}
+                          <Box
+                            component="span"
+                            sx={{
+                              ml: '6px',
+                              color: '#6B7280',
+                              fontSize: isMobile ? '12px' : 'max(12px, 0.63vw)',
+                              fontWeight: 400
+                            }}
+                          >
+                            ({formatFileSize(selectedFile.size)})
+                          </Box>
+                        </>
+                      ) : (
+                        'No file chosen'
+                      )}
                     </Typography>
                   </Box>
                   {selectedFile && (
