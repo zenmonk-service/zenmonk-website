@@ -19,7 +19,6 @@ import {
   Tooltip
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import BaseButton from '@/shared/button'
 import styles from './modal.module.scss'
 import SuccessMessage from './success-message'
@@ -60,6 +59,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     formState: { errors },
     reset,
     setValue,
+    clearErrors,
     watch
   } = useForm<ApplicationFormData>()
 
@@ -115,7 +115,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
-    setValue('resume', undefined as any, { shouldValidate: true })
+    setValue('resume', undefined as any, { shouldValidate: false })
+    clearErrors('resume')
   }
 
   const handleExited = () => {
@@ -554,45 +555,23 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     )}
                   </Box>
                   {selectedFile && (
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Tooltip title="Preview in another tab" arrow placement="top">
-                        <IconButton
-                          size="small"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            previewFile(selectedFile)
-                          }}
-                          aria-label="Preview in another tab"
-                          sx={{
-                            p: '4px',
-                            color: '#6B7280',
-                            '&:hover': {
-                              color: '#F69333',
-                              backgroundColor: 'rgba(246, 147, 51, 0.1)'
-                            }
-                          }}
-                        >
-                          <OpenInNewIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Remove file" arrow placement="top">
-                        <IconButton
-                          size="small"
-                          onClick={handleRemoveFile}
-                          aria-label="Remove selected file"
-                          sx={{
-                            p: '4px',
-                            color: '#6B7280',
-                            '&:hover': {
-                              color: '#DC2626',
-                              backgroundColor: 'rgba(220, 38, 38, 0.08)'
-                            }
-                          }}
-                        >
-                          <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
-                        </IconButton>
-                      </Tooltip>
-                    </Box>
+                    <Tooltip title="Remove file" arrow placement="top">
+                      <IconButton
+                        size="small"
+                        onClick={handleRemoveFile}
+                        aria-label="Remove selected file"
+                        sx={{
+                          p: '4px',
+                          color: '#6B7280',
+                          '&:hover': {
+                            color: '#DC2626',
+                            backgroundColor: 'rgba(220, 38, 38, 0.08)'
+                          }
+                        }}
+                      >
+                        <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                      </IconButton>
+                    </Tooltip>
                   )}
                 </Box>
                 {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
