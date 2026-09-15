@@ -121,9 +121,9 @@ export default function GlobeSection() {
                 <motion.div
                   key={name}
                   className={`our-office-country-flag ${active ? 'selected' : ''}`}
-                  whileHover={{ scale: 1.1 }}
-                  animate={{ scale: active ? 1.15 : 1 }}
-                  transition={{ type: 'spring', stiffness: 260 }}
+                  whileHover={{ scale: 1.08 }}
+                  animate={{ scale: active ? 1.08 : 1 }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
                   onClick={() => onClick(countryData)}
                   style={{
                     position: 'relative',
@@ -133,8 +133,14 @@ export default function GlobeSection() {
                   <Image
                     src={icon}
                     alt={`${name} flag`}
-                    fill
-                    style={{ objectFit: 'cover' }}
+                    width={72}
+                    height={48}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
                   />
                 </motion.div>
               )

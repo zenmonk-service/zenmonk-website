@@ -4,6 +4,8 @@
   width: 100%;
   min-height: auto; /* Removed 100vh to eliminate the huge blank vertical gap */
   height: auto;
+  background-color: #FBFBFB;
+  padding: max(40px, 3vw) 0;
 }
 
 .our-office-container {
@@ -109,11 +111,13 @@
   width: max(50px, 3.3vw);
   z-index: 1;
   border-radius: max(4px, 0.3vw);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(235, 124, 13, 0.04);
+  background-color: #fff;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transform: translateZ(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: scale(1.08);
@@ -121,8 +125,8 @@
   }
 
   &.selected {
-    box-shadow: 0px 0px 31px -3px #EB7C0D;
-    border-color: #eb7c0d;
+    box-shadow: 0 0 max(14px, 1vw) max(2px, 0.15vw) rgba(235, 124, 13, 0.55);
+    border: 1.5px solid #eb7c0d;
   }
 }
 
@@ -238,9 +242,14 @@
     height: 32px;
     width: 48px;
     border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(235, 124, 13, 0.04);
+    background-color: #fff;
 
     &.selected {
-      box-shadow: 0 0 0 4px rgba(255, 168, 80, 0.4);
+      box-shadow: 0 0 14px 2px rgba(235, 124, 13, 0.55);
+      border: 1.5px solid #eb7c0d;
     }
   }
 
