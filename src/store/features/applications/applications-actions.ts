@@ -14,10 +14,19 @@ export interface ApplicationPayload {
 export const createApplication = createAsyncThunk(
   'applications/createApplication',
   async (data: FormData, { rejectWithValue }) => {
+    if (typeof window !== 'undefined' && !window.navigator.onLine) {
+      return rejectWithValue('NO_INTERNET')
+    }
     try {
       const response = await axios.post('/api/applications', data)
       return response.data
     } catch (error: any) {
+      if (typeof window !== 'undefined' && !window.navigator.onLine) {
+        return rejectWithValue('NO_INTERNET')
+      }
+      if (error.code === 'ERR_NETWORK' || error.message === 'Network Error') {
+        return rejectWithValue('NO_INTERNET')
+      }
       return rejectWithValue(error.response?.data?.message || 'Failed to submit application')
     }
   }

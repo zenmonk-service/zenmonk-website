@@ -37,8 +37,9 @@
   }
 }
 
-/* Remove border-top from the first menu item (Services) */
-.sideBarMenu > li.sideBarMenuItem {
+/* Remove border-top from the first menu item */
+.sideBarMenu > :first-child .sideBarMenuItem,
+.sideBarMenu > li.sideBarMenuItem:first-child {
   border-top: none;
 }
 

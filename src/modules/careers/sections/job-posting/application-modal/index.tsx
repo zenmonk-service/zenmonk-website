@@ -27,6 +27,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { createApplication } from '@/store/features/applications/applications-actions'
 import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
 import { previewFile } from '@/lib/file-preview'
+import NoInternetModal from '@/shared/components/no-internet-modal'
 
 
 interface ApplicationModalProps {
@@ -50,6 +51,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const dispatch = useAppDispatch()
   const { submitting, submitSuccess, error, submittedApplication } = useAppSelector((state) => state.applications)
   const fileInputRef = React.useRef<HTMLInputElement | null>(null)
+  const [isOfflineModalOpen, setIsOfflineModalOpen] = React.useState(false)
 
   const {
     register,
@@ -125,6 +127,11 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      setIsOfflineModalOpen(true)
+      return
+    }
+
     const formData = new FormData()
     formData.append('name', data.fullName.trim())
     formData.append('email', data.email.trim())
@@ -141,7 +148,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       formData.append('resume', data.resume[0])
     }
 
-    dispatch(createApplication(formData))
+    const result = await dispatch(createApplication(formData))
+    if (createApplication.rejected.match(result)) {
+      if (result.payload === 'NO_INTERNET' || (typeof window !== 'undefined' && !navigator.onLine)) {
+        setIsOfflineModalOpen(true)
+      }
+    }
   }
 
   const getTextFieldStyles = () => ({
@@ -194,7 +206,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   })
 
   return (
-    <Dialog
+    <>
+      <Dialog
       open={open}
       onClose={handleClose}
       TransitionProps={{
@@ -275,7 +288,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             className={styles.form}
             sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', overflowX: 'hidden' }}
           >
-            {error && (
+            {error && error !== 'NO_INTERNET' && (
               <Box
                 sx={{
                   mb: isMobile ? '16px' : '1.04vw',
@@ -645,6 +658,11 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       </DialogContent>
     </Dialog>
 
+    <NoInternetModal
+      open={isOfflineModalOpen}
+      onClose={() => setIsOfflineModalOpen(false)}
+    />
+  </>
   )
 }
 

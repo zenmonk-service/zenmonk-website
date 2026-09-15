@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
 import ArrowDown from '../assets/arrow.svg'
+import HomeIcon from '../assets/home.svg'
 import HomeWork from '../assets/home-work.svg'
 import School from '../assets/school.svg'
 import Settings from '../assets/settings.svg'
 import Work from '../assets/work.svg'
+import ContactIcon from '../assets/contact.svg'
 import styles from './menu.module.scss'
 
 import Link from 'next/link'
@@ -27,6 +29,11 @@ const items = [
     title: 'How we work',
     icon: Work,
     href: '/how-we-work',
+  },
+  {
+    title: 'Contact Us',
+    icon: ContactIcon,
+    href: '/contact',
   },
 ]
 const variants = {
@@ -154,6 +161,24 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
     >
+      <Link
+        href="/"
+        prefetch={true}
+        className={`${styles.sideBarMenuItemLink} ${pathname === '/' ? styles.active : ''}`}
+        onClick={(e) => handleLinkClick(e, '/', true)}
+      >
+        <LoadingIndicator />
+        <motion.li
+          variants={ItemVariants}
+          className={styles.sideBarMenuItem}
+        >
+          <div className={styles.iconPlaceholder}>
+            <HomeIcon />
+          </div>
+          <p className={styles.menuItemTitle}>Home</p>
+        </motion.li>
+      </Link>
+
       <motion.li
         variants={ItemVariants}
         className={`${styles.sideBarMenuItem} ${isOpened ? styles.active : ''}`}
