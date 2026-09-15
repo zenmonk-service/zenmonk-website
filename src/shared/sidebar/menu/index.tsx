@@ -69,14 +69,12 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
   const menuRef = useRef<HTMLUListElement>(null)
   const touchStartRef = useRef({ x: 0, y: 0 })
   const touchStartScrollTopRef = useRef(0)
-  const touchStartTimeRef = useRef(0)
   const hasMovedRef = useRef(false)
 
   const isServiceActive = (route: string) => pathname.includes(route)
 
   const handleTouchStart = (e: React.TouchEvent) => {
     hasMovedRef.current = false
-    touchStartTimeRef.current = Date.now()
     touchStartScrollTopRef.current = menuRef.current?.scrollTop || 0
 
     const touch = e.touches?.[0] || e.changedTouches?.[0]
@@ -93,46 +91,39 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
     if (touch) {
       const deltaX = Math.abs(touch.clientX - touchStartRef.current.x)
       const deltaY = Math.abs(touch.clientY - touchStartRef.current.y)
-      if (deltaX > 4 || deltaY > 4) {
+      if (deltaX > 8 || deltaY > 8) {
         hasMovedRef.current = true
       }
     }
   }
 
   const handleTouchCancel = () => {
-    // When browser native scroll takes over, WebKit emits touchcancel
     hasMovedRef.current = true
   }
 
   const handleTouchEnd = () => {
     const currentScrollTop = menuRef.current?.scrollTop || 0
     const scrollDelta = Math.abs(currentScrollTop - touchStartScrollTopRef.current)
-    if (scrollDelta > 2) {
+    if (scrollDelta > 5) {
       hasMovedRef.current = true
     }
   }
 
-  const isScrollGesture = () => {
-    const currentScrollTop = menuRef.current?.scrollTop || 0
-    const scrollDelta = Math.abs(currentScrollTop - touchStartScrollTopRef.current)
-    const touchDuration = Date.now() - touchStartTimeRef.current
-
-    return hasMovedRef.current || scrollDelta > 2 || touchDuration > 300
-  }
-
   const handleServicesHeaderClick = (e: React.MouseEvent) => {
-    if (isScrollGesture()) {
+    if (hasMovedRef.current) {
       e.preventDefault()
       e.stopPropagation()
+      hasMovedRef.current = false
       return
     }
     setIsOpened((prev) => !prev)
   }
 
   const handleLinkClick = (e: React.MouseEvent, route: string, isStatic = false) => {
-    if (isScrollGesture()) {
+    if (hasMovedRef.current) {
       e.preventDefault()
       e.stopPropagation()
+      hasMovedRef.current = false
       return
     }
 
