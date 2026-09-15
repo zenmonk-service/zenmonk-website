@@ -30,7 +30,23 @@ export class MailService {
       to,
       subject: 'Application Received - Zenmonk',
       html: `
-        <div style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <style>
+          @media only screen and (max-width: 768px) {
+            .outer-container {
+              padding-left: 4px !important;
+              padding-right: 4px !important;
+            }
+            .card-header {
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+            }
+            .card-body {
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+            }
+          }
+        </style>
+        <div class="outer-container" style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
           <!-- Logo -->
           <div style="text-align: center; margin-bottom: 20px;">
             <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
@@ -40,12 +56,12 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div style="background: #F69333; padding: 28px 88px; text-align: left;">
+            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left;">
               <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">Application Received!</h1>
             </div>
             
             <!-- Body -->
-            <div style="padding: 40px 88px;">
+            <div class="card-body" style="padding: 40px 88px;">
               <p style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 20px;">Hi ${name},</p>
               
               <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6;">
@@ -101,7 +117,23 @@ export class MailService {
       to: 'admin@zenmonk.tech',
       subject: 'New Contact Inquiry - Zenmonk',
       html: `
-        <div style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <style>
+          @media only screen and (max-width: 768px) {
+            .outer-container {
+              padding-left: 4px !important;
+              padding-right: 4px !important;
+            }
+            .card-header {
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+            }
+            .card-body {
+              padding-left: 16px !important;
+              padding-right: 16px !important;
+            }
+          }
+        </style>
+        <div class="outer-container" style="background-color: #f4f5f7; padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
           <!-- Logo -->
           <div style="text-align: center; margin-bottom: 20px;">
             <img src="https://zenmonk.tech/assets/images/logo.png" alt="Zenmonk Logo" style="height: 50px; width: auto;" />
@@ -111,12 +143,12 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div style="background: #F69333; padding: 28px 88px; text-align: left;">
+            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left;">
               <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">New Contact Inquiry</h1>
             </div>
             
             <!-- Body -->
-            <div style="padding: 32px 40px;">
+            <div class="card-body" style="padding: 32px 40px;">
               <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
               
               <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif; table-layout: fixed;">

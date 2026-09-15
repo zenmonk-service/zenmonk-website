@@ -1,5 +1,6 @@
 'use client'
 
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import Popover from '@mui/material/Popover'
@@ -35,9 +36,12 @@ const ServiceLink = (props: Props) => {
   const alreadyOpen = (path: string) => pathname.includes(path)
   const open = Boolean(anchorEl)
 
+  useScrollLock(open, `.${styles.servicesMenuContainer}`)
+
   return (
     <>
       <button
+        type="button"
         className={`${styles.serviceActionLink} ${
           pathname.includes('/services') ? styles.active : ''
         }`}
@@ -56,6 +60,9 @@ const ServiceLink = (props: Props) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        disableAutoFocus
+        disableEnforceFocus
+        disableRestoreFocus
         disableScrollLock
         className={styles.servicesMenuPopover}
         sx={{

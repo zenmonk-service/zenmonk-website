@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
 import { useAppSelector } from '@/store/hooks'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
 import styles from './header.module.scss'
@@ -28,19 +29,7 @@ const Navbar = () => {
     }
   })
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-      document.documentElement.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
-    }
-    return () => {
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
-    }
-  }, [isOpen])
+  useScrollLock(isOpen, '[class*="sideBarMenu"]')
 
   const isHeaderHidden = useAppSelector((state) => state.header.hide)
 
