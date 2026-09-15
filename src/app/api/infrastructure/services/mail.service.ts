@@ -63,23 +63,23 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left;">
-              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">Application Received!</h1>
+            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">Application Received!</h1>
             </div>
             
             <!-- Body -->
-            <div class="card-body" style="padding: 40px 88px;">
-              <p style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 20px;">Hi ${name},</p>
+            <div class="card-body" style="padding: 40px 88px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+              <p style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 20px; line-height: 1.4; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">Hi ${name},</p>
               
-              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
                 Thank you for applying for the <strong>${jobTitle}</strong> position at Zenmonk!
               </p>
               
-              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 20px; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 20px; line-height: 1.6; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
                 We've received your application and our team will review it shortly. If your profile matches our requirements, we'll get in touch for the next steps.
               </p>
 
-              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 24px; line-height: 1.6;">
+              <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 24px; line-height: 1.6; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
                 You can track your application status anytime using the link below:
               </p>
               
@@ -157,8 +157,8 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left;">
-              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700;">New Contact Inquiry</h1>
+            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+              <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">New Contact Inquiry</h1>
             </div>
             
             <!-- Body -->
