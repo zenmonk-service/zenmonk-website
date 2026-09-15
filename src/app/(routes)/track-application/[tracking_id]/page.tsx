@@ -8,7 +8,7 @@ import {
   Typography,
   TextField,
   Button,
-  CircularProgress,
+  Skeleton,
   Alert,
   useMediaQuery,
   useTheme,
@@ -227,10 +227,124 @@ export default function TrackApplicationPage() {
           </Button>
         </Box>
 
-        {/* Loading */}
+        {/* Loading Skeleton */}
         {loading && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: isMobile ? '64px' : '4.17vw' }}>
-            <CircularProgress sx={{ color: '#F69333' }} />
+          <Box
+            sx={{
+              background: 'white',
+              borderRadius: isMobile ? '8px' : '0.42vw',
+              p: isMobile ? '24px' : '2.08vw',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            }}
+          >
+            {/* Job Info Skeleton */}
+            <Box
+              sx={{
+                mb: isMobile ? '24px' : '2.08vw',
+                pb: isMobile ? '20px' : '1.56vw',
+                borderBottom: '1px solid #E5E7EB',
+              }}
+            >
+              <Skeleton
+                variant="rectangular"
+                width="40%"
+                height={isMobile ? 24 : 28}
+                sx={{
+                  borderRadius: '4px',
+                  mb: isMobile ? '8px' : '0.42vw',
+                }}
+              />
+              <Skeleton
+                variant="rectangular"
+                width="25%"
+                height={isMobile ? 16 : 20}
+                sx={{
+                  borderRadius: '4px',
+                  mb: isMobile ? '16px' : '1.04vw',
+                }}
+              />
+              <Box sx={{ display: 'flex', gap: isMobile ? '24px' : '1.56vw', flexWrap: 'wrap' }}>
+                <Box sx={{ width: isMobile ? '140px' : '8.5vw' }}>
+                  <Skeleton variant="text" width="50%" height={isMobile ? 16 : 18} />
+                  <Skeleton variant="text" width="95%" height={isMobile ? 20 : 22} />
+                </Box>
+                <Box sx={{ width: isMobile ? '120px' : '7vw' }}>
+                  <Skeleton variant="text" width="60%" height={isMobile ? 16 : 18} />
+                  <Skeleton variant="text" width="80%" height={isMobile ? 20 : 22} />
+                </Box>
+              </Box>
+            </Box>
+
+            {/* Timeline Skeleton */}
+            <Box>
+              <Skeleton
+                variant="rectangular"
+                width="30%"
+                height={isMobile ? 20 : 22}
+                sx={{
+                  borderRadius: '4px',
+                  mb: isMobile ? '20px' : '1.56vw',
+                }}
+              />
+
+              {/* Steps Skeleton */}
+              {[0, 1, 2, 3].map((index) => {
+                const isLast = index === 3
+                return (
+                  <Box key={index}>
+                    <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '12px' : '1.04vw' }}>
+                      <Box sx={{ position: 'relative' }}>
+                        <Skeleton
+                          variant="circular"
+                          width={isMobile ? 24 : 26}
+                          height={isMobile ? 24 : 26}
+                        />
+                        {!isLast && (
+                          <Box
+                            sx={{
+                              position: 'absolute',
+                              left: isMobile ? '11px' : '0.57vw',
+                              top: isMobile ? '24px' : '1.25vw',
+                              width: isMobile ? '2px' : '0.1vw',
+                              height: isMobile ? '40px' : '2.08vw',
+                              background: '#E5E7EB',
+                            }}
+                          />
+                        )}
+                      </Box>
+                      <Box sx={{ flex: 1, pb: isLast ? 0 : (isMobile ? '20px' : '1.56vw') }}>
+                        <Skeleton
+                          variant="text"
+                          width={index === 0 ? '45%' : index === 1 ? '35%' : index === 2 ? '40%' : '30%'}
+                          height={isMobile ? 22 : 24}
+                        />
+                        {index === 0 && (
+                          <Skeleton
+                            variant="text"
+                            width="25%"
+                            height={isMobile ? 16 : 18}
+                            sx={{ mt: isMobile ? '4px' : '0.26vw' }}
+                          />
+                        )}
+                      </Box>
+                    </Box>
+                  </Box>
+                )
+              })}
+            </Box>
+
+            {/* Footer Skeleton */}
+            <Box
+              sx={{
+                mt: isMobile ? '24px' : '2.08vw',
+                pt: isMobile ? '20px' : '1.56vw',
+                borderTop: '1px solid #E5E7EB',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              <Skeleton variant="text" width="30%" height={isMobile ? 18 : 20} />
+            </Box>
           </Box>
         )}
 
