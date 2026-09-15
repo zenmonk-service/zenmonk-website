@@ -30,18 +30,25 @@ export async function GET(
       )
     }
 
-    return NextResponse.json({
-      tracking_id: application.tracking_id,
-      status: application.status,
-      name: application.name,
-      email: application.email,
-      job_posting: {
-        role: application.job_posting?.role || 'Unknown Position',
-        category: application.job_posting?.category || 'General',
+    return NextResponse.json(
+      {
+        tracking_id: application.tracking_id,
+        status: application.status,
+        name: application.name,
+        email: application.email,
+        job_posting: {
+          role: application.job_posting?.role || 'Unknown Position',
+          category: application.job_posting?.category || 'General',
+        },
+        createdAt: application.createdAt,
+        updatedAt: application.updatedAt,
       },
-      createdAt: application.createdAt,
-      updatedAt: application.updatedAt,
-    })
+      {
+        headers: {
+          'Cache-Control': 'public, max-age=60, s-maxage=60',
+        },
+      }
+    )
   } catch (error) {
     console.error('Error fetching application:', error)
     return NextResponse.json(

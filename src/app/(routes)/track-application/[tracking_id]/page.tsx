@@ -37,6 +37,16 @@ const statusSteps = [
   { label: 'Final Decision', status: 'final' },
 ]
 
+const CACHE_DURATION_MS = 60 * 1000 // 1 minute cache
+
+interface CacheEntry {
+  data: ApplicationData | null
+  error?: string
+  timestamp: number
+}
+
+const applicationCache = new Map<string, CacheEntry>()
+
 const getStatusIndex = (status: string) => {
   const index = statusSteps.findIndex(step => step.status === status)
   if (status === 'accepted' || status === 'rejected') return 3
@@ -74,6 +84,21 @@ export default function TrackApplicationPage() {
   }, [params])
 
   const fetchApplication = async (id: string) => {
+    const cached = applicationCache.get(id)
+    const now = Date.now()
+
+    if (cached && now - cached.timestamp < CACHE_DURATION_MS) {
+      if (cached.error) {
+        setError(cached.error)
+        setApplication(null)
+      } else {
+        setApplication(cached.data)
+        setError('')
+      }
+      setLoading(false)
+      return
+    }
+
     setLoading(true)
     setError('')
 
@@ -85,9 +110,20 @@ export default function TrackApplicationPage() {
       }
 
       const data = await response.json()
+      applicationCache.set(id, {
+        data,
+        timestamp: Date.now(),
+      })
       setApplication(data)
+      setError('')
     } catch {
-      setError('Application not found. Please check your tracking ID.')
+      const errorMsg = 'Application not found. Please check your tracking ID.'
+      applicationCache.set(id, {
+        data: null,
+        error: errorMsg,
+        timestamp: Date.now(),
+      })
+      setError(errorMsg)
       setApplication(null)
     } finally {
       setLoading(false)
@@ -124,7 +160,18 @@ export default function TrackApplicationPage() {
     e.preventDefault()
     const cleaned = trackingId.trim().replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
     if (cleaned) {
-      router.push(`/track-application/${cleaned}`)
+      const currentParam = Array.isArray(params?.tracking_id)
+        ? params.tracking_id[0]
+        : params?.tracking_id
+      const currentDecoded = currentParam
+        ? decodeURIComponent(currentParam).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+        : ''
+
+      if (cleaned === currentDecoded) {
+        fetchApplication(cleaned)
+      } else {
+        router.push(`/track-application/${cleaned}`)
+      }
     }
   }
 
@@ -213,17 +260,18 @@ export default function TrackApplicationPage() {
             sx={{
               background: '#F69333',
               color: 'white',
-              px: isMobile ? '24px' : '1.56vw',
-              minWidth: 'auto',
+              px: isMobile ? '20px' : 'max(20px, 1.25vw)',
+              minWidth: isMobile ? '48px' : 'max(48px, 2.5vw)',
               textTransform: 'none',
               fontFamily: 'Poppins',
               fontWeight: 500,
+              borderRadius: isMobile ? '6px' : 'max(6px, 0.31vw)',
               '&:hover': {
                 background: '#E67E22',
               },
             }}
           >
-            <SearchIcon sx={{ fontSize: isMobile ? '20px' : '1.04vw' }} />
+            <SearchIcon sx={{ fontSize: isMobile ? '20px' : 'max(20px, 1.15vw)' }} />
           </Button>
         </Box>
 
