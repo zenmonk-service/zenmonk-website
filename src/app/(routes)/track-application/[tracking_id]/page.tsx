@@ -47,7 +47,7 @@ export default function TrackApplicationPage() {
   const params = useParams()
   const router = useRouter()
   const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery('(max-width:768px)')
 
   const [trackingId, setTrackingId] = useState('')
   const [application, setApplication] = useState<ApplicationData | null>(null)
@@ -293,21 +293,37 @@ export default function TrackApplicationPage() {
                 return (
                   <Box key={index}>
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '12px' : '1.04vw' }}>
-                      <Box sx={{ position: 'relative' }}>
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          width: isMobile ? '24px' : 'max(24px, 1.25vw)',
+                          flexShrink: 0,
+                          alignSelf: 'stretch',
+                        }}
+                      >
                         <Skeleton
                           variant="circular"
                           width={isMobile ? 24 : 26}
                           height={isMobile ? 24 : 26}
+                          sx={{
+                            position: 'relative',
+                            zIndex: 2,
+                          }}
                         />
                         {!isLast && (
                           <Box
                             sx={{
                               position: 'absolute',
-                              left: isMobile ? '11px' : '0.57vw',
-                              top: isMobile ? '24px' : '1.25vw',
-                              width: isMobile ? '2px' : '0.1vw',
-                              height: isMobile ? '40px' : '2.08vw',
+                              top: isMobile ? '12px' : 'max(12px, 0.625vw)',
+                              bottom: isMobile ? '-12px' : 'max(-12px, -0.625vw)',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              width: '2px',
                               background: '#E5E7EB',
+                              zIndex: 1,
                             }}
                           />
                         )}
@@ -459,12 +475,27 @@ export default function TrackApplicationPage() {
                   <Box key={step.status}>
                     <Box sx={{ display: 'flex', alignItems: 'flex-start', gap: isMobile ? '12px' : '1.04vw' }}>
                       {/* Icon */}
-                      <Box sx={{ position: 'relative' }}>
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          width: isMobile ? '24px' : 'max(24px, 1.25vw)',
+                          flexShrink: 0,
+                          alignSelf: 'stretch',
+                        }}
+                      >
                         {isCompleted ? (
                           <CheckCircleIcon
                             sx={{
                               color: '#10B981',
                               fontSize: 'max(24px, 1.25vw)',
+                              display: 'block',
+                              position: 'relative',
+                              zIndex: 2,
+                              backgroundColor: '#ffffff',
+                              borderRadius: '50%',
                             }}
                           />
                         ) : (
@@ -472,6 +503,11 @@ export default function TrackApplicationPage() {
                             sx={{
                               color: '#D1D5DB',
                               fontSize: 'max(24px, 1.25vw)',
+                              display: 'block',
+                              position: 'relative',
+                              zIndex: 2,
+                              backgroundColor: '#ffffff',
+                              borderRadius: '50%',
                             }}
                           />
                         )}
@@ -479,11 +515,13 @@ export default function TrackApplicationPage() {
                           <Box
                             sx={{
                               position: 'absolute',
-                              left: isMobile ? '11px' : '0.57vw',
-                              top: isMobile ? '24px' : '1.25vw',
-                              width: isMobile ? '2px' : '0.1vw',
-                              height: isMobile ? '40px' : '2.08vw',
+                              top: isMobile ? '12px' : 'max(12px, 0.625vw)',
+                              bottom: isMobile ? '-12px' : 'max(-12px, -0.625vw)',
+                              left: '50%',
+                              transform: 'translateX(-50%)',
+                              width: '2px',
                               background: isCompleted ? '#10B981' : '#E5E7EB',
+                              zIndex: 1,
                             }}
                           />
                         )}
