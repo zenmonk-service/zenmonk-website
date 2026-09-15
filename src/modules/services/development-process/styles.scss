@@ -12,7 +12,7 @@
 }
 
 .development-process-description.software-dev-desc {
-  padding-bottom: 40px !important;
+  padding-bottom: max(32px, 2.5vw) !important;
 
   @media (max-width: 1000px) {
     padding-bottom: 0 !important;

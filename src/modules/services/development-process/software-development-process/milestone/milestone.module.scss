@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: max(600px, 35vw);
-  overflow: hidden;
+  overflow: visible;
   padding: 2.5rem 0;
   font-family: var(--font-secondary, 'Inter', sans-serif);
   display: flex;
@@ -11,7 +11,7 @@
   justify-content: center;
 
   @media (min-width: 768px) {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 }
 
@@ -67,7 +67,7 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  height: max(350px, 40vw);
+  height: max(480px, 46vw);
   margin-top: 1rem;
 }
 

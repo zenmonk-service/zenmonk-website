@@ -177,7 +177,7 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
             href={`/services${service.route}`}
             className={`${styles.collapsableService} ${isServiceActive(service.route) ? styles.active : ''}`}
             key={service.route}
-            prefetch={false}
+            prefetch={true}
             onClick={(e) => handleLinkClick(e, service.route)}
           >
             <LoadingIndicator />
@@ -191,7 +191,7 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
           <Link
             href={href}
             key={title}
-            prefetch={false}
+            prefetch={true}
             className={`${styles.sideBarMenuItemLink} ${isActive ? styles.active : ''}`}
             onClick={(e) => handleLinkClick(e, href, true)}
           >

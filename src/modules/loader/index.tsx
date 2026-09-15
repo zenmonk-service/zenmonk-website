@@ -24,13 +24,13 @@ const CustomLoader = () => {
     }
   }, [pathname, dispatch])
 
-  // Safety fallback: Never allow the monk loader to remain visible for more than 2.5s
+  // Safety fallback: Never allow the monk loader to remain visible for more than 8s
   useEffect(() => {
     if (!isPageLoading) return
 
     const fallbackTimer = setTimeout(() => {
       dispatch(toggleLoader(false))
-    }, 2500)
+    }, 8000)
 
     return () => clearTimeout(fallbackTimer)
   }, [isPageLoading, dispatch])

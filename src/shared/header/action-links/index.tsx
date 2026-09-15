@@ -35,7 +35,7 @@ const ActionLinks = (props: ActionLinksProp) => {
         <Link
           href="/"
           className={`${styles.actionLink} ${pathname === '/' ? styles.active : ''}`}
-          prefetch={false}
+          prefetch={true}
         >
           <LoadingIndicator />
           Home
@@ -49,7 +49,7 @@ const ActionLinks = (props: ActionLinksProp) => {
           <Link
             href={href}
             className={`${styles.actionLink} ${pathname === href ? styles.active : ''}`}
-            prefetch={false}
+            prefetch={true}
             key={name}
           >
             <LoadingIndicator />
