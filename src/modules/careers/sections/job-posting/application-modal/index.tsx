@@ -90,15 +90,16 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (reason === 'backdropClick') {
       return
     }
-    reset()
-    dispatch(resetSubmitSuccess())
     onClose()
   }
 
   const handleCancel = () => {
+    onClose()
+  }
+
+  const handleExited = () => {
     reset()
     dispatch(resetSubmitSuccess())
-    onClose()
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
@@ -156,6 +157,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     <Dialog
       open={open}
       onClose={handleClose}
+      TransitionProps={{
+        onExited: handleExited,
+      }}
       fullScreen={isMobile}
       maxWidth={false}
       fullWidth
