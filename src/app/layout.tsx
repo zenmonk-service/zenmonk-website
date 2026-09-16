@@ -97,7 +97,9 @@ export default function FlashScreenLayout({
                 <Header />
                 <CustomLoader />
                 <Suspense fallback={null}>
-                  {children}
+                  <main className={pathname?.startsWith('/services') ? 'services-page-wrapper' : undefined}>
+                    {children}
+                  </main>
                   {showFooter && <Footer />}
                 </Suspense>
                 {pathname === '/how-we-work' && (
