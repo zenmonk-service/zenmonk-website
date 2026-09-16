@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, EMAIL_REGEX } from '@/lib/helper'
 import { FormControl, FormHelperText } from '@mui/material'
 import axios from 'axios'
 import {
@@ -183,8 +183,8 @@ export const ContactForm = () => {
             required: 'Email is required',
             maxLength: { value: 50, message: 'Email cannot exceed 50 characters' },
             pattern: {
-              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              message: 'Invalid email format',
+              value: EMAIL_REGEX,
+              message: 'Invalid email address',
             },
             validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
           })}

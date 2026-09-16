@@ -1,17 +1,21 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useMediaQuery, Box } from '@mui/material'
+import { useRouter } from 'next/navigation'
+import { useMediaQuery, Box, Button } from '@mui/material'
+import TrackChangesIcon from '@mui/icons-material/TrackChanges'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import PositionsDesktop from './positions/desktop'
 import PositionsMobile from './positions/mobile'
 import ApplicationModal from './application-modal'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchJobs } from '@/store/features/jobs/jobs-actions'
+import { toggleLoader } from '@/store/features/header/header-slice'
 import { positionsList } from './positions/positions'
 import './styles.scss'
 
 const OpenPosition = () => {
+  const router = useRouter()
   const isMobile = useMediaQuery('(max-width:1000px)')
   const dispatch = useAppDispatch()
   const { departments, loading: isLoading } = useAppSelector((state) => state.jobs)
@@ -22,6 +26,11 @@ const OpenPosition = () => {
   const handleApplyClick = (id: string, title: string) => {
     setSelectedJob({ id, title })
     setIsModalOpen(true)
+  }
+
+  const handleTrackApplicationClick = () => {
+    dispatch(toggleLoader(true))
+    router.push('/track-application')
   }
 
   useEffect(() => {
@@ -50,8 +59,18 @@ const OpenPosition = () => {
           className="description"
           text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
         />
-
       </Box>
+
+      <Box className="track-application-container">
+        <Button
+          onClick={handleTrackApplicationClick}
+          className="track-application-btn"
+          startIcon={<TrackChangesIcon />}
+        >
+          Track Application
+        </Button>
+      </Box>
+
       <Box className="position-container">
         {isMobile ? (
           <PositionsMobile

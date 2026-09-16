@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, formatFileSize } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -360,7 +360,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     required: 'Email is required',
                     maxLength: { value: 50, message: 'Email address cannot exceed 50 characters' },
                     pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      value: EMAIL_REGEX,
                       message: 'Invalid email address'
                     },
                     validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace'

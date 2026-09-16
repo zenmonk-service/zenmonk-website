@@ -2,6 +2,9 @@ import { Box, Typography, useTheme, useMediaQuery, Button } from '@mui/material'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import TrackChangesIcon from '@mui/icons-material/TrackChanges'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
 
 const SuccessMessage = ({
   jobTitle,
@@ -12,13 +15,13 @@ const SuccessMessage = ({
   tracking_id?: string
   onClose?: () => void
 }) => {
+  const router = useRouter()
+  const dispatch = useAppDispatch()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [copied, setCopied] = useState(false)
 
-  const trackingUrl = tracking_id
-    ? `${window.location.origin}/track-application/${tracking_id}`
-    : ''
+  const trackingPath = tracking_id ? `/track-application/${tracking_id}` : '/track-application'
 
   const handleCopyTrackingId = () => {
     if (tracking_id) {
@@ -159,7 +162,11 @@ const SuccessMessage = ({
 
           <Box sx={{ display: 'flex', gap: isMobile ? '12px' : 'max(12px, 0.83vw)', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button
-              href={trackingUrl}
+              onClick={() => {
+                dispatch(toggleLoader(true))
+                if (onClose) onClose()
+                router.push(trackingPath)
+              }}
               variant="contained"
               startIcon={<TrackChangesIcon />}
               sx={{

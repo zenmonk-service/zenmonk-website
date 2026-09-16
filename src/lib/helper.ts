@@ -6,9 +6,10 @@ const parsedCountries = defaultCountries
   .map(parseCountry)
   .sort((a, b) => b.dialCode.length - a.dialCode.length)
 
+export const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+
 export const validateEmail = function (email: string) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return emailRegex.test(email)
+  return EMAIL_REGEX.test(email)
 }
 
 export const hasNationalDigits = (phone: string): boolean => {
