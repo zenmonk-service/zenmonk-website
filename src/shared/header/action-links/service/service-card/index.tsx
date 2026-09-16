@@ -39,7 +39,7 @@ const ServiceCard = ({
         handleClose()
       }}
     >
-      <LoadingIndicator />
+      <LoadingIndicator targetHref={`/services${route}`} />
       <div
         style={{ background: serviceStyles?.hoverColor }}
         className={styles.serviceCardIcon}

@@ -24,7 +24,7 @@ const CustomLoader = () => {
     }
   }, [pathname, dispatch])
 
-  // Safety fallback: Never allow the monk loader to remain visible for more than 8s
+  // Safety fallback: Never allow the monk loader to remain visible indefinitely (8s max)
   useEffect(() => {
     if (!isPageLoading) return
 

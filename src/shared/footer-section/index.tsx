@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { socialMedia } from '@/assets/icons/social'
 import { SectionDescription } from '@/shared/typography'
 import ListHeading from './list-heading/list-heading'
@@ -11,6 +12,8 @@ import { serviceCategory } from './list/service-categories'
 import './styles.scss'
 
 const Footer = () => {
+  const pathname = usePathname()
+
   const chunkArray = <T,>(arr: T[], size: number): T[][] => {
     const result: T[][] = []
     for (let i = 0; i < arr.length; i += size) {
@@ -24,7 +27,14 @@ const Footer = () => {
   return (
     <footer className="footer-section">
       <div className="top-banner">
-        <Link href="/" className="logo-wrapper logo-mobile" prefetch={false}>
+        <Link
+          href="/"
+          className="logo-wrapper logo-mobile"
+          prefetch={false}
+          onClick={(e) => {
+            if (pathname === '/') e.preventDefault()
+          }}
+        >
           <Image
             src="/logo.svg"
             alt="Zenmonk Logo"
@@ -47,7 +57,14 @@ const Footer = () => {
       <div className="divider" />
 
       <div className="main-content">
-        <Link href="/" className="logo-wrapper logo-desktop" prefetch={false}>
+        <Link
+          href="/"
+          className="logo-wrapper logo-desktop"
+          prefetch={false}
+          onClick={(e) => {
+            if (pathname === '/') e.preventDefault()
+          }}
+        >
           <Image
             src="/logo.svg"
             alt="Zenmonk Logo"

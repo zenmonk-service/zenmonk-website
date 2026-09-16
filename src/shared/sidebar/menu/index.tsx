@@ -144,13 +144,15 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
     }
 
     if (isStatic) {
+      if (pathname === route) {
+        e.preventDefault()
+      }
       toggle()
     } else {
       if (isServiceActive(route)) {
         e.preventDefault()
-      } else {
-        toggle()
       }
+      toggle()
     }
   }
 
@@ -174,7 +176,7 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
         className={`${styles.sideBarMenuItemLink} ${pathname === '/' ? styles.active : ''}`}
         onClick={(e) => handleLinkClick(e, '/', true)}
       >
-        <LoadingIndicator />
+        <LoadingIndicator targetHref="/" />
         <motion.li
           variants={ItemVariants}
           className={styles.sideBarMenuItem}
@@ -212,7 +214,7 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
             prefetch={true}
             onClick={(e) => handleLinkClick(e, service.route)}
           >
-            <LoadingIndicator />
+            <LoadingIndicator targetHref={`/services${service.route}`} />
             <p className={styles.collapsableTitle}>{service.name}</p>
           </Link>
         ))}
@@ -227,7 +229,7 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
             className={`${styles.sideBarMenuItemLink} ${isActive ? styles.active : ''}`}
             onClick={(e) => handleLinkClick(e, href, true)}
           >
-            <LoadingIndicator />
+            <LoadingIndicator targetHref={href} />
             <motion.li
               variants={ItemVariants}
               className={styles.sideBarMenuItem}

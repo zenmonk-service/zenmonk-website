@@ -44,8 +44,17 @@ const Navbar = () => {
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`${styles.appBarContainer} ${isOpen ? styles.open : ''} ${isAtTop && !isOpen ? styles.transparent : ''}`}
     >
-      <Link href="/" className={styles.appBarIconContainer} prefetch={false}>
-        <LoadingIndicator />
+      <Link
+        href="/"
+        className={styles.appBarIconContainer}
+        prefetch={false}
+        onClick={(e) => {
+          if (pathname === '/') {
+            e.preventDefault()
+          }
+        }}
+      >
+        <LoadingIndicator targetHref="/" />
         <Monk />
       </Link>
       {!pathname?.includes('/track-application/') && (
@@ -55,8 +64,13 @@ const Navbar = () => {
             href="/contact"
             prefetch={false}
             className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
+            onClick={(e) => {
+              if (pathname === '/contact') {
+                e.preventDefault()
+              }
+            }}
           >
-            <LoadingIndicator />
+            <LoadingIndicator targetHref="/contact" />
             Contact Us
           </Link>
         </>

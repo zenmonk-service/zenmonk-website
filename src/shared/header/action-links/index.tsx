@@ -29,6 +29,12 @@ const ActionLinks = (props: ActionLinksProp) => {
     setAnchorEl(null)
   }
 
+  const handleLinkClick = (e: React.MouseEvent, href: string) => {
+    if (pathname === href) {
+      e.preventDefault()
+    }
+  }
+
   return (
     <div>
       <div className={styles.actionLinksContainer} ref={containerRef}>
@@ -36,8 +42,9 @@ const ActionLinks = (props: ActionLinksProp) => {
           href="/"
           className={`${styles.actionLink} ${pathname === '/' ? styles.active : ''}`}
           prefetch={true}
+          onClick={(e) => handleLinkClick(e, '/')}
         >
-          <LoadingIndicator />
+          <LoadingIndicator targetHref="/" />
           Home
         </Link>
         <ServiceLink
@@ -51,8 +58,9 @@ const ActionLinks = (props: ActionLinksProp) => {
             className={`${styles.actionLink} ${pathname === href ? styles.active : ''}`}
             prefetch={true}
             key={name}
+            onClick={(e) => handleLinkClick(e, href)}
           >
-            <LoadingIndicator />
+            <LoadingIndicator targetHref={href} />
             {name}
           </Link>
         ))}
