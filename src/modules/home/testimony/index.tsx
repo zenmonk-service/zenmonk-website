@@ -12,72 +12,52 @@ import Quote from './assets/quote.svg'
 import { ClientReviews } from './client-reviews'
 import './style.css'
 
+const POSITIONS = [
+  '0vw, 0.5208vw', // Slot 0: Center
+  '-31.25vw, -7.8125vw', // Slot 1: Top-Left (Position 1)
+  '31.25vw, -7.8125vw', // Slot 2: Top-Right (Position 2)
+  '-36.4583vw, 5.2083vw', // Slot 3: Mid-Left (Position 3)
+  '36.4583vw, 5.2083vw', // Slot 4: Mid-Right (Position 4)
+  '-31.25vw, 18.2291vw', // Slot 5: Bottom-Left (Position 5)
+  '31.25vw, 18.2291vw', // Slot 6: Bottom-Right (Position 6)
+]
+
 export default function Testimony() {
-  const [coordinates, setCoordinates] = useState<string[]>([
-    '0vw, 0.5208vw', // 0px, 10px
-    '-31.25vw, -7.8125vw', // -600px, -150px
-    '31.25vw, -7.8125vw', // 600px, -150px
-    '-36.4583vw, 5.2083vw', // -700px, 100px
-    '36.4583vw, 5.2083vw', // 700px, 100px
-    '31.25vw, 18.2291vw', // 600px, 350px
-    '-31.25vw, 18.2291vw', // -600px, 350px
-  ])
+  // slotToReview[slotIndex] = reviewIndex
+  const [slotToReview, setSlotToReview] = useState<number[]>([0, 1, 2, 3, 4, 5, 6])
+  const [currentSlot, setCurrentSlot] = useState<number>(0)
 
-  const getNextIndex = (index: number) => (index + 1) % coordinates.length
+  const swapToSlot = (targetSlot: number) => {
+    if (targetSlot === 0) return
 
-  const getPrevIndex = (index: number) =>
-    (coordinates.length + index - 1) % coordinates.length
+    setSlotToReview((prev) => {
+      const next = [...prev]
+      const currentCenterReview = next[0]
+      const targetReview = next[targetSlot]
 
-  const [currentIndex, setCurrentIndex] = useState<number>(0)
+      next[0] = targetReview
+      next[targetSlot] = currentCenterReview
 
-  function handleOnPrev() {
-    setCoordinates((data) => {
-      const coordinates = [...data]
-
-      const prevIndex = getPrevIndex(currentIndex)
-
-      const value = coordinates[prevIndex]
-
-      coordinates[currentIndex] = value
-      coordinates[prevIndex] = '0vw, 0.5208vw' // 0px, 10px
-
-      return coordinates
+      return next
     })
 
-    setCurrentIndex(getPrevIndex(currentIndex))
+    setCurrentSlot(targetSlot)
   }
 
-  function handleOnNext() {
-    setCoordinates((data) => {
-      const coordinates = [...data]
-
-      const nextIndex = getNextIndex(currentIndex)
-
-      const value = coordinates[nextIndex]
-
-      coordinates[currentIndex] = value
-      coordinates[nextIndex] = '0vw, 0.5208vw' // 0px, 10px
-
-      return coordinates
-    })
-
-    setCurrentIndex(getNextIndex(currentIndex))
+  const handleOnNext = () => {
+    // Sequence through physical location slots: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 1
+    const nextSlot = currentSlot === 0 ? 1 : currentSlot === 6 ? 1 : currentSlot + 1
+    swapToSlot(nextSlot)
   }
 
-  function handleOnImageClick(coordinate: string) {
-    setCoordinates((prevCoordinates) => {
-      const newCoordinates = [...prevCoordinates]
-
-      const hoveredIndex = newCoordinates.indexOf(coordinate)
-      const targetIndex = newCoordinates.indexOf('0vw, 0.5208vw') // 0px, 10px
-
-      newCoordinates[hoveredIndex] = '0vw, 0.5208vw' // 0px, 10px
-      newCoordinates[targetIndex] = coordinate
-      setCurrentIndex(newCoordinates.indexOf('0vw, 0.5208vw')) // 0px, 10px
-
-      return newCoordinates
-    })
+  const handleOnPrev = () => {
+    // Sequence through physical location slots: 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> 6
+    const prevSlot = currentSlot === 0 ? 6 : currentSlot === 1 ? 6 : currentSlot - 1
+    swapToSlot(prevSlot)
   }
+
+  const activeReviewIndex = slotToReview[0]
+  const currentReview = ClientReviews[activeReviewIndex]
 
   return (
     <>
@@ -103,32 +83,37 @@ export default function Testimony() {
 
         <div className="testimony-content">
           <div className="review-images">
-            {coordinates.map((coordinate, index) => (
-              <Image
-                key={index}
-                style={{
-                  transform: `translate(${coordinate})`,
-                  scale: coordinate == '0vw, 0.5208vw' ? 1.5 : 0.7, // 0px, 10px
-                }}
-                src={ClientReviews[index].imageUrl}
-                fill
-                alt={`image-${index + 1}`}
-                onClick={() => handleOnImageClick(coordinate)}
-              />
-            ))}
+            {ClientReviews.map((review, reviewIndex) => {
+              const slot = slotToReview.indexOf(reviewIndex)
+              const coordinate = POSITIONS[slot]
+              const isCenter = slot === 0
+
+              return (
+                <Image
+                  key={review.imageUrl}
+                  style={{
+                    transform: `translate(${coordinate})`,
+                    scale: isCenter ? 1.5 : 0.7,
+                    zIndex: isCenter ? 10 : 1,
+                  }}
+                  src={review.imageUrl}
+                  fill
+                  alt={review.by}
+                  onClick={() => swapToSlot(slot)}
+                />
+              )
+            })}
           </div>
 
-          <div className="review">&ldquo;{ClientReviews[currentIndex].review}&rdquo;</div>
+          <div className="review">&ldquo;{currentReview.review}&rdquo;</div>
           <div
             style={{
               marginTop: '0.5208vw', // 10px = 0.5208vw
               marginBottom: '1.0416vw', //20px = 1.0416vw
             }}
           >
-            <div className="title">{ClientReviews[currentIndex].by}</div>
-            <div className="description">
-              {ClientReviews[currentIndex].position}
-            </div>
+            <div className="title">{currentReview.by}</div>
+            <div className="description">{currentReview.position}</div>
           </div>
           <div className="controls">
             <ArrowLeft onClick={handleOnPrev} />
@@ -172,16 +157,14 @@ export default function Testimony() {
         <div className="testimony-container">
           <div className="testimony-content">
             <div className="reviwer-image">
-              <Image src={ClientReviews[currentIndex].imageUrl} fill alt="" />
+              <Image src={currentReview.imageUrl} fill alt="" />
             </div>
 
-            <div className="review">&ldquo;{ClientReviews[currentIndex].review}&rdquo;</div>
+            <div className="review">&ldquo;{currentReview.review}&rdquo;</div>
 
             <div>
-              <div className="title">{ClientReviews[currentIndex].by}</div>
-              <div className="description">
-                {ClientReviews[currentIndex].position}
-              </div>
+              <div className="title">{currentReview.by}</div>
+              <div className="description">{currentReview.position}</div>
             </div>
             <div className="controls">
               <ALL onClick={handleOnPrev} />
