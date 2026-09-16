@@ -19,7 +19,12 @@ const Path = ({ stroke, ...props }: any) => (
 export const MenuToggle = ({ toggle, className, isOpen }: Props) => {
   const strokeColor = '#ffffff'
   return (
-    <button onClick={toggle} className={className}>
+    <button
+      onClick={toggle}
+      className={className}
+      aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      aria-expanded={isOpen}
+    >
       <svg width="23" height="23" viewBox="0 0 23 23">
         <Path
           stroke={strokeColor}

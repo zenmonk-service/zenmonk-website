@@ -12,6 +12,8 @@
   flex-direction: column;
   overflow-y: auto;
   overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
 }
 
 .sideBarMenuItemLink {

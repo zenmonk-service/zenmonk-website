@@ -1,11 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
 .menuToggleContainer {
   display: none;
 }
 
 .menuToggleButton {
-  position: absolute;
-  right: 27px;
-  top: 10px;
+  position: relative;
   outline: none;
   border: none;
   user-select: none;
@@ -22,7 +25,12 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  z-index: 1002; /* Ensure button remains above navigation overlays */
+  z-index: 10002; /* Ensure button remains above navigation overlays */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 @media (min-width: 1000px) {

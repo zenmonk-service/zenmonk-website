@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'

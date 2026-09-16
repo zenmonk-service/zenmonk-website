@@ -38,10 +38,24 @@ const items = [
 ]
 const variants = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
+    },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    opacity: 0,
+    y: -8,
+    transition: {
+      duration: 0.2,
+      ease: [0.4, 0, 1, 1],
+      staggerChildren: 0.03,
+      staggerDirection: -1,
+    },
   },
 }
 
@@ -50,14 +64,16 @@ const ItemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
+      duration: 0.25,
+      ease: [0.16, 1, 0.3, 1],
     },
   },
   closed: {
-    y: 50,
+    y: 15,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 },
+      duration: 0.15,
+      ease: 'easeIn',
     },
   },
 }
