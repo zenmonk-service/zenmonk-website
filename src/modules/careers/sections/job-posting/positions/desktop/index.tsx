@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Box, Skeleton } from '@mui/material'
 import { Department, Position } from '../../../types'
 import Check from '../assets/desktopCheck.svg'
@@ -32,25 +32,40 @@ interface PositionsDesktopProps {
 
 const normalizeDeptName = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '')
 
-const PositionsDesktop = ({ positionsList, onApply, isLoading }: PositionsDesktopProps) => {
-  const [selectedDepartment, setSelectedDepartment] = useState<Department>(
-    positionsList.find((dept) => dept.positions.some((pos) => pos.isOpening)) ||
-    positionsList[0]
+const getDefaultDepartment = (list: Department[]) => {
+  if (!list || list.length === 0) return undefined
+  return (
+    list.find((dept) => normalizeDeptName(dept.department) === 'management') ||
+    list.find((dept) => dept.positions.some((pos) => pos.isOpening)) ||
+    list[0]
   )
+}
+
+const PositionsDesktop = ({ positionsList, onApply, isLoading }: PositionsDesktopProps) => {
+  const [selectedDepartment, setSelectedDepartment] = useState<Department | undefined>(() =>
+    getDefaultDepartment(positionsList)
+  )
+  const hasUserSelectedRef = useRef(false)
 
   useEffect(() => {
-    if (selectedDepartment) {
+    if (!positionsList || positionsList.length === 0) return
+
+    if (hasUserSelectedRef.current && selectedDepartment) {
       const targetNorm = normalizeDeptName(selectedDepartment.department)
-      const updated = positionsList.find((dept) => normalizeDeptName(dept.department) === targetNorm) || positionsList[0]
+      const updated =
+        positionsList.find((dept) => normalizeDeptName(dept.department) === targetNorm) ||
+        getDefaultDepartment(positionsList)
       setSelectedDepartment(updated)
     } else {
-      setSelectedDepartment(positionsList[0])
+      setSelectedDepartment(getDefaultDepartment(positionsList))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [positionsList])
 
-  const handleSelectPosition = (department: Department) =>
+  const handleSelectPosition = (department: Department) => {
+    hasUserSelectedRef.current = true
     setSelectedDepartment(department)
+  }
 
   return (
     <Box component="div" className="positions">
@@ -96,7 +111,7 @@ const PositionsDesktop = ({ positionsList, onApply, isLoading }: PositionsDeskto
               </Box>
             </Box>
           </Box>
-        ) : selectedDepartment?.positions?.length > 0 ? (
+        ) : selectedDepartment && selectedDepartment.positions.length > 0 ? (
           <Box component="div" className="roles-list">
             {selectedDepartment.positions.map((role: Position, roleIndex: number) => (
               <Box component="div" key={role.id} className="role-content">

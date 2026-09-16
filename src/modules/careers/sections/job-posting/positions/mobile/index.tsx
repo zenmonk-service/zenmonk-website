@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Collapse, Divider, Skeleton } from '@mui/material'
 import Check from '../assets/check.svg'
 import Minus from '../assets/minus.svg'
@@ -13,10 +13,30 @@ interface PositionsMobileProps {
   isLoading?: boolean
 }
 
+const normalizeDeptName = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '')
+
 const PositionsMobile = ({ positionsList, onApply, isLoading }: PositionsMobileProps) => {
-  const [selectedIndexes, setSelectedIndexes] = useState<number[]>([])
+  const [selectedIndexes, setSelectedIndexes] = useState<number[]>(() => {
+    const mgmtIdx = positionsList.findIndex(
+      (dept) => normalizeDeptName(dept.department) === 'management'
+    )
+    return mgmtIdx !== -1 ? [mgmtIdx] : [0]
+  })
+  const hasUserToggledRef = useRef(false)
+
+  useEffect(() => {
+    if (!hasUserToggledRef.current && positionsList.length > 0) {
+      const mgmtIdx = positionsList.findIndex(
+        (dept) => normalizeDeptName(dept.department) === 'management'
+      )
+      if (mgmtIdx !== -1) {
+        setSelectedIndexes([mgmtIdx])
+      }
+    }
+  }, [positionsList])
 
   const handleClick = (index: number) => {
+    hasUserToggledRef.current = true
     if (selectedIndexes.includes(index)) {
       setSelectedIndexes((prev) => prev.filter((val) => val !== index))
     } else {
