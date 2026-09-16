@@ -63,11 +63,16 @@ export class CreateApplicationHandler {
       }
     }
 
+    const sanitizedName = data.name?.trim().replace(/\s+/g, ' ');
+    const sanitizedEmail = data.email?.trim();
+    const sanitizedPhone = data.phone?.trim();
+    const sanitizedMessage = data.message ? data.message.trim().replace(/\s+/g, ' ') : undefined;
+
     const applicationData = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
+      name: sanitizedName,
+      email: sanitizedEmail,
+      phone: sanitizedPhone,
+      message: sanitizedMessage,
       job_posting: data.job_posting,
       document: documentUrl,
       tracking_id,

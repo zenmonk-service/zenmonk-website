@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, EMAIL_REGEX } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, EMAIL_REGEX, normalizeWhitespace } from '@/lib/helper'
 import { FormControl, FormHelperText } from '@mui/material'
 import axios from 'axios'
 import {
@@ -80,11 +80,11 @@ export const ContactForm = () => {
     setIsSubmitting(true)
     setSubmitStatus(null)
     const trimmedData = {
-      firstName: data.firstName.trim(),
-      lastName: data.lastName.trim(),
+      firstName: normalizeWhitespace(data.firstName),
+      lastName: normalizeWhitespace(data.lastName),
       email: data.email.trim(),
       phone: data.phone.trim(),
-      message: data.message.trim(),
+      message: normalizeWhitespace(data.message),
     }
     try {
       await axios.post('/api/contact', trimmedData)

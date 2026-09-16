@@ -181,7 +181,7 @@ export class MailService {
                 <tr>
                   <td style="padding: 14px 0; color: #6b7280; width: 80px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Message:</td>
                   <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">
-                    ${message.replace(/\n/g, '<br>')}
+                    ${message.trim().replace(/\s+/g, ' ')}
                   </td>
                 </tr>
               </table>

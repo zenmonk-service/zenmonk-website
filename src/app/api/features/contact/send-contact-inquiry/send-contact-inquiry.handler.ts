@@ -20,24 +20,30 @@ export class SendContactInquiryHandler {
   }
 
   async handle(data: SendContactInquiryPayload) {
-    if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.message) {
+    const firstName = data.firstName?.trim().replace(/\s+/g, ' ');
+    const lastName = data.lastName?.trim().replace(/\s+/g, ' ');
+    const email = data.email?.trim();
+    const phone = data.phone?.trim();
+    const message = data.message?.trim().replace(/\s+/g, ' ');
+
+    if (!firstName || !lastName || !email || !phone || !message) {
       throw new Error('All fields are required');
     }
 
     await this.contactRepository.createContact({
-      first_name: data.firstName,
-      last_name: data.lastName,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      phone,
+      message,
     });
 
     await this.mailService.sendContactInquiry(
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.phone,
-      data.message
+      firstName,
+      lastName,
+      email,
+      phone,
+      message
     );
 
     return { success: true, message: 'Contact inquiry sent successfully' };

@@ -12,6 +12,11 @@ export const validateEmail = function (email: string) {
   return EMAIL_REGEX.test(email)
 }
 
+export const normalizeWhitespace = (str: string | undefined | null): string => {
+  if (!str) return ''
+  return str.trim().replace(/\s+/g, ' ')
+}
+
 export const hasNationalDigits = (phone: string): boolean => {
   if (!phone) return false
   const digitsOnly = phone.replace(/\D/g, '')

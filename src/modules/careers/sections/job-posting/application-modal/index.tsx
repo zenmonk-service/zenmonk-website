@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -136,14 +136,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
 
     const formData = new FormData()
-    formData.append('name', data.fullName.trim())
+    formData.append('name', normalizeWhitespace(data.fullName))
     formData.append('email', data.email.trim())
     formData.append('phone', data.phone.trim())
     if (data.portfolioLink && data.portfolioLink.trim()) {
       formData.append('portfolioLink', data.portfolioLink.trim())
     }
     if (data.message && data.message.trim()) {
-      formData.append('message', data.message.trim())
+      formData.append('message', normalizeWhitespace(data.message))
     }
     formData.append('job_posting', jobId)
     
