@@ -25,6 +25,7 @@
     max-height: max(450px, 36.46vw);
     overflow-y: auto;
     overflow-x: hidden;
+    overscroll-behavior: contain;
     padding-right: max(8px, 0.42vw);
 
     &::-webkit-scrollbar {

@@ -27,6 +27,7 @@ import { createApplication } from '@/store/features/applications/applications-ac
 import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
 import { previewFile } from '@/lib/file-preview'
 import NoInternetModal from '@/shared/components/no-internet-modal'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 
 
 interface ApplicationModalProps {
@@ -47,6 +48,7 @@ type ApplicationFormData = {
 
 const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalProps) => {
   const isMobile = useMediaQuery('(max-width:768px)')
+  useScrollLock(open, '[class*="formGrid"], [class*="MuiDialog-paper"]')
   const dispatch = useAppDispatch()
   const { submitting, submitSuccess, error, submittedApplication } = useAppSelector((state) => state.applications)
   const fileInputRef = React.useRef<HTMLInputElement | null>(null)
