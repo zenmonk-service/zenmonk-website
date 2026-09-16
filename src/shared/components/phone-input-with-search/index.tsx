@@ -83,7 +83,27 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   const selectedCountryData = allCountries.find((c) => c.iso2 === country.iso2) || country
 
   return (
-    <Box sx={{ display: 'flex', width: '100%', maxWidth: '100%', boxSizing: 'border-box', position: 'relative' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        maxWidth: '100%',
+        height,
+        bgcolor: backgroundColor,
+        border: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
+        borderRadius,
+        boxSizing: 'border-box',
+        position: 'relative',
+        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+        '&:hover': {
+          borderColor: error ? '#d32f2f' : '#F69333',
+        },
+        '&:focus-within': {
+          borderColor: error ? '#d32f2f' : '#F69333',
+        },
+      }}
+    >
       {/* Country Selector Button */}
       <Box
         component="button"
@@ -93,18 +113,19 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           display: 'flex',
           alignItems: 'center',
           gap: '6px',
-          height,
+          height: '100%',
           px: '12px',
-          bgcolor: backgroundColor,
-          border: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
-          borderRight: 'none',
+          bgcolor: 'transparent',
+          border: 'none',
+          borderRight: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
           borderRadius: `${borderRadius} 0 0 ${borderRadius}`,
           cursor: 'pointer',
           outline: 'none',
           boxSizing: 'border-box',
           flexShrink: 0,
+          transition: 'background-color 0.2s ease',
           '&:hover': {
-            borderColor: error ? '#d32f2f' : '#F69333',
+            bgcolor: 'rgba(0, 0, 0, 0.02)',
           },
         }}
       >
@@ -139,13 +160,13 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           flex: 1,
           width: '100%',
           minWidth: 0,
-          height,
+          height: '100%',
           paddingLeft: '14px',
           paddingRight: '14px',
           fontSize,
           fontFamily: 'Poppins, sans-serif',
-          backgroundColor,
-          border: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
+          backgroundColor: 'transparent',
+          border: 'none',
           borderRadius: `0 ${borderRadius} ${borderRadius} 0`,
           outline: 'none',
           color: '#111827',

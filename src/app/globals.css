@@ -37,8 +37,26 @@ html {
 }
 
 ::selection {
-  color: var(--global-color-primary);
-  background: lightgray;
+  color: #ffffff;
+  background: #eb7c0d;
+}
+
+input::selection,
+textarea::selection,
+select::selection,
+[contenteditable]::selection,
+.MuiInputBase-input::selection {
+  color: #000000 !important;
+  background: #fed7aa !important;
+}
+
+input::-moz-selection,
+textarea::-moz-selection,
+select::-moz-selection,
+[contenteditable]::-moz-selection,
+.MuiInputBase-input::-moz-selection {
+  color: #000000 !important;
+  background: #fed7aa !important;
 }
 
 body {
