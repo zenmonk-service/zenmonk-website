@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useMediaQuery, Box, Button } from '@mui/material'
-import TrackChangesIcon from '@mui/icons-material/TrackChanges'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import PositionsDesktop from './positions/desktop'
 import PositionsMobile from './positions/mobile'
@@ -41,31 +40,22 @@ const OpenPosition = () => {
 
   return (
     <section className="open-position-container" id="open-positions">
-      <Box
-        className="open-position-header"
-        sx={{
-          textAlign: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
-        <SectionTitle
-          className="open-position-title"
-          text={"Explore Open Positions and Join\nOur Team"}
-          markText="Our Team"
-        />
-        <SectionDescription
-          className="description"
-          text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-        />
-      </Box>
+      <Box className="open-position-header">
+        <Box className="header-left">
+          <SectionTitle
+            className="open-position-title"
+            text="Explore Open Positions and Join Our Team"
+            markText="Our Team"
+          />
+          <SectionDescription
+            className="description"
+            text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+          />
+        </Box>
 
-      <Box className="track-application-container">
         <Button
           onClick={handleTrackApplicationClick}
           className="track-application-btn"
-          startIcon={<TrackChangesIcon />}
         >
           Track Application
         </Button>

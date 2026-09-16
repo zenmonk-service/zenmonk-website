@@ -8,45 +8,46 @@
 
   .open-position-header {
     width: 100%;
-  }
-
-  .track-application-container {
-    width: 100%;
     max-width: 80vw;
     display: flex;
-    justify-content: flex-end;
-    margin-top: max(16px, 1.25vw);
-    margin-bottom: max(12px, 0.8vw);
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: max(28px, 1.8vw);
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 65vw;
+    }
   }
 
   .track-application-btn {
-    background: linear-gradient(99deg, #eb7c0d 3.23%, #ffa750 97.72%) !important;
-    color: #ffffff !important;
+    border: 1.5px solid #eb7c0d !important;
+    background: transparent !important;
+    color: #eb7c0d !important;
     font-family: "Poppins", sans-serif !important;
     font-size: max(14px, 0.833vw) !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-transform: none !important;
-    border-radius: max(8px, 0.52vw) !important;
-    padding: max(8px, 0.52vw) max(20px, 1.25vw) !important;
-    box-shadow: 0 4px 14px rgba(235, 124, 13, 0.25) !important;
+    border-radius: max(8px, 0.42vw) !important;
+    padding: max(8px, 0.45vw) max(20px, 1.1vw) !important;
+    box-shadow: none !important;
     transition: all 0.25s ease !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0;
+    margin-top: max(4px, 0.3vw);
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(235, 124, 13, 0.35) !important;
-      background: linear-gradient(99deg, #d97009 3.23%, #f59537 97.72%) !important;
+      background: #eb7c0d !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 14px rgba(235, 124, 13, 0.25) !important;
     }
 
     &:focus-visible {
       outline: 2px solid #eb7c0d !important;
       outline-offset: 2px !important;
-    }
-
-    svg {
-      font-size: max(18px, 1.1vw) !important;
     }
   }
 
@@ -56,30 +57,31 @@
   }
 
   .open-position-title {
-    white-space: pre-line;
+    text-align: left !important;
+    margin-bottom: max(12px, 0.833vw) !important;
   }
 
   .open-position-title-wrapper {
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
     display: flex;
-    flex-direction: column;
   }
 
   .description {
-    margin-top: 0.833vw;
+    margin-top: 0;
     margin-bottom: unset;
     color: #757575;
-    text-align: center;
+    text-align: left !important;
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-weight: 400 !important;
-    line-height: normal;
+    line-height: 1.6;
     letter-spacing: 0.025vw;
-    width: 74vw;
-    padding-left: 2.083vw;
-    padding-right: 2.083vw;
+    width: 100%;
+    max-width: 62vw;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -88,34 +90,38 @@
     padding: 0 16px;
     margin-top: 80px;
 
+    .open-position-header {
+      max-width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+
+      .header-left {
+        max-width: 100%;
+      }
+    }
+
     .open-position-title {
-      text-align: center;
+      text-align: left !important;
       width: 100%;
     }
 
     .description {
       font-size: 14px !important;
-      margin-top: 16px;
-      margin-bottom: 24px;
-      width: 88%;
-      text-align: center;
-      padding: 0px;
-    }
-
-    .track-application-container {
+      margin-top: 8px;
+      margin-bottom: 0;
+      width: 100%;
       max-width: 100%;
-      justify-content: flex-end;
-      margin-top: 0;
-      margin-bottom: 16px;
+      text-align: left !important;
+      padding: 0px !important;
     }
 
     .track-application-btn {
       font-size: 13px !important;
-      padding: 6px 14px !important;
-
-      svg {
-        font-size: 16px !important;
-      }
+      padding: 6px 16px !important;
+      margin-top: 0;
+      align-self: flex-start;
     }
 
     .position-container {
