@@ -162,7 +162,7 @@ export class MailService {
             </div>
             
             <!-- Body -->
-            <div class="card-body" style="padding: 32px 40px;">
+            <div class="card-body" style="padding: 40px 88px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
               <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
               
               <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif; table-layout: fixed;">
