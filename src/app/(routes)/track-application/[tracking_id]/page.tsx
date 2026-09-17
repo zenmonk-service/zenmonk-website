@@ -53,6 +53,8 @@ const getStatusIndex = (status: string) => {
   return index >= 0 ? index : 0
 }
 
+const TRACKING_ID_REGEX = /^APP-\d{10,15}-[A-Z0-9]{4,10}$/i
+
 export default function TrackApplicationPage() {
   const params = useParams()
   const router = useRouter()
@@ -60,6 +62,7 @@ export default function TrackApplicationPage() {
   const isMobile = useMediaQuery('(max-width:768px)')
 
   const [trackingId, setTrackingId] = useState('')
+  const [inputError, setInputError] = useState('')
   const [application, setApplication] = useState<ApplicationData | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -71,13 +74,21 @@ export default function TrackApplicationPage() {
         const decoded = decodeURIComponent(rawId).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
         setTrackingId(decoded)
         if (decoded) {
-          fetchApplication(decoded)
+          if (TRACKING_ID_REGEX.test(decoded)) {
+            fetchApplication(decoded)
+          } else {
+            setError('Application not found. Please check your tracking ID.')
+          }
         }
       } catch {
         const sanitized = rawId.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
         setTrackingId(sanitized)
         if (sanitized) {
-          fetchApplication(sanitized)
+          if (TRACKING_ID_REGEX.test(sanitized)) {
+            fetchApplication(sanitized)
+          } else {
+            setError('Application not found. Please check your tracking ID.')
+          }
         }
       }
     }
@@ -133,6 +144,15 @@ export default function TrackApplicationPage() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const sanitized = e.target.value.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
     setTrackingId(sanitized)
+    if (inputError) {
+      if (!sanitized.trim()) {
+        setInputError('Tracking ID is required')
+      } else if (!TRACKING_ID_REGEX.test(sanitized.trim())) {
+        setInputError('Enter valid tracking ID')
+      } else {
+        setInputError('')
+      }
+    }
   }
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -152,26 +172,43 @@ export default function TrackApplicationPage() {
   const handleInputPaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
     e.preventDefault()
     const pasted = e.clipboardData.getData('text')
-    const sanitized = pasted.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-    setTrackingId((prev) => (prev + sanitized).slice(0, 40))
+    const sanitized = (trackingId + pasted).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase().slice(0, 40)
+    setTrackingId(sanitized)
+    if (inputError) {
+      if (!sanitized.trim()) {
+        setInputError('Tracking ID is required')
+      } else if (!TRACKING_ID_REGEX.test(sanitized.trim())) {
+        setInputError('Enter valid tracking ID')
+      } else {
+        setInputError('')
+      }
+    }
   }
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
     const cleaned = trackingId.trim().replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-    if (cleaned) {
-      const currentParam = Array.isArray(params?.tracking_id)
-        ? params.tracking_id[0]
-        : params?.tracking_id
-      const currentDecoded = currentParam
-        ? decodeURIComponent(currentParam).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-        : ''
+    if (!cleaned) {
+      setInputError('Tracking ID is required')
+      return
+    }
+    if (!TRACKING_ID_REGEX.test(cleaned)) {
+      setInputError('Enter valid tracking ID')
+      return
+    }
 
-      if (cleaned === currentDecoded) {
-        fetchApplication(cleaned)
-      } else {
-        router.push(`/track-application/${cleaned}`)
-      }
+    setInputError('')
+    const currentParam = Array.isArray(params?.tracking_id)
+      ? params.tracking_id[0]
+      : params?.tracking_id
+    const currentDecoded = currentParam
+      ? decodeURIComponent(currentParam).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+      : ''
+
+    if (cleaned === currentDecoded) {
+      fetchApplication(cleaned)
+    } else {
+      router.push(`/track-application/${cleaned}`)
     }
   }
 
@@ -225,11 +262,13 @@ export default function TrackApplicationPage() {
           sx={{
             display: 'flex',
             gap: isMobile ? '8px' : '0.52vw',
-            mb: isMobile ? '32px' : '2.08vw',
+            mb: inputError ? (isMobile ? '8px' : '0.52vw') : (isMobile ? '32px' : '2.08vw'),
             background: 'white',
             p: isMobile ? '8px' : '0.52vw',
             borderRadius: isMobile ? '8px' : '0.42vw',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            border: inputError ? '1.5px solid #d32f2f' : '1.5px solid transparent',
+            transition: 'border-color 0.2s ease, margin 0.2s ease',
           }}
         >
           <TextField
@@ -274,6 +313,20 @@ export default function TrackApplicationPage() {
             <SearchIcon sx={{ fontSize: isMobile ? '20px' : 'max(20px, 1.15vw)' }} />
           </Button>
         </Box>
+        {inputError && (
+          <Typography
+            sx={{
+              color: '#d32f2f',
+              fontSize: isMobile ? '13px' : 'max(13px, 0.73vw)',
+              fontFamily: 'Poppins',
+              fontWeight: 500,
+              mb: isMobile ? '24px' : '1.56vw',
+              ml: isMobile ? '8px' : '0.42vw',
+            }}
+          >
+            {inputError}
+          </Typography>
+        )}
 
         {/* Loading Skeleton */}
         {loading && (
