@@ -77,7 +77,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }, [submitSuccess, reset])
 
-  const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleNameKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.ctrlKey || e.metaKey) return
     const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', ' ', 'Unidentified']
     if (e.key.length > 1) {
@@ -89,7 +89,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }
 
-  const handlePhoneKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handlePhoneKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.ctrlKey || e.metaKey) return
     const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Unidentified']
     if (e.key.length > 1) {
@@ -101,11 +101,11 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }
 
-  const handleMessageKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleMessageKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.key === 'Enter') {
-      const target = e.currentTarget as HTMLTextAreaElement
-      const cursorPos = target.selectionStart ?? 0
-      const val = target.value || ''
+      const target = e.target as HTMLTextAreaElement
+      const cursorPos = target?.selectionStart ?? 0
+      const val = target?.value || ''
       const charBefore = cursorPos > 0 ? val[cursorPos - 1] : ''
       const charAfter = cursorPos < val.length ? val[cursorPos] : ''
 

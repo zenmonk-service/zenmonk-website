@@ -12,6 +12,7 @@ import {
   Send,
 } from '@/assets/icons/contact-us/contact'
 import BaseButton from '@/shared/button'
+import { NoInternetModal } from '@/shared/components/no-internet-modal'
 import './styles.scss'
 import TextField from './textfield'
 import { Title } from './title'
@@ -44,6 +45,7 @@ export const ContactForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
+  const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false)
 
   const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -91,6 +93,12 @@ export const ContactForm = () => {
   const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const onSubmit = async (data: ContactFormData) => {
+    // Check if offline BEFORE putting into sending state
+    if (typeof window !== 'undefined' && !navigator.onLine) {
+      setIsOfflineModalOpen(true)
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus(null)
     const trimmedData = {
@@ -123,9 +131,17 @@ export const ContactForm = () => {
         clearErrors()
         setSubmitStatus(null)
       }, 3000)
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error submitting form:', error)
-      setSubmitStatus('error')
+      if (
+        (typeof window !== 'undefined' && !navigator.onLine) ||
+        error?.code === 'ERR_NETWORK' ||
+        !error?.response
+      ) {
+        setIsOfflineModalOpen(true)
+      } else {
+        setSubmitStatus('error')
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -317,6 +333,11 @@ export const ContactForm = () => {
           )}
         </BaseButton>
       </div>
+
+      <NoInternetModal
+        open={isOfflineModalOpen}
+        onClose={() => setIsOfflineModalOpen(false)}
+      />
     </form>
   )
 }

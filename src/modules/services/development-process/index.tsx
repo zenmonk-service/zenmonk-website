@@ -15,10 +15,8 @@ import DesigningProcess from '../shared/designing-process/DesigningProcess'
 import DevelopmentProcessExpertIt from '../shared/development-process-expert-it'
 import DevelopmentProductSteps from '../shared/development-product-steps'
 import DevelopmentProcessItBusiness from '../shared/development-process-it-business'
-import { useMediaQuery } from '@mui/material'
 
 const DevelopmentProcess = () => {
-  const isMobile = useMediaQuery('(max-width:1000px)')
   const pathname = usePathname()
   const serviceRoute = pathname.split('/')[2]
 
@@ -67,7 +65,7 @@ const DevelopmentProcess = () => {
       case 'growth-&-marketing':
         return <DevelopmentProcessWave />
       case 'custom-app-development':
-        return isMobile ? <SoftwareDevelopmentProcess /> : <DevelopmentProcessRoad />
+        return <DevelopmentProcessRoad />
       case 'it-training-&-workshops':
         return <DevelopmentProcessExpertIt />
       case 'product-development':
