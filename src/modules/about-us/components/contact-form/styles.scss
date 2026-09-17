@@ -87,7 +87,7 @@
     .message {
       width: 100%;
       display: flex;
-      gap: max(12px, 1vw);
+      align-items: flex-start;
       border: max(1px, 0.052vw) solid #d5d5d5;
       border-radius: 4px !important;
       min-height: max(100px, 7vw);
@@ -106,14 +106,22 @@
       }
 
       .message-input {
-        width: 100%;
+        flex: 1;
+        min-width: 0;
         border-color: none !important;
         border-radius: 4px !important;
+        padding-right: max(6px, 0.31vw) !important;
+
+        textarea {
+          padding-right: max(6px, 0.31vw) !important;
+        }
       }
 
       .end-adornment {
-        margin-top: max(12px, 0.78vw);
-        margin-right: max(14px, 0.9vw);
+        margin-top: max(10px, 0.52vw);
+        margin-right: max(12px, 0.63vw);
+        margin-left: max(4px, 0.21vw);
+        flex-shrink: 0;
       }
     }
   }
@@ -206,14 +214,24 @@
       }
 
       .message {
-        gap: 12px;
+        display: flex;
+        align-items: flex-start;
         border: 1px solid #d5d5d5;
         border-radius: 4px !important;
         min-height: 110px;
 
+        .message-input {
+          padding-right: 6px !important;
+
+          textarea {
+            padding-right: 6px !important;
+          }
+        }
+
         .end-adornment {
           margin-top: 10px;
           margin-right: 12px;
+          margin-left: 4px;
           font-size: 18px !important;
         }
       }
