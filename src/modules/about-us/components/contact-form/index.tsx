@@ -191,7 +191,7 @@ export const ContactForm = () => {
         <TextField
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
-          endAdornment={<PaperPlane className="end-adornment" />}
+          endAdornment={<Message className="end-adornment" />}
           inputProps={{ maxLength: 50 }}
           {...register('email', {
             required: 'Email is required',
@@ -263,7 +263,7 @@ export const ContactForm = () => {
               },
             })}
           />
-          <Message className="end-adornment" />
+          <PaperPlane className="end-adornment" />
         </div>
         {errors.message && (
           <FormHelperText className="error-text">
