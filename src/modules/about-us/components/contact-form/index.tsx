@@ -281,14 +281,22 @@ export const ContactForm = () => {
       <div className="button-wrapper">
         <BaseButton
           className={`send-button ${submitStatus === 'success' ? 'success-btn' : ''}`}
-          disabled={isSubmitting}
-          type="submit"
+          disabled={isSubmitting || submitStatus === 'success'}
+          disableShine={submitStatus === 'success'}
+          type={submitStatus === 'success' ? 'button' : 'submit'}
           sx={
             submitStatus === 'success'
               ? {
                   background: 'linear-gradient(135deg, #10B981 0%, #059669 100%) !important',
                   backgroundColor: '#10B981 !important',
                   color: '#ffffff !important',
+                  pointerEvents: 'none !important',
+                  cursor: 'default !important',
+                  '&.Mui-disabled': {
+                    color: '#ffffff !important',
+                    background: 'linear-gradient(135deg, #10B981 0%, #059669 100%) !important',
+                    backgroundColor: '#10B981 !important',
+                  },
                 }
               : undefined
           }
