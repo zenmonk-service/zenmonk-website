@@ -113,7 +113,27 @@
         padding-right: max(6px, 0.31vw) !important;
 
         textarea {
-          padding-right: max(6px, 0.31vw) !important;
+          padding-right: max(12px, 0.63vw) !important;
+          scrollbar-width: thin;
+          scrollbar-color: var(--global-color-dark-accent, #eb7c0d) transparent;
+
+          &::-webkit-scrollbar {
+            width: 6px;
+            display: block;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: transparent;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: var(--global-color-dark-accent, #eb7c0d);
+            border-radius: 4px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: #d66d09;
+          }
         }
       }
 
@@ -224,7 +244,23 @@
           padding-right: 6px !important;
 
           textarea {
-            padding-right: 6px !important;
+            padding-right: 12px !important;
+            scrollbar-width: thin;
+            scrollbar-color: var(--global-color-dark-accent, #eb7c0d) transparent;
+
+            &::-webkit-scrollbar {
+              width: 5px;
+              display: block !important;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: var(--global-color-dark-accent, #eb7c0d);
+              border-radius: 4px;
+            }
           }
         }
 
