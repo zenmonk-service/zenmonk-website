@@ -2,6 +2,7 @@ import { Dependency } from "@/app/api/infrastructure/providers/app.type.provider
 import { ApplicationRepository } from "@/app/api/infrastructure/repositories/application.repository";
 import { JobPostingRepository } from "@/app/api/infrastructure/repositories/job-posting.repository";
 import { MailService } from "@/app/api/infrastructure/services/mail.service";
+import { normalizeMultilineText, normalizeWhitespace } from "@/lib/helper";
 import { v2 as cloudinary } from 'cloudinary';
 
 cloudinary.config({
@@ -63,10 +64,10 @@ export class CreateApplicationHandler {
       }
     }
 
-    const sanitizedName = data.name?.trim().replace(/\s+/g, ' ');
+    const sanitizedName = normalizeWhitespace(data.name);
     const sanitizedEmail = data.email?.trim();
     const sanitizedPhone = data.phone?.trim();
-    const sanitizedMessage = data.message ? data.message.trim().replace(/\s+/g, ' ') : undefined;
+    const sanitizedMessage = data.message ? normalizeMultilineText(data.message) : undefined;
 
     const applicationData = {
       name: sanitizedName,

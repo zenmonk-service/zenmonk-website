@@ -17,6 +17,18 @@ export const normalizeWhitespace = (str: string | undefined | null): string => {
   return str.trim().replace(/\s+/g, ' ')
 }
 
+export const normalizeMultilineText = (str: string | undefined | null): string => {
+  if (!str) return ''
+  return str
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .split('\n')
+    .map((line) => line.replace(/[^\S\r\n]+/g, ' ').trim())
+    .filter((line) => line.length > 0)
+    .join('\n')
+    .trim()
+}
+
 export const hasNationalDigits = (phone: string): boolean => {
   if (!phone) return false
   const digitsOnly = phone.replace(/\D/g, '')

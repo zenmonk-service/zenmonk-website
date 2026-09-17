@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace, normalizeMultilineText } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -101,6 +101,20 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }
 
+  const handleMessageKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.key === 'Enter') {
+      const target = e.currentTarget as HTMLTextAreaElement
+      const cursorPos = target.selectionStart ?? 0
+      const val = target.value || ''
+      const charBefore = cursorPos > 0 ? val[cursorPos - 1] : ''
+      const charAfter = cursorPos < val.length ? val[cursorPos] : ''
+
+      if (charBefore === '\n' || charBefore === '\r' || charAfter === '\n' || charAfter === '\r') {
+        e.preventDefault()
+      }
+    }
+  }
+
   const handleClose = (event: {}, reason?: "backdropClick" | "escapeKeyDown") => {
     if (reason === 'backdropClick') {
       return
@@ -143,7 +157,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       formData.append('portfolioLink', data.portfolioLink.trim())
     }
     if (data.message && data.message.trim()) {
-      formData.append('message', normalizeWhitespace(data.message))
+      formData.append('message', normalizeMultilineText(data.message))
     }
     formData.append('job_posting', jobId)
     
@@ -586,6 +600,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
                     validate: (val) => !val || val.trim().length > 0 || 'Message cannot contain only whitespace'
                   })}
+                  onKeyDown={handleMessageKeyDown}
                   slotProps={{ htmlInput: { maxLength: 800 } }}
                   placeholder="Tell us about yourself and why you're interested in this role..."
                   multiline

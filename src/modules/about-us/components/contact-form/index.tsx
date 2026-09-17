@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, EMAIL_REGEX, normalizeWhitespace } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, EMAIL_REGEX, normalizeWhitespace, normalizeMultilineText } from '@/lib/helper'
 import { FormControl, FormHelperText } from '@mui/material'
 import axios from 'axios'
 import {
@@ -74,6 +74,20 @@ export const ContactForm = () => {
     }
   }
 
+  const handleMessageKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    if (e.key === 'Enter') {
+      const target = e.currentTarget as HTMLTextAreaElement
+      const cursorPos = target.selectionStart ?? 0
+      const val = target.value || ''
+      const charBefore = cursorPos > 0 ? val[cursorPos - 1] : ''
+      const charAfter = cursorPos < val.length ? val[cursorPos] : ''
+
+      if (charBefore === '\n' || charBefore === '\r' || charAfter === '\n' || charAfter === '\r') {
+        e.preventDefault()
+      }
+    }
+  }
+
   const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const onSubmit = async (data: ContactFormData) => {
@@ -84,7 +98,7 @@ export const ContactForm = () => {
       lastName: normalizeWhitespace(data.lastName),
       email: data.email.trim(),
       phone: data.phone.trim(),
-      message: normalizeWhitespace(data.message),
+      message: normalizeMultilineText(data.message),
     }
     try {
       await axios.post('/api/contact', trimmedData)
@@ -239,6 +253,7 @@ export const ContactForm = () => {
             placeHolder="Write Message.."
             rows={3}
             inputProps={{ maxLength: 800 }}
+            onKeyDown={handleMessageKeyDown}
             {...register('message', {
               required: 'Message is required',
               maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },

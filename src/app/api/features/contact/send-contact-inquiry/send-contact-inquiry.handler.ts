@@ -1,6 +1,7 @@
 import { Dependency } from "@/app/api/infrastructure/providers/app.type.provider";
 import { MailService } from "@/app/api/infrastructure/services/mail.service";
 import { ContactRepository } from "@/app/api/infrastructure/repositories/contact.repository";
+import { normalizeMultilineText, normalizeWhitespace } from "@/lib/helper";
 
 interface SendContactInquiryPayload {
   firstName: string;
@@ -20,11 +21,11 @@ export class SendContactInquiryHandler {
   }
 
   async handle(data: SendContactInquiryPayload) {
-    const firstName = data.firstName?.trim().replace(/\s+/g, ' ');
-    const lastName = data.lastName?.trim().replace(/\s+/g, ' ');
+    const firstName = normalizeWhitespace(data.firstName);
+    const lastName = normalizeWhitespace(data.lastName);
     const email = data.email?.trim();
     const phone = data.phone?.trim();
-    const message = data.message?.trim().replace(/\s+/g, ' ');
+    const message = normalizeMultilineText(data.message);
 
     if (!firstName || !lastName || !email || !phone || !message) {
       throw new Error('All fields are required');
