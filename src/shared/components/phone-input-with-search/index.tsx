@@ -179,6 +179,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         open={isDropdownOpen}
         anchorEl={anchorEl}
         onClose={handleCloseDropdown}
+        disableScrollLock={true}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',

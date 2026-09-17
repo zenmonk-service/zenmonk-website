@@ -227,6 +227,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       <Dialog
       open={open}
       onClose={handleClose}
+      disableScrollLock={true}
       TransitionProps={{
         onExited: handleExited,
       }}
@@ -513,10 +514,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                             minWidth: 0,
                             cursor: 'pointer',
                             borderRadius: '4px',
-                            padding: '2px 4px',
                             transition: 'all 0.2s',
                             '&:hover': {
-                              backgroundColor: 'rgba(246, 147, 51, 0.08)',
                               '& .file-name-text': {
                                 color: '#F69333',
                                 textDecoration: 'underline'

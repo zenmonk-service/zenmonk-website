@@ -24,6 +24,7 @@ export const NoInternetModal = ({ open, onClose }: NoInternetModalProps) => {
     <Dialog
       open={open}
       onClose={onClose}
+      disableScrollLock={true}
       maxWidth={false}
       PaperProps={{
         sx: {
