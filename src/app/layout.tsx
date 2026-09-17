@@ -60,7 +60,24 @@ export default function FlashScreenLayout({
   }, [])
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    const resetScroll = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
+    }
+
+    resetScroll()
+    const frameId = requestAnimationFrame(resetScroll)
+    const t1 = setTimeout(resetScroll, 50)
+    const t2 = setTimeout(resetScroll, 150)
+    const t3 = setTimeout(resetScroll, 350)
+
+    return () => {
+      cancelAnimationFrame(frameId)
+      clearTimeout(t1)
+      clearTimeout(t2)
+      clearTimeout(t3)
+    }
   }, [pathname])
 
   useEffect(() => {

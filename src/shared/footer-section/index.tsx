@@ -3,6 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
+import LoadingIndicator from '@/shared/loader/detector'
 import { socialMedia } from '@/assets/icons/social'
 import { SectionDescription } from '@/shared/typography'
 import ListHeading from './list-heading/list-heading'
@@ -13,6 +16,7 @@ import './styles.scss'
 
 const Footer = () => {
   const pathname = usePathname()
+  const dispatch = useAppDispatch()
 
   const chunkArray = <T,>(arr: T[], size: number): T[][] => {
     const result: T[][] = []
@@ -30,11 +34,16 @@ const Footer = () => {
         <Link
           href="/"
           className="logo-wrapper logo-mobile"
-          prefetch={false}
+          prefetch={true}
           onClick={(e) => {
-            if (pathname === '/') e.preventDefault()
+            if (pathname === '/') {
+              e.preventDefault()
+              return
+            }
+            dispatch(toggleLoader(true))
           }}
         >
+          <LoadingIndicator targetHref="/" />
           <Image
             src="/logo.svg"
             alt="Zenmonk Logo"
@@ -60,11 +69,16 @@ const Footer = () => {
         <Link
           href="/"
           className="logo-wrapper logo-desktop"
-          prefetch={false}
+          prefetch={true}
           onClick={(e) => {
-            if (pathname === '/') e.preventDefault()
+            if (pathname === '/') {
+              e.preventDefault()
+              return
+            }
+            dispatch(toggleLoader(true))
           }}
         >
+          <LoadingIndicator targetHref="/" />
           <Image
             src="/logo.svg"
             alt="Zenmonk Logo"

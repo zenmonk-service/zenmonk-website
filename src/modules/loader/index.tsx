@@ -17,7 +17,15 @@ const CustomLoader = () => {
   useEffect(() => {
     if (prevPathnameRef.current !== pathname) {
       prevPathnameRef.current = pathname
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
+
       const timer = setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+        if (document.documentElement) document.documentElement.scrollTop = 0
+        if (document.body) document.body.scrollTop = 0
         dispatch(toggleLoader(false))
       }, 350)
       return () => clearTimeout(timer)
