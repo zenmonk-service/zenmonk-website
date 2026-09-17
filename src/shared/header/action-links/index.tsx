@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
 import LoadingIndicator from '@/shared/loader/detector'
 import MobileMenuLink from '../mobile-menu-links'
 import styles from './action-link.module.scss'
@@ -16,6 +18,7 @@ interface ActionLinksProp {
 
 const ActionLinks = (props: ActionLinksProp) => {
   const pathname = usePathname()
+  const dispatch = useAppDispatch()
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
 
@@ -32,7 +35,9 @@ const ActionLinks = (props: ActionLinksProp) => {
   const handleLinkClick = (e: React.MouseEvent, href: string) => {
     if (pathname === href) {
       e.preventDefault()
+      return
     }
+    dispatch(toggleLoader(true))
   }
 
   return (

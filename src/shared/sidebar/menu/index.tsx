@@ -12,6 +12,8 @@ import styles from './menu.module.scss'
 import Link from 'next/link'
 import LoadingIndicator from '@/shared/loader/detector'
 import { usePathname } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
 import { services } from '@/static/services'
 
 const items = [
@@ -82,6 +84,7 @@ const Arrow = motion.create(ArrowDown)
 const Navigation = ({ toggle }: { toggle: () => void }) => {
   const [isOpened, setIsOpened] = useState(false)
   const pathname = usePathname()
+  const dispatch = useAppDispatch()
   const menuRef = useRef<HTMLUListElement>(null)
   const touchStartRef = useRef({ x: 0, y: 0 })
   const touchStartScrollTopRef = useRef(0)
@@ -146,12 +149,18 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
     if (isStatic) {
       if (pathname === route) {
         e.preventDefault()
+        toggle()
+        return
       }
+      dispatch(toggleLoader(true))
       toggle()
     } else {
       if (isServiceActive(route)) {
         e.preventDefault()
+        toggle()
+        return
       }
+      dispatch(toggleLoader(true))
       toggle()
     }
   }

@@ -17,6 +17,7 @@ interface PhoneInputWithSearchProps {
   onChange: (phone: string) => void
   error?: boolean
   defaultCountry?: string
+  placeholder?: string
   height?: string
   fontSize?: string
   borderRadius?: string
@@ -28,6 +29,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   onChange,
   error = false,
   defaultCountry = 'in',
+  placeholder = 'Phone number',
   height = '48px',
   fontSize = '14px',
   borderRadius = '8px',
@@ -40,6 +42,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   const { inputValue, handlePhoneValueChange, country, setCountry, inputRef } = usePhoneInput({
     defaultCountry,
     value,
+    disableDialCodeAndPrefix: true,
     onChange: (data) => {
       onChange(data.phone)
     },
@@ -154,6 +157,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
       <input
         ref={inputRef}
         type="tel"
+        placeholder={placeholder}
         value={inputValue}
         onChange={handlePhoneValueChange}
         style={{

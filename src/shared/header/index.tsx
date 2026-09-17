@@ -5,7 +5,8 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
-import { useAppSelector } from '@/store/hooks'
+import { useAppSelector, useAppDispatch } from '@/store/hooks'
+import { toggleLoader } from '@/store/features/header/header-slice'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
 import LoadingIndicator from '../loader/detector'
 import ActionLinks from './action-links'
@@ -13,6 +14,7 @@ import styles from './header.module.scss'
 
 const Navbar = () => {
   const pathname = usePathname()
+  const dispatch = useAppDispatch()
   const [isOpen, toggleOpen] = useCycle(false, true)
 
   const [hidden, setHidden] = useState(false)
@@ -47,11 +49,16 @@ const Navbar = () => {
       <Link
         href="/"
         className={styles.appBarIconContainer}
-        prefetch={false}
+        prefetch={true}
         onClick={(e) => {
+          if (isOpen) {
+            toggleOpen()
+          }
           if (pathname === '/') {
             e.preventDefault()
+            return
           }
+          dispatch(toggleLoader(true))
         }}
       >
         <LoadingIndicator targetHref="/" />
@@ -62,12 +69,14 @@ const Navbar = () => {
           <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
           <Link
             href="/contact"
-            prefetch={false}
+            prefetch={true}
             className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
             onClick={(e) => {
               if (pathname === '/contact') {
                 e.preventDefault()
+                return
               }
+              dispatch(toggleLoader(true))
             }}
           >
             <LoadingIndicator targetHref="/contact" />
