@@ -147,7 +147,9 @@
           height: 2.2vw;
         }
 
+        .quote-desc,
         .quote {
+          position: relative;
           color: #5c5c5c;
           font-family: 'Poppins', sans-serif;
           font-size: max(14px, 1.2vw);
@@ -365,6 +367,7 @@
         .quote-text {
           max-width: 100%;
 
+          .quote-desc,
           .quote {
             font-size: 13px;
           }

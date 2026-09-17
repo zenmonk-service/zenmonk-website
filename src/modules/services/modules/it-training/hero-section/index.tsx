@@ -125,7 +125,7 @@ const QuoteText = ({ text }: QuoteTextProps) => {
   return (
     <Box className="quote-text">
       <Quote alt="quote" className="quote-img" />
-      <Typography className="quote" component="p">
+      <Typography className="quote-desc" component="p">
         {text}
       </Typography>
     </Box>

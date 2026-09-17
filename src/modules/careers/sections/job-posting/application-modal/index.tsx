@@ -286,8 +286,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           p: 0,
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'hidden',
-          overflowX: 'hidden',
+          overflow: 'visible',
           scrollbarWidth: 'none',
           '&::-webkit-scrollbar': { display: 'none' },
         }}
@@ -303,7 +302,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             component="form"
             onSubmit={handleSubmit(onSubmit)}
             className={styles.form}
-            sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden', overflowX: 'hidden' }}
+            sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible' }}
           >
             {error && error !== 'NO_INTERNET' && (
               <Box
@@ -617,9 +616,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             <Box
               sx={{
                 mt: isMobile ? '16px' : 'auto',
-                pt: isMobile ? '16px' : '1.04vw',
-                pb: isMobile ? '16px' : 0,
-                px: isMobile ? '16px' : 0,
+                pt: isMobile ? '16px' : 'max(16px, 1.04vw)',
+                pb: isMobile ? '16px' : 'max(8px, 0.42vw)',
+                px: isMobile ? '16px' : 'max(6px, 0.31vw)',
                 borderTop: isMobile ? '1px solid #F3F4F6' : '0.05vw solid #F3F4F6',
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -629,7 +628,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 bottom: 0,
                 left: 0,
                 right: 0,
-                zIndex: 10
+                zIndex: 10,
+                overflow: 'visible'
               }}
             >
               <BaseButton

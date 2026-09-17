@@ -126,18 +126,18 @@
   position: relative;
 }
 
-.quote {
+.testimony .quote {
   position: absolute;
   pointer-events: none;
 }
 
-.quote-up {
+.testimony .quote-up {
   top: 180%;
   left: 30%;
   z-index: 0;
 }
 
-.quote-down {
+.testimony .quote-down {
   top: 320%;
   right: 30%;
   z-index: 0;
