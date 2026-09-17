@@ -1,5 +1,10 @@
 .base-button-container {
+  display: inline-flex;
+  border-radius: inherit;
+  cursor: pointer;
+
   .base-button {
+    cursor: pointer !important;
     font-size: max(14px, 0.729vw);
     display: flex;
     font-family: var(--font-inter), sans-serif;

@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAppDispatch } from '@/store/hooks'
 import { toggleLoader } from '@/store/features/header/header-slice'
+import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
 
 const SuccessMessage = ({
   jobTitle,
@@ -163,6 +164,7 @@ const SuccessMessage = ({
           <Box sx={{ display: 'flex', gap: isMobile ? '12px' : 'max(12px, 0.83vw)', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button
               onClick={() => {
+                dispatch(resetSubmitSuccess())
                 dispatch(toggleLoader(true))
                 if (onClose) onClose()
                 router.push(trackingPath)

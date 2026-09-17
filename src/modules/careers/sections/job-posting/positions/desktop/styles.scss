@@ -182,20 +182,18 @@
         padding: max(8px, 0.5vw) max(20px, 1.2vw);
         font-size: max(18px, 0.729vw);
         font-weight: 600;
-        border-radius: max(12px, 0.625vw);
+        border-radius: max(12px, 0.625vw) !important;
         text-transform: none;
         border: none;
-        cursor: pointer;
+        cursor: pointer !important;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all 0.2s ease;
         flex-shrink: 0;
         white-space: nowrap;
 
         &:hover {
           opacity: 0.95;
-          transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(235, 124, 13, 0.3);
         }
       }

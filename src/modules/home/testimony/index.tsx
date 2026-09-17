@@ -116,8 +116,14 @@ export default function Testimony() {
             <div className="description">{currentReview.position}</div>
           </div>
           <div className="controls">
-            <ArrowLeft onClick={handleOnPrev} />
-            <ArrowRight onClick={handleOnNext} />
+            <ArrowLeft
+              onClick={handleOnPrev}
+              onMouseDown={(e: React.MouseEvent) => e.preventDefault()}
+            />
+            <ArrowRight
+              onClick={handleOnNext}
+              onMouseDown={(e: React.MouseEvent) => e.preventDefault()}
+            />
           </div>
         </div>
         <Image
@@ -167,8 +173,14 @@ export default function Testimony() {
               <div className="description">{currentReview.position}</div>
             </div>
             <div className="controls">
-              <ALL onClick={handleOnPrev} />
-              <ALR onClick={handleOnNext} />
+              <ALL
+                onClick={handleOnPrev}
+                onMouseDown={(e: React.MouseEvent) => e.preventDefault()}
+              />
+              <ALR
+                onClick={handleOnNext}
+                onMouseDown={(e: React.MouseEvent) => e.preventDefault()}
+              />
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ import 'react-international-phone/style.css'
 import { Popover, Box, InputBase, Typography, MenuItem } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 
 interface PhoneInputWithSearchProps {
   value: string
@@ -82,6 +83,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   }
 
   const isDropdownOpen = Boolean(anchorEl)
+  useScrollLock(isDropdownOpen, '.country-list-scroll, [class*="MuiPopover-paper"]')
 
   const selectedCountryData = allCountries.find((c) => c.iso2 === country.iso2) || country
 
@@ -235,6 +237,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
 
         {/* Scrollable Country List */}
         <Box
+          className="country-list-scroll"
           sx={{
             flex: 1,
             overflowY: 'auto',

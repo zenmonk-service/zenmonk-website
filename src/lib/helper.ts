@@ -8,6 +8,21 @@ const parsedCountries = defaultCountries
 
 export const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
 
+export const isValidUrl = (url: string): boolean => {
+  if (!url || !url.trim()) return true
+  const trimmed = url.trim()
+  try {
+    const withProtocol = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`
+    const parsed = new URL(withProtocol)
+    return (
+      (parsed.protocol === 'http:' || parsed.protocol === 'https:') &&
+      Boolean(parsed.hostname && parsed.hostname.includes('.'))
+    )
+  } catch {
+    return false
+  }
+}
+
 export const validateEmail = function (email: string) {
   return EMAIL_REGEX.test(email)
 }

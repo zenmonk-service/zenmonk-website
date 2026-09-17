@@ -7,6 +7,8 @@
   position: relative;
   margin-bottom: clamp(40px, 5vw, 100px);
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .testimony-content {
@@ -105,8 +107,12 @@
   display: flex;
   gap: clamp(16px, 1.6666vw, 32px);
   align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
   svg {
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
   }
   @media (max-width: 728px) {
     gap: 60px;
@@ -116,10 +122,15 @@
 
 .testimony-content .controls img {
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .testimony-mb.mobile {
   display: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .testimony .section-header-container {
@@ -129,6 +140,8 @@
 .testimony .quote {
   position: absolute;
   pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .testimony .quote-up {
@@ -152,6 +165,8 @@
     padding-left: 16px;
     padding-right: 16px;
     margin-top: 20px;
+    user-select: none;
+    -webkit-user-select: none;
     @media (max-width: 1000px) {
       background-position: 0 30% !important;
       background-size: cover;
@@ -194,6 +209,8 @@
 
   .testimony-mb .testimony-image-wrapper img {
     transform: scale(1.5);
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   .testimony-mb .testimony-content {
@@ -213,6 +230,10 @@
 .testimony .gradient-ball {
   position: absolute;
   z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .testimony .gradient-ball-first {

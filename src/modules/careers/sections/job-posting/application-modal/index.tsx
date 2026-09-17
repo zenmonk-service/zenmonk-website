@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace, normalizeMultilineText } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace, normalizeMultilineText, isValidUrl } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -48,7 +48,7 @@ type ApplicationFormData = {
 
 const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalProps) => {
   const isMobile = useMediaQuery('(max-width:768px)')
-  useScrollLock(open, '[class*="formGrid"], [class*="MuiDialog-paper"]')
+  useScrollLock(open, '[class*="formGrid"], [class*="MuiDialog-paper"], .country-list-scroll, [class*="MuiPopover-paper"]')
   const dispatch = useAppDispatch()
   const { submitting, submitSuccess, error, submittedApplication } = useAppSelector((state) => state.applications)
   const fileInputRef = React.useRef<HTMLInputElement | null>(null)
@@ -67,6 +67,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
   const selectedResume = watch('resume')
   const selectedFile = selectedResume && selectedResume.length > 0 ? selectedResume[0] : null
+
+  React.useEffect(() => {
+    if (open) {
+      dispatch(resetSubmitSuccess())
+    }
+  }, [open, dispatch])
 
   React.useEffect(() => {
     if (submitSuccess) {
@@ -119,10 +125,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (reason === 'backdropClick') {
       return
     }
+    dispatch(resetSubmitSuccess())
     onClose()
   }
 
   const handleCancel = () => {
+    dispatch(resetSubmitSuccess())
     onClose()
   }
 
@@ -429,7 +437,10 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 <TextField
                   {...register('portfolioLink', {
                     maxLength: { value: 256, message: 'Link cannot exceed 256 characters' },
-                    validate: (val) => !val || val.trim().length > 0 || 'Link cannot contain only whitespace'
+                    validate: {
+                      noWhitespace: (val) => !val || val.trim().length > 0 || 'Link cannot contain only whitespace',
+                      validUrl: (val) => !val || !val.trim() || isValidUrl(val) || 'Please enter a valid URL.',
+                    }
                   })}
                   slotProps={{ htmlInput: { maxLength: 256 } }}
                   placeholder="https://..."
