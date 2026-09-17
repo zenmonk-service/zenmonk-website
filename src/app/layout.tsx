@@ -71,14 +71,16 @@ export default function FlashScreenLayout({
     const t1 = setTimeout(resetScroll, 50)
     const t2 = setTimeout(resetScroll, 150)
     const t3 = setTimeout(resetScroll, 350)
+    const t4 = setTimeout(resetScroll, 600)
 
     return () => {
       cancelAnimationFrame(frameId)
       clearTimeout(t1)
       clearTimeout(t2)
       clearTimeout(t3)
+      clearTimeout(t4)
     }
-  }, [pathname])
+  }, [pathname, showFlashScreen])
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('zenmonk_visited')

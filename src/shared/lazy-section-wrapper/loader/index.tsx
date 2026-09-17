@@ -1,23 +1,20 @@
 'use client'
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { useAppDispatch } from '@/store/hooks'
 import Monk from '@/assets/icons/monk.svg'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 import styles from './loading.module.css'
 
 export default function FullScreenLoading() {
-  const dispatch = useAppDispatch()
+  useScrollLock(true)
 
   useEffect(() => {
-    if (typeof document === 'undefined') return
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-
     return () => {
-      document.body.style.overflow = originalOverflow === 'hidden' ? '' : originalOverflow
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+      if (document.documentElement) document.documentElement.scrollTop = 0
+      if (document.body) document.body.scrollTop = 0
     }
-  }, [dispatch])
+  }, [])
 
   if (typeof document === 'undefined') return null
 

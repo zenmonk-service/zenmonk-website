@@ -220,7 +220,6 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
             placeholder="Search country or code..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            autoFocus
             fullWidth
             sx={{
               fontSize: '14px',

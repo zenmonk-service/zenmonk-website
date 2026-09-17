@@ -8,7 +8,17 @@ import innerIcons from './icon-positions/inner-icons'
 import outerIcons from './icon-positions/outer-icons'
 import './styles.scss'
 const SoftwareDevelopmentHeroSection = () => {
-  const [scale, setScale] = useState(1);
+  const [scale, setScale] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const width = window.innerWidth
+      if (width >= 1024) return 0.53 + ((width - 1024) / (1920 - 1024)) * 0.47
+      if (width > 800) return 0.4 + ((width - 600) / (1024 - 600)) * 0.13
+      if (width >= 600) return 0.65 + ((width - 600) / (800 - 600)) * 0.20
+      if (width >= 380) return 0.55
+      return 0.5
+    }
+    return 0.7
+  })
 
   useEffect(() => {
     const handleResize = () => {
