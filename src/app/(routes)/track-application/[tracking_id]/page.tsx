@@ -273,7 +273,7 @@ export default function TrackApplicationPage() {
         >
           <TextField
             fullWidth
-            placeholder="Enter Tracking ID (e.g. APP-1234567890-ABCDEF)"
+            placeholder="e.g. APP-1234567890-ABCDEF"
             value={trackingId}
             onChange={handleInputChange}
             onKeyDown={handleInputKeyDown}
@@ -290,6 +290,16 @@ export default function TrackApplicationPage() {
                 px: isMobile ? '16px' : '1.04vw',
                 fontFamily: 'Poppins',
                 fontSize: 'max(14px, 0.73vw)',
+                '& input': {
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  '&::placeholder': {
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                  },
+                },
               },
             }}
           />
