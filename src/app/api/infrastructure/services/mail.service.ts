@@ -10,12 +10,16 @@ export class MailService {
     const password = process.env.MAIL_PASSWORD?.trim();
 
     this.transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || 'localhost',
-      port: parseInt(process.env.MAIL_PORT || '1025'),
-      secure: process.env.MAIL_SECURE === 'true',
-      auth: user && password ? { user, pass: password } : undefined,
+      host: process.env.MAIL_HOST || "smtp.gmail.com",
+      port: parseInt(process.env.MAIL_PORT || "587", 10),
+      secure: process.env.MAIL_SECURE === "true",
+      auth: {
+        user,
+        pass: password,
+      },
     });
-    this.from = process.env.MAIL_FROM || 'ZenMonk Careers <careers@zenmonk.com>';
+
+    this.from = process.env.MAIL_FROM || "sahil.1178@zenmonk.tech";
   }
 
   async sendApplicationConfirmation(
@@ -23,12 +27,12 @@ export class MailService {
     name: string,
     jobTitle: string,
     tracking_id: string,
-    trackingUrl: string
+    trackingUrl: string,
   ) {
     const mailOptions = {
       from: this.from,
       to,
-      subject: 'Application Received - Zenmonk',
+      subject: "Application Received - Zenmonk",
       html: `
         <style>
           @media only screen and (max-width: 768px) {
@@ -106,9 +110,9 @@ export class MailService {
 
     try {
       await this.transporter.sendMail(mailOptions);
-      console.log('Confirmation email sent to:', to);
+      console.log("Confirmation email sent to:", to);
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error("Error sending email:", error);
     }
   }
 
@@ -117,12 +121,12 @@ export class MailService {
     lastName: string,
     email: string,
     phone: string,
-    message: string
+    message: string,
   ) {
     const mailOptions = {
       from: email,
-      to: 'admin@zenmonk.tech',
-      subject: 'New Contact Inquiry - Zenmonk',
+      to: "admin@zenmonk.tech",
+      subject: "New Contact Inquiry - Zenmonk",
       html: `
         <style>
           @media only screen and (max-width: 768px) {
@@ -196,10 +200,10 @@ export class MailService {
 
     try {
       await this.transporter.sendMail(mailOptions);
-      console.log('Contact inquiry email sent successfully');
+      console.log("Contact inquiry email sent successfully");
     } catch (error) {
-      console.error('Error sending contact inquiry email:', error);
-      throw new Error('Failed to send email');
+      console.error("Error sending contact inquiry email:", error);
+      throw new Error("Failed to send email");
     }
   }
 }
