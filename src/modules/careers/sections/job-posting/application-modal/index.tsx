@@ -25,6 +25,7 @@ import SuccessMessage from './success-message'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { createApplication } from '@/store/features/applications/applications-actions'
 import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
+import { setHeaderHide } from '@/store/features/header/header-slice'
 import { previewFile } from '@/lib/file-preview'
 import NoInternetModal from '@/shared/components/no-internet-modal'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
@@ -234,6 +235,21 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       open={open}
       onClose={handleClose}
       disableScrollLock={true}
+      sx={{
+        zIndex: 1300,
+        '& .MuiDialog-container': {
+          pt: isMobile ? 0 : 'max(85px, 5vw)',
+          pb: isMobile ? 0 : 'max(24px, 1.5vw)',
+          alignItems: isMobile ? 'stretch' : 'center',
+          scrollbarWidth: 'none !important',
+          msOverflowStyle: 'none !important',
+          '&::-webkit-scrollbar': {
+            display: 'none !important',
+            width: '0 !important',
+            height: '0 !important',
+          },
+        },
+      }}
       TransitionProps={{
         onExited: handleExited,
       }}
@@ -243,16 +259,28 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       PaperProps={{
         sx: {
           maxWidth: isMobile ? '100%' : 'max(550px, 28.65vw)',
+          maxHeight: isMobile ? '100%' : 'calc(100vh - max(110px, 6.5vw))',
           borderRadius: isMobile ? 0 : 'max(16px, 0.83vw)',
           padding: isMobile ? '16px' : 'max(24px, 1.25vw)',
-          background: '#fff'
+          background: '#fff',
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+          scrollbarWidth: 'none !important',
+          msOverflowStyle: 'none !important',
+          '&::-webkit-scrollbar': {
+            display: 'none !important',
+            width: '0 !important',
+            height: '0 !important',
+          },
         }
       }}
     >
       <DialogTitle
         sx={{
           p: 0,
-          mb: submitSuccess ? 0 : (isMobile ? '20px' : 'max(24px, 1.56vw)'),
+          flexShrink: 0,
+          mb: submitSuccess ? 0 : (isMobile ? '16px' : 'max(16px, 1.0vw)'),
           display: 'flex',
           justifyContent: submitSuccess ? 'flex-end' : 'space-between',
           alignItems: 'center'
@@ -293,9 +321,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           p: 0,
           display: 'flex',
           flexDirection: 'column',
-          overflow: 'visible',
+          flex: 1,
+          minHeight: 0,
+          overflow: 'hidden',
           scrollbarWidth: 'none',
-          '&::-webkit-scrollbar': { display: 'none' },
+          msOverflowStyle: 'none',
+          '&::-webkit-scrollbar': { display: 'none', width: 0, height: 0 },
         }}
       >
         {submitSuccess ? (
@@ -309,11 +340,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
             component="form"
             onSubmit={handleSubmit(onSubmit)}
             className={styles.form}
-            sx={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'visible' }}
+            sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, height: '100%', overflow: 'hidden' }}
           >
             {error && error !== 'NO_INTERNET' && (
               <Box
                 sx={{
+                  flexShrink: 0,
                   mb: isMobile ? '16px' : '1.04vw',
                   p: isMobile ? '16px' : '1.04vw',
                   bgcolor: '#FEE2E2',
@@ -337,18 +369,17 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
               className={styles.formGrid}
               sx={{
                 flex: 1,
-                overflowY: 'auto',
-                overflowX: 'hidden',
-                pr: isMobile ? 0 : '0.42vw',
-                scrollbarWidth: isMobile ? 'none' : 'thin',
-                '&::-webkit-scrollbar': isMobile
-                  ? { display: 'none', width: 0, height: 0 }
-                  : { width: 'max(4px, 0.21vw)' },
-                '&::-webkit-scrollbar-thumb': {
-                  background: '#E5E7EB',
-                  borderRadius: isMobile ? 0 : 'max(10px, 0.52vw)',
+                minHeight: 0,
+                overflowY: 'auto !important',
+                overflowX: 'hidden !important',
+                pr: 0,
+                scrollbarWidth: 'none !important',
+                msOverflowStyle: 'none !important',
+                '&::-webkit-scrollbar': {
+                  display: 'none !important',
+                  width: '0 !important',
+                  height: '0 !important',
                 },
-                msOverflowStyle: isMobile ? 'none' : 'auto',
               }}
             >
               <FormControl error={!!errors.fullName} fullWidth>
@@ -623,21 +654,19 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
             <Box
               sx={{
-                mt: isMobile ? '16px' : 'auto',
-                pt: isMobile ? '16px' : 'max(16px, 1.04vw)',
-                pb: isMobile ? '16px' : 'max(8px, 0.42vw)',
-                px: isMobile ? '16px' : 'max(6px, 0.31vw)',
+                flexShrink: 0,
+                width: '100%',
+                mt: 'auto',
+                pt: isMobile ? '14px' : 'max(14px, 0.9vw)',
+                pb: 0,
+                px: 0,
                 borderTop: isMobile ? '1px solid #F3F4F6' : '0.05vw solid #F3F4F6',
                 display: 'flex',
                 justifyContent: 'flex-end',
+                alignItems: 'center',
                 gap: isMobile ? '12px' : '1.04vw',
                 background: '#fff',
-                position: isMobile ? 'sticky' : 'relative',
-                bottom: 0,
-                left: 0,
-                right: 0,
                 zIndex: 10,
-                overflow: 'visible'
               }}
             >
               <BaseButton

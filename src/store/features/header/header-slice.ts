@@ -16,12 +16,15 @@ const headerSlice = createSlice({
   reducers: {
     toggleLoader(state, { payload }) {
       state.isLoading = payload
-    }
+    },
+    setHeaderHide(state, { payload }) {
+      state.hide = payload
+    },
   },
 })
 
 // Export the action
-export const { toggleLoader } = headerSlice.actions
+export const { toggleLoader, setHeaderHide } = headerSlice.actions
 
 // Export the reducer
 export default headerSlice.reducer
