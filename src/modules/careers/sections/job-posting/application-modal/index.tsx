@@ -502,7 +502,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       {selectedFile ? 'Change' : 'Choose File'}
                     </Box>
                     {selectedFile ? (
-                      <Tooltip title="Click to preview file in another tab" arrow placement="top">
+                      <Tooltip title={selectedFile.name} arrow placement="top">
                         <Box
                           onClick={(e) => {
                             e.stopPropagation()
