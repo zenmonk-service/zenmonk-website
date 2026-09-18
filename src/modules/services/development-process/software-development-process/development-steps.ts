@@ -5,41 +5,41 @@ export const developmentProcessSteps = [
     colors: ['#F9568F', '#AB0B43'],
     title: 'Customer Requirement',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Gathering deep technical requirements and business goals to shape the project roadmap.',
   },
   {
     id: '02',
     colors: ['#EEC32D', '#F6782A'],
     title: 'Planning',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Defining tech stacks, sprint milestones, and scalable software architecture patterns.',
   },
   {
     id: '03',
     colors: ['#FF59CD', '#EB42B8'],
     title: 'Development',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Writing clean, modular code with test-driven development and agile sprint cycles.',
   },
   {
     id: '04',
     colors: ['#267DFF', '#0048B5'],
     title: 'System Testing',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Conducting automated unit, integration, and security tests to ensure flawless quality.',
   },
   {
     id: '05',
     colors: ['#6745D8', '#270B87'],
     title: 'Deployment',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Configuring automated CI/CD pipelines for seamless, zero-downtime releases.',
   },
   {
     id: '06',
     colors: ['#6E843E', '#98BF55'],
     title: 'Deliver',
     description:
-      'We all collaborate with you together and understand your business needs and objective',
+      'Launching your software with ongoing monitoring, performance tuning, and updates.',
   },
 ]

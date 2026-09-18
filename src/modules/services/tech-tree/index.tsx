@@ -14,7 +14,7 @@ interface TechnologyTreeProps {
 
 const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
   const isMobile = useMediaQuery('(max-width:700px)')
-  const { treeIcons, background: BackgroundComponent } = getTreeIconsByServiceId(serviceId)
+  const { title, markText, description, treeIcons, background: BackgroundComponent } = getTreeIconsByServiceId(serviceId)
   
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
@@ -67,8 +67,8 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
             animate={isInView ? 'visible' : 'hidden'}
           >
             <SectionTitle
-              text={`Zen Tech Wonders We\nExcel In Innovation &\nExcellence`}
-              markText="Excellence"
+              text={title}
+              markText={markText}
               align={isMobile ? 'center' : 'left'}
               className={styles.techTreeHeading}
             />
@@ -81,7 +81,7 @@ const TechnologyTree = ({ serviceId }: TechnologyTreeProps) => {
           >
             <SectionDescription
               className={styles.techTreeDescription}
-              text="We lead the way in technological innovation, consistently delivering solutions that transform industries. Our commitment to excellence helps businesses and individuals achieve more by streamlining processes, enhancing security, and fostering sustainable growth. Through our expertise and dedication, we empower teams to navigate complex digital landscapes and unlock their full potential in an ever-evolving market."
+              text={description}
             />
           </motion.div>
         </div>

@@ -20,7 +20,7 @@ const ProductDevelopmentPage = () => {
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToTalkProductDevelopment />
-      <FAQ />
+      <FAQ serviceId={serviceId} />
       <div className="desktop-hidden-spacer" style={{ height: "max(80px,6.25vw)", width: "100%", backgroundColor: "#fff" }} />
     </div>
   )

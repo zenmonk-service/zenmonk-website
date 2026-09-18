@@ -19,7 +19,7 @@ const UiUxDesignPage = () => {
       <TechnologyTree serviceId={serviceId} />
       <BusinessSectors />
       <DevelopmentProcess />
-      <FAQ />
+      <FAQ serviceId={serviceId} />
       <ContactUsSection showFlagsOnly />
     </div>
   )

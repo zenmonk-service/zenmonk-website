@@ -15,7 +15,7 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     id: 'customer-requirement',
     title: 'Customer Requirement',
     description:
-      'We will collaborate with you to gather and understand your business needs and objective.',
+      'Identifying AI use cases, data sources, and business objectives to determine model viability.',
     icon: BulbIcon,
     position: 'bottom',
     theme: {
@@ -27,7 +27,7 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     id: 'planning',
     title: 'Planning',
     description:
-      'We will collaborate with you to gather and understand your business needs and objective.',
+      'Structuring data pipelines, selecting optimal ML architectures, and defining evaluation benchmarks.',
     icon: EmailIcon,
     position: 'top',
     theme: {
@@ -39,7 +39,7 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     id: 'development',
     title: 'Development',
     description:
-      'We will collaborate with you to gather and understand your business needs and objective.',
+      'Training, fine-tuning, and evaluating customized machine learning algorithms and neural networks.',
     icon: StocksIcon,
     position: 'bottom',
     theme: {
@@ -51,7 +51,7 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     id: 'system-testing',
     title: 'System Testing',
     description:
-      'We will collaborate with you to gather and understand your business needs and objective.',
+      'Validating model accuracy, mitigating bias, benchmark testing latency, and verifying API endpoints.',
     icon: TimeIcon,
     position: 'top',
     theme: {
@@ -63,7 +63,7 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     id: 'delivery',
     title: 'Deliver',
     description:
-      'We will collaborate with you to gather and understand your business needs and objective.',
+      'Deploying production-ready AI models with continuous learning loops and real-time inference monitoring.',
     icon: GearsIcon,
     position: 'bottom',
     theme: {

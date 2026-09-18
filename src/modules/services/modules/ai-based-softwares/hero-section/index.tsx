@@ -15,7 +15,7 @@ const AiSolutionsHeroSection = () => {
         url={HeroImage}
         title="<span>Digital Transformation &amp; Automation</span> to Accelerate Growth"
         highlightedText="Digital Transformation & Automation"
-        description="Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services."
+        description="We empower your business with cutting-edge artificial intelligence and machine learning solutions. From custom LLM models to intelligent automation, we build smart tools that accelerate operational efficiency."
         imageStyle={{
           margin: '0 auto',
           display: 'block',

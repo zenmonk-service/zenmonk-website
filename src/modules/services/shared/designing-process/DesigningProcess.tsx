@@ -12,35 +12,35 @@ const designingSteps: ProcessStep[] = [
     id: 1,
     title: "Research",
     color: "#2EC2CC",
-    description: "Understanding user needs and market trends",
+    description: "Uncovering user behaviors, pain points, and market opportunities",
     image: Research
   },
   {
     id: 2,
     title: "Sketch",
     color: "#A263F5",
-    description: "Creating initial wireframes and concepts",
+    description: "Mapping user flows, information architecture, and low-fi wireframes",
     image: Sketch
   },
   {
     id: 3,
     title: "Create",
     color: "#5FCC62",
-    description: "Developing high-fidelity designs",
+    description: "Crafting high-fidelity UI screens, design systems, and prototypes",
     image: Create
   },
   {
     id: 4,
     title: "Test",
     color: "#4A9FF5",
-    description: "Validating designs with users",
+    description: "Conducting usability testing sessions and accessibility validation",
     image: Test
   },
   {
     id: 5,
     title: "Develop",
     color: "#FF9021",
-    description: "Implementing the final design",
+    description: "Delivering developer-ready asset handoffs, tokens, and guidelines",
     image: Develop
   }
 ]

@@ -15,7 +15,7 @@ const ItBusinessConsultationHeroSection = () => {
     <HeroSection
       title="Driving Meaningful Innovation with IT & Business Expertise"
       highlightedText="IT & Business Expertise"
-      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+      description="We provide strategic technology advisory that bridges executive vision with modern technical execution. Our consultants optimize IT roadmaps, reduce technical debt, and drive sustainable digital transformation."
       url={isMobile ? "/services/it-mobile.png" : "/services/it.png"}
       titleProps={{
         style: {

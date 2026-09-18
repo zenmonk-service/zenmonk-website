@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Monk from '@/assets/icons/monk.svg'
@@ -17,23 +17,44 @@ const Navbar = () => {
   const dispatch = useAppDispatch()
   const [isOpen, toggleOpen] = useCycle(false, true)
 
-  const [hidden, setHidden] = useState(false)
+  const [hiddenByScroll, setHiddenByScroll] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
   const [isAtTop, setIsAtTop] = useState(true)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
-    setIsAtTop(latest <= 5)
+    const atTop = latest <= 5;
+    setIsAtTop(atTop);
     if (latest > previous && latest > 150) {
-      setHidden(true)
-    } else {
-      setHidden(false)
+      setHiddenByScroll(true);
+    } else if (latest < previous || atTop) {
+      setHiddenByScroll(false);
     }
-  })
+  });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.clientY <= 80) {
+        setIsHovered(true);
+      } else {
+        const isOverMenu = (e.target as Element)?.closest?.('.MuiPopover-root, [class*="servicesMenuContainer"], [class*="appBarContainer"]');
+        if (!isOverMenu) {
+          setIsHovered(false);
+        }
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   useScrollLock(isOpen, '[class*="sideBarMenu"]')
 
   const isHeaderHidden = useAppSelector((state) => state.header.hide)
+  const isHidden = !isAtTop && hiddenByScroll && !isHovered
 
   return (
     <motion.nav
@@ -42,9 +63,15 @@ const Navbar = () => {
         visible: { y: 0 },
         hidden: { y: '-100%' },
       }}
-      animate={(hidden && !isOpen) || isHeaderHidden ? "hidden" : "visible"}
+      animate={(isHidden && !isOpen) || isHeaderHidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`${styles.appBarContainer} ${isOpen ? styles.open : ''} ${isAtTop && !isOpen ? styles.transparent : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={(e) => {
+        if (e.clientY > 80) {
+          setIsHovered(false)
+        }
+      }}
     >
       <Link
         href="/"
@@ -64,26 +91,22 @@ const Navbar = () => {
         <LoadingIndicator targetHref="/" />
         <Monk />
       </Link>
-      {!pathname?.includes('/track-application/') && (
-        <>
-          <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
-          <Link
-            href="/contact"
-            prefetch={true}
-            className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
-            onClick={(e) => {
-              if (pathname === '/contact') {
-                e.preventDefault()
-                return
-              }
-              dispatch(toggleLoader(true))
-            }}
-          >
-            <LoadingIndicator targetHref="/contact" />
-            Contact Us
-          </Link>
-        </>
-      )}
+      <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
+      <Link
+        href="/contact"
+        prefetch={true}
+        className={`${styles.appBarContactButton} ${pathname === '/contact' ? styles.active : ''}`}
+        onClick={(e) => {
+          if (pathname === '/contact') {
+            e.preventDefault()
+            return
+          }
+          dispatch(toggleLoader(true))
+        }}
+      >
+        <LoadingIndicator targetHref="/contact" />
+        Contact Us
+      </Link>
     </motion.nav>
   )
 }

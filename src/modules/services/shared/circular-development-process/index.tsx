@@ -23,32 +23,32 @@ interface CircularDevelopmentProcessProps {
 
 const defaultSteps: ProcessStep[] = [
   {
-    title: "Customer Requirement",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Data & Feasibility Analysis",
+    description: "Assessing AI use cases, data pipeline readiness, and algorithm feasibility metrics.",
     color: "#FF1470",
     icon: <BulbIcon />,
   },
   {
-    title: "Planning",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Data Engineering & Prep",
+    description: "Cleaning, labeling, and structuring high-volume datasets for reliable model training.",
     color: "#002E8A",
     icon: <Email />,
   },
   {
-    title: "Development",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Model Development",
+    description: "Training, fine-tuning, and evaluating state-of-the-art machine learning algorithms.",
     color: "#FF9021",
     icon: <Stocks />,
   },
   {
-    title: "System Testing",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Model Validation & QA",
+    description: "Benchmarking accuracy, bias mitigation, latency, and predictive performance.",
     color: "#007F50",
     icon: <Time />,
   },
   {
-    title: "Deliver",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Deployment & Scaling",
+    description: "Deploying scalable inference APIs with continuous learning and real-time monitoring.",
     color: "#FF6206",
     icon: <GearBig />,
   },

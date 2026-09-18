@@ -38,7 +38,7 @@ const ProductDevelopment: React.FC = () => {
           <span className="highlight">Product Development</span>
         </h1>
         <p className="hero-desc">
-          We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions.
+          We guide digital products from initial concept discovery through scalable full-cycle development. By integrating agile engineering with continuous user validation, we build products that lead the market.
         </p>
         <BaseButton
           className="explore-btn"

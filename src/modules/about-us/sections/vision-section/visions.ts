@@ -17,6 +17,6 @@ export const visions = [
   {
     title: 'Accountable',
     image: '/about-us/vision/accountable.svg',
-    description: 'We take responsibility of delivering hight quality products',
+    description: 'We take responsibility for delivering high-quality, dependable products.',
   },
 ]

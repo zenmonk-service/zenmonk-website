@@ -12,7 +12,7 @@ export const whyChooseUsList = [
   {
     name: 'Client Support',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'We maintain open, continuous communication throughout design sprints to ensure your vision is perfectly realized.',
     icon: ClientSupport,
     backgroud: PurpleBg,
     ml: '0vw',
@@ -20,7 +20,7 @@ export const whyChooseUsList = [
   {
     name: 'Expert Team',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'Our senior designers combine deep human-computer interaction expertise with modern design system craftsmanship.',
     icon: ExpertTeam,
     backgroud: OrangeBg,
     ml: 'max(8px, 0.5vw)',
@@ -28,7 +28,7 @@ export const whyChooseUsList = [
   {
     name: 'Our Strategy',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'We build user-centered design strategies backed by user persona research, behavioral heuristics, and usability testing.',
     icon: OurStratergy,
     backgroud: BlueBg,
     ml: 'max(16px, 1vw)',
@@ -36,7 +36,7 @@ export const whyChooseUsList = [
   {
     name: 'More Growth',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'Intuitive interfaces drive higher engagement, reduced churn, and substantially improved product conversion rates.',
     icon: MoreGrowth,
     backgroud: PurpleBg,
     ml: '0vw',
@@ -44,7 +44,7 @@ export const whyChooseUsList = [
   {
     name: 'Creative Ideas',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'We craft memorable visual aesthetics, bespoke iconography, and fluid micro-interactions that elevate your brand identity.',
     icon: CreativeIdeas,
     backgroud: OrangeBg,
     ml: 'max(8px, 0.5vw)',
@@ -52,7 +52,7 @@ export const whyChooseUsList = [
   {
     name: 'Reach Ideas',
     description:
-      'We take a personalized approach to creating web applications that perfectly align with your business objectives. From concept to deployment.',
+      'Designing accessible, responsive experiences that deliver flawless usability across all screen sizes and devices.',
     icon: MoreReach,
     backgroud: BlueBg,
     ml: 'max(16px, 1vw)',

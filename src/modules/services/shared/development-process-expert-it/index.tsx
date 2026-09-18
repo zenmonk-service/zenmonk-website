@@ -8,33 +8,33 @@ import styles from './styles.module.scss';
 const steps = [
   {
     id: '01',
-    title: 'Identify your Vision',
-    description: 'Deep dive into requirements and feasibility analysis to define the roadmap.',
+    title: 'Needs & Skill Assessment',
+    description: 'Evaluating existing team competencies, skill gaps, and strategic technology objectives.',
   },
   {
     id: '02',
-    title: 'Design for Success',
-    description: 'Creating intuitive UI/UX designs and interactive prototypes.',
+    title: 'Curriculum & Lab Design',
+    description: 'Tailoring industry-aligned syllabi, practical coding modules, and learning tracks.',
   },
   {
     id: '03',
-    title: 'Agile Development',
-    description: 'Agile development using cutting-edge technologies and best practices.',
+    title: 'Interactive Workshops',
+    description: 'Delivering engaging instructor-led sessions with live demonstrations and real-world code.',
   },
   {
     id: '04',
-    title: 'Rigorous Testing & Validation',
-    description: 'Rigorous testing to ensure bug-free and high-performance output.',
+    title: 'Hands-On Lab Projects',
+    description: 'Applying concepts directly through guided capstone projects and practical challenges.',
   },
   {
     id: '05',
-    title: 'Deliver and Beyond',
-    description: 'Seamless launch and integration into your existing ecosystem.',
+    title: 'Evaluation & Review',
+    description: 'Assessing knowledge retention through practical tests, code reviews, and feedback.',
   },
   {
     id: '06',
-    title: 'Partnership for Success',
-    description: 'Continuous monitoring, maintenance, and regular updates.',
+    title: 'Ongoing Mentorship',
+    description: 'Providing post-training coaching, refresher resources, and continuous skill support.',
   }
 ];
 

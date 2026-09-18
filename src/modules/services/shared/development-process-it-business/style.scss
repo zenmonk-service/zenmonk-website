@@ -7,7 +7,7 @@
     width: 100%;
     position: relative;
     margin-top: 3.125vw;        // 60px
-    padding-bottom: 5.208vw;   // 100px
+    padding-bottom: 6.5vw;     // 125px
   }
 
   .process-path-svg {
@@ -39,7 +39,7 @@
 
     &:nth-child(1) {
       left: 15%;
-      bottom: 0%;
+      bottom: -6%;
       text-align: left;
     }
 
@@ -51,7 +51,7 @@
 
     &:nth-child(3) {
       left: 50%;
-      bottom: 0%;
+      bottom: -10%;
       text-align: left;
     }
 

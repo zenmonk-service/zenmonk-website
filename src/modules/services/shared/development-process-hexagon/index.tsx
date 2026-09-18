@@ -27,20 +27,20 @@ interface DevelopmentProcessProps {
 
 const defaultSteps: ProcessStep[] = [
   {
-    title: "Customer Requirement",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Domain Analysis",
+    description: "Evaluating regulatory standards, domain compliance, and custom operational workflows.",
     color: "#175BDD",
     icon: <SearchIcon />,
   },
   {
-    title: "Planning",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Solution Blueprint",
+    description: "Designing industry-compliant system blueprints, data security, and integration paths.",
     color: "#771FCC",
     icon: <BulbIcon />,
   },
   {
-    title: "Development",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Targeted Development",
+    description: "Developing specialized modules tailored precisely to industry specific enterprise needs.",
     color: "#CF0063",
     icon: (
       <div className="gears-wrapper">
@@ -50,14 +50,14 @@ const defaultSteps: ProcessStep[] = [
     ),
   },
   {
-    title: "System Testing",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Compliance & Testing",
+    description: "Ensuring strict adherence to industry regulations, data privacy, and reliability benchmarks.",
     color: "#EA9E24",
     icon: <DesktopIcon />,
   },
   {
-    title: "Deliver",
-    description: "We collaborate with you to gather and understand your business needs and objective.",
+    title: "Enterprise Delivery",
+    description: "Rolling out seamless integrations with legacy systems and delivering full staff onboarding.",
     color: "#BDCE29",
     icon: <FolderIcon />,
   },

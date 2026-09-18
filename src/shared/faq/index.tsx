@@ -7,45 +7,15 @@ import MINUS from './assets/minus.svg'
 import PLUS from './assets/plus.svg'
 import styles from './faq.module.scss'
 
-const questions = [
-  {
-    question: 'How can I get started with mobile app development?',
-    answer:
-      "Start by defining your app's purpose, target audience, and core features. Then choose a tech stack and begin development with frameworks like React Native or Flutter.",
-  },
-  {
-    question: 'What is the best approach for website development?',
-    answer:
-      'Begin with wireframing your site structure, then use popular frameworks like Next.js or React for faster development and improved performance.',
-  },
-  {
-    question: 'What tools are recommended for UI design?',
-    answer:
-      'Tools like Figma, Sketch, and Adobe XD are popular for designing modern and intuitive user interfaces.',
-  },
-  {
-    question: 'How can I ensure my website is SEO-friendly?',
-    answer:
-      'Focus on fast loading times, mobile responsiveness, and well-structured content using appropriate HTML tags and meta descriptions.',
-  },
-  {
-    question: 'What are the best practices for improving app performance?',
-    answer:
-      "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
-  },
-  {
-    question: 'What are the best practices for improving app performance?',
-    answer:
-      "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
-  },
-  {
-    question: 'What are the best practices for improving app performance?',
-    answer:
-      "Optimize image sizes, minimize API calls, and implement caching strategies to boost your app's performance.",
-  },
-]
+import { FAQItem, defaultFAQs, faqDataByService } from './faq-data'
 
-const FAQ = () => {
+interface FAQProps {
+  serviceId?: string
+  items?: FAQItem[]
+}
+
+const FAQ = ({ serviceId, items }: FAQProps) => {
+  const questions = items ?? (serviceId ? faqDataByService[serviceId] : undefined) ?? defaultFAQs
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })

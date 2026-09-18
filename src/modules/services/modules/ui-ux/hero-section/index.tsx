@@ -19,9 +19,9 @@ const UiUxHeroSection = () => {
         <UiUxSvg className={styles.uiUxTitle} />
         <DesignSvg className={styles.designTitle} />
         <p className={styles.textDescription}>
-          We design intuitive and engaging experiences that makes every
-          touchpoint seamless and enjoyable. Let us enhance your interface with
-          precision and creativity.
+          We design intuitive, engaging digital experiences that make every
+          touchpoint seamless and delightful. By combining user research with
+          creative precision, we elevate your digital brand interfaces.
         </p>
         <BaseButton
           onClick={() => router.push('/contact')}

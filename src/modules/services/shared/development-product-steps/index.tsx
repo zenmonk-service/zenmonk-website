@@ -8,33 +8,33 @@ import styles from './styles.module.scss';
 const steps = [
   {
     id: '1',
-    title: 'Identify your Vision',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'Product Vision & Discovery',
+    description: 'Defining value propositions, user personas, and comprehensive product roadmaps.',
   },
   {
     id: '2',
-    title: 'Design for Success',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'UX/UI & Prototyping',
+    description: 'Designing interactive user journeys, wireframes, and design systems for validation.',
   },
   {
     id: '3',
-    title: 'Code with Precision',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'Full-Cycle Engineering',
+    description: 'Building scalable MVP and product architectures using modern frameworks.',
   },
   {
     id: '4',
-    title: 'Rigorous Testing & Validation',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'QA & Usability Testing',
+    description: 'Validating user flows, system resilience, security standards, and load handling.',
   },
   {
     id: '5',
-    title: 'Deliver and Beyond',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'Market Launch & Release',
+    description: 'Executing coordinated product releases with monitoring and telemetry tracking.',
   },
   {
     id: '6',
-    title: 'Partnership for Success',
-    description: 'We collabrate with you to gather and understand your business needs and objective',
+    title: 'Continuous Product Evolution',
+    description: 'Iterating based on product analytics, customer feedback, and market growth.',
   }
 ];
 

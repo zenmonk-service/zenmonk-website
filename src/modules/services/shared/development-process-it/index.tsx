@@ -15,8 +15,8 @@ const smoothEase = [0.16, 1, 0.3, 1]
 const steps = [
   {
     id: 1,
-    title: 'Conducting In-Depth Analysis',
-    description: 'We all collaborate with you to gather and understand your business needs and objective',
+    title: 'Cloud Assessment',
+    description: 'Evaluating workloads, cloud readiness, security posture, and migration strategies.',
     color: '#00D4CE',
     xPct: 12.0,  // 185 / 1538
     yPct: 56.2,  // 309 / 550
@@ -24,8 +24,8 @@ const steps = [
   },
   {
     id: 2,
-    title: 'Impressive Designs',
-    description: 'We all collaborate with you to gather and understand your business needs and objective',
+    title: 'Architecture Design',
+    description: 'Designing high-availability, fault-tolerant, and auto-scaling multi-cloud architectures.',
     color: '#0078BF',
     xPct: 29.3,  // 451 / 1538
     yPct: 31.8,  // 175 / 550
@@ -33,8 +33,8 @@ const steps = [
   },
   {
     id: 3,
-    title: 'Development',
-    description: 'We all collaborate with you to gather and understand your business needs and objective',
+    title: 'Migration & CI/CD',
+    description: 'Implementing automated CI/CD pipelines, containerization, and seamless data migration.',
     color: '#FF8031',
     xPct: 50.0,  // 769 / 1538
     yPct: 56.2,
@@ -42,8 +42,8 @@ const steps = [
   },
   {
     id: 4,
-    title: 'Effectual Delivery & Support',
-    description: 'We all collaborate with you to gather and understand your business needs and objective',
+    title: 'Security & Optimization',
+    description: 'Configuring cloud security governance, monitoring dashboards, and cost optimization.',
     color: '#DD57B0',
     xPct: 68.5,  // 1054 / 1538
     yPct: 31.8,
@@ -51,8 +51,8 @@ const steps = [
   },
   {
     id: 5,
-    title: 'Partnership for Success',
-    description: 'We all collaborate with you to gather and understand your business needs and objective',
+    title: 'Managed Cloud Support',
+    description: 'Providing 24/7 infrastructure observability, automated backups, and incident response.',
     color: '#46D877',
     xPct: 88.9,  // 1367 / 1538
     yPct: 56.2,

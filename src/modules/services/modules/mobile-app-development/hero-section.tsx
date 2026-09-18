@@ -16,7 +16,7 @@ const MobileAppDevelopment = () => {
       url="/services/mobile.png"
       title="Mobile App Development For Future-Ready Businesses"
       highlightedText="App Development"
-      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions."
+      description="We build intuitive, high-performance mobile and web applications designed for seamless user engagement. From cross-platform apps to scalable backends, we turn innovative ideas into market-ready realities."
       style={{
         height: 'auto',
         aspectRatio: 'initial',

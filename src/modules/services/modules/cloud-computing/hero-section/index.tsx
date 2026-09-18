@@ -14,7 +14,7 @@ const CloudSolutionsHeroSection = () => {
         url={MainHeroImage}
         title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
         highlightedText="Cloud Solutions"
-        description="Need a cloud solution that adapts to your business needs? We design agile, scalable, and secure cloud environments, allowing you to focus on growth while we manage the technical complexities."
+        description="We architect secure, scalable, and resilient multi-cloud environments tailored to your enterprise needs. Focusing on high availability and DevOps automation, we simplify your cloud infrastructure journey."
         style={isMobile ? { paddingTop: '105px' } : {}}
         imageStyle={{
           scale: isMobile ? 1.6 : 1.7,

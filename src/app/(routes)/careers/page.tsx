@@ -20,7 +20,7 @@ const page = () => {
       <InnovationExcellence />
       <TraditionsCustoms />
       <WordsByCEO />
-      <FAQ />
+      <FAQ serviceId="careers" />
       <ContactUsSection isCareerPage />
     </div>
   )

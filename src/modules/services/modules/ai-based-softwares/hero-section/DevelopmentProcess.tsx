@@ -73,7 +73,7 @@ export function DevelopmentProcess({
           animate={isInView ? 'visible' : 'hidden'}
           style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
-          <SectionTitle text="Our development Process" markText="Process" />
+          <SectionTitle text="Our AI Development Process" markText="Process" />
         </motion.div>
         <motion.div
           variants={descriptionVariants}
@@ -82,7 +82,7 @@ export function DevelopmentProcess({
           style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
         >
           <SectionDescription
-            text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
+            text="Advanced AI and machine learning engineering pipelines delivering intelligent models, robust data processing, and smart automation."
             className="development-process-description"
           />
         </motion.div>

@@ -20,7 +20,7 @@ const SoftwareDevelopmentPage = () => {
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToStartSoftwareDev />
-      <FAQ />
+      <FAQ serviceId={serviceId} />
       <div
         style={{
           height: 'max(80px,6.25vw)',

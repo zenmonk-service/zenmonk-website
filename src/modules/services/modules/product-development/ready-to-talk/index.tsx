@@ -33,8 +33,7 @@ const ReadyToTalkProductDevelopment = () => {
           className="ready-to-talk-description"
           width={{ xs: '100%', md: '25vw', lg: '26.7708vw', xl: '31.875vw' }}
         >
-          Custom Software Development Tailored Solutions for Your Business
-          Custom Software Development Tailored Solutions{' '}
+          End-to-end product development and agile engineering tailored to bring your vision to market.
         </Typography>
         <Link href="/contact" style={{ textDecoration: 'none' }}>
           <Button className="contact-us-btn">Contact Us</Button>

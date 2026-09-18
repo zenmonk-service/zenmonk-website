@@ -19,36 +19,36 @@ interface DevelopmentProcessProps {
 const defaultSteps: ProcessStep[] = [
   {
     number: "1",
-    title: "Planning",
-    description: "We all collaborate with you to gather and understand your business needs and objective.",
+    title: "Market Research",
+    description: "Analyzing target audience demographics, competitor landscapes, and growth opportunities.",
     color: "#2EC2CC",
     gradient: "linear-gradient(135deg, #2EC2CC 0%, #A263F5 100%)"
   },
   {
     number: "2",
-    title: "System Testing",
-    description: "We all collaborate with you to gather and understand your business needs and objective.",
+    title: "Strategy & Planning",
+    description: "Defining multi-channel funnels, performance KPIs, and targeted campaign roadmaps.",
     color: "#A263F5",
     gradient: "linear-gradient(135deg, #A263F5 0%, #6CC77D 100%)"
   },
   {
     number: "3",
-    title: "Customer Requirement",
-    description: "We all collaborate with you to gather and understand your business needs and objective.",
+    title: "Content & Creative",
+    description: "Crafting high-converting visual assets, targeted messaging, and engaging copy.",
     color: "#6CC77D",
     gradient: "linear-gradient(135deg, #6CC77D 0%, #3C95DB 100%)"
   },
   {
     number: "4",
-    title: "Development",
-    description: "We all collaborate with you to gather and understand your business needs and objective.",
+    title: "Campaign Execution",
+    description: "Deploying integrated paid ad campaigns, SEO initiatives, and conversion optimization.",
     color: "#FA579A",
     gradient: "linear-gradient(135deg, #3C95DB 0%, #FA579A 100%)"
   },
   {
     number: "5",
-    title: "Deliver",
-    description: "We all collaborate with you to gather and understand your business needs and objective.",
+    title: "Optimization & Scaling",
+    description: "Analyzing real-time conversion metrics to maximize ROI and scale top-performing channels.",
     color: "#421CB4",
     gradient: "linear-gradient(135deg, #FA579A 0%, #421CB4 100%)"
   }

@@ -84,7 +84,7 @@ const WorkCultureDesktop = () => {
             />
             <SectionDescription
               className="work-culture-description"
-              text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier. state burst think end are its."
+              text="We cultivate an inclusive, transparent, and supportive environment where passion thrives, individual ideas are valued, and well-being comes first."
             />
           </div>
           <div className="action-button-wrapper">

@@ -30,7 +30,7 @@ const SectorsListDesktop = () => {
               }}
               sx={{
                 color: isSelected ? '#eb7c0d' : 'GrayText',
-                zIndex: 1200,
+                zIndex: 2,
                 background: 'transparent',
                 '&:hover': !isSelected
                   ? { color: 'var(--global-color-secondary)' }

@@ -29,7 +29,7 @@ const GrowthMarketingHeroSection = () => {
         scale: isMobile ? 1 : 0.9
       }}
       highlightedText="Growth & Marketing"
-      description="We believe in ZenFusion, merging technology with mindfulness. As your partners in technological excellence, we transform values into action, simplifying tech to deliver user-centered solutions." />
+      description="We drive measurable business acceleration through data-backed growth marketing and conversion funnels. Leveraging predictive analytics and targeted campaigns, we amplify your brand and maximize revenue." />
   </div>
 }
 

@@ -24,9 +24,9 @@ const CareerHeroSection = () => {
             Impact in Tech
           </h1>
           <p className={styles.description}>
-            We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
+            Join a forward-thinking team where your creativity and technical skills
+            drive real impact. We empower engineers and designers to innovate, grow,
+            and build future-ready solutions together.
           </p>
           <BaseButton 
             className={styles.button}

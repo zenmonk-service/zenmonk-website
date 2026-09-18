@@ -82,7 +82,7 @@ const ItTrainingHeroSection = () => {
       <Box className="bottom-section">
         <Box className="left-section">
           <AnimatedDiv>
-            <QuoteText text="Unlock in-demand tech skills and industry insights with our expert-led training programs." />
+            <QuoteText text="Unlock in-demand engineering skills through immersive training programs that empower teams to master modern tech stacks." />
             <BaseButton
               onClick={() => router.push('/contact')}
               sx={{ marginTop: '20px' }}

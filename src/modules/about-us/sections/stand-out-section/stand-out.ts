@@ -8,7 +8,7 @@ export const standOutList = [
   {
     title: 'Research & Analysis',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'Conducting thorough user research and market analysis to uncover actionable insights for your digital initiatives.',
     icon: SearchSvg,
     scale: 5,
     padding: 2
@@ -16,7 +16,7 @@ export const standOutList = [
   {
     title: 'Reliable Delivery',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'Ensuring dependable, high-quality project milestones with rigorous testing and predictable delivery timelines.',
     icon: DownloadSvg,
     scale: 5,
     padding: 1
@@ -24,7 +24,7 @@ export const standOutList = [
   {
     title: 'Fast Execution',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'Leveraging agile methodologies and modern DevOps tooling to accelerate development and shorten time to market.',
     icon: ThunderSvg,
     scale: 3.8,
     padding: 2
@@ -32,7 +32,7 @@ export const standOutList = [
   {
     title: 'Strategic Planning',
     description:
-      'Providing good quality customer experience and support is as important and pivotal as offering top grade product.',
+      'Crafting comprehensive architectural blueprints and technical roadmaps aligned directly with your business goals.',
     icon: NoteSvg,
     scale: 4.2,
     padding: 1

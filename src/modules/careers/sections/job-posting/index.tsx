@@ -51,7 +51,7 @@ const OpenPosition = () => {
           />
           <SectionDescription
             className="description"
-            text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+            text="Discover high-impact engineering, design, and management opportunities. Join our team and help shape cutting-edge digital experiences for global clients."
           />
         </Box>
 

@@ -423,7 +423,7 @@ export const OurServices = [
     route: '/industry-specific-solutions',
     name: 'Industry-Specific Solutions',
     description:
-      'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
+      'We deliver bespoke digital solutions crafted specifically for complex industry verticals, ensuring strict compliance, seamless legacy integration, and high reliability.',
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
@@ -555,6 +555,20 @@ export const OurServices = [
           'Leverage data to forecast outcomes and make informed strategic decisions.',
         icon: DigitalTransformation.DataAnalytics,
       },
+      {
+        id: 'process-automation',
+        title: 'Process Automation',
+        description:
+          'Streamline workflows with intelligent automated process tools.',
+        icon: DigitalTransformation.ProcessAutomation,
+      },
+      {
+        id: 'technology-integration',
+        title: 'Technology Integration',
+        description:
+          'Seamlessly integrate intelligent AI models and smart APIs into your systems.',
+        icon: DigitalTransformation.TechnologyIntegration,
+      },
     ],
   },
   {
@@ -565,46 +579,46 @@ export const OurServices = [
       'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
     services: [
       {
-        id: 'industry-specific-solution-banking-solutions',
-        title: 'Banking Solutions',
+        id: 'ai-development-service',
+        title: 'AI Development',
         description:
-          'Transform your financial operations with secure and scalable software solutions.',
-        icon: IndustrySpecificSolution.Banking,
+          'Build custom AI solutions tailored to your unique business needs and objectives.',
+        icon: DigitalTransformation.Ai,
       },
       {
-        id: 'industry-specific-solution-consumer-solutions',
-        title: 'Consumer Solutions',
+        id: 'machine-learning-service',
+        title: 'Machine Learning',
         description:
-          'Optimize your CPG operations with software tailored to streamline production and distribution.',
-        icon: IndustrySpecificSolution.Consumer,
+          'Implement machine learning models to analyze data and predict future trends.',
+        icon: DigitalTransformation.Ai,
       },
       {
-        id: 'industry-specific-solution-education-solutions',
-        title: 'Education Solutions',
+        id: 'nlp-solutions-service',
+        title: 'NLP Solutions',
         description:
-          'Enhance learning experiences with innovative EdTech solutions.',
-        icon: IndustrySpecificSolution.Education,
+          'Enhance user interactions with advanced natural language processing technologies.',
+        icon: DigitalTransformation.Ai,
       },
       {
-        id: 'industry-specific-solution-healthcare-it-solutions',
-        title: 'Healthcare IT Solutions',
+        id: 'predictive-analytics-service',
+        title: 'Predictive Analytics',
         description:
-          'Improve patient care with advanced healthcare IT solutions that streamline operations.',
-        icon: IndustrySpecificSolution.HealthCare,
+          'Leverage data to forecast outcomes and make informed strategic decisions.',
+        icon: DigitalTransformation.DataAnalytics,
       },
       {
-        id: 'industry-specific-solution-business-operations-optimization',
-        title: 'Business Operations Optimization',
+        id: 'process-automation-service',
+        title: 'Process Automation',
         description:
-          'Increase operational efficiency with business process optimization software.',
-        icon: IndustrySpecificSolution.Business,
+          'Streamline workflows with intelligent automated process tools.',
+        icon: DigitalTransformation.ProcessAutomation,
       },
       {
-        id: 'industry-specific-solution-ecommerce-solutions',
-        title: 'E-commerce Solutions',
+        id: 'technology-integration-service',
+        title: 'Technology Integration',
         description:
-          'Enhance your retail and e-commerce operations with scalable digital solutions.',
-        icon: IndustrySpecificSolution.Retail,
+          'Seamlessly integrate intelligent AI models and smart APIs into your systems.',
+        icon: DigitalTransformation.TechnologyIntegration,
       },
     ],
   },

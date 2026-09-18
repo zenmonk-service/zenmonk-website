@@ -20,7 +20,7 @@ export const showCaseList = [
   },
   {
     date: 'October 19, 2022',
-    title: 'Premier Elite Chess Tourna-ment Series.',
+    title: 'Premier Elite Chess Tournament Series.',
     image: Chess,
     position: 'left',
     imageSize: {
@@ -36,7 +36,7 @@ export const showCaseList = [
   },
   {
     date: 'October 19, 2022',
-    title: 'Premier Elite Carrom Tourn-ament Series.',
+    title: 'Premier Elite Carrom Tournament Series.',
     image: Carrom,
     position: 'left',
     imageSize: {
@@ -52,7 +52,7 @@ export const showCaseList = [
   },
   {
     date: 'October 19, 2022',
-    title: 'Premier Elite Cricket Tourn-ament Series.',
+    title: 'Premier Elite Cricket Tournament Series.',
     image: Cricket,
     position: 'left',
     imageSize: {
@@ -68,7 +68,7 @@ export const showCaseList = [
   },
   {
     date: 'October 19, 2022',
-    title: 'Premier Elite Volleyball Tourn-ament Series.',
+    title: 'Premier Elite Volleyball Tournament Series.',
     image: Volleyball,
     position: 'left',
     imageSize: {

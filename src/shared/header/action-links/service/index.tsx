@@ -67,6 +67,7 @@ const ServiceLink = (props: Props) => {
         className={styles.servicesMenuPopover}
         sx={{
           minWidth: '600px',
+          zIndex: 100002,
         }}
         slotProps={{
           paper: {
@@ -74,6 +75,7 @@ const ServiceLink = (props: Props) => {
             style: {
               borderRadius: '0.53vw',
               boxShadow: '0.10vw 0.21vw 2.20vw rgba(19, 103, 109, 0.14)',
+              zIndex: 100002,
             },
           },
         }}

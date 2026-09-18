@@ -85,6 +85,60 @@ const DevelopmentProcess = () => {
     }
   }
 
+  const getServiceDescription = () => {
+    switch (serviceRoute) {
+      case 'software-development':
+        return 'A structured, agile engineering process designed to transform complex business requirements into high-performance, scalable software.'
+      case 'growth-&-marketing':
+        return 'Data-driven marketing workflows engineered to optimize conversion funnels, expand brand visibility, and achieve sustainable ROI growth.'
+      case 'custom-app-development':
+        return 'An end-to-end development journey crafting bespoke, high-impact mobile and web applications built for delightful user experiences.'
+      case 'it-training-&-workshops':
+        return 'Hands-on, immersive training frameworks designed to upskill engineering teams with cutting-edge technologies and real-world workflows.'
+      case 'product-development':
+        return 'A comprehensive product engineering lifecycle turning strategic vision into validated, market-ready, and scalable digital products.'
+      case 'industry-specific-solutions':
+        return 'Domain-tailored development frameworks engineered to address enterprise compliance, specialized workflows, and industry demands.'
+      case 'ai-based-softwares':
+        return 'Advanced AI and machine learning engineering pipelines delivering intelligent models, robust data processing, and smart automation.'
+      case 'it-&-business-consultation':
+        return 'Strategic technology advisory guiding architectural modernization, digital transformation, and sustainable organizational efficiency.'
+      case 'cloud-development':
+        return 'Resilient cloud infrastructure and DevOps pipelines enabling automated deployment, continuous security, and elastic scalability.'
+      case 'ui-ux-design':
+        return 'Human-centered design thinking transforming complex user journeys into delightful, engaging, and accessible digital experiences.'
+      default:
+        return 'A structured, agile engineering process designed to transform complex business requirements into high-performance, scalable software.'
+    }
+  }
+
+  const getServiceTitle = () => {
+    switch (serviceRoute) {
+      case 'software-development':
+        return 'Our Software Development Process'
+      case 'growth-&-marketing':
+        return 'Our Growth & Marketing Process'
+      case 'custom-app-development':
+        return 'Our App Development Process'
+      case 'it-training-&-workshops':
+        return 'Our Training & Learning Process'
+      case 'product-development':
+        return 'Our Product Development Process'
+      case 'industry-specific-solutions':
+        return 'Our Industry Solutions Process'
+      case 'ai-based-softwares':
+        return 'Our AI Development Process'
+      case 'it-&-business-consultation':
+        return 'Our IT Consultation Process'
+      case 'cloud-development':
+        return 'Our Cloud Development Process'
+      case 'ui-ux-design':
+        return 'Our Designing Process'
+      default:
+        return 'Our Development Process'
+    }
+  }
+
   return (
     <div
       ref={ref}
@@ -101,7 +155,7 @@ const DevelopmentProcess = () => {
             animate={isInView ? 'visible' : 'hidden'}
             style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
-            <SectionTitle text="Our development Process" markText="Process" />
+            <SectionTitle text={getServiceTitle()} markText="Process" />
           </motion.div>
           <motion.div
             variants={descriptionVariants}
@@ -110,7 +164,7 @@ const DevelopmentProcess = () => {
             style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <SectionDescription
-              text="State burst think end are its. Arrived off she elderly beloved him affix ed noisier yet. Course regard to up he hardly elder noisier."
+              text={getServiceDescription()}
               className={`development-process-description ${serviceRoute === 'software-development' ? 'software-dev-desc' : ''}`}
             />
           </motion.div>

@@ -62,7 +62,7 @@ const SoftwareDevelopmentHeroSection = () => {
       <HeroSection
         title="Reliable & Future-Ready Scalable Software Development"
         highlightedText="Software Development"
-        description="Zenmonk delivers scalable and secure enterprise software, providing end-to-end support from legacy modernization to deployment. We ensure optimal performance with solutions tailored to your business needs."
+        description="We engineer scalable and secure enterprise software architectures tailored to your business goals. By modernizing legacy systems and streamlining deployments, we deliver high-performance digital foundations."
         url="/services/software-development/hero-graphic.svg"
         imageStyle={{
           position: 'relative',

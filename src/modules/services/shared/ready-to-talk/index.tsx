@@ -64,7 +64,7 @@ const ReadyToTalkShared = () => {
           >
             <SectionTitle
               className="rtt-heading"
-              text="NOT KNOW WHERE TO START?"
+              text="NOT SURE WHERE TO START?"
               align="left"
             />
           </motion.div>

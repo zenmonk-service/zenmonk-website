@@ -17,9 +17,9 @@ const IndustrySpecificHeroSection = () => {
             Digital Solutions
           </h1>
           <p className={styles.description}>
-            We believe in ZenFusion, merging technology with mindfulness. As
-            your partners in technological excellence, we transform values into
-            action, simplifying tech to deliver user-centered solutions.
+            We deliver bespoke digital solutions crafted specifically for complex
+            industry verticals. Ensuring strict compliance, seamless legacy integration,
+            and high reliability, we empower enterprise growth.
           </p>
           <BaseButton
             onClick={() => router.push('/contact')}

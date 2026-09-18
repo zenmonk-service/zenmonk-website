@@ -35,8 +35,9 @@ const InnovationMobile = () => {
           </div>
           <p className={styles.deliverCardTitle}>We Deliver The Best</p>
           <p className={styles.deliverCardDescription}>
-            Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum
-            has been the industry&apos;s standard dummy
+            We build robust, responsive, SEO-optimized, and secure websites that
+            empower your business to grow, perform, and stand out in a competitive
+            digital landscape.
           </p>
           <div className={styles.toolbar} onClick={handleContactClick} style={{ cursor: 'pointer' }}>
             <p className={styles.button}>Contact Us</p>

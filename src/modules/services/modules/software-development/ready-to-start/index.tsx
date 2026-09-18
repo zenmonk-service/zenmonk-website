@@ -25,7 +25,7 @@ const ReadyToStartSoftwareDev = () => {
         />
         <SectionDescription
           className="description"
-          text="Custom Software Development Tailored Solutions for Your Business Custom Software Development Tailored Solutions"
+          text="Custom software development and scalable architecture tailored to accelerate your business growth."
         />
         <Link href="/contact" style={{ textDecoration: 'none' }}>
           <BaseButton className="contact-us">Contact us</BaseButton>

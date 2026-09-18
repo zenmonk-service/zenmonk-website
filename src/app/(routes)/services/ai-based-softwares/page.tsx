@@ -18,7 +18,7 @@ const AiBasedSoftwaresPage = () => {
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToTalkShared />
-      <FAQ />
+      <FAQ serviceId={serviceId} />
       <div
         className="desktop-hidden-spacer"
         style={{
