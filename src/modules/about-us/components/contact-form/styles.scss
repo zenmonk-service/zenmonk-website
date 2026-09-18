@@ -149,6 +149,12 @@
   .button-wrapper {
     margin-top: max(16px, 1.1vw);
     flex-shrink: 0;
+    width: 100%;
+
+    .base-button-container {
+      width: 100%;
+      display: flex;
+    }
 
     .send-button {
       width: 100%;
@@ -275,8 +281,15 @@
 
     .button-wrapper {
       margin-top: 16px;
+      width: 100%;
+
+      .base-button-container {
+        width: 100%;
+        display: flex;
+      }
 
       .send-button {
+        width: 100%;
         height: 50px;
         padding: 12px 20px !important;
         gap: 8px !important;
