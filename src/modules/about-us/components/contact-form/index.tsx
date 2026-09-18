@@ -8,6 +8,7 @@ import { FormControl, FormHelperText } from '@mui/material'
 import axios from 'axios'
 import {
   Message,
+  Mobile,
   PaperPlane,
   Send,
 } from '@/assets/icons/contact-us/contact'
@@ -246,10 +247,12 @@ export const ContactForm = () => {
           render={({ field }) => (
             <PhoneInputWithSearch
               defaultCountry="in"
+              placeholder="Your Phone"
               value={field.value || ''}
               onChange={field.onChange}
               error={!!errors.phone && submitStatus !== 'success'}
               height="48px"
+              endAdornment={<Mobile className="end-adornment" />}
             />
           )}
         />

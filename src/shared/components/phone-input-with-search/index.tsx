@@ -23,6 +23,7 @@ interface PhoneInputWithSearchProps {
   fontSize?: string
   borderRadius?: string
   backgroundColor?: string
+  endAdornment?: React.ReactNode
 }
 
 export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
@@ -35,6 +36,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   fontSize = '14px',
   borderRadius = '8px',
   backgroundColor = '#ffffff',
+  endAdornment,
 }) => {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
@@ -168,17 +170,31 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           minWidth: 0,
           height: '100%',
           paddingLeft: '14px',
-          paddingRight: '14px',
+          paddingRight: endAdornment ? '6px' : '14px',
           fontSize,
           fontFamily: 'Poppins, sans-serif',
           backgroundColor: 'transparent',
           border: 'none',
-          borderRadius: `0 ${borderRadius} ${borderRadius} 0`,
+          borderRadius: endAdornment ? '0' : `0 ${borderRadius} ${borderRadius} 0`,
           outline: 'none',
           color: '#111827',
           boxSizing: 'border-box',
         }}
       />
+
+      {endAdornment && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            pr: 'max(12px, 0.63vw)',
+            flexShrink: 0,
+            pointerEvents: 'none',
+          }}
+        >
+          {endAdornment}
+        </Box>
+      )}
 
       {/* Country Search Dropdown Popover */}
       <Popover
