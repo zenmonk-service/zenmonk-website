@@ -164,7 +164,6 @@ const SuccessMessage = ({
           <Box sx={{ display: 'flex', gap: isMobile ? '12px' : 'max(12px, 0.83vw)', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button
               onClick={() => {
-                dispatch(resetSubmitSuccess())
                 dispatch(toggleLoader(true))
                 if (onClose) onClose()
                 router.push(trackingPath)

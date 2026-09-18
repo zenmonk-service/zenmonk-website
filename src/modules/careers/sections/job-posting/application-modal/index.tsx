@@ -125,12 +125,10 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (reason === 'backdropClick') {
       return
     }
-    dispatch(resetSubmitSuccess())
     onClose()
   }
 
   const handleCancel = () => {
-    dispatch(resetSubmitSuccess())
     onClose()
   }
 

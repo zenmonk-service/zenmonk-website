@@ -10,6 +10,7 @@ import ApplicationModal from './application-modal'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchJobs } from '@/store/features/jobs/jobs-actions'
 import { toggleLoader } from '@/store/features/header/header-slice'
+import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
 import { positionsList } from './positions/positions'
 import './styles.scss'
 
@@ -23,6 +24,7 @@ const OpenPosition = () => {
   const [selectedJob, setSelectedJob] = useState<{ id: string, title: string } | null>(null)
 
   const handleApplyClick = (id: string, title: string) => {
+    dispatch(resetSubmitSuccess())
     setSelectedJob({ id, title })
     setIsModalOpen(true)
   }
