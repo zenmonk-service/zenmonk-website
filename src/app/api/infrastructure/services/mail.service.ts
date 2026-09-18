@@ -6,20 +6,20 @@ export class MailService {
   private readonly from;
 
   constructor() {
-    const user = process.env.MAIL_USER?.trim();
-    const password = process.env.MAIL_PASSWORD?.trim();
+    const user = (process.env.MAIL_USER)?.trim();
+    const password = (process.env.MAIL_PASSWORD)?.trim();
 
     this.transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST || "smtp.gmail.com",
-      port: parseInt(process.env.MAIL_PORT || "587", 10),
-      secure: process.env.MAIL_SECURE === "true",
+      port: Number(process.env.MAIL_PORT) || 587,
+      secure: (process.env.MAIL_SECURE) === "true",
       auth: {
         user,
         pass: password,
       },
     });
 
-    this.from = process.env.MAIL_FROM || "sahil.1178@zenmonk.tech";
+    this.from = process.env.MAIL_FROM ||"admin@zenmonk.tech";
   }
 
   async sendApplicationConfirmation(
@@ -124,7 +124,8 @@ export class MailService {
     message: string,
   ) {
     const mailOptions = {
-      from: email,
+      from: this.from,
+      replyTo: email,
       to: "admin@zenmonk.tech",
       subject: "New Contact Inquiry - Zenmonk",
       html: `
