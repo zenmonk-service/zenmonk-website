@@ -12,12 +12,18 @@ export const isValidUrl = (url: string): boolean => {
   if (!url || !url.trim()) return true
   const trimmed = url.trim()
 
-  // Reject email addresses or strings with '@'
-  if (trimmed.includes('@')) return false
+  // Must strictly start with http:// or https://
+  if (!/^https?:\/\//i.test(trimmed)) {
+    return false
+  }
+
+  // Reject email addresses or userinfo containing '@'
+  if (trimmed.includes('@')) {
+    return false
+  }
 
   try {
-    const withProtocol = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`
-    const parsed = new URL(withProtocol)
+    const parsed = new URL(trimmed)
 
     if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
       return false
@@ -30,10 +36,9 @@ export const isValidUrl = (url: string): boolean => {
     const hostname = parsed.hostname
     if (!hostname) return false
 
+    // Must have a valid public domain structure with at least one dot and a 2+ character TLD
     const domainRegex = /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
-    const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1'
-
-    return domainRegex.test(hostname) || isLocalhost
+    return domainRegex.test(hostname)
   } catch {
     return false
   }
