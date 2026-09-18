@@ -12,12 +12,10 @@ export const isValidUrl = (url: string): boolean => {
   if (!url || !url.trim()) return true
   const trimmed = url.trim()
 
-  // Must strictly start with http:// or https://
   if (!/^https?:\/\//i.test(trimmed)) {
     return false
   }
 
-  // Reject email addresses or userinfo containing '@'
   if (trimmed.includes('@')) {
     return false
   }
@@ -36,7 +34,6 @@ export const isValidUrl = (url: string): boolean => {
     const hostname = parsed.hostname
     if (!hostname) return false
 
-    // Must have a valid public domain structure with at least one dot and a 2+ character TLD
     const domainRegex = /^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
     return domainRegex.test(hostname)
   } catch {
@@ -76,7 +73,6 @@ export const hasNationalDigits = (phone: string): boolean => {
       return true
     }
   } catch {
-    // If libphonenumber throws for short inputs like "+910"
   }
 
   return digitsOnly.length > 2 || (phone.trim().startsWith('+1') && digitsOnly.length > 1)
