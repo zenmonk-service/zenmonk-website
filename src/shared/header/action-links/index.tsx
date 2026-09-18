@@ -14,6 +14,7 @@ import ServiceLink from './service'
 interface ActionLinksProp {
   isOpen: boolean
   toggle: () => void
+  closeMenu?: () => void
 }
 
 const ActionLinks = (props: ActionLinksProp) => {

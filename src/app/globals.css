@@ -98,6 +98,15 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a, button, [role="button"], input, select, textarea, li, div {
+  -webkit-tap-highlight-color: transparent !important;
 }
 
 /* Custom vertical scrollbar on desktop */

@@ -43,20 +43,18 @@ const variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.25,
       ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.05,
-      delayChildren: 0.05,
+      staggerChildren: 0.04,
+      delayChildren: 0.03,
     },
   },
   closed: {
     opacity: 0,
     y: -8,
     transition: {
-      duration: 0.2,
-      ease: [0.4, 0, 1, 1],
-      staggerChildren: 0.03,
-      staggerDirection: -1,
+      duration: 0.1,
+      ease: 'easeOut',
     },
   },
 }
@@ -66,102 +64,52 @@ const ItemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.25,
+      duration: 0.2,
       ease: [0.16, 1, 0.3, 1],
     },
   },
   closed: {
-    y: 15,
     opacity: 0,
     transition: {
-      duration: 0.15,
+      duration: 0.05,
       ease: 'easeIn',
     },
   },
 }
 
 const Arrow = motion.create(ArrowDown)
-const Navigation = ({ toggle }: { toggle: () => void }) => {
+const Navigation = ({ toggle, closeMenu }: { toggle: () => void; closeMenu?: () => void }) => {
   const [isOpened, setIsOpened] = useState(false)
   const pathname = usePathname()
   const dispatch = useAppDispatch()
   const menuRef = useRef<HTMLUListElement>(null)
-  const touchStartRef = useRef({ x: 0, y: 0 })
-  const touchStartScrollTopRef = useRef(0)
-  const hasMovedRef = useRef(false)
 
-  const isServiceActive = (route: string) => pathname.includes(route)
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    hasMovedRef.current = false
-    touchStartScrollTopRef.current = menuRef.current?.scrollTop || 0
-
-    const touch = e.touches?.[0] || e.changedTouches?.[0]
-    if (touch) {
-      touchStartRef.current = {
-        x: touch.clientX,
-        y: touch.clientY,
-      }
-    }
-  }
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    const touch = e.touches?.[0] || e.changedTouches?.[0]
-    if (touch) {
-      const deltaX = Math.abs(touch.clientX - touchStartRef.current.x)
-      const deltaY = Math.abs(touch.clientY - touchStartRef.current.y)
-      if (deltaX > 8 || deltaY > 8) {
-        hasMovedRef.current = true
-      }
-    }
-  }
-
-  const handleTouchCancel = () => {
-    hasMovedRef.current = true
-  }
-
-  const handleTouchEnd = () => {
-    const currentScrollTop = menuRef.current?.scrollTop || 0
-    const scrollDelta = Math.abs(currentScrollTop - touchStartScrollTopRef.current)
-    if (scrollDelta > 5) {
-      hasMovedRef.current = true
-    }
-  }
+  const isServiceActive = (route: string) => pathname === `/services${route}` || pathname.includes(route)
 
   const handleServicesHeaderClick = (e: React.MouseEvent) => {
-    if (hasMovedRef.current) {
-      e.preventDefault()
-      e.stopPropagation()
-      hasMovedRef.current = false
-      return
-    }
     setIsOpened((prev) => !prev)
   }
 
   const handleLinkClick = (e: React.MouseEvent, route: string, isStatic = false) => {
-    if (hasMovedRef.current) {
-      e.preventDefault()
-      e.stopPropagation()
-      hasMovedRef.current = false
-      return
+    // Immediately and unconditionally close the mobile navbar
+    if (closeMenu) {
+      closeMenu()
+    } else {
+      toggle()
     }
 
     if (isStatic) {
       if (pathname === route) {
         e.preventDefault()
-        toggle()
         return
       }
       dispatch(toggleLoader(true))
-      toggle()
     } else {
       if (isServiceActive(route)) {
         e.preventDefault()
-        toggle()
         return
       }
       dispatch(toggleLoader(true))
-      toggle()
     }
   }
 
@@ -174,10 +122,6 @@ const Navigation = ({ toggle }: { toggle: () => void }) => {
       exit="closed"
       className={styles.sideBarMenu}
       variants={variants}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchCancel={handleTouchCancel}
-      onTouchEnd={handleTouchEnd}
     >
       <Link
         href="/"

@@ -31,6 +31,9 @@
   align-items: center;
   cursor: pointer;
   border-top: 1px solid #EAEAEA;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 
   .iconPlaceholder svg path,
   svg path {
@@ -97,6 +100,9 @@
   padding: 12px 24px 12px 72px; /* Indented to align with the MenuItem text (24px padding + 40px icon + 8px gap) */
   text-decoration: none;
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 
   &.active {
     background-color: #FFF5EB;

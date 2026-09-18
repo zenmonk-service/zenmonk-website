@@ -6,6 +6,9 @@
   border-radius: 0.41vw;
   margin-right: 32px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 
   .serviceCardContent {
     display: flex;

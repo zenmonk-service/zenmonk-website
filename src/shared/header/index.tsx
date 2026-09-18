@@ -15,7 +15,14 @@ import styles from './header.module.scss'
 const Navbar = () => {
   const pathname = usePathname()
   const dispatch = useAppDispatch()
-  const [isOpen, toggleOpen] = useCycle(false, true)
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleOpen = () => setIsOpen((prev) => !prev)
+  const closeMenu = () => setIsOpen(false)
+
+  // Auto-close mobile navbar whenever user navigates
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   const [hiddenByScroll, setHiddenByScroll] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -91,7 +98,7 @@ const Navbar = () => {
         <LoadingIndicator targetHref="/" />
         <Monk />
       </Link>
-      <ActionLinks isOpen={isOpen} toggle={toggleOpen} />
+      <ActionLinks isOpen={isOpen} toggle={toggleOpen} closeMenu={closeMenu} />
       <Link
         href="/contact"
         prefetch={true}

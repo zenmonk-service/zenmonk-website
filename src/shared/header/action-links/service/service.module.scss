@@ -17,6 +17,9 @@
   transition: all 0.25s ease;
   color: #393939;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 .serviceActionLink:hover {
