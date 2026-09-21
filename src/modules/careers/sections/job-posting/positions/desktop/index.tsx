@@ -32,6 +32,18 @@ interface PositionsDesktopProps {
 
 const normalizeDeptName = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '')
 
+const formatDeptDisplayName = (name: string) => {
+  if (!name) return ''
+  let formatted = name.replace(/_/g, ' ').trim()
+  if (/^ui[\s\-_/]*ux/i.test(formatted)) {
+    return formatted.replace(/^ui[\s\-_/]*ux[\s\-_]*(designer)?/i, (_match, d) => (d ? 'UI/UX Designer' : 'UI/UX'))
+  }
+  if (/\bqa\b/i.test(formatted)) {
+    formatted = formatted.replace(/\bqa\b/gi, 'QA').replace(/\bengineer\b/gi, 'Engineer')
+  }
+  return formatted.replace(/\b([a-z])/g, (match) => match.toUpperCase())
+}
+
 const getDefaultDepartment = (list: Department[]) => {
   if (!list || list.length === 0) return undefined
   return (
@@ -70,19 +82,37 @@ const PositionsDesktop = ({ positionsList, onApply, isLoading }: PositionsDeskto
   return (
     <Box component="div" className="positions">
       <Box component="div" className="left-section">
-        {positionsList.map((department, index) => {
-          const isSelected = selectedDepartment?.id === department.id
-          return (
-            <Box
-              component="div"
-              key={index}
-              className={`position ${isSelected ? 'selected' : ''}`}
-              onClick={() => handleSelectPosition(department)}
-            >
-              {department.department}
-            </Box>
-          )
-        })}
+        {isLoading ? (
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 'max(10px, 0.8vw)', width: '100%', pr: 'max(16px, 1.5vw)' }}>
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <Skeleton
+                key={item}
+                variant="rectangular"
+                height="max(38px, 2.5vw)"
+                sx={{
+                  borderRadius: 'max(8px, 0.5vw)',
+                  backgroundColor: '#E5E7EB',
+                  width: item % 3 === 0 ? '65%' : item % 2 === 0 ? '80%' : '92%',
+                  minHeight: '34px',
+                }}
+              />
+            ))}
+          </Box>
+        ) : (
+          positionsList.map((department, index) => {
+            const isSelected = selectedDepartment?.id === department.id
+            return (
+              <Box
+                component="div"
+                key={index}
+                className={`position ${isSelected ? 'selected' : ''}`}
+                onClick={() => handleSelectPosition(department)}
+              >
+                {formatDeptDisplayName(department.department)}
+              </Box>
+            )
+          })
+        )}
       </Box>
 
       <Box component="div" className="right-section">

@@ -33,6 +33,7 @@
       display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
+      pointer-events: none;
     }
 
     .base-button-end-adornment {
@@ -41,6 +42,7 @@
       justify-content: center;
       line-height: 1;
       flex-shrink: 0;
+      pointer-events: none;
     }
 
     .base-button-arrow-circle {
@@ -58,6 +60,8 @@
       margin-left: max(4px, 0.25vw);
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
       transition: transform 0.25s ease;
+      pointer-events: none;
+      user-select: none;
 
       svg {
         width: max(16px, 0.83vw);
@@ -65,12 +69,12 @@
         min-width: 15px;
         min-height: 15px;
         display: block;
-      }
-    }
+        pointer-events: none;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(235, 124, 13, 0.35);
+        path {
+          pointer-events: none;
+        }
+      }
     }
 
     &:hover .base-button-arrow-circle {
@@ -93,6 +97,7 @@
       background-clip: padding-box !important;
 
       &:hover {
+        transform: translateY(-2px);
         background: linear-gradient(75deg, #e07409 4.02%, #f59a3f 83.84%);
         box-shadow: 0 8px 24px rgba(235, 124, 13, 0.42);
       }
@@ -112,15 +117,22 @@
       padding-left: 0;
       padding-right: 0;
       min-width: auto;
+      box-shadow: none !important;
+      transform: none !important;
 
       &:hover {
-        background: rgba(0, 0, 0, 0.04);
+        background: rgba(0, 0, 0, 0.05);
+        color: #111827;
+        box-shadow: none !important;
+        transform: none !important;
       }
 
       &:focus-visible {
         outline: 2px solid #eb7c0d !important;
         outline-offset: 2px !important;
         background: rgba(0, 0, 0, 0.06) !important;
+        box-shadow: none !important;
+        transform: none !important;
       }
     }
   }

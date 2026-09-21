@@ -15,6 +15,18 @@ interface PositionsMobileProps {
 
 const normalizeDeptName = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '')
 
+const formatDeptDisplayName = (name: string) => {
+  if (!name) return ''
+  let formatted = name.replace(/_/g, ' ').trim()
+  if (/^ui[\s\-_/]*ux/i.test(formatted)) {
+    return formatted.replace(/^ui[\s\-_/]*ux[\s\-_]*(designer)?/i, (_match, d) => (d ? 'UI/UX Designer' : 'UI/UX'))
+  }
+  if (/\bqa\b/i.test(formatted)) {
+    formatted = formatted.replace(/\bqa\b/gi, 'QA').replace(/\bengineer\b/gi, 'Engineer')
+  }
+  return formatted.replace(/\b([a-z])/g, (match) => match.toUpperCase())
+}
+
 const PositionsMobile = ({ positionsList, onApply, isLoading }: PositionsMobileProps) => {
   const [selectedIndexes, setSelectedIndexes] = useState<number[]>(() => {
     const mgmtIdx = positionsList.findIndex(
@@ -46,65 +58,60 @@ const PositionsMobile = ({ positionsList, onApply, isLoading }: PositionsMobileP
 
   return (
     <div className={styles.container}>
-      {positionsList.map((dept, deptIndex) => {
-        const isSelected = selectedIndexes.includes(deptIndex)
-        return (
-          <div className={styles.card} key={dept.id}>
+      {isLoading ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
+          {[1, 2, 3, 4].map((i) => (
             <div
-              className={styles.content}
-              onClick={() => handleClick(deptIndex)}
+              key={i}
+              className={styles.card}
               style={{
-                paddingBottom: deptIndex === positionsList.length - 1 && !isSelected ? 0 : '16px',
-                cursor: 'pointer'
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '16px 20px',
               }}
             >
-              <p className={styles.cardTitle}>{dept.department}</p>
-              <div className={styles.iconContainer}>
-                {isSelected ? <Minus /> : <Plus />}
-              </div>
+              <Skeleton variant="rectangular" width={i % 2 === 0 ? '50%' : '65%'} height={24} sx={{ borderRadius: '6px' }} />
+              <Skeleton variant="circular" width={36} height={36} sx={{ flexShrink: 0 }} />
             </div>
-            <Collapse in={isSelected}>
-              <div className={styles.collapseContainer}>
-                {isLoading ? (
-                  <div className={styles.roleContainer}>
-                    <div className={styles.roleHeader} style={{ marginBottom: '12px' }}>
-                      <Skeleton variant="rectangular" width="60%" height={24} sx={{ borderRadius: '4px' }} />
-                    </div>
-                    <div className={styles.collapseDescription} style={{ marginBottom: '16px' }}>
-                      <Skeleton variant="rectangular" width="100%" height={60} sx={{ borderRadius: '4px' }} />
-                    </div>
-                    <div className={styles.skillList} style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '16px' }}>
-                      {[1, 2].map((i) => (
-                        <div className={styles.skillListItem} key={i} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Skeleton variant="circular" width="16px" height="16px" style={{ flexShrink: 0 }} />
-                            <Skeleton variant="rectangular" width="40%" height={16} sx={{ borderRadius: '4px' }} />
-                          </div>
-                          <Skeleton variant="rectangular" width="90%" height={32} sx={{ marginLeft: '24px', borderRadius: '4px' }} />
+          ))}
+        </div>
+      ) : (
+        positionsList.map((dept, deptIndex) => {
+          const isSelected = selectedIndexes.includes(deptIndex)
+          return (
+            <div className={styles.card} key={dept.id}>
+              <div
+                className={styles.content}
+                onClick={() => handleClick(deptIndex)}
+                style={{
+                  paddingBottom: deptIndex === positionsList.length - 1 && !isSelected ? 0 : '16px',
+                  cursor: 'pointer'
+                }}
+              >
+                <p className={styles.cardTitle}>{formatDeptDisplayName(dept.department)}</p>
+                <div className={styles.iconContainer}>
+                  {isSelected ? <Minus /> : <Plus />}
+                </div>
+              </div>
+              <Collapse in={isSelected}>
+                <div className={styles.collapseContainer}>
+                  {dept.positions && dept.positions.length > 0 ? (
+                    dept.positions.map((role: Position, roleIndex: number) => (
+                      <div key={role.id} className={styles.roleContainer}>
+                        <div className={styles.roleHeader}>
+                          <h3 className={styles.roleTitle}>
+                            {role.heading}
+                            <span className={`${styles.statusBadge} ${role.isOpening ? styles.open : styles.closed}`}>
+                              {role.isOpening ? 'Open' : 'Closed'}
+                            </span>
+                          </h3>
                         </div>
-                      ))}
-                    </div>
-                    <div className={styles.actionFooter}>
-                      <Skeleton variant="rectangular" width="100px" height={36} sx={{ borderRadius: '8px' }} />
-                    </div>
-                  </div>
-                ) : dept.positions.length > 0 ? (
-                  dept.positions.map((role: Position, roleIndex: number) => (
-                    <div key={role.id} className={styles.roleContainer}>
-                      <div className={styles.roleHeader}>
-                        <h3 className={styles.roleTitle}>
-                          {role.heading}
-                          <span className={`${styles.statusBadge} ${role.isOpening ? styles.open : styles.closed}`}>
-                            {role.isOpening ? 'Open' : 'Closed'}
-                          </span>
-                        </h3>
-                      </div>
-                      <div className={styles.collapseDescription}>
-                        {role.description}
-                      </div>
-                      <div className={styles.skillList}>
-                        {role.skills.map((skill) => {
-                          return (
+                        <div className={styles.collapseDescription}>
+                          {role.description}
+                        </div>
+                        <div className={styles.skillList}>
+                          {role.skills.map((skill) => (
                             <div className={styles.skillListItem} key={skill.title}>
                               <div className={styles.skillListItemContent}>
                                 <Check className={styles.checkIcon} viewBox="0 0 14 14" />
@@ -116,38 +123,38 @@ const PositionsMobile = ({ positionsList, onApply, isLoading }: PositionsMobileP
                                 {skill.description}
                               </p>
                             </div>
-                          )
-                        })}
+                          ))}
+                        </div>
+                        <div className={styles.actionFooter}>
+                          <BaseButton
+                            className={styles.applyBtn}
+                            onClick={() => onApply(role.id, role.heading)}
+                          >
+                            Apply Now
+                          </BaseButton>
+                        </div>
+                        {roleIndex !== dept.positions.length - 1 && (
+                          <div className={styles.roleSeparator} />
+                        )}
                       </div>
-                      <div className={styles.actionFooter}>
-                        <BaseButton
-                          className={styles.applyBtn}
-                          onClick={() => onApply(role.id, role.heading)}
-                        >
-                          Apply Now
-                        </BaseButton>
-                      </div>
-                      {roleIndex !== dept.positions.length - 1 && (
-                        <div className={styles.roleSeparator} />
-                      )}
+                    ))
+                  ) : (
+                    <div className={styles.noPositions}>
+                      <h3 className={styles.noPositionsTitle}>No Open Positions</h3>
+                      <p className={styles.noPositionsText}>
+                        Currently, there are no available positions in this department. Please check back later.
+                      </p>
                     </div>
-                  ))
-                ) : (
-                  <div className={styles.noPositions}>
-                    <h3 className={styles.noPositionsTitle}>No Open Positions</h3>
-                    <p className={styles.noPositionsText}>
-                      Currently, there are no available positions in this department. Please check back later.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </Collapse>
-            {deptIndex !== positionsList.length - 1 && (
-              <Divider className={styles.divider} />
-            )}
-          </div>
-        )
-      })}
+                  )}
+                </div>
+              </Collapse>
+              {deptIndex !== positionsList.length - 1 && (
+                <Divider className={styles.divider} />
+              )}
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }

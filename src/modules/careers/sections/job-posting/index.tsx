@@ -38,7 +38,7 @@ const OpenPosition = () => {
     dispatch(fetchJobs())
   }, [dispatch])
 
-  const displayList = departments.length > 0 ? departments : positionsList
+  const displayList = departments.length > 0 ? departments : isLoading ? [] : positionsList
 
   return (
     <section className="open-position-container" id="open-positions">

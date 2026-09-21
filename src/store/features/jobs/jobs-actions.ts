@@ -15,7 +15,15 @@ export const fetchJobs = createAsyncThunk(
 
       jobs.forEach((job: any) => {
         const category = job.category || 'Other'
-        const deptName = category.charAt(0).toUpperCase() + category.slice(1).replace('_', ' ')
+        let deptName = category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ')
+        if (/^ui[\s\-_/]*ux/i.test(deptName)) {
+          deptName = deptName.replace(/^ui[\s\-_/]*ux\s*/i, 'UI/UX ')
+          deptName = deptName.replace(/\bdesigner\b/i, 'Designer')
+        }
+        if (/\bqa\b/i.test(deptName)) {
+          deptName = deptName.replace(/\bqa\b/gi, 'QA').replace(/\bengineer\b/gi, 'Engineer')
+        }
+        deptName = deptName.replace(/\b([a-z])/g, (m) => m.toUpperCase())
 
         if (!departmentsMap[category]) {
           departmentsMap[category] = {

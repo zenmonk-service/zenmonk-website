@@ -33,14 +33,14 @@ export const positionsList: Department[] = [
     ],
   },
   {
-    department: 'UI-UX Designer',
+    department: 'UI/UX Designer',
     id: 2,
     positions: [
       {
         id: '2',
 
-        title: 'UI-UX Designer',
-        heading: 'Experienced UI-UX Designer',
+        title: 'UI/UX Designer',
+        heading: 'Experienced UI/UX Designer',
         isOpening: true,
         description:
           'We’re seeking a creative UI/UX Designer with a strong grasp of user psychology and interface design to craft compelling, intuitive user journeys.',
@@ -185,6 +185,37 @@ export const positionsList: Department[] = [
             title: 'Social Media',
             description:
               'Ability to manage and grow social media platforms effectively.',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    department: 'QA Engineer',
+    positions: [
+      {
+        id: '7',
+        title: 'QA Engineer',
+        heading: 'Quality Assurance Engineer',
+        isOpening: true,
+        description:
+          'Seeking a Quality Assurance Engineer to ensure high software quality standards through manual and automated testing.',
+        skills: [
+          {
+            title: 'Manual & Automation Testing',
+            description:
+              'Experience in writing comprehensive test plans, test cases, and automation scripts.',
+          },
+          {
+            title: 'Bug Tracking & Reporting',
+            description:
+              'Proficiency in using tools like Jira to log, track, and manage software defects.',
+          },
+          {
+            title: 'API Testing',
+            description:
+              'Experience with Postman or similar tools for validating RESTful APIs.',
           },
         ],
       },

@@ -70,7 +70,7 @@
       border: max(1px, 0.052vw) solid #d5d5d5;
       width: 100%;
       height: max(44px, 2.8vw) !important;
-      border-radius: 4px !important;
+      border-radius: 8px !important;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
       &:hover {
@@ -88,6 +88,7 @@
       input {
         height: 100% !important;
         padding: 0 !important;
+        border-radius: 8px !important;
       }
     }
 
@@ -96,7 +97,7 @@
       display: flex;
       align-items: flex-start;
       border: max(1px, 0.052vw) solid #d5d5d5;
-      border-radius: 4px !important;
+      border-radius: 8px !important;
       min-height: max(100px, 7vw);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
@@ -116,11 +117,12 @@
         flex: 1;
         min-width: 0;
         border-color: none !important;
-        border-radius: 4px !important;
+        border-radius: 8px !important;
         padding-right: max(6px, 0.31vw) !important;
 
         textarea {
           padding-right: max(12px, 0.63vw) !important;
+          border-radius: 8px !important;
           scrollbar-width: thin;
           scrollbar-color: var(--global-color-dark-accent, #eb7c0d) transparent;
 
@@ -161,6 +163,7 @@
     .base-button-container {
       width: 100% !important;
       display: flex !important;
+      border-radius: 8px !important;
     }
 
     .send-button {
@@ -177,6 +180,7 @@
       font-weight: 600;
       text-transform: none;
       letter-spacing: 0px !important;
+      border-radius: 8px !important;
 
       &.success-btn {
         background: #10B981 !important;
@@ -241,10 +245,12 @@
       .email-input {
         border: 1px solid #d5d5d5;
         height: 46px !important;
+        border-radius: 8px !important;
 
         input {
           height: 100% !important;
           padding: 0 !important;
+          border-radius: 8px !important;
         }
       }
 
@@ -252,14 +258,16 @@
         display: flex;
         align-items: flex-start;
         border: 1px solid #d5d5d5;
-        border-radius: 4px !important;
+        border-radius: 8px !important;
         min-height: 110px;
 
         .message-input {
           padding-right: 6px !important;
+          border-radius: 8px !important;
 
           textarea {
             padding-right: 12px !important;
+            border-radius: 8px !important;
             scrollbar-width: thin;
             scrollbar-color: var(--global-color-dark-accent, #eb7c0d) transparent;
 
@@ -295,6 +303,7 @@
       .base-button-container {
         width: 100%;
         display: flex;
+        border-radius: 8px !important;
       }
 
       .send-button {
@@ -303,6 +312,7 @@
         padding: 12px 20px !important;
         gap: 8px !important;
         font-size: 15px;
+        border-radius: 8px !important;
       }
 
       .send-button-icon {

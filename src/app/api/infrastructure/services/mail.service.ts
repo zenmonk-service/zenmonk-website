@@ -40,22 +40,26 @@ export class MailService {
           @media only screen and (max-width: 768px) {
             .outer-container {
               padding-top: 12px !important;
-              padding-left: 4px !important;
-              padding-right: 4px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
             }
             .email-logo-container {
               margin-bottom: 12px !important;
             }
             .email-logo {
-              height: 80px !important;
+              height: 70px !important;
             }
             .card-header {
-              padding-left: 16px !important;
-              padding-right: 16px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
+              padding-top: 20px !important;
+              padding-bottom: 20px !important;
             }
             .card-body {
-              padding-left: 16px !important;
-              padding-right: 16px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
+              padding-top: 24px !important;
+              padding-bottom: 24px !important;
             }
           }
         </style>
@@ -69,12 +73,12 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+            <div class="card-header" style="background: #F69333; padding: 28px 32px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
               <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">Application Received!</h1>
             </div>
             
             <!-- Body -->
-            <div class="card-body" style="padding: 40px 88px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+            <div class="card-body" style="padding: 32px 32px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
               <p style="font-size: 16px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 20px; line-height: 1.4; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">Hi ${name},</p>
               
               <p style="font-size: 15px; color: #374151; margin-top: 0; margin-bottom: 16px; line-height: 1.6; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
@@ -135,22 +139,52 @@ export class MailService {
           @media only screen and (max-width: 768px) {
             .outer-container {
               padding-top: 12px !important;
-              padding-left: 4px !important;
-              padding-right: 4px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
             }
             .email-logo-container {
               margin-bottom: 12px !important;
             }
             .email-logo {
-              height: 80px !important;
+              height: 70px !important;
             }
             .card-header {
-              padding-left: 16px !important;
-              padding-right: 16px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
+              padding-top: 20px !important;
+              padding-bottom: 20px !important;
             }
             .card-body {
-              padding-left: 16px !important;
-              padding-right: 16px !important;
+              padding-left: 8px !important;
+              padding-right: 8px !important;
+              padding-top: 20px !important;
+              padding-bottom: 20px !important;
+            }
+            .contact-table,
+            .contact-table tbody,
+            .contact-table tr,
+            .contact-table td {
+              display: block !important;
+              width: 100% !important;
+              box-sizing: border-box !important;
+            }
+            .contact-table tr {
+              padding: 10px 0 !important;
+              border-bottom: 1px solid #e5e7eb !important;
+            }
+            .contact-table .field-label {
+              padding: 0 0 4px 0 !important;
+              font-size: 13px !important;
+              line-height: 18px !important;
+              color: #6b7280 !important;
+              font-weight: 600 !important;
+            }
+            .contact-table .field-value {
+              padding: 0 !important;
+              font-size: 15px !important;
+              line-height: 22px !important;
+              color: #111827 !important;
+              font-weight: 400 !important;
             }
           }
         </style>
@@ -164,30 +198,30 @@ export class MailService {
           <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
             
             <!-- Header -->
-            <div class="card-header" style="background: #F69333; padding: 28px 88px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+            <div class="card-header" style="background: #F69333; padding: 28px 32px; text-align: left; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
               <h1 style="color: white; margin: 0; font-size: 26px; font-weight: 700; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">New Contact Inquiry</h1>
             </div>
             
             <!-- Body -->
-            <div class="card-body" style="padding: 40px 88px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
+            <div class="card-body" style="padding: 32px 32px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word;">
               <h2 style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 24px;">Details</h2>
               
-              <table style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif; table-layout: fixed;">
+              <table class="contact-table" style="width: 100%; border-collapse: collapse; font-size: 16px; font-family: 'Inter', sans-serif; table-layout: fixed;">
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; width: 80px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Name:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${firstName} ${lastName}</td>
+                  <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Name:</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${firstName} ${lastName}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Email:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${email}</td>
+                  <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Email:</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${email}</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
-                  <td style="padding: 14px 0; color: #6b7280; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Phone:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${formatPhoneNumber(phone)}</td>
+                  <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Phone:</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${formatPhoneNumber(phone)}</td>
                 </tr>
                 <tr>
-                  <td style="padding: 14px 0; color: #6b7280; width: 80px; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Message:</td>
-                  <td style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top; white-space: pre-wrap;">${message.trim()}</td>
+                  <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Message:</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top; white-space: pre-wrap;">${message.trim()}</td>
                 </tr>
               </table>
             </div>

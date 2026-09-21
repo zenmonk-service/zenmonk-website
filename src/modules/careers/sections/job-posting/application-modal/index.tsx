@@ -183,17 +183,27 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const getTextFieldStyles = () => ({
     '& .MuiOutlinedInput-root': {
       borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
-      fontFamily: 'Poppins',
+      fontFamily: "'Poppins', sans-serif !important",
       backgroundColor: '#fbf9f9ff',
       fontSize: isMobile ? '14px' : 'max(14px, 0.73vw)',
       padding: 0,
       '& .MuiOutlinedInput-input': {
+        fontFamily: "'Poppins', sans-serif !important",
         padding: isMobile ? '8px 12px' : 'max(8px, 0.44vw) max(12px, 0.63vw) !important',
+        '&::placeholder': {
+          fontFamily: "'Poppins', sans-serif !important",
+          opacity: 0.65,
+        },
       },
       '&.MuiInputBase-multiline': {
         padding: isMobile ? '8px 12px' : 'max(8px, 0.44vw) max(12px, 0.63vw) !important',
         '& .MuiOutlinedInput-input': {
+          fontFamily: "'Poppins', sans-serif !important",
           padding: '0 !important',
+          '&::placeholder': {
+            fontFamily: "'Poppins', sans-serif !important",
+            opacity: 0.65,
+          },
         },
       },
       '& fieldset': {
