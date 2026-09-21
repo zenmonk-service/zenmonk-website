@@ -19,7 +19,7 @@ const ExpandIcon = (props: any) => (
     strokeLinejoin="round"
     {...props}
   >
-    <polyline points="18 15 12 9 6 15" />
+    <polyline points="6 9 12 15 18 9" />
   </motion.svg>
 )
 
@@ -51,7 +51,9 @@ const ServiceLink = (props: Props) => {
         <div className={styles.expandIconContainer}>
           <ExpandIcon
             className={styles.expandIcon}
-            animate={{ rotate: open ? 0 : 180 }}
+            initial={false}
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
           />
         </div>
       </button>

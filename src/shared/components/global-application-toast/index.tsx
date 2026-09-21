@@ -19,7 +19,7 @@ export const GlobalApplicationToast = () => {
       open={Boolean(backgroundToast)}
       autoHideDuration={5000}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       sx={{ zIndex: 350000 }}
     >
       <Alert
