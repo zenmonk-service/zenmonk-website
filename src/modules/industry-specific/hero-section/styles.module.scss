@@ -67,8 +67,15 @@
 }
 
 .button {
-  width: 180px !important;
-  padding: 10px 20px !important;
+  width: auto !important;
+  min-width: max-content !important;
+  max-width: 100%;
+  white-space: nowrap !important;
+  padding: max(10px, 0.55vw) max(22px, 1.2vw) !important;
+  height: max(48px, 2.5vw) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -119,7 +126,11 @@
   }
 
   .button {
-    width: 160px !important;
+    width: auto !important;
+    min-width: max-content !important;
+    white-space: nowrap !important;
+    padding: 10px 20px !important;
+    height: 46px !important;
   }
 }
 @media (max-width: 401px) {
@@ -165,9 +176,10 @@
       line-height: 21px;
     }
     .button {
-      width: 180px !important;
+      width: auto !important;
+      min-width: max-content !important;
+      white-space: nowrap !important;
       margin-top: 2vw;
-      background-color: green;
       padding: 10px 20px;
     }
   }

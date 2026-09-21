@@ -1,21 +1,81 @@
 .base-button-container {
   display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
   border-radius: inherit;
   cursor: pointer;
 
   .base-button {
     cursor: pointer !important;
     font-size: max(14px, 0.729vw);
-    display: flex;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     font-family: var(--font-inter), sans-serif;
     border-radius: max(6px, 0.31vw);
-    line-height: max(18px, 0.093vw);
-    height: max(44px, 2.29vw);
+    line-height: normal !important;
+    height: max(48px, 2.5vw);
+    min-height: 44px;
+    width: 100%;
+    min-width: max-content;
+    max-width: 100%;
+    padding: max(10px, 0.55vw) max(20px, 1.1vw) !important;
+    white-space: nowrap !important;
+    gap: max(10px, 0.52vw) !important;
     transition:
       transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    text-transform: none; // Added to prevent default all-caps if any
+    text-transform: none;
     overflow: hidden;
+
+    .base-button-label {
+      white-space: nowrap !important;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .base-button-end-adornment {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .base-button-arrow-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: max(30px, 1.56vw);
+      height: max(30px, 1.56vw);
+      min-width: 28px;
+      min-height: 28px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #132427;
+      flex-shrink: 0;
+      margin-left: max(4px, 0.25vw);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+      transition: transform 0.25s ease;
+
+      svg {
+        width: max(16px, 0.83vw);
+        height: max(16px, 0.83vw);
+        min-width: 15px;
+        min-height: 15px;
+        display: block;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(235, 124, 13, 0.35);
+    }
+
+    &:hover .base-button-arrow-circle {
+      transform: translateX(4px);
+    }
 
     &:focus-visible {
       outline: 2px solid #eb7c0d !important;
@@ -31,6 +91,11 @@
       border: none !important;
       overflow: hidden !important;
       background-clip: padding-box !important;
+
+      &:hover {
+        background: linear-gradient(75deg, #e07409 4.02%, #f59a3f 83.84%);
+        box-shadow: 0 8px 24px rgba(235, 124, 13, 0.42);
+      }
 
       &:focus-visible {
         outline: 2px solid #eb7c0d !important;

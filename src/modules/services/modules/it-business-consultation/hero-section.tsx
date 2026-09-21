@@ -15,6 +15,7 @@ const ItBusinessConsultationHeroSection = () => {
     <HeroSection
       title="Driving Meaningful Innovation with IT & Business Expertise"
       highlightedText="IT & Business Expertise"
+      buttonText="Book a Strategy Call"
       description="We provide strategic technology advisory that bridges executive vision with modern technical execution. Our consultants optimize IT roadmaps, reduce technical debt, and drive sustainable digital transformation."
       url={isMobile ? "/services/it-mobile.png" : "/services/it.png"}
       titleProps={{

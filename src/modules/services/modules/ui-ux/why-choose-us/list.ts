@@ -12,7 +12,7 @@ export const whyChooseUsList = [
   {
     name: 'Client Support',
     description:
-      'We maintain open, continuous communication throughout design sprints to ensure your vision is perfectly realized.',
+      'We put your users at the heart of every design decision, creating experiences that are intuitive, accessible, and easy to navigate.',
     icon: ClientSupport,
     backgroud: PurpleBg,
     ml: '0vw',
@@ -20,7 +20,7 @@ export const whyChooseUsList = [
   {
     name: 'Expert Team',
     description:
-      'Our senior designers combine deep human-computer interaction expertise with modern design system craftsmanship.',
+      'Our experienced designers combine creativity, research, and industry expertise to deliver thoughtful solutions for every project.',
     icon: ExpertTeam,
     backgroud: OrangeBg,
     ml: 'max(8px, 0.5vw)',
@@ -28,7 +28,7 @@ export const whyChooseUsList = [
   {
     name: 'Our Strategy',
     description:
-      'We build user-centered design strategies backed by user persona research, behavioral heuristics, and usability testing.',
+      'We start with understanding your business, users, and objectives to build a clear design strategy that supports long-term growth.',
     icon: OurStratergy,
     backgroud: BlueBg,
     ml: 'max(16px, 1vw)',
@@ -36,7 +36,7 @@ export const whyChooseUsList = [
   {
     name: 'More Growth',
     description:
-      'Intuitive interfaces drive higher engagement, reduced churn, and substantially improved product conversion rates.',
+      'Better experiences lead to stronger engagement. We create designs that help businesses attract, retain, and convert more users.',
     icon: MoreGrowth,
     backgroud: PurpleBg,
     ml: '0vw',
@@ -44,7 +44,7 @@ export const whyChooseUsList = [
   {
     name: 'Creative Ideas',
     description:
-      'We craft memorable visual aesthetics, bespoke iconography, and fluid micro-interactions that elevate your brand identity.',
+      'We transform complex ideas into simple, visually engaging experiences that make your brand stand out.',
     icon: CreativeIdeas,
     backgroud: OrangeBg,
     ml: 'max(8px, 0.5vw)',
@@ -52,7 +52,7 @@ export const whyChooseUsList = [
   {
     name: 'Reach Ideas',
     description:
-      'Designing accessible, responsive experiences that deliver flawless usability across all screen sizes and devices.',
+      'From research and wireframes to prototypes and final interfaces, we explore meaningful ideas to find the right solution for your users.',
     icon: MoreReach,
     backgroud: BlueBg,
     ml: 'max(16px, 1vw)',

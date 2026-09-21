@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import { SectionDescription } from '@/shared/typography'
 import BaseButton from '@/shared/button'
 import DottedBackground from './assets/dotted-background.svg'
@@ -9,7 +10,7 @@ import HeroImage from './hero-image'
 import styles from './hero-section.module.scss'
 
 const HeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
 
   return (
     <div className={styles.howWeWorkHeroSectionWrapper}>
@@ -39,10 +40,11 @@ const HeroSection = () => {
             className={styles.textDescription}
           />
           <BaseButton
-            onClick={() => router.push('/contact')}
+            onClick={() => dispatch(openContactModal())}
             className={styles.button}
+            showArrow
           >
-            EXPLORE MORE
+            Start Your Project
           </BaseButton>
         </div>
       </div>

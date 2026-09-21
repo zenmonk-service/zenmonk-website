@@ -6,11 +6,21 @@ import { Box, Stack } from '@mui/material'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import { RTTGirlImg } from './assets'
 import BaseButton from '@/shared/button'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
+import { readyToTalkDataMap } from './service-mapper'
 import './style.scss'
 
-const ReadyToTalkShared = () => {
+interface ReadyToTalkSharedProps {
+  serviceId?: string
+}
+
+const ReadyToTalkShared = ({ serviceId = 'cloud-development' }: ReadyToTalkSharedProps) => {
+  const dispatch = useAppDispatch()
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const data = readyToTalkDataMap[serviceId] || readyToTalkDataMap['cloud-development']
 
   const titleVariants = {
     hidden: { 
@@ -64,7 +74,7 @@ const ReadyToTalkShared = () => {
           >
             <SectionTitle
               className="rtt-heading"
-              text="NOT SURE WHERE TO START?"
+              text={data.heading}
               align="left"
             />
           </motion.div>
@@ -75,11 +85,17 @@ const ReadyToTalkShared = () => {
           >
             <SectionDescription
               className="rtt-subheading"
-              text="Let’s get help from zenmonk’s software development experts"
+              text={data.subheading}
             />
           </motion.div>
 
-          <BaseButton className="rtt-button">READ MORE</BaseButton>
+          <BaseButton
+            className="rtt-button"
+            showArrow
+            onClick={() => dispatch(openContactModal())}
+          >
+            {data.buttonText}
+          </BaseButton>
         </Box>
       </Box>
     </Stack>

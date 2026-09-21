@@ -21,7 +21,7 @@ export class MailService {
     });
 
     this.from = process.env.MAIL_FROM || "admin@zenmonk.tech";
-    this.contactTo = process.env.MAIL_TO || "rajni.1156@zenmonk.tech";
+    this.contactTo = process.env.MAIL_TO;
   }
 
   async sendApplicationConfirmation(

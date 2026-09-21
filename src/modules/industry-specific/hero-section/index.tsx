@@ -1,12 +1,13 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import BaseButton from '@/shared/button'
 import HeroImage from './assets/industry.svg'
 import styles from './styles.module.scss'
 
 const IndustrySpecificHeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className={styles.backgroundWrapper}>
       <div className={styles.container}>
@@ -22,10 +23,11 @@ const IndustrySpecificHeroSection = () => {
             and high reliability, we empower enterprise growth.
           </p>
           <BaseButton
-            onClick={() => router.push('/contact')}
+            onClick={() => dispatch(openContactModal())}
             className={styles.button}
+            showArrow
           >
-            EXPLORE MORE
+            Explore Industry Solutions
           </BaseButton>
         </div>
         <div className={styles.imageContainer}>

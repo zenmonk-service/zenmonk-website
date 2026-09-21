@@ -73,8 +73,16 @@
 }
 
 .button {
-  width: max(180px, 9.375vw) !important;
+  width: auto !important;
+  min-width: max-content !important;
+  max-width: 100%;
+  white-space: nowrap !important;
   font-weight: 600 !important;
+  padding: max(10px, 0.55vw) max(22px, 1.2vw) !important;
+  height: max(48px, 2.5vw) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
   &:focus-visible {
     outline: 2px solid #eb7c0d !important;

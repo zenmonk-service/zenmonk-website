@@ -29,6 +29,7 @@ const GrowthMarketingHeroSection = () => {
         scale: isMobile ? 1 : 0.9
       }}
       highlightedText="Growth & Marketing"
+      buttonText="Scale Your Growth"
       description="We drive measurable business acceleration through data-backed growth marketing and conversion funnels. Leveraging predictive analytics and targeted campaigns, we amplify your brand and maximize revenue." />
   </div>
 }

@@ -1,14 +1,15 @@
 
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import BaseButton from '@/shared/button'
 import HeroImage from './hero-image'
 import Geometry from '@/shared/geometry'
 import './styles.scss'
 
 const HeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className="hero-section-home-container">
       <div className="hero-section-home">
@@ -26,10 +27,11 @@ const HeroSection = () => {
             </p>
           </div>
           <BaseButton
-            onClick={() => router.push('/contact')}
+            onClick={() => dispatch(openContactModal())}
             className="button"
+            showArrow
           >
-            EXPLORE MORE
+            Build Your Success Story
           </BaseButton>
         </div>
         <div className="hero-visual">

@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation'
 import BaseButton from '../button'
 import styles from './hero-section.module.scss'
 import Image from 'next/image'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 
 interface HeroSectionProps {
   title: string
@@ -37,17 +39,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   textWrapperStyle = {},
   titleProps = {},
   style = {},
-  buttonText = 'EXPLORE MORE',
+  buttonText = 'Book a Strategy Call',
   buttonLink = '/contact',
   onButtonClick,
 }) => {
   const router = useRouter()
+  const dispatch = useAppDispatch()
 
   const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick()
-    } else {
+    } else if (buttonLink && buttonLink !== '/contact') {
       router.push(buttonLink)
+    } else {
+      dispatch(openContactModal())
     }
   }
 
@@ -158,7 +163,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             animate="visible"
             style={{ opacity: 0 }}
           >
-            <BaseButton className={styles.button} onClick={handleButtonClick}>
+            <BaseButton className={styles.button} showArrow onClick={handleButtonClick}>
               {buttonText}
             </BaseButton>
           </motion.div>

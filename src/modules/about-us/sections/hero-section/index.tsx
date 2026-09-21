@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import BaseButton from '@/shared/button'
 import Rating from '@/shared/rating'
 import HeroImage from './assets/about.svg'
@@ -8,7 +9,7 @@ import Background from './assets/dotted-bg.svg'
 import styles from './styles.module.scss'
 
 const AboutUsHeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className={styles.backgroundWrapper}>
       <Background className={styles.backgroundLine} />
@@ -24,10 +25,11 @@ const AboutUsHeroSection = () => {
             action, simplifying tech to deliver user-centered solutions.
           </p>
           <BaseButton
-            onClick={() => router.push('/contact')}
+            onClick={() => dispatch(openContactModal())}
             className={styles.button}
+            showArrow
           >
-            EXPLORE MORE
+            Connect with Our Team
           </BaseButton>
         </div>
         <div className={styles.imageContainer}>

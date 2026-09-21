@@ -7,8 +7,9 @@ import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import StoreProvider from '@/store/store-provider'
 import CustomLoader from '@/modules/loader'
-import { Footer } from '@/shared/footer-section'
 import Header from '@/shared/header'
+import { Footer } from '@/shared/footer-section'
+import { ContactModal } from '@/shared/components/contact-modal'
 import './globals.css'
 
 
@@ -115,6 +116,7 @@ export default function FlashScreenLayout({
               <>
                 <Header />
                 <CustomLoader />
+                <ContactModal />
                 <Suspense fallback={null}>
                   <main className={pathname?.startsWith('/services') ? 'services-page-wrapper' : undefined}>
                     {children}

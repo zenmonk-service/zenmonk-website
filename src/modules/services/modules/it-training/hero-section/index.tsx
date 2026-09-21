@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
 import { Box, Typography } from '@mui/material'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import AnimatedDiv from '@/shared/animated-div'
 import BaseButton from '@/shared/button'
 import {
@@ -22,7 +23,7 @@ import {
 import './styles.scss'
 
 const ItTrainingHeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   const [randomRolls, setRandomRolls] = useState<any[]>([])
 
   useEffect(() => {
@@ -84,10 +85,11 @@ const ItTrainingHeroSection = () => {
           <AnimatedDiv>
             <QuoteText text="Unlock in-demand engineering skills through immersive training programs that empower teams to master modern tech stacks." />
             <BaseButton
-              onClick={() => router.push('/contact')}
+              onClick={() => dispatch(openContactModal())}
+              showArrow
               sx={{ marginTop: '20px' }}
             >
-              EXPLORE MORE
+              Upskill Your Team
             </BaseButton>
           </AnimatedDiv>
         </Box>

@@ -30,6 +30,7 @@ const CareerHeroSection = () => {
           </p>
           <BaseButton 
             className={styles.button}
+            showArrow
             onClick={() => {
               const el = document.getElementById('open-positions')
               if (el) {
@@ -37,7 +38,7 @@ const CareerHeroSection = () => {
               }
             }}
           >
-            Join Now
+            Explore Open Roles
           </BaseButton>
         </div>
         <div className={styles.imageContainer}>

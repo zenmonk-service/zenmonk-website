@@ -14,10 +14,10 @@ const AiBasedSoftwaresPage = () => {
       <HeroSection />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
-      <YourIdealChoice />
+      <YourIdealChoice serviceId={serviceId} />
       <BusinessSectors />
       <DevelopmentProcess />
-      <ReadyToTalkShared />
+      <ReadyToTalkShared serviceId={serviceId} />
       <FAQ serviceId={serviceId} />
       <div
         className="desktop-hidden-spacer"

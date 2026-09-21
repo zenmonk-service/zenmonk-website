@@ -26,7 +26,13 @@ type ContactFormData = {
   message: string
 }
 
-export const ContactForm = () => {
+interface ContactFormProps {
+  className?: string
+  onSuccess?: () => void
+  isModal?: boolean
+}
+
+export const ContactForm = ({ className = '', onSuccess, isModal = false }: ContactFormProps = {}) => {
   const {
     register,
     handleSubmit,
@@ -120,6 +126,11 @@ export const ContactForm = () => {
         message: '',
       })
       clearErrors()
+      if (onSuccess) {
+        setTimeout(() => {
+          onSuccess()
+        }, 1500)
+      }
       if (successTimerRef.current) clearTimeout(successTimerRef.current)
       successTimerRef.current = setTimeout(() => {
         reset({
@@ -149,7 +160,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
+    <form className={`contact-form ${className} ${isModal ? 'is-modal' : ''}`} onSubmit={handleSubmit(onSubmit)}>
       <Title text="Full Name" />
       <div className="fullname">
         <FormControl error={!!errors.firstName} className="form-control">
@@ -302,6 +313,16 @@ export const ContactForm = () => {
           className={`send-button ${submitStatus === 'success' ? 'success-btn' : ''}`}
           disabled={isSubmitting || submitStatus === 'success'}
           disableShine={submitStatus === 'success'}
+          showArrow={false}
+          endAdornment={
+            submitStatus === 'success' ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            ) : (
+              <Send className="send-button-icon" />
+            )
+          }
           type={submitStatus === 'success' ? 'button' : 'submit'}
           sx={
             submitStatus === 'success'
@@ -320,20 +341,7 @@ export const ContactForm = () => {
               : undefined
           }
         >
-          {isSubmitting ? (
-            'Sending...'
-          ) : submitStatus === 'success' ? (
-            <>
-              Sent Successfully{' '}
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style={{ marginLeft: '6px' }}>
-                <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </>
-          ) : (
-            <>
-              Send Message <Send className="send-button-icon" />
-            </>
-          )}
+          {isSubmitting ? 'Sending...' : submitStatus === 'success' ? 'Sent Successfully' : 'Send Message'}
         </BaseButton>
       </div>
 

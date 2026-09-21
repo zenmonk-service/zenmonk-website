@@ -114,7 +114,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         title: `Zen Tech Wonders We\nExcel In Design &\nExperience`,
         markText: 'Experience',
         description:
-          'We craft human-centered digital experiences that seamlessly blend visual elegance with intuitive usability. Our design system engineers and UX researchers analyze behavioral data to build frictionless navigation flows, accessible typography, and delightful interactions. We empower brands to forge deep emotional connections with users across every screen and touchpoint.',
+          'At Zenmonk, we combine creativity, strategy, and industry-leading design tools to craft intuitive and engaging digital experiences. From wireframes and prototypes to polished interfaces and design systems, our UI/UX experts turn ideas into experiences that are simple, seamless, and user-focused.\n\nWe bring every project to life through a thoughtful blend of user research, visual design, interaction design, and prototyping. By understanding your users and business goals, we create meaningful experiences that improve usability, strengthen your brand, and make every digital interaction feel effortless.',
         treeIcons: UITreeIcons,
         background: UiTechTreeBackground,
       }

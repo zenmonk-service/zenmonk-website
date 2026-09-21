@@ -1,12 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import BaseButton from '@/shared/button'
 import './styles.scss'
 
 const ProductDevelopment: React.FC = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className="product-dev-hero-wrapper">
       <div className="content-side">
@@ -42,10 +43,11 @@ const ProductDevelopment: React.FC = () => {
         </p>
         <BaseButton
           className="explore-btn"
-          onClick={() => router.push('/contact')}
+          onClick={() => dispatch(openContactModal())}
+          showArrow
           sx={{ marginTop: 'max(40px, 3.25vw)' }}
         >
-          EXPLORE MORE
+          Launch Your Product
         </BaseButton>
       </div>
       <div className="visual-side">

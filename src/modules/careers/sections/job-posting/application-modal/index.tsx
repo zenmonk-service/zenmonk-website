@@ -236,10 +236,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       onClose={handleClose}
       disableScrollLock={true}
       sx={{
-        zIndex: 1300,
+        zIndex: 200000,
         '& .MuiDialog-container': {
-          pt: isMobile ? 0 : 'max(85px, 5vw)',
-          pb: isMobile ? 0 : 'max(24px, 1.5vw)',
+          p: isMobile ? 0 : 'max(24px, 1.5vw)',
           alignItems: isMobile ? 'stretch' : 'center',
           scrollbarWidth: 'none !important',
           msOverflowStyle: 'none !important',
@@ -682,6 +681,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 variant="contained"
                 className={styles.submitBtn}
                 loading={submitting}
+                showArrow={false}
               >
                 SUBMIT APPLICATION
               </BaseButton>

@@ -14,6 +14,7 @@ const CloudSolutionsHeroSection = () => {
         url={MainHeroImage}
         title="Building Secure,<br/>Scalable, and Reliable<br/><span>Cloud Solutions</span>"
         highlightedText="Cloud Solutions"
+        buttonText="Accelerate Your Cloud Journey"
         description="We architect secure, scalable, and resilient multi-cloud environments tailored to your enterprise needs. Focusing on high availability and DevOps automation, we simplify your cloud infrastructure journey."
         style={isMobile ? { paddingTop: '105px' } : {}}
         imageStyle={{

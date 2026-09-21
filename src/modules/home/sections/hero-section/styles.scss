@@ -192,7 +192,16 @@
     }
 
     .button {
-      width: max(180px, 9.375vw);
+      width: auto !important;
+      min-width: max-content !important;
+      max-width: 100%;
+      white-space: nowrap !important;
+      font-weight: 600 !important;
+      padding: max(10px, 0.55vw) max(22px, 1.2vw) !important;
+      height: max(48px, 2.5vw) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
 
       &:focus-visible {
         outline: 2px solid #eb7c0d !important;
@@ -582,14 +591,19 @@
       }
 
       .button {
-        width: max-content;
-        min-width: 160px;
-        padding: 12px 24px;
-        height: auto;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: 100%;
+        white-space: nowrap !important;
+        padding: 10px 20px !important;
+        height: 46px !important;
         font-size: 14px;
         margin-top: 24px;
         background: linear-gradient(90deg, #F89E37 0%, #EA7C0C 100%);
         border-radius: 6px;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
     }
   }

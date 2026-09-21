@@ -16,7 +16,7 @@ const SoftwareDevelopmentPage = () => {
       <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
-      <YourIdealChoice />
+      <YourIdealChoice serviceId={serviceId} />
       <BusinessSectors />
       <DevelopmentProcess />
       <ReadyToStartSoftwareDev />

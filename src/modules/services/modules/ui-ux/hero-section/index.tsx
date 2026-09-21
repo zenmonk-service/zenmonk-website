@@ -1,6 +1,7 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useAppDispatch } from '@/store/hooks'
+import { openContactModal } from '@/store/features/header/header-slice'
 import BaseButton from '@/shared/button'
 import Bg from './assets/bg.svg'
 import DesignSvg from './assets/design.svg'
@@ -11,7 +12,7 @@ import UiUxSvg from './assets/ui-ux.svg'
 import styles from './styles.module.scss'
 
 const UiUxHeroSection = () => {
-  const router = useRouter()
+  const dispatch = useAppDispatch()
   return (
     <div className={styles.uiUxSectionWrapper}>
       <Bg className={styles.background} />
@@ -19,15 +20,14 @@ const UiUxHeroSection = () => {
         <UiUxSvg className={styles.uiUxTitle} />
         <DesignSvg className={styles.designTitle} />
         <p className={styles.textDescription}>
-          We design intuitive, engaging digital experiences that make every
-          touchpoint seamless and delightful. By combining user research with
-          creative precision, we elevate your digital brand interfaces.
+          At Zenmonk, we combine creativity, strategy, and user-centered thinking to design websites, mobile apps, and digital products that look beautiful and feel effortless to use.
         </p>
         <BaseButton
-          onClick={() => router.push('/contact')}
+          onClick={() => dispatch(openContactModal())}
+          showArrow
           sx={{ marginTop: '24px' }}
         >
-          EXPLORE MORE
+          Craft Your User Experience
         </BaseButton>
       </div>
       <div className={styles.imageContainer}>

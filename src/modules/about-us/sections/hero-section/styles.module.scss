@@ -78,13 +78,22 @@
 }
 
 .button {
-  width: max(180px, 9.375vw);
+  width: auto !important;
+  min-width: max-content !important;
+  max-width: 100%;
+  white-space: nowrap !important;
+  font-weight: 600 !important;
+  padding: max(10px, 0.55vw) max(22px, 1.2vw) !important;
+  height: max(48px, 2.5vw) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
   @media screen and (max-width: 900px) {
-    width: max-content !important;
-    min-width: 160px !important;
-    padding: 12px 24px !important;
-    height: auto;
+    width: auto !important;
+    min-width: max-content !important;
+    padding: 10px 20px !important;
+    height: 46px !important;
     font-size: 14px !important;
     margin-top: 24px !important;
     background: linear-gradient(90deg, #f89e37 0%, #ea7c0c 100%);

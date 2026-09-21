@@ -15,6 +15,7 @@ const AiSolutionsHeroSection = () => {
         url={HeroImage}
         title="<span>Digital Transformation &amp; Automation</span> to Accelerate Growth"
         highlightedText="Digital Transformation & Automation"
+        buttonText="Build Your AI Solution"
         description="We empower your business with cutting-edge artificial intelligence and machine learning solutions. From custom LLM models to intelligent automation, we build smart tools that accelerate operational efficiency."
         imageStyle={{
           margin: '0 auto',

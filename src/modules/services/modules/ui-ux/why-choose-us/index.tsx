@@ -20,8 +20,7 @@ const UiUxWhyChooseUs = () => {
       />
       <SectionDescription
         className={styles.description}
-        text="Our design solutions blend user-centric principles with business outcomes.
-        We create intuitive, scalable interfaces that drive long-term engagement."
+        text="We don't just create attractive interfaces—we design experiences that solve real problems, support business goals, and make every interaction meaningful."
       />
       <Bg className={styles.sectionBachground} />
 

@@ -16,6 +16,7 @@ const MobileAppDevelopment = () => {
       url="/services/mobile.png"
       title="Mobile App Development For Future-Ready Businesses"
       highlightedText="App Development"
+      buttonText="Build Your Mobile App"
       description="We build intuitive, high-performance mobile and web applications designed for seamless user engagement. From cross-platform apps to scalable backends, we turn innovative ideas into market-ready realities."
       style={{
         height: 'auto',
