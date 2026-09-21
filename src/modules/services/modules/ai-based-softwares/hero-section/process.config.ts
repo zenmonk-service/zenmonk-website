@@ -12,10 +12,10 @@ import type { DevelopmentProcessConfig } from './types';
  */
 const processSteps: DevelopmentProcessConfig['steps'] = [
   {
-    id: 'customer-requirement',
-    title: 'Customer Requirement',
+    id: 'data-feasibility',
+    title: 'Data & Feasibility Analysis',
     description:
-      'Identifying AI use cases, data sources, and business objectives to determine model viability.',
+      'Assessing AI use cases, data pipeline readiness, and algorithm feasibility metrics.',
     icon: BulbIcon,
     position: 'bottom',
     theme: {
@@ -24,10 +24,10 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     },
   },
   {
-    id: 'planning',
-    title: 'Planning',
+    id: 'data-engineering',
+    title: 'Data Engineering & Prep',
     description:
-      'Structuring data pipelines, selecting optimal ML architectures, and defining evaluation benchmarks.',
+      'Cleaning, labeling, and structuring high-volume datasets for reliable model training.',
     icon: EmailIcon,
     position: 'top',
     theme: {
@@ -36,10 +36,10 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     },
   },
   {
-    id: 'development',
-    title: 'Development',
+    id: 'model-development',
+    title: 'Model Development',
     description:
-      'Training, fine-tuning, and evaluating customized machine learning algorithms and neural networks.',
+      'Training, fine-tuning, and evaluating state-of-the-art machine learning algorithms.',
     icon: StocksIcon,
     position: 'bottom',
     theme: {
@@ -48,10 +48,10 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     },
   },
   {
-    id: 'system-testing',
-    title: 'System Testing',
+    id: 'model-validation',
+    title: 'Model Validation & QA',
     description:
-      'Validating model accuracy, mitigating bias, benchmark testing latency, and verifying API endpoints.',
+      'Benchmarking accuracy, bias mitigation, latency, and predictive performance.',
     icon: TimeIcon,
     position: 'top',
     theme: {
@@ -60,10 +60,10 @@ const processSteps: DevelopmentProcessConfig['steps'] = [
     },
   },
   {
-    id: 'delivery',
-    title: 'Deliver',
+    id: 'deployment-scaling',
+    title: 'Deployment & Scaling',
     description:
-      'Deploying production-ready AI models with continuous learning loops and real-time inference monitoring.',
+      'Deploying scalable inference APIs with continuous learning and real-time monitoring.',
     icon: GearsIcon,
     position: 'bottom',
     theme: {

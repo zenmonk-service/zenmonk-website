@@ -40,6 +40,9 @@ export class CreateApplicationHandler {
 
     let documentUrl = '';
     if (data.resumeFile) {
+      if (data.resumeFile.size > 10 * 1024 * 1024) {
+        throw new Error('Resume file size exceeds the 10MB limit.');
+      }
       try {
         const arrayBuffer = await data.resumeFile.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
