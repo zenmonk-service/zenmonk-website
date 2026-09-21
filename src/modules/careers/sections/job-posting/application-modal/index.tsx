@@ -26,7 +26,7 @@ import styles from './modal.module.scss'
 import SuccessMessage from './success-message'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { createApplication } from '@/store/features/applications/applications-actions'
-import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
+import { resetSubmitSuccess, setApplicationModalOpen, setSubmittingJob } from '@/store/features/applications/applications-slice'
 import { setHeaderHide } from '@/store/features/header/header-slice'
 import { previewFile } from '@/lib/file-preview'
 import NoInternetModal from '@/shared/components/no-internet-modal'
@@ -53,10 +53,19 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const isMobile = useMediaQuery('(max-width:768px)')
   useScrollLock(open, '[class*="formGrid"], [class*="MuiDialog-paper"], .country-list-scroll, [class*="MuiPopover-paper"]')
   const dispatch = useAppDispatch()
-  const { submitting, submitSuccess, error, submittedApplication } = useAppSelector((state) => state.applications)
+  const { submitting, submitSuccess, error, submittedApplication, submittingJob } = useAppSelector((state) => state.applications)
   const fileInputRef = React.useRef<HTMLInputElement | null>(null)
   const [isOfflineModalOpen, setIsOfflineModalOpen] = React.useState(false)
   const [fileSizeErrorToast, setFileSizeErrorToast] = React.useState<string | null>(null)
+
+  const isOpenRef = React.useRef(open)
+  React.useEffect(() => {
+    isOpenRef.current = open
+    dispatch(setApplicationModalOpen(open))
+    return () => {
+      dispatch(setApplicationModalOpen(false))
+    }
+  }, [open, dispatch])
 
   const {
     register,
@@ -72,21 +81,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
   const selectedResume = watch('resume')
   const selectedFile = selectedResume && selectedResume.length > 0 ? selectedResume[0] : null
-
-  React.useEffect(() => {
-    if (open) {
-      dispatch(resetSubmitSuccess())
-    }
-  }, [open, dispatch])
-
-  React.useEffect(() => {
-    if (submitSuccess) {
-      reset()
-      if (fileInputRef.current) {
-        fileInputRef.current.value = ''
-      }
-    }
-  }, [submitSuccess, reset])
 
   const handleNameKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -130,10 +124,17 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (reason === 'backdropClick') {
       return
     }
-    onClose()
+    handleCancel()
   }
 
   const handleCancel = () => {
+    if (submitSuccess) {
+      reset()
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+      dispatch(resetSubmitSuccess())
+    }
     onClose()
   }
 
@@ -144,14 +145,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
     setValue('resume', undefined as any, { shouldValidate: false })
     clearErrors('resume')
-  }
-
-  const handleExited = () => {
-    reset()
-    if (fileInputRef.current) {
-      fileInputRef.current.value = ''
-    }
-    dispatch(resetSubmitSuccess())
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
@@ -176,8 +169,18 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       formData.append('resume', data.resume[0])
     }
 
+    dispatch(setSubmittingJob({ id: jobId, title: jobTitle }))
     const result = await dispatch(createApplication(formData))
-    if (createApplication.rejected.match(result)) {
+    if (createApplication.fulfilled.match(result)) {
+      if (!isOpenRef.current) {
+        // User closed the modal while application was submitting in background
+        reset()
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ''
+        }
+        dispatch(resetSubmitSuccess())
+      }
+    } else if (createApplication.rejected.match(result)) {
       if (result.payload === 'NO_INTERNET' || (typeof window !== 'undefined' && !navigator.onLine)) {
         setIsOfflineModalOpen(true)
       }
@@ -293,9 +296,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
           },
         },
       }}
-      TransitionProps={{
-        onExited: handleExited,
-      }}
       fullScreen={isMobile}
       maxWidth={false}
       fullWidth
@@ -350,7 +350,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
               }}
             >
-              {jobTitle}
+              {submittingJob?.title || jobTitle}
             </Typography>
           </Box>
         )}
@@ -374,7 +374,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       >
         {submitSuccess ? (
           <SuccessMessage
-            jobTitle={jobTitle}
+            jobTitle={submittedApplication?.job_posting?.role || submittingJob?.title || jobTitle}
             tracking_id={submittedApplication?.tracking_id}
             onClose={handleCancel}
           />
@@ -718,6 +718,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 variant="text"
                 onClick={handleCancel}
                 className={styles.cancelBtn}
+                disabled={submitting}
               >
                 CANCEL
               </BaseButton>
@@ -741,6 +742,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       onClose={() => setIsOfflineModalOpen(false)}
     />
 
+    {/* File size warning toast (Center Top) */}
     <Snackbar
       open={Boolean(fileSizeErrorToast)}
       autoHideDuration={5000}
@@ -839,6 +841,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         {fileSizeErrorToast}
       </Alert>
     </Snackbar>
+
   </>
   )
 }

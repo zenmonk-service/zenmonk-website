@@ -58,13 +58,21 @@
     box-shadow: none !important;
     transform: none !important;
     border-radius: max(6px, 0.31vw) !important;
-    transition: background-color 0.2s ease, color 0.2s ease !important;
+    transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease !important;
 
-    &:hover {
+    &:hover:not([disabled]):not(:disabled) {
       background: rgba(0, 0, 0, 0.05) !important;
       color: #111827 !important;
       box-shadow: none !important;
       transform: none !important;
+    }
+
+    &[disabled],
+    &:disabled,
+    &:global(.Mui-disabled) {
+      opacity: 0.35 !important;
+      cursor: not-allowed !important;
+      pointer-events: none !important;
     }
 
     &:focus-visible {

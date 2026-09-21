@@ -19,11 +19,17 @@ const OpenPosition = () => {
   const isMobile = useMediaQuery('(max-width:1000px)')
   const dispatch = useAppDispatch()
   const { departments, loading: isLoading } = useAppSelector((state) => state.jobs)
+  const { submitting, submittingJob } = useAppSelector((state) => state.applications)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedJob, setSelectedJob] = useState<{ id: string, title: string } | null>(null)
 
   const handleApplyClick = (id: string, title: string) => {
+    if (submitting && submittingJob) {
+      setSelectedJob(submittingJob)
+      setIsModalOpen(true)
+      return
+    }
     dispatch(resetSubmitSuccess())
     setSelectedJob({ id, title })
     setIsModalOpen(true)

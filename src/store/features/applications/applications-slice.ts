@@ -26,6 +26,9 @@ interface ApplicationsState {
   error: string | null
   submitSuccess: boolean
   submittedApplication: Application | null
+  isModalOpen: boolean
+  backgroundToast: { message: string; type: 'success' | 'error' } | null
+  submittingJob: { id: string; title: string } | null
 }
 
 const initialState: ApplicationsState = {
@@ -35,6 +38,9 @@ const initialState: ApplicationsState = {
   error: null,
   submitSuccess: false,
   submittedApplication: null,
+  isModalOpen: false,
+  backgroundToast: null,
+  submittingJob: null,
 }
 
 const applicationsSlice = createSlice({
@@ -43,6 +49,20 @@ const applicationsSlice = createSlice({
   reducers: {
     resetSubmitSuccess: (state) => {
       state.submitSuccess = false
+      state.submittedApplication = null
+      state.submittingJob = null
+    },
+    setApplicationModalOpen: (state, action) => {
+      state.isModalOpen = action.payload
+    },
+    setBackgroundToast: (state, action) => {
+      state.backgroundToast = action.payload
+    },
+    clearBackgroundToast: (state) => {
+      state.backgroundToast = null
+    },
+    setSubmittingJob: (state, action) => {
+      state.submittingJob = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -55,14 +75,32 @@ const applicationsSlice = createSlice({
       })
       .addCase(createApplication.fulfilled, (state, action) => {
         state.submitting = false
-        state.submitSuccess = true
         state.submittedApplication = action.payload
         state.applications.push(action.payload)
+        if (state.isModalOpen) {
+          state.submitSuccess = true
+        } else {
+          state.submitSuccess = false
+          state.submittingJob = null
+          state.backgroundToast = {
+            message: 'Your application has been submitted successfully!',
+            type: 'success',
+          }
+        }
       })
       .addCase(createApplication.rejected, (state, action) => {
         state.submitting = false
         state.error = action.payload as string
         state.submitSuccess = false
+        if (!state.isModalOpen) {
+          state.submittingJob = null
+          if (action.payload !== 'NO_INTERNET') {
+            state.backgroundToast = {
+              message: typeof action.payload === 'string' ? action.payload : 'Failed to submit application. Please try again.',
+              type: 'error',
+            }
+          }
+        }
       })
       // fetchApplications
       .addCase(fetchApplications.pending, (state) => {
@@ -80,5 +118,11 @@ const applicationsSlice = createSlice({
   },
 })
 
-export const { resetSubmitSuccess } = applicationsSlice.actions
+export const {
+  resetSubmitSuccess,
+  setApplicationModalOpen,
+  setBackgroundToast,
+  clearBackgroundToast,
+  setSubmittingJob,
+} = applicationsSlice.actions
 export default applicationsSlice.reducer

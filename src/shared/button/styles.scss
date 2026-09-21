@@ -4,9 +4,13 @@
   max-width: 100%;
   border-radius: inherit;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 
   .base-button {
     cursor: pointer !important;
+    pointer-events: auto !important;
     font-size: max(14px, 0.729vw);
     display: inline-flex !important;
     align-items: center !important;
@@ -33,7 +37,7 @@
       display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
-      pointer-events: none;
+      pointer-events: none !important;
     }
 
     .base-button-end-adornment {
@@ -42,7 +46,7 @@
       justify-content: center;
       line-height: 1;
       flex-shrink: 0;
-      pointer-events: none;
+      pointer-events: none !important;
     }
 
     .base-button-arrow-circle {
@@ -60,7 +64,7 @@
       margin-left: max(4px, 0.25vw);
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
       transition: transform 0.25s ease;
-      pointer-events: none;
+      pointer-events: none !important;
       user-select: none;
 
       svg {
@@ -69,10 +73,10 @@
         min-width: 15px;
         min-height: 15px;
         display: block;
-        pointer-events: none;
+        pointer-events: none !important;
 
         path {
-          pointer-events: none;
+          pointer-events: none !important;
         }
       }
     }

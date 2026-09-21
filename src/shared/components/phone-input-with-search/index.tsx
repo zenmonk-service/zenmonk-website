@@ -258,6 +258,9 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         disableScrollLock={true}
         transitionDuration={0}
         TransitionProps={{ timeout: 0 }}
+        sx={{
+          zIndex: 300000,
+        }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
@@ -278,6 +281,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
               display: 'flex',
               flexDirection: 'column',
               overflow: 'hidden',
+              zIndex: 300000,
             },
           },
         }}

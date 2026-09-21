@@ -11,6 +11,13 @@
   opacity: 0;
   animation: slideDownGeometry 1.5s ease-out 0.5s forwards;
   pointer-events: none !important;
+  z-index: 0 !important;
+
+  *,
+  *::before,
+  *::after {
+    pointer-events: none !important;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -35,7 +42,7 @@
 
   .geometry-image {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     animation: rotateGeometry 20s linear infinite;
     width: 65%;
     height: auto;
@@ -58,8 +65,8 @@
     height: 100%;
     background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.603) 80%, rgba(255, 255, 255, 0) 100%);
     rotate: 60deg;
-    z-index: 3;
-    pointer-events: none;
+    z-index: 1;
+    pointer-events: none !important;
   }
 }
 

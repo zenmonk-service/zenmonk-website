@@ -34,7 +34,7 @@ const HeroSection = () => {
             Build Your Success Story
           </BaseButton>
         </div>
-        <div className="hero-visual">
+        <div className="hero-visual" style={{ pointerEvents: 'none' }}>
           <HeroImage />
         </div>
       </div>

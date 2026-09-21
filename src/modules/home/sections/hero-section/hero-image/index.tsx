@@ -13,7 +13,7 @@ import Circle from "../assets/circle.svg?url"
 const HeroImage = () => {
   return (
     <>
-      <div className="laptop-frame">
+      <div className="laptop-frame" style={{ pointerEvents: 'none' }}>
 
         {/* ball animated */}
         <Image src={Circle}
@@ -21,9 +21,11 @@ const HeroImage = () => {
           width={600}
           height={400}
           className="circle-img"
+          style={{ pointerEvents: 'none' }}
         />
         <Revenue
           className="revenue-img"
+          style={{ pointerEvents: 'none' }}
         />
         <Image
           src={Expense}
@@ -31,6 +33,7 @@ const HeroImage = () => {
           width={600}
           height={400}
           className="expense-img"
+          style={{ pointerEvents: 'none' }}
         />
         <Image
           src={laptopDashboard}
@@ -38,25 +41,26 @@ const HeroImage = () => {
           className="laptop-img"
           priority
           unoptimized
+          style={{ pointerEvents: 'none' }}
         />
       </div>
-      <div className="floating-icon iconReact">
-        <Image src={React} alt="React" width={40} height={40} />
+      <div className="floating-icon iconReact" style={{ pointerEvents: 'none' }}>
+        <Image src={React} alt="React" width={40} height={40} style={{ pointerEvents: 'none' }} />
       </div>
-      <div className="floating-icon iconPhp">
-        <Image src={Php} alt="PHP" width={40} height={40} />
+      <div className="floating-icon iconPhp" style={{ pointerEvents: 'none' }}>
+        <Image src={Php} alt="PHP" width={40} height={40} style={{ pointerEvents: 'none' }} />
       </div>
-      <div className="floating-icon iconXd">
-        <Image src={Xd} alt="Adobe XD" width={20} height={20} />
+      <div className="floating-icon iconXd" style={{ pointerEvents: 'none' }}>
+        <Image src={Xd} alt="Adobe XD" width={20} height={20} style={{ pointerEvents: 'none' }} />
       </div>
-      <div className="floating-icon iconFigma">
-        <Image src={Figma} alt="Figma" width={60} height={60} />
+      <div className="floating-icon iconFigma" style={{ pointerEvents: 'none' }}>
+        <Image src={Figma} alt="Figma" width={60} height={60} style={{ pointerEvents: 'none' }} />
       </div>
-      <div className="floating-icon iconNode">
-        <Image src={Js} alt="Node JS" width={60} height={60} />
+      <div className="floating-icon iconNode" style={{ pointerEvents: 'none' }}>
+        <Image src={Js} alt="Node JS" width={60} height={60} style={{ pointerEvents: 'none' }} />
       </div>
-      <div className="floating-icon iconMongo">
-        <Image src={Mongo} alt="MongoDB" width={40} height={40} />
+      <div className="floating-icon iconMongo" style={{ pointerEvents: 'none' }}>
+        <Image src={Mongo} alt="MongoDB" width={40} height={40} style={{ pointerEvents: 'none' }} />
       </div>
     </>
   )
