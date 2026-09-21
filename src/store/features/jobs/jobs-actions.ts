@@ -23,7 +23,7 @@ export const fetchJobs = createAsyncThunk(
         if (/\bqa\b/i.test(deptName)) {
           deptName = deptName.replace(/\bqa\b/gi, 'QA').replace(/\bengineer\b/gi, 'Engineer')
         }
-        deptName = deptName.replace(/\b([a-z])/g, (m) => m.toUpperCase())
+        deptName = deptName.replace(/\b([a-z])/g, (m: string) => m.toUpperCase())
 
         if (!departmentsMap[category]) {
           departmentsMap[category] = {

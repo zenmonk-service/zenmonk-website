@@ -85,7 +85,7 @@ export class CreateApplicationHandler {
     try {
       const job = await this.jobPostingRepository.findById(data.job_posting);
       if (job) {
-        const appUrl = (process.env.NEXT_PUBLIC_APP_URL || 'https://zenmonk.tech').trim();
+        const appUrl = (process.env.APP_URL || 'https://zenmonk.tech').trim();
         const trackingUrl = `${appUrl.replace(/\/$/, '')}/track-application/${tracking_id}`;
 
         await this.mailService.sendApplicationConfirmation(

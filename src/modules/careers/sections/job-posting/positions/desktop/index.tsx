@@ -36,12 +36,12 @@ const formatDeptDisplayName = (name: string) => {
   if (!name) return ''
   let formatted = name.replace(/_/g, ' ').trim()
   if (/^ui[\s\-_/]*ux/i.test(formatted)) {
-    return formatted.replace(/^ui[\s\-_/]*ux[\s\-_]*(designer)?/i, (_match, d) => (d ? 'UI/UX Designer' : 'UI/UX'))
+    return formatted.replace(/^ui[\s\-_/]*ux[\s\-_]*(designer)?/i, (_match: string, d?: string) => (d ? 'UI/UX Designer' : 'UI/UX'))
   }
   if (/\bqa\b/i.test(formatted)) {
     formatted = formatted.replace(/\bqa\b/gi, 'QA').replace(/\bengineer\b/gi, 'Engineer')
   }
-  return formatted.replace(/\b([a-z])/g, (match) => match.toUpperCase())
+  return formatted.replace(/\b([a-z])/g, (match: string) => match.toUpperCase())
 }
 
 const getDefaultDepartment = (list: Department[]) => {
