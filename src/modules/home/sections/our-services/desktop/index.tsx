@@ -95,14 +95,17 @@ const OurServicesDesktop = () => {
         const rect = item.getBoundingClientRect()
         if (rect.bottom <= maskThreshold) {
           item.style.opacity = '0'
+          item.style.pointerEvents = 'none'
           item.style.maskImage = 'none'
           item.style.webkitMaskImage = 'none'
         } else if (rect.top >= maskThreshold) {
           item.style.opacity = '1'
+          item.style.pointerEvents = ''
           item.style.maskImage = 'none'
           item.style.webkitMaskImage = 'none'
         } else {
           item.style.opacity = '1'
+          item.style.pointerEvents = ''
           const overlap = maskThreshold - rect.top
           const transparentStop = Math.max(0, overlap)
           const blackStop = Math.min(rect.height, overlap + fadeDistance)
@@ -134,11 +137,25 @@ const OurServicesDesktop = () => {
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
 
+    // The hero above this section grows as its fonts and images arrive, which
+    // moves the section without firing scroll or resize. Without re-measuring,
+    // the offset from the first run stays applied and the (then invisible)
+    // cards hover over the hero. Watch the page box instead of waiting for a
+    // user gesture.
+    const resizeObserver = new ResizeObserver(onScroll)
+    resizeObserver.observe(document.body)
+    resizeObserver.observe(rightCol)
+
+    window.addEventListener('load', onScroll)
+    if (document.fonts?.ready) document.fonts.ready.then(onScroll).catch(() => {})
+
     return () => {
       if (rafId !== null) cancelAnimationFrame(rafId)
       if (stepRafId !== null) cancelAnimationFrame(stepRafId)
+      resizeObserver.disconnect()
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
+      window.removeEventListener('load', onScroll)
       if (leftCol) leftCol.style.transform = ''
       if (section) section.style.height = ''
     }

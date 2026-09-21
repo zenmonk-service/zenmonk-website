@@ -247,7 +247,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
             required: 'Phone number is required',
             validate: {
               hasDigits: (val) =>
-                (val && hasNationalDigits(val)) || 'Phone number is required',
+                !val || hasNationalDigits(val) || 'Phone number is required',
               validPhone: (val) =>
                 !val ||
                 !hasNationalDigits(val) ||

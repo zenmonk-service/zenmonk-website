@@ -43,12 +43,23 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   const [searchQuery, setSearchQuery] = useState('')
   const searchInputRef = useRef<HTMLInputElement | null>(null)
   const buttonRef = useRef<HTMLButtonElement | null>(null)
+  const isInitialMount = useRef(true)
 
   const { inputValue, handlePhoneValueChange, country, setCountry, inputRef } = usePhoneInput({
     defaultCountry,
     value,
     disableDialCodeAndPrefix: true,
     onChange: (data) => {
+      if (isInitialMount.current) {
+        isInitialMount.current = false
+        if (!value && !data.inputValue) {
+          return
+        }
+      }
+      if (!data.inputValue || data.inputValue.trim() === '') {
+        onChange('')
+        return
+      }
       onChange(data.phone)
     },
   })

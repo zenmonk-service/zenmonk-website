@@ -58,15 +58,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const [isOfflineModalOpen, setIsOfflineModalOpen] = React.useState(false)
   const [fileSizeErrorToast, setFileSizeErrorToast] = React.useState<string | null>(null)
 
-  const isOpenRef = React.useRef(open)
-  React.useEffect(() => {
-    isOpenRef.current = open
-    dispatch(setApplicationModalOpen(open))
-    return () => {
-      dispatch(setApplicationModalOpen(false))
-    }
-  }, [open, dispatch])
-
   const {
     register,
     handleSubmit,
@@ -77,7 +68,29 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     setError,
     clearErrors,
     watch
-  } = useForm<ApplicationFormData>()
+  } = useForm<ApplicationFormData>({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      portfolioLink: '',
+      message: '',
+    },
+  })
+
+  const isOpenRef = React.useRef(open)
+  React.useEffect(() => {
+    isOpenRef.current = open
+    dispatch(setApplicationModalOpen(open))
+    if (open && !submitting && !submitSuccess) {
+      clearErrors()
+    }
+    return () => {
+      dispatch(setApplicationModalOpen(false))
+    }
+  }, [open, dispatch, submitting, submitSuccess, clearErrors])
 
   const selectedResume = watch('resume')
   const selectedFile = selectedResume && selectedResume.length > 0 ? selectedResume[0] : null
@@ -128,14 +141,26 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   }
 
   const handleCancel = () => {
+    if (!submitting) {
+      clearErrors()
+    }
+    onClose()
+  }
+
+  const handleExited = () => {
     if (submitSuccess) {
-      reset()
+      reset({
+        fullName: '',
+        email: '',
+        phone: '',
+        portfolioLink: '',
+        message: '',
+      })
       if (fileInputRef.current) {
         fileInputRef.current.value = ''
       }
       dispatch(resetSubmitSuccess())
     }
-    onClose()
   }
 
   const handleRemoveFile = (e: React.MouseEvent) => {
@@ -281,6 +306,9 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       <Dialog
       open={open}
       onClose={handleClose}
+      TransitionProps={{
+        onExited: handleExited,
+      }}
       disableScrollLock={true}
       sx={{
         zIndex: 200000,
@@ -481,7 +509,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     required: 'Phone number is required',
                     validate: {
                       hasDigits: (value) =>
-                        (value && hasNationalDigits(value)) || 'Phone number is required',
+                        !value || hasNationalDigits(value) || 'Phone number is required',
                       validPhone: (value) =>
                         !value ||
                         !hasNationalDigits(value) ||
