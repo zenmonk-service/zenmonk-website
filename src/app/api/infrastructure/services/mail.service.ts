@@ -4,6 +4,7 @@ import { formatPhoneNumber } from '@/lib/helper';
 export class MailService {
   private transporter;
   private readonly from;
+  private readonly contactTo;
 
   constructor() {
     const user = (process.env.MAIL_USER)?.trim();
@@ -19,7 +20,8 @@ export class MailService {
       },
     });
 
-    this.from = process.env.MAIL_FROM ||"admin@zenmonk.tech";
+    this.from = process.env.MAIL_FROM || "admin@zenmonk.tech";
+    this.contactTo = process.env.MAIL_TO || "rajni.1156@zenmonk.tech";
   }
 
   async sendApplicationConfirmation(
@@ -126,7 +128,7 @@ export class MailService {
     const mailOptions = {
       from: this.from,
       replyTo: email,
-      to: "admin@zenmonk.tech",
+      to: this.contactTo,
       subject: "New Contact Inquiry - Zenmonk",
       html: `
         <style>
