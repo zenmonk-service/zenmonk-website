@@ -113,6 +113,10 @@
     .show-case-image-container {
       width: 23.05vw;
       height: 20.25vw;
+
+      .show-case-image {
+        object-position: 50% 35%;
+      }
     }
     .event-details {
       height: 20.25vw;
@@ -126,7 +130,11 @@
 
     .show-case-image-container {
       width: 100%;
-      height: 25vw;
+      height: 35vw;
+
+      .show-case-image {
+        object-position: 50% 35%;
+      }
     }
     .event-details {
       height: auto;
@@ -143,7 +151,16 @@
     background-color: #f6f6f6;
     .show-case-image-container {
       width: 100%;
-      height: 45vw;
+      height: 55vw;
+      border-top-left-radius: 11.38px;
+      border-top-right-radius: 11.38px;
+
+      .show-case-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 35%;
+      }
     }
     .event-details {
       padding: 16px !important;
