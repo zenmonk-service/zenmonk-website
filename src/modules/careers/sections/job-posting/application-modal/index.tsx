@@ -305,7 +305,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     const files = e.target.files
     if (files && files.length > 0) {
       const file = files[0]
-      const maxSizeBytes = 4 * 1024 * 1024 // 4MB
+      const maxSizeBytes = 4.1 * 1024 * 1024 // 4.1MB (with slight buffer for 4MB files)
       if (file.size > maxSizeBytes) {
         setFileSizeErrorToast(`File size (${formatFileSize(file.size)}) exceeds 4MB limit. Please upload a file under 4MB.`)
         if (fileInputRef.current) {

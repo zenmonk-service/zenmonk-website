@@ -40,7 +40,7 @@ export class CreateApplicationHandler {
 
     let documentUrl = '';
     if (data.resumeFile) {
-      if (data.resumeFile.size > 4 * 1024 * 1024) {
+      if (data.resumeFile.size > 4.1 * 1024 * 1024) {
         throw new Error('Resume file size exceeds the 4MB limit.');
       }
       try {

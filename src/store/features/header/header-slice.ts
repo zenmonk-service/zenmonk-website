@@ -1,10 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+export interface ContactSubmittingData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 interface HeaderState {
   hide: boolean;
   isLoading: boolean;
   isContactModalOpen: boolean;
   contactModalTitle?: string;
+  isContactSubmitting: boolean;
+  currentContactSubmittingData: ContactSubmittingData | null;
+  contactBackgroundToast: { message: string; type: 'success' | 'error' } | null;
 }
 
 const initialState: HeaderState = {
@@ -12,6 +23,9 @@ const initialState: HeaderState = {
   isLoading: false,
   isContactModalOpen: false,
   contactModalTitle: undefined,
+  isContactSubmitting: false,
+  currentContactSubmittingData: null,
+  contactBackgroundToast: null,
 }
 
 const headerSlice = createSlice({
@@ -32,6 +46,22 @@ const headerSlice = createSlice({
       state.isContactModalOpen = false
       state.contactModalTitle = undefined
     },
+    setContactSubmitting(state, action: PayloadAction<{ isSubmitting: boolean; data?: ContactSubmittingData | null }>) {
+      state.isContactSubmitting = action.payload.isSubmitting
+      if (action.payload.data !== undefined) {
+        state.currentContactSubmittingData = action.payload.data
+      }
+    },
+    setContactBackgroundToast(state, action: PayloadAction<{ message: string; type: 'success' | 'error' } | null>) {
+      state.contactBackgroundToast = action.payload
+    },
+    clearContactBackgroundToast(state) {
+      state.contactBackgroundToast = null
+    },
+    resetContactSubmitting(state) {
+      state.isContactSubmitting = false
+      state.currentContactSubmittingData = null
+    },
   },
 })
 
@@ -41,6 +71,10 @@ export const {
   setHeaderHide,
   openContactModal,
   closeContactModal,
+  setContactSubmitting,
+  setContactBackgroundToast,
+  clearContactBackgroundToast,
+  resetContactSubmitting,
 } = headerSlice.actions
 
 // Export the reducer

@@ -85,6 +85,19 @@
         border-color: #d32f2f !important;
       }
 
+      &.Mui-disabled,
+      &:has(input:disabled),
+      &:has(button:disabled) {
+        background-color: #f9fafb !important;
+        opacity: 0.75;
+        cursor: not-allowed !important;
+
+        input {
+          cursor: not-allowed !important;
+          color: #6b7280 !important;
+        }
+      }
+
       input {
         height: 100% !important;
         padding: 0 !important;
@@ -118,6 +131,18 @@
 
       &.error-border {
         border-color: #d32f2f !important;
+      }
+
+      &.Mui-disabled,
+      &:has(textarea:disabled) {
+        background-color: #f9fafb !important;
+        opacity: 0.75;
+        cursor: not-allowed !important;
+
+        textarea {
+          cursor: not-allowed !important;
+          color: #6b7280 !important;
+        }
       }
 
       .message-input {

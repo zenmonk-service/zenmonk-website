@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
 import { isPhoneValid, hasNationalDigits, validateEmail, normalizeWhitespace, normalizeMultilineText } from '@/lib/helper'
@@ -14,6 +14,12 @@ import {
 } from '@/assets/icons/contact-us/contact'
 import BaseButton from '@/shared/button'
 import { NoInternetModal } from '@/shared/components/no-internet-modal'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import {
+  setContactSubmitting,
+  setContactBackgroundToast,
+  resetContactSubmitting,
+} from '@/store/features/header/header-slice'
 import './styles.scss'
 import TextField from './textfield'
 import { Title } from './title'
@@ -33,6 +39,16 @@ interface ContactFormProps {
 }
 
 export const ContactForm = ({ className = '', onSuccess, isModal = false }: ContactFormProps = {}) => {
+  const dispatch = useAppDispatch()
+  const { isContactSubmitting, currentContactSubmittingData, isContactModalOpen } = useAppSelector(
+    (state) => state.header
+  )
+
+  const isModalOpenRef = useRef(isContactModalOpen)
+  useEffect(() => {
+    isModalOpenRef.current = isContactModalOpen
+  }, [isContactModalOpen])
+
   const {
     register,
     handleSubmit,
@@ -42,17 +58,32 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
     formState: { errors },
   } = useForm<ContactFormData>({
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      message: '',
+      firstName: currentContactSubmittingData?.firstName || '',
+      lastName: currentContactSubmittingData?.lastName || '',
+      email: currentContactSubmittingData?.email || '',
+      phone: currentContactSubmittingData?.phone || '',
+      message: currentContactSubmittingData?.message || '',
     },
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
   const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false)
+
+  // Sync form values if reopened while a submission is in progress
+  useEffect(() => {
+    if (isContactSubmitting && currentContactSubmittingData) {
+      reset({
+        firstName: currentContactSubmittingData.firstName || '',
+        lastName: currentContactSubmittingData.lastName || '',
+        email: currentContactSubmittingData.email || '',
+        phone: currentContactSubmittingData.phone || '',
+        message: currentContactSubmittingData.message || '',
+      })
+    }
+  }, [isContactSubmitting, currentContactSubmittingData, reset])
+
+  const isBusy = isSubmitting || isContactSubmitting
 
   const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -106,8 +137,6 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       return
     }
 
-    setIsSubmitting(true)
-    setSubmitStatus(null)
     const trimmedData = {
       firstName: normalizeWhitespace(data.firstName),
       lastName: normalizeWhitespace(data.lastName),
@@ -115,24 +144,21 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       phone: data.phone.trim(),
       message: normalizeMultilineText(data.message),
     }
+
+    if (isModal) {
+      dispatch(setContactSubmitting({ isSubmitting: true, data: trimmedData }))
+    }
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
     try {
       await axios.post('/api/contact', trimmedData)
-      setSubmitStatus('success')
-      reset({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: '',
-      })
-      clearErrors()
-      if (onSuccess) {
-        setTimeout(() => {
-          onSuccess()
-        }, 1500)
-      }
-      if (successTimerRef.current) clearTimeout(successTimerRef.current)
-      successTimerRef.current = setTimeout(() => {
+      const modalCurrentlyOpen = isModalOpenRef.current
+      dispatch(resetContactSubmitting())
+      setIsSubmitting(false)
+
+      if (modalCurrentlyOpen) {
+        setSubmitStatus('success')
         reset({
           firstName: '',
           lastName: '',
@@ -141,21 +167,59 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
           message: '',
         })
         clearErrors()
-        setSubmitStatus(null)
-      }, 3000)
+        if (onSuccess) {
+          setTimeout(() => {
+            onSuccess()
+          }, 1500)
+        }
+        if (successTimerRef.current) clearTimeout(successTimerRef.current)
+        successTimerRef.current = setTimeout(() => {
+          setSubmitStatus(null)
+        }, 3000)
+      } else {
+        // Modal was closed while request was travelling - show bottom right corner toast
+        dispatch(
+          setContactBackgroundToast({
+            message: 'Your message has been sent successfully!',
+            type: 'success',
+          })
+        )
+        reset({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+        })
+        clearErrors()
+      }
     } catch (error: any) {
       console.error('Error submitting form:', error)
-      if (
+      const modalCurrentlyOpen = isModalOpenRef.current
+      dispatch(resetContactSubmitting())
+      setIsSubmitting(false)
+
+      const isOfflineError =
         (typeof window !== 'undefined' && !navigator.onLine) ||
         error?.code === 'ERR_NETWORK' ||
         !error?.response
-      ) {
-        setIsOfflineModalOpen(true)
+
+      if (isOfflineError) {
+        if (modalCurrentlyOpen) {
+          setIsOfflineModalOpen(true)
+        }
       } else {
-        setSubmitStatus('error')
+        if (modalCurrentlyOpen) {
+          setSubmitStatus('error')
+        } else {
+          dispatch(
+            setContactBackgroundToast({
+              message: 'Failed to send message. Please try again.',
+              type: 'error',
+            })
+          )
+        }
       }
-    } finally {
-      setIsSubmitting(false)
     }
   }
 
@@ -165,6 +229,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       <div className="fullname">
         <FormControl error={!!errors.firstName} className="form-control">
           <TextField
+            disabled={isBusy || submitStatus === 'success'}
             className={`first-name-input ${
               errors.firstName ? 'error-border' : ''
             }`}
@@ -190,6 +255,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
 
         <FormControl error={!!errors.lastName} className="form-control">
           <TextField
+            disabled={isBusy || submitStatus === 'success'}
             className={`last-name-input ${
               errors.lastName ? 'error-border' : ''
             }`}
@@ -217,6 +283,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       <Title text="Email" />
       <FormControl error={!!errors.email} className="form-control">
         <TextField
+          disabled={isBusy || submitStatus === 'success'}
           className={`email-input ${errors.email ? 'error-border' : ''}`}
           placeHolder="Email"
           endAdornment={<Message className="end-adornment" />}
@@ -260,6 +327,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
           }}
           render={({ field }) => (
             <PhoneInputWithSearch
+              disabled={isBusy || submitStatus === 'success'}
               className="phone-number-input"
               defaultCountry="in"
               placeholder="Your Phone"
@@ -284,6 +352,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       <FormControl error={!!errors.message} className="form-control">
         <div className={`message ${errors.message ? 'error-border' : ''}`}>
           <TextField
+            disabled={isBusy || submitStatus === 'success'}
             multiline
             className={`message-input`}
             placeHolder="Write Message.."
@@ -317,7 +386,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       <div className="button-wrapper">
         <BaseButton
           className={`send-button ${submitStatus === 'success' ? 'success-btn' : ''}`}
-          disabled={isSubmitting || submitStatus === 'success'}
+          disabled={isBusy || submitStatus === 'success'}
           disableShine={submitStatus === 'success'}
           showArrow={false}
           endAdornment={
@@ -347,7 +416,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
               : undefined
           }
         >
-          {isSubmitting ? 'Sending...' : submitStatus === 'success' ? 'Sent Successfully' : 'Send Message'}
+          {isBusy ? 'Sending...' : submitStatus === 'success' ? 'Sent Successfully' : 'Send Message'}
         </BaseButton>
       </div>
 
