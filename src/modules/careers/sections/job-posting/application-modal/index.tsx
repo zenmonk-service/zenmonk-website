@@ -305,16 +305,16 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     const files = e.target.files
     if (files && files.length > 0) {
       const file = files[0]
-      const maxSizeBytes = 10 * 1024 * 1024 // 10MB
+      const maxSizeBytes = 4.4 * 1024 * 1024 // 4.4MB
       if (file.size > maxSizeBytes) {
-        setFileSizeErrorToast(`File size (${formatFileSize(file.size)}) exceeds 10MB limit. Please upload a file under 10MB.`)
+        setFileSizeErrorToast(`File size (${formatFileSize(file.size)}) exceeds 4.4MB limit. Please upload a file under 4.4MB.`)
         if (fileInputRef.current) {
           fileInputRef.current.value = ''
         }
         setSelectedFile(null)
         setError('resume', {
           type: 'manual',
-          message: `File size must be under 10MB (selected: ${formatFileSize(file.size)})`
+          message: `File size must be under 4.4MB (selected: ${formatFileSize(file.size)})`
         })
         return
       }
@@ -609,7 +609,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
               </FormControl>
 
               <FormControl error={!!errors.resume} fullWidth>
-                <Typography className={styles.label}>Resume / CV (Upload PDF/DOC • Max 10MB)</Typography>
+                <Typography className={styles.label}>Resume / CV (Upload PDF/DOC • Max 4.4MB)</Typography>
                 <input
                   type="file"
                   accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
