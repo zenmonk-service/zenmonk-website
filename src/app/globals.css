@@ -189,21 +189,6 @@ a {
   text-decoration: none;
 }
 
-/* How We Work scroll spacer — only visible on mobile to extend GSAP ScrollSmoother height */
-.how-we-work-scroll-spacer {
-  display: none;
-  width: 100%;
-  height: 80px;
-  background: #000;
-  flex-shrink: 0;
-}
-
-@media screen and (max-width: 767px) {
-  .how-we-work-scroll-spacer {
-    display: block;
-  }
-}
-
 /* Service pages spacer — hidden on desktop to avoid double margin, visible on mobile */
 .desktop-hidden-spacer {
   display: none;

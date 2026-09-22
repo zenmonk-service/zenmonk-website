@@ -125,9 +125,6 @@ export default function FlashScreenLayout({
                   </main>
                   {showFooter && <Footer />}
                 </Suspense>
-                {pathname === '/how-we-work' && (
-                  <div className="how-we-work-scroll-spacer" />
-                )}
               </>
             </AppRouterCacheProvider>
           </StoreProvider>
