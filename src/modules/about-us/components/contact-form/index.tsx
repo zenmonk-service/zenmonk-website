@@ -40,14 +40,17 @@ interface ContactFormProps {
 
 export const ContactForm = ({ className = '', onSuccess, isModal = false }: ContactFormProps = {}) => {
   const dispatch = useAppDispatch()
-  const { isContactSubmitting, currentContactSubmittingData, isContactModalOpen } = useAppSelector(
+  const { isContactSubmitting, currentContactSubmittingData } = useAppSelector(
     (state) => state.header
   )
 
-  const isModalOpenRef = useRef(isContactModalOpen)
+  const isMountedRef = useRef(true)
   useEffect(() => {
-    isModalOpenRef.current = isContactModalOpen
-  }, [isContactModalOpen])
+    isMountedRef.current = true
+    return () => {
+      isMountedRef.current = false
+    }
+  }, [])
 
   const {
     register,
@@ -153,11 +156,10 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
 
     try {
       await axios.post('/api/contact', trimmedData)
-      const modalCurrentlyOpen = isModalOpenRef.current
       dispatch(resetContactSubmitting())
-      setIsSubmitting(false)
 
-      if (modalCurrentlyOpen) {
+      if (isMountedRef.current) {
+        setIsSubmitting(false)
         setSubmitStatus('success')
         reset({
           firstName: '',
@@ -174,7 +176,9 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
         }
         if (successTimerRef.current) clearTimeout(successTimerRef.current)
         successTimerRef.current = setTimeout(() => {
-          setSubmitStatus(null)
+          if (isMountedRef.current) {
+            setSubmitStatus(null)
+          }
         }, 3000)
       } else {
         // Modal was closed while request was travelling - show bottom right corner toast
@@ -184,34 +188,25 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
             type: 'success',
           })
         )
-        reset({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: '',
-        })
-        clearErrors()
       }
     } catch (error: any) {
       console.error('Error submitting form:', error)
-      const modalCurrentlyOpen = isModalOpenRef.current
       dispatch(resetContactSubmitting())
-      setIsSubmitting(false)
 
       const isOfflineError =
         (typeof window !== 'undefined' && !navigator.onLine) ||
         error?.code === 'ERR_NETWORK' ||
         !error?.response
 
-      if (isOfflineError) {
-        if (modalCurrentlyOpen) {
+      if (isMountedRef.current) {
+        setIsSubmitting(false)
+        if (isOfflineError) {
           setIsOfflineModalOpen(true)
+        } else {
+          setSubmitStatus('error')
         }
       } else {
-        if (modalCurrentlyOpen) {
-          setSubmitStatus('error')
-        } else {
+        if (!isOfflineError) {
           dispatch(
             setContactBackgroundToast({
               message: 'Failed to send message. Please try again.',
