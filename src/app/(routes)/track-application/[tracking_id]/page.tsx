@@ -113,10 +113,17 @@ export default function TrackApplicationPage() {
     setError('')
 
     try {
+      if (typeof window !== 'undefined' && !navigator.onLine) {
+        throw new Error('NETWORK_OFFLINE')
+      }
+
       const response = await fetch(`/api/track-application/${id}`)
 
       if (!response.ok) {
-        throw new Error('Application not found')
+        if (response.status === 404) {
+          throw new Error('NOT_FOUND')
+        }
+        throw new Error('SERVER_ERROR')
       }
 
       const data = await response.json()
@@ -126,13 +133,30 @@ export default function TrackApplicationPage() {
       })
       setApplication(data)
       setError('')
-    } catch {
-      const errorMsg = 'Application not found. Please check your tracking ID.'
-      applicationCache.set(id, {
-        data: null,
-        error: errorMsg,
-        timestamp: Date.now(),
-      })
+    } catch (err: any) {
+      const isOffline =
+        (typeof window !== 'undefined' && !navigator.onLine) ||
+        err?.message === 'NETWORK_OFFLINE' ||
+        err?.name === 'TypeError' ||
+        err?.message?.toLowerCase()?.includes('fetch') ||
+        err?.message?.toLowerCase()?.includes('network')
+
+      let errorMsg = ''
+      if (isOffline) {
+        errorMsg = 'Could not fetch application. Please check your internet connection and try again.'
+      } else if (err?.message === 'NOT_FOUND') {
+        errorMsg = 'Application not found. Please check your tracking ID.'
+      } else {
+        errorMsg = 'Something went wrong. Please try again later.'
+      }
+
+      if (!isOffline) {
+        applicationCache.set(id, {
+          data: null,
+          error: errorMsg,
+          timestamp: Date.now(),
+        })
+      }
       setError(errorMsg)
       setApplication(null)
     } finally {
