@@ -260,12 +260,15 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
           }}
           render={({ field }) => (
             <PhoneInputWithSearch
+              className="phone-number-input"
               defaultCountry="in"
               placeholder="Your Phone"
               value={field.value || ''}
               onChange={field.onChange}
               error={!!errors.phone && submitStatus !== 'success'}
-              height="48px"
+              height="max(44px, 2.8vw)"
+              fontSize="var(--font-size-16)"
+              borderRadius="8px"
               endAdornment={<Mobile className="end-adornment" />}
             />
           )}

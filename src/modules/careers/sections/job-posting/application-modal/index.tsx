@@ -577,6 +577,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       disabled={submitting}
                       error={!!errors.phone}
                       height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
+                      fontSize={isMobile ? '14px' : 'max(14px, 0.73vw)'}
                       borderRadius={isMobile ? '8px' : 'max(8px, 0.42vw)'}
                       backgroundColor="#fbf9f9ff"
                     />

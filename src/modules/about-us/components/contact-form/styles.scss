@@ -92,6 +92,13 @@
       }
     }
 
+    .phone-number-input {
+      input {
+        padding-left: max(14px, 0.73vw) !important;
+        padding-right: max(10px, 0.52vw) !important;
+      }
+    }
+
     .message {
       width: 100%;
       display: flex;

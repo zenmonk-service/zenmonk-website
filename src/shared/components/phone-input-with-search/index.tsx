@@ -14,6 +14,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
 
 interface PhoneInputWithSearchProps {
+  className?: string
   value: string
   onChange: (phone: string) => void
   error?: boolean
@@ -28,14 +29,15 @@ interface PhoneInputWithSearchProps {
 }
 
 export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
+  className = '',
   value,
   onChange,
   error = false,
   disabled = false,
   defaultCountry = 'in',
   placeholder = 'Phone number',
-  height = '48px',
-  fontSize = '14px',
+  height = 'max(44px, 2.8vw)',
+  fontSize = 'var(--font-size-16, 14px)',
   borderRadius = '8px',
   backgroundColor = '#ffffff',
   endAdornment,
@@ -118,35 +120,27 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
       const isInsideButton = buttonRef.current && buttonRef.current.contains(target)
       const isInsidePopover =
         target.closest?.('.country-dropdown-popover') ||
-        target.closest?.('.country-list-scroll') ||
-        target.closest?.('[class*="MuiPopover-paper"]')
+        target.closest?.('[class*="country-dropdown-popover"]') ||
+        target.closest?.('.MuiPopover-root')
 
-      if (isInsideButton || isInsidePopover) {
-        return
+      if (!isInsideButton && !isInsidePopover) {
+        handleCloseDropdown()
       }
-
-      handleCloseDropdown()
     }
 
     const handleScroll = (event: Event) => {
       const target = event.target as HTMLElement | null
-      if (
-        target &&
-        (target.classList?.contains('country-list-scroll') ||
-          target.closest?.('.country-list-scroll'))
-      ) {
+      if (target && (target.closest?.('.country-list-scroll') || target.closest?.('.country-dropdown-popover'))) {
         return
       }
       handleCloseDropdown()
     }
 
-    document.addEventListener('pointerdown', handlePointerDown, true)
     document.addEventListener('mousedown', handlePointerDown, true)
     document.addEventListener('touchstart', handlePointerDown, true)
     window.addEventListener('scroll', handleScroll, true)
 
     return () => {
-      document.removeEventListener('pointerdown', handlePointerDown, true)
       document.removeEventListener('mousedown', handlePointerDown, true)
       document.removeEventListener('touchstart', handlePointerDown, true)
       window.removeEventListener('scroll', handleScroll, true)
@@ -157,14 +151,16 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
 
   return (
     <Box
+      className={className}
       sx={{
         display: 'flex',
         alignItems: 'center',
         width: '100%',
         maxWidth: '100%',
         height,
+        minHeight: height,
         bgcolor: disabled ? '#fbf9f9ff' : backgroundColor,
-        border: `1px solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#E5E7EB')}`,
+        border: `max(1px, 0.052vw) solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#d5d5d5')}`,
         borderRadius,
         boxSizing: 'border-box',
         position: 'relative',
@@ -209,12 +205,12 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         sx={{
           display: 'flex',
           alignItems: 'center',
-          gap: '6px',
+          gap: 'max(4px, 0.31vw)',
           height: '100%',
-          px: '12px',
+          px: 'max(10px, 0.63vw)',
           bgcolor: 'transparent',
           border: 'none',
-          borderRight: `1px solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#E5E7EB')}`,
+          borderRight: `max(1px, 0.052vw) solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#E5E7EB')}`,
           borderRadius: `${borderRadius} 0 0 ${borderRadius}`,
           cursor: disabled ? 'not-allowed' : 'pointer',
           outline: 'none',
@@ -226,7 +222,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           },
         }}
       >
-        <FlagImage iso2={country.iso2} style={{ width: '22px', height: '15px' }} />
+        <FlagImage iso2={country.iso2} style={{ width: 'max(20px, 1.15vw)', height: 'max(14px, 0.8vw)', flexShrink: 0 }} />
         <Typography
           sx={{
             fontSize,
@@ -239,7 +235,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         </Typography>
         <KeyboardArrowDownIcon
           sx={{
-            fontSize: '18px',
+            fontSize: 'max(16px, 0.94vw)',
             color: disabled ? '#9CA3AF' : '#6B7280',
             transition: 'transform 0.2s',
             transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -260,8 +256,8 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           width: '100%',
           minWidth: 0,
           height: '100%',
-          paddingLeft: '14px',
-          paddingRight: endAdornment ? '6px' : '14px',
+          paddingLeft: 'max(14px, 0.73vw)',
+          paddingRight: endAdornment ? 'max(6px, 0.31vw)' : 'max(14px, 0.73vw)',
           fontSize,
           fontFamily: 'Poppins, sans-serif',
           backgroundColor: 'transparent',
