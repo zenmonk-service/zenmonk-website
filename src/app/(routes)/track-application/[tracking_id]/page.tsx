@@ -169,10 +169,17 @@ export default function TrackApplicationPage() {
     }
   }
 
-  const handleInputPaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
+  const handleInputPaste = (e: React.ClipboardEvent<HTMLInputElement | HTMLDivElement>) => {
     e.preventDefault()
+    const target = e.target as HTMLInputElement
+    const selectionStart = target?.selectionStart ?? 0
+    const selectionEnd = target?.selectionEnd ?? target?.value?.length ?? trackingId.length
     const pasted = e.clipboardData.getData('text')
-    const sanitized = (trackingId + pasted).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase().slice(0, 40)
+
+    const before = trackingId.slice(0, selectionStart)
+    const after = trackingId.slice(selectionEnd)
+    const combined = before + pasted + after
+    const sanitized = combined.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase().slice(0, 40)
     setTrackingId(sanitized)
     if (inputError) {
       if (!sanitized.trim()) {
