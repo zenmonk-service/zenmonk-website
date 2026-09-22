@@ -129,6 +129,10 @@ export class MailService {
     phone: string,
     message: string,
   ) {
+    const rawDigits = phone.replace(/\D/g, '');
+    const telLink = phone.trim().startsWith('+') ? `+${rawDigits}` : `+${rawDigits}`;
+    const formattedPhone = formatPhoneNumber(phone);
+
     const mailOptions = {
       from: this.from,
       replyTo: email,
@@ -213,11 +217,15 @@ export class MailService {
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                   <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Email:</td>
-                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${email}</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">
+                    <a href="mailto:${email}" style="color: #2563EB; text-decoration: none; font-weight: 500;">${email}</a>
+                  </td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                   <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Phone:</td>
-                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">${formatPhoneNumber(phone)}</td>
+                  <td class="field-value" style="padding: 14px 0; color: #111827; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px; word-break: break-word; word-wrap: break-word; overflow-wrap: break-word; vertical-align: top;">
+                    <a href="tel:${telLink}" style="color: #2563EB; text-decoration: none; font-weight: 500;">${formattedPhone}</a>
+                  </td>
                 </tr>
                 <tr>
                   <td class="field-label" style="padding: 14px 0; color: #6b7280; width: 90px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 16px; line-height: 22px; letter-spacing: 0px; vertical-align: top;">Message:</td>
