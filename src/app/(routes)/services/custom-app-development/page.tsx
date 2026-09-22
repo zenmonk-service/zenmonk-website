@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/mobile-app-development/hero-
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const MobileAppDevelopmentPage = () => {
   const serviceId = 'custom-app-development'
   return (
     <div>
       <HeroSection />
-      <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice serviceId={serviceId} />

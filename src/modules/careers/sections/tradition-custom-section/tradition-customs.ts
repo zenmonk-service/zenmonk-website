@@ -9,25 +9,25 @@ export const traditionsCustoms = [
   {
     id: 1,
     image: TeamMember,
-    title: '200+',
+    title: '50+',
     description: 'Team Members',
   },
   {
     id: 2,
     image: WinningAward,
-    title: '20+',
+    title: '5+',
     description: 'Winning award',
   },
   {
     id: 4,
     image: CompleteProject,
-    title: '10k+',
+    title: '120+',
     description: 'Complete project',
   },
   {
     id: 3,
     image: YearExperience,
-    title: '15+',
+    title: '4+',
     description: 'Years Experience',
   },
 ]

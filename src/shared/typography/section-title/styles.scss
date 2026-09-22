@@ -52,13 +52,19 @@ $base-line-height: 1.5;
       left: 0;
       display: flex;
       justify-content: flex-end;
-      overflow: hidden;
+      overflow: visible;
       pointer-events: none;
     }
 
     .mark-icon {
       width: 100%;
       height: auto;
+      overflow: visible;
+
+      path {
+        vector-effect: non-scaling-stroke;
+        stroke-width: 4.5px;
+      }
     }
   }
 }

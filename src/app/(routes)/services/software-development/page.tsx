@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/software-development/hero-se
 import ReadyToStartSoftwareDev from '@/modules/services/modules/software-development/ready-to-start'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const SoftwareDevelopmentPage = () => {
   const serviceId = 'software-development'
   return (
     <div>
       <HeroSection />
-      <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice serviceId={serviceId} />

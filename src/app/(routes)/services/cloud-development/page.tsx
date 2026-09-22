@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/cloud-computing/hero-section
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const CloudDevelopmentPage = () => {
   const serviceId = 'cloud-development'
   return (
     <div>
       <HeroSection />
-      <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice serviceId={serviceId} />

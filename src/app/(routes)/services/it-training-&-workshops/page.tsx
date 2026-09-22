@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/it-training/hero-section'
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const ItTrainingAndWorkshopsPage = () => {
   const serviceId = 'it-training-and-workshops'
   return (
     <div>
       <HeroSection />
-      <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice serviceId={serviceId} />

@@ -1,5 +1,4 @@
 'use client'
-import Rating from '@/shared/rating'
 import HeroImage from './assets/hero-image.svg?url'
 import Background from './assets/dotted-bg.svg'
 import { useMediaQuery } from '@mui/material'
@@ -30,7 +29,6 @@ const AiSolutionsHeroSection = () => {
           paddingTop: isLessThan800 ? '70px' : undefined,
         }}
       />
-      <Rating />
     </div>
   )
 }

@@ -37,7 +37,7 @@ const AboutUsHeroSection = () => {
         </div>
       </div>
       <div className={styles.ratingWrapper}>
-        <Rating />
+        <Rating clients="80+" projects="120+" />
       </div>
     </div>
   )

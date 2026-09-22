@@ -6,14 +6,12 @@ import HeroSection from '@/modules/services/modules/growth-marketing/hero-sectio
 import ReadyToTalkShared from '@/modules/services/shared/ready-to-talk'
 import TechnologyTree from '@/modules/services/tech-tree'
 import FAQ from '@/shared/faq'
-import Rating from '@/shared/rating'
 
 const GrowthAndMarketing = () => {
   const serviceId = 'growth-and-marketing'
   return (
     <div>
       <HeroSection />
-      <Rating />
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <DevelopmentProcess />

@@ -43,8 +43,8 @@ const StatisticsDesktop = () => {
               </h1>
               <h4 className="teams-number">
                 <CountUp
-                  from={1000}
-                  to={10000}
+                  from={0}
+                  to={50}
                   separator=","
                   direction="up"
                   duration={1}
@@ -68,7 +68,7 @@ const StatisticsDesktop = () => {
                 <p className="countries-number">
                   <CountUp
                     from={0}
-                    to={200}
+                    to={65}
                     separator=","
                     direction="up"
                     duration={1}
@@ -82,7 +82,7 @@ const StatisticsDesktop = () => {
                 <p className="companies-number">
                   <CountUp
                     from={0}
-                    to={800}
+                    to={120}
                     separator=","
                     direction="up"
                     duration={1}
@@ -119,7 +119,7 @@ const StatisticsDesktop = () => {
                 <p className="companies-number ">
                   <CountUp
                     from={0}
-                    to={6}
+                    to={10}
                     separator=","
                     direction="up"
                     duration={1}
