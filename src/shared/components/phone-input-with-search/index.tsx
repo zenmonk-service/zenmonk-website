@@ -17,6 +17,7 @@ interface PhoneInputWithSearchProps {
   value: string
   onChange: (phone: string) => void
   error?: boolean
+  disabled?: boolean
   defaultCountry?: string
   placeholder?: string
   height?: string
@@ -30,6 +31,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
   value,
   onChange,
   error = false,
+  disabled = false,
   defaultCountry = 'in',
   placeholder = 'Phone number',
   height = '48px',
@@ -161,17 +163,19 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         width: '100%',
         maxWidth: '100%',
         height,
-        bgcolor: backgroundColor,
-        border: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
+        bgcolor: disabled ? '#fbf9f9ff' : backgroundColor,
+        border: `1px solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#E5E7EB')}`,
         borderRadius,
         boxSizing: 'border-box',
         position: 'relative',
+        opacity: disabled ? 0.7 : 1,
+        cursor: disabled ? 'not-allowed' : 'default',
         transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
         '&:hover': {
-          borderColor: error ? '#d32f2f' : '#F69333',
+          borderColor: disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#F69333'),
         },
         '&:focus-within': {
-          borderColor: error ? '#d32f2f' : '#F69333',
+          borderColor: disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#F69333'),
         },
       }}
     >
@@ -180,7 +184,8 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         ref={buttonRef}
         component="button"
         type="button"
-        onClick={handleToggleDropdown}
+        disabled={disabled}
+        onClick={disabled ? undefined : handleToggleDropdown}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -189,15 +194,15 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           px: '12px',
           bgcolor: 'transparent',
           border: 'none',
-          borderRight: `1px solid ${error ? '#d32f2f' : '#E5E7EB'}`,
+          borderRight: `1px solid ${disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#E5E7EB')}`,
           borderRadius: `${borderRadius} 0 0 ${borderRadius}`,
-          cursor: 'pointer',
+          cursor: disabled ? 'not-allowed' : 'pointer',
           outline: 'none',
           boxSizing: 'border-box',
           flexShrink: 0,
           transition: 'background-color 0.2s ease',
           '&:hover': {
-            bgcolor: 'rgba(0, 0, 0, 0.02)',
+            bgcolor: disabled ? 'transparent' : 'rgba(0, 0, 0, 0.02)',
           },
         }}
       >
@@ -206,7 +211,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           sx={{
             fontSize,
             fontFamily: 'Poppins, sans-serif',
-            color: '#111827',
+            color: disabled ? '#6B7280' : '#111827',
             fontWeight: 500,
           }}
         >
@@ -215,7 +220,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         <KeyboardArrowDownIcon
           sx={{
             fontSize: '18px',
-            color: '#6B7280',
+            color: disabled ? '#9CA3AF' : '#6B7280',
             transition: 'transform 0.2s',
             transform: isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
@@ -226,6 +231,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
       <input
         ref={inputRef}
         type="tel"
+        disabled={disabled}
         placeholder={placeholder}
         value={inputValue}
         onChange={handlePhoneValueChange}
@@ -242,7 +248,8 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           border: 'none',
           borderRadius: endAdornment ? '0' : `0 ${borderRadius} ${borderRadius} 0`,
           outline: 'none',
-          color: '#111827',
+          color: disabled ? '#6B7280' : '#111827',
+          cursor: disabled ? 'not-allowed' : 'text',
           boxSizing: 'border-box',
         }}
       />

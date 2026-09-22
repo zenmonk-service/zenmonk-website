@@ -27,7 +27,7 @@ export const ContactModal = () => {
     '[class*="contactModalPaper"], [class*="MuiDialog-paper"], [class*="contactModalContent"], .country-list-scroll, [class*="MuiPopover-paper"]'
   )
 
-  const handleClose = (event: {}, reason?: 'backdropClick' | 'escapeKeyDown') => {
+  const handleClose = (_event: unknown, reason?: 'backdropClick' | 'escapeKeyDown') => {
     if (reason === 'backdropClick') {
       return
     }

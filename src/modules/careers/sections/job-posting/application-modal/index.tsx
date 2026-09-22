@@ -15,7 +15,6 @@ import {
   FormHelperText,
   TextField,
   useMediaQuery,
-  useTheme,
   Tooltip,
   Snackbar,
   Alert,
@@ -26,8 +25,7 @@ import styles from './modal.module.scss'
 import SuccessMessage from './success-message'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { createApplication } from '@/store/features/applications/applications-actions'
-import { resetSubmitSuccess, setApplicationModalOpen, setSubmittingJob } from '@/store/features/applications/applications-slice'
-import { setHeaderHide } from '@/store/features/header/header-slice'
+import { resetSubmitSuccess, setApplicationModalOpen, setSubmittingJob, setCurrentSubmittingData } from '@/store/features/applications/applications-slice'
 import { previewFile } from '@/lib/file-preview'
 import NoInternetModal from '@/shared/components/no-internet-modal'
 import { useScrollLock } from '@/hooks/use-scroll-lock'
@@ -53,10 +51,12 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   const isMobile = useMediaQuery('(max-width:768px)')
   useScrollLock(open, '[class*="formGrid"], [class*="MuiDialog-paper"], .country-list-scroll, [class*="MuiPopover-paper"]')
   const dispatch = useAppDispatch()
-  const { submitting, submitSuccess, error, submittedApplication, submittingJob } = useAppSelector((state) => state.applications)
+  const { submitting, submitSuccess, error, submittedApplication, submittingJob, currentSubmittingData } = useAppSelector((state) => state.applications)
+  const isSubmittingInProgress = Boolean(submitting && currentSubmittingData)
   const fileInputRef = React.useRef<HTMLInputElement | null>(null)
   const [isOfflineModalOpen, setIsOfflineModalOpen] = React.useState(false)
   const [fileSizeErrorToast, setFileSizeErrorToast] = React.useState<string | null>(null)
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null)
 
   const {
     register,
@@ -82,15 +82,34 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   React.useEffect(() => {
     isOpenRef.current = open
     dispatch(setApplicationModalOpen(open))
-    if (open && !submitting && !submitSuccess) {
-      clearErrors()
+    if (open) {
+      if (isSubmittingInProgress && currentSubmittingData) {
+        reset({
+          fullName: currentSubmittingData.fullName || '',
+          email: currentSubmittingData.email || '',
+          phone: currentSubmittingData.phone || '',
+          portfolioLink: currentSubmittingData.portfolioLink || '',
+          message: currentSubmittingData.message || '',
+        })
+      } else if (!submitting && !submitSuccess) {
+        reset({
+          fullName: '',
+          email: '',
+          phone: '',
+          portfolioLink: '',
+          message: '',
+        })
+        setSelectedFile(null)
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ''
+        }
+        clearErrors()
+      }
     }
     return () => {
       dispatch(setApplicationModalOpen(false))
     }
-  }, [open, dispatch, submitting, submitSuccess, clearErrors])
-
-  const [selectedFile, setSelectedFile] = React.useState<File | null>(null)
+  }, [open, dispatch, submitting, submitSuccess, clearErrors, isSubmittingInProgress, currentSubmittingData, reset])
 
   const handleNameKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -100,18 +119,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       return
     }
     if (!/^[a-zA-Z\s]$/.test(e.key)) {
-      e.preventDefault()
-    }
-  }
-
-  const handlePhoneKeyDown = (e: React.KeyboardEvent<any>) => {
-    if (e.ctrlKey || e.metaKey) return
-    const allowedKeys = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End', 'Unidentified']
-    if (e.key.length > 1) {
-      if (!allowedKeys.includes(e.key)) return
-      return
-    }
-    if (!/^[0-9+\s-]$/.test(e.key)) {
       e.preventDefault()
     }
   }
@@ -130,7 +137,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }
 
-  const handleClose = (event: {}, reason?: "backdropClick" | "escapeKeyDown") => {
+  const handleClose = (_event: unknown, reason?: "backdropClick" | "escapeKeyDown") => {
     if (reason === 'backdropClick') {
       return
     }
@@ -139,13 +146,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
 
   const handleCancel = () => {
     if (!submitting) {
-      clearErrors()
-    }
-    onClose()
-  }
-
-  const handleExited = () => {
-    if (submitSuccess) {
       reset({
         fullName: '',
         email: '',
@@ -157,12 +157,34 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       if (fileInputRef.current) {
         fileInputRef.current.value = ''
       }
+      clearErrors()
+      setFileSizeErrorToast(null)
+    }
+    onClose()
+  }
+
+  const handleExited = () => {
+    if (submitSuccess) {
       dispatch(resetSubmitSuccess())
     }
+    reset({
+      fullName: '',
+      email: '',
+      phone: '',
+      portfolioLink: '',
+      message: '',
+    })
+    setSelectedFile(null)
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''
+    }
+    clearErrors()
+    setFileSizeErrorToast(null)
   }
 
   const handleRemoveFile = (e: React.MouseEvent) => {
     e.stopPropagation()
+    if (submitting) return
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
@@ -171,6 +193,10 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
+    if (submitting) {
+      return
+    }
+
     if (!selectedFile) {
       setError('resume', {
         type: 'manual',
@@ -197,16 +223,23 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     formData.append('job_posting', jobId)
     formData.append('resume', selectedFile)
 
+    const submittedDataSnapshot = {
+      fullName: normalizeWhitespace(data.fullName),
+      email: data.email.trim(),
+      phone: data.phone.trim(),
+      portfolioLink: data.portfolioLink?.trim() || '',
+      message: data.message ? normalizeMultilineText(data.message) : '',
+      fileName: selectedFile.name,
+      fileSize: selectedFile.size,
+    }
+
+    dispatch(setCurrentSubmittingData(submittedDataSnapshot))
     dispatch(setSubmittingJob({ id: jobId, title: jobTitle }))
     const result = await dispatch(createApplication(formData))
+    dispatch(setCurrentSubmittingData(null))
     if (createApplication.fulfilled.match(result)) {
       if (!isOpenRef.current) {
         // User closed the modal while application was submitting in background
-        reset()
-        setSelectedFile(null)
-        if (fileInputRef.current) {
-          fileInputRef.current.value = ''
-        }
         dispatch(resetSubmitSuccess())
       }
     } else if (createApplication.rejected.match(result)) {
@@ -253,7 +286,18 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       },
       '&.Mui-error fieldset': {
         borderColor: '#d32f2f'
-      }
+      },
+      '&.Mui-disabled': {
+        opacity: 0.7,
+        '& fieldset': {
+          borderColor: '#E5E7EB !important',
+        },
+        '& .MuiOutlinedInput-input': {
+          WebkitTextFillColor: '#6B7280 !important',
+          color: '#6B7280 !important',
+          cursor: 'not-allowed !important',
+        },
+      },
     }
   })
 
@@ -465,6 +509,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     },
                     validate: (val) => !val || val.trim().length > 0 || 'Full name cannot be empty or whitespace'
                   })}
+                  disabled={submitting}
                   onKeyDown={handleNameKeyDown}
                   slotProps={{ htmlInput: { maxLength: 50 } }}
                   placeholder="Enter your full name"
@@ -489,6 +534,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     },
                     validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace'
                   })}
+                  disabled={submitting}
                   slotProps={{ htmlInput: { maxLength: 50 } }}
                   placeholder="Enter your email"
                   variant="outlined"
@@ -522,6 +568,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       defaultCountry="in"
                       value={field.value || ''}
                       onChange={field.onChange}
+                      disabled={submitting}
                       error={!!errors.phone}
                       height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
                       borderRadius={isMobile ? '8px' : 'max(8px, 0.42vw)'}
@@ -542,6 +589,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                       validUrl: (val) => !val || !val.trim() || isValidUrl(val) || 'Please enter a valid URL.',
                     }
                   })}
+                  disabled={submitting}
                   slotProps={{ htmlInput: { maxLength: 256 } }}
                   placeholder="https://..."
                   variant="outlined"
@@ -561,141 +609,161 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   style={{ display: 'none' }}
                   onChange={handleFileInputChange}
                   ref={fileInputRef}
+                  disabled={submitting}
                 />
-                <Box
-                  onClick={() => {
-                    if (!selectedFile) {
-                      fileInputRef.current?.click()
-                    }
-                  }}
-                  role={selectedFile ? undefined : 'button'}
-                  tabIndex={selectedFile ? undefined : 0}
-                  onKeyDown={(e) => {
-                    if (!selectedFile && (e.key === 'Enter' || e.key === ' ')) {
-                      e.preventDefault()
-                      fileInputRef.current?.click()
-                    }
-                  }}
-                  className={`${styles.customFileInput} ${errors.resume ? styles.errorBorder : ''}`}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    cursor: selectedFile ? 'default' : 'pointer',
-                    minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
-                  }}
-                >
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
+                {(() => {
+                  const displayedFileName = submitting
+                    ? (currentSubmittingData?.fileName || selectedFile?.name || null)
+                    : (selectedFile?.name || null)
+
+                  const displayedFileSize = submitting
+                    ? (currentSubmittingData?.fileSize ? formatFileSize(currentSubmittingData.fileSize) : (selectedFile?.size ? formatFileSize(selectedFile.size) : null))
+                    : (selectedFile?.size ? formatFileSize(selectedFile.size) : null)
+
+                  return (
                     <Box
-                      component="span"
-                      className={styles.fileButton}
-                      onClick={(e) => {
-                        if (selectedFile) {
-                          e.stopPropagation()
+                      onClick={() => {
+                        if (!submitting && !selectedFile) {
                           fileInputRef.current?.click()
                         }
                       }}
-                      sx={{ cursor: 'pointer' }}
-                      title={selectedFile ? 'Change file' : 'Choose file'}
+                      role={(!submitting && !selectedFile) ? 'button' : undefined}
+                      tabIndex={(!submitting && !selectedFile) ? 0 : undefined}
+                      onKeyDown={(e) => {
+                        if (!submitting && !selectedFile && (e.key === 'Enter' || e.key === ' ')) {
+                          e.preventDefault()
+                          fileInputRef.current?.click()
+                        }
+                      }}
+                      className={`${styles.customFileInput} ${errors.resume ? styles.errorBorder : ''}`}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        cursor: submitting ? 'not-allowed' : (selectedFile ? 'default' : 'pointer'),
+                        opacity: submitting ? 0.7 : 1,
+                        minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
+                      }}
                     >
-                      {selectedFile ? 'Change' : 'Choose File'}
-                    </Box>
-                    {selectedFile ? (
-                      <Tooltip title={selectedFile.name} arrow placement="top">
-                        <Box
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            previewFile(selectedFile)
-                          }}
-                          role="button"
-                          tabIndex={0}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === ' ') {
-                              e.preventDefault()
-                              e.stopPropagation()
-                              previewFile(selectedFile)
-                            }
-                          }}
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            minWidth: 0,
-                            cursor: 'pointer',
-                            borderRadius: '4px',
-                            transition: 'all 0.2s',
-                            '&:hover': {
-                              '& .file-name-text': {
-                                color: '#F69333',
-                                textDecoration: 'underline'
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
+                        {!submitting && (
+                          <Box
+                            component="span"
+                            className={styles.fileButton}
+                            onClick={(e) => {
+                              if (selectedFile) {
+                                e.stopPropagation()
+                                fileInputRef.current?.click()
                               }
-                            }
-                          }}
-                        >
+                            }}
+                            sx={{ cursor: 'pointer' }}
+                            title={selectedFile ? 'Change file' : 'Choose file'}
+                          >
+                            {selectedFile ? 'Change' : 'Choose File'}
+                          </Box>
+                        )}
+                        {displayedFileName ? (
+                          <Tooltip title={displayedFileName} arrow placement="top">
+                            <Box
+                              onClick={(e) => {
+                                if (!submitting && selectedFile) {
+                                  e.stopPropagation()
+                                  previewFile(selectedFile)
+                                }
+                              }}
+                              role={(!submitting && selectedFile) ? 'button' : undefined}
+                              tabIndex={(!submitting && selectedFile) ? 0 : undefined}
+                              onKeyDown={(e) => {
+                                if (!submitting && selectedFile && (e.key === 'Enter' || e.key === ' ')) {
+                                  e.preventDefault()
+                                  e.stopPropagation()
+                                  previewFile(selectedFile)
+                                }
+                              }}
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                minWidth: 0,
+                                cursor: (!submitting && selectedFile) ? 'pointer' : 'default',
+                                borderRadius: '4px',
+                                transition: 'all 0.2s',
+                                '&:hover': (!submitting && selectedFile) ? {
+                                  '& .file-name-text': {
+                                    color: '#F69333',
+                                    textDecoration: 'underline'
+                                  }
+                                } : {}
+                              }}
+                            >
+                              <Typography
+                                className="file-name-text"
+                                sx={{
+                                  fontFamily: 'Poppins',
+                                  fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                                  color: '#1F2937',
+                                  overflow: 'hidden',
+                                  textOverflow: 'ellipsis',
+                                  whiteSpace: 'nowrap',
+                                  fontWeight: 500,
+                                  transition: 'color 0.2s'
+                                }}
+                              >
+                                {displayedFileName}
+                              </Typography>
+                              {displayedFileSize && (
+                                <Box
+                                  component="span"
+                                  sx={{
+                                    ml: '6px',
+                                    color: '#6B7280',
+                                    fontSize: isMobile ? '12px' : 'max(12px, 0.63vw)',
+                                    fontWeight: 400,
+                                    whiteSpace: 'nowrap'
+                                  }}
+                                >
+                                  ({displayedFileSize})
+                                </Box>
+                              )}
+                            </Box>
+                          </Tooltip>
+                        ) : (
                           <Typography
-                            className="file-name-text"
                             sx={{
                               fontFamily: 'Poppins',
                               fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
-                              color: '#1F2937',
+                              color: '#9CA3AF',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
                               whiteSpace: 'nowrap',
-                              fontWeight: 500,
-                              transition: 'color 0.2s'
+                              fontWeight: 400
                             }}
                           >
-                            {selectedFile.name}
+                            No file chosen
                           </Typography>
-                          <Box
-                            component="span"
+                        )}
+                      </Box>
+                      {!submitting && selectedFile && (
+                        <Tooltip title="Remove file" arrow placement="top">
+                          <IconButton
+                            size="small"
+                            onClick={handleRemoveFile}
+                            aria-label="Remove selected file"
                             sx={{
-                              ml: '6px',
+                              p: '4px',
                               color: '#6B7280',
-                              fontSize: isMobile ? '12px' : 'max(12px, 0.63vw)',
-                              fontWeight: 400,
-                              whiteSpace: 'nowrap'
+                              '&:hover': {
+                                color: '#DC2626',
+                                backgroundColor: 'rgba(220, 38, 38, 0.08)'
+                              }
                             }}
                           >
-                            ({formatFileSize(selectedFile.size)})
-                          </Box>
-                        </Box>
-                      </Tooltip>
-                    ) : (
-                      <Typography
-                        sx={{
-                          fontFamily: 'Poppins',
-                          fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
-                          color: '#9CA3AF',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          whiteSpace: 'nowrap',
-                          fontWeight: 400
-                        }}
-                      >
-                        No file chosen
-                      </Typography>
-                    )}
-                  </Box>
-                  {selectedFile && (
-                    <Tooltip title="Remove file" arrow placement="top">
-                      <IconButton
-                        size="small"
-                        onClick={handleRemoveFile}
-                        aria-label="Remove selected file"
-                        sx={{
-                          p: '4px',
-                          color: '#6B7280',
-                          '&:hover': {
-                            color: '#DC2626',
-                            backgroundColor: 'rgba(220, 38, 38, 0.08)'
-                          }
-                        }}
-                      >
-                        <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
-                      </IconButton>
-                    </Tooltip>
-                  )}
-                </Box>
+                            <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                          </IconButton>
+                        </Tooltip>
+                      )}
+                    </Box>
+                  )
+                })()}
                 {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
               </FormControl>
 
@@ -706,6 +774,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
                     validate: (val) => !val || val.trim().length > 0 || 'Message cannot contain only whitespace'
                   })}
+                  disabled={submitting}
                   onKeyDown={handleMessageKeyDown}
                   slotProps={{ htmlInput: { maxLength: 800 } }}
                   placeholder="Tell us about yourself and why you're interested in this role..."
@@ -751,6 +820,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                 variant="contained"
                 className={styles.submitBtn}
                 loading={submitting}
+                disabled={submitting}
                 showArrow={false}
               >
                 SUBMIT APPLICATION

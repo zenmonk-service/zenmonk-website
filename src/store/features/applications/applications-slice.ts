@@ -19,6 +19,17 @@ interface Application {
   updatedAt: string
 }
 
+export interface SubmittedFormData {
+  fullName: string
+  email: string
+  phone: string
+  portfolioLink?: string
+  message?: string
+  fileName?: string
+  fileSize?: number
+  trackingId?: string
+}
+
 interface ApplicationsState {
   applications: Application[]
   loading: boolean
@@ -29,6 +40,7 @@ interface ApplicationsState {
   isModalOpen: boolean
   backgroundToast: { message: string; type: 'success' | 'error' } | null
   submittingJob: { id: string; title: string } | null
+  currentSubmittingData: SubmittedFormData | null
 }
 
 const initialState: ApplicationsState = {
@@ -41,6 +53,7 @@ const initialState: ApplicationsState = {
   isModalOpen: false,
   backgroundToast: null,
   submittingJob: null,
+  currentSubmittingData: null,
 }
 
 const applicationsSlice = createSlice({
@@ -51,6 +64,10 @@ const applicationsSlice = createSlice({
       state.submitSuccess = false
       state.submittedApplication = null
       state.submittingJob = null
+      state.currentSubmittingData = null
+    },
+    setCurrentSubmittingData: (state, action) => {
+      state.currentSubmittingData = action.payload
     },
     setApplicationModalOpen: (state, action) => {
       state.isModalOpen = action.payload
@@ -120,6 +137,7 @@ const applicationsSlice = createSlice({
 
 export const {
   resetSubmitSuccess,
+  setCurrentSubmittingData,
   setApplicationModalOpen,
   setBackgroundToast,
   clearBackgroundToast,
