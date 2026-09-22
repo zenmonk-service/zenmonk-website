@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { PhoneInputWithSearch } from '@/shared/components/phone-input-with-search'
-import { isPhoneValid, hasNationalDigits, formatFileSize, EMAIL_REGEX, normalizeWhitespace, normalizeMultilineText, isValidUrl } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, formatFileSize, validateEmail, normalizeWhitespace, normalizeMultilineText, isValidUrl } from '@/lib/helper'
 import {
   Dialog,
   DialogContent,
@@ -535,7 +535,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                         !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
                       validEmail: (val) => {
                         if (!val || val.trim().length === 0) return true
-                        return EMAIL_REGEX.test(val) || 'Invalid email address'
+                        return validateEmail(val) || 'Invalid email address'
                       },
                     },
                   })}

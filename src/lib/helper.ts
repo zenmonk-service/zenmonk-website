@@ -6,7 +6,8 @@ const parsedCountries = defaultCountries
   .map(parseCountry)
   .sort((a, b) => b.dialCode.length - a.dialCode.length)
 
-export const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+export const EMAIL_REGEX =
+  /^[a-zA-Z0-9](?:[a-zA-Z0-9._%+-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/
 
 export const isValidUrl = (url: string): boolean => {
   if (!url || !url.trim()) return true
@@ -42,7 +43,11 @@ export const isValidUrl = (url: string): boolean => {
 }
 
 export const validateEmail = function (email: string) {
-  return EMAIL_REGEX.test(email)
+  if (!email || typeof email !== 'string') return false
+  const trimmed = email.trim()
+  if (trimmed.length > 254) return false
+  if (trimmed.includes('..')) return false
+  return EMAIL_REGEX.test(trimmed)
 }
 
 export const normalizeWhitespace = (str: string | undefined | null): string => {
