@@ -138,7 +138,7 @@ export const ContactModal = () => {
           '&::-webkit-scrollbar': { display: 'none !important', width: 0, height: 0 },
         }}
       >
-        <ContactForm isModal onSuccess={handleCancel} />
+        {isContactModalOpen && <ContactForm isModal onSuccess={handleCancel} />}
       </DialogContent>
     </Dialog>
   )

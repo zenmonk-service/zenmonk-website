@@ -14,12 +14,8 @@ import {
 } from '@/assets/icons/contact-us/contact'
 import BaseButton from '@/shared/button'
 import { NoInternetModal } from '@/shared/components/no-internet-modal'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import {
-  setContactSubmitting,
-  setContactBackgroundToast,
-  resetContactSubmitting,
-} from '@/store/features/header/header-slice'
+import { useAppDispatch } from '@/store/hooks'
+import { setContactBackgroundToast } from '@/store/features/header/header-slice'
 import './styles.scss'
 import TextField from './textfield'
 import { Title } from './title'
@@ -40,14 +36,6 @@ interface ContactFormProps {
 
 export const ContactForm = ({ className = '', onSuccess, isModal = false }: ContactFormProps = {}) => {
   const dispatch = useAppDispatch()
-  const { isContactSubmitting, currentContactSubmittingData, isContactModalOpen } = useAppSelector(
-    (state) => state.header
-  )
-
-  const isContactModalOpenRef = useRef(isContactModalOpen)
-  useEffect(() => {
-    isContactModalOpenRef.current = isContactModalOpen
-  }, [isContactModalOpen])
 
   const isMountedRef = useRef(true)
   useEffect(() => {
@@ -66,11 +54,11 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
     formState: { errors },
   } = useForm<ContactFormData>({
     defaultValues: {
-      firstName: currentContactSubmittingData?.firstName || '',
-      lastName: currentContactSubmittingData?.lastName || '',
-      email: currentContactSubmittingData?.email || '',
-      phone: currentContactSubmittingData?.phone || '',
-      message: currentContactSubmittingData?.message || '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: '',
     },
   })
 
@@ -78,20 +66,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
   const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false)
 
-  // Sync form values if reopened while a submission is in progress
-  useEffect(() => {
-    if (isContactSubmitting && currentContactSubmittingData) {
-      reset({
-        firstName: currentContactSubmittingData.firstName || '',
-        lastName: currentContactSubmittingData.lastName || '',
-        email: currentContactSubmittingData.email || '',
-        phone: currentContactSubmittingData.phone || '',
-        message: currentContactSubmittingData.message || '',
-      })
-    }
-  }, [isContactSubmitting, currentContactSubmittingData, reset])
-
-  const isBusy = isSubmitting || isContactSubmitting
+  const isBusy = isSubmitting
 
   const handleNameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -153,19 +128,13 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       message: normalizeMultilineText(data.message),
     }
 
-    if (isModal) {
-      dispatch(setContactSubmitting({ isSubmitting: true, data: trimmedData }))
-    }
     setIsSubmitting(true)
     setSubmitStatus(null)
 
     try {
       await axios.post('/api/contact', trimmedData)
-      dispatch(resetContactSubmitting())
 
-      const wasClosedByUser = isModal && !isContactModalOpenRef.current
-
-      if (wasClosedByUser) {
+      if (!isMountedRef.current) {
         // Modal was closed by user while request was in-flight - show bottom right corner toast
         dispatch(
           setContactBackgroundToast({
@@ -192,21 +161,20 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
         }
         if (successTimerRef.current) clearTimeout(successTimerRef.current)
         successTimerRef.current = setTimeout(() => {
-          setSubmitStatus(null)
+          if (isMountedRef.current) {
+            setSubmitStatus(null)
+          }
         }, 3000)
       }
     } catch (error: any) {
       console.error('Error submitting form:', error)
-      dispatch(resetContactSubmitting())
 
       const isOfflineError =
         (typeof window !== 'undefined' && !navigator.onLine) ||
         error?.code === 'ERR_NETWORK' ||
         !error?.response
 
-      const wasClosedByUser = isModal && !isContactModalOpenRef.current
-
-      if (wasClosedByUser) {
+      if (!isMountedRef.current) {
         if (!isOfflineError) {
           dispatch(
             setContactBackgroundToast({
