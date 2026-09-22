@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAppDispatch } from '@/store/hooks'
 import { toggleLoader } from '@/store/features/header/header-slice'
-import { resetSubmitSuccess } from '@/store/features/applications/applications-slice'
 
 const SuccessMessage = ({
   jobTitle,
@@ -21,6 +20,7 @@ const SuccessMessage = ({
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const [copied, setCopied] = useState(false)
+  const [isNavigating, setIsNavigating] = useState(false)
 
   const trackingPath = tracking_id ? `/track-application/${tracking_id}` : '/track-application'
 
@@ -163,7 +163,10 @@ const SuccessMessage = ({
 
           <Box sx={{ display: 'flex', gap: isMobile ? '12px' : 'max(12px, 0.83vw)', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button
+              disabled={isNavigating}
               onClick={() => {
+                if (isNavigating) return
+                setIsNavigating(true)
                 dispatch(toggleLoader(true))
                 if (onClose) onClose()
                 router.push(trackingPath)
@@ -181,6 +184,11 @@ const SuccessMessage = ({
                 textTransform: 'none',
                 '&:hover': {
                   background: 'linear-gradient(135deg, #E67E22 0%, #D35400 100%)',
+                },
+                '&.Mui-disabled': {
+                  opacity: 0.7,
+                  color: 'white',
+                  cursor: 'not-allowed',
                 }
               }}
             >

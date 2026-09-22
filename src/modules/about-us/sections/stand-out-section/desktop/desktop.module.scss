@@ -29,12 +29,12 @@
 
     .textContainer {
       z-index: 2;
-      width: 80%;
+      width: 85%;
       position: relative;
 
       .title {
         font-family: 'Poppins', sans-serif;
-        font-size: clamp(38px, 5.5vw, 80px);
+        font-size: max(36px, 3.5vw);
         font-style: normal;
         font-weight: 600;
         line-height: 1.15;
@@ -51,7 +51,7 @@
       .description {
         color: #fff;
         font-family: 'Poppins', sans-serif;
-        font-size: clamp(14px, 1.05vw, 20px);
+        font-size: var(--font-size-16);
         font-style: normal;
         margin-top: max(16px, 1.6vw);
         font-weight: 400;
@@ -94,16 +94,16 @@
       background: #ffffff;
       display: flex;
       flex: 1;
-      padding: max(14px, 1.1vw) max(18px, 1.8vw);
-      padding-left: clamp(24px, 3.2vw, 54px);
+      padding: max(14px, 1.1vw) max(18px, 1.6vw);
+      padding-left: max(24px, 2.5vw);
       justify-content: flex-start;
       align-items: center;
-      gap: clamp(14px, 1.8vw, 30px);
+      gap: max(16px, 1.4vw);
       border-bottom-right-radius: max(20px, 1.25vw);
       border-top-right-radius: max(20px, 1.25vw);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      box-shadow: 0 0.104vw 2.5vw 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 max(2px, 0.1vw) max(20px, 1.5vw) 0 rgba(0, 0, 0, 0.1);
       position: relative;
       cursor: pointer;
       transition: box-shadow 0.3s ease;
@@ -124,7 +124,7 @@
       }
 
       &:hover {
-        box-shadow: 0 0.2vw 2.5vw 0 rgba(235, 124, 13, 0.25);
+        box-shadow: 0 max(4px, 0.2vw) max(24px, 1.8vw) 0 rgba(235, 124, 13, 0.25);
 
         &::before {
           opacity: 1;
@@ -132,8 +132,8 @@
       }
 
       .optionIconContainer {
-        width: max(40px, 3.5vw);
-        height: max(40px, 3.5vw);
+        width: max(40px, 3vw);
+        height: max(40px, 3vw);
         padding: 0;
         display: flex;
         justify-content: center;
@@ -145,8 +145,8 @@
         .optionIcon {
           width: 100%;
           height: 100%;
-          max-width: max(32px, 2.5vw);
-          max-height: max(32px, 2.5vw);
+          max-width: max(32px, 2.2vw);
+          max-height: max(32px, 2.2vw);
           fill: black;
         }
       }
@@ -160,7 +160,7 @@
 
         .optionTitle {
           font-family: 'Poppins', sans-serif;
-          font-size: clamp(16px, 1.25vw, 24px);
+          font-size: var(--font-size-20);
           font-style: normal;
           font-weight: 600;
           line-height: 1.3;
@@ -171,7 +171,7 @@
           color: #565656;
           margin-top: max(4px, 0.35vw);
           font-family: 'Poppins', sans-serif;
-          font-size: clamp(13px, 0.88vw, 16px);
+          font-size: var(--font-size-16);
           font-style: normal;
           font-weight: 400;
           line-height: 1.5;

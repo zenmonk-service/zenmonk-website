@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'next/navigation'
 import {
   Box,
@@ -10,6 +10,7 @@ import {
   Button,
   Skeleton,
   Alert,
+  CircularProgress,
   useMediaQuery,
 } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
@@ -64,37 +65,34 @@ export default function TrackApplicationPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
+  const lastFetchedIdRef = useRef<string | null>(null)
+  const isFetchingRef = useRef<boolean>(false)
+
   useEffect(() => {
-    if (params?.tracking_id) {
-      const rawId = Array.isArray(params.tracking_id) ? params.tracking_id[0] : params.tracking_id
-      try {
-        const decoded = decodeURIComponent(rawId).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-        setTrackingId(decoded)
-        if (decoded) {
-          if (TRACKING_ID_REGEX.test(decoded)) {
-            fetchApplication(decoded)
-          } else {
-            setError('Application not found. Please check your tracking ID.')
-          }
-        }
-      } catch {
-        const sanitized = rawId.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-        setTrackingId(sanitized)
-        if (sanitized) {
-          if (TRACKING_ID_REGEX.test(sanitized)) {
-            fetchApplication(sanitized)
-          } else {
-            setError('Application not found. Please check your tracking ID.')
-          }
-        }
-      }
-      if (typeof window !== 'undefined') {
-        window.history.replaceState(null, '', '/track-application')
+    const rawId = Array.isArray(params?.tracking_id) ? params.tracking_id[0] : params?.tracking_id
+    if (!rawId) return
+
+    let decoded = ''
+    try {
+      decoded = decodeURIComponent(rawId).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+    } catch {
+      decoded = rawId.replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
+    }
+
+    if (decoded && lastFetchedIdRef.current !== decoded) {
+      lastFetchedIdRef.current = decoded
+      setTrackingId(decoded)
+      if (TRACKING_ID_REGEX.test(decoded)) {
+        fetchApplication(decoded)
+      } else {
+        setError('Application not found. Please check your tracking ID.')
       }
     }
-  }, [params])
+  }, [params?.tracking_id])
 
   const fetchApplication = async (id: string) => {
+    if (isFetchingRef.current) return
+
     const cached = applicationCache.get(id)
     const now = Date.now()
 
@@ -110,6 +108,7 @@ export default function TrackApplicationPage() {
       return
     }
 
+    isFetchingRef.current = true
     setLoading(true)
     setError('')
 
@@ -137,6 +136,7 @@ export default function TrackApplicationPage() {
       setError(errorMsg)
       setApplication(null)
     } finally {
+      isFetchingRef.current = false
       setLoading(false)
     }
   }
@@ -194,6 +194,8 @@ export default function TrackApplicationPage() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
+    if (loading || isFetchingRef.current) return
+
     const cleaned = trackingId.trim().replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
     if (!cleaned) {
       setInputError('Tracking ID is required')
@@ -205,6 +207,7 @@ export default function TrackApplicationPage() {
     }
 
     setInputError('')
+    lastFetchedIdRef.current = cleaned
     fetchApplication(cleaned)
   }
 
@@ -302,6 +305,7 @@ export default function TrackApplicationPage() {
           <Button
             type="submit"
             variant="contained"
+            disabled={loading}
             sx={{
               background: '#F69333',
               color: 'white',
@@ -314,9 +318,19 @@ export default function TrackApplicationPage() {
               '&:hover': {
                 background: '#E67E22',
               },
+              '&.Mui-disabled': {
+                background: '#F69333',
+                opacity: 0.7,
+                color: 'white',
+                cursor: 'not-allowed',
+              },
             }}
           >
-            <SearchIcon sx={{ fontSize: isMobile ? '20px' : 'max(20px, 1.15vw)' }} />
+            {loading ? (
+              <CircularProgress size={isMobile ? 18 : 20} sx={{ color: 'white' }} />
+            ) : (
+              <SearchIcon sx={{ fontSize: isMobile ? '20px' : 'max(20px, 1.15vw)' }} />
+            )}
           </Button>
         </Box>
         {inputError && (
