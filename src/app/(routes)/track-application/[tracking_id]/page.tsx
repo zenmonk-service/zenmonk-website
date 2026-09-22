@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import {
   Box,
   Container,
@@ -11,7 +11,6 @@ import {
   Skeleton,
   Alert,
   useMediaQuery,
-  useTheme,
 } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -57,8 +56,6 @@ const TRACKING_ID_REGEX = /^APP-\d{10,15}-[A-Z0-9]{4,10}$/i
 
 export default function TrackApplicationPage() {
   const params = useParams()
-  const router = useRouter()
-  const theme = useTheme()
   const isMobile = useMediaQuery('(max-width:768px)')
 
   const [trackingId, setTrackingId] = useState('')
@@ -90,6 +87,9 @@ export default function TrackApplicationPage() {
             setError('Application not found. Please check your tracking ID.')
           }
         }
+      }
+      if (typeof window !== 'undefined') {
+        window.history.replaceState(null, '', '/track-application')
       }
     }
   }, [params])
@@ -198,18 +198,7 @@ export default function TrackApplicationPage() {
     }
 
     setInputError('')
-    const currentParam = Array.isArray(params?.tracking_id)
-      ? params.tracking_id[0]
-      : params?.tracking_id
-    const currentDecoded = currentParam
-      ? decodeURIComponent(currentParam).replace(/[^a-zA-Z0-9-]/g, '').toUpperCase()
-      : ''
-
-    if (cleaned === currentDecoded) {
-      fetchApplication(cleaned)
-    } else {
-      router.push(`/track-application/${cleaned}`)
-    }
+    fetchApplication(cleaned)
   }
 
   const formatDate = (dateString: string) => {

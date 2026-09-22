@@ -571,6 +571,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   render={({ field }) => (
                     <PhoneInputWithSearch
                       defaultCountry="in"
+                      placeholder="Your Phone"
                       value={field.value || ''}
                       onChange={field.onChange}
                       disabled={submitting}

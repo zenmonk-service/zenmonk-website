@@ -177,6 +177,26 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         '&:focus-within': {
           borderColor: disabled ? '#E5E7EB' : (error ? '#d32f2f' : '#F69333'),
         },
+        '& input::placeholder': {
+          color: 'currentColor',
+          opacity: 0.42,
+          fontFamily: "'Poppins', sans-serif !important",
+        },
+        '& input::-webkit-input-placeholder': {
+          color: 'currentColor',
+          opacity: 0.42,
+          fontFamily: "'Poppins', sans-serif !important",
+        },
+        '& input::-moz-placeholder': {
+          color: 'currentColor',
+          opacity: 0.42,
+          fontFamily: "'Poppins', sans-serif !important",
+        },
+        '& input:-ms-input-placeholder': {
+          color: 'currentColor',
+          opacity: 0.42,
+          fontFamily: "'Poppins', sans-serif !important",
+        },
       }}
     >
       {/* Country Selector Button */}

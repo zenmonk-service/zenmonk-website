@@ -25,6 +25,11 @@ export const NoInternetModal = ({ open, onClose }: NoInternetModalProps) => {
       open={open}
       onClose={onClose}
       disableScrollLock={true}
+      disableRestoreFocus={true}
+      disableAutoFocus={true}
+      sx={{
+        zIndex: 300000,
+      }}
       maxWidth={false}
       PaperProps={{
         sx: {
