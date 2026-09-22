@@ -64,10 +64,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     control,
     formState: { errors },
     reset,
-    setValue,
     setError,
     clearErrors,
-    watch
   } = useForm<ApplicationFormData>({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
@@ -92,8 +90,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }, [open, dispatch, submitting, submitSuccess, clearErrors])
 
-  const selectedResume = watch('resume')
-  const selectedFile = selectedResume && selectedResume.length > 0 ? selectedResume[0] : null
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null)
 
   const handleNameKeyDown = (e: React.KeyboardEvent<any>) => {
     if (e.ctrlKey || e.metaKey) return
@@ -156,6 +153,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         portfolioLink: '',
         message: '',
       })
+      setSelectedFile(null)
       if (fileInputRef.current) {
         fileInputRef.current.value = ''
       }
@@ -168,11 +166,19 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
-    setValue('resume', undefined as any, { shouldValidate: false })
+    setSelectedFile(null)
     clearErrors('resume')
   }
 
   const onSubmit = async (data: ApplicationFormData) => {
+    if (!selectedFile) {
+      setError('resume', {
+        type: 'manual',
+        message: 'Resume is required'
+      })
+      return
+    }
+
     if (typeof window !== 'undefined' && !navigator.onLine) {
       setIsOfflineModalOpen(true)
       return
@@ -189,10 +195,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       formData.append('message', normalizeMultilineText(data.message))
     }
     formData.append('job_posting', jobId)
-    
-    if (data.resume && data.resume.length > 0) {
-      formData.append('resume', data.resume[0])
-    }
+    formData.append('resume', selectedFile)
 
     dispatch(setSubmittingJob({ id: jobId, title: jobTitle }))
     const result = await dispatch(createApplication(formData))
@@ -200,6 +203,7 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       if (!isOpenRef.current) {
         // User closed the modal while application was submitting in background
         reset()
+        setSelectedFile(null)
         if (fileInputRef.current) {
           fileInputRef.current.value = ''
         }
@@ -253,33 +257,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   })
 
-  const { ref: resumeFormRef, onChange: onResumeChange, ...resumeRest } = register('resume', {
-    required: 'Resume is required',
-    validate: {
-      fileType: (files: FileList) => {
-        if (!files || files.length === 0) return 'Resume is required'
-        const file = files[0]
-        const allowedExtensions = ['.pdf', '.doc', '.docx']
-        const fileName = file.name.toLowerCase()
-        const hasValidExt = allowedExtensions.some((ext) => fileName.endsWith(ext))
-
-        if (!hasValidExt) {
-          return 'Only PDF and DOC/DOCX files are allowed'
-        }
-        return true
-      },
-      fileSize: (files: FileList) => {
-        if (!files || files.length === 0) return true
-        const file = files[0]
-        const maxSizeBytes = 10 * 1024 * 1024 // 10MB
-        if (file.size > maxSizeBytes) {
-          return `File size must be under 10MB (selected: ${formatFileSize(file.size)})`
-        }
-        return true
-      }
-    },
-  })
-
   const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (files && files.length > 0) {
@@ -290,15 +267,38 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         if (fileInputRef.current) {
           fileInputRef.current.value = ''
         }
-        setValue('resume', undefined as any, { shouldValidate: true })
+        setSelectedFile(null)
         setError('resume', {
           type: 'manual',
           message: `File size must be under 10MB (selected: ${formatFileSize(file.size)})`
         })
         return
       }
+
+      const allowedExtensions = ['.pdf', '.doc', '.docx']
+      const fileName = (file.name || '').toLowerCase()
+      const hasValidExt = allowedExtensions.some((ext) => fileName.endsWith(ext))
+      if (!hasValidExt) {
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ''
+        }
+        setSelectedFile(null)
+        setError('resume', {
+          type: 'manual',
+          message: 'Only PDF and DOC/DOCX files are allowed'
+        })
+        return
+      }
+
+      setFileSizeErrorToast(null)
+      clearErrors('resume')
+      setSelectedFile(file)
+    } else {
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ''
+      }
+      setSelectedFile(null)
     }
-    onResumeChange(e)
   }
 
   return (
@@ -559,12 +559,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   type="file"
                   accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                   style={{ display: 'none' }}
-                  {...resumeRest}
                   onChange={handleFileInputChange}
-                  ref={(e) => {
-                    resumeFormRef(e)
-                    fileInputRef.current = e
-                  }}
+                  ref={fileInputRef}
                 />
                 <Box
                   onClick={() => {
