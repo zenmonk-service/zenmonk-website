@@ -155,7 +155,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         fileInputRef.current.value = ''
       }
       clearErrors()
-      setFileSizeErrorToast(null)
     }
     onClose()
   }
@@ -176,7 +175,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
       fileInputRef.current.value = ''
     }
     clearErrors()
-    setFileSizeErrorToast(null)
   }
 
   const handleRemoveFile = (e: React.MouseEvent) => {
@@ -618,10 +616,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                     ? (currentSubmittingData?.fileName || selectedFile?.name || null)
                     : (selectedFile?.name || null)
 
-                  const displayedFileSize = submitting
-                    ? (currentSubmittingData?.fileSize ? formatFileSize(currentSubmittingData.fileSize) : (selectedFile?.size ? formatFileSize(selectedFile.size) : null))
-                    : (selectedFile?.size ? formatFileSize(selectedFile.size) : null)
-
                   return (
                     <Box
                       onClick={() => {
@@ -712,20 +706,6 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                               >
                                 {displayedFileName}
                               </Typography>
-                              {displayedFileSize && (
-                                <Box
-                                  component="span"
-                                  sx={{
-                                    ml: '6px',
-                                    color: '#6B7280',
-                                    fontSize: isMobile ? '12px' : 'max(12px, 0.63vw)',
-                                    fontWeight: 400,
-                                    whiteSpace: 'nowrap'
-                                  }}
-                                >
-                                  ({displayedFileSize})
-                                </Box>
-                              )}
                             </Box>
                           </Tooltip>
                         ) : (

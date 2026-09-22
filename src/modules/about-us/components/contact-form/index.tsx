@@ -40,9 +40,14 @@ interface ContactFormProps {
 
 export const ContactForm = ({ className = '', onSuccess, isModal = false }: ContactFormProps = {}) => {
   const dispatch = useAppDispatch()
-  const { isContactSubmitting, currentContactSubmittingData } = useAppSelector(
+  const { isContactSubmitting, currentContactSubmittingData, isContactModalOpen } = useAppSelector(
     (state) => state.header
   )
+
+  const isContactModalOpenRef = useRef(isContactModalOpen)
+  useEffect(() => {
+    isContactModalOpenRef.current = isContactModalOpen
+  }, [isContactModalOpen])
 
   const isMountedRef = useRef(true)
   useEffect(() => {
@@ -158,7 +163,18 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
       await axios.post('/api/contact', trimmedData)
       dispatch(resetContactSubmitting())
 
-      if (isMountedRef.current) {
+      const wasClosedByUser = isModal && !isContactModalOpenRef.current
+
+      if (wasClosedByUser) {
+        // Modal was closed by user while request was in-flight - show bottom right corner toast
+        dispatch(
+          setContactBackgroundToast({
+            message: 'Your message has been sent successfully!',
+            type: 'success',
+          })
+        )
+      } else {
+        // Modal is still open (or page inline contact form)
         setIsSubmitting(false)
         setSubmitStatus('success')
         reset({
@@ -176,18 +192,8 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
         }
         if (successTimerRef.current) clearTimeout(successTimerRef.current)
         successTimerRef.current = setTimeout(() => {
-          if (isMountedRef.current) {
-            setSubmitStatus(null)
-          }
+          setSubmitStatus(null)
         }, 3000)
-      } else {
-        // Modal was closed while request was travelling - show bottom right corner toast
-        dispatch(
-          setContactBackgroundToast({
-            message: 'Your message has been sent successfully!',
-            type: 'success',
-          })
-        )
       }
     } catch (error: any) {
       console.error('Error submitting form:', error)
@@ -198,14 +204,9 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
         error?.code === 'ERR_NETWORK' ||
         !error?.response
 
-      if (isMountedRef.current) {
-        setIsSubmitting(false)
-        if (isOfflineError) {
-          setIsOfflineModalOpen(true)
-        } else {
-          setSubmitStatus('error')
-        }
-      } else {
+      const wasClosedByUser = isModal && !isContactModalOpenRef.current
+
+      if (wasClosedByUser) {
         if (!isOfflineError) {
           dispatch(
             setContactBackgroundToast({
@@ -213,6 +214,13 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
               type: 'error',
             })
           )
+        }
+      } else {
+        setIsSubmitting(false)
+        if (isOfflineError) {
+          setIsOfflineModalOpen(true)
+        } else {
+          setSubmitStatus('error')
         }
       }
     }
