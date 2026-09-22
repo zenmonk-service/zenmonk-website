@@ -43,6 +43,8 @@ export const ContactModal = () => {
       open={isContactModalOpen}
       onClose={handleClose}
       disableScrollLock={true}
+      disableRestoreFocus={true}
+      disableAutoFocus={true}
       sx={{
         zIndex: 200000,
         '& .MuiDialog-container': {

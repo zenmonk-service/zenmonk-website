@@ -354,6 +354,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         onExited: handleExited,
       }}
       disableScrollLock={true}
+      disableRestoreFocus={true}
+      disableAutoFocus={true}
       sx={{
         zIndex: 200000,
         '& .MuiDialog-container': {

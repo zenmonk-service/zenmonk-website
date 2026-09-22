@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useCycle, useScroll, useMotionValueEvent } from 'framer-motion'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -40,28 +40,36 @@ const Navbar = () => {
     }
   });
 
+  const isHeaderHidden = useAppSelector((state) => state.header.hide)
+  const isContactModalOpen = useAppSelector((state) => state.header.isContactModalOpen)
+  const isApplicationModalOpen = useAppSelector((state) => state.applications.isModalOpen)
+  const isAnyModalOpen = isContactModalOpen || isApplicationModalOpen
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      if (document.querySelector('.MuiDialog-root, .MuiModal-root, [role="dialog"]')) {
+        setIsHovered(false)
+        return
+      }
       if (e.clientY <= 80) {
-        setIsHovered(true);
+        setIsHovered(true)
       } else {
-        const isOverMenu = (e.target as Element)?.closest?.('.MuiPopover-root, [class*="servicesMenuContainer"], [class*="appBarContainer"]');
+        const isOverMenu = (e.target as Element)?.closest?.('.MuiPopover-root, [class*="servicesMenuContainer"], [class*="appBarContainer"]')
         if (!isOverMenu) {
-          setIsHovered(false);
+          setIsHovered(false)
         }
       }
-    };
+    }
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
 
   useScrollLock(isOpen, '[class*="sideBarMenu"]')
 
-  const isHeaderHidden = useAppSelector((state) => state.header.hide)
-  const isHidden = !isAtTop && hiddenByScroll && !isHovered
+  const isHidden = (!isAtTop && hiddenByScroll && !isHovered) || isAnyModalOpen
 
   return (
     <motion.nav
@@ -70,12 +78,16 @@ const Navbar = () => {
         visible: { y: 0 },
         hidden: { y: '-100%' },
       }}
-      animate={(isHidden && !isOpen) || isHeaderHidden ? "hidden" : "visible"}
+      animate={(isHidden && !isOpen) || isHeaderHidden || isAnyModalOpen ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`${styles.appBarContainer} ${isOpen ? styles.open : ''} ${isAtTop && !isOpen ? styles.transparent : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => {
+        if (!isAnyModalOpen && !document.querySelector('.MuiDialog-root, .MuiModal-root, [role="dialog"]')) {
+          setIsHovered(true)
+        }
+      }}
       onMouseLeave={(e) => {
-        if (e.clientY > 80) {
+        if (e.clientY > 80 || isAnyModalOpen) {
           setIsHovered(false)
         }
       }}

@@ -87,7 +87,7 @@ const HeroImage = () => {
           },
         }}
       >
-        <p className={styles.title}>15+</p>
+        <p className={styles.title}>4+</p>
         <p className={styles.description}>
           Years of <br /> Experience
         </p>
