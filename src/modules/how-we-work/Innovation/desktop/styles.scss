@@ -108,14 +108,30 @@
               text-transform: uppercase;
               width: fit-content;
               background-clip: padding-box;
+              position: relative;
+              backface-visibility: hidden;
+              -webkit-backface-visibility: hidden;
+              transform: translateZ(0);
+              -webkit-transform: translateZ(0);
+              transform-origin: center;
+              will-change: transform;
 
               background: linear-gradient(75deg, #eb7c0d 4.02%, #ffa750 83.84%);
               -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
               z-index: 0;
+              transition: transform 0.2s ease;
 
               .MuiTouchRipple-root span {
                 background-color: rgba(255, 128, 0, 0.3);
+              }
+
+              &:hover {
+                transform: scale(1.03) translateZ(0);
+              }
+
+              &:active {
+                transform: scale(0.98) translateZ(0);
               }
             }
 

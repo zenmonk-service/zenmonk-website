@@ -530,11 +530,14 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
                   {...register('email', {
                     required: 'Email is required',
                     maxLength: { value: 50, message: 'Email address cannot exceed 50 characters' },
-                    pattern: {
-                      value: EMAIL_REGEX,
-                      message: 'Invalid email address'
+                    validate: {
+                      notEmptyOrWhitespace: (val) =>
+                        !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
+                      validEmail: (val) => {
+                        if (!val || val.trim().length === 0) return true
+                        return EMAIL_REGEX.test(val) || 'Invalid email address'
+                      },
                     },
-                    validate: (val) => !val || val.trim().length > 0 || 'Email cannot be empty or whitespace'
                   })}
                   disabled={submitting}
                   slotProps={{ htmlInput: { maxLength: 50 } }}

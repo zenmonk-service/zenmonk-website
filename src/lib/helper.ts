@@ -82,7 +82,7 @@ export const isPhoneValid = (phone: string): boolean => {
   if (!phone) return false
   try {
     const parsed = phoneUtil.parseAndKeepRawInput(phone)
-    if (!phoneUtil.isPossibleNumber(parsed)) return false
+    if (!phoneUtil.isValidNumber(parsed)) return false
 
     const digitsOnly = phone.replace(/\D/g, '')
     const dialCode = String(parsed.getCountryCode())

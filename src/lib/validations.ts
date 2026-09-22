@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { isPhoneValid, hasNationalDigits, isValidUrl } from '@/lib/helper'
+import { isPhoneValid, hasNationalDigits, isValidUrl, validateEmail } from '@/lib/helper'
 
 export const nameValidation = z
   .string()
@@ -14,7 +14,18 @@ export const emailValidation = z
   .string()
   .min(1, 'Email is required')
   .max(50, 'Email cannot exceed 50 characters')
-  .email('Invalid email address')
+  .refine((val) => val.trim().length > 0, {
+    message: 'Email cannot be empty or whitespace',
+  })
+  .refine(
+    (val) => {
+      if (val.trim().length === 0) return true
+      return validateEmail(val)
+    },
+    {
+      message: 'Invalid email address',
+    }
+  )
 
 export const phoneValidation = z
   .string()
