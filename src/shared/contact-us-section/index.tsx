@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { Email, Location, Phone } from '@/assets/icons/contact-us/contact'
+import { Location } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import { SectionDescription, SectionTitle } from '../typography'
 import Polygon from './assets/polygon.svg'
@@ -200,32 +200,14 @@ export const ContactUsSection = ({
                     />
                   </div>
 
-                  {/* Container 2: Below 3 Contact Points */}
+                  {/* Container 2: Country Address */}
                   <div className={styles.contactDetailsRow}>
-                    <div className={styles.labelContainer}>
-                      <div className={styles.iconContainer}>
-                        <Email />
-                      </div>
-                      <p className={styles.contactDetailText}>
-                        {formCountry.office.email}
-                      </p>
-                    </div>
-
                     <div className={`${styles.labelContainer} ${styles.locationContainer}`}>
                       <div className={styles.iconContainer}>
                         <Location />
                       </div>
                       <p className={styles.contactDetailText}>
                         {formCountry.office.address || formCountry.description}
-                      </p>
-                    </div>
-
-                    <div className={styles.labelContainer}>
-                      <div className={styles.iconContainer}>
-                        <Phone />
-                      </div>
-                      <p className={styles.contactDetailText}>
-                        {formCountry.office.phone}
                       </p>
                     </div>
                   </div>
