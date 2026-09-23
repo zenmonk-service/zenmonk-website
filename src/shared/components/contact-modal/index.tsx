@@ -21,6 +21,16 @@ export const ContactModal = () => {
   const isMobile = useMediaQuery('(max-width:768px)')
   const dispatch = useAppDispatch()
   const { isContactModalOpen, contactModalTitle } = useAppSelector((state) => state.header)
+  const [formKey, setFormKey] = React.useState(0)
+  const [modalTitle, setModalTitle] = React.useState(contactModalTitle || 'Get In Touch')
+
+  React.useEffect(() => {
+    if (isContactModalOpen && contactModalTitle) {
+      setModalTitle(contactModalTitle)
+    } else if (isContactModalOpen && !contactModalTitle) {
+      setModalTitle('Get In Touch')
+    }
+  }, [isContactModalOpen, contactModalTitle])
 
   useScrollLock(
     isContactModalOpen,
@@ -38,10 +48,17 @@ export const ContactModal = () => {
     dispatch(closeContactModal())
   }
 
+  const handleExited = () => {
+    setFormKey((prev) => prev + 1)
+  }
+
   return (
     <Dialog
       open={isContactModalOpen}
       onClose={handleClose}
+      TransitionProps={{
+        onExited: handleExited,
+      }}
       disableScrollLock={true}
       disableRestoreFocus={true}
       disableAutoFocus={true}
@@ -103,7 +120,7 @@ export const ContactModal = () => {
               fontSize: isMobile ? '20px' : 'max(22px, 1.2vw)',
             }}
           >
-            {contactModalTitle || 'Get In Touch'}
+            {modalTitle}
           </Typography>
           <Typography
             variant="subtitle2"
@@ -138,7 +155,7 @@ export const ContactModal = () => {
           '&::-webkit-scrollbar': { display: 'none !important', width: 0, height: 0 },
         }}
       >
-        {isContactModalOpen && <ContactForm isModal onSuccess={handleCancel} />}
+        <ContactForm key={formKey} isModal onSuccess={handleCancel} />
       </DialogContent>
     </Dialog>
   )
