@@ -181,58 +181,57 @@ export const ContactUsSection = ({
               </div>
             )}
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={formCountry.name}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              >
-                {/* Container 1: Country Title + Address Line */}
-                <div className={styles.addressContainer}>
-                  <SectionTitle
-                    text={formCountry.name.toUpperCase()}
-                    align="left"
-                    className={styles.selectedCountryTitle}
-                  />
-                  <SectionDescription
-                    text={formCountry.description}
-                    className={styles.selectedCountryDescription}
-                  />
-                </div>
-
-                {/* Container 2: Below 3 Contact Points */}
-                <div className={styles.contactDetailsRow}>
-                  <div className={styles.labelContainer}>
-                    <div className={styles.iconContainer}>
-                      <Email />
-                    </div>
-                    <p className={styles.contactDetailText}>
-                      {formCountry.office.email}
-                    </p>
+            <div className={styles.formCountryDetailsWrapper}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={formCountry.name}
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  className={styles.formCountryDetailsInner}
+                >
+                  {/* Container 1: Country Title */}
+                  <div className={styles.addressContainer}>
+                    <SectionTitle
+                      text={formCountry.name.toUpperCase()}
+                      align="left"
+                      className={styles.selectedCountryTitle}
+                    />
                   </div>
 
-                  <div className={styles.labelContainer}>
-                    <div className={styles.iconContainer}>
-                      <Location />
+                  {/* Container 2: Below 3 Contact Points */}
+                  <div className={styles.contactDetailsRow}>
+                    <div className={styles.labelContainer}>
+                      <div className={styles.iconContainer}>
+                        <Email />
+                      </div>
+                      <p className={styles.contactDetailText}>
+                        {formCountry.office.email}
+                      </p>
                     </div>
-                    <p className={styles.contactDetailText}>
-                      {(formCountry.office as any).location || '123,street road, near tower,1453755'}
-                    </p>
-                  </div>
 
-                  <div className={styles.labelContainer}>
-                    <div className={styles.iconContainer}>
-                      <Phone />
+                    <div className={`${styles.labelContainer} ${styles.locationContainer}`}>
+                      <div className={styles.iconContainer}>
+                        <Location />
+                      </div>
+                      <p className={styles.contactDetailText}>
+                        {formCountry.office.address || formCountry.description}
+                      </p>
                     </div>
-                    <p className={styles.contactDetailText}>
-                      {formCountry.office.phone}
-                    </p>
+
+                    <div className={styles.labelContainer}>
+                      <div className={styles.iconContainer}>
+                        <Phone />
+                      </div>
+                      <p className={styles.contactDetailText}>
+                        {formCountry.office.phone}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
           <div className={styles.rightContainer}>
@@ -248,7 +247,25 @@ export const ContactUsSection = ({
           <div className={styles.globeSectionContainer}>
             <div className={styles.globeLeftContainer}>
               <p className={styles.globeLabel}>Contact Us</p>
-              <h2 className={styles.globeTitle}>Lets fire up your business!</h2>
+              <h2 className={styles.globeTitle}>
+                Lets fire up your{' '}
+                <span className={styles.businessHighlight}>
+                  business!
+                  <svg
+                    className={styles.businessUnderlineSvg}
+                    viewBox="0 0 160 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 8C45 2 115 2 157 8"
+                      stroke="#EB7C0D"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
+              </h2>
               <p className={styles.globeSubtitle}>
                 Team up with us today for an unforgettable experience
               </p>

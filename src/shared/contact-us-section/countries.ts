@@ -1,12 +1,10 @@
 import India from "./assets/countries/india.svg?url";
 import Spain from "./assets/countries/spain.svg?url";
-import Equador from "./assets/countries/ecuador.svg?url";
-import Brazil from "./assets/countries/brazil.svg?url";
-import Peru from "./assets/countries/peru.svg?url";
 import USA from "./assets/countries/usa.svg?url";
-import Mexico from "./assets/countries/mexico.svg?url";
-import Argentina from "./assets/countries/argentina.svg?url";
+import PuertoRico from "./assets/countries/puerto-rico.svg?url";
+import Equador from "./assets/countries/ecuador.svg?url";
 import Colombia from "./assets/countries/colombia.svg?url";
+import Mexico from "./assets/countries/mexico.svg?url";
 
 export const countries = [
   {
@@ -15,13 +13,15 @@ export const countries = [
     coordinates: [30.7046, 76.7179],
     title: 'India',
     description:
-      'Asha Tower, Phase 8B, Industrial Area, Sector 75, Sahibzada Ajit Singh Nagar (Mohali), Punjab 160055',
+      'Asha Tower, Phase 8B, Industrial Area, Sector 75, SAS Nagar (Mohali), Punjab 160055',
     isActive: true,
     icon: India,
     idx: 0,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
+      address:
+        'Asha Tower, Phase 8B, Industrial Area, Sector 75, SAS Nagar (Mohali), Punjab 160055',
     },
   },
 
@@ -37,36 +37,39 @@ export const countries = [
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
+      address: 'C. Isabel Torres, 21, 39011. Santander, Cantabria, Spain',
     },
   },
 
   {
-    markerOffset: 35,
-    name: 'Spain (Barcelona)',
-    coordinates: [41.3851, 2.1734],
-    title: 'Spain Barcelona',
-    description: 'Passeig García i Faria, 29, 08005. Barcelona, Spain',
+    markerOffset: -15,
+    name: 'USA',
+    coordinates: [40.7069, -74.009],
+    title: 'USA',
+    description: '30 Wall Street 8th Floor, New York, NY 10005, USA',
     isActive: false,
-    icon: Spain,
+    icon: USA,
     idx: 2,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
+      address: '30 Wall Street 8th Floor, New York, NY 10005, USA',
     },
   },
 
   {
-    markerOffset: 40,
-    name: 'Brazil',
-    coordinates: [-27.5954, -48.548],
-    title: 'Brazil',
-    description: 'R. Vento Sul, 126 - Campeche Leste, 88063-070. Florianópolis, Brazil',
+    markerOffset: -10,
+    name: 'Puerto Rico',
+    coordinates: [18.4724, -66.7157],
+    title: 'Puerto Rico',
+    description: 'Road 658 Km 1.0 Bo. Arenalejos Sector Palaches Arecibo, PR',
     isActive: false,
-    icon: Brazil,
+    icon: PuertoRico,
     idx: 3,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
+      address: 'Road 658 Km 1.0 Bo. Arenalejos Sector Palaches Arecibo, PR',
     },
   },
 
@@ -83,21 +86,7 @@ export const countries = [
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
-    },
-  },
-
-  {
-    markerOffset: 35,
-    name: 'Peru',
-    coordinates: [-12.0464, -74.0428],
-    title: 'Peru',
-    description: 'Jr. Chimucápac 163, Santiago de Surco 15038, Peru',
-    isActive: false,
-    icon: Peru,
-    idx: 5,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
+      address: 'Geronimo Aviles y Miguel H. Alcivar, 090512. Guayaquil, Ecuador',
     },
   },
 
@@ -109,25 +98,11 @@ export const countries = [
     description: 'Calle 40, Nº26A-08, CP 111311, Bogotá - Colombia',
     isActive: false,
     icon: Colombia,
-    idx: 6,
+    idx: 5,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
-    },
-  },
-
-  {
-    markerOffset: -15,
-    name: 'USA',
-    coordinates: [40.7069, -74.009],
-    title: 'USA',
-    description: '30 Wall Street 8th Floor, New York, NY 10005, USA',
-    isActive: false,
-    icon: USA,
-    idx: 7,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
+      address: 'Calle 40, Nº26A-08, CP 111311, Bogotá - Colombia',
     },
   },
 
@@ -139,25 +114,11 @@ export const countries = [
     description: 'Wisconsin 38, Col. Ampliación Nápoles, Benito Juárez, CP 03810, Mexico',
     isActive: false,
     icon: Mexico,
-    idx: 8,
+    idx: 6,
     office: {
       email: 'admin@zenmonk.tech',
       phone: '+91 9012345678',
-    },
-  },
-
-  {
-    markerOffset: -15,
-    name: 'Argentina',
-    coordinates: [-34.5958, -58.4172],
-    title: 'Argentina',
-    description: 'Bulnes Nº 1142, Floor 4. C1176ABV, Argentina',
-    isActive: false,
-    icon: Argentina,
-    idx: 9,
-    office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
+      address: 'Wisconsin 38, Col. Ampliación Nápoles, Benito Juárez, CP 03810, Mexico',
     },
   },
 ]

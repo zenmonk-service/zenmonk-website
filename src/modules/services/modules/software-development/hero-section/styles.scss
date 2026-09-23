@@ -13,18 +13,24 @@
 
   @media screen and (max-width: 800px) {
     div[class*="hero-section_section"] {
-      padding-top: 70px !important;
+      padding-top: 110px !important;
       padding-bottom: 40px !important;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    div[class*="hero-section_section"] {
-      padding-top: 30px !important;
     }
 
     div[class*="hero-section_imageContainer"] {
-      margin-top: 16px !important;
+      margin-top: 10px !important;
+      margin-bottom: 30px !important;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    div[class*="hero-section_section"] {
+      padding-top: 115px !important;
+      padding-bottom: 32px !important;
+    }
+
+    div[class*="hero-section_imageContainer"] {
+      margin-top: 10px !important;
       margin-bottom: 24px !important;
     }
   }
@@ -49,14 +55,7 @@
 
   @media screen and (min-width: 768px) and (max-width: 850px) {
     div[class*="hero-section_section"] {
-      padding-top: 110px !important;
-    }
-  }
-
-  @media (max-width: 768px) {
-    div[class*="hero-section_imageContainer"] {
-      margin-top: 30px;
-      margin-bottom: 30px;
+      padding-top: 120px !important;
     }
   }
 }
