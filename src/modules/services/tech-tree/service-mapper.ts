@@ -1,6 +1,15 @@
 import React from 'react'
+import { AiSolutionsTreeIcons } from './ai-solutions.icon'
+import { CloudDevelopmentTreeIcons } from './cloud-development.icon'
+import { CustomAppDevelopmentTreeIcons } from './custom-app-development.icon'
 import DevTechTreeBackground from './dev-tree-background'
 import { DevTreeIcons } from './dev-tree.icon'
+import { GrowthMarketingTreeIcons } from './growth-marketing.icon'
+import { IndustryTreeIcons } from './industry-tree.icon'
+import { ItBusinessConsultantsTreeIcons } from './it-business-consultants.icon'
+import { ItTrainingTreeIcons } from './it-training.icon'
+import { ProductDevelopmentTreeIcons } from './product-development.icon'
+import { SoftwareDevelopmentTreeIcons } from './software-development.icon'
 import UiTechTreeBackground from './ui-tree-background/ui-tech-tree-background'
 import { UITreeIcons } from './ui-tree.icon'
 
@@ -20,7 +29,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Engineering',
         description:
           'We architect robust, scalable software solutions engineered to solve mission-critical business challenges. Our modern engineering practices streamline deployment lifecycles, enforce ironclad security protocols, and build high-throughput backends. By harnessing modern tech ecosystems, we empower enterprises to build reliable digital foundations that scale effortlessly with growing user demands.',
-        treeIcons: DevTreeIcons,
+        treeIcons: SoftwareDevelopmentTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -31,7 +40,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Marketing',
         description:
           'We pioneer data-driven digital marketing ecosystems that turn online visibility into measurable revenue acceleration. Our holistic growth strategies combine predictive audience analytics, high-converting creative funnels, and precision multi-channel campaigns. By leveraging modern marketing automation, we empower businesses to maximize ROI and achieve sustainable brand leadership.',
-        treeIcons: DevTreeIcons,
+        treeIcons: GrowthMarketingTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -41,7 +50,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Development',
         description:
           'We build intuitive, high-performance mobile and web applications tailored to unique enterprise and customer needs. From cross-platform native architectures to responsive web portals, our engineering ensures blazing speed, fluid interactions, and rock-solid stability. We help organizations convert visionary ideas into engaging digital products that delight users and drive real adoption.',
-        treeIcons: DevTreeIcons,
+        treeIcons: CustomAppDevelopmentTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -52,7 +61,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Upskilling',
         description:
           'We bridge technological skill gaps through immersive, hands-on corporate training programs and technical workshops. Our industry veteran mentors guide engineering teams through modern frameworks, DevOps pipelines, and cloud-native architectures. By simulating real-world production challenges, we empower professionals to build cutting-edge competencies and drive technical excellence.',
-        treeIcons: DevTreeIcons,
+        treeIcons: ItTrainingTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -62,7 +71,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Innovation',
         description:
           'We turn ambitious product visions into market-ready digital realities through disciplined end-to-end product development. From initial MVP discovery to full-scale enterprise launch, our multidisciplinary teams integrate agile methodologies, user feedback loops, and robust engineering. We help brands launch transformative products that capture market share and deliver lasting commercial impact.',
-        treeIcons: DevTreeIcons,
+        treeIcons: ProductDevelopmentTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -73,7 +82,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Solutions',
         description:
           'We engineer bespoke digital solutions crafted specifically for complex industry verticals, including healthcare, fintech, and retail. Our deep domain expertise ensures seamless compliance with strict regulatory mandates while modernizing legacy operational workflows. We equip enterprises with tailored tech architectures that boost operational resilience and competitive advantage.',
-        treeIcons: DevTreeIcons,
+        treeIcons: IndustryTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -84,7 +93,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Intelligence',
         description:
           'We unleash the transformative power of artificial intelligence and machine learning to build next-generation smart applications. Our engineers deploy custom LLMs, computer vision algorithms, and predictive analytics models seamlessly into production pipelines. We empower organizations to automate complex tasks, extract actionable insights, and unlock unprecedented operational efficiency.',
-        treeIcons: DevTreeIcons,
+        treeIcons: AiSolutionsTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -95,7 +104,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Consultation',
         description:
           'We provide visionary technology and strategic advisory that bridges the gap between digital potential and executive business goals. Our seasoned consultants evaluate architectural maturity, optimize IT expenditure, and craft comprehensive transformation roadmaps. We guide leadership teams to navigate technological disruption and build agile, future-proof organizations.',
-        treeIcons: DevTreeIcons,
+        treeIcons: ItBusinessConsultantsTreeIcons,
         background: DevTechTreeBackground,
       }
 
@@ -105,7 +114,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
         markText: 'Infrastructure',
         description:
           'We architect elastic, resilient cloud ecosystems designed for maximum uptime, high security, and seamless scalability. Our certified architects specialize in multi-cloud migrations, microservices containerization, and automated Kubernetes orchestration. We help enterprises optimize cloud expenditure, enhance disaster recovery, and accelerate software deployment velocity.',
-        treeIcons: DevTreeIcons,
+        treeIcons: CloudDevelopmentTreeIcons,
         background: DevTechTreeBackground,
       }
 

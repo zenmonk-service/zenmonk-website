@@ -1,23 +1,23 @@
 export const quickLink = [
   {
     id: 1,
+    title: 'Home',
+    link: '/',
+  },
+  {
+    id: 2,
     title: 'About Us',
     link: '/about-us',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Career',
     link: '/careers',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Why Choose Us',
     link: '/about-us#why-choose-us',
-  },
-  {
-    id: 4,
-    title: 'Services',
-    link: '/services/software-development',
   },
   {
     id: 5,
@@ -25,4 +25,3 @@ export const quickLink = [
     link: '/contact',
   },
 ]
-
