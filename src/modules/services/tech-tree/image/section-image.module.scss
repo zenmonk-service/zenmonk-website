@@ -29,13 +29,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: treeFloat 4s ease-in-out infinite;
 }
 
-@keyframes treeFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(4deg); }
-}
 
 @media screen and (max-width: 700px) {
   .sectionImageContainer{

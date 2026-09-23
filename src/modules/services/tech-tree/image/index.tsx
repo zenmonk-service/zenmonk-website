@@ -10,45 +10,44 @@ const getSize = (size: string, padding?: string): CSSProperties => {
   switch (size) {
     case 'top':
       return {
-        width: '13%',
-        top: '-10%',
-        left: '32%',
-        padding: padding || 'max(6px, 0.4vw)',
+        width: '14%',
+        top: '-3%',
+        left: '38%',
+        padding: padding || 'max(6px, 0.45vw)',
       }
     case 'top-leaf':
       return {
-        width: '17%',
-        top: '-2%',
-        right: '34%',
-        padding: padding || 'max(8px, 0.833vw)',
+        width: '18%',
+        top: '4%',
+        right: '24%',
+        padding: padding || 'max(8px, 0.8vw)',
       }
     case 'top-leaf-right':
       return {
-        width: '12%',
-        top: '15%',
-        right: '30%',
+        width: '14%',
+        top: '21%',
+        right: '20%',
         padding: padding || 'max(6px, 0.4vw)',
       }
     case 'bottom-right-leaf':
       return {
-        width: '23%',
-        height: '18.8%',
+        width: '19%',
         top: '36%',
-        right: '5%',
-        padding: padding || 'max(12px, 1.2vw)',
+        right: '7%',
+        padding: padding || 'max(10px, 1.0vw)',
       }
     case 'bottom-left-leaf':
       return {
-        width: '18%',
-        bottom: '32%',
-        left: '0',
+        width: '18.5%',
+        bottom: '31%',
+        left: '4%',
         padding: padding || 'max(8px, 0.833vw)',
       }
     case 'top-left-leaf':
       return {
         width: '18%',
         top: '24%',
-        left: '15%',
+        left: '17%',
         padding: padding || 'max(8px, 0.833vw)',
       }
     case 'bottom-filler-leaf':
@@ -67,17 +66,17 @@ const getSize = (size: string, padding?: string): CSSProperties => {
       }
     case 'top-filler-leaf':
       return {
-        width: '11%',
-        top: '10%',
-        left: '25%',
-        padding: padding || 'max(6px, 0.72vw)',
+        width: '10.5%',
+        top: '18%',
+        left: '35%',
+        padding: padding || 'max(5px, 0.4vw)',
       }
     case 'top-left-filler-leaf':
       return {
-        width: '12%',
-        top: '0',
-        left: '8%',
-        padding: padding || 'max(10px, 0.833vw)',
+        width: '13%',
+        top: '12%',
+        left: '17%',
+        padding: padding || 'max(8px, 0.7vw)',
       }
     case 'bottom-left-filler-leaf':
       return {
@@ -112,6 +111,7 @@ interface SectionImageProps {
     label: string
     padding?: string
     backgroundColor: string
+    style?: CSSProperties
   }[]
 }
 
@@ -151,6 +151,7 @@ const SectionImage = ({ data }: SectionImageProps) => {
               className={styles.nodeWrapper}
               style={{
                 ...positionStyles,
+                ...item.style,
                 opacity: currentOpacity,
                 transform: `translateY(${currentTranslateY})`,
                 transitionDelay: `${delay}s`,
@@ -166,12 +167,7 @@ const SectionImage = ({ data }: SectionImageProps) => {
                   padding: padding,
                 }}
               >
-                <div
-                  className={styles.floatWrapper}
-                  style={{
-                    animationDelay: `${delay}s`
-                  }}
-                >
+                <div className={styles.floatWrapper}>
                   {item.icon ? <item.icon /> : <></>}
                 </div>
               </div>
