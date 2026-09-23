@@ -533,14 +533,15 @@
 .businessUnderlineSvg {
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 100%;
-  height: max(6px, 0.4vw);
+  height: max(10px, 0.65vw);
   pointer-events: none;
   overflow: visible;
 
   @media screen and (min-width: 831px) {
-    bottom: -0.35vw;
+    bottom: -0.45vw;
+    height: max(10px, 0.65vw);
   }
 }
 

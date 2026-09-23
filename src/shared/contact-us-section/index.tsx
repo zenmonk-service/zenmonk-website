@@ -253,14 +253,15 @@ export const ContactUsSection = ({
                   business!
                   <svg
                     className={styles.businessUnderlineSvg}
-                    viewBox="0 0 160 12"
+                    viewBox="0 0 200 16"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none"
                   >
                     <path
-                      d="M3 8C45 2 115 2 157 8"
+                      d="M2 10C55 3 145 3 198 10"
                       stroke="#EB7C0D"
-                      strokeWidth="3"
+                      strokeWidth="5"
                       strokeLinecap="round"
                     />
                   </svg>

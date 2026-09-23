@@ -28,5 +28,10 @@
       color: #eb7c0d !important;
       opacity: 0.9 !important;
     }
+
+    &.active {
+      color: #eb7c0d !important;
+      font-weight: 500;
+    }
   }
 }

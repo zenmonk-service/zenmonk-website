@@ -11,12 +11,14 @@ const ListItem = ({ text, link }: { text: string; link?: string }) => {
   const pathname = usePathname()
   const dispatch = useAppDispatch()
 
+  const isActive = Boolean(link && pathname === link)
+
   return (
     <div className={styles.listItemContainer}>
       {link ? (
         <Link
           href={link}
-          className={`${styles.listItem} ${styles.linkItem}`}
+          className={`${styles.listItem} ${styles.linkItem} ${isActive ? styles.active : ''}`}
           prefetch={true}
           onClick={(e) => {
             if (pathname === link) {
