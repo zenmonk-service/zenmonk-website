@@ -63,6 +63,6 @@ export const AiSolutionsTreeIcons = [
     label: 'AI & ML',
     backgroundColor: '#D5D5D5',
     padding: 'max(6px, 0.45vw)',
-    style: { left: '23%' },
+    style: { left: '23%', width: '10.5%' },
   },
 ]
