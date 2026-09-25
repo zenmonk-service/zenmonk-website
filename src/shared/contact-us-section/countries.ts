@@ -35,8 +35,6 @@ export const countries = [
     icon: Spain,
     idx: 1,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: 'C. Isabel Torres, 21, 39011. Santander, Cantabria, Spain',
     },
   },
@@ -51,8 +49,6 @@ export const countries = [
     icon: USA,
     idx: 2,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: '30 Wall Street 8th Floor, New York, NY 10005, USA',
     },
   },
@@ -67,8 +63,6 @@ export const countries = [
     icon: PuertoRico,
     idx: 3,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: 'Road 658 Km 1.0 Bo. Arenalejos Sector Palaches Arecibo, PR',
     },
   },
@@ -84,8 +78,6 @@ export const countries = [
     icon: Equador,
     idx: 4,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: 'Geronimo Aviles y Miguel H. Alcivar, 090512. Guayaquil, Ecuador',
     },
   },
@@ -100,8 +92,6 @@ export const countries = [
     icon: Colombia,
     idx: 5,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: 'Calle 40, Nº26A-08, CP 111311, Bogotá - Colombia',
     },
   },
@@ -116,8 +106,6 @@ export const countries = [
     icon: Mexico,
     idx: 6,
     office: {
-      email: 'admin@zenmonk.tech',
-      phone: '+91 9012345678',
       address: 'Wisconsin 38, Col. Ampliación Nápoles, Benito Juárez, CP 03810, Mexico',
     },
   },

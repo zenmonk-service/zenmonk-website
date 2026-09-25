@@ -96,10 +96,10 @@
 
 .formCountryDetailsWrapper {
   width: 100%;
-  min-height: max(75px, 5vw);
+  min-height: max(165px, 11vw);
 
   @media screen and (max-width: 830px) {
-    min-height: 80px;
+    min-height: 180px;
   }
 }
 
@@ -145,6 +145,12 @@
   color: #696969 !important;
   font-size: max(14px, 0.9vw);
   line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #eb7c0d !important;
+  }
 
   @media screen and (min-width: 600px) and (max-width: 799px) {
     text-align: center;
@@ -218,14 +224,15 @@
   }
 
   &.locationContainer {
-    align-items: center;
+    align-items: flex-start;
 
     .iconContainer {
       flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .contactDetailText {
-      min-height: max(20px, 1.2vw);
+      min-height: max(40px, 2.5vw);
     }
   }
 }
@@ -638,11 +645,77 @@
 }
 
 .globeActiveCountryDetails {
-  height: max(130px, 8vw);
+  min-height: max(160px, 10vw);
+  height: max(160px, 10vw);
 
   @media screen and (max-width: 830px) {
+    min-height: 170px;
     height: auto;
     margin-bottom: 8px;
+    text-align: center;
+  }
+}
+
+.globeContactDetailsRow {
+  display: flex;
+  flex-direction: column;
+  gap: max(8px, 0.55vw);
+  margin-top: max(8px, 0.5vw);
+
+  @media screen and (max-width: 830px) {
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.globeDetailItem {
+  display: flex;
+  align-items: flex-start;
+  gap: max(10px, 0.7vw);
+
+  &:first-child {
+    .globeIconContainer {
+      margin-top: 2px;
+    }
+    .globeDetailText {
+      min-height: max(40px, 2.5vw);
+    }
+  }
+
+  @media screen and (max-width: 830px) {
+    justify-content: center;
+  }
+}
+
+.globeIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max(18px, 1.2vw);
+  height: auto;
+  flex-shrink: 0;
+
+  svg {
+    width: max(16px, 1.1vw);
+    height: max(16px, 1.1vw);
+  }
+}
+
+.globeDetailText {
+  margin: 0 !important;
+  font-weight: 500 !important;
+  font-family: 'Poppins', sans-serif !important;
+  color: #666 !important;
+  font-size: max(13px, 0.85vw);
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #eb7c0d !important;
+  }
+
+  @media screen and (max-width: 830px) {
     text-align: center;
   }
 }

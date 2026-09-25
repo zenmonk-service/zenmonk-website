@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import { Location } from '@/assets/icons/contact-us/contact'
+import { Email, Location, Phone } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
 import { SectionDescription, SectionTitle } from '../typography'
 import Polygon from './assets/polygon.svg'
@@ -200,15 +200,51 @@ export const ContactUsSection = ({
                     />
                   </div>
 
-                  {/* Container 2: Country Address */}
+                  {/* Container 2: Country Address & Contact Details */}
                   <div className={styles.contactDetailsRow}>
                     <div className={`${styles.labelContainer} ${styles.locationContainer}`}>
                       <div className={styles.iconContainer}>
                         <Location />
                       </div>
                       <p className={styles.contactDetailText}>
-                        {formCountry.office.address || formCountry.description}
+                        {formCountry.office?.address || formCountry.description}
                       </p>
+                    </div>
+
+                    <div
+                      className={styles.labelContainer}
+                      style={{
+                        visibility: formCountry.office?.email ? 'visible' : 'hidden',
+                        pointerEvents: formCountry.office?.email ? 'auto' : 'none',
+                      }}
+                    >
+                      <div className={styles.iconContainer}>
+                        <Email />
+                      </div>
+                      <a
+                        href={formCountry.office?.email ? `mailto:${formCountry.office.email}` : undefined}
+                        className={styles.contactDetailText}
+                      >
+                        {formCountry.office?.email || 'admin@zenmonk.tech'}
+                      </a>
+                    </div>
+
+                    <div
+                      className={styles.labelContainer}
+                      style={{
+                        visibility: formCountry.office?.phone ? 'visible' : 'hidden',
+                        pointerEvents: formCountry.office?.phone ? 'auto' : 'none',
+                      }}
+                    >
+                      <div className={styles.iconContainer}>
+                        <Phone />
+                      </div>
+                      <a
+                        href={formCountry.office?.phone ? `tel:${formCountry.office.phone.replace(/\s+/g, '')}` : undefined}
+                        className={styles.contactDetailText}
+                      >
+                        {formCountry.office?.phone || '+91 9012345678'}
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -292,9 +328,52 @@ export const ContactUsSection = ({
                     <p className={styles.globeActiveCountryName}>
                       {globeCountry.name}
                     </p>
-                    <p className={styles.globeActiveCountryAddress}>
-                      {globeCountry.description}
-                    </p>
+                    <div className={styles.globeContactDetailsRow}>
+                      <div className={styles.globeDetailItem}>
+                        <div className={styles.globeIconContainer}>
+                          <Location />
+                        </div>
+                        <p className={styles.globeDetailText}>
+                          {globeCountry.office?.address || globeCountry.description}
+                        </p>
+                      </div>
+
+                      <div
+                        className={styles.globeDetailItem}
+                        style={{
+                          visibility: globeCountry.office?.email ? 'visible' : 'hidden',
+                          pointerEvents: globeCountry.office?.email ? 'auto' : 'none',
+                        }}
+                      >
+                        <div className={styles.globeIconContainer}>
+                          <Email />
+                        </div>
+                        <a
+                          href={globeCountry.office?.email ? `mailto:${globeCountry.office.email}` : undefined}
+                          className={styles.globeDetailText}
+                        >
+                          {globeCountry.office?.email || 'admin@zenmonk.tech'}
+                        </a>
+                      </div>
+
+                      <div
+                        className={styles.globeDetailItem}
+                        style={{
+                          visibility: globeCountry.office?.phone ? 'visible' : 'hidden',
+                          pointerEvents: globeCountry.office?.phone ? 'auto' : 'none',
+                        }}
+                      >
+                        <div className={styles.globeIconContainer}>
+                          <Phone />
+                        </div>
+                        <a
+                          href={globeCountry.office?.phone ? `tel:${globeCountry.office.phone.replace(/\s+/g, '')}` : undefined}
+                          className={styles.globeDetailText}
+                        >
+                          {globeCountry.office?.phone || '+91 9012345678'}
+                        </a>
+                      </div>
+                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>

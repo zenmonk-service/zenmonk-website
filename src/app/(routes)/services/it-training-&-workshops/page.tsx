@@ -15,7 +15,7 @@ const ItTrainingAndWorkshopsPage = () => {
       <ItSolutions id={serviceId} />
       <TechnologyTree serviceId={serviceId} />
       <YourIdealChoice serviceId={serviceId} />
-      <BusinessSectors />
+      <BusinessSectors serviceId={serviceId} />
       <DevelopmentProcess />
       <ReadyToTalkShared serviceId={serviceId} />
       <FAQ serviceId={serviceId} />

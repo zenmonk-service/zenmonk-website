@@ -3,10 +3,14 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Typography } from '@mui/material'
-import { sectorsList } from '../sectors-list'
+import { sectorsList as defaultSectorsList } from '../sectors-list'
 import styles from './selectors.module.scss'
 
-const SectorsListDesktop = () => {
+interface SectorsListDesktopProps {
+  sectorsList?: typeof defaultSectorsList
+}
+
+const SectorsListDesktop = ({ sectorsList = defaultSectorsList }: SectorsListDesktopProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [topValue, setTopValue] = useState(0)
 

@@ -4,8 +4,12 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Collapse, Divider } from '@mui/material'
 import ArrowDownward from '../assets/shared/arrow-down.svg'
-import { sectorsList } from '../sectors-list'
+import { sectorsList as defaultSectorsList } from '../sectors-list'
 import styles from './mobile.module.scss'
+
+interface SectorsMobileProps {
+  sectorsList?: typeof defaultSectorsList
+}
 
 const ArrowDown = motion.create(ArrowDownward)
 
@@ -22,7 +26,7 @@ const cardVariants = {
   }),
 }
 
-const SectorsMobile = () => {
+const SectorsMobile = ({ sectorsList = defaultSectorsList }: SectorsMobileProps) => {
   const [indices, setIndices] = useState<number[]>([])
 
   const handleOpen = (index: number) => {

@@ -7,11 +7,18 @@ import { SectionDescription, SectionTitle } from '@/shared/typography'
 import styles from './business-sectors.module.scss'
 import SectorsListDesktop from './desktop'
 import SectorsMobile from './mobile'
+import { getBusinessSectorsData } from './service-mapper'
 
-const BusinessSectors = () => {
+interface BusinessSectorsProps {
+  serviceId?: string
+}
+
+const BusinessSectors = ({ serviceId }: BusinessSectorsProps) => {
   const isMobile = useMediaQuery('(max-width:1020px)')
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  const { title, markText, description, sectorsList: activeSectorsList } = getBusinessSectorsData(serviceId)
 
   const titleVariants = {
     hidden: { 
@@ -60,8 +67,8 @@ const BusinessSectors = () => {
           <div className={styles.businessSectorTitleWrapper}>
             <SectionTitle
               className={styles.businessSectorTitle}
-              text="Empowering Businesses Across Multiple Sectors"  
-              markText="Sectors"
+              text={title}  
+              markText={markText}
             />
           </div>
         </motion.div>
@@ -73,12 +80,15 @@ const BusinessSectors = () => {
         >
           <SectionDescription
             className={styles.businessSectorDescription}
-            text=" We deliver innovative software solutions across industries, empowering
-            businesses to overcome challenges, drive growth, and achieve success"
+            text={description}
           />
         </motion.div>
       </div>
-      {isMobile ? <SectorsMobile /> : <SectorsListDesktop />}
+      {isMobile ? (
+        <SectorsMobile sectorsList={activeSectorsList} />
+      ) : (
+        <SectorsListDesktop sectorsList={activeSectorsList} />
+      )}
     </div>
   )
 }

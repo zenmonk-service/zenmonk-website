@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useMediaQuery } from '@mui/material'
+import { Email, Location, Phone } from '@/assets/icons/contact-us/contact'
 import { countries } from '@/shared/contact-us-section/countries'
 import { SectionTitle } from '@/shared/typography'
 import GlobeShadowImg from "./globe-shadow.svg?url"
@@ -157,7 +158,52 @@ export default function GlobeSection() {
               transition={{ duration: 0.4 }}
             >
               <p className="country-name">{country.name}</p>
-              <p className="country-address">{country.description}</p>
+              <div className="country-contact-details">
+                <div className="contact-detail-item">
+                  <div className="contact-icon">
+                    <Location />
+                  </div>
+                  <p className="contact-text">
+                    {country.office?.address || country.description}
+                  </p>
+                </div>
+
+                <div
+                  className="contact-detail-item"
+                  style={{
+                    visibility: country.office?.email ? 'visible' : 'hidden',
+                    pointerEvents: country.office?.email ? 'auto' : 'none',
+                  }}
+                >
+                  <div className="contact-icon">
+                    <Email />
+                  </div>
+                  <a
+                    href={country.office?.email ? `mailto:${country.office.email}` : undefined}
+                    className="contact-text"
+                  >
+                    {country.office?.email || 'admin@zenmonk.tech'}
+                  </a>
+                </div>
+
+                <div
+                  className="contact-detail-item"
+                  style={{
+                    visibility: country.office?.phone ? 'visible' : 'hidden',
+                    pointerEvents: country.office?.phone ? 'auto' : 'none',
+                  }}
+                >
+                  <div className="contact-icon">
+                    <Phone />
+                  </div>
+                  <a
+                    href={country.office?.phone ? `tel:${country.office.phone.replace(/\s+/g, '')}` : undefined}
+                    className="contact-text"
+                  >
+                    {country.office?.phone || '+91 9012345678'}
+                  </a>
+                </div>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
