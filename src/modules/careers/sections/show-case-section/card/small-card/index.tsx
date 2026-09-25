@@ -1,13 +1,12 @@
 import Image from 'next/image'
 import { Box, Typography } from '@mui/material'
-import { Calender } from '../../assets'
 import './styles.scss'
 
 interface SmallShowCardProps {
   cardProps?: {
     details?: {
       image: any
-      date: string
+      date?: string
       title: string
       description: string
     }
@@ -30,12 +29,6 @@ const SmallShowCard = ({ cardProps }: SmallShowCardProps) => {
         )}
       </Box>
       <Box className="event-details">
-        <Box className="event-date">
-          <Image src={Calender} alt="calendar-image" />
-          <Typography component="p" className="date-text">
-            {cardDetails?.date}
-          </Typography>
-        </Box>
         <Box className="event-content-details">
           <Typography component="h1" className="title-text">
             {cardDetails?.title}

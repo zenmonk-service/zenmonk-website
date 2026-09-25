@@ -62,13 +62,12 @@
       gap: 1.56vw;
 
       .title-text {
-        margin-top: 0.99vw;
+        margin-top: 0;
         color: #132427;
         font-family: Poppins;
         font-size: max(16px, 1.15vw) !important;
         font-style: normal;
         font-weight: 600;
-        
       }
 
       .description-text {
@@ -186,7 +185,7 @@
         gap: 8px;
 
         .title-text {
-          margin-top: 16px;
+          margin-top: 0;
           font-size: max(14px, 3.8vw) !important;
         }
 

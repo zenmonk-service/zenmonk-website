@@ -1,12 +1,11 @@
 import Image from 'next/image'
-import { Calender } from '../../assets'
 import './styles.scss'
 
 interface BigShowCaseCardProps {
   cardProps?: {
     details?: {
       image: any
-      date: string
+      date?: string
       title: string
       description: string
     }
@@ -29,10 +28,6 @@ const BigShowCaseCard = ({ cardProps }: BigShowCaseCardProps) => {
         )}
       </div>
       <div className="event-details">
-        <div className="event-date">
-          <Image src={Calender} alt="calendar-image" />
-          <p className="date-text">{cardDetails?.date}</p>
-        </div>
         <div className="event-content-details">
           <h1 className="title-text">{cardDetails?.title}</h1>
           <p className="description-text">{cardDetails?.description}</p>
