@@ -59,10 +59,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 !important;
-  width: max(796px, 37.5vw);
+  width: max(796px, 41.46vw);
   padding: max(40px, 2.0833vw);
   background-color: #fff;
-  border-radius: max(0.625vw, 12px);
+  border-radius: max(12px, 0.625vw);
   position: relative;
   box-sizing: border-box;
   z-index: 100002;
@@ -79,8 +79,7 @@
     width: 92vw;
     max-height: 100vh;
     overflow-y: auto;
-    padding: 0.625vw;
-    /* 12px */
+    padding: max(12px, 0.625vw);
   }
 }
 
@@ -92,12 +91,12 @@
 
 @media (min-width: 625px) and (max-width: 900px) {
   .servicesMenuContainer {
-    padding: 40px;
+    padding: max(40px, 2.0833vw);
     min-width: 780px;
   }
 }
 
 .servicesMenuPopover {
-  margin-top: 12px;
+  margin-top: max(12px, 0.625vw);
   z-index: 100002 !important;
 }

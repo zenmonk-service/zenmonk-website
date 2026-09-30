@@ -75,7 +75,7 @@ const ServiceLink = (props: Props) => {
           paper: {
             elevation: 0,
             style: {
-              borderRadius: '0.53vw',
+              borderRadius: 'max(12px, 0.625vw)',
               boxShadow: '0.10vw 0.21vw 2.20vw rgba(19, 103, 109, 0.14)',
               zIndex: 100002,
             },

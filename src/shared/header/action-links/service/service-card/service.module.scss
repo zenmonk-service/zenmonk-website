@@ -1,10 +1,10 @@
 .serviceCard {
   display: flex;
-  padding: 1vw;
+  padding: max(12px, 1vw);
   align-items: flex-start;
-  gap: 0.83vw;
-  border-radius: 0.41vw;
-  margin-right: 32px;
+  gap: max(12px, 0.83vw);
+  border-radius: max(6px, 0.41vw);
+  margin-right: max(20px, 1.67vw);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -47,28 +47,31 @@
 
 @media (min-width: 625px) and (max-width: 900px) {
   .serviceCard {
-    padding: 1vw;
-    gap: 2vw;
+    padding: max(12px, 1vw);
+    gap: max(16px, 2vw);
   }
 }
 
 .serviceCardIcon {
-  width: 52px;
-  height: 52px;
-  min-width: 52px;
-  min-height: 52px;
+  width: max(52px, 2.71vw);
+  height: max(52px, 2.71vw);
+  min-width: max(52px, 2.71vw);
+  min-height: max(52px, 2.71vw);
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 14px;
+  border-radius: max(14px, 0.73vw);
   box-sizing: border-box;
 
   svg {
-    width: 26px;
-    height: 26px;
+    width: max(26px, 1.35vw);
+    height: max(26px, 1.35vw);
+    min-width: max(26px, 1.35vw);
+    min-height: max(26px, 1.35vw);
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    flex-shrink: 0;
   }
 }
