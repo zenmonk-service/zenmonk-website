@@ -2,7 +2,7 @@
 
 import { Poppins, Montserrat, Inter, Satisfy, Potta_One } from 'next/font/google'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import { useEffect, useState, Suspense } from 'react'
+import { useEffect, useState, Suspense, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import FlashScreen from '@/modules/home/flash-screen'
 import StoreProvider from '@/store/store-provider'
@@ -56,33 +56,64 @@ export default function FlashScreenLayout({
   const [showFlashScreen, setShowFlashScreen] = useState(true)
   const pathname = usePathname()
 
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual'
-    }
-  }, [])
+  const isPopStateRef = useRef(false)
 
   useEffect(() => {
+    const handlePopState = () => {
+      isPopStateRef.current = true
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
+  // Immediately reset scroll when an internal navigation link is clicked.
+  // This ensures the document scroll position is 0 before the page DOM shrinks,
+  // preventing Firefox's layout engine from clamping the old scroll offset to the new page.
+  useEffect(() => {
+    const handleLinkClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement)?.closest?.('a[href]') as HTMLAnchorElement | null
+      if (!anchor) return
+
+      const href = anchor.getAttribute('href')
+      if (!href) return
+
+      if (
+        anchor.target === '_blank' ||
+        anchor.hasAttribute('download') ||
+        e.ctrlKey || e.metaKey || e.shiftKey || e.altKey
+      ) return
+
+      try {
+        const url = new URL(anchor.href, window.location.href)
+        if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+          window.scrollTo(0, 0)
+          if (document.documentElement) document.documentElement.scrollTop = 0
+          if (document.body) document.body.scrollTop = 0
+        }
+      } catch {
+        // ignore invalid urls
+      }
+    }
+
+    document.addEventListener('click', handleLinkClick, { capture: true })
+    return () => document.removeEventListener('click', handleLinkClick, { capture: true })
+  }, [])
+
+  // On client route changes (not back/forward), ensure page starts at the top
+  useEffect(() => {
+    if (isPopStateRef.current) {
+      isPopStateRef.current = false
+      return
+    }
+
     const resetScroll = () => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+      if (typeof window === 'undefined') return
+      window.scrollTo(0, 0)
       if (document.documentElement) document.documentElement.scrollTop = 0
       if (document.body) document.body.scrollTop = 0
     }
 
     resetScroll()
-    const frameId = requestAnimationFrame(resetScroll)
-    const t1 = setTimeout(resetScroll, 50)
-    const t2 = setTimeout(resetScroll, 150)
-    const t3 = setTimeout(resetScroll, 350)
-    const t4 = setTimeout(resetScroll, 600)
-
-    return () => {
-      cancelAnimationFrame(frameId)
-      clearTimeout(t1)
-      clearTimeout(t2)
-      clearTimeout(t3)
-      clearTimeout(t4)
-    }
   }, [pathname, showFlashScreen])
 
   useEffect(() => {
@@ -96,16 +127,6 @@ export default function FlashScreenLayout({
     localStorage.setItem('zenmonk_visited', 'true')
     setShowFlashScreen(false)
   }
-
-  const [showFooter, setShowFooter] = useState(false)
-
-  useEffect(() => {
-    setShowFooter(false)
-    const timer = setTimeout(() => {
-      setShowFooter(true)
-    }, 150)
-    return () => clearTimeout(timer)
-  }, [pathname])
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -125,7 +146,7 @@ export default function FlashScreenLayout({
                   <main className={pathname?.startsWith('/services') ? 'services-page-wrapper' : undefined}>
                     {children}
                   </main>
-                  {showFooter && <Footer />}
+                  <Footer />
                 </Suspense>
               </>
             </AppRouterCacheProvider>

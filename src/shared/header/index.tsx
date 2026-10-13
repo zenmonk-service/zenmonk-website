@@ -19,15 +19,18 @@ const Navbar = () => {
   const toggleOpen = () => setIsOpen((prev) => !prev)
   const closeMenu = () => setIsOpen(false)
 
-  // Auto-close mobile navbar whenever user navigates
-  useEffect(() => {
-    setIsOpen(false)
-  }, [pathname])
-
   const [hiddenByScroll, setHiddenByScroll] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const [isAtTop, setIsAtTop] = useState(true)
   const { scrollY } = useScroll()
+
+  // Auto-close mobile navbar and reset header visibility state whenever user navigates
+  useEffect(() => {
+    setIsOpen(false)
+    setIsAtTop(true)
+    setHiddenByScroll(false)
+    scrollY.set(0)
+  }, [pathname, scrollY])
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;

@@ -40,6 +40,9 @@ const Footer = () => {
               e.preventDefault()
               return
             }
+            window.scrollTo(0, 0)
+            if (document.documentElement) document.documentElement.scrollTop = 0
+            if (document.body) document.body.scrollTop = 0
             dispatch(toggleLoader(true))
           }}
         >
@@ -75,6 +78,9 @@ const Footer = () => {
               e.preventDefault()
               return
             }
+            window.scrollTo(0, 0)
+            if (document.documentElement) document.documentElement.scrollTop = 0
+            if (document.body) document.body.scrollTop = 0
             dispatch(toggleLoader(true))
           }}
         >

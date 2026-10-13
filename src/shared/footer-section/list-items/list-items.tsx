@@ -26,6 +26,9 @@ const ListItem = ({ text, link }: { text: string; link?: string }) => {
               return
             }
             if (!link.startsWith('#') && !link.includes('#')) {
+              window.scrollTo(0, 0)
+              if (document.documentElement) document.documentElement.scrollTop = 0
+              if (document.body) document.body.scrollTop = 0
               dispatch(toggleLoader(true))
             }
           }}
