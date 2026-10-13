@@ -1,4 +1,5 @@
 import styles from './mobile.module.scss'
+import { COMPANY_COUNT, BUSINESS_COUNT, PROJECT_COUNT } from '@/shared/data/site-data'
 
 const StatisticsMobile = () => {
   return (
@@ -8,20 +9,20 @@ const StatisticsMobile = () => {
           <p className={styles.title}>
             We are always available, no matter the time zone or your location.
           </p>
-          <p className={styles.count}>50+</p>
+          <p className={styles.count}>{COMPANY_COUNT}+</p>
           <p className={styles.description}>
             Companies team power collaboration with Zenmonk
           </p>
         </div>
         <div className={styles.right}>
           <div className={styles.projectCard}>
-            <p className={styles.projectCardCount}>65+</p>
+            <p className={styles.projectCardCount}>{BUSINESS_COUNT}+</p>
             <p className={styles.projectCardDescription}>
               Businesses served by Zenmonk
             </p>
           </div>
           <div className={styles.projectCard}>
-            <p className={styles.projectCardCount}>120+</p>
+            <p className={styles.projectCardCount}>{PROJECT_COUNT}+</p>
             <p className={styles.projectCardDescription}>
               Projects delivered by Zenmonk
             </p>

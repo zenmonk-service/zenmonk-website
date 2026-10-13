@@ -1,6 +1,5 @@
 import Ceinde from './logo-ceinde.svg?url'
 import Citealimenta from './logo-cite.svg?url'
-
 import Cittecam from './logo-cittecam.svg?url'
 import Ct from './logo-ct.svg?url'
 import Cuanza from './logo-cuanza.svg?url'

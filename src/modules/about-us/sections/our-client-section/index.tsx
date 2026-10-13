@@ -14,10 +14,10 @@ export const OurClientSection = memo(() => {
 
   return (
     <Box className="about-us-our-client-section">
-      <SectionTitle markText="Clients" text="Our Clients" />
+      <SectionTitle markText="Clients" text="Collaborators" />
 
       <SectionDescription
-        text="Trusted by institutions and organizations across education, technology, and innovation."
+        text="Technology is best when it brings teams together."
         className="section-description"
       />
 

@@ -3,9 +3,10 @@
 import BaseButton from '@/shared/button'
 import Decorator from './assets/decorator.svg'
 import Image from 'next/image'
-import ExperienceCard from './assets/card_experience.svg'
-import SalaryCard from './assets/card_salary.svg'
-import CultureCard from './assets/card_culture.svg'
+import InnovationCard from './assets/card_innovation.svg'
+import MentorshipCard from './assets/card_mentorship.svg'
+import RemoteCard from './assets/card_remote.svg'
+import FlexibleHoursCard from './assets/card_flexible_hours.svg'
 import styles from './styles.module.scss'
 
 const CareerHeroSection = () => {
@@ -52,20 +53,26 @@ const CareerHeroSection = () => {
               priority
               unoptimized
             />
-            <div className={`${styles.cardWrapper} ${styles.cardExperience}`}>
-              <ExperienceCard className={styles.cardSvg} />
+            <div className={`${styles.cardWrapper} ${styles.cardInnovation}`}>
+              <InnovationCard className={styles.cardSvg} />
               <div className={styles.shineContainer}>
                 <div className={styles.shineLine} />
               </div>
             </div>
-            <div className={`${styles.cardWrapper} ${styles.cardSalary}`}>
-              <SalaryCard className={styles.cardSvg} />
+            <div className={`${styles.cardWrapper} ${styles.cardMentorship}`}>
+              <MentorshipCard className={styles.cardSvg} />
               <div className={styles.shineContainer}>
                 <div className={styles.shineLine} />
               </div>
             </div>
-            <div className={`${styles.cardWrapper} ${styles.cardCulture}`}>
-              <CultureCard className={styles.cardSvg} />
+            <div className={`${styles.cardWrapper} ${styles.cardRemote}`}>
+              <RemoteCard className={styles.cardSvg} />
+              <div className={styles.shineContainer}>
+                <div className={styles.shineLine} />
+              </div>
+            </div>
+            <div className={`${styles.cardWrapper} ${styles.cardFlexibleHours}`}>
+              <FlexibleHoursCard className={styles.cardSvg} />
               <div className={styles.shineContainer}>
                 <div className={styles.shineLine} />
               </div>

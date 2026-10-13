@@ -7,6 +7,7 @@ import Rating from '@/shared/rating'
 import HeroImage from './assets/about.svg'
 import Background from './assets/dotted-bg.svg'
 import styles from './styles.module.scss'
+import { BUSINESS_COUNT, PROJECT_COUNT } from '@/shared/data/site-data'
 
 const AboutUsHeroSection = () => {
   const dispatch = useAppDispatch()
@@ -37,7 +38,7 @@ const AboutUsHeroSection = () => {
         </div>
       </div>
       <div className={styles.ratingWrapper}>
-        <Rating clients="80+" projects="120+" />
+        <Rating clients={` ${BUSINESS_COUNT}+`} projects={` ${PROJECT_COUNT}+`} />
       </div>
     </div>
   )

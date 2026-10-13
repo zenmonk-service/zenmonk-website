@@ -168,7 +168,7 @@
   }
 }
 
-.cardExperience {
+.cardInnovation {
   left: 43.0524%;
   top: 7.4475%;
   width: 16.2818%;
@@ -176,10 +176,10 @@
   animation: floatExperience 4s ease-in-out alternate infinite;
   
   .shineContainer {
-    left: 7.12%;
-    top: 6.04%;
-    width: 85.76%;
-    height: 85.35%;
+    left: 6.861%;
+    top: 15.215%;
+    width: 86.56%;
+    height: 64.25%;
     border-radius: 13.28% / 11.3%;
   }
   
@@ -188,7 +188,7 @@
   }
 }
 
-.cardSalary {
+.cardMentorship {
   left: 48.2343%;
   top: 52.7630%;
   width: 18.0459%;
@@ -197,11 +197,11 @@
   animation-delay: 0.5s;
   
   .shineContainer {
-    left: 6.42%;
-    top: 5.78%;
-    width: 87.15%;
-    height: 85.97%;
-    border-radius: 11.79% / 10.76%;
+    left: 6.55%;
+    top: 9.125%;
+    width: 86.952%;
+    height: 75.54%;
+    border-radius: 14.79% / 12.76%;
   }
   
   .shineLine {
@@ -209,7 +209,7 @@
   }
 }
 
-.cardCulture {
+.cardRemote {
   left: -0.0567%;
   top: 54.7600%;
   width: 17.3843%;
@@ -218,15 +218,36 @@
   animation-delay: 1s;
   
   .shineContainer {
-    left: 6.67%;
-    top: 7.58%;
-    width: 86.66%;
-    height: 81.61%;
-    border-radius: 12.31% / 14.86%;
+    left: 6.01%;
+    top: 3.511%;
+    width: 88.569%;
+    height: 83.61%;
+    border-radius: 10.31% /12.86%;
   }
   
   .shineLine {
     animation-delay: -4s;
+  }
+}
+
+.cardFlexibleHours {
+  left: -2%;
+  top: 14.7600%;
+  width: 17.3843%;
+  height: 21.3111%;
+  animation: floatCulture 5.5s ease-in-out alternate infinite;
+  animation-delay: 1.5s;
+  
+  .shineContainer {
+    left: 7.45%;
+    top: 3.955%;
+    width: 85.46%;
+    height: 85.99%;
+    border-radius: 12.31% / 14.86%;
+  }
+  
+  .shineLine {
+    animation-delay: -6s;
   }
 }
 

@@ -29,8 +29,8 @@ const ClientSatisfactionDesktop = () => {
         <RoadmapSVG />
         {/* Step 1: Sad */}
         <div className="text-overlay text-1">
-          <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#32C5FF', marginBottom: '0.5vw' }}>Previous Work Frustration</h3>
-          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>Facing stagnant growth or poor legacy performance? We diagnose bottlenecks and formulate proactive turn-around roadmaps.</p>
+          <h3 style={{ fontSize: '1.2vw', fontWeight: 700, color: '#32C5FF', marginBottom: '0.5vw' }}>Diagnostic Assessment</h3>
+          <p style={{ fontSize: '0.8vw', color: '#555', lineHeight: '1.4' }}>We identify bottlenecks and technical debt to formulate proactive, high-impact roadmaps.</p>
         </div>
 
         {/* Step 2: Think */}

@@ -2,7 +2,6 @@
 
 import HeroSection from '@/modules/about-us/sections/hero-section'
 import {
-  AwardProofSection,
   BusinessSection,
   ContactUsSection,
   OurClientSection,
@@ -18,7 +17,6 @@ const About = () => {
       <BusinessSection />
       <StandOutSection />
       <WhyChooseUsSection />
-      <AwardProofSection />
       <VisionSection/>
       <OurClientSection />
       <ContactUsSection showFlagsOnly />

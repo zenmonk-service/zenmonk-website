@@ -7,6 +7,7 @@ $hover-bg-light-green: #e9f7ec;
   width: 100%;
   display: flex;
   margin-top: max(80px, 6.25vw);
+  margin-bottom: max(80px, 6.25vw);
   justify-content: space-evenly;
 
   @media screen and (max-width: 1037px) {

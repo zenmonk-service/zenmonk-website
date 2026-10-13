@@ -14,10 +14,10 @@ import styles from './mobile.module.scss'
 const roadmap = [
   {
     Icon: BackgroundBlue,
-    title: 'Previous work dissatisfaction',
+    title: 'Diagnostic Assessment',
     emoji: EmojiSad,
     description:
-      "Want business growth? But, not satisfied with the results. Don't worry! Zenmonk got you all covered with result-driven business strategies.",
+      "We identify bottlenecks and technical debt to formulate proactive, high-impact roadmaps.",
     color: 'linear-gradient(113deg, #4FD0FF 13.16%, #0092FF 88.61%)',
   },
 

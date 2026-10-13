@@ -2,7 +2,7 @@ import { ECommerce, HealthCare, Retail, RealEstate, Education, Sectors } from '.
 
 export const sectorsList = [
   {
-    sector: 'Health Care',
+    sector: 'Healthcare',
     id: 1,
     image: Sectors.HealthCare,
     services: [

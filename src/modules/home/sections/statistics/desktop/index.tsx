@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import CountUp from '@/animations/count-up'
 import SectionWrapper from '@/shared/wrapper'
+import { COMPANY_COUNT, BUSINESS_COUNT, PROJECT_COUNT, TECH_STACK_COUNT, COUNTRY_COUNT } from '@/shared/data/site-data'
 import './styles.scss'
 
 const StatisticsDesktop = () => {
@@ -44,7 +45,7 @@ const StatisticsDesktop = () => {
               <h4 className="teams-number">
                 <CountUp
                   from={0}
-                  to={50}
+                  to={COMPANY_COUNT}
                   separator=","
                   direction="up"
                   duration={1}
@@ -68,7 +69,7 @@ const StatisticsDesktop = () => {
                 <p className="countries-number">
                   <CountUp
                     from={0}
-                    to={65}
+                    to={BUSINESS_COUNT}
                     separator=","
                     direction="up"
                     duration={1}
@@ -82,7 +83,7 @@ const StatisticsDesktop = () => {
                 <p className="companies-number">
                   <CountUp
                     from={0}
-                    to={120}
+                    to={PROJECT_COUNT}
                     separator=","
                     direction="up"
                     duration={1}
@@ -105,7 +106,7 @@ const StatisticsDesktop = () => {
                 <p className="countries-number ">
                   <CountUp
                     from={0}
-                    to={10}
+                    to={TECH_STACK_COUNT}
                     separator=","
                     direction="up"
                     duration={1}
@@ -113,13 +114,13 @@ const StatisticsDesktop = () => {
                   />
                   +
                 </p>
-                <h3 className="description">Awards received for excellence</h3>
+                <h3 className="description">Tech Stacks</h3>
               </div>
               <div className="companies-section">
                 <p className="companies-number ">
                   <CountUp
                     from={0}
-                    to={10}
+                    to={COUNTRY_COUNT}
                     separator=","
                     direction="up"
                     duration={1}
