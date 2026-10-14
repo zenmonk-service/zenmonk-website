@@ -1,0 +1,157 @@
+.notFoundWrapper {
+    width: 100%;
+    min-height: calc(100dvh - max(80px, 4.17vw));
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.notFoundCard {
+    width: 100%;
+    max-width: 1600px;
+    min-height: 772px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.contentWrapper {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.iconWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.icon {
+    width: 100%;
+    height: 168px;
+    display: block;
+    user-select: none;
+    padding-bottom: 10px;
+}
+
+.title {
+    font-family: "Poppins", sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    size: 32px;
+    height: 48px;
+    color: #424242;
+    text-align: center;
+}
+
+.textWrapper {
+    display: flex;
+    height: 132px;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #757575;
+    text-align: center;
+}
+
+.homeButton {
+    font-family: "Inter", sans-serif;
+    width: fit-content;
+    font-size: 16px;
+    font-weight: 600;
+    height: 20px;
+    color: #fb8c00;
+    text-transform: uppercase;
+    line-height: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    &:hover {
+       text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .notFoundWrapper {
+        min-height: calc(100dvh - 49px);
+        padding: 0px 16px 0px;
+    }
+
+    .notFoundCard {
+        padding: 36px 16px;
+        height: 720px;
+        border-radius: 4px;
+    }
+
+    .iconWrapper {
+        width: 266px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .icon {
+        width: 100%;
+        height: auto;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .homeButton {
+        font-size: 12px;
+    }
+
+    .textWrapper {
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .notFoundWrapper {
+        padding: 12px;
+    }
+
+    .textWrapper {
+        height: 120px;
+    }
+
+    .notFoundCard {
+        padding: 28px 12px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}
