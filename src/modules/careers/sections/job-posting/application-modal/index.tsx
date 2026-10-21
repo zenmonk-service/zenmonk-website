@@ -244,6 +244,15 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
     }
   }
 
+  const onInvalid = () => {
+    if (!selectedFile) {
+      setError('resume', {
+        type: 'manual',
+        message: 'Resume is required'
+      })
+    }
+  }
+
   const getTextFieldStyles = () => ({
     '& .MuiOutlinedInput-root': {
       borderRadius: isMobile ? '8px' : 'max(8px, 0.42vw)',
@@ -280,7 +289,8 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
         borderColor: '#F69333'
       },
       '&.Mui-error fieldset': {
-        borderColor: '#d32f2f'
+        borderColor: '#d32f2f',
+        borderWidth: '1px',
       },
       '&.Mui-disabled': {
         opacity: 0.7,
@@ -341,483 +351,483 @@ const ApplicationModal = ({ open, onClose, jobTitle, jobId }: ApplicationModalPr
   return (
     <>
       <Dialog
-      open={open}
-      onClose={handleClose}
-      TransitionProps={{
-        onExited: handleExited,
-      }}
-      disableScrollLock={true}
-      disableRestoreFocus={true}
-      disableAutoFocus={true}
-      sx={{
-        zIndex: 200000,
-        '& .MuiDialog-container': {
-          p: isMobile ? 0 : 'max(24px, 1.5vw)',
-          alignItems: isMobile ? 'stretch' : 'center',
-          scrollbarWidth: 'none !important',
-          msOverflowStyle: 'none !important',
-          '&::-webkit-scrollbar': {
-            display: 'none !important',
-            width: '0 !important',
-            height: '0 !important',
-          },
-        },
-      }}
-      fullScreen={isMobile}
-      maxWidth={false}
-      fullWidth
-      PaperProps={{
-        sx: {
-          maxWidth: isMobile ? '100%' : 'max(550px, 28.65vw)',
-          maxHeight: isMobile ? '100%' : 'calc(100vh - max(110px, 6.5vw))',
-          borderRadius: isMobile ? 0 : 'max(16px, 0.83vw)',
-          padding: isMobile ? '16px' : 'max(24px, 1.25vw)',
-          background: '#fff',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-          scrollbarWidth: 'none !important',
-          msOverflowStyle: 'none !important',
-          '&::-webkit-scrollbar': {
-            display: 'none !important',
-            width: '0 !important',
-            height: '0 !important',
-          },
-        }
-      }}
-    >
-      <DialogTitle
+        open={open}
+        onClose={handleClose}
+        TransitionProps={{
+          onExited: handleExited,
+        }}
+        disableScrollLock={true}
+        disableRestoreFocus={true}
+        disableAutoFocus={true}
         sx={{
-          p: 0,
-          flexShrink: 0,
-          mb: submitSuccess ? 0 : (isMobile ? '16px' : 'max(16px, 1.0vw)'),
-          display: 'flex',
-          justifyContent: submitSuccess ? 'flex-end' : 'space-between',
-          alignItems: 'center'
+          zIndex: 200000,
+          '& .MuiDialog-container': {
+            p: isMobile ? 0 : 'max(24px, 1.5vw)',
+            alignItems: isMobile ? 'stretch' : 'center',
+            scrollbarWidth: 'none !important',
+            msOverflowStyle: 'none !important',
+            '&::-webkit-scrollbar': {
+              display: 'none !important',
+              width: '0 !important',
+              height: '0 !important',
+            },
+          },
+        }}
+        fullScreen={isMobile}
+        maxWidth={false}
+        fullWidth
+        PaperProps={{
+          sx: {
+            maxWidth: isMobile ? '100%' : 'max(550px, 28.65vw)',
+            maxHeight: isMobile ? '100%' : 'calc(100vh - max(110px, 6.5vw))',
+            borderRadius: isMobile ? 0 : 'max(16px, 0.83vw)',
+            padding: isMobile ? '16px' : 'max(24px, 1.25vw)',
+            background: '#fff',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            scrollbarWidth: 'none !important',
+            msOverflowStyle: 'none !important',
+            '&::-webkit-scrollbar': {
+              display: 'none !important',
+              width: '0 !important',
+              height: '0 !important',
+            },
+          }
         }}
       >
-        {!submitSuccess && (
-          <Box>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 700,
-                color: '#111827',
-                fontFamily: 'Poppins',
-                fontSize: isMobile ? '20px' : 'max(24px, 1.25vw)'
-              }}
-            >
-              Apply for Position
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                color: '#F69333',
-                fontWeight: 600,
-                fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
-              }}
-            >
-              {submittingJob?.title || jobTitle}
-            </Typography>
-          </Box>
-        )}
-        <IconButton onClick={handleCancel} sx={{ color: '#6B7280' }}>
-          <CloseIcon sx={{ fontSize: isMobile ? '24px' : 'max(24px, 1.25vw)' }} />
-        </IconButton>
-      </DialogTitle>
+        <DialogTitle
+          sx={{
+            p: 0,
+            flexShrink: 0,
+            mb: submitSuccess ? 0 : (isMobile ? '16px' : 'max(16px, 1.0vw)'),
+            display: 'flex',
+            justifyContent: submitSuccess ? 'flex-end' : 'space-between',
+            alignItems: 'center'
+          }}
+        >
+          {!submitSuccess && (
+            <Box>
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: 700,
+                  color: '#111827',
+                  fontFamily: 'Poppins',
+                  fontSize: isMobile ? '20px' : 'max(24px, 1.25vw)'
+                }}
+              >
+                Apply for Position
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  color: '#F69333',
+                  fontWeight: 600,
+                  fontSize: isMobile ? '14px' : 'max(16px, 0.83vw)'
+                }}
+              >
+                {submittingJob?.title || jobTitle}
+              </Typography>
+            </Box>
+          )}
+          <IconButton onClick={handleCancel} sx={{ color: '#6B7280' }}>
+            <CloseIcon sx={{ fontSize: isMobile ? '24px' : 'max(24px, 1.25vw)' }} />
+          </IconButton>
+        </DialogTitle>
 
-      <DialogContent
-        sx={{
-          p: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          flex: 1,
-          minHeight: 0,
-          overflow: 'hidden',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
-          '&::-webkit-scrollbar': { display: 'none', width: 0, height: 0 },
-        }}
-      >
-        {submitSuccess ? (
-          <SuccessMessage
-            jobTitle={submittedApplication?.job_posting?.role || submittingJob?.title || jobTitle}
-            tracking_id={submittedApplication?.tracking_id}
-            onClose={handleCancel}
-          />
-        ) : (
-          <Box
-            component="form"
-            onSubmit={handleSubmit(onSubmit)}
-            className={styles.form}
-            sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, height: '100%', overflow: 'hidden' }}
-          >
-            {error && error !== 'NO_INTERNET' && (
+        <DialogContent
+          sx={{
+            p: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            minHeight: 0,
+            overflow: 'hidden',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            '&::-webkit-scrollbar': { display: 'none', width: 0, height: 0 },
+          }}
+        >
+          {submitSuccess ? (
+            <SuccessMessage
+              jobTitle={submittedApplication?.job_posting?.role || submittingJob?.title || jobTitle}
+              tracking_id={submittedApplication?.tracking_id}
+              onClose={handleCancel}
+            />
+          ) : (
+            <Box
+              component="form"
+              onSubmit={handleSubmit(onSubmit, onInvalid)}
+              className={styles.form}
+              sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, height: '100%', overflow: 'hidden' }}
+            >
+              {error && error !== 'NO_INTERNET' && (
+                <Box
+                  sx={{
+                    flexShrink: 0,
+                    mb: isMobile ? '16px' : '1.04vw',
+                    p: isMobile ? '16px' : '1.04vw',
+                    bgcolor: '#FEE2E2',
+                    borderRadius: isMobile ? '8px' : '0.42vw',
+                    border: isMobile ? '1px solid #FCA5A5' : '0.05vw solid #FCA5A5'
+                  }}
+                >
+                  <Typography
+                    sx={{
+                      color: '#DC2626',
+                      fontSize: isMobile ? '14px' : '0.73vw',
+                      fontFamily: 'Poppins'
+                    }}
+                  >
+                    {error}
+                  </Typography>
+                </Box>
+              )}
+
+              <Box
+                className={styles.formGrid}
+                sx={{
+                  flex: 1,
+                  minHeight: 0,
+                  overflowY: 'auto !important',
+                  overflowX: 'hidden !important',
+                  pr: 0,
+                  scrollbarWidth: 'none !important',
+                  msOverflowStyle: 'none !important',
+                  '&::-webkit-scrollbar': {
+                    display: 'none !important',
+                    width: '0 !important',
+                    height: '0 !important',
+                  },
+                }}
+              >
+                <FormControl error={!!errors.fullName} fullWidth>
+                  <Typography className={styles.label}>Full Name</Typography>
+                  <TextField
+                    {...register('fullName', {
+                      required: 'Full name is required',
+                      maxLength: { value: 50, message: 'Full name cannot exceed 50 characters' },
+                      pattern: {
+                        value: /^[a-zA-Z\s]+$/,
+                        message: 'Only alphabetic characters are allowed'
+                      },
+                      validate: (val) => !val || val.trim().length > 0 || 'Full name cannot be empty or whitespace'
+                    })}
+                    disabled={submitting}
+                    onKeyDown={handleNameKeyDown}
+                    slotProps={{ htmlInput: { maxLength: 50 } }}
+                    placeholder="Enter your full name"
+                    variant="outlined"
+                    error={!!errors.fullName}
+                    fullWidth
+                    size="small"
+                    sx={getTextFieldStyles()}
+                  />
+                  {errors.fullName && <FormHelperText className={styles.errorText} error>{errors.fullName.message}</FormHelperText>}
+                </FormControl>
+
+                <FormControl error={!!errors.email} fullWidth>
+                  <Typography className={styles.label}>Email Address</Typography>
+                  <TextField
+                    {...register('email', {
+                      required: 'Email is required',
+                      maxLength: { value: 50, message: 'Email address cannot exceed 50 characters' },
+                      validate: {
+                        notEmptyOrWhitespace: (val) =>
+                          !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
+                        validEmail: (val) => {
+                          if (!val || val.trim().length === 0) return true
+                          return validateEmail(val) || 'Invalid email address'
+                        },
+                      },
+                    })}
+                    disabled={submitting}
+                    slotProps={{ htmlInput: { maxLength: 50 } }}
+                    placeholder="Enter your email"
+                    variant="outlined"
+                    error={!!errors.email}
+                    fullWidth
+                    size="small"
+                    sx={getTextFieldStyles()}
+                  />
+                  {errors.email && <FormHelperText className={styles.errorText} error>{errors.email.message}</FormHelperText>}
+                </FormControl>
+
+                <FormControl error={!!errors.phone} fullWidth>
+                  <Typography className={styles.label}>Phone Number</Typography>
+                  <Controller
+                    name="phone"
+                    control={control}
+                    rules={{
+                      required: 'Phone number is required',
+                      validate: {
+                        hasDigits: (value) =>
+                          !value || hasNationalDigits(value) || 'Phone number is required',
+                        validPhone: (value) =>
+                          !value ||
+                          !hasNationalDigits(value) ||
+                          isPhoneValid(value) ||
+                          'Please enter a valid phone number for the selected country',
+                      },
+                    }}
+                    render={({ field }) => (
+                      <PhoneInputWithSearch
+                        defaultCountry="in"
+                        placeholder="Your Phone"
+                        value={field.value || ''}
+                        onChange={field.onChange}
+                        disabled={submitting}
+                        error={!!errors.phone}
+                        height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
+                        fontSize={isMobile ? '14px' : 'max(14px, 0.73vw)'}
+                        borderRadius={isMobile ? '8px' : 'max(8px, 0.42vw)'}
+                        backgroundColor="#fbf9f9ff"
+                      />
+                    )}
+                  />
+                  {errors.phone && <FormHelperText className={styles.errorText} error>{errors.phone.message}</FormHelperText>}
+                </FormControl>
+
+                <FormControl error={!!errors.portfolioLink} fullWidth>
+                  <Typography className={styles.label}>Portfolio / LinkedIn Link (Optional)</Typography>
+                  <TextField
+                    {...register('portfolioLink', {
+                      maxLength: { value: 256, message: 'Link cannot exceed 256 characters' },
+                      validate: {
+                        noWhitespace: (val) => !val || val.trim().length > 0 || 'Link cannot contain only whitespace',
+                        validUrl: (val) => !val || !val.trim() || isValidUrl(val) || 'Please enter a valid URL.',
+                      }
+                    })}
+                    disabled={submitting}
+                    slotProps={{ htmlInput: { maxLength: 256 } }}
+                    placeholder="https://..."
+                    variant="outlined"
+                    error={!!errors.portfolioLink}
+                    fullWidth
+                    size="small"
+                    sx={getTextFieldStyles()}
+                  />
+                  {errors.portfolioLink && <FormHelperText className={styles.errorText} error>{errors.portfolioLink.message}</FormHelperText>}
+                </FormControl>
+
+                <FormControl error={!!errors.resume} fullWidth>
+                  <Typography className={styles.label}>Resume / CV (Upload PDF/DOC • Max 4MB)</Typography>
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    style={{ display: 'none' }}
+                    onChange={handleFileInputChange}
+                    ref={fileInputRef}
+                    disabled={submitting}
+                  />
+                  {(() => {
+                    const displayedFileName = submitting
+                      ? (currentSubmittingData?.fileName || selectedFile?.name || null)
+                      : (selectedFile?.name || null)
+
+                    return (
+                      <Box
+                        onClick={() => {
+                          if (!submitting && !selectedFile) {
+                            fileInputRef.current?.click()
+                          }
+                        }}
+                        role={(!submitting && !selectedFile) ? 'button' : undefined}
+                        tabIndex={(!submitting && !selectedFile) ? 0 : undefined}
+                        onKeyDown={(e) => {
+                          if (!submitting && !selectedFile && (e.key === 'Enter' || e.key === ' ')) {
+                            e.preventDefault()
+                            fileInputRef.current?.click()
+                          }
+                        }}
+                        className={`${styles.customFileInput} ${errors.resume ? styles.errorBorder : ''}`}
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          cursor: submitting ? 'not-allowed' : (selectedFile ? 'default' : 'pointer'),
+                          opacity: submitting ? 0.7 : 1,
+                          minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
+                        }}
+                      >
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
+                          {!submitting && (
+                            <Box
+                              component="span"
+                              className={styles.fileButton}
+                              onClick={(e) => {
+                                if (selectedFile) {
+                                  e.stopPropagation()
+                                  fileInputRef.current?.click()
+                                }
+                              }}
+                              sx={{ cursor: 'pointer' }}
+                              title={selectedFile ? 'Change file' : 'Choose file'}
+                            >
+                              {selectedFile ? 'Change' : 'Choose File'}
+                            </Box>
+                          )}
+                          {displayedFileName ? (
+                            <Tooltip title={displayedFileName} arrow placement="top">
+                              <Box
+                                onClick={(e) => {
+                                  if (!submitting && selectedFile) {
+                                    e.stopPropagation()
+                                    previewFile(selectedFile)
+                                  }
+                                }}
+                                role={(!submitting && selectedFile) ? 'button' : undefined}
+                                tabIndex={(!submitting && selectedFile) ? 0 : undefined}
+                                onKeyDown={(e) => {
+                                  if (!submitting && selectedFile && (e.key === 'Enter' || e.key === ' ')) {
+                                    e.preventDefault()
+                                    e.stopPropagation()
+                                    previewFile(selectedFile)
+                                  }
+                                }}
+                                sx={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  minWidth: 0,
+                                  cursor: (!submitting && selectedFile) ? 'pointer' : 'default',
+                                  borderRadius: '4px',
+                                  transition: 'all 0.2s',
+                                  '&:hover': (!submitting && selectedFile) ? {
+                                    '& .file-name-text': {
+                                      color: '#F69333',
+                                      textDecoration: 'underline'
+                                    }
+                                  } : {}
+                                }}
+                              >
+                                <Typography
+                                  className="file-name-text"
+                                  sx={{
+                                    fontFamily: 'Poppins',
+                                    fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                                    color: '#1F2937',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    fontWeight: 500,
+                                    transition: 'color 0.2s'
+                                  }}
+                                >
+                                  {displayedFileName}
+                                </Typography>
+                              </Box>
+                            </Tooltip>
+                          ) : (
+                            <Typography
+                              sx={{
+                                fontFamily: 'Poppins',
+                                fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
+                                color: '#9CA3AF',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                                fontWeight: 400
+                              }}
+                            >
+                              No file chosen
+                            </Typography>
+                          )}
+                        </Box>
+                        {!submitting && selectedFile && (
+                          <Tooltip title="Remove file" arrow placement="top">
+                            <IconButton
+                              size="small"
+                              onClick={handleRemoveFile}
+                              aria-label="Remove selected file"
+                              sx={{
+                                p: '4px',
+                                color: '#6B7280',
+                                '&:hover': {
+                                  color: '#DC2626',
+                                  backgroundColor: 'rgba(220, 38, 38, 0.08)'
+                                }
+                              }}
+                            >
+                              <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
+                            </IconButton>
+                          </Tooltip>
+                        )}
+                      </Box>
+                    )
+                  })()}
+                  {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
+                </FormControl>
+
+                <FormControl error={!!errors.message} fullWidth>
+                  <Typography className={styles.label}>Why are you a good fit? (Optional)</Typography>
+                  <TextField
+                    {...register('message', {
+                      maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
+                      validate: (val) => !val || val.trim().length > 0 || 'Message cannot contain only whitespace'
+                    })}
+                    disabled={submitting}
+                    onKeyDown={handleMessageKeyDown}
+                    slotProps={{ htmlInput: { maxLength: 800 } }}
+                    placeholder="Tell us about yourself and why you're interested in this role..."
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    error={!!errors.message}
+                    fullWidth
+                    sx={getTextFieldStyles()}
+                  />
+                  {errors.message && <FormHelperText className={styles.errorText} error>{errors.message.message}</FormHelperText>}
+                </FormControl>
+              </Box>
+
               <Box
                 sx={{
                   flexShrink: 0,
-                  mb: isMobile ? '16px' : '1.04vw',
-                  p: isMobile ? '16px' : '1.04vw',
-                  bgcolor: '#FEE2E2',
-                  borderRadius: isMobile ? '8px' : '0.42vw',
-                  border: isMobile ? '1px solid #FCA5A5' : '0.05vw solid #FCA5A5'
+                  width: '100%',
+                  mt: 'auto',
+                  pt: isMobile ? '14px' : 'max(14px, 0.9vw)',
+                  pb: 0,
+                  px: 0,
+                  borderTop: isMobile ? '1px solid #F3F4F6' : '0.05vw solid #F3F4F6',
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                  gap: isMobile ? '12px' : '1.04vw',
+                  background: '#fff',
+                  zIndex: 10,
                 }}
               >
-                <Typography
-                  sx={{
-                    color: '#DC2626',
-                    fontSize: isMobile ? '14px' : '0.73vw',
-                    fontFamily: 'Poppins'
-                  }}
+                <BaseButton
+                  type="button"
+                  variant="text"
+                  onClick={handleCancel}
+                  className={styles.cancelBtn}
+                  disabled={submitting}
                 >
-                  {error}
-                </Typography>
+                  CANCEL
+                </BaseButton>
+                <BaseButton
+                  type="submit"
+                  variant="contained"
+                  className={styles.submitBtn}
+                  loading={submitting}
+                  disabled={submitting}
+                  showArrow={false}
+                >
+                  SUBMIT APPLICATION
+                </BaseButton>
               </Box>
-            )}
-
-            <Box
-              className={styles.formGrid}
-              sx={{
-                flex: 1,
-                minHeight: 0,
-                overflowY: 'auto !important',
-                overflowX: 'hidden !important',
-                pr: 0,
-                scrollbarWidth: 'none !important',
-                msOverflowStyle: 'none !important',
-                '&::-webkit-scrollbar': {
-                  display: 'none !important',
-                  width: '0 !important',
-                  height: '0 !important',
-                },
-              }}
-            >
-              <FormControl error={!!errors.fullName} fullWidth>
-                <Typography className={styles.label}>Full Name</Typography>
-                <TextField
-                  {...register('fullName', {
-                    required: 'Full name is required',
-                    maxLength: { value: 50, message: 'Full name cannot exceed 50 characters' },
-                    pattern: {
-                      value: /^[a-zA-Z\s]+$/,
-                      message: 'Only alphabetic characters are allowed'
-                    },
-                    validate: (val) => !val || val.trim().length > 0 || 'Full name cannot be empty or whitespace'
-                  })}
-                  disabled={submitting}
-                  onKeyDown={handleNameKeyDown}
-                  slotProps={{ htmlInput: { maxLength: 50 } }}
-                  placeholder="Enter your full name"
-                  variant="outlined"
-                  error={!!errors.fullName}
-                  fullWidth
-                  size="small"
-                  sx={getTextFieldStyles()}
-                />
-                {errors.fullName && <FormHelperText className={styles.errorText} error>{errors.fullName.message}</FormHelperText>}
-              </FormControl>
-
-              <FormControl error={!!errors.email} fullWidth>
-                <Typography className={styles.label}>Email Address</Typography>
-                <TextField
-                  {...register('email', {
-                    required: 'Email is required',
-                    maxLength: { value: 50, message: 'Email address cannot exceed 50 characters' },
-                    validate: {
-                      notEmptyOrWhitespace: (val) =>
-                        !val || val.trim().length > 0 || 'Email cannot be empty or whitespace',
-                      validEmail: (val) => {
-                        if (!val || val.trim().length === 0) return true
-                        return validateEmail(val) || 'Invalid email address'
-                      },
-                    },
-                  })}
-                  disabled={submitting}
-                  slotProps={{ htmlInput: { maxLength: 50 } }}
-                  placeholder="Enter your email"
-                  variant="outlined"
-                  error={!!errors.email}
-                  fullWidth
-                  size="small"
-                  sx={getTextFieldStyles()}
-                />
-                {errors.email && <FormHelperText className={styles.errorText} error>{errors.email.message}</FormHelperText>}
-              </FormControl>
-
-              <FormControl error={!!errors.phone} fullWidth>
-                <Typography className={styles.label}>Phone Number</Typography>
-                <Controller
-                  name="phone"
-                  control={control}
-                  rules={{
-                    required: 'Phone number is required',
-                    validate: {
-                      hasDigits: (value) =>
-                        !value || hasNationalDigits(value) || 'Phone number is required',
-                      validPhone: (value) =>
-                        !value ||
-                        !hasNationalDigits(value) ||
-                        isPhoneValid(value) ||
-                        'Please enter a valid phone number for the selected country',
-                    },
-                  }}
-                  render={({ field }) => (
-                    <PhoneInputWithSearch
-                      defaultCountry="in"
-                      placeholder="Your Phone"
-                      value={field.value || ''}
-                      onChange={field.onChange}
-                      disabled={submitting}
-                      error={!!errors.phone}
-                      height={isMobile ? '38px' : 'max(38px, 2.1vw)'}
-                      fontSize={isMobile ? '14px' : 'max(14px, 0.73vw)'}
-                      borderRadius={isMobile ? '8px' : 'max(8px, 0.42vw)'}
-                      backgroundColor="#fbf9f9ff"
-                    />
-                  )}
-                />
-                {errors.phone && <FormHelperText className={styles.errorText} error>{errors.phone.message}</FormHelperText>}
-              </FormControl>
-
-              <FormControl error={!!errors.portfolioLink} fullWidth>
-                <Typography className={styles.label}>Portfolio / LinkedIn Link (Optional)</Typography>
-                <TextField
-                  {...register('portfolioLink', {
-                    maxLength: { value: 256, message: 'Link cannot exceed 256 characters' },
-                    validate: {
-                      noWhitespace: (val) => !val || val.trim().length > 0 || 'Link cannot contain only whitespace',
-                      validUrl: (val) => !val || !val.trim() || isValidUrl(val) || 'Please enter a valid URL.',
-                    }
-                  })}
-                  disabled={submitting}
-                  slotProps={{ htmlInput: { maxLength: 256 } }}
-                  placeholder="https://..."
-                  variant="outlined"
-                  error={!!errors.portfolioLink}
-                  fullWidth
-                  size="small"
-                  sx={getTextFieldStyles()}
-                />
-                {errors.portfolioLink && <FormHelperText className={styles.errorText} error>{errors.portfolioLink.message}</FormHelperText>}
-              </FormControl>
-
-              <FormControl error={!!errors.resume} fullWidth>
-                <Typography className={styles.label}>Resume / CV (Upload PDF/DOC • Max 4MB)</Typography>
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  style={{ display: 'none' }}
-                  onChange={handleFileInputChange}
-                  ref={fileInputRef}
-                  disabled={submitting}
-                />
-                {(() => {
-                  const displayedFileName = submitting
-                    ? (currentSubmittingData?.fileName || selectedFile?.name || null)
-                    : (selectedFile?.name || null)
-
-                  return (
-                    <Box
-                      onClick={() => {
-                        if (!submitting && !selectedFile) {
-                          fileInputRef.current?.click()
-                        }
-                      }}
-                      role={(!submitting && !selectedFile) ? 'button' : undefined}
-                      tabIndex={(!submitting && !selectedFile) ? 0 : undefined}
-                      onKeyDown={(e) => {
-                        if (!submitting && !selectedFile && (e.key === 'Enter' || e.key === ' ')) {
-                          e.preventDefault()
-                          fileInputRef.current?.click()
-                        }
-                      }}
-                      className={`${styles.customFileInput} ${errors.resume ? styles.errorBorder : ''}`}
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        cursor: submitting ? 'not-allowed' : (selectedFile ? 'default' : 'pointer'),
-                        opacity: submitting ? 0.7 : 1,
-                        minHeight: isMobile ? '38px' : 'max(38px, 2.1vw)'
-                      }}
-                    >
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: isMobile ? '10px' : 'max(10px, 0.52vw)', minWidth: 0, flex: 1, pr: 1 }}>
-                        {!submitting && (
-                          <Box
-                            component="span"
-                            className={styles.fileButton}
-                            onClick={(e) => {
-                              if (selectedFile) {
-                                e.stopPropagation()
-                                fileInputRef.current?.click()
-                              }
-                            }}
-                            sx={{ cursor: 'pointer' }}
-                            title={selectedFile ? 'Change file' : 'Choose file'}
-                          >
-                            {selectedFile ? 'Change' : 'Choose File'}
-                          </Box>
-                        )}
-                        {displayedFileName ? (
-                          <Tooltip title={displayedFileName} arrow placement="top">
-                            <Box
-                              onClick={(e) => {
-                                if (!submitting && selectedFile) {
-                                  e.stopPropagation()
-                                  previewFile(selectedFile)
-                                }
-                              }}
-                              role={(!submitting && selectedFile) ? 'button' : undefined}
-                              tabIndex={(!submitting && selectedFile) ? 0 : undefined}
-                              onKeyDown={(e) => {
-                                if (!submitting && selectedFile && (e.key === 'Enter' || e.key === ' ')) {
-                                  e.preventDefault()
-                                  e.stopPropagation()
-                                  previewFile(selectedFile)
-                                }
-                              }}
-                              sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                minWidth: 0,
-                                cursor: (!submitting && selectedFile) ? 'pointer' : 'default',
-                                borderRadius: '4px',
-                                transition: 'all 0.2s',
-                                '&:hover': (!submitting && selectedFile) ? {
-                                  '& .file-name-text': {
-                                    color: '#F69333',
-                                    textDecoration: 'underline'
-                                  }
-                                } : {}
-                              }}
-                            >
-                              <Typography
-                                className="file-name-text"
-                                sx={{
-                                  fontFamily: 'Poppins',
-                                  fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
-                                  color: '#1F2937',
-                                  overflow: 'hidden',
-                                  textOverflow: 'ellipsis',
-                                  whiteSpace: 'nowrap',
-                                  fontWeight: 500,
-                                  transition: 'color 0.2s'
-                                }}
-                              >
-                                {displayedFileName}
-                              </Typography>
-                            </Box>
-                          </Tooltip>
-                        ) : (
-                          <Typography
-                            sx={{
-                              fontFamily: 'Poppins',
-                              fontSize: isMobile ? '13px' : 'max(13px, 0.68vw)',
-                              color: '#9CA3AF',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis',
-                              whiteSpace: 'nowrap',
-                              fontWeight: 400
-                            }}
-                          >
-                            No file chosen
-                          </Typography>
-                        )}
-                      </Box>
-                      {!submitting && selectedFile && (
-                        <Tooltip title="Remove file" arrow placement="top">
-                          <IconButton
-                            size="small"
-                            onClick={handleRemoveFile}
-                            aria-label="Remove selected file"
-                            sx={{
-                              p: '4px',
-                              color: '#6B7280',
-                              '&:hover': {
-                                color: '#DC2626',
-                                backgroundColor: 'rgba(220, 38, 38, 0.08)'
-                              }
-                            }}
-                          >
-                            <CloseIcon sx={{ fontSize: isMobile ? '18px' : 'max(18px, 0.94vw)' }} />
-                          </IconButton>
-                        </Tooltip>
-                      )}
-                    </Box>
-                  )
-                })()}
-                {errors.resume && <FormHelperText className={styles.errorText} error>{errors.resume.message}</FormHelperText>}
-              </FormControl>
-
-              <FormControl error={!!errors.message} fullWidth>
-                <Typography className={styles.label}>Why are you a good fit? (Optional)</Typography>
-                <TextField
-                  {...register('message', {
-                    maxLength: { value: 800, message: 'Message cannot exceed 800 characters' },
-                    validate: (val) => !val || val.trim().length > 0 || 'Message cannot contain only whitespace'
-                  })}
-                  disabled={submitting}
-                  onKeyDown={handleMessageKeyDown}
-                  slotProps={{ htmlInput: { maxLength: 800 } }}
-                  placeholder="Tell us about yourself and why you're interested in this role..."
-                  multiline
-                  rows={4}
-                  variant="outlined"
-                  error={!!errors.message}
-                  fullWidth
-                  sx={getTextFieldStyles()}
-                />
-                {errors.message && <FormHelperText className={styles.errorText} error>{errors.message.message}</FormHelperText>}
-              </FormControl>
             </Box>
+          )}
+        </DialogContent>
+      </Dialog>
 
-            <Box
-              sx={{
-                flexShrink: 0,
-                width: '100%',
-                mt: 'auto',
-                pt: isMobile ? '14px' : 'max(14px, 0.9vw)',
-                pb: 0,
-                px: 0,
-                borderTop: isMobile ? '1px solid #F3F4F6' : '0.05vw solid #F3F4F6',
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                gap: isMobile ? '12px' : '1.04vw',
-                background: '#fff',
-                zIndex: 10,
-              }}
-            >
-              <BaseButton
-                type="button"
-                variant="text"
-                onClick={handleCancel}
-                className={styles.cancelBtn}
-                disabled={submitting}
-              >
-                CANCEL
-              </BaseButton>
-              <BaseButton
-                type="submit"
-                variant="contained"
-                className={styles.submitBtn}
-                loading={submitting}
-                disabled={submitting}
-                showArrow={false}
-              >
-                SUBMIT APPLICATION
-              </BaseButton>
-            </Box>
-          </Box>
-        )}
-      </DialogContent>
-    </Dialog>
-
-    <NoInternetModal
-      open={isOfflineModalOpen}
-      onClose={() => setIsOfflineModalOpen(false)}
-    />
-  </>
+      <NoInternetModal
+        open={isOfflineModalOpen}
+        onClose={() => setIsOfflineModalOpen(false)}
+      />
+    </>
   )
 }
 

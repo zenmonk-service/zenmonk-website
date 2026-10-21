@@ -286,6 +286,13 @@
         }
       }
 
+      .phone-number-input {
+        input {
+          padding-left: 14px !important;
+          padding-right: 10px !important;
+        }
+      }
+
       .message {
         display: flex;
         align-items: flex-start;
@@ -355,4 +362,3 @@
     }
   }
 }
-

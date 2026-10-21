@@ -299,7 +299,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
           render={({ field }) => (
             <PhoneInputWithSearch
               disabled={isBusy || submitStatus === 'success'}
-              className="phone-number-input"
+              className={`phone-number-input ${errors.phone ? 'error-border' : ''}`}
               defaultCountry="in"
               placeholder="Your Phone"
               value={field.value || ''}

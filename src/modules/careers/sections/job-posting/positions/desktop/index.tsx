@@ -47,7 +47,7 @@ const formatDeptDisplayName = (name: string) => {
 const getDefaultDepartment = (list: Department[]) => {
   if (!list || list.length === 0) return undefined
   return (
-    list.find((dept) => normalizeDeptName(dept.department) === 'management') ||
+    list.find((dept) => normalizeDeptName(dept.department) === 'development') ||
     list.find((dept) => dept.positions.some((pos) => pos.isOpening)) ||
     list[0]
   )

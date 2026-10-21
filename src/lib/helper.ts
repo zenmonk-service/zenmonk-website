@@ -17,6 +17,10 @@ export const isValidUrl = (url: string): boolean => {
     return false
   }
 
+  if (/[\s<>]/.test(trimmed)) {
+    return false
+  }
+
   if (trimmed.includes('@')) {
     return false
   }

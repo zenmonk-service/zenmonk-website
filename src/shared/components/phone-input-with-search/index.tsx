@@ -61,6 +61,9 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         }
       }
       if (!data.inputValue || data.inputValue.trim() === '') {
+        if (!value) {
+          return
+        }
         onChange('')
         return
       }
