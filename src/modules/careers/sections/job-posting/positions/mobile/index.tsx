@@ -28,22 +28,13 @@ const formatDeptDisplayName = (name: string) => {
 }
 
 const PositionsMobile = ({ positionsList, onApply, isLoading }: PositionsMobileProps) => {
-  const [selectedIndexes, setSelectedIndexes] = useState<number[]>(() => {
-    const mgmtIdx = positionsList.findIndex(
-      (dept) => normalizeDeptName(dept.department) === 'development'
-    )
-    return mgmtIdx !== -1 ? [mgmtIdx] : [0]
-  })
+  const [selectedIndexes, setSelectedIndexes] = useState<number[]>([0])
+
   const hasUserToggledRef = useRef(false)
 
   useEffect(() => {
     if (!hasUserToggledRef.current && positionsList.length > 0) {
-      const mgmtIdx = positionsList.findIndex(
-        (dept) => normalizeDeptName(dept.department) === 'development'
-      )
-      if (mgmtIdx !== -1) {
-        setSelectedIndexes([mgmtIdx])
-      }
+      setSelectedIndexes([0])
     }
   }, [positionsList])
 

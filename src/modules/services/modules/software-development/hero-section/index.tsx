@@ -68,7 +68,7 @@ const SoftwareDevelopmentHeroSection = () => {
         imageStyle={{
           position: 'relative',
           zIndex: 10,
-          scale: 1,
+          scale: 0.85,
           margin: '0 auto',
         }}
       >

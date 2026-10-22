@@ -11,7 +11,9 @@ export class ListJobPostingsHandler {
       ...(query.status ? { status: query.status } : {}),
     };
 
-    const jobs = await JobPosting.find(filter).exec();
+    const jobs = await JobPosting.find(filter)
+      .sort({ createdAt: -1 })
+      .exec();
     
     const composedData = await Promise.all(
       jobs.map(async (job) => {
