@@ -39,8 +39,8 @@ const StatisticsDesktop = () => {
           >
             <div className="left-section">
               <h1 className="heading">
-                We are always available, no <br /> matter the time zone or your
-                <br /> location.
+                Your challenges don't follow<br />time zones.
+                <br /> Neither do we.
               </h1>
               <h4 className="teams-number">
                 <CountUp
@@ -77,7 +77,7 @@ const StatisticsDesktop = () => {
                   />
                   +
                 </p>
-                <h3 className="description">Businesses served by Zenmonk</h3>
+                <h3 className="description">Businesses served</h3>
               </div>
               <div className="companies-section">
                 <p className="companies-number">
@@ -91,7 +91,7 @@ const StatisticsDesktop = () => {
                   />
                   +
                 </p>
-                <h3 className="description">Projects delivered by Zenmonk</h3>
+                <h3 className="description">Projects delivered</h3>
               </div>
             </div>
           </motion.div>
@@ -114,7 +114,7 @@ const StatisticsDesktop = () => {
                   />
                   +
                 </p>
-                <h3 className="description">Tech Stacks</h3>
+                <h3 className="description">Tech stacks</h3>
               </div>
               <div className="companies-section">
                 <p className="companies-number ">
@@ -129,7 +129,7 @@ const StatisticsDesktop = () => {
                   +
                 </p>
                 <h3 className="description">
-                  Countries benefiting from Zenmonk
+                  Countries served
                 </h3>
               </div>
             </div>

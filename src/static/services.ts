@@ -12,6 +12,64 @@ import UiUxDesign from '@/assets/services/ui-ux-design'
 
 export const services = [
   {
+    id: 'ai-solutions',
+    route: '/ai-based-softwares',
+    name: 'AI Solutions',
+    icon: DisplayIcons.IndustrySpecific,
+    styles: {
+      color: '#A15AFF',
+      hoverColor: '#f6efff',
+    },
+    description:
+      'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
+    menuDescription:
+      'Intelligent solutions powered by AI to drive smarter decisions.',
+    services: [
+      {
+        id: 'ai-development',
+        title: 'AI Dev',
+        description:
+          'Build custom AI models tailored to your unique business needs and objectives.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'machine-learning',
+        title: 'ML Models',
+        description:
+          'Implement machine learning models to analyze data and predict future trends.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'nlp-solutions',
+        title: 'NLP & LLM',
+        description:
+          'Enhance user interactions with advanced natural language processing and LLMs.',
+        icon: DigitalTransformation.Ai,
+      },
+      {
+        id: 'predictive-analytics',
+        title: 'Analytics',
+        description:
+          'Leverage data to forecast outcomes and make informed strategic decisions.',
+        icon: DigitalTransformation.DataAnalytics,
+      },
+      {
+        id: 'process-automation',
+        title: 'Automation',
+        description:
+          'Streamline your workflows with intelligent cognitive process automation.',
+        icon: DigitalTransformation.ProcessAutomation,
+      },
+      {
+        id: 'technology-integration',
+        title: 'Integration',
+        description:
+          'Seamlessly integrate intelligent AI models and smart APIs into your systems.',
+        icon: DigitalTransformation.TechnologyIntegration,
+      },
+    ],
+  },
+  {
     id: 'software-development',
     route: '/software-development',
     name: 'Software Development',
@@ -21,7 +79,7 @@ export const services = [
       hoverColor: '#ecfafb',
     },
     description:
-      'Zenmonk excels in custom enterprise software development, delivering scalable and secure solutions. We provide end-to-end support from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs.',
+      'We excels in custom enterprise software development, delivering scalable and secure solutions. We provide end-to-end support from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs.',
     menuDescription:
       'We build scalable and secure software tailored to your business needs.',
     services: [
@@ -428,8 +486,7 @@ export const services = [
       hoverColor: '#ecfafb',
     },
     description:
-      'We deliver bespoke digital solutions crafted specifically for complex industry verticals, ensuring compliance, seamless integration, and high reliability.',
-
+      'We tackle complex industry challenges by combining deep problem-solving with the latest technology-creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
     menuDescription:
       'Tailored solutions designed to meet your industry’s unique needs.',
     services: [
@@ -487,7 +544,7 @@ export const services = [
       hoverColor: '#ecf4fb',
     },
     description:
-      'Upskill your team with practical, hands-on training and workshops. We provide expert-led programs covering agile methodologies, cloud computing, devops, and full-stack development.',
+      'Technology creates impact when organizations have the capabilities to harness it. We help businesses build those capabilities through practical, industry-focused learning designed around real-world challenges and evolving technology needs.',
     menuDescription:
       'Upskill your team with practical, hands-on training and workshops.',
     services: [
@@ -532,64 +589,6 @@ export const services = [
         description:
           'Enhance your technical expertise with specialized training in the latest technologies.',
         icon: ItTraining.TechnicalSkill,
-      },
-    ],
-  },
-  {
-    id: 'ai-solutions',
-    route: '/ai-based-softwares',
-    name: 'AI Solutions',
-    icon: DisplayIcons.IndustrySpecific,
-    styles: {
-      color: '#A15AFF',
-      hoverColor: '#f6efff',
-    },
-    description:
-      'Need AI to revolutionize your business? We are your experts. From pilot projects to full-scale AI integration, we provide intelligent solutions to boost efficiency and innovation. Let us empower your business with innovative AI tools and services.',
-    menuDescription:
-      'Intelligent solutions powered by AI to drive smarter decisions.',
-    services: [
-      {
-        id: 'ai-development',
-        title: 'AI Dev',
-        description:
-          'Build custom AI models tailored to your unique business needs and objectives.',
-        icon: DigitalTransformation.Ai,
-      },
-      {
-        id: 'machine-learning',
-        title: 'ML Models',
-        description:
-          'Implement machine learning models to analyze data and predict future trends.',
-        icon: DigitalTransformation.Ai,
-      },
-      {
-        id: 'nlp-solutions',
-        title: 'NLP & LLM',
-        description:
-          'Enhance user interactions with advanced natural language processing and LLMs.',
-        icon: DigitalTransformation.Ai,
-      },
-      {
-        id: 'predictive-analytics',
-        title: 'Analytics',
-        description:
-          'Leverage data to forecast outcomes and make informed strategic decisions.',
-        icon: DigitalTransformation.DataAnalytics,
-      },
-      {
-        id: 'process-automation',
-        title: 'Automation',
-        description:
-          'Streamline your workflows with intelligent cognitive process automation.',
-        icon: DigitalTransformation.ProcessAutomation,
-      },
-      {
-        id: 'technology-integration',
-        title: 'Integration',
-        description:
-          'Seamlessly integrate intelligent AI models and smart APIs into your systems.',
-        icon: DigitalTransformation.TechnologyIntegration,
       },
     ],
   },

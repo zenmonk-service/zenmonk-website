@@ -13,9 +13,7 @@ const StandOutSectionMobile = () => {
       />
       <p className={styles.headerDescription}>
         Providing good quality customer experience and support is as important
-        and pivotal as offering top grade product. Providing good quality
-        customer experience and support is as important and pivotal as offering
-        top grade product.
+        and pivotal as offering top grade product.
       </p>
 
       {standOutList.map((item, index) => (

@@ -17,7 +17,7 @@ const OurProjectsMobile = () => {
               <div
                 className={styles.imageContainer}
                 style={{
-                  backgroundImage: `url(/our-work/0${project.index}.webp)`,
+                  backgroundImage: `url(${project.imageUrl})`,
                 }}
               >
                 <div className={styles.overlay} style={{ zIndex: 1 }} />

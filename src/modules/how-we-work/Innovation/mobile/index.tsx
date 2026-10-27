@@ -16,8 +16,8 @@ const InnovationMobile = () => {
   return (
     <div className={styles.container}>
       <SectionTitle
-        text="We Deliver the Best with Innovation, Precision and Excellence"
-        markText="Excellence"
+        text="Innovation That Solves. Precision That Delivers."
+        markText="Delivers"
         align="left"
         className={styles.title}
       />

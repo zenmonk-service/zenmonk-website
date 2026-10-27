@@ -19,8 +19,8 @@ const InnovationDesktop = () => {
         <div className="text-wrapper">
           <SectionTitle
             className="innovation-title"
-            text="We Deliver the Best with Innovation, Precision and Excellence."
-            markText="Excellence"
+            text="Innovation That Solves. Precision That Delivers."
+            markText="Delivers"
             markTextProps={{ rotate: 4 }}
           />
           <SectionDescription

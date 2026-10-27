@@ -2,33 +2,14 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import GlobeSection from '@/animations/globe-animation'
 import { Email, Location, Phone } from '@/assets/icons/contact-us/contact'
 import { ContactForm } from '../../modules/about-us/components/contact-form'
-import { SectionDescription, SectionTitle } from '../typography'
+import { SectionTitle } from '../typography'
 import Polygon from './assets/polygon.svg'
 import styles from './contact-us-section.module.scss'
 import { countries } from './countries'
-
-const ThreeGlobe = dynamic(
-  () =>
-    import('./three-globe').catch((err) => {
-      console.warn('ChunkLoadError caught for ThreeGlobe, retrying load...', err)
-      return import('./three-globe')
-    }),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-full flex flex-col justify-center items-center">
-        <div className="w-10 h-10 border-4 border-gray-200 border-t-red-500 rounded-full animate-spin mb-2" />
-        <p className="text-gray-500 text-sm font-medium">
-          Initializing realistic globe...
-        </p>
-      </div>
-    ),
-  }
-)
 
 interface ContactUsSectionProps {
   isCareerPage?: boolean
@@ -85,56 +66,6 @@ export const ContactUsSection = ({
       setFormCountry(nextCountry)
       formIndexRef.current = (formIndexRef.current + 1) % countries.length
       startFormTimer()
-    }, 5000)
-  }
-
-  const globeCountries = countries
-  const [globeCountry, setGlobeCountry] = useState(globeCountries[0])
-  const [globeTrigger, setGlobeTrigger] = useState(0)
-  const globeIndexRef = useRef(1)
-  const globeTimerRef = useRef<NodeJS.Timeout | null>(null)
-  const isInteractedRef = useRef<boolean>(false)
-  const globeInactivityTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-  const startGlobeTimer = () => {
-    if (globeTimerRef.current) clearInterval(globeTimerRef.current)
-
-    globeTimerRef.current = setInterval(() => {
-      if (isInteractedRef.current) return
-      const nextCountry = globeCountries[globeIndexRef.current]
-      setGlobeCountry(nextCountry)
-      globeIndexRef.current =
-        (globeIndexRef.current + 1) % globeCountries.length
-    }, 5000)
-  }
-
-  useEffect(() => {
-    startGlobeTimer()
-    return () => {
-      if (globeTimerRef.current) clearInterval(globeTimerRef.current)
-      if (globeInactivityTimeoutRef.current) clearTimeout(globeInactivityTimeoutRef.current)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  const handleGlobeCountrySelect = (
-    selected: (typeof countries)[0],
-    index: number
-  ) => {
-    isInteractedRef.current = true 
-    if (globeInactivityTimeoutRef.current) clearTimeout(globeInactivityTimeoutRef.current)
-    if (globeTimerRef.current) clearInterval(globeTimerRef.current)
-
-    setGlobeCountry(selected)
-    globeIndexRef.current = (index + 1) % globeCountries.length
-    setGlobeTrigger(prev => prev + 1)
-
-    globeInactivityTimeoutRef.current = setTimeout(() => {
-      isInteractedRef.current = false
-      const nextCountry = globeCountries[globeIndexRef.current]
-      setGlobeCountry(nextCountry)
-      globeIndexRef.current = (globeIndexRef.current + 1) % globeCountries.length
-      startGlobeTimer()
     }, 5000)
   }
 
@@ -260,135 +191,7 @@ export const ContactUsSection = ({
         <Polygon className={styles.polygon} />
       </div>
 
-      {!showFlags && (
-        <section className={styles.globeSection}>
-          <div className={styles.globeSectionContainer}>
-            <div className={styles.globeLeftContainer}>
-              <p className={styles.globeLabel}>Contact Us</p>
-              <h2 className={styles.globeTitle}>
-                Lets fire up your{' '}
-                <span className={styles.businessHighlight}>
-                  business!
-                  <svg
-                    className={styles.businessUnderlineSvg}
-                    viewBox="0 0 200 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M2 10C55 3 145 3 198 10"
-                      stroke="#EB7C0D"
-                      strokeWidth="5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-              </h2>
-              <p className={styles.globeSubtitle}>
-                Team up with us today for an unforgettable experience
-              </p>
-
-              <div className={styles.globeFlagsContainer}>
-                {globeCountries.map((c, index) => {
-                  const isActive = c.name === globeCountry.name
-
-                  return (
-                    <motion.button
-                      key={c.name}
-                      className={`${styles.globeFlag} ${
-                        isActive ? styles.globeFlagActive : ''
-                      }`}
-                      whileHover={{ scale: 1.08 }}
-                      animate={{ scale: isActive ? 1.08 : 1 }}
-                      onClick={() => handleGlobeCountrySelect(c, index)}
-                      title={c.name}
-                    >
-                      <Image
-                        src={c.icon}
-                        alt={`${c.name} flag`}
-                        width={72}
-                        height={48}
-                        className={styles.globeFlagImage}
-                      />
-                    </motion.button>
-                  )
-                })}
-              </div>
-
-              <div className={styles.globeActiveCountryDetails}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={globeCountry.name}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <p className={styles.globeActiveCountryName}>
-                      {globeCountry.name}
-                    </p>
-                    <div className={styles.globeContactDetailsRow}>
-                      <div className={styles.globeDetailItem}>
-                        <div className={styles.globeIconContainer}>
-                          <Location />
-                        </div>
-                        <p className={styles.globeDetailText}>
-                          {globeCountry.office?.address || globeCountry.description}
-                        </p>
-                      </div>
-
-                      <div
-                        className={styles.globeDetailItem}
-                        style={{
-                          visibility: globeCountry.office?.email ? 'visible' : 'hidden',
-                          pointerEvents: globeCountry.office?.email ? 'auto' : 'none',
-                        }}
-                      >
-                        <div className={styles.globeIconContainer}>
-                          <Email />
-                        </div>
-                        <a
-                          href={globeCountry.office?.email ? `mailto:${globeCountry.office.email}` : undefined}
-                          className={styles.globeDetailText}
-                        >
-                          {globeCountry.office?.email || 'admin@zenmonk.tech'}
-                        </a>
-                      </div>
-
-                      <div
-                        className={styles.globeDetailItem}
-                        style={{
-                          visibility: globeCountry.office?.phone ? 'visible' : 'hidden',
-                          pointerEvents: globeCountry.office?.phone ? 'auto' : 'none',
-                        }}
-                      >
-                        <div className={styles.globeIconContainer}>
-                          <Phone />
-                        </div>
-                        <a
-                          href={globeCountry.office?.phone ? `tel:${globeCountry.office.phone.replace(/\s+/g, '')}` : undefined}
-                          className={styles.globeDetailText}
-                        >
-                          {globeCountry.office?.phone || '+91 9012345678'}
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
-
-            <div className={styles.globeRightContainer}>
-              <ThreeGlobe
-                lat={globeCountry.coordinates[0]}
-                lng={globeCountry.coordinates[1]}
-                trigger={globeTrigger}
-              />
-            </div>
-          </div>
-        </section>
-      )}
+      {!showFlags && <GlobeSection />}
     </div>
   )
 }

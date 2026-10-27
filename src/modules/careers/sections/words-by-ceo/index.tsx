@@ -56,7 +56,7 @@ const WordsByCEO = () => {
           </motion.div>
         </div>
         <div className="ceo-details">
-          <Details image={Ceo} designation='Chief Executive Officer' name='Aman Singh' />
+          <Details image={Ceo} designation='CEO (Chief Executive Officer)' name='Aman Singh' />
         </div>
       </div>
       <div className="ceo-section-logo">

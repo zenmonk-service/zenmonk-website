@@ -112,7 +112,7 @@ const WorkCultureDesktop = () => {
             onDragEnd={handleDragEnd}
             style={{ x: xOffset }}
           >
-            {[...workCultures, ...workCultures].map((culture, i) => (
+            {[...workCultures].map((culture, i) => (
               <CultureCard key={`${culture.title}-${i}`} details={culture} />
             ))}
           </motion.div>

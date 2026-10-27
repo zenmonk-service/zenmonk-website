@@ -10,7 +10,7 @@ export const countries = [
   {
     markerOffset: -5,
     name: 'India',
-    coordinates: [30.7046, 76.7179],
+    coordinates: [15.7046, 86.7179],
     title: 'India',
     description:
       'Asha Tower, Phase 8B, Industrial Area, Sector 75, SAS Nagar (Mohali), Punjab 160055',
@@ -28,7 +28,7 @@ export const countries = [
   {
     markerOffset: 35,
     name: 'Spain (Cantabria)',
-    coordinates: [43.4623, -3.8099],
+    coordinates: [31.4623, -5.5099],
     title: 'Spain Cantabria',
     description: 'C. Isabel Torres, 21, 39011. Santander, Cantabria, Spain',
     isActive: false,
@@ -42,7 +42,7 @@ export const countries = [
   {
     markerOffset: -15,
     name: 'USA',
-    coordinates: [40.7069, -74.009],
+    coordinates: [40.7069, -76.009],
     title: 'USA',
     description: '30 Wall Street 8th Floor, New York, NY 10005, USA',
     isActive: false,
@@ -51,12 +51,12 @@ export const countries = [
     office: {
       address: '30 Wall Street 8th Floor, New York, NY 10005, USA',
     },
-  },
+  },  
 
   {
     markerOffset: -10,
     name: 'Puerto Rico',
-    coordinates: [18.4724, -66.7157],
+    coordinates: [1.5724, -68.7157],
     title: 'Puerto Rico',
     description: 'Road 658 Km 1.0 Bo. Arenalejos Sector Palaches Arecibo, PR',
     isActive: false,
@@ -71,7 +71,7 @@ export const countries = [
     markerOffset: 8,
     marketXoffSet: -35,
     name: 'Ecuador',
-    coordinates: [-2.1709, -79.9224],
+    coordinates: [-22.1709, -83.9224],
     title: 'Ecuador',
     description: 'Geronimo Aviles y Miguel H. Alcivar, 090512. Guayaquil, Ecuador',
     isActive: false,
@@ -85,7 +85,7 @@ export const countries = [
   {
     markerOffset: -15,
     name: 'Colombia',
-    coordinates: [4.711, -74.0721],
+    coordinates: [-11.711, -78.0721],
     title: 'Colombia',
     description: 'Calle 40, Nº26A-08, CP 111311, Bogotá - Colombia',
     isActive: false,
@@ -99,7 +99,7 @@ export const countries = [
   {
     markerOffset: -15,
     name: 'Mexico',
-    coordinates: [19.3908, -99.1764],
+    coordinates: [5.3908, -114.1764],
     title: 'Mexico',
     description: 'Wisconsin 38, Col. Ampliación Nápoles, Benito Juárez, CP 03810, Mexico',
     isActive: false,

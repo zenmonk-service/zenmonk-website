@@ -249,7 +249,7 @@ export const getBusinessSectorsData = (serviceId?: string): BusinessSectorsData 
         title: 'Master Modern Tech Stacks Across Core Disciplines',
         markText: 'Disciplines',
         description:
-          'We deliver comprehensive, hands-on training and workshops led by seasoned engineers—empowering developers and teams to master modern tech stacks, architectural patterns, and production-grade software engineering.',
+          'Hands-on learning led by experienced engineers, focused on modern technologies, architecture, and production-ready development.',
         sectorsList: itTrainingTracksList as unknown as typeof defaultSectorsList,
       }
 

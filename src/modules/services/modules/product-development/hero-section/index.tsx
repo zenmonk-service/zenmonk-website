@@ -35,11 +35,11 @@ const ProductDevelopment: React.FC = () => {
         </svg>
 
         <h1 className="hero-title">
-          Reliable & Continuously Growth-Oriented
+          Reliable, Growth-Ready
           <span className="highlight">Product Development</span>
         </h1>
         <p className="hero-desc">
-          We guide digital products from initial concept discovery through scalable full-cycle development. By integrating agile engineering with continuous user validation, we build products that lead the market.
+          From idea to scale, we turn product vision into reliable digital experiences built for real users and evolving markets.
         </p>
         <BaseButton
           className="explore-btn"

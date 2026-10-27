@@ -9,9 +9,8 @@ const OurPartners = () => {
     <>
       <div className="heading-container">
         <p className="text">
-          Fuelling client success that&nbsp;
-          <span>adapts</span>, <span>evolves</span>, and&nbsp;
-          <span>excels</span>.
+          Turning complex challenges into&nbsp;
+          <span> technology-driven solutions</span> that move businesses forward.&nbsp;  
         </p>
       </div>
       <AutoScrollCarousel

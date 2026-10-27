@@ -161,7 +161,7 @@ const OurServicesDesktop = () => {
     }
   }, [])
 
-  const text = 'Future Proof Your Business With Our IT Services'
+  const text = 'Future-Proof Your Business Through Smarter Solutions'
 
   return (
     <section ref={containerRef} className={styles.serviceSectionWrapper}>
@@ -204,7 +204,7 @@ const OurServicesDesktop = () => {
         <div ref={rightColRef} className={styles.servicesRightContainer}>
           <SectionTitle
             text={text}
-            markText="Services"
+            markText="Solutions"
             className={styles.serviceSectionHomeTitle}
             markTextProps={{
               style: {

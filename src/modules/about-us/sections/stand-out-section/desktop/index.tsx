@@ -51,8 +51,6 @@ const StandOutSectionDesktop = () => {
           <div className={styles.description}>
             Providing good quality customer experience and support is as
             important and pivotal as offering top grade product.
-            Providing good quality customer experience and support is as
-            important and pivotal as offering top grade product.
           </div>
           <div className={styles.divider} />
         </div>

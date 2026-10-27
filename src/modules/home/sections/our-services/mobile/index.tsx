@@ -21,12 +21,12 @@ const OurServicesMobile = () => {
     return `linear-gradient(180deg, ${color} -64.31%, #FFF 99.87%)`
   }
 
-  const text = 'Future Proof Your Business With Our IT Services'
+  const text = 'Future-Proof Your Business Through Smarter Solutions'
   return (
     <div className={styles.container}>
       <SectionTitle
         text={text}
-        markText="IT Services"
+        markText="Solutions"
         className={styles.heading}
         markTextProps={{ rotate: 1.8 }}
       />

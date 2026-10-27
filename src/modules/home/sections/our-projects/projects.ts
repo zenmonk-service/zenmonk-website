@@ -14,14 +14,14 @@ export const projects = [
     imageUrl: '/our-work/02.webp',
   },
   {
-    title: 'Food Delivery',
+    title: 'AI Assistant',
     index: 3,
     description:
-      'We create delivery apps that streamline orders, optimize routes, and boost efficiency.',
-    imageUrl: '/our-work/03.webp',
+      'We create AI assistants that streamline workflows, provide instant insights, and enhance business productivity.',
+    imageUrl: '/our-work/03.png',
   },
   {
-    title: 'Medical App',
+    title: 'Intelligent Healthcare System',
     index: 4,
     description:
       'We design healthcare apps that improve patient care, accessibility, and wellness.',

@@ -1,13 +1,21 @@
+import Link from 'next/link'
+import type { ReactNode } from 'react'
+
 export interface FAQItem {
   question: string
-  answer: string
+  answer: ReactNode
 }
 
 export const defaultFAQs: FAQItem[] = [
   {
     question: 'How can I get started with Zenmonk for my project?',
-    answer:
-      'You can reach out via our contact form or schedule a discovery call. We analyze your requirements and provide a tailored project roadmap within 48 hours.',
+    answer: (
+      <>
+        You can reach out via our <Link href="/contact">contact</Link> form or
+        schedule a discovery call. We analyze your requirements and provide a
+        tailored project roadmap within 48 hours.
+      </>
+    ),
   },
   {
     question: 'What development methodologies and engagement models do you offer?',
@@ -76,8 +84,13 @@ export const faqDataByService: Record<string, FAQItem[]> = {
     },
     {
       question: 'How can I track the status of my job application?',
-      answer:
-        'You can track your application status in real time using your unique Tracking ID on our dedicated Track Application portal.',
+      answer: (
+        <>
+          You can track your application status in real time using your unique
+          Tracking ID on our dedicated{' '}
+          <Link href="/track-application">Track Application</Link> portal.
+        </>
+      ),
     },
   ],
   'ai-solutions': [

@@ -1,51 +1,51 @@
 export const ClientReviews = [
   {
     review:
-      'This is a premier mobile app development firm in India, recognized for our skilled team, cutting-edge technology, and customer-focused approach. We execute exceptional projects promptly and provide extensive services from design to support, backed by industry accolades and honors.',
-    by: 'Sarah Jenkins',
-    position: 'Chief Technology Officer',
-    imageUrl: '/clients/person-1.webp',
-  },
-  {
-    review:
-      'We are a leading mobile app development agency in India, celebrated for our talented team, innovative technological solutions, and client-first philosophy. We deliver outstanding projects on schedule and offer full services from design to upkeep, supported by industry awards and achievements.',
-    by: 'Ethan Jordan',
+      'We bring projects to life through clear communication, effective collaboration, and thoughtful planning. Our team focuses on meeting milestones, adapting to changing requirements, and delivering solutions aligned with business goals.',
+    by: 'Erika Ordóñez',
     position: 'Project Manager',
-    imageUrl: '/clients/person-2.webp',
+    imageUrl: '/clients/person-1.svg',
   },
   {
     review:
-      'This is a top-tier mobile app development studio in India, known for our proficient team, creative use of technology, and client-oriented strategy. We produce high-quality projects on time and provide complete services from design to maintenance, endorsed by industry awards and recognition.',
-    by: 'Marcus Brooks',
-    position: 'Lead Developer',
-    imageUrl: '/clients/person-3.webp',
+      'We engineer scalable and secure software solutions using modern technologies and proven architectural practices. Our focus is on system reliability, seamless integrations, and creating strong technical foundations for future growth.',
+    by: 'Kevin Aguirre',
+    position: 'Chief Technology Officer',
+    imageUrl: '/clients/person-2.svg',
   },
   {
     review:
-      'We are a prominent mobile app development organization in India, acknowledged for our expert team, advanced technology, and client-focused methodology. We deliver superior projects on time and offer all-inclusive services from design to upkeep, reinforced by industry awards.',
-    by: 'Daniel Ellis',
-    position: 'Marketing Director',
-    imageUrl: '/clients/person-4.webp',
+      'We align technology with business objectives to create meaningful digital experiences. By combining strategic thinking with practical execution, we help organizations streamline operations, strengthen their digital presence, and achieve sustainable growth.',
+    by: 'Lucia Teran',
+    position: 'Chief Web Officer',
+    imageUrl: '/clients/person-3.svg',
   },
   {
     review:
-      'This is a distinguished mobile app development company in India. We deliver excellent projects on schedule and offer comprehensive services from design to maintenance, validated by industry awards and recognition.',
+      'We turn complex business requirements into strategic technology solutions that support long-term growth. Our approach emphasizes informed decision-making, efficient execution, and scalable systems that evolve alongside business needs.',
+    by: 'Daniel Gavilanes',
+    position: 'Director CT (CIO/CTO/PM)',
+    imageUrl: '/clients/person-4.svg',
+  },
+  {
+    review:
+      'We create intuitive digital experiences that combine visual clarity with functional simplicity. By prioritizing user needs, thoughtful interactions, and consistent design systems, we make digital products more engaging and accessible.',
     by: 'Maya Reed',
     position: 'UI/UX Designer',
-    imageUrl: '/clients/person-5.webp',
+    imageUrl: '/clients/person-5.svg',
   },
   {
     review:
-      'We are a notable mobile app development enterprise in India, acclaimed for our skilled team, pioneering technology, and client-oriented strategy. We provide high-quality projects on time and offer extensive services from design to support, supported by industry awards and honors.',
-    by: 'Rachel Cameron',
-    position: 'Business Analyst',
-    imageUrl: '/clients/person-6.webp',
+      'We help businesses modernize their operations through tailored digital solutions and streamlined workflows. Our collaborative approach enables organizations to improve efficiency, adapt to changing demands, and embrace new opportunities through technology.',
+    by: 'María José Bravo',
+    position: 'Chief Web Officer',
+    imageUrl: '/clients/person-6.svg',
   },
   {
     review:
-      'This is a renowned mobile app development business in India, famous for our talented team, creative use of technology, and customer-focused approach. We accomplish high-quality projects promptly and offer comprehensive services from design to maintenance.',
+      'We prioritize software quality at every stage of development through systematic testing, careful validation, and continuous improvement. Our commitment to reliability helps ensure that every release delivers a consistent and dependable user experience.',
     by: 'Grace Taylor',
     position: 'Quality Assurance Lead',
-    imageUrl: '/clients/person-7.webp',
+    imageUrl: '/clients/person-7.svg',
   },
 ]

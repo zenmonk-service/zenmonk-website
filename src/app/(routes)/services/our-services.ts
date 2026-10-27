@@ -15,7 +15,7 @@ export const OurServices = [
     route: '/software-development',
     name: 'Software Development',
     description:
-      'Zenmonk excels in custom enterprise software development, delivering scalable and secure solutions. We provide end-to-end support from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs.',
+      'We excels in custom enterprise software development, delivering scalable and secure solutions. We provide end-to-end support from legacy modernization to deployment, ensuring optimal software performance tailored to your business needs.',
     services: [
       {
         id: 'software-development-enterprise-solutions',
@@ -423,7 +423,7 @@ export const OurServices = [
     route: '/industry-specific-solutions',
     name: 'Industry-Specific Solutions',
     description:
-      'We deliver bespoke digital solutions crafted specifically for complex industry verticals, ensuring strict compliance, seamless legacy integration, and high reliability.',
+      'We tackle complex industry challenges by combining deep problem-solving with the latest technology-creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
@@ -474,7 +474,7 @@ export const OurServices = [
     route: '/it-training-&-workshops',
     name: 'IT Training & Workshops',
     description:
-      'Upskill your team with practical, hands-on training and workshops. We provide expert-led programs covering agile methodologies, cloud computing, devops, and full-stack development.',
+      'Technology creates impact when organizations have the capabilities to harness it. We help businesses build those capabilities through practical, industry-focused learning designed around real-world challenges and evolving technology needs.',
     services: [
       {
         id: 'it-training-agile',

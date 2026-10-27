@@ -14,12 +14,12 @@ import './style.css'
 
 const POSITIONS = [
   '0vw, 0.5208vw', // Slot 0: Center
-  '-31.25vw, -7.8125vw', // Slot 1: Top-Left (Position 1)
-  '31.25vw, -7.8125vw', // Slot 2: Top-Right (Position 2)
-  '-36.4583vw, 5.2083vw', // Slot 3: Mid-Left (Position 3)
-  '36.4583vw, 5.2083vw', // Slot 4: Mid-Right (Position 4)
-  '-31.25vw, 18.2291vw', // Slot 5: Bottom-Left (Position 5)
-  '31.25vw, 18.2291vw', // Slot 6: Bottom-Right (Position 6)
+  '-44vw, -15.8125vw', // Slot 1: Top-Left (Position 1)
+  '44vw, -15.8125vw', // Slot 2: Top-Right (Position 2)
+  '-50vw, 7.2083vw', // Slot 3: Mid-Left (Position 3)
+  '50vw, 7.2083vw', // Slot 4: Mid-Right (Position 4)
+  '-44vw, 30.2291vw', // Slot 5: Bottom-Left (Position 5)
+  '44vw, 30.2291vw', // Slot 6: Bottom-Right (Position 6)
 ]
 
 export default function Testimony() {
@@ -70,8 +70,8 @@ export default function Testimony() {
         >
           <div className="section-header-container">
             <SectionTitle
-              text="Real Results, Real People"
-              markText="People"
+              text="We deliver what we promise"
+              markText="promise"
               align="center"
               className="title"
             />
@@ -93,7 +93,7 @@ export default function Testimony() {
                   key={review.imageUrl}
                   style={{
                     transform: `translate(${coordinate})`,
-                    scale: isCenter ? 1.5 : 0.7,
+                    scale: isCenter ? 1 : 0.50,
                     zIndex: isCenter ? 10 : 1,
                   }}
                   src={review.imageUrl}

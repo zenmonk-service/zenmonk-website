@@ -18,9 +18,7 @@ const IndustrySpecificHeroSection = () => {
             Digital Solutions
           </h1>
           <p className={styles.description}>
-            We deliver bespoke digital solutions crafted specifically for complex
-            industry verticals. Ensuring strict compliance, seamless legacy integration,
-            and high reliability, we empower enterprise growth.
+            Purpose-built technology for complex industries, combining compliance, seamless integration, and reliability to drive enterprise growth.
           </p>
           <BaseButton
             onClick={() => dispatch(openContactModal())}

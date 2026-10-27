@@ -25,10 +25,10 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
   switch (serviceId) {
     case 'software-development':
       return {
-        title: `Zen Tech Wonders We\nExcel In Software &\nEngineering`,
+        title: `Zen Tech Wonders\nWe Excel In\nSoftware & Engineering`,
         markText: 'Engineering',
         description:
-          'We architect robust, scalable software solutions engineered to solve mission-critical business challenges. Our modern engineering practices streamline deployment lifecycles, enforce ironclad security protocols, and build high-throughput backends. By harnessing modern tech ecosystems, we empower enterprises to build reliable digital foundations that scale effortlessly with growing user demands.',
+          'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
         treeIcons: SoftwareDevelopmentTreeIcons,
         background: DevTechTreeBackground,
       }

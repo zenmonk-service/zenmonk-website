@@ -24,13 +24,13 @@ export const getRatings = (seed: string = '/services') => {
   return [
     {
       rating: `${clients}+`,
-      description: 'Happy Clients',
+      description: 'Businesses Served',
       icon: Rating,
       bg: 'rgb(101, 214, 222, 0.15)',
     },
     {
       rating: `${projects}+`,
-      description: 'Project Done',
+      description: 'Projects Delivered',
       icon: CheckBox,
       bg: 'rgb(108, 199, 125, 0.15)',
     },

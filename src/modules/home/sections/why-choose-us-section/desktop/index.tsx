@@ -89,8 +89,7 @@ const WhyChooseUsDesktop = () => {
                   Latest Tech Solutions for your business goals
                 </p>
                 <p className="why-choose-us-home-card-description">
-                  Real business results for companies with the goal of growing
-                  revenue
+                  Technology built around business outcomes, helping companies unlock new revenue, improve efficiency, and accelerate growth.
                 </p>
               </div>
               <TimelineSvg />

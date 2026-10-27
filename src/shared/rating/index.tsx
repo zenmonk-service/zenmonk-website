@@ -19,10 +19,10 @@ const Rating = ({
 }: RatingProps) => {
   const pathname = usePathname() || '/services'
   const items = getRatings(pathname).map((item) => {
-    if (item.description === 'Happy Clients' && clients) {
+    if (item.description === 'Businesses Served' && clients) {
       return { ...item, rating: clients }
     }
-    if (item.description === 'Project Done' && projects) {
+    if (item.description === 'Projects Delivered' && projects) {
       return { ...item, rating: projects }
     }
     if (item.description === 'Help Support' && support) {

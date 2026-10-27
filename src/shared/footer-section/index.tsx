@@ -60,9 +60,7 @@ const Footer = () => {
           text=""
           className="branding-text"
         >
-          <span>Over the last decade, we have helped our clients ship products for multiple platforms.</span>
-          <br />
-          <span>We can create the software your business needs to grow!</span>
+          <span>A decade of turning complex challenges into impactful products across platforms, apps, and industries.</span>
         </SectionDescription>
       </div>
 

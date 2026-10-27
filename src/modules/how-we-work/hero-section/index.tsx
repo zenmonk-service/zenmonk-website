@@ -22,8 +22,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className={styles.textHeading}
           >
-            <span>How We Work</span> for <br />
-            Seamless End-to-End Solutions
+            <span>How We Work </span><br />
+            From Challenge to Impact
           </motion.p>
           <SectionDescription
             initial={{ opacity: 0, y: '2.6vw' }}
@@ -33,10 +33,7 @@ const HeroSection = () => {
               duration: 0.6,
               ease: 'easeOut',
             }}
-            text="We deliver Zen-inspired precise, 
-            mindful solutions by integrating deep expertise with client collaboration,
-            prioritizing transparency, innovation, and purposeful development to 
-            innovate impactful technology."
+            text="We understand the challenge, find the right technology, and build solutions that move your business forward."
             className={styles.textDescription}
           />
           <BaseButton
