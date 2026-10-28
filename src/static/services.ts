@@ -486,7 +486,7 @@ export const services = [
       hoverColor: '#ecfafb',
     },
     description:
-      'We tackle complex industry challenges by combining deep problem-solving with the latest technology-creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
+      'We tackle complex industry challenges by combining deep problem-solving with the latest technology—creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
     menuDescription:
       'Tailored solutions designed to meet your industry’s unique needs.',
     services: [

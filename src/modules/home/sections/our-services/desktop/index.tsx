@@ -161,7 +161,7 @@ const OurServicesDesktop = () => {
     }
   }, [])
 
-  const text = 'Future-Proof Your Business Through Smarter Solutions'
+  const text = 'Transform Your Business With Our Innovative Solutions'
 
   return (
     <section ref={containerRef} className={styles.serviceSectionWrapper}>

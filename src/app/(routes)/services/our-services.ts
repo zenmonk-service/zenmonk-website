@@ -423,7 +423,7 @@ export const OurServices = [
     route: '/industry-specific-solutions',
     name: 'Industry-Specific Solutions',
     description:
-      'We tackle complex industry challenges by combining deep problem-solving with the latest technology-creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
+      'We tackle complex industry challenges by combining deep problem-solving with the latest technology—creating solutions that integrate seamlessly, meet demanding compliance standards, and deliver lasting business impact.',
     services: [
       {
         id: 'industry-specific-solution-banking-solutions',
