@@ -25,7 +25,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
   switch (serviceId) {
     case 'software-development':
       return {
-        title: `Zen Tech Wonders\nWe Excel In\nSoftware & Engineering`,
+        title: `Zen Tech Wonders We Excel\nIn Software & Engineering`,
         markText: 'Engineering',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -36,7 +36,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
     case 'growth-and-marketing':
     case 'growth-&-marketing':
       return {
-        title: `Zen Tech Wonders We\nExcel In Growth &\nMarketing`,
+        title: `Zen Tech Wonders We Excel\nIn Growth & Marketing`,
         markText: 'Marketing',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -46,7 +46,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
 
     case 'custom-app-development':
       return {
-        title: `Zen Tech Wonders We\nExcel In Custom &\nApp Development`,
+        title: `Zen Tech Wonders We Excel\nIn Custom & App Development`,
         markText: 'Development',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -57,7 +57,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
     case 'it-training-and-workshops':
     case 'it-training-&-workshops':
       return {
-        title: `Zen Tech Wonders We\nExcel In Knowledge &\nUpskilling`,
+        title: `Zen Tech Wonders We Excel\nIn Knowledge & Upskilling`,
         markText: 'Upskilling',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -67,7 +67,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
 
     case 'product-development':
       return {
-        title: `Zen Tech Wonders We\nExcel In Product &\nInnovation`,
+        title: `Zen Tech Wonders We Excel\nIn Product & Innovation`,
         markText: 'Innovation',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -78,7 +78,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
     case 'industries-specific-solution':
     case 'industry-specific-solutions':
       return {
-        title: `Zen Tech Wonders We\nExcel In Domain &\nIndustry Solutions`,
+        title: `Zen Tech Wonders We Excel\nIn Domain & Industry Solutions`,
         markText: 'Solutions',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -89,7 +89,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
     case 'ai-solutions':
     case 'ai-based-softwares':
       return {
-        title: `Zen Tech Wonders We\nExcel In AI &\nIntelligence`,
+        title: `Zen Tech Wonders We Excel\nIn AI & Intelligence`,
         markText: 'Intelligence',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -100,7 +100,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
     case 'it-and-business-consultation':
     case 'it-&-business-consultation':
       return {
-        title: `Zen Tech Wonders We\nExcel In Strategic &\nConsultation`,
+        title: `Zen Tech Wonders We Excel\nIn Strategic & Consultation`,
         markText: 'Consultation',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -110,7 +110,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
 
     case 'cloud-development':
       return {
-        title: `Zen Tech Wonders We\nExcel In Cloud &\nInfrastructure`,
+        title: `Zen Tech Wonders We Excel\nIn Cloud & Infrastructure`,
         markText: 'Infrastructure',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -120,7 +120,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
 
     case 'ui-ux-design':
       return {
-        title: `Zen Tech Wonders We\nExcel In Design &\nExperience`,
+        title: `Zen Tech Wonders We Excel\nIn Design & Experience`,
         markText: 'Experience',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',
@@ -130,7 +130,7 @@ export const getTreeIconsByServiceId = (serviceId: string): TechTreeData => {
 
     default:
       return {
-        title: `Zen Tech Wonders We\nExcel In Innovation &\nExcellence`,
+        title: `Zen Tech Wonders We Excel\nIn Innovation & Excellence`,
         markText: 'Excellence',
         description:
           'From scalable platforms to high-performance systems, we engineer technology built for reliability, security, and growth.',

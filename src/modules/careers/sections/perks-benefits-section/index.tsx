@@ -58,9 +58,7 @@ const PerkBenefits = () => {
               }}
             />
             <p className="description">
-              Remote does not mean &quot;distant&quot;. At Zenmonk, you get a
-              competitive benefits package and be part of an award-winning team.
-              Plus, by working remotely, you save more and enjoy a work/life balance.
+              Remote, connected, and empowered. Build meaningful technology with a team that values flexibility, growth, and impact.
             </p>
           </motion.div>
 

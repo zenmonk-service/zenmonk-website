@@ -153,14 +153,14 @@
 }
 
 .testimony .quote-up {
-  top: 180%;
+  top: 250%;
   left: 36%;
   z-index: 0;
 }
 
 .testimony .quote-down {
-  top: 320%;
-  right: 36%;
+  top: 540%;
+  right: 35%;
   z-index: 0;
   transform: rotate(180deg);
 }
