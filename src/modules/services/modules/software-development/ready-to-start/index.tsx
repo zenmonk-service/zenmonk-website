@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { SectionDescription, SectionTitle } from '@/shared/typography'
 import BG from './assets/bg.png'
 import BgMap from "./assets/bg-map.svg"
@@ -10,6 +10,8 @@ import './styles.scss'
 import BaseButton from '@/shared/button'
 
 const ReadyToStartSoftwareDev = () => {
+  const router = useRouter()
+
   return (
     <div className="ready-to-start">
       <div className="images-container">
@@ -27,11 +29,11 @@ const ReadyToStartSoftwareDev = () => {
           className="description"
           text="Custom software development and scalable architecture tailored to accelerate your business growth."
         />
-        <Link href="/contact" style={{ textDecoration: 'none' }}>
-          <BaseButton className="contact-us">Contact us</BaseButton>
-        </Link>
+        <BaseButton className="contact-us" onClick={()=> router.push('/contact')}>
+          Contact us
+        </BaseButton>
       </div>
-    </div>
+    </div>  
   )
 }
 

@@ -1,9 +1,29 @@
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import type { ReactNode } from 'react'
+import './faq-data.scss'
 
 export interface FAQItem {
   question: string
   answer: ReactNode
+}
+
+interface InternalRouteLinkProps {
+  href: string
+  children: ReactNode
+}
+
+const InternalRouteLink = ({ href, children }: InternalRouteLinkProps) => {
+  const router = useRouter()
+
+  return (
+    <button
+      type="button"
+      onClick={() => router.push(href)}
+      className="faq-data-link"
+    >
+      {children}
+    </button>
+  )
 }
 
 export const defaultFAQs: FAQItem[] = [
@@ -11,7 +31,7 @@ export const defaultFAQs: FAQItem[] = [
     question: 'How can I get started with Zenmonk for my project?',
     answer: (
       <>
-        You can reach out via our <Link href="/contact">contact</Link> form or
+        You can reach out via our <InternalRouteLink href="/contact">contact</InternalRouteLink> form or
         schedule a discovery call. We analyze your requirements and provide a
         tailored project roadmap within 48 hours.
       </>
@@ -88,7 +108,7 @@ export const faqDataByService: Record<string, FAQItem[]> = {
         <>
           You can track your application status in real time using your unique
           Tracking ID on our dedicated{' '}
-          <Link href="/track-application">Track Application</Link> portal.
+          <InternalRouteLink href="/track-application">Track Application</InternalRouteLink> portal.
         </>
       ),
     },
