@@ -10,7 +10,6 @@ import CustomLoader from '@/modules/loader'
 import Header from '@/shared/header'
 import { Footer } from '@/shared/footer-section'
 import { ContactModal } from '@/shared/components/contact-modal'
-import { GlobalApplicationToast } from '@/shared/components/global-application-toast'
 import { GlobalContactToast } from '@/shared/components/global-contact-toast'
 import './globals.css'
 
@@ -140,7 +139,6 @@ export default function FlashScreenLayout({
                 <Header />
                 <CustomLoader />
                 <ContactModal />
-                <GlobalApplicationToast />
                 <GlobalContactToast />
                 <Suspense fallback={null}>
                   <main className={pathname?.startsWith('/services') ? 'services-page-wrapper' : undefined}>

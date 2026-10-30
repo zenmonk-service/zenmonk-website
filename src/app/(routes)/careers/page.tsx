@@ -1,7 +1,6 @@
 import { ContactUsSection } from '@/modules/about-us/sections'
 import HeroSection from '@/modules/careers/sections/hero-section'
 import InnovationExcellence from '@/modules/careers/sections/innovation-excellence-section'
-import JobPosting from '@/modules/careers/sections/job-posting'
 import PerkBenefits from '@/modules/careers/sections/perks-benefits-section'
 import Showcases from '@/modules/careers/sections/show-case-section'
 import WordsByCEO from '@/modules/careers/sections/words-by-ceo'
@@ -14,7 +13,6 @@ const page = () => {
       <HeroSection />
       <PerkBenefits />
       <WorkCulture />
-      <JobPosting />
       <Showcases />
       <InnovationExcellence />
       <WordsByCEO />

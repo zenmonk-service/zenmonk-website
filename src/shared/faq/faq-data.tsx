@@ -103,14 +103,9 @@ export const faqDataByService: Record<string, FAQItem[]> = {
         'Yes, we run structured internship and graduate trainee programs with dedicated senior engineer mentorship and full-time hiring paths.',
     },
     {
-      question: 'How can I track the status of my job application?',
-      answer: (
-        <>
-          You can track your application status in real time using your unique
-          Tracking ID on our dedicated{' '}
-          <InternalRouteLink href="/track-application">Track Application</InternalRouteLink> portal.
-        </>
-      ),
+      question: 'Does Zenmonk provide feedback after interviews?',
+      answer:
+        'We aim to provide candidates with updates following their interviews. Feedback availability may vary depending on the role and stage of the recruitment process.',
     },
   ],
   'ai-solutions': [

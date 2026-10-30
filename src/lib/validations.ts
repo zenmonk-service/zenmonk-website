@@ -90,18 +90,3 @@ export const contactFormSchema = z.object({
 })
 
 export type ContactFormSchemaType = z.infer<typeof contactFormSchema>
-
-export const applicationModalSchema = z.object({
-  fullName: z
-    .string()
-    .min(1, 'Full name is required')
-    .max(50, 'Full name cannot exceed 50 characters')
-    .regex(/^[a-zA-Z\s]+$/, 'Only alphabetic characters are allowed')
-    .refine((val) => val.trim().length > 0, 'Full name cannot be empty or whitespace'),
-  email: emailValidation,
-  phone: phoneValidation,
-  portfolioLink: urlValidation,
-  message: messageValidation,
-})
-
-export type ApplicationModalSchemaType = z.infer<typeof applicationModalSchema>

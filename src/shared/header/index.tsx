@@ -45,8 +45,7 @@ const Navbar = () => {
 
   const isHeaderHidden = useAppSelector((state) => state.header.hide)
   const isContactModalOpen = useAppSelector((state) => state.header.isContactModalOpen)
-  const isApplicationModalOpen = useAppSelector((state) => state.applications.isModalOpen)
-  const isAnyModalOpen = isContactModalOpen || isApplicationModalOpen
+  const isAnyModalOpen = isContactModalOpen
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

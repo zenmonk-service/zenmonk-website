@@ -29,11 +29,6 @@ import { UpdateSkillController } from "../../features/skills/update-skill/update
 import { UpdateSkillHandler } from "../../features/skills/update-skill/update-skill.handler";
 import { RemoveSkillController } from "../../features/skills/remove-skill/remove-skill.controller";
 import { RemoveSkillHandler } from "../../features/skills/remove-skill/remove-skill.handler";
-import { ListApplicationsController } from "../../features/applications/list-applications/list-applications.controller";
-import { ListApplicationHandler } from "../../features/applications/list-applications/list-applications.handler";
-import { CreateApplicationController } from "../../features/applications/create-application/create-application.controller";
-import { CreateApplicationHandler } from "../../features/applications/create-application/create-application.handler";
-import { ApplicationRepository } from "../repositories/application.repository";
 import { ListSkillsController } from "../../features/skills/list-skills/list-skills.controller";
 import { FindSkillController } from "../../features/skills/find-skill/find-skill.controller";
 import { ListSkillsHandler } from "../../features/skills/list-skills/list-skills.handler";
@@ -81,11 +76,6 @@ const containerRegistrations = {
   updateSkillHandler: asClass(UpdateSkillHandler),
   removeSkillController: asClass(RemoveSkillController),
   removeSkillHandler: asClass(RemoveSkillHandler),
-  listApplicationsController: asClass(ListApplicationsController),
-  listApplicationsHandler: asClass(ListApplicationHandler),
-  createApplicationController: asClass(CreateApplicationController),
-  createApplicationHandler: asClass(CreateApplicationHandler),
-  applicationRepository: asClass(ApplicationRepository),
   mailService: asClass(MailService),
   sendContactInquiryHandler: asClass(SendContactInquiryHandler),
   sendContactInquiryController: asClass(SendContactInquiryController),
