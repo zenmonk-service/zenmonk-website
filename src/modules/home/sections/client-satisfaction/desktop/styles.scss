@@ -105,7 +105,8 @@
       /* 2. Engagement And Resolution (Think) */
       &.text-2 {
         bottom: -24%;
-        left: 32%;
+        left: 28%;
+        width: 30%;
       }
 
       /* 3. Exceeding Expectations (Smile) */
@@ -245,6 +246,10 @@
 
       .text-overlay {
         width: 25%;
+
+        &.text-2 {
+          width: 30%;
+        }
 
         &.text-4 {
           right: -8%;

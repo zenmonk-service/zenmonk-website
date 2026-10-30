@@ -225,7 +225,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
           },
         }}
       >
-        <FlagImage iso2={country.iso2} style={{ width: 'max(20px, 1.15vw)', height: 'max(14px, 0.8vw)', flexShrink: 0 }} />
+        <FlagImage iso2={country.iso2} style={{ width: 'max(20px, 1.15vw)', height: 'max(14px, 0.8vw)', borderRadius: '8px', flexShrink: 0 }} />
         <Typography
           sx={{
             fontSize,
@@ -421,7 +421,7 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
                         },
                       }}
                     >
-                      <FlagImage iso2={c.iso2} style={{ width: '22px', height: '15px', flexShrink: 0 }} />
+                      <FlagImage iso2={c.iso2} style={{ width: '22px', height: '15px', borderRadius: '8px', flexShrink: 0 }} />
                       <Typography
                         sx={{
                           flex: 1,
