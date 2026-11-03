@@ -11,9 +11,16 @@ $section-description-margin-bottom: 0;
     'clig' off;
   font-family: $font-family-base;
   font-style: normal;
-  font-size: max(16px, 1.0417vw);
+  // font-size: max(16px, 1.0417vw);
+  font-size: 18px;
   font-weight: 400;
-  line-height: normal;
+  line-height: 24px;
   letter-spacing: $section-description-letter-spacing;
   margin-bottom: $section-description-margin-bottom;
+}
+
+@media screen and (max-width: 830px) {
+  .custom-section-description {
+    font-size: 14px;
+  }
 }

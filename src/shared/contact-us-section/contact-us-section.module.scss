@@ -1,9 +1,58 @@
+.contactIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 70px 24px 0;
+  text-align: center;
+
+  :global(.custom-section-description) {
+    max-width: 720px;
+  }
+
+  @media screen and (max-width: 830px) {
+    align-items: flex-start;
+    text-align: left;
+
+    :global(.highlighted-text-heading),
+    :global(.custom-section-description) {
+      text-align: left;
+    }
+  }
+}
+
+.contactIntroFirstLine {
+  @media screen and (min-width: 831px) {
+    white-space: nowrap;
+  }
+}
+
+.contactUsImage {
+  @media screen and (max-width: 830px) {
+    width: 124% !important;
+    max-width: none;
+    margin-left: -12%;
+  }
+}
+
+.contactUsTextImage {
+  @media screen and (min-width: 831px) {
+    top: -2% !important;
+  }
+
+  @media screen and (max-width: 830px) {
+    width: 75% !important;
+    top: -8% !important;
+    left: -2% !important;
+  }
+}
+
 .aboutUsContactUsSection {
   width: 100%;
   height: auto;
   overflow: hidden;
   position: relative;
-  background: #fbfbfb;
+  background: #ffffff;
   display: flex;
   align-items: center;
 
@@ -12,7 +61,7 @@
   @media screen and (min-width: 831px) {
     height: auto;
     min-height: 0;
-    padding: max(32px, 3.5vw) 0 60px;
+    padding: 32px 0 60px;
   }
 }
 
@@ -288,6 +337,7 @@
 
 @media screen and (max-width: 830px) {
   .aboutUsContactUsSection {
+    background: #ffffff;
     padding: 32px 24px 60px;
     height: auto;
   }
@@ -323,8 +373,9 @@
   }
 
   .rightContainer {
-    width: 100%;
     margin-bottom: 40px;
+    margin-left: -8px;
+    width: calc(100% + 16px);
   }
 
   .selectedCountryTitle {
@@ -741,17 +792,17 @@
 }
 
 .contactPageSpacing {
-  padding-top: calc(32px + 80px) !important;
+  padding-top: 60px !important;
 
   @media (min-width: 600px) and (max-width: 830px) {
-    padding-top: calc(40px + 80px) !important;
+    padding-top: 60px !important;
   }
 
   @media (min-width: 768px) and (max-width: 820px) {
-    padding-top: calc(40px + 80px) !important;
+    padding-top: 60px !important;
   }
 
   @media screen and (min-width: 831px) {
-    padding-top: calc(max(32px, 3.5vw) + 80px) !important;
+    padding-top: 24px !important;
   }
 }

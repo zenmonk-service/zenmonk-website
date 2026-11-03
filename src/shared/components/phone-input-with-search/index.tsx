@@ -246,46 +246,59 @@ export const PhoneInputWithSearch: React.FC<PhoneInputWithSearchProps> = ({
         />
       </Box>
 
-      {/* Phone Number Input Field */}
-      <input
-        ref={inputRef}
-        type="tel"
-        disabled={disabled}
-        placeholder={placeholder}
-        value={inputValue}
-        onChange={handlePhoneValueChange}
-        style={{
+      <Box
+        className="phone-number-field"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
           flex: 1,
-          width: '100%',
           minWidth: 0,
           height: '100%',
-          paddingLeft: 'max(14px, 0.73vw)',
-          paddingRight: endAdornment ? 'max(6px, 0.31vw)' : 'max(14px, 0.73vw)',
-          fontSize,
-          fontFamily: 'Poppins, sans-serif',
-          backgroundColor: 'transparent',
           border: 'none',
-          borderRadius: endAdornment ? '0' : `0 ${borderRadius} ${borderRadius} 0`,
-          outline: 'none',
-          color: disabled ? '#6B7280' : '#111827',
-          cursor: disabled ? 'not-allowed' : 'text',
+          borderRadius,
           boxSizing: 'border-box',
+          overflow: 'hidden',
         }}
-      />
-
-      {endAdornment && (
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            pr: 'max(12px, 0.63vw)',
-            flexShrink: 0,
-            pointerEvents: 'none',
+      >
+        <input
+          ref={inputRef}
+          type="tel"
+          disabled={disabled}
+          placeholder={placeholder}
+          value={inputValue}
+          onChange={handlePhoneValueChange}
+          style={{
+            flex: 1,
+            width: '100%',
+            minWidth: 0,
+            height: '100%',
+            paddingLeft: 'max(14px, 0.73vw)',
+            paddingRight: endAdornment ? 'max(6px, 0.31vw)' : 'max(14px, 0.73vw)',
+            fontSize,
+            fontFamily: 'Poppins, sans-serif',
+            backgroundColor: 'transparent',
+            border: 'none',
+            outline: 'none',
+            color: disabled ? '#6B7280' : '#111827',
+            cursor: disabled ? 'not-allowed' : 'text',
+            boxSizing: 'border-box',
           }}
-        >
-          {endAdornment}
-        </Box>
-      )}
+        />
+
+        {endAdornment && (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              pr: 'max(12px, 0.63vw)',
+              flexShrink: 0,
+              pointerEvents: 'none',
+            }}
+          >
+            {endAdornment}
+          </Box>
+        )}
+      </Box>
 
       {/* Country Search Dropdown Popover */}
       <Popover

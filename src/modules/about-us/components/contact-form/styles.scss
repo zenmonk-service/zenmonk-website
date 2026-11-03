@@ -17,8 +17,6 @@
   padding: max(16px, 1.5vw) max(16px, 1.8vw);
   padding-top: max(14px, 1vw);
   border-radius: max(8px, 0.7vw);
-  background: #fff;
-  box-shadow: 0 0 max(20px, 1.5vw) 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   &.is-modal {
@@ -55,7 +53,7 @@
   .fullname {
     width: 100%;
     display: flex;
-    gap: max(12px, 1vw);
+    gap: 24px;
 
     .form-control {
       flex: 1;
@@ -106,7 +104,40 @@
     }
 
     .phone-number-input {
-      input {
+      border: none !important;
+      background: transparent !important;
+      gap: 24px;
+
+      > button {
+        border: 1px solid #d5d5d5 !important;
+        border-radius: 4px !important;
+        margin-right: 0;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+          border-color: #F69333 !important;
+        }
+      }
+
+      > .phone-number-field {
+        border: 1px solid #d5d5d5 !important;
+        border-radius: 4px !important;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover,
+        &:focus-within {
+          border-color: #F69333 !important;
+        }
+      }
+
+      &.error-border {
+        > button,
+        > .phone-number-field {
+          border-color: #d32f2f !important;
+        }
+      }
+
+      > .phone-number-field input {
         padding-left: max(14px, 0.73vw) !important;
         padding-right: max(10px, 0.52vw) !important;
       }
@@ -253,17 +284,18 @@
 
   .contact-form {
     width: 100%;
-    padding: 16px;
+    padding: 12px 0;
     padding-top: 12px;
     border-radius: 12px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08);
+    border: none;
+    box-shadow: none;
 
     .error-border {
       border: 1px solid red !important;
     }
 
     .fullname {
-      gap: 12px;
+      gap: 16px;
 
       .form-control {
         flex: 1;
@@ -287,6 +319,8 @@
       }
 
       .phone-number-input {
+        gap: 16px;
+
         input {
           padding-left: 14px !important;
           padding-right: 10px !important;

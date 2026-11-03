@@ -251,12 +251,12 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
         </FormControl>
       </div>
 
-      <Title text="Email" />
+      <Title text="Your Email" />
       <FormControl error={!!errors.email} className="form-control">
         <TextField
           disabled={isBusy || submitStatus === 'success'}
           className={`email-input ${errors.email ? 'error-border' : ''}`}
-          placeHolder="Email"
+          placeHolder="Your Email"
           endAdornment={<Message className="end-adornment" />}
           inputProps={{ maxLength: 50 }}
           {...register('email', {
@@ -307,7 +307,7 @@ export const ContactForm = ({ className = '', onSuccess, isModal = false }: Cont
               error={!!errors.phone && submitStatus !== 'success'}
               height="max(44px, 2.8vw)"
               fontSize="var(--font-size-16)"
-              borderRadius="8px"
+              borderRadius="4px"
               endAdornment={<Mobile className="end-adornment" />}
             />
           )}
