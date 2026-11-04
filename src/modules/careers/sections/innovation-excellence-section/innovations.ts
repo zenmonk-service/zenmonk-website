@@ -4,7 +4,7 @@ export const innovations = [
   {
     title: 'Unwavering Support ',
     description:
-      "Our passionate team ensures clear communication and provides consistent support for your growth.",
+      "Our passionate team ensures clear communication and provides consistent support.",
     image: Communicate,
     color: '#326CE5',
   },
