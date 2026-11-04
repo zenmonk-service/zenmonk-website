@@ -44,13 +44,6 @@ export const AiSolutionsTreeIcons = [
     padding: 'max(12px, 0.95vw)',
   },
   {
-    icon: HuggingFaceIcon,
-    position: 'bottom-left-leaf',
-    label: 'Hugging Face',
-    backgroundColor: '#FFF1C8',
-    padding: 'max(10px, 0.8vw)',
-  },
-  {
     icon: AirflowIcon,
     position: 'bottom-filler-leaf',
     label: 'Apache Airflow',

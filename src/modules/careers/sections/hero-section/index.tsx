@@ -29,18 +29,6 @@ const CareerHeroSection = () => {
             drive real impact. We empower engineers and designers to innovate, grow,
             and build future-ready solutions together.
           </p>
-          <BaseButton 
-            className={styles.button}
-            showArrow
-            onClick={() => {
-              const el = document.getElementById('open-positions')
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-          >
-            Explore Open Roles
-          </BaseButton>
         </div>
         <div className={styles.imageContainer}>
           <div className={styles.heroWrapper}>

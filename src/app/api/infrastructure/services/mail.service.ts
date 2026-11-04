@@ -53,7 +53,7 @@ export class MailService {
               margin-bottom: 12px !important;
             }
             .email-logo {
-              height: 70px !important;
+              height: 56px !important;
             }
             .card-header {
               padding-left: 8px !important;
@@ -66,6 +66,11 @@ export class MailService {
               padding-right: 8px !important;
               padding-top: 20px !important;
               padding-bottom: 20px !important;
+            }
+            .email-footer {
+              margin-top: 12px !important;
+              font-size: 10px !important;
+              line-height: 14px !important;
             }
             .contact-table,
             .contact-table tbody,
@@ -98,7 +103,7 @@ export class MailService {
         <div class="outer-container" style="background-color: #f4f5f7; padding: 24px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
           <!-- Logo -->
           <div class="email-logo-container" style="text-align: center; margin-bottom: 16px;">
-            <img class="email-logo" src="https://zenmonk-website.vercel.app/logo.svg" alt="Zenmonk Logo" style="height: 100px; width: auto; display: inline-block;" />
+            <img class="email-logo" src="https://zenmonk-website.vercel.app/logo.svg" alt="Zenmonk Logo" style="height: 56px; width: auto; display: inline-block;" />
           </div>
 
           <!-- Card -->
@@ -139,16 +144,100 @@ export class MailService {
           </div>
 
           <!-- Footer -->
-          <div style="text-align: center; color: #9ca3af; font-size: 12px; margin-top: 24px; line-height: 1.5; max-width: 600px; margin-left: auto; margin-right: auto;">
-            F382, Phase, 8B, Industrial Area, focal point, Sahibzada Ajit<br/>Singh Nagar, Punjab 160055
+          <div class="email-footer" style="text-align: center; color: #9ca3af; font-size: 12px; margin-top: 24px; line-height: 1.5; max-width: 600px; margin-left: auto; margin-right: auto;">
+            F382, Phase, 8B,&#8203; Industrial Area, focal point, Sahibzada Ajit Singh Nagar, Punjab 160055
+          </div>
+        </div>
+      `,
+    };
+
+    const confirmationMailOptions = {
+      from: this.from,
+      to: email,
+      subject: "Inquiry Submitted - Zenmonk",
+      html: `
+        <style>
+          @media only screen and (max-width: 768px) {
+            .confirmation-outer-container {
+              padding: 12px 8px !important;
+            }
+            .confirmation-logo-container {
+              margin-bottom: 12px !important;
+            }
+            .confirmation-logo {
+              height: 56px !important;
+            }
+            .confirmation-card-header {
+              padding: 20px 8px !important;
+            }
+            .confirmation-heading {
+              font-size: 21px !important;
+              line-height: 28px !important;
+              white-space: nowrap !important;
+            }
+            .confirmation-check {
+              height: 22px !important;
+              width: 22px !important;
+              margin-right: 5px !important;
+            }
+            .confirmation-card-body {
+              padding: 20px 8px !important;
+              font-size: 14px !important;
+              line-height: 20px !important;
+            }
+            .confirmation-card-body h2 {
+              font-size: 17px !important;
+              line-height: 22px !important;
+            }
+            .confirmation-footer {
+              margin-top: 12px !important;
+              font-size: 10px !important;
+              line-height: 14px !important;
+            }
+          }
+        </style>
+        <div class="confirmation-outer-container" style="background-color: #f4f5f7; padding: 24px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+          <div class="confirmation-logo-container" style="text-align: center; margin-bottom: 16px;">
+            <img class="confirmation-logo" src="https://zenmonk-website.vercel.app/logo.svg" alt="Zenmonk Logo" style="height: 56px; width: auto; display: inline-block;" />
+          </div>
+
+          <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); overflow: hidden; max-width: 600px; margin: 0 auto;">
+            <div class="confirmation-card-header" style="background: #F69333; padding: 28px 32px; text-align: left;">
+              <h1 class="confirmation-heading" style="color: white; margin: 0; font-size: 26px; font-weight: 700; white-space: nowrap;"><img class="confirmation-check" src="https://zenmonk-website.vercel.app/check.svg" alt="" style="height: 28px; width: 28px; vertical-align: middle; margin-right: 8px;" />Inquiry Submitted!</h1>
+            </div>
+
+            <div class="confirmation-card-body" style="padding: 32px; color: #111827; font-family: 'Inter', sans-serif; font-size: 15px; line-height: 22px;">
+              <h2 style="font-size: 18px; margin: 0 0 20px;">Dear ${firstName} ${lastName},</h2>
+              <p style="margin: 0 0 16px;">Thank you for contacting us!</p>
+              <p style="margin: 0 0 16px;">We are pleased to inform you that your inquiry has been successfully submitted. Our team has received your message and will review it shortly.</p>
+
+              <p style="margin: 0 0 8px; font-weight: 700;">Your Submitted Details</p>
+              <p style="margin: 0 0 8px;"><strong>Name:</strong> ${firstName} ${lastName}</p>
+              <p style="margin: 0 0 8px;"><strong>Email:</strong> ${email}</p>
+              <p style="margin: 0 0 8px;"><strong>Phone:</strong> ${formattedPhone}</p>
+              <p style="margin: 0 0 8px;"><strong>Message:</strong></p>
+              <p style="margin: 0 0 16px; white-space: pre-wrap; overflow-wrap: break-word;">${message.trim()}</p>
+
+              <p style="margin: 0 0 28px;">Our team will get in touch with you as soon as possible to assist you with your inquiry.</p>
+              <p style="margin: 0 0 16px;">We appreciate your interest and look forward to connecting with you!</p>
+              <p style="margin: 0;">Best Regards,<br/><strong>Support Team</strong></p>
+              <p style="margin: 16px 0 0;">Zenmonk<br/><a href="https://zenmonk.tech" style="color: #2563EB; text-decoration: none;">https://zenmonk.tech</a></p>
+            </div>
+          </div>
+
+          <div class="confirmation-footer" style="text-align: center; color: #9ca3af; font-size: 12px; margin-top: 24px; line-height: 1.5; max-width: 600px; margin-left: auto; margin-right: auto;">
+            F382, Phase, 8B,&#8203; Industrial Area, focal point, Sahibzada Ajit Singh Nagar, Punjab 160055
           </div>
         </div>
       `,
     };
 
     try {
-      await this.transporter.sendMail(mailOptions);
-      console.log("Contact inquiry email sent successfully");
+      await Promise.all([
+        this.transporter.sendMail(mailOptions),
+        this.transporter.sendMail(confirmationMailOptions),
+      ]);
+      console.log("Contact inquiry and confirmation emails sent successfully");
     } catch (error) {
       console.error("Error sending contact inquiry email:", error);
       throw new Error("Failed to send email");
